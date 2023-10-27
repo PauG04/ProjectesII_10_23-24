@@ -25,8 +25,8 @@ namespace Dialogue.Editor
 
         #region Scroll
         private Vector2 scrollPosition;
-        [NonSerialized] bool dragingCanvas = false;
-        [NonSerialized] Vector2 draggingCanvasOffset;
+        [NonSerialized] private bool dragingCanvas = false;
+        [NonSerialized] private Vector2 draggingCanvasOffset;
         #endregion
 
         const float canvasSize = 4000;
@@ -38,7 +38,7 @@ namespace Dialogue.Editor
             GetWindow(typeof(DialogueEditor), false, "Dialogue Editor");
         }
         [OnOpenAsset(1)]
-        public static bool OnOpenAsset(int instanceID, int line)
+        public static bool OnOpenAsset(int instanceID)
         {
             Dialogue dialogue = EditorUtility.InstanceIDToObject(instanceID) as Dialogue;
 

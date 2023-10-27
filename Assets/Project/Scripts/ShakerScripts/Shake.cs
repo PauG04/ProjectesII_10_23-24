@@ -28,6 +28,7 @@ public class Shake : MonoBehaviour
     {
         if (shaking && progress<slide.maxValue)
         {
+            Debug.Log("Shaker");
             DirectionShaker();
             IncreaseBar();
             SetVector();

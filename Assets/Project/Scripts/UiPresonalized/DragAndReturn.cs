@@ -14,7 +14,6 @@ public class DragAndReturn : MonoBehaviour
     [SerializeField]
     private Transform currentWindowPosition;
 
-    [SerializeField]
     private Rigidbody2D rb;
 
     private void Awake()
