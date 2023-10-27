@@ -160,8 +160,8 @@ Camera:
   m_GameObject: {fileID: 120791738}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.09447313, g: 0.09808998, b: 0.103773594, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -507,7 +507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2555498835546802859, guid: 44c8c728521f6c941b9619205ca11446, type: 3}
       propertyPath: m_Name
-      value: CocktailWindows
+      value: CocktailBarWindows
       objectReference: {fileID: 0}
     - target: {fileID: 2555498835546802859, guid: 44c8c728521f6c941b9619205ca11446, type: 3}
       propertyPath: m_IsActive
@@ -529,6 +529,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8355036205174541100, guid: 44c8c728521f6c941b9619205ca11446, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 6438548962649969893, guid: ca5df4776121fcc46a4e4f44f9b84365, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -876,7 +880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1475959765
 Transform:
   m_ObjectHideFlags: 0
@@ -885,8 +889,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475959764}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.44356036, y: 7.2142053, z: -0.01}
-  m_LocalScale: {x: 0.3125, y: 5, z: 1}
+  m_LocalPosition: {x: 0, y: -1.085, z: -0.01}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1997923197}
@@ -1020,7 +1024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1478911175
 Transform:
   m_ObjectHideFlags: 0
@@ -1029,8 +1033,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478911174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4421939, y: 5.640082, z: -0.01}
-  m_LocalScale: {x: 0.3125, y: 5, z: 1}
+  m_LocalPosition: {x: 0, y: -1.085, z: -0.01}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1997923197}
@@ -1159,12 +1163,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1275692169314254283, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275692169314254283, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275692169314254283, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1275692169314254283, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: -0.816
       objectReference: {fileID: 0}
     - target: {fileID: 1275692169314254283, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1211,6 +1223,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1478911174}
     - target: {fileID: 5712524728568589709, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
+      propertyPath: distance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712524728568589709, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
+      propertyPath: xPosition
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712524728568589709, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
       propertyPath: orderTaskBar.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1226,6 +1246,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Task Bar
       objectReference: {fileID: 0}
+    - target: {fileID: 7457519752039714412, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
+      propertyPath: m_Size.x
+      value: 19.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457519752039714412, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
+      propertyPath: m_Size.y
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457519752039714412, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d8bf8832d29fc144185503127102fa81, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8247510840279051561, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}

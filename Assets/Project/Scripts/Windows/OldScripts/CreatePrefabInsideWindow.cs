@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CreatePrefabInsideWindow : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
+    public GameObject prefab;
 
     private void Awake()
     {
