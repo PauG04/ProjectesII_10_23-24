@@ -1,0 +1,225 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4647048520859785291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: f1946228-0f57-4fe7-91ac-8a43e8c9bca3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Quiero un mojito
+  children:
+  - 701b6268-5e18-46c0-85ce-bd47855708c3
+  - 6889ef77-1624-4ca9-bcfd-933d58d18829
+  rect:
+    serializedVersion: 2
+    x: 554
+    y: 344
+    width: 200
+    height: 100
+--- !u!114 &-3301356045552889200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 77febddb-1a0f-487f-9ce9-f6a2be30afc3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Si
+  children:
+  - 293bd51c-f7d6-460b-9315-b4ff25c10ca3
+  - 502b94a6-959c-41b6-9b48-da83f9aa454d
+  - f1946228-0f57-4fe7-91ac-8a43e8c9bca3
+  rect:
+    serializedVersion: 2
+    x: 311
+    y: 249
+    width: 200
+    height: 100
+--- !u!114 &-2415646362815305552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 502b94a6-959c-41b6-9b48-da83f9aa454d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Quiero un ron cola
+  children:
+  - 701b6268-5e18-46c0-85ce-bd47855708c3
+  - 6889ef77-1624-4ca9-bcfd-933d58d18829
+  rect:
+    serializedVersion: 2
+    x: 555
+    y: 249
+    width: 200
+    height: 100
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77056c9850a05b846afbf1ab604035bd, type: 3}
+  m_Name: TestDialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 8694253259664521876}
+  - {fileID: 357393040466352906}
+  - {fileID: -3301356045552889200}
+  - {fileID: 8357450422594144125}
+  - {fileID: 4033930216238779852}
+  - {fileID: -2415646362815305552}
+  - {fileID: 4187281459644157671}
+  - {fileID: -4647048520859785291}
+  - {fileID: 2664155393086170332}
+--- !u!114 &357393040466352906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: aae066a6-db6f-41b0-81ef-f70ec0924554
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: No
+  children:
+  - f3d47836-b8fe-4c59-ba7f-520d896fc464
+  rect:
+    serializedVersion: 2
+    x: 313
+    y: 121
+    width: 200
+    height: 100
+--- !u!114 &2664155393086170332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 6889ef77-1624-4ca9-bcfd-933d58d18829
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Aqui tienes la bebida
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 830
+    y: 198
+    width: 200
+    height: 100
+--- !u!114 &4033930216238779852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: f3d47836-b8fe-4c59-ba7f-520d896fc464
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Pues entonces me voy
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 566
+    y: 22
+    width: 200
+    height: 100
+--- !u!114 &4187281459644157671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 701b6268-5e18-46c0-85ce-bd47855708c3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: No he podido servirle la bebida
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 831
+    y: 297
+    width: 200
+    height: 100
+--- !u!114 &8357450422594144125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 293bd51c-f7d6-460b-9315-b4ff25c10ca3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Quiero una margarita
+  children:
+  - 701b6268-5e18-46c0-85ce-bd47855708c3
+  - 6889ef77-1624-4ca9-bcfd-933d58d18829
+  rect:
+    serializedVersion: 2
+    x: 555
+    y: 152
+    width: 200
+    height: 100
+--- !u!114 &8694253259664521876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 8a494638-2da6-4287-8a07-499353393e10
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hola, me podrias poner una cerveza?
+  children:
+  - aae066a6-db6f-41b0-81ef-f70ec0924554
+  - 77febddb-1a0f-487f-9ce9-f6a2be30afc3
+  rect:
+    serializedVersion: 2
+    x: 60
+    y: 191
+    width: 200
+    height: 100
