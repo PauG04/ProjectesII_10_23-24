@@ -6,12 +6,24 @@ public class OpenMinimize : Button
 {
     [SerializeField]
     private GameObject minimize;
+    [SerializeField]
+    private Minimize minimize_;
 
-    private void Update()
+    //private void Update()
+    //{
+    //    if (SimulateButton(gameObject.name))
+    //    {
+    //        minimize.gameObject.SetActive(true);
+    //    }
+    //}
+
+    private void OnMouseDown()
     {
-        if (SimulateButton(gameObject.name))
+        if (minimize_.IsMinimize())
         {
-            minimize.gameObject.SetActive(true);
+            minimize.SetActive(true);
+            minimize_.SetIsMinimize(false);
         }
+            
     }
 }

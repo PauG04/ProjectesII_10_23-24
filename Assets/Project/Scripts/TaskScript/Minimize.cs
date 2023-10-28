@@ -4,46 +4,46 @@ using UnityEngine;
 
 public class Minimize : Button
 {
-    //[SerializeField] private bool isMinimize;
+    [SerializeField] private bool isMinimize;
     [SerializeField] private OpenApp openApp;
     [SerializeField] private GameObject parentObject;
 
     private void Update()
     {
-        if (SimulateButton(gameObject.name))
+        if(isMinimize)
         {
-            Debug.Log("Minimized");
-            //isMinimize = false;
             parentObject.SetActive(false);
-            /*
-            if (isMinimize)
-            {
-
-            }
-            else if (!isMinimize)
-            {
-
-            }
-            */
+        }
+        else
+        {
+            parentObject.SetActive(true);
         }
     }
-    /*
+    
     private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0))
-            isMinimize = true;           
+         isMinimize = true;           
     }
 
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1))
+        {
             openApp.DesactiveApp();
+        }          
     }
     
     public void SetIsMinimize(bool value)
     {
         isMinimize = value;
     }
-    */
+
+    public bool IsMinimize()
+    {
+        return isMinimize;
+    }
+
+
+    
 }
 
