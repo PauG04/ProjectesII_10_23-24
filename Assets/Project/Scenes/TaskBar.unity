@@ -270,10 +270,6 @@ MonoBehaviour:
   setTaskBarPosition: {fileID: 731361523}
   icon: {fileID: 942161741}
   currentIndex: 0
-  orderTaskBar:
-  - {fileID: 1897667881}
-  - {fileID: 1367268020}
-  - {fileID: 348111759}
 --- !u!114 &36366226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,10 +611,6 @@ MonoBehaviour:
   setTaskBarPosition: {fileID: 731361523}
   icon: {fileID: 814702140}
   currentIndex: 0
-  orderTaskBar:
-  - {fileID: 36366225}
-  - {fileID: 1897667881}
-  - {fileID: 1367268020}
 --- !u!114 &348111760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1681,10 +1673,6 @@ MonoBehaviour:
   setTaskBarPosition: {fileID: 731361523}
   icon: {fileID: 181757596}
   currentIndex: 0
-  orderTaskBar:
-  - {fileID: 1897667881}
-  - {fileID: 36366225}
-  - {fileID: 348111759}
 --- !u!114 &1367268021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1959,10 +1947,6 @@ MonoBehaviour:
   setTaskBarPosition: {fileID: 731361523}
   icon: {fileID: 460904919}
   currentIndex: 0
-  orderTaskBar:
-  - {fileID: 36366225}
-  - {fileID: 1367268020}
-  - {fileID: 348111759}
 --- !u!114 &1897667882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2176,6 +2160,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5712524728568589709, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
+      propertyPath: orderTaskBar.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712524728568589709, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
+      propertyPath: orderTaskBar.Array.data[0]
+      value: 
+      objectReference: {fileID: 1897667881}
+    - target: {fileID: 5712524728568589709, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
+      propertyPath: orderTaskBar.Array.data[1]
+      value: 
+      objectReference: {fileID: 36366225}
+    - target: {fileID: 5712524728568589709, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
+      propertyPath: orderTaskBar.Array.data[2]
+      value: 
+      objectReference: {fileID: 1367268020}
+    - target: {fileID: 5712524728568589709, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
+      propertyPath: orderTaskBar.Array.data[3]
+      value: 
+      objectReference: {fileID: 348111759}
     - target: {fileID: 5927525634921678842, guid: 5562843e2ae36154291f3aba1b0aa913, type: 3}
       propertyPath: m_Name
       value: Task Bar
