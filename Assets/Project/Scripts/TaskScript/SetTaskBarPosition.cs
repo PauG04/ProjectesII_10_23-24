@@ -15,15 +15,13 @@ public class SetTaskBarPosition : MonoBehaviour
     private GameObject[] icon;
     [SerializeField]
     private int positionIndex;
+    [SerializeField]
+    private OrderTaskBar[] orderTaskBar;
     private bool refresh;
 
     private void Awake()
     {
         icon = new GameObject[positionsIcon.Length];
-        for(int i = 0; i< positionsIcon.Length; i++)
-        {
-            icon[i] = positionsIcon[i];
-        }
     }
 
     private void Update()
@@ -58,6 +56,15 @@ public class SetTaskBarPosition : MonoBehaviour
     public int GetpositionIndex() 
     { 
         return positionIndex; 
+    }
+
+    public void SetCurrentIndex()
+    {
+        for (int i = 0; i < orderTaskBar.Length; i++)
+        {
+            if (orderTaskBar[i].GetIndex() != 0)
+                orderTaskBar[i].SetIndex();
+        }
     }
 
 }
