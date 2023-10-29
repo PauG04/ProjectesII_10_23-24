@@ -22,10 +22,6 @@ public class SetTaskBarPosition : MonoBehaviour
     private void Awake()
     {
         icon = new GameObject[positionsIcon.Length];
-        for(int i = 0; i< positionsIcon.Length; i++)
-        {
-            icon[i] = positionsIcon[i];
-        }
     }
 
     private void Update()
