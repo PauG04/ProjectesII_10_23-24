@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class GetListOfWindows : MonoBehaviour
 {
-    private int numberOfWindows;
     private List<GameObject> windows;
 
     private void Awake()
     {
         windows = new List<GameObject>();
-        numberOfWindows = transform.childCount;
 
-        for (int i = 0; i < numberOfWindows; i++)
+        for (int i = 0; i < transform.childCount; i++)
         {
             windows.Add(transform.GetChild(i).gameObject);
         }
@@ -21,10 +19,5 @@ public class GetListOfWindows : MonoBehaviour
     public List<GameObject> GetWindowsList()
     {
         return windows;
-    }
-
-    public int GetNumberOfWindows()
-    {
-        return numberOfWindows;
     }
 }

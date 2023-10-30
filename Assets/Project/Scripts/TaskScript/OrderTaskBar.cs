@@ -5,40 +5,51 @@ using UnityEngine;
 public class OrderTaskBar : MonoBehaviour
 {
     private OpenApp openApp;
-    private bool isOpen = false;
+    [SerializeField]
+    private SetTaskBarPosition setTaskBarPosition;
+    [SerializeField]
+    private GameObject icon;
+    [SerializeField]
+    private int currentIndex;
     private void Awake()
     {
         openApp = GetComponent<OpenApp>();
     }
-    private void OnMouseDown()
+
+    public void SetIcon()
     {
-        if (openApp.GetIsOpen() && !isOpen)
-        {
-            openMinimizeWindow();
-        }      
+        setTaskBarPosition.GetIcon()[setTaskBarPosition.GetpositionIndex()] = icon;
+        currentIndex = setTaskBarPosition.GetpositionIndex();
+        setTaskBarPosition.SetpositionIndex(1);
+        setTaskBarPosition.SetRefresh();
     }
 
-    private void Update()
-    {                 
-        if (!openApp.GetIsOpen() && isOpen)
+    public void SetCloseIcon()
+    {
+        MoveIcon();
+        setTaskBarPosition.SetpositionIndex(-1);
+        setTaskBarPosition.SetRefresh();
+    }
+
+    private void MoveIcon()
+    {
+        for (int i = currentIndex; i < setTaskBarPosition.GetIcon().Length - 1; i++)
         {
-            closeMinimizeWindos();
+            setTaskBarPosition.GetIcon()[i] = setTaskBarPosition.GetIcon()[i + 1];          
         }
+        setTaskBarPosition.SetCurrentIndex();
+        setTaskBarPosition.GetIcon()[setTaskBarPosition.GetIcon().Length - 1] = null;
+            
     }
 
-    private void openMinimizeWindow()
+    public int GetIndex()
     {
-        isOpen = true;
+        return currentIndex;
     }
 
-    private void closeMinimizeWindos()
+    public void SetIndex()
     {
-        isOpen = false;
-    }
-
-    public bool IsOpen()
-    {
-        return isOpen;
+        currentIndex--;
     }
 
 }
