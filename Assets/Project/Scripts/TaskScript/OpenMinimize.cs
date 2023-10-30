@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenMinimize : Button
+public class OpenMinimize : MonoBehaviour
 {
     [SerializeField]
     private GameObject minimize;

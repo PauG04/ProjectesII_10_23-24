@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
-public class Minimize : Button
+public class Minimize : MonoBehaviour
 {
     [SerializeField] private bool isMinimize;
-    private bool pressButton;
+    [SerializeField] private float timeToAppear;
     [SerializeField] private OpenApp openApp;
     [SerializeField] private GameObject parentObject;
+    [SerializeField] private GameObject icon;
+
     private float times = 0;
-    [SerializeField]
-    private float timeToAppear;
-    [SerializeField]
-    private GameObject icon;
+    private bool pressButton;
     private Vector3 initialPosition;
 
     private void Start()
