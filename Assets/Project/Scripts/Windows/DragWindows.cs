@@ -16,7 +16,7 @@ namespace Windows
         private ReOrderWindows reOrderWindows;
         #endregion
 
-        private void Awake()
+        private void Start()
         {
             parentObject = transform.parent.gameObject;
             reOrderWindows = parentObject.GetComponent<ReOrderWindows>();

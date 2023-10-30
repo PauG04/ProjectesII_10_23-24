@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class OpenMinimize : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject minimize;
-    [SerializeField]
-    private Minimize minimize_;
-
-    //private void Update()
-    //{
-    //    if (SimulateButton(gameObject.name))
-    //    {
-    //        minimize.gameObject.SetActive(true);
-    //    }
-    //}
+    [HideInInspector] public GameObject minimize;
+    [HideInInspector] public Minimize minimize_;
 
     private void OnMouseDown()
     {
@@ -24,6 +14,5 @@ public class OpenMinimize : MonoBehaviour
             minimize.SetActive(true);
             minimize_.SetIsMinimize(false);
         }
-            
     }
 }

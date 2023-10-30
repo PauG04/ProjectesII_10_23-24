@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5320596850271262186}
   - component: {fileID: 3171607833116467453}
   m_Layer: 0
-  m_Name: app 2M
+  m_Name: Placeholder 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6490763233473529065}
   - component: {fileID: 7827600675550294123}
   m_Layer: 0
-  m_Name: app 1M
+  m_Name: Placeholder 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 4780595520639614803}
   - component: {fileID: 24233835812343128}
   m_Layer: 0
-  m_Name: 'app 3M '
+  m_Name: Placeholder 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,7 +287,7 @@ Transform:
   - {fileID: 4780595520639614803}
   - {fileID: 2684807413808352814}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7457519752039714412
 SpriteRenderer:
@@ -360,6 +360,7 @@ MonoBehaviour:
   - {fileID: 8247510840279051561}
   icon: []
   positionIndex: 0
+  orderTaskBar: []
 --- !u!1 &8247510840279051561
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +372,7 @@ GameObject:
   - component: {fileID: 2684807413808352814}
   - component: {fileID: 4693451765547483124}
   m_Layer: 0
-  m_Name: app 4M
+  m_Name: Placeholder 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

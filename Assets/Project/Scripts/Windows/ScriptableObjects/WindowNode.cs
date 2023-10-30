@@ -10,6 +10,8 @@ namespace Windows
     public class WindowNode : ScriptableObject
     {
         private string windowID;
+        [SerializeField] private string windowName;
+        [SerializeField] private string windowDescription;
         [SerializeField] private GameObject prefabChild;
 
         private void OnEnable()
@@ -19,6 +21,14 @@ namespace Windows
         public string GetWindowID()
         {
             return windowID;
+        }
+        public string GetWindowName()
+        {
+            return windowName;
+        }
+        public string GetWindowDescription()
+        {
+            return windowDescription;
         }
         public GameObject GetPrefabChild()
         {

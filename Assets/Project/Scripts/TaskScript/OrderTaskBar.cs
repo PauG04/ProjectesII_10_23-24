@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class OrderTaskBar : MonoBehaviour
 {
-    private OpenApp openApp;
-    [SerializeField]
-    private SetTaskBarPosition setTaskBarPosition;
-    [SerializeField]
-    private GameObject icon;
-    [SerializeField]
+    public GameObject icon;
+
+    [SerializeField] private SetTaskBarPosition setTaskBarPosition;
     private int currentIndex;
-    private void Awake()
-    {
-        openApp = GetComponent<OpenApp>();
-    }
 
     public void SetIcon()
     {

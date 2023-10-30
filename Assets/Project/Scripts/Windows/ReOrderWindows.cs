@@ -10,20 +10,15 @@ namespace Windows
     {
         private GetListOfWindows listOfWindows;
         private List<GameObject> windows;
-        private List<string> nodes;
-    
-        private void Awake()
-        {
-            listOfWindows = transform.parent.GetComponent<GetListOfWindows>();
-        }
 
         private void Start()
         {
+            
+            listOfWindows = transform.parent.GetComponent<GetListOfWindows>();
+            listOfWindows.AddWindowInList(gameObject);
             windows = listOfWindows.GetWindowsList();
-
             MoveObjectInZ();
         }
-
         public void OrderGroupLayer(GameObject pressedObject)
         {
             if (windows.Contains(pressedObject))

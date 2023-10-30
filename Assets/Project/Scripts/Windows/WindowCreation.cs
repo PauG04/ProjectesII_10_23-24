@@ -22,16 +22,19 @@ namespace Windows
             spriteRendererChild = GetComponentInChildren<SpriteRenderer>();
             #endregion
 
-            #region Start Functions
+            UpdateWindow();
+        }
+        public void UpdateWindow()
+        {
             RenameObject();
             CreatePrefabInsideWindow();
             ResizeWindowToPrefab();
             SetWindowControlPosition();
-            #endregion
         }
+
         private void RenameObject()
         {
-            gameObject.name = node.GetWindowID();
+            gameObject.name = node.GetWindowName();
         }
         private void CreatePrefabInsideWindow()
         {

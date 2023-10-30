@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Minimize : MonoBehaviour
 {
-    [SerializeField] private bool isMinimize;
     [SerializeField] private float timeToAppear;
     [SerializeField] private OpenApp openApp;
     [SerializeField] private GameObject parentObject;
     [SerializeField] private GameObject icon;
 
+    private bool isMinimize;
     private float times = 0;
     private bool pressButton;
     private Vector3 initialPosition;

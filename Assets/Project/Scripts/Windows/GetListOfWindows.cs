@@ -15,7 +15,10 @@ public class GetListOfWindows : MonoBehaviour
             windows.Add(transform.GetChild(i).gameObject);
         }
     }
-
+    public void AddWindowInList(GameObject obj)
+    {
+        windows.Add(obj);
+    }
     public List<GameObject> GetWindowsList()
     {
         return windows;
