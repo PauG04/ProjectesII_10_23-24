@@ -6,19 +6,14 @@ using UnityEngine;
 public class Minimize : MonoBehaviour
 {
     [SerializeField] private float timeToAppear;
-    [SerializeField] private OpenApp openApp;
     [SerializeField] private GameObject parentObject;
-    [SerializeField] private GameObject icon;
+    public OpenApp openApp;
+    public GameObject icon;
 
     private bool isMinimize;
     private float times = 0;
     private bool pressButton;
     private Vector3 initialPosition;
-
-    private void Start()
-    {
-        initialPosition = parentObject.transform.position;
-    }
 
     private void Update()
     {
@@ -27,6 +22,31 @@ public class Minimize : MonoBehaviour
         SetPressButton();
     }
 
+    private void SetPressButton()
+    {
+        if (!openApp.GetIsOpen())
+        {
+            pressButton = false;
+        }
+    }
+    private void OnMouseDown()
+    {
+        initialPosition = parentObject.transform.position;
+        isMinimize = true;
+        pressButton = false;
+        times = 0;
+        //openApp.DesactiveApp();
+    }
+
+    /*
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            openApp.DesactiveApp();
+        }          
+    }
+    */
     private void MaxMinLerp()
     {
         if (!isMinimize && parentObject.transform.localScale.x < openApp.GetFinalSize().x && pressButton)
@@ -35,7 +55,6 @@ public class Minimize : MonoBehaviour
             float time = times / timeToAppear;
             parentObject.transform.localScale = Vector3.Lerp(new Vector3(0, 0, 0), openApp.GetFinalSize(), time);
         }
-
         if (isMinimize && parentObject.transform.localScale.x > 0 && !pressButton)
         {
             times += Time.deltaTime;
@@ -60,30 +79,6 @@ public class Minimize : MonoBehaviour
             parentObject.transform.position = Vector3.Lerp(initialPosition, icon.transform.position, time);
         }
     }
-
-    private void SetPressButton()
-    {
-        if (!openApp.GetIsOpen())
-        {
-            pressButton = false;
-        }
-    }
-
-    private void OnMouseDown()
-    {
-        isMinimize = true;
-        pressButton = false;
-        times = 0;
-    }
-
-    private void OnMouseOver()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            openApp.DesactiveApp();
-        }          
-    }
-    
     public void SetIsMinimize(bool value)
     {
         pressButton = true;

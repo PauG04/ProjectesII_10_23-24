@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class OpenMinimize : MonoBehaviour
 {
-    [HideInInspector] public GameObject minimize;
-    [HideInInspector] public Minimize minimize_;
+    public GameObject minimizeBigIcon;
+    public Minimize minimizeWindow;
 
     private void OnMouseDown()
     {
-        if (minimize_.IsMinimize())
+        if (minimizeWindow.IsMinimize())
         {
-            minimize.SetActive(true);
-            minimize_.SetIsMinimize(false);
+            minimizeBigIcon.SetActive(true);
+            minimizeWindow.SetIsMinimize(false);
         }
     }
 }

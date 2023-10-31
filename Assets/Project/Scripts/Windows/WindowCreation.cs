@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Windows
@@ -16,13 +17,16 @@ namespace Windows
         [SerializeField] private Transform windowControl;
         private SpriteRenderer spriteRendererChild;
 
+        [Header("Control Values")]
+        [SerializeField] private Minimize minimize;
+
         private void Awake()
         {
             #region GetComponents
             spriteRendererChild = GetComponentInChildren<SpriteRenderer>();
             #endregion
 
-            UpdateWindow();
+            //UpdateWindow();
         }
         public void UpdateWindow()
         {
@@ -69,6 +73,10 @@ namespace Windows
             );
 
             windowControl.position = newWindowControlPos;
+        }
+        public Minimize GetMinimize()
+        {
+            return minimize;
         }
     }
 }

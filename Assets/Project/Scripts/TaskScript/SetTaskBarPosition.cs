@@ -52,7 +52,6 @@ public class SetTaskBarPosition : MonoBehaviour
     {
         return icon;
     }
-
     public int GetpositionIndex() 
     { 
         return positionIndex; 

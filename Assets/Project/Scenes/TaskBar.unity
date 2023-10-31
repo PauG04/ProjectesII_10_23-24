@@ -267,9 +267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee8f8a12381c7a4c81f0b70d3f23fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setTaskBarPosition: {fileID: 731361523}
   icon: {fileID: 942161741}
-  currentIndex: 0
+  setTaskBarPosition: {fileID: 731361523}
 --- !u!114 &36366226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,12 +281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572e33ab25b94a344b3e1619092a6532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  app: {fileID: 610253364}
   appIcon: {fileID: 942161741}
   setTaskBarPosition: {fileID: 731361523}
-  finalSize: {x: 0.4408, y: 0.3422, z: 1}
   timeToAppear: 0.2
-  minimize: {fileID: 610253371}
+  node: {fileID: 0}
+  windowPrefab: {fileID: 0}
 --- !u!1 &181757596
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,10 +462,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6eaeedead63b044afa7a5324488bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMinimize: 0
+  timeToAppear: 0.2
   openApp: {fileID: 1367268021}
   parentObject: {fileID: 209559909}
-  timeToAppear: 0.2
   icon: {fileID: 181757596}
 --- !u!61 &209559912
 BoxCollider2D:
@@ -613,9 +610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee8f8a12381c7a4c81f0b70d3f23fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setTaskBarPosition: {fileID: 731361523}
   icon: {fileID: 814702140}
-  currentIndex: 0
+  setTaskBarPosition: {fileID: 731361523}
 --- !u!114 &348111760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,12 +624,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572e33ab25b94a344b3e1619092a6532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  app: {fileID: 2027948533}
   appIcon: {fileID: 814702140}
   setTaskBarPosition: {fileID: 731361523}
-  finalSize: {x: 0.3719, y: 0.4301, z: 1}
   timeToAppear: 0.2
-  minimize: {fileID: 2027948534}
+  node: {fileID: 0}
+  windowPrefab: {fileID: 0}
 --- !u!61 &348111761
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1034,10 +1029,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6eaeedead63b044afa7a5324488bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMinimize: 0
+  timeToAppear: 0.2
   openApp: {fileID: 36366226}
   parentObject: {fileID: 610253364}
-  timeToAppear: 0.2
   icon: {fileID: 942161741}
 --- !u!1 &681848200
 GameObject:
@@ -1645,10 +1639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6eaeedead63b044afa7a5324488bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMinimize: 0
+  timeToAppear: 0.2
   openApp: {fileID: 1897667882}
   parentObject: {fileID: 1058622660}
-  timeToAppear: 0.2
   icon: {fileID: 460904919}
 --- !u!1 &1367268019
 GameObject:
@@ -1682,9 +1675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee8f8a12381c7a4c81f0b70d3f23fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setTaskBarPosition: {fileID: 731361523}
   icon: {fileID: 181757596}
-  currentIndex: 0
+  setTaskBarPosition: {fileID: 731361523}
 --- !u!114 &1367268021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1697,12 +1689,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572e33ab25b94a344b3e1619092a6532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  app: {fileID: 209559909}
   appIcon: {fileID: 181757596}
   setTaskBarPosition: {fileID: 731361523}
-  finalSize: {x: 0.2815419, y: 0.4615676, z: 1}
   timeToAppear: 0.2
-  minimize: {fileID: 209559910}
+  node: {fileID: 0}
+  windowPrefab: {fileID: 0}
 --- !u!61 &1367268022
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1959,9 +1950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee8f8a12381c7a4c81f0b70d3f23fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setTaskBarPosition: {fileID: 731361523}
   icon: {fileID: 460904919}
-  currentIndex: 0
+  setTaskBarPosition: {fileID: 731361523}
 --- !u!114 &1897667882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1974,12 +1964,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572e33ab25b94a344b3e1619092a6532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  app: {fileID: 1058622660}
   appIcon: {fileID: 460904919}
   setTaskBarPosition: {fileID: 731361523}
-  finalSize: {x: 0.2693, y: 0.3275, z: 1}
   timeToAppear: 0.2
-  minimize: {fileID: 1058622667}
+  node: {fileID: 0}
+  windowPrefab: {fileID: 0}
 --- !u!1 &2027948533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,10 +2000,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6eaeedead63b044afa7a5324488bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMinimize: 0
+  timeToAppear: 0.2
   openApp: {fileID: 348111760}
   parentObject: {fileID: 2027948533}
-  timeToAppear: 0.2
   icon: {fileID: 814702140}
 --- !u!61 &2027948536
 BoxCollider2D:

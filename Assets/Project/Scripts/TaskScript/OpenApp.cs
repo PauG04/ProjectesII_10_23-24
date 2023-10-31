@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
@@ -7,7 +8,6 @@ using Windows;
 
 public class OpenApp : MonoBehaviour
 {
-
     [Header("App values ")]
     [SerializeField] private GameObject appIcon;
     [SerializeField] private SetTaskBarPosition setTaskBarPosition;
@@ -16,7 +16,7 @@ public class OpenApp : MonoBehaviour
     private OrderTaskBar orderTaskBar;
     private GameObject app;
     private Vector3 finalSize = new Vector3(1, 1, 1);
-    private bool isOpen = false;
+    private bool isOpen;
     private float elapsedTime;
 
     #region Windows Creation
@@ -25,13 +25,15 @@ public class OpenApp : MonoBehaviour
     [SerializeField] private GameObject windowPrefab;
 
     private GameObject windowGroup;
-    public bool isCreated { private get; set; }
+    private bool isCreated = false;
     #endregion
 
     private void Awake()
     {
         orderTaskBar = GetComponent<OrderTaskBar>();
         orderTaskBar.enabled = false;
+
+        // Encontrar otra manera de hacer esto
         windowGroup = GameObject.Find("WindowGroup");
     }
 
@@ -40,7 +42,6 @@ public class OpenApp : MonoBehaviour
         if (!isOpen)
         {
             isOpen = true;
-            appIcon.SetActive(true);
 
             if (!isCreated)
             {
@@ -76,21 +77,6 @@ public class OpenApp : MonoBehaviour
             }
         }
     }
-    public bool GetIsOpen()
-    {
-        return isOpen;
-    }
-    public void DesactiveApp()
-    {
-        elapsedTime = 0; 
-        appIcon.SetActive(false);
-        orderTaskBar.SetCloseIcon();
-        isOpen= false;
-    }
-    public Vector3 GetFinalSize()
-    {
-        return finalSize;
-    }
     private void CreateWindows()
     {
         windowPrefab.GetComponent<WindowCreation>().node = node;
@@ -101,33 +87,52 @@ public class OpenApp : MonoBehaviour
         app.GetComponent<WindowCreation>().UpdateWindow();
         app.transform.transform.localScale = Vector3.zero;
 
-        CreateMiniIcon();
+        CreateMiniIcon(app.GetComponent<WindowCreation>());
 
         orderTaskBar.enabled = true;
         isCreated = true;
     }
-    private void CreateMiniIcon()
+
+    private void CreateMiniIcon(WindowCreation window)
     {
         GameObject obj = new GameObject();
 
-        obj.name = gameObject.name + "_MiniIcon";
+        obj.name = gameObject.name + "_icon";
 
         BoxCollider2D boxCollider2DObj = obj.AddComponent<BoxCollider2D>();
         SpriteRenderer spriteRenderObj = obj.AddComponent<SpriteRenderer>();
         OpenMinimize openMinimizeObj = obj.AddComponent<OpenMinimize>();
 
         boxCollider2DObj.isTrigger = true;
-        openMinimizeObj.minimize = app;
+        boxCollider2DObj.size = new Vector2(0.3f, 0.3f);
 
         spriteRenderObj.sprite = GetComponent<SpriteRenderer>().sprite;
-        spriteRenderObj.sortingOrder = 1;
+        spriteRenderObj.sortingOrder = 2;
 
-        GameObject miniApp = Instantiate(obj);
+        openMinimizeObj.minimizeBigIcon = app;
+        openMinimizeObj.minimizeWindow = window.GetMinimize();
 
-        orderTaskBar.icon = miniApp;
+        obj.transform.parent = transform;
+        obj.transform.localScale /= 1.5f;
 
-        miniApp.transform.parent = transform;
-        miniApp.transform.localScale /= 1.5f;
+        window.GetMinimize().icon = obj;
+        window.GetMinimize().openApp = this;
+
+        orderTaskBar.icon = obj;
+    }
+    public void DesactiveApp()
+    {
+        //elapsedTime = 0; 
+        //orderTaskBar.SetCloseIcon();
+        //isOpen = false;
+    }
+    public bool GetIsOpen()
+    {
+        return isOpen;
+    }
+    public Vector3 GetFinalSize()
+    {
+        return finalSize;
     }
 }
 
