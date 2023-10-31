@@ -322,8 +322,8 @@ Camera:
   m_GameObject: {fileID: 2111570754}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -650,6 +650,7 @@ MonoBehaviour:
   appIcon: {fileID: 4923535761069504324, guid: 6d7ae799a5840f7448ee9f9de2b37bbc, type: 3}
   setTaskBarPosition: {fileID: 165155269}
   timeToAppear: 0.2
+  isOpen: 0
   node: {fileID: 11400000, guid: 6cfb773ac77de7444adec04c36758bac, type: 2}
   windowPrefab: {fileID: 8824953779145225685, guid: b0c761d965d98a746b85f681d858f351, type: 3}
 --- !u!4 &4610056627542426363
@@ -851,7 +852,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   appIcon: {fileID: 4388728027258367781, guid: 816279458ea32124792a79ca954329d5, type: 3}
   setTaskBarPosition: {fileID: 165155269}
-  timeToAppear: 0.2
+  timeToAppear: 0.3
+  isOpen: 0
   node: {fileID: 11400000, guid: 3382aeb1e550ba84f87772cc32d9e610, type: 2}
   windowPrefab: {fileID: 8824953779145225685, guid: b0c761d965d98a746b85f681d858f351, type: 3}
 --- !u!1 &7495759430662350300
@@ -934,5 +936,6 @@ MonoBehaviour:
   appIcon: {fileID: 7974833484358208435, guid: bf770213b060ad245894365a7856d00e, type: 3}
   setTaskBarPosition: {fileID: 165155269}
   timeToAppear: 0.2
+  isOpen: 0
   node: {fileID: 11400000, guid: 8279ce35ebd66064e85fac65f5fa7085, type: 2}
   windowPrefab: {fileID: 8824953779145225685, guid: b0c761d965d98a746b85f681d858f351, type: 3}

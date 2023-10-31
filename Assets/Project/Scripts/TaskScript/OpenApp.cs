@@ -16,7 +16,7 @@ public class OpenApp : MonoBehaviour
     private OrderTaskBar orderTaskBar;
     private GameObject app;
     private Vector3 finalSize = new Vector3(1, 1, 1);
-    private bool isOpen;
+    public bool isOpen;
     private float elapsedTime;
 
     #region Windows Creation

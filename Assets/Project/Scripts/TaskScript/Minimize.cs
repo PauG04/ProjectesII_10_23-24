@@ -12,32 +12,21 @@ public class Minimize : MonoBehaviour
 
     private bool isMinimize;
     private float times = 0;
-    private bool pressButton;
     private Vector3 initialPosition;
+    private bool isMoving;
 
     private void Update()
     {
-        MaxMinLerp();
+        openApp.isOpen = !isMinimize;
         MoveLerp();
-        SetPressButton();
-    }
-
-    private void SetPressButton()
-    {
-        if (!openApp.GetIsOpen())
-        {
-            pressButton = false;
-        }
+        MaxMinLerp();
     }
     private void OnMouseDown()
     {
-        initialPosition = parentObject.transform.position;
+        isMoving = true;
         isMinimize = true;
-        pressButton = false;
         times = 0;
-        //openApp.DesactiveApp();
     }
-
     /*
     private void OnMouseOver()
     {
@@ -49,13 +38,13 @@ public class Minimize : MonoBehaviour
     */
     private void MaxMinLerp()
     {
-        if (!isMinimize && parentObject.transform.localScale.x < openApp.GetFinalSize().x && pressButton)
+        if (!isMinimize && parentObject.transform.localScale.x < openApp.GetFinalSize().x)
         {
             times += Time.deltaTime;
             float time = times / timeToAppear;
             parentObject.transform.localScale = Vector3.Lerp(new Vector3(0, 0, 0), openApp.GetFinalSize(), time);
         }
-        if (isMinimize && parentObject.transform.localScale.x > 0 && !pressButton)
+        if (isMinimize && parentObject.transform.localScale.x > 0)
         {
             times += Time.deltaTime;
             float time = times / timeToAppear;
@@ -64,25 +53,34 @@ public class Minimize : MonoBehaviour
     }
 
     private void MoveLerp()
-    {
-        if (!isMinimize && parentObject.transform.position != initialPosition && pressButton)
+    { 
+        if (isMoving)
         {
-            times += Time.deltaTime;
-            float time = times / timeToAppear;
-            parentObject.transform.position = Vector3.Lerp(parentObject.transform.position, initialPosition, time);
-        }
+            isMoving = false;
 
-        if (isMinimize && parentObject.transform.localScale != icon.transform.position && !pressButton)
+            if (!isMinimize && parentObject.transform.position != initialPosition)
+            {
+                times += Time.deltaTime;
+                float time = times / timeToAppear;
+                parentObject.transform.position = Vector3.Lerp(parentObject.transform.position, initialPosition, time);
+            }
+
+            if (isMinimize && parentObject.transform.localScale != icon.transform.position)
+            {
+                times += Time.deltaTime;
+                float time = times / timeToAppear;
+                parentObject.transform.position = Vector3.Lerp(initialPosition, icon.transform.position, time);
+            }
+        }
+        else
         {
-            times += Time.deltaTime;
-            float time = times / timeToAppear;
-            parentObject.transform.position = Vector3.Lerp(initialPosition, icon.transform.position, time);
+            initialPosition = parentObject.transform.position;
         }
     }
-    public void SetIsMinimize(bool value)
+    public void SetIsMinimize()
     {
-        pressButton = true;
-        isMinimize = value;
+        isMoving = true;
+        isMinimize = false;
         times = 0;
     }
 

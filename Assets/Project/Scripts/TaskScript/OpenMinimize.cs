@@ -12,7 +12,7 @@ public class OpenMinimize : MonoBehaviour
         if (minimizeWindow.IsMinimize())
         {
             minimizeBigIcon.SetActive(true);
-            minimizeWindow.SetIsMinimize(false);
+            minimizeWindow.SetIsMinimize();
         }
     }
 }
