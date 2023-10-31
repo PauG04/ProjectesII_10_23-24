@@ -20,13 +20,18 @@ namespace Windows
         [Header("Control Values")]
         [SerializeField] private Minimize minimize;
 
+        [Header("Test Variables")]
+        [SerializeField] private bool isTesting;
         private void Awake()
         {
             #region GetComponents
             spriteRendererChild = GetComponentInChildren<SpriteRenderer>();
             #endregion
 
-            //UpdateWindow();
+            if(isTesting)
+            { 
+                UpdateWindow();
+            }
         }
         public void UpdateWindow()
         {

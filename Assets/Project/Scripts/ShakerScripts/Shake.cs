@@ -42,7 +42,7 @@ public class Shake : MonoBehaviour
             DirectionShaker();
             IncreaseBar();
             SetVector();
-            SetShakerStata();
+            //SetShakerStata();
             ActiveSlider();
         }    
     }
@@ -107,19 +107,23 @@ public class Shake : MonoBehaviour
         }
     }
 
+    /*
     private void SetShakerStata()
     {
-        if (progress >= maxValue)
-        {
-            shaker.SetDrinkState(Drink.DrinkState.Shaked);
-        }
-        else if (progress > (maxValue / 2) && progress < maxValue)
-        {
-            shaker.SetDrinkState(Drink.DrinkState.Mixed);
-        }
-        else
-        {
-            shaker.SetDrinkState(Drink.DrinkState.Idle);
-        }
+       if (progress >= maxValue)
+       {
+           shaker.SetDrinkState(Drink.DrinkState.Shaked);
+       }
+       else if (progress > (maxValue / 2) && progress < maxValue)
+       {
+           shaker.SetDrinkState(Drink.DrinkState.Mixed);
+       }
+
+       else
+       {
+           shaker.SetDrinkState(Drink.DrinkState.Idle);
+       }
+   
     }
+    */
 }
