@@ -8,22 +8,17 @@ using UnityEngine.UIElements;
 
 public class SetTaskBarPosition : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] positionsIcon;
+    [SerializeField] private GameObject[] positionsIcon;
 
-    [SerializeField]
-    private GameObject[] icon;
-    [SerializeField]
-    private int positionIndex;
-    [SerializeField]
-    private OrderTaskBar[] orderTaskBar;
+    [SerializeField] private GameObject[] icon;
+    [SerializeField] private int positionIndex;
+    [SerializeField] private List<OrderTaskBar> orderTaskBar;
     private bool refresh;
 
     private void Awake()
     {
         icon = new GameObject[positionsIcon.Length];
     }
-
     private void Update()
     {
        int j = 0;
@@ -35,19 +30,16 @@ public class SetTaskBarPosition : MonoBehaviour
                 j++;
             }
        }
-        refresh = false;
+       refresh = false;
     }
-
     public void SetpositionIndex(int index)
     {
-        positionIndex+= index;
+        positionIndex += index;
     }
-
     public void SetRefresh()
     {
         refresh = true;
     }
-
     public GameObject[] GetIcon()
     {
         return icon;
@@ -56,13 +48,14 @@ public class SetTaskBarPosition : MonoBehaviour
     { 
         return positionIndex; 
     }
-
     public void SetCurrentIndex()
     {
-        for (int i = 0; i < orderTaskBar.Length; i++)
+        for (int i = 0; i < orderTaskBar.Count; i++)
         {
             if (orderTaskBar[i].GetIndex() != 0)
+            {
                 orderTaskBar[i].SetIndex();
+            }
         }
     }
 

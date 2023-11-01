@@ -7,6 +7,8 @@ public class Minimize : MonoBehaviour
 {
     [SerializeField] private float timeToAppear;
     [SerializeField] private GameObject parentObject;
+    [SerializeField] private Close close;
+
     public OpenApp openApp;
     public GameObject icon;
 
@@ -15,7 +17,7 @@ public class Minimize : MonoBehaviour
     private Vector3 initialPosition;
     private bool isMoving;
 
-    private void Update()
+    private void FixedUpdate()
     {
         openApp.isOpen = !isMinimize;
         MoveLerp();
@@ -27,31 +29,24 @@ public class Minimize : MonoBehaviour
         isMinimize = true;
         times = 0;
     }
-    /*
-    private void OnMouseOver()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            openApp.DesactiveApp();
-        }          
-    }
-    */
     private void MaxMinLerp()
     {
-        if (!isMinimize && parentObject.transform.localScale.x < openApp.GetFinalSize().x)
+        if(!close.GetClose())
         {
-            times += Time.deltaTime;
-            float time = times / timeToAppear;
-            parentObject.transform.localScale = Vector3.Lerp(new Vector3(0, 0, 0), openApp.GetFinalSize(), time);
-        }
-        if (isMinimize && parentObject.transform.localScale.x > 0)
-        {
-            times += Time.deltaTime;
-            float time = times / timeToAppear;
-            parentObject.transform.localScale = Vector3.Lerp(parentObject.transform.localScale, new Vector3(0, 0, 0), time);
+            if (!isMinimize && parentObject.transform.localScale.x < openApp.GetFinalSize().x)
+            {
+                times += Time.deltaTime;
+                float time = times / timeToAppear;
+                parentObject.transform.localScale = Vector3.Lerp(new Vector3(0, 0, 0), openApp.GetFinalSize(), time);
+            }
+            if (isMinimize && parentObject.transform.localScale.x > 0)
+            {
+                times += Time.deltaTime;
+                float time = times / timeToAppear;
+                parentObject.transform.localScale = Vector3.Lerp(parentObject.transform.localScale, Vector3.zero, time);
+            }
         }
     }
-
     private void MoveLerp()
     { 
         if (isMoving)
@@ -83,11 +78,8 @@ public class Minimize : MonoBehaviour
         isMinimize = false;
         times = 0;
     }
-
     public bool IsMinimize()
     {
         return isMinimize;
     }
-    
 }
-

@@ -19,6 +19,7 @@ namespace Windows
 
         [Header("Control Values")]
         [SerializeField] private Minimize minimize;
+        [SerializeField] private Close close;
 
         [Header("Test Variables")]
         [SerializeField] private bool isTesting;
@@ -82,6 +83,10 @@ namespace Windows
         public Minimize GetMinimize()
         {
             return minimize;
+        }
+        public Close GetClose()
+        {
+            return close;
         }
     }
 }

@@ -26,6 +26,7 @@ public class OpenApp : MonoBehaviour
 
     private GameObject windowGroup;
     private bool isCreated = false;
+    private bool animationDone = false;
     #endregion
 
     private void Awake()
@@ -36,7 +37,6 @@ public class OpenApp : MonoBehaviour
         // Encontrar otra manera de hacer esto
         windowGroup = GameObject.Find("WindowGroup");
     }
-
     private void OnMouseDown()
     {
         if (!isOpen)
@@ -46,9 +46,9 @@ public class OpenApp : MonoBehaviour
             if (!isCreated)
             {
                 CreateWindows();
+                orderTaskBar.SetIcon();
             }
 
-            orderTaskBar.SetIcon();
             elapsedTime = 0;
         }
     }
@@ -56,7 +56,10 @@ public class OpenApp : MonoBehaviour
     {
         if (isCreated) 
         { 
-            MaxMinLerp();
+            if (!animationDone)
+            {
+                MaxMinLerp();
+            }
         }
     }
     private void MaxMinLerp()
@@ -67,13 +70,17 @@ public class OpenApp : MonoBehaviour
             {
                 elapsedTime += Time.deltaTime;
                 float time = elapsedTime / timeToAppear;
-                app.transform.localScale = Vector3.Lerp(new Vector3(0, 0, 0), finalSize, time);
+                app.transform.localScale = Vector3.Lerp(Vector3.zero, finalSize, time);
             }
             if (!isOpen && app.transform.localScale.x > 0)
             {
                 elapsedTime += Time.deltaTime;
                 float time = elapsedTime / timeToAppear;
-                app.transform.localScale = Vector3.Lerp(app.transform.localScale, new Vector3(0, 0, 0), time);
+                app.transform.localScale = Vector3.Lerp(app.transform.localScale, Vector3.zero, time);
+            }
+            if (app.transform.localScale == Vector3.one)
+            {
+                animationDone = true;
             }
         }
     }
@@ -92,7 +99,6 @@ public class OpenApp : MonoBehaviour
         orderTaskBar.enabled = true;
         isCreated = true;
     }
-
     private void CreateMiniIcon(WindowCreation window)
     {
         GameObject obj = new GameObject();
@@ -118,13 +124,17 @@ public class OpenApp : MonoBehaviour
         window.GetMinimize().icon = obj;
         window.GetMinimize().openApp = this;
 
+        window.GetClose().icon = obj;
+        window.GetClose().openApp = this;
+
         orderTaskBar.icon = obj;
     }
     public void DesactiveApp()
     {
-        //elapsedTime = 0; 
-        //orderTaskBar.SetCloseIcon();
-        //isOpen = false;
+        elapsedTime = 0; 
+        orderTaskBar.SetCloseIcon();
+        isOpen = false;
+        isCreated = false;
     }
     public bool GetIsOpen()
     {
@@ -135,4 +145,3 @@ public class OpenApp : MonoBehaviour
         return finalSize;
     }
 }
-
