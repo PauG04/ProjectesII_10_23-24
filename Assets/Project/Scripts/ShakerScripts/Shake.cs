@@ -10,12 +10,13 @@ public class Shake : MonoBehaviour
     private float progress = 0.0f;
     Vector2 shakerPosition;
     Vector2 newShakerPosition;
-    private bool shaking = false;
+    [SerializeField] private bool shaking = false;
     [SerializeField]
     private float minimizeBarProgress;
     [SerializeField]
     private bool isShakingDown;
     private Drink shaker;
+    private DrinkScript drink;
     private PolygonCollider2D polygonCollider2D;
     private GameObject sprite;
     [SerializeField]
@@ -26,6 +27,7 @@ public class Shake : MonoBehaviour
 
     private void Start()
     {
+        drink = GetComponent<DrinkScript>();
         shaker = GetComponent<Drink>();
         sprite = this.transform.parent.gameObject.transform.parent.gameObject.transform.parent.gameObject;
         sprite = sprite.transform.GetChild(0).gameObject;
@@ -46,13 +48,13 @@ public class Shake : MonoBehaviour
             ActiveSlider();
         }    
     }
-    public void StartClicking()
+    private void StartClicking()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            if (polygonCollider2D.OverlapPoint(mousePosition))
+            if (polygonCollider2D.OverlapPoint(mousePosition) || !drink.GetIsMouseNotPressed())
             {
                 shaking = true;
                 shakerPosition = new Vector2(transform.position.x, transform.position.y);
@@ -62,24 +64,15 @@ public class Shake : MonoBehaviour
                 shaking = false;
             }
         }
+
     }
 
-    public void EndClicking()
+    private void EndClicking()
     {
         if (Input.GetMouseButtonUp(0))
         {
             shaking = false;
         }
-    }
-
-    private void OnMouseDown()
-    {
-        shaking = true;
-    }
-
-    private void OnMouseUp()
-    {
-        shaking = false; 
     }
 
     private void DirectionShaker()
