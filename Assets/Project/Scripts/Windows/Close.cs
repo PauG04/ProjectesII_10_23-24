@@ -17,11 +17,12 @@ public class Close : MonoBehaviour
         {
             mainWindow.transform.localScale = Vector3.Lerp(mainWindow.transform.localScale, Vector3.zero, Time.deltaTime * speed);
             openApp.DesactiveApp();
+            Destroy(icon);
 
             if (mainWindow.transform.localScale.x == mainWindow.transform.localScale.x / 2)
             {
                 Destroy(mainWindow.gameObject);
-                Destroy(icon);
+
             }
         }
     }

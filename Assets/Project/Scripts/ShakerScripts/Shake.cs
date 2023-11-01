@@ -72,6 +72,16 @@ public class Shake : MonoBehaviour
         }
     }
 
+    private void OnMouseDown()
+    {
+        shaking = true;
+    }
+
+    private void OnMouseUp()
+    {
+        shaking = false; 
+    }
+
     private void DirectionShaker()
     {
         newShakerPosition = new Vector2(transform.position.x, transform.position.y);
