@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Windows
@@ -16,22 +17,34 @@ namespace Windows
         [SerializeField] private Transform windowControl;
         private SpriteRenderer spriteRendererChild;
 
+        [Header("Control Values")]
+        [SerializeField] private Minimize minimize;
+        [SerializeField] private Close close;
+
+        [Header("Test Variables")]
+        [SerializeField] private bool isTesting;
         private void Awake()
         {
             #region GetComponents
             spriteRendererChild = GetComponentInChildren<SpriteRenderer>();
             #endregion
 
-            #region Start Functions
+            if(isTesting)
+            { 
+                UpdateWindow();
+            }
+        }
+        public void UpdateWindow()
+        {
             RenameObject();
             CreatePrefabInsideWindow();
             ResizeWindowToPrefab();
             SetWindowControlPosition();
-            #endregion
         }
+
         private void RenameObject()
         {
-            gameObject.name = node.GetWindowID();
+            gameObject.name = node.GetWindowName();
         }
         private void CreatePrefabInsideWindow()
         {
@@ -66,6 +79,19 @@ namespace Windows
             );
 
             windowControl.position = newWindowControlPos;
+        }
+        public ReOrderWindows GetOrderWindow()
+        {
+            return GetComponent<ReOrderWindows>();
+
+        }
+        public Minimize GetMinimize()
+        {
+            return minimize;
+        }
+        public Close GetClose()
+        {
+            return close;
         }
     }
 }

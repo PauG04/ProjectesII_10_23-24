@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3084743631931144835}
   - component: {fileID: 5932190793225085411}
   - component: {fileID: 4046305414567113994}
-  - component: {fileID: 8662187618770813107}
+  - component: {fileID: 1402006776470306910}
   m_Layer: 0
   m_Name: ShakerIcon
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8662187618770813107
+--- !u!114 &1402006776470306910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,12 +140,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1901515427958185559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edfbedfe947b2334b9706efd5998c6cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 25de8cf792f54bb45b1d5070aafa64f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windowsPrefab: {fileID: 2555498835546802859, guid: 44c8c728521f6c941b9619205ca11446, type: 3}
-  prefab: {fileID: 7974833484358208435, guid: bf770213b060ad245894365a7856d00e, type: 3}
-  windowsGroup: {fileID: 0}
+  node: {fileID: 11400000, guid: 8279ce35ebd66064e85fac65f5fa7085, type: 2}
+  windowPrefab: {fileID: 8824953779145225685, guid: b0c761d965d98a746b85f681d858f351, type: 3}
 --- !u!1 &3420646032559316575
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +156,7 @@ GameObject:
   - component: {fileID: 9001802171838284060}
   - component: {fileID: 6758266616337480878}
   - component: {fileID: 7686036943965909811}
-  - component: {fileID: 3032775247014293802}
+  - component: {fileID: 7873499395591538490}
   m_Layer: 0
   m_Name: LemonIcon
   m_TagString: Untagged
@@ -277,7 +276,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3032775247014293802
+--- !u!114 &7873499395591538490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,12 +285,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3420646032559316575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edfbedfe947b2334b9706efd5998c6cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 25de8cf792f54bb45b1d5070aafa64f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windowsPrefab: {fileID: 2555498835546802859, guid: 44c8c728521f6c941b9619205ca11446, type: 3}
-  prefab: {fileID: 3785591789739147244, guid: 8ef5a2fdc563e4342b8adcd684a4ac4f, type: 3}
-  windowsGroup: {fileID: 0}
+  node: {fileID: 11400000, guid: 3a1a03a7f25991e4094186315245193b, type: 2}
+  windowPrefab: {fileID: 8824953779145225685, guid: b0c761d965d98a746b85f681d858f351, type: 3}
 --- !u!1 &3848375411630197317
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,9 +487,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4105242536068841865}
   - component: {fileID: 4858864505364412107}
-  - component: {fileID: 4712026278567902248}
-  - component: {fileID: 510509710531420378}
-  - component: {fileID: 8062919283809452405}
   m_Layer: 0
   m_Name: CocktailBarWindows
   m_TagString: Untagged
@@ -568,135 +563,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4712026278567902248
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6438548962649969893}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 1
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!50 &510509710531420378
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6438548962649969893}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!66 &8062919283809452405
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6438548962649969893}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 4712026278567902248}
-    m_ColliderPaths:
-    - - X: 7500000
-        Y: 5000000
-      - X: -7500000
-        Y: 5000000
-      - X: -7500000
-        Y: -5000000
-      - X: 7500000
-        Y: -5000000
-  m_CompositePaths:
-    m_Paths:
-    - - {x: 0.74997073, y: -0.5}
-      - {x: 0.74997073, y: 0.5}
-      - {x: -0.75, y: 0.4999707}
-      - {x: -0.74997073, y: -0.5}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 6438548962649969893}
 --- !u!1 &7714496152412429299
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +609,6 @@ GameObject:
   - component: {fileID: 4777722168383075612}
   - component: {fileID: 8511658397632038924}
   - component: {fileID: 5414035209580448035}
-  - component: {fileID: 6491014105095243717}
   m_Layer: 0
   m_Name: DecorationIcon
   m_TagString: Untagged
@@ -863,21 +728,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6491014105095243717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7946108633992832871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edfbedfe947b2334b9706efd5998c6cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  windowsPrefab: {fileID: 2555498835546802859, guid: 44c8c728521f6c941b9619205ca11446, type: 3}
-  prefab: {fileID: 0}
-  windowsGroup: {fileID: 0}
 --- !u!1 &8760151729739929751
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,7 +739,7 @@ GameObject:
   - component: {fileID: 8813516385273996332}
   - component: {fileID: 4418725665716025353}
   - component: {fileID: 7094894117372228064}
-  - component: {fileID: 3186747924400194269}
+  - component: {fileID: 4789752817298137228}
   m_Layer: 0
   m_Name: IceIcon
   m_TagString: Untagged
@@ -1009,7 +859,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3186747924400194269
+--- !u!114 &4789752817298137228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1018,9 +868,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8760151729739929751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edfbedfe947b2334b9706efd5998c6cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 25de8cf792f54bb45b1d5070aafa64f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windowsPrefab: {fileID: 2555498835546802859, guid: 44c8c728521f6c941b9619205ca11446, type: 3}
-  prefab: {fileID: 4923535761069504324, guid: 6d7ae799a5840f7448ee9f9de2b37bbc, type: 3}
-  windowsGroup: {fileID: 0}
+  node: {fileID: 11400000, guid: 6cfb773ac77de7444adec04c36758bac, type: 2}
+  windowPrefab: {fileID: 8824953779145225685, guid: b0c761d965d98a746b85f681d858f351, type: 3}

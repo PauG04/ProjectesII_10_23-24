@@ -15,38 +15,73 @@ public class Shake : MonoBehaviour
     private float minimizeBarProgress;
     [SerializeField]
     private bool isShakingDown;
-    [SerializeField]
-    private Slider slide;
     private Drink shaker;
+    private PolygonCollider2D polygonCollider2D;
+    private GameObject sprite;
+    [SerializeField]
+    private GameObject[] sliders;
+    private int currentBox = 0;
+    private float maxValue = 2;
+    private float value;
 
     private void Start()
     {
         shaker = GetComponent<Drink>();
+        sprite = this.transform.parent.gameObject.transform.parent.gameObject.transform.parent.gameObject;
+        sprite = sprite.transform.GetChild(0).gameObject;
+        polygonCollider2D= sprite.GetComponent<PolygonCollider2D>();
+        value = maxValue / 10;
     }
 
     private void Update()
     {
-        if (shaking && progress<slide.maxValue)
+        StartClicking();
+        EndClicking();
+        if (shaking && progress <= maxValue)
         {
-            Debug.Log("Shaker");
             DirectionShaker();
             IncreaseBar();
             SetVector();
-            SetShakerStata();
+            //SetShakerStata();
+            ActiveSlider();
         }    
-        slide.value = progress;
+    }
+    public void StartClicking()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            if (polygonCollider2D.OverlapPoint(mousePosition))
+            {
+                shaking = true;
+                shakerPosition = new Vector2(transform.position.x, transform.position.y);
+            }
+            else
+            {
+                shaking = false;
+            }
+        }
+    }
+
+    public void EndClicking()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            shaking = false;
+        }
     }
 
     private void OnMouseDown()
     {
         shaking = true;
-        shakerPosition = new Vector2(transform.position.x, transform.position.y);
     }
 
     private void OnMouseUp()
     {
-        shaking = false;
+        shaking = false; 
     }
+
     private void DirectionShaker()
     {
         newShakerPosition = new Vector2(transform.position.x, transform.position.y);
@@ -64,7 +99,7 @@ public class Shake : MonoBehaviour
     {
           shakerPosition = new Vector2(transform.position.x, transform.position.y);
     }
-    void IncreaseBar()
+    private void IncreaseBar()
     {
         if(isShakingDown)
             progress += (shakerPosition.y - newShakerPosition.y) / minimizeBarProgress;
@@ -72,19 +107,33 @@ public class Shake : MonoBehaviour
             progress += -(shakerPosition.y - newShakerPosition.y) / minimizeBarProgress;
     }
 
-    void SetShakerStata()
+    private void ActiveSlider()
     {
-        if(progress >= slide.maxValue)
+        if(progress >= value)
         {
-            shaker.SetDrinkState(Drink.DrinkState.Shaked);
-        }
-        else if(progress > (slide.maxValue/2) && progress < slide.maxValue)
-        {
-            shaker.SetDrinkState(Drink.DrinkState.Mixed);
-        }
-        else
-        {
-            shaker.SetDrinkState(Drink.DrinkState.Idle);
+            sliders[currentBox].SetActive(true);
+            currentBox++;
+            value += maxValue / 10;
         }
     }
+
+    /*
+    private void SetShakerStata()
+    {
+       if (progress >= maxValue)
+       {
+           shaker.SetDrinkState(Drink.DrinkState.Shaked);
+       }
+       else if (progress > (maxValue / 2) && progress < maxValue)
+       {
+           shaker.SetDrinkState(Drink.DrinkState.Mixed);
+       }
+
+       else
+       {
+           shaker.SetDrinkState(Drink.DrinkState.Idle);
+       }
+   
+    }
+    */
 }
