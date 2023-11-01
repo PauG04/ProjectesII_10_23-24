@@ -96,6 +96,8 @@ public class OpenApp : MonoBehaviour
 
         CreateMiniIcon(app.GetComponent<WindowCreation>());
 
+        //app.GetComponent<ReOrderWindows>().OrderGroupLayer(app);
+
         orderTaskBar.enabled = true;
         isCreated = true;
     }

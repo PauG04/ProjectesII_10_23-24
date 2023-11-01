@@ -80,6 +80,11 @@ namespace Windows
 
             windowControl.position = newWindowControlPos;
         }
+        public ReOrderWindows GetOrderWindow()
+        {
+            return GetComponent<ReOrderWindows>();
+
+        }
         public Minimize GetMinimize()
         {
             return minimize;

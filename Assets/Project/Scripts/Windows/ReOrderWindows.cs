@@ -13,7 +13,6 @@ namespace Windows
 
         private void Start()
         {
-            
             listOfWindows = transform.parent.GetComponent<GetListOfWindows>();
             listOfWindows.AddWindowInList(gameObject);
             windows = listOfWindows.GetWindowsList();
@@ -29,7 +28,13 @@ namespace Windows
 
             MoveObjectInZ();
         }
-
+        public void RemoveObjectFromList(GameObject removeObject)
+        {
+            if (windows.Contains(removeObject))
+            {
+                windows.Remove(removeObject);
+            }
+        }
         private void MoveObjectInZ()
         {
             for (int i = 0; i < windows.Count; i++)
@@ -37,5 +42,6 @@ namespace Windows
                 windows[i].transform.position = new Vector3(windows[i].transform.position.x, windows[i].transform.position.y, i);
             }
         }
+        
     }
 }

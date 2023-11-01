@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using Windows;
 
 public class Minimize : MonoBehaviour
 {
-    [SerializeField] private float timeToAppear;
     [SerializeField] private GameObject parentObject;
     [SerializeField] private Close close;
+    [SerializeField] private ReOrderWindows reOrderWindows;
+
+    [SerializeField] private float timeToAppear;
 
     public OpenApp openApp;
     public GameObject icon;
@@ -19,9 +22,12 @@ public class Minimize : MonoBehaviour
 
     private void FixedUpdate()
     {
-        openApp.isOpen = !isMinimize;
-        MoveLerp();
-        MaxMinLerp();
+        if (openApp != null)
+        {
+            openApp.isOpen = !isMinimize;
+            MoveLerp();
+            MaxMinLerp();
+        }
     }
     private void OnMouseDown()
     {
@@ -74,6 +80,7 @@ public class Minimize : MonoBehaviour
     }
     public void SetIsMinimize()
     {
+        reOrderWindows.OrderGroupLayer(parentObject);
         isMoving = true;
         isMinimize = false;
         times = 0;

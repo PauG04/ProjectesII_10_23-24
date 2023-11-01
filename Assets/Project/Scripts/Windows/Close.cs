@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Windows;
 
 public class Close : MonoBehaviour
 {
@@ -9,7 +10,14 @@ public class Close : MonoBehaviour
     public OpenApp openApp;
     public GameObject icon;
 
+    private ReOrderWindows orderWindows;
+
     private bool closeWindow;
+
+    private void Awake()
+    {
+        orderWindows = mainWindow.GetComponent<ReOrderWindows>();
+    }
 
     private void Update()
     {
@@ -19,10 +27,10 @@ public class Close : MonoBehaviour
             openApp.DesactiveApp();
             Destroy(icon);
 
-            if (mainWindow.transform.localScale.x == mainWindow.transform.localScale.x / 2)
+            if (mainWindow.transform.localScale == Vector3.zero)
             {
                 Destroy(mainWindow.gameObject);
-
+                orderWindows.RemoveObjectFromList(mainWindow);
             }
         }
     }

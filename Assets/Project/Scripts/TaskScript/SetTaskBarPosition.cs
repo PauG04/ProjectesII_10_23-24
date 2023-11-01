@@ -13,7 +13,6 @@ public class SetTaskBarPosition : MonoBehaviour
     [SerializeField] private List<GameObject> icon;
     [SerializeField] private int positionIndex;
     [SerializeField] private List<OrderTaskBar> orderTaskBar;
-    private bool refresh;
 
     private void Update()
     {
@@ -23,38 +22,10 @@ public class SetTaskBarPosition : MonoBehaviour
             icon[i].transform.position = positionsIcon[j].transform.position;
             j++;          
        }
-       refresh = false;
     }
-    //public void SetpositionIndex(int index)
-    //{
-    //    positionIndex += index;
-    //}
-    public void SetRefresh()
-    {
-        refresh = true;
-    }
-    //public GameObject[] GetIcon()
-    //{
-    //    return icon;
-    //}
     public List<GameObject> GetList()
     {
         return icon;
     }
-    //public int GetpositionIndex() 
-    //{ 
-    //    return positionIndex; 
-    //}
-    //public void SetCurrentIndex()
-    //{
-    //    for (int i = 0; i < orderTaskBar.Count; i++)
-    //    {
-    //        if (orderTaskBar[i].GetIndex() != 0)
-    //        {
-    //            orderTaskBar[i].SetIndex();
-    //        }
-    //    }
-    //}
-
 }
 
