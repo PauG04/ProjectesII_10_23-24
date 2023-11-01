@@ -156,7 +156,6 @@ GameObject:
   - component: {fileID: 9001802171838284060}
   - component: {fileID: 6758266616337480878}
   - component: {fileID: 7686036943965909811}
-  - component: {fileID: 7873499395591538490}
   m_Layer: 0
   m_Name: LemonIcon
   m_TagString: Untagged
@@ -276,20 +275,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7873499395591538490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3420646032559316575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25de8cf792f54bb45b1d5070aafa64f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  node: {fileID: 11400000, guid: 3a1a03a7f25991e4094186315245193b, type: 2}
-  windowPrefab: {fileID: 8824953779145225685, guid: b0c761d965d98a746b85f681d858f351, type: 3}
 --- !u!1 &3848375411630197317
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +289,7 @@ GameObject:
   - component: {fileID: 5472826401001408232}
   - component: {fileID: 4482601602234829262}
   - component: {fileID: 1075542635326011876}
+  - component: {fileID: 8617320695408642568}
   m_Layer: 0
   m_Name: Bottle
   m_TagString: Untagged
@@ -477,6 +463,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8617320695408642568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848375411630197317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ouncesCounter: {fileID: 0}
+  shaker: {fileID: 0}
+  shakerCollider: {fileID: 0}
 --- !u!1 &6438548962649969893
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +740,6 @@ GameObject:
   - component: {fileID: 8813516385273996332}
   - component: {fileID: 4418725665716025353}
   - component: {fileID: 7094894117372228064}
-  - component: {fileID: 4789752817298137228}
   m_Layer: 0
   m_Name: IceIcon
   m_TagString: Untagged
@@ -859,17 +859,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4789752817298137228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8760151729739929751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25de8cf792f54bb45b1d5070aafa64f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  node: {fileID: 11400000, guid: 6cfb773ac77de7444adec04c36758bac, type: 2}
-  windowPrefab: {fileID: 8824953779145225685, guid: b0c761d965d98a746b85f681d858f351, type: 3}

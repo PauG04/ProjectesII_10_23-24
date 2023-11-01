@@ -755,6 +755,7 @@ GameObject:
   - component: {fileID: 5559240923740047246}
   - component: {fileID: 2608999705031041943}
   - component: {fileID: 1527566560050807773}
+  - component: {fileID: 5281224759276820332}
   m_Layer: 0
   m_Name: Shaker
   m_TagString: Shaker
@@ -941,6 +942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progress: 0
+  shaking: 0
   minimizeBarProgress: 25
   isShakingDown: 0
   sliders:
@@ -954,6 +956,19 @@ MonoBehaviour:
   - {fileID: 1598003408106075782}
   - {fileID: 6792322809179585713}
   - {fileID: 6864688274876695881}
+--- !u!114 &5281224759276820332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766754822652618108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6a1e0a46df52142bbdeafcbba62ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxOunces: 10
 --- !u!1 &6792322809179585713
 GameObject:
   m_ObjectHideFlags: 0
