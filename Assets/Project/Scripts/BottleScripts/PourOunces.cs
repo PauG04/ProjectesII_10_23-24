@@ -38,7 +38,7 @@ public class PourOunces : MonoBehaviour
     {
         if (shaker != null)
         {
-            if (boxCollider.IsTouching(shakerCollider) && bottle.GetCurrentOunces() > 0)
+            if (boxCollider.IsTouching(shakerCollider) && bottle.GetCurrentOunces() > 0 && bottle.GetCurrentOunces() < bottle.GetMaxOunces())
             {
                 drinkInsideShaker.AddOunce(bottle.GetTypeOfOunces()[0]);
                 bottle.SubstractOneOunce();

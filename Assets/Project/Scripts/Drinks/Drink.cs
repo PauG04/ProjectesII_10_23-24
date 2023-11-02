@@ -64,6 +64,10 @@ public class Drink : MonoBehaviour
     {
         return isFull;
     }
+    public int GetMaxOunces()
+    {
+        return maxOunces;
+    }
     #endregion
 
     #region SETTERS
