@@ -9,11 +9,11 @@ public class PourOunces : MonoBehaviour
     //[SerializeField]
     //private OuncesCounter ouncesCounter;
 
-    private Drink shaker;
+    private Drink drinkInsideShaker;
 
     private BoxCollider2D boxCollider;
 
-    private GameObject shakerObject;
+    private GameObject shaker;
 
     [SerializeField]
     private BoxCollider2D shakerCollider;
@@ -24,23 +24,27 @@ public class PourOunces : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();     
     }
 
-    private void Update()
+    private void OnMouseDown()
     {
-        if(shakerObject!= null) 
+        if(GameObject.Find("Shaker") != null) 
         {
-            shakerObject = GameObject.Find("Shaker");
-            shakerCollider = shakerObject.GetComponent<BoxCollider2D>();
-            shaker = shakerObject.GetComponent<Drink>();
+            shaker = GameObject.Find("Shaker");
+            shakerCollider = shaker.GetComponent<BoxCollider2D>();
+            drinkInsideShaker = shaker.GetComponent<Drink>();
         }
     }
 
     private void OnMouseUp()
     {
-        if (boxCollider.IsTouching(shakerCollider) && bottle.GetCurrentOunces() > 0)
+        if (shaker != null)
         {
-            shaker.AddOunce(bottle.GetTypeOfOunces()[0]);
-            bottle.SubstractOneOunce();
-            //ouncesCounter.AddOneToCounter();
+            if (boxCollider.IsTouching(shakerCollider) && bottle.GetCurrentOunces() > 0)
+            {
+                drinkInsideShaker.AddOunce(bottle.GetTypeOfOunces()[0]);
+                bottle.SubstractOneOunce();
+                //ouncesCounter.AddOneToCounter();
+            }
         }
+        
     }
 }

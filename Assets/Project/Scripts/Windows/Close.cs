@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Windows;
 
 public class Close : MonoBehaviour
@@ -24,8 +25,12 @@ public class Close : MonoBehaviour
         if (closeWindow)
         {
             mainWindow.transform.localScale = Vector3.Lerp(mainWindow.transform.localScale, Vector3.zero, Time.deltaTime * speed);
-            openApp.DesactiveApp();
-            Destroy(icon);
+
+            if (icon != null)
+            {
+                openApp.DesactiveApp();
+                Destroy(icon);
+            }
 
             if (mainWindow.transform.localScale == Vector3.zero)
             {
