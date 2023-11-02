@@ -44,7 +44,7 @@ public class Shake : MonoBehaviour
             DirectionShaker();
             IncreaseBar();
             SetVector();
-            //SetShakerStata();
+            SetShakerStata();
             ActiveSlider();
         }    
     }
@@ -109,8 +109,7 @@ public class Shake : MonoBehaviour
             value += maxValue / 10;
         }
     }
-
-    /*
+ 
     private void SetShakerStata()
     {
        if (progress >= maxValue)
@@ -128,5 +127,5 @@ public class Shake : MonoBehaviour
        }
    
     }
-    */
+    
 }

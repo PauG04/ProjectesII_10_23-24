@@ -8,18 +8,11 @@ public class DragAndReturn : MonoBehaviour
 
     private Vector3 offset;
 
-    [SerializeField]
-    private Vector3 initialOffset;
+    [SerializeField] private Vector3 currentWindowPosition;
 
-    [SerializeField]
-    private Transform currentWindowPosition;
-
-    private Rigidbody2D rb;
-
-    private void Awake()
+    private void Start()
     {
-        transform.position = currentWindowPosition.position + initialOffset;
-        rb = GetComponent<Rigidbody2D>();
+        currentWindowPosition = transform.localPosition;
     }
 
     private void Update()
@@ -32,7 +25,7 @@ public class DragAndReturn : MonoBehaviour
 
     private void CalculatePosition()
     {
-        rb.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset);
+        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
     }
 
     private void OnMouseDown()
@@ -43,7 +36,8 @@ public class DragAndReturn : MonoBehaviour
 
     private void OnMouseUp()
     {
-        rb.MovePosition(currentWindowPosition.position + initialOffset);
         dragging = false;
+        transform.localPosition = currentWindowPosition;
     }
 }
+
