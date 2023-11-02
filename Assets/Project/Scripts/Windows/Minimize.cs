@@ -57,7 +57,6 @@ public class Minimize : MonoBehaviour
     { 
         if (isMoving)
         {
-            isMoving = false;
 
             if (!isMinimize && parentObject.transform.position != initialPosition)
             {

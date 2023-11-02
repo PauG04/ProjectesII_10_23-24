@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using Windows;
 
@@ -145,5 +143,11 @@ public class OpenApp : MonoBehaviour
     public Vector3 GetFinalSize()
     {
         return finalSize;
+    }
+
+    public void SetClose()
+    {
+        isOpen = false;
+        isCreated= false;
     }
 }
