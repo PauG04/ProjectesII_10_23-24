@@ -88,7 +88,7 @@ public class Shake : MonoBehaviour
     }
     private void SetVector()
     {
-          shakerPosition = new Vector2(transform.position.x, transform.position.y);
+        shakerPosition = new Vector2(transform.position.x, transform.position.y);
     }
     private void IncreaseBar()
     {
@@ -122,7 +122,17 @@ public class Shake : MonoBehaviour
        {
            shaker.SetDrinkState(Drink.DrinkState.Idle);
        }
-   
     }
-    
+
+    public void ResetShaker()
+    {
+        progress = 0;
+        shaker.SetDrinkState(Drink.DrinkState.Idle);
+        value = maxValue / 10;
+        currentBox = 0;
+        for (int i = 0; i < sliders.Length; i++)
+        {
+            sliders[i].SetActive(false);
+        }
+    }
 }

@@ -69,10 +69,9 @@ public class PourOunces : MonoBehaviour
                     resultDrink.shakerResult.Clear();
                     foreach (TypeOfDrink drink in drinkInsideShaker.GetTypeOfOunces())
                     {
-                        
                         resultDrink.shakerResult.Add(drink);
                     }
-                    
+                    resultDrink.shake = drinkInsideShaker.GetDrinkState();
                 }
             }
         }
