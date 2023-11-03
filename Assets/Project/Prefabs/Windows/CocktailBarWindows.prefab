@@ -173,8 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialOffset: {x: 0, y: 0, z: 0}
-  currentWindowPosition: {fileID: 4105242536068841865}
+  currentWindowPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &4817514811190792068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShaker: 0
+  drinkInsideShaker: {fileID: 0}
   shakerCollider: {fileID: 0}
+  resultDrink: {fileID: 0}
+  resultCollider: {fileID: 0}
 --- !u!1 &1857319194937232649
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,8 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialOffset: {x: 0, y: 0, z: 0}
-  currentWindowPosition: {fileID: 4105242536068841865}
+  currentWindowPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &7011639396792205186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,7 +407,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShaker: 0
+  drinkInsideShaker: {fileID: 0}
   shakerCollider: {fileID: 0}
+  resultDrink: {fileID: 0}
+  resultCollider: {fileID: 0}
 --- !u!1 &1901515427958185559
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,8 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialOffset: {x: 0, y: 0, z: 0}
-  currentWindowPosition: {fileID: 4105242536068841865}
+  currentWindowPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &472020069389809971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,7 +799,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShaker: 0
+  drinkInsideShaker: {fileID: 0}
   shakerCollider: {fileID: 0}
+  resultDrink: {fileID: 0}
+  resultCollider: {fileID: 0}
 --- !u!1 &3177892852963775447
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,8 +977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialOffset: {x: 0, y: 0, z: 0}
-  currentWindowPosition: {fileID: 4105242536068841865}
+  currentWindowPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &4972370620449360451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,7 +1005,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShaker: 0
+  drinkInsideShaker: {fileID: 0}
   shakerCollider: {fileID: 0}
+  resultDrink: {fileID: 0}
+  resultCollider: {fileID: 0}
 --- !u!1 &3244236091766012461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,8 +1183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialOffset: {x: 0, y: 0, z: 0}
-  currentWindowPosition: {fileID: 4105242536068841865}
+  currentWindowPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1135530555174709285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1200,7 +1211,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShaker: 0
+  drinkInsideShaker: {fileID: 0}
   shakerCollider: {fileID: 0}
+  resultDrink: {fileID: 0}
+  resultCollider: {fileID: 0}
 --- !u!1 &3246601418839885220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,8 +1389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialOffset: {x: 0, y: 0, z: 0}
-  currentWindowPosition: {fileID: 4105242536068841865}
+  currentWindowPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &3989270832035239883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1403,7 +1417,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShaker: 0
+  drinkInsideShaker: {fileID: 0}
   shakerCollider: {fileID: 0}
+  resultDrink: {fileID: 0}
+  resultCollider: {fileID: 0}
 --- !u!1 &3420646032559316575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,8 +1725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialOffset: {x: 0, y: 0, z: 0}
-  currentWindowPosition: {fileID: 4105242536068841865}
+  currentWindowPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1287521649059292542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1736,7 +1753,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShaker: 0
+  drinkInsideShaker: {fileID: 0}
   shakerCollider: {fileID: 0}
+  resultDrink: {fileID: 0}
+  resultCollider: {fileID: 0}
 --- !u!1 &3848375411630197317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,8 +1931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialOffset: {x: 0, y: 0, z: 0}
-  currentWindowPosition: {fileID: 4105242536068841865}
+  currentWindowPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &6998445755698605464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1939,7 +1959,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShaker: 0
+  drinkInsideShaker: {fileID: 0}
   shakerCollider: {fileID: 0}
+  resultDrink: {fileID: 0}
+  resultCollider: {fileID: 0}
 --- !u!1 &5910094796722373468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,8 +2137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialOffset: {x: 0, y: 0, z: 0}
-  currentWindowPosition: {fileID: 4105242536068841865}
+  currentWindowPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &3465217286731443863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2142,7 +2165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShaker: 0
+  drinkInsideShaker: {fileID: 0}
   shakerCollider: {fileID: 0}
+  resultDrink: {fileID: 0}
+  resultCollider: {fileID: 0}
 --- !u!1 &6438548962649969893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,6 +2302,7 @@ GameObject:
   - component: {fileID: 4777722168383075612}
   - component: {fileID: 8511658397632038924}
   - component: {fileID: 5414035209580448035}
+  - component: {fileID: 3717039349381885398}
   m_Layer: 0
   m_Name: DecorationIcon
   m_TagString: Untagged
@@ -2394,6 +2422,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3717039349381885398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7946108633992832871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25de8cf792f54bb45b1d5070aafa64f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  node: {fileID: 11400000, guid: 99cc3ccf53111804380645ff945e59dd, type: 2}
+  windowPrefab: {fileID: 8824953779145225685, guid: b0c761d965d98a746b85f681d858f351, type: 3}
 --- !u!1 &8760151729739929751
 GameObject:
   m_ObjectHideFlags: 0
@@ -2697,8 +2739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialOffset: {x: 0, y: 0, z: 0}
-  currentWindowPosition: {fileID: 4105242536068841865}
+  currentWindowPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1784476269526740211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2726,4 +2767,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShaker: 0
+  drinkInsideShaker: {fileID: 0}
   shakerCollider: {fileID: 0}
+  resultDrink: {fileID: 0}
+  resultCollider: {fileID: 0}

@@ -57,22 +57,21 @@ public class Minimize : MonoBehaviour
     { 
         if (isMoving)
         {
-
+            isMoving = false;
             if (!isMinimize && parentObject.transform.position != initialPosition)
             {
                 times += Time.deltaTime;
                 float time = times / timeToAppear;
                 parentObject.transform.position = Vector3.Lerp(parentObject.transform.position, initialPosition, time);
             }
-
-            if (isMinimize && parentObject.transform.localScale != icon.transform.position)
+            if (isMinimize && parentObject.transform.position != initialPosition)
             {
                 times += Time.deltaTime;
                 float time = times / timeToAppear;
                 parentObject.transform.position = Vector3.Lerp(initialPosition, icon.transform.position, time);
             }
         }
-        else
+        if(!isMoving)
         {
             initialPosition = parentObject.transform.position;
         }
