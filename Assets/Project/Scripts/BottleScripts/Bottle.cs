@@ -12,7 +12,6 @@ public class Bottle : Drink
         }
         currentOunces = maxOunces;
         isFull = true;
-
     }
 
     public void RefillOunces()

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class DrinkScript : MonoBehaviour
 {
-    [SerializeField]
-    private bool isMouseNotPressed = true;
+    [SerializeField] private bool isMouseNotPressed = true;
     private void OnMouseUp()
     {
         isMouseNotPressed = true;

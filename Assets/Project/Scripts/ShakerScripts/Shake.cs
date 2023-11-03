@@ -6,21 +6,20 @@ using UnityEngine.UI;
 
 public class Shake : MonoBehaviour
 {
-    [SerializeField]
-    private float progress = 0.0f;
-    Vector2 shakerPosition;
-    Vector2 newShakerPosition;
     [SerializeField] private bool shaking = false;
-    [SerializeField]
-    private float minimizeBarProgress;
-    [SerializeField]
-    private bool isShakingDown;
+    [SerializeField] private float minimizeBarProgress;
+    [SerializeField] private bool isShakingDown;
+    [SerializeField] private float progress = 0.0f;
+    [SerializeField] private GameObject[] sliders;
+
+    private Vector2 shakerPosition;
+    private Vector2 newShakerPosition;
+
     private Drink shaker;
     private DrinkScript drink;
     private PolygonCollider2D polygonCollider2D;
     private GameObject sprite;
-    [SerializeField]
-    private GameObject[] sliders;
+
     private int currentBox = 0;
     private float maxValue = 2;
     private float value;
@@ -66,7 +65,6 @@ public class Shake : MonoBehaviour
         }
 
     }
-
     private void EndClicking()
     {
         if (Input.GetMouseButtonUp(0))
@@ -90,7 +88,7 @@ public class Shake : MonoBehaviour
     }
     private void SetVector()
     {
-          shakerPosition = new Vector2(transform.position.x, transform.position.y);
+        shakerPosition = new Vector2(transform.position.x, transform.position.y);
     }
     private void IncreaseBar()
     {
@@ -120,12 +118,21 @@ public class Shake : MonoBehaviour
        {
            shaker.SetDrinkState(Drink.DrinkState.Mixed);
        }
-
        else
        {
            shaker.SetDrinkState(Drink.DrinkState.Idle);
        }
-   
     }
-    
+
+    public void ResetShaker()
+    {
+        progress = 0;
+        shaker.SetDrinkState(Drink.DrinkState.Idle);
+        value = maxValue / 10;
+        currentBox = 0;
+        for (int i = 0; i < sliders.Length; i++)
+        {
+            sliders[i].SetActive(false);
+        }
+    }
 }

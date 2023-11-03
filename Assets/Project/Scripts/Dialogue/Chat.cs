@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class Chat : MonoBehaviour
 {
+    [SerializeField] private DrinkTaken drinkTaken;
+    [SerializeField] private float maxTime;
+    [SerializeField] private int minTimeBetweenOrder;
+    [SerializeField] private int maxTimeBetweenOrder;
+
     private bool isWorking = true; //esta variable se activa y se desactiva cuando se abre la app de trabajo
     private bool canTakeOrder = false;
-    [SerializeField]
-    private DrinkTaken DrinkTaken;
     private float currentTime = 0.0f;
-    [SerializeField]
-    private float maxTime;
-    [SerializeField]
-    private int minTimeBetweenOrder;
-    [SerializeField]
-    private int maxTimeBetweenOrder;
+
 
     private void Start()
     {
@@ -26,7 +24,7 @@ public class Chat : MonoBehaviour
         {
             TakeOrder();
         }
-        else if (isWorking && DrinkTaken.GetIsDrinkPrepares())
+        else if (isWorking && drinkTaken.GetIsDrinkPrepares())
         {
             Timer();
         }
@@ -34,7 +32,7 @@ public class Chat : MonoBehaviour
 
     private void TakeOrder()
     {
-        DrinkTaken.SetIsDrinkPrepares(false);
+        drinkTaken.SetIsDrinkPrepares(false);
         canTakeOrder = false;
         Debug.Log("I want a Beer");
     }

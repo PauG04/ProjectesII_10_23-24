@@ -39,5 +39,10 @@ public class DragAndReturn : MonoBehaviour
         dragging = false;
         transform.localPosition = currentWindowPosition;
     }
+
+    public bool GetDragging()
+    {
+        return dragging;
+    }
 }
 

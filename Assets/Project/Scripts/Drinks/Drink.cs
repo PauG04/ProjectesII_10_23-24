@@ -47,6 +47,11 @@ public class Drink : MonoBehaviour
         ouncesInDrink = new List<TypeOfDrink>();
     }
 
+    public void ResetDrinks()
+    {
+        ouncesInDrink.Clear();
+    }
+
     #region GETTERS
     public List<TypeOfDrink> GetTypeOfOunces()
     {

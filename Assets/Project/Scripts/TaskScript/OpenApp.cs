@@ -21,6 +21,7 @@ public class OpenApp : MonoBehaviour
     [Header("Windows values")]
     [SerializeField] private WindowNode node;
     [SerializeField] private GameObject windowPrefab;
+    [SerializeField] private ReOrderWindows reOrderWindows;
 
     private GameObject windowGroup;
     private bool isCreated = false;
@@ -92,9 +93,10 @@ public class OpenApp : MonoBehaviour
         app.GetComponent<WindowCreation>().UpdateWindow();
         app.transform.transform.localScale = Vector3.zero;
 
-        CreateMiniIcon(app.GetComponent<WindowCreation>());
+        //reOrderWindows = app.GetComponent<WindowCreation>().GetOrderWindow();
+        //reOrderWindows.OrderGroupLayer(app);
 
-        //app.GetComponent<ReOrderWindows>().OrderGroupLayer(app);
+        CreateMiniIcon(app.GetComponent<WindowCreation>());
 
         orderTaskBar.enabled = true;
         isCreated = true;

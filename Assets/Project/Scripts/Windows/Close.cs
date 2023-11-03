@@ -36,7 +36,10 @@ public class Close : MonoBehaviour
             {
                 Destroy(mainWindow.gameObject);
                 orderWindows.RemoveObjectFromList(mainWindow);
-                openApp.SetClose();
+                if (openApp != null)
+                {
+                    openApp.SetClose();
+                }
             }
         }
     }
