@@ -93,9 +93,6 @@ public class OpenApp : MonoBehaviour
         app.GetComponent<WindowCreation>().UpdateWindow();
         app.transform.transform.localScale = Vector3.zero;
 
-        //reOrderWindows = app.GetComponent<WindowCreation>().GetOrderWindow();
-        //reOrderWindows.OrderGroupLayer(app);
-
         CreateMiniIcon(app.GetComponent<WindowCreation>());
 
         orderTaskBar.enabled = true;
@@ -121,7 +118,7 @@ public class OpenApp : MonoBehaviour
         openMinimizeObj.minimizeWindow = window.GetMinimize();
 
         obj.transform.parent = transform;
-        obj.transform.localScale /= 1.5f;
+        obj.transform.localScale /= 3.5f;
 
         window.GetMinimize().icon = obj;
         window.GetMinimize().openApp = this;

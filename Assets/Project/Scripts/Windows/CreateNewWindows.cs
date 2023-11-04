@@ -23,6 +23,7 @@ namespace Windows
             prefabWindowInstance.transform.parent = windowGroup.transform;
 
             prefabWindowInstance.GetComponent<WindowCreation>().UpdateWindow();
+            prefabWindowInstance.GetComponent<ReOrderWindows>().OrderGroupLayer(prefabWindowInstance);
         }
     }
 }

@@ -8,15 +8,18 @@ namespace Windows
 { 
     public class ReOrderWindows : MonoBehaviour
     {
-        private GetListOfWindows listOfWindows;
-        private List<GameObject> windows;
+        [SerializeField] private GetListOfWindows listOfWindows;
+        [SerializeField] private List<GameObject> windows;
 
         private void Start()
         {
             listOfWindows = transform.parent.GetComponent<GetListOfWindows>();
             listOfWindows.AddWindowInList(gameObject);
-            windows = listOfWindows.GetWindowsList();
             MoveObjectInZ();
+        }
+        private void Update()
+        {
+            windows = listOfWindows.GetWindowsList();
         }
         public void OrderGroupLayer(GameObject pressedObject)
         {
