@@ -7,6 +7,7 @@ using static Drink;
 public class PourOunces : MonoBehaviour
 {
     private Bottle bottle;
+    private SpriteRenderer bottlerRenderer;
     [SerializeField] private BoxCollider2D boxCollider;
 
     //[SerializeField]
@@ -22,11 +23,14 @@ public class PourOunces : MonoBehaviour
     [SerializeField] private ResultDrink resultDrink;
     [SerializeField] private BoxCollider2D resultCollider;
 
+    public Shake shake;
+
     private void Awake()
     {
         if (!isShaker)
         {
             bottle = GetComponent<Bottle>();
+            bottlerRenderer = bottle.GetComponent<SpriteRenderer>();
         }
         boxCollider = GetComponent<BoxCollider2D>();
 
@@ -39,6 +43,7 @@ public class PourOunces : MonoBehaviour
             shaker = GameObject.Find("Shaker");
             shakerCollider = shaker.GetComponent<BoxCollider2D>();
             drinkInsideShaker = shaker.GetComponent<Drink>();
+            shake= shaker.GetComponent<Shake>();
         }
         if(GameObject.Find("Result") != null)
         {
@@ -46,6 +51,11 @@ public class PourOunces : MonoBehaviour
             resultCollider = result.GetComponent<BoxCollider2D>();
             resultDrink = result.GetComponent<ResultDrink>();
         }
+        //if (GameObject.Find("Shake") != null)
+        //{
+        //    shake = GameObject.Find("Shake").GetComponent<Shake>();
+        //}
+            
     }
 
     private void OnMouseUp()
@@ -57,8 +67,10 @@ public class PourOunces : MonoBehaviour
                 if (boxCollider.IsTouching(shakerCollider) && bottle.GetCurrentOunces() > 0)
                 {
                     drinkInsideShaker.AddOunce(bottle.GetTypeOfOunces()[0]);
+                    shake.GetSprite().color = bottlerRenderer.color;
+                    shake.SetIndex();
                     bottle.SubstractOneOunce();
-                    //ouncesCounter.AddOneToCounter();
+
                 }
             }
 

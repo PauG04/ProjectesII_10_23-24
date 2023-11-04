@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,32 +5,57 @@ using UnityEngine.UI;
 
 public class Shake : MonoBehaviour
 {
+    [SerializeField] private float progress = 0.0f;
+
+    Vector3 shakerPosition;
+    Vector3 newShakerPosition;
+    Vector3 oldShakerPosition;
+    Vector3 shakerSize;
+
     [SerializeField] private bool shaking = false;
     [SerializeField] private float minimizeBarProgress;
     [SerializeField] private bool isShakingDown;
-    [SerializeField] private float progress = 0.0f;
-    [SerializeField] private GameObject[] sliders;
-
-    private Vector2 shakerPosition;
-    private Vector2 newShakerPosition;
 
     private Drink shaker;
     private DrinkScript drink;
-    private PolygonCollider2D polygonCollider2D;
-    private GameObject sprite;
+
+    [SerializeField] private GameObject[] sliders;
+    [SerializeField] private SpriteRenderer[] ounce;
 
     private int currentBox = 0;
     private float maxValue = 2;
     private float value;
 
-    private void Start()
+    [SerializeField]
+    private float maxTime = 0;
+    private float time = 0;
+
+    [SerializeField] public CameraShake _camera;
+    [SerializeField] private float shakeIntensity;
+    private Quaternion starterRot;
+
+    [SerializeField] private float maxSize;
+    private int currentSprite = 0;
+
+    private void Awake()
     {
         drink = GetComponent<DrinkScript>();
         shaker = GetComponent<Drink>();
-        sprite = this.transform.parent.gameObject.transform.parent.gameObject.transform.parent.gameObject;
-        sprite = sprite.transform.GetChild(0).gameObject;
-        polygonCollider2D= sprite.GetComponent<PolygonCollider2D>();
+        _camera = CameraShake.FindObjectOfType<CameraShake>();
+        starterRot = transform.rotation;
+        shakerSize = transform.localScale;
+    }
+    private void Start()
+    {
         value = maxValue / 10;
+        shakerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        oldShakerPosition = shakerPosition;
+
+        for (int i = 0; i < ounce.Length; i++)
+        {
+            ounce[i].enabled = true;
+            ounce[i].color = Color.white;
+        }
     }
 
     private void Update()
@@ -42,88 +66,114 @@ public class Shake : MonoBehaviour
         {
             DirectionShaker();
             IncreaseBar();
-            SetVector();
+            MoveShaker();
+            SetShakerPosition();
             SetShakerStata();
             ActiveSlider();
-        }    
+        }
+        else
+        {
+            _camera.SetTransforPosition();
+            StopShaker();
+        }
+        time += Time.deltaTime;
+        if (time >= maxTime)
+        {
+            SetVector();
+            time = 0;
+        }
+
     }
     private void StartClicking()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!drink.GetIsMouseNotPressed() && shakerPosition != transform.position)
+            shaking = true;
+        if(!drink.GetIsMouseNotPressed()) 
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            if (polygonCollider2D.OverlapPoint(mousePosition) || !drink.GetIsMouseNotPressed())
-            {
-                shaking = true;
-                shakerPosition = new Vector2(transform.position.x, transform.position.y);
-            }
-            else
-            {
-                shaking = false;
-            }
+            transform.localScale = new Vector3(shakerSize.x + maxSize, shakerSize.y + maxSize, shakerSize.z);
         }
-
     }
+
     private void EndClicking()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || shakerPosition == transform.position)
         {
             shaking = false;
         }
+        if(Input.GetMouseButtonUp(0))
+        {
+            transform.localScale = shakerSize;
+        }
+    }
+
+    private void MoveShaker()
+    {
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + Random.Range(-shakeIntensity, shakeIntensity));
+    }
+
+    private void StopShaker()
+    {
+        transform.rotation = starterRot;
     }
 
     private void DirectionShaker()
     {
-        newShakerPosition = new Vector2(transform.position.x, transform.position.y);
-        if (shakerPosition.y >= newShakerPosition.y)
+        newShakerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        if (oldShakerPosition.y >= newShakerPosition.y)
         {
             isShakingDown = true;
-        }         
-        else if(shakerPosition.y <= newShakerPosition.y)
+        }
+        else if (oldShakerPosition.y <= newShakerPosition.y)
         {
             isShakingDown = false;
         }
-           
+
     }
     private void SetVector()
     {
-        shakerPosition = new Vector2(transform.position.x, transform.position.y);
+        shakerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
+    private void SetShakerPosition()
+    {
+        oldShakerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+    }
+
     private void IncreaseBar()
     {
-        if(isShakingDown)
-            progress += (shakerPosition.y - newShakerPosition.y) / minimizeBarProgress;
+        if (isShakingDown)
+            progress += (oldShakerPosition.y - newShakerPosition.y) / minimizeBarProgress;
         else
-            progress += -(shakerPosition.y - newShakerPosition.y) / minimizeBarProgress;
+            progress += -(oldShakerPosition.y - newShakerPosition.y) / minimizeBarProgress;
+        _camera.ShakeCamera((oldShakerPosition.y - newShakerPosition.y)*6);
     }
 
     private void ActiveSlider()
     {
-        if(progress >= value)
+        if (progress >= value)
         {
             sliders[currentBox].SetActive(true);
             currentBox++;
             value += maxValue / 10;
         }
     }
- 
+
     private void SetShakerStata()
     {
-       if (progress >= maxValue)
-       {
-           shaker.SetDrinkState(Drink.DrinkState.Shaked);
-       }
-       else if (progress > (maxValue / 2) && progress < maxValue)
-       {
-           shaker.SetDrinkState(Drink.DrinkState.Mixed);
-       }
-       else
-       {
-           shaker.SetDrinkState(Drink.DrinkState.Idle);
-       }
-    }
+        if (progress >= maxValue)
+        {
+            shaker.SetDrinkState(Drink.DrinkState.Shaked);
+        }
+        else if (progress > (maxValue / 2) && progress < maxValue)
+        {
+            shaker.SetDrinkState(Drink.DrinkState.Mixed);
+        }
 
+        else
+        {
+            shaker.SetDrinkState(Drink.DrinkState.Idle);
+        }
+
+    }
     public void ResetShaker()
     {
         progress = 0;
@@ -134,5 +184,20 @@ public class Shake : MonoBehaviour
         {
             sliders[i].SetActive(false);
         }
+        for (int i = 0; i < ounce.Length; i++)
+        {
+            ounce[i].color = Color.white;
+        }
+        currentSprite = 0;
+    }
+
+    public SpriteRenderer GetSprite()
+    {
+        return ounce[currentSprite];
+    }
+
+    public void SetIndex()
+    {
+        currentSprite++;
     }
 }

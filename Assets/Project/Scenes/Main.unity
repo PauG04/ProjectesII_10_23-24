@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 2111570755}
   - component: {fileID: 2111570759}
   - component: {fileID: 2111570758}
+  - component: {fileID: 2111570760}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -447,6 +448,23 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &2111570760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111570754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcae6d947166e60419e6e06441db7ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeIntensity: 0.2
+  EarthIntensity: 0
+  shakeTime: 0.5
+  timer: 0
+  shakeCamera: 0
 --- !u!4 &286448414516575675
 Transform:
   m_ObjectHideFlags: 0
@@ -653,6 +671,7 @@ MonoBehaviour:
   isOpen: 0
   node: {fileID: 11400000, guid: 56b84e220e53d564cba2793fa81b085a, type: 2}
   windowPrefab: {fileID: 8824953779145225685, guid: b0c761d965d98a746b85f681d858f351, type: 3}
+  reOrderWindows: {fileID: 0}
 --- !u!4 &4610056627542426363
 Transform:
   m_ObjectHideFlags: 0
@@ -856,6 +875,7 @@ MonoBehaviour:
   isOpen: 0
   node: {fileID: 11400000, guid: 3382aeb1e550ba84f87772cc32d9e610, type: 2}
   windowPrefab: {fileID: 8824953779145225685, guid: b0c761d965d98a746b85f681d858f351, type: 3}
+  reOrderWindows: {fileID: 0}
 --- !u!1 &7495759430662350300
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,3 +959,4 @@ MonoBehaviour:
   isOpen: 0
   node: {fileID: 11400000, guid: 56b84e220e53d564cba2793fa81b085a, type: 2}
   windowPrefab: {fileID: 8824953779145225685, guid: b0c761d965d98a746b85f681d858f351, type: 3}
+  reOrderWindows: {fileID: 0}
