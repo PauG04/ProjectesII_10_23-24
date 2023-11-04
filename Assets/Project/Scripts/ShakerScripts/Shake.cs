@@ -20,8 +20,9 @@ public class Shake : MonoBehaviour
     private DrinkScript drink;
 
     [SerializeField] private GameObject[] sliders;
-    public SpriteRenderer[] slidersSprite;
-    [SerializeField] private SpriteRenderer[] ounce;
+    private SpriteRenderer[] slidersSprite;
+    [SerializeField] private GameObject[] ounce;
+    [SerializeField] private SpriteRenderer[] ounceSpriter;
 
     private int currentBox = 0;
     private float maxValue = 2;
@@ -65,10 +66,10 @@ public class Shake : MonoBehaviour
         shakerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         oldShakerPosition = shakerPosition;
 
-        for (int i = 0; i < ounce.Length; i++)
+        for (int i = 0; i < ounceSpriter.Length; i++)
         {
-            ounce[i].enabled = true;
-            ounce[i].color = Color.white;
+            ounceSpriter[i].enabled = true;
+            ounceSpriter[i].color = Color.white;
 
         }
 
@@ -247,9 +248,10 @@ public class Shake : MonoBehaviour
             sliders[i].SetActive(false);
             slidersSprite[i].color = new Color(255, 250, 250, 255);
         }
-        for (int i = 0; i < ounce.Length; i++)
+        for (int i = 0; i < ounceSpriter.Length; i++)
         {
-            ounce[i].color = Color.white;
+            ounceSpriter[i].color = Color.white;
+            ounce[i].SetActive(false);
         }
         currentSprite = 0;
         g = 1;
@@ -258,7 +260,8 @@ public class Shake : MonoBehaviour
 
     public SpriteRenderer GetSprite()
     {
-        return ounce[currentSprite];
+        ounce[currentSprite].SetActive(true);
+        return ounceSpriter[currentSprite];
     }
 
     public void SetIndex()
