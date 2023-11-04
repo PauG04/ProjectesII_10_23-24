@@ -23,7 +23,10 @@ public class PourOunces : MonoBehaviour
     [SerializeField] private ResultDrink resultDrink;
     [SerializeField] private BoxCollider2D resultCollider;
 
-    public Shake shake;
+    private Shake shake;
+    private CloseShaker close;
+    private GameObject closeButton;
+
 
     private void Awake()
     {
@@ -51,18 +54,19 @@ public class PourOunces : MonoBehaviour
             resultCollider = result.GetComponent<BoxCollider2D>();
             resultDrink = result.GetComponent<ResultDrink>();
         }
-        //if (GameObject.Find("Shake") != null)
-        //{
-        //    shake = GameObject.Find("Shake").GetComponent<Shake>();
-        //}
+        if(GameObject.Find("CloseShaker") != null)
+        {
+            closeButton = GameObject.Find("CloseShaker");
+            close = closeButton.GetComponent<CloseShaker>();
+        }
             
     }
 
     private void OnMouseUp()
     {
-        if (shaker != null)
+        if (shaker != null && !close.GetClose())
         {
-            if (!isShaker)
+            if (!isShaker && shake.GetProgres() == 0)
             {
                 if (boxCollider.IsTouching(shakerCollider) && bottle.GetCurrentOunces() > 0)
                 {

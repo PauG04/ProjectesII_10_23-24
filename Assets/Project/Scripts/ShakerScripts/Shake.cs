@@ -52,6 +52,8 @@ public class Shake : MonoBehaviour
     [SerializeField] private float g;
     [SerializeField] private float b;
 
+    [SerializeField] CloseShaker close;
+
     private void Awake()
     {
         drink = GetComponent<DrinkScript>();
@@ -90,49 +92,57 @@ public class Shake : MonoBehaviour
 
     private void Update()
     {
-        StartClicking();
-        EndClicking();
-        if (shaking && progress <= maxValue)
+        if (close.GetClose())
         {
-            DirectionShaker();
-            IncreaseBar();
-            MoveShaker();
-            SetShakerPosition();
-            SetShakerStata();
-            ActiveSlider();
+            StartClicking();
+            EndClicking();
+            if (shaking && progress <= maxValue)
+            {
+                DirectionShaker();
+                IncreaseBar();
+                MoveShaker();
+                SetShakerPosition();
+                SetShakerStata();
+                ActiveSlider();
+            }
+            else
+            {
+                _camera.SetTransforPosition();
+                StopShaker();
+            }
+            time += Time.deltaTime;
+            if (time >= maxTime)
+            {
+                SetVector();
+                time = 0;
+            }
+            if (showMesage)
+            {
+                shakeMesage.transform.localScale = Vector3.Lerp(shakeMesage.transform.localScale, shakeScale, 3 * Time.deltaTime);
+                arrow.transform.localScale = Vector3.Lerp(shakeMesage.transform.localScale, arrowScale, 3 * Time.deltaTime);
+
+            }
+            if (!showMesage)
+            {
+                shakeMesage.transform.localScale = Vector3.Lerp(shakeMesage.transform.localScale, new Vector3(0, 0, 0), 3 * Time.deltaTime);
+                arrow.transform.localScale = Vector3.Lerp(shakeMesage.transform.localScale, new Vector3(0, 0, 0), 3 * Time.deltaTime);
+            }
+            if (shakeMesage.transform.localScale.x >= shakeScale.x - 0.2 && arrow.transform.localScale.x >= arrowScale.x - 0.2)
+            {
+                timer += Time.deltaTime;
+
+                if (timer >= 0.6)
+                {
+                    showMesage = false;
+                    timer = 0;
+                }
+
+            }
         }
         else
         {
-            _camera.SetTransforPosition();
-            StopShaker();
-        }
-        time += Time.deltaTime;
-        if (time >= maxTime)
-        {
-            SetVector();
-            time = 0;
-        }
-        if(showMesage)
-        {
-            shakeMesage.transform.localScale = Vector3.Lerp(shakeMesage.transform.localScale, shakeScale, 3* Time.deltaTime);
-            arrow.transform.localScale = Vector3.Lerp(shakeMesage.transform.localScale, arrowScale, 3*Time.deltaTime);
-            
-        }
-        if(!showMesage)
-        {
             shakeMesage.transform.localScale = Vector3.Lerp(shakeMesage.transform.localScale, new Vector3(0, 0, 0), 3 * Time.deltaTime);
             arrow.transform.localScale = Vector3.Lerp(shakeMesage.transform.localScale, new Vector3(0, 0, 0), 3 * Time.deltaTime);
-        }
-        if (shakeMesage.transform.localScale.x >= shakeScale.x - 0.2 && arrow.transform.localScale.x >= arrowScale.x - 0.2)
-        {
-            timer += Time.deltaTime;
-
-            if (timer >= 0.6)
-            {
-                showMesage = false;
-                timer = 0;
-            }
-
         }
 
     }
@@ -267,5 +277,10 @@ public class Shake : MonoBehaviour
     public void SetIndex()
     {
         currentSprite++;
+    }
+
+    public float GetProgres()
+    {
+        return progress;
     }
 }
