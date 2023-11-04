@@ -131,7 +131,7 @@ public class Shake : MonoBehaviour
             {
                 timer += Time.deltaTime;
 
-                if (timer >= 0.6)
+                if (timer >= 1)
                 {
                     showMesage = false;
                     timer = 0;
