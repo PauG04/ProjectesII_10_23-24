@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Bottle : Drink
 {
-    private void Start()
+    private LiquidAnimation liquidAnimation;
+
+    private void Awake()
     {
         for (int i = 0; i < maxOunces; i++)
         {
@@ -12,6 +14,8 @@ public class Bottle : Drink
         }
         currentOunces = maxOunces;
         isFull = true;
+
+        liquidAnimation = GetComponentInChildren<LiquidAnimation>();
     }
 
     public void RefillOunces()
@@ -22,5 +26,6 @@ public class Bottle : Drink
     public void SubstractOneOunce()
     {
         currentOunces--;
+        liquidAnimation.SetAnimation(currentOunces);
     }
 }

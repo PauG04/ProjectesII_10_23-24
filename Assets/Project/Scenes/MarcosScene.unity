@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 413724026}
   - component: {fileID: 413724029}
   - component: {fileID: 413724030}
+  - component: {fileID: 413724031}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -449,6 +450,23 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &413724031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413724025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcae6d947166e60419e6e06441db7ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeIntensity: 3
+  EarthIntensity: 0
+  shakeTime: 0.5
+  timer: 0
+  shakeCamera: 0
 --- !u!1 &540435620
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,9 +710,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progress: 0
+  shaking: 0
   minimizeBarProgress: 40
   isShakingDown: 0
   sliders: []
+  ounce: []
+  maxTime: 0
+  _camera: {fileID: 413724031}
+  shakeIntensity: 3
+  maxSize: 0
+  arrow: {fileID: 0}
+  shakeMesage: {fileID: 0}
 --- !u!50 &1179833002
 Rigidbody2D:
   serializedVersion: 4
@@ -1121,8 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialOffset: {x: 0, y: 0, z: 0}
-  currentWindowPosition: {fileID: 1179832999}
+  currentWindowPosition: {x: 0, y: 0, z: 0}
 --- !u!50 &1999901383
 Rigidbody2D:
   serializedVersion: 4
