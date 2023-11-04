@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.025, y: -0.035}
+  m_Offset: {x: 0.0325, y: -0.0175}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05}
+  m_Size: {x: 0.035, y: 0.035}
   m_EdgeRadius: 0
 --- !u!114 &8922566946148905490
 MonoBehaviour:
@@ -161,7 +161,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.025, y: -0.035}
+  m_Offset: {x: -0.0075, y: -0.0175}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -172,7 +172,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05}
+  m_Size: {x: 0.035, y: 0.035}
   m_EdgeRadius: 0
 --- !u!114 &1267801355522814435
 MonoBehaviour:
@@ -217,7 +217,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5957786186514298116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.03, z: 0}
+  m_LocalPosition: {x: 0, y: 0.015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -311,9 +311,9 @@ PolygonCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.16, y: 0.16, z: 0.16, w: 0.16}
+    border: {x: 0.08, y: 0.08, z: 0.08, w: 0.08}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
@@ -321,14 +321,14 @@ PolygonCollider2D:
   m_AutoTiling: 1
   m_Points:
     m_Paths:
-    - - {x: -0.32, y: 0.32}
-      - {x: -0.32, y: -0.32}
-      - {x: 0.32, y: -0.32}
-      - {x: 0.32, y: 0.32}
-    - - {x: -0.31, y: 0.25}
-      - {x: 0.31, y: 0.25}
-      - {x: 0.31, y: -0.31}
-      - {x: -0.31, y: -0.31}
+    - - {x: -0.16, y: 0.16}
+      - {x: -0.16, y: -0.16}
+      - {x: 0.16, y: -0.16}
+      - {x: 0.16, y: 0.16}
+    - - {x: -0.155, y: 0.125}
+      - {x: 0.155, y: 0.125}
+      - {x: 0.155, y: -0.155}
+      - {x: -0.155, y: -0.155}
   m_UseDelaunayMesh: 0
 --- !u!114 &3625790353009508129
 MonoBehaviour:
@@ -434,6 +434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be342f186d24cd2409f8394fe033fa19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listOfWindows: {fileID: 0}
+  windows: []
 --- !u!114 &8684515590828683249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,8 +449,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 11400000, guid: 99cc3ccf53111804380645ff945e59dd, type: 2}
-  offsetWidth: 0.02
-  offsetHeight: 0.08
+  offsetWidth: 0.01
+  offsetHeight: 0.04
   windowControl: {fileID: 4616668988803339063}
   minimize: {fileID: 8922566946148905490}
   close: {fileID: 1267801355522814435}
