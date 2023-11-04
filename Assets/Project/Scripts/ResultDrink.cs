@@ -7,14 +7,13 @@ using static Drink;
 
 public class ResultDrink : MonoBehaviour
 {
-
     [Header("Shaker")]
     public List<TypeOfDrink> shakerResult;
     public DrinkState shake;
     private int shakerPreviousDrinks;
 
     [Header("Drinks Inside")]
-    [SerializeField] private TextMeshPro text;
+    [SerializeField] private TextMeshPro textMeshPro;
 
     [SerializeField] private bool listChanged;
 
@@ -44,37 +43,37 @@ public class ResultDrink : MonoBehaviour
         {
             if (gin == 2 && tonic == 4)
             {
-                text.text = "Gin Tonic";
+                textMeshPro.text = "Gin Tonic";
             }
             else if (rum == 2 && cola == 4)
             {
-                text.text = "Ron Cola";
+                textMeshPro.text = "Ron Cola";
             }
             else if (whiskey == 2)
             {
-                text.text = "Old Fashioned";
+                textMeshPro.text = "Old Fashioned";
             }
         }
         if (shake == DrinkState.Mixed)
         {
             if (gin == 2 && tonic == 4)
             {
-                text.text = "Gin Tonic Mixed";
+                textMeshPro.text = "Gin Tonic Mixed";
             }
             if (rum == 2 && lemonJuice == 2 && soda == 4)
             {
-                text.text = "Mojito";
+                textMeshPro.text = "Mojito";
             }
         }
         if (shake == DrinkState.Shaked)
         {
             if (gin == 2 && tonic == 4)
             {
-                text.text = "Gin Tonic Shaked";
+                textMeshPro.text = "Gin Tonic Shaked";
             }
             if (tequila == 2 && lemonJuice == 2 && vodka == 2)
             {
-                text.text = "Margarita";
+                textMeshPro.text = "Margarita";
             }
         }
     }
@@ -94,4 +93,15 @@ public class ResultDrink : MonoBehaviour
 
         shakerPreviousDrinks = shakerResult.Count();
     }
+}
+
+public enum TypeOfCocktail
+{
+    Empty,
+    GinTonic,
+    RonCola,
+    OldFashioned,
+    Mojito,
+    Margarita,
+    SexOnTheBeach
 }
