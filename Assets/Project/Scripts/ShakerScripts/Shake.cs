@@ -20,6 +20,7 @@ public class Shake : MonoBehaviour
     private DrinkScript drink;
 
     [SerializeField] private GameObject[] sliders;
+    public SpriteRenderer[] slidersSprite;
     [SerializeField] private SpriteRenderer[] ounce;
 
     private int currentBox = 0;
@@ -36,6 +37,19 @@ public class Shake : MonoBehaviour
 
     [SerializeField] private float maxSize;
     private int currentSprite = 0;
+
+    [SerializeField] private GameObject arrow;
+    [SerializeField] private GameObject shakeMesage;
+    Vector3 arrowScale;
+    Vector3 shakeScale;
+    private bool showMesage;
+    private bool justOneTime;
+    private float timer = 0;
+    private float currentColor;
+
+    [SerializeField] private float r;
+    [SerializeField] private float g;
+    [SerializeField] private float b;
 
     private void Awake()
     {
@@ -55,7 +69,22 @@ public class Shake : MonoBehaviour
         {
             ounce[i].enabled = true;
             ounce[i].color = Color.white;
+
         }
+
+        slidersSprite = new SpriteRenderer[10];
+
+        for(int i = 0; i < sliders.Length; i++)
+        {
+            slidersSprite[i] = sliders[i].GetComponent<SpriteRenderer>();
+            slidersSprite[i].color = new Color(255,255,255,255);
+        }
+
+        arrowScale = arrow.transform.localScale;
+        shakeScale = shakeMesage.transform.localScale;
+        arrow.transform.localScale = new Vector3(0, 0, 0);
+        shakeMesage.transform.localScale = new Vector3(0, 0, 0);
+        currentColor = 0;
     }
 
     private void Update()
@@ -82,6 +111,28 @@ public class Shake : MonoBehaviour
             SetVector();
             time = 0;
         }
+        if(showMesage)
+        {
+            shakeMesage.transform.localScale = Vector3.Lerp(shakeMesage.transform.localScale, shakeScale, 3* Time.deltaTime);
+            arrow.transform.localScale = Vector3.Lerp(shakeMesage.transform.localScale, arrowScale, 3*Time.deltaTime);
+            
+        }
+        if(!showMesage)
+        {
+            shakeMesage.transform.localScale = Vector3.Lerp(shakeMesage.transform.localScale, new Vector3(0, 0, 0), 3 * Time.deltaTime);
+            arrow.transform.localScale = Vector3.Lerp(shakeMesage.transform.localScale, new Vector3(0, 0, 0), 3 * Time.deltaTime);
+        }
+        if (shakeMesage.transform.localScale.x >= shakeScale.x - 0.2 && arrow.transform.localScale.x >= arrowScale.x - 0.2)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= 0.6)
+            {
+                showMesage = false;
+                timer = 0;
+            }
+
+        }
 
     }
     private void StartClicking()
@@ -91,6 +142,11 @@ public class Shake : MonoBehaviour
         if(!drink.GetIsMouseNotPressed()) 
         {
             transform.localScale = new Vector3(shakerSize.x + maxSize, shakerSize.y + maxSize, shakerSize.z);
+            if(!justOneTime)
+            {
+                justOneTime = true;
+                showMesage = true;
+            }
         }
     }
 
@@ -103,11 +159,14 @@ public class Shake : MonoBehaviour
         if(Input.GetMouseButtonUp(0))
         {
             transform.localScale = shakerSize;
+            showMesage = false;
+            justOneTime = false;
         }
     }
 
     private void MoveShaker()
     {
+        shakeIntensity = 1.5f+ ((oldShakerPosition.y - newShakerPosition.y) * 300.0f);
         transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + Random.Range(-shakeIntensity, shakeIntensity));
     }
 
@@ -149,9 +208,12 @@ public class Shake : MonoBehaviour
 
     private void ActiveSlider()
     {
+
         if (progress >= value)
         {
             sliders[currentBox].SetActive(true);
+            slidersSprite[currentBox].color = new Color(r,g, b);
+            g -= 0.1f;
             currentBox++;
             value += maxValue / 10;
         }
@@ -183,12 +245,15 @@ public class Shake : MonoBehaviour
         for (int i = 0; i < sliders.Length; i++)
         {
             sliders[i].SetActive(false);
+            slidersSprite[i].color = new Color(255, 250, 250, 255);
         }
         for (int i = 0; i < ounce.Length; i++)
         {
             ounce[i].color = Color.white;
         }
         currentSprite = 0;
+        g = 1;
+        currentColor = 0;
     }
 
     public SpriteRenderer GetSprite()
