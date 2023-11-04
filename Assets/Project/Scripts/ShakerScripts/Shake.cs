@@ -131,7 +131,7 @@ public class Shake : MonoBehaviour
             {
                 timer += Time.deltaTime;
 
-                if (timer >= 1)
+                if (timer >= 2)
                 {
                     showMesage = false;
                     timer = 0;
@@ -214,7 +214,7 @@ public class Shake : MonoBehaviour
             progress += (oldShakerPosition.y - newShakerPosition.y) / minimizeBarProgress;
         else
             progress += -(oldShakerPosition.y - newShakerPosition.y) / minimizeBarProgress;
-        _camera.ShakeCamera((oldShakerPosition.y - newShakerPosition.y)*6);
+        _camera.ShakeCamera((oldShakerPosition.y - newShakerPosition.y)*1f);
     }
 
     private void ActiveSlider()
