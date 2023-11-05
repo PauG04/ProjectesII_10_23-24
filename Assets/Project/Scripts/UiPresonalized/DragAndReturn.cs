@@ -44,5 +44,10 @@ public class DragAndReturn : MonoBehaviour
     {
         return dragging;
     }
+
+    public Vector3 GetPosition()
+    {
+        return currentWindowPosition;
+    }
 }
 

@@ -1096,6 +1096,10 @@ PrefabInstance:
       propertyPath: bottlerRenderer
       value: 
       objectReference: {fileID: 3734825504565887083}
+    - target: {fileID: 2583816783164801079, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_Color.b
       value: 0.46226418
@@ -1175,7 +1179,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1065253885232864489}
   m_SourcePrefab: {fileID: 100100000, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
 --- !u!212 &3734825504565887083 stripped
 SpriteRenderer:
@@ -1187,6 +1194,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
   m_PrefabInstance: {fileID: 379260339216064521}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8206441690829107195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+  m_PrefabInstance: {fileID: 379260339216064521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1065253885232864489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206441690829107195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17da644ed715e5b47a060d2387680530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaker: {fileID: 0}
+  distance: {x: 0, y: 0, z: 0}
 --- !u!1001 &755167042469866072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1214,6 +1240,10 @@ PrefabInstance:
     - target: {fileID: 2583816783164801079, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583816783164801079, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_Color.b
@@ -1261,15 +1291,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1290,7 +1320,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3437276239674695017}
   m_SourcePrefab: {fileID: 100100000, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
 --- !u!212 &4390243459040643642 stripped
 SpriteRenderer:
@@ -1302,6 +1335,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
   m_PrefabInstance: {fileID: 755167042469866072}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9140794403876677034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+  m_PrefabInstance: {fileID: 755167042469866072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3437276239674695017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9140794403876677034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17da644ed715e5b47a060d2387680530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaker: {fileID: 0}
+  distance: {x: 0, y: 0, z: 0}
 --- !u!1001 &1026210073077666239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1313,7 +1365,11 @@ PrefabInstance:
     - target: {fileID: 992457215909980819, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: bottlerRenderer
       value: 
-      objectReference: {fileID: 3307431252621250952}
+      objectReference: {fileID: 4083207786515591645}
+    - target: {fileID: 2583816783164801079, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_Color.b
       value: 0.972549
@@ -1397,11 +1453,14 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3845055254505256548}
   m_SourcePrefab: {fileID: 100100000, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
---- !u!212 &3307431252621250952 stripped
+--- !u!212 &4083207786515591645 stripped
 SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2583816783164801079, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
   m_PrefabInstance: {fileID: 1026210073077666239}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7230979742401381425 stripped
@@ -1409,6 +1468,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
   m_PrefabInstance: {fileID: 1026210073077666239}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8835377369158377037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+  m_PrefabInstance: {fileID: 1026210073077666239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3845055254505256548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835377369158377037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17da644ed715e5b47a060d2387680530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaker: {fileID: 0}
+  distance: {x: 0, y: 0, z: 0}
 --- !u!1001 &1128466220346466360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1421,6 +1499,10 @@ PrefabInstance:
       propertyPath: bottlerRenderer
       value: 
       objectReference: {fileID: 4124942436946493530}
+    - target: {fileID: 2583816783164801079, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -1500,7 +1582,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4471051069133618307}
   m_SourcePrefab: {fileID: 100100000, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
 --- !u!212 &4124942436946493530 stripped
 SpriteRenderer:
@@ -1512,6 +1597,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
   m_PrefabInstance: {fileID: 1128466220346466360}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8865716797652496330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+  m_PrefabInstance: {fileID: 1128466220346466360}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4471051069133618307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865716797652496330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17da644ed715e5b47a060d2387680530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaker: {fileID: 0}
+  distance: {x: 0, y: 0, z: 0}
 --- !u!1001 &2417921277153853498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1524,6 +1628,10 @@ PrefabInstance:
       propertyPath: bottlerRenderer
       value: 
       objectReference: {fileID: 1664517468468240472}
+    - target: {fileID: 2583816783164801079, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_Color.b
       value: 0.9716981
@@ -1603,7 +1711,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 689446669292065108}
   m_SourcePrefab: {fileID: 100100000, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
 --- !u!212 &1664517468468240472 stripped
 SpriteRenderer:
@@ -1615,6 +1726,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
   m_PrefabInstance: {fileID: 2417921277153853498}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6137960918426865608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+  m_PrefabInstance: {fileID: 2417921277153853498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &689446669292065108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6137960918426865608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17da644ed715e5b47a060d2387680530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaker: {fileID: 0}
+  distance: {x: 0, y: 0, z: 0}
 --- !u!1001 &2603409175587349487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1627,6 +1757,10 @@ PrefabInstance:
       propertyPath: bottlerRenderer
       value: 
       objectReference: {fileID: 1348416444874245005}
+    - target: {fileID: 2583816783164801079, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_Color.b
       value: 0.4662159
@@ -1706,7 +1840,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7658400424674163552}
   m_SourcePrefab: {fileID: 100100000, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
 --- !u!212 &1348416444874245005 stripped
 SpriteRenderer:
@@ -1718,6 +1855,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
   m_PrefabInstance: {fileID: 2603409175587349487}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5801039437436382237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+  m_PrefabInstance: {fileID: 2603409175587349487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7658400424674163552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5801039437436382237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17da644ed715e5b47a060d2387680530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaker: {fileID: 0}
+  distance: {x: 0, y: 0, z: 0}
 --- !u!1001 &3236704888936527166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1730,6 +1886,10 @@ PrefabInstance:
       propertyPath: bottlerRenderer
       value: 
       objectReference: {fileID: 1908601227754788188}
+    - target: {fileID: 2583816783164801079, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -1809,7 +1969,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1689112506194878979}
   m_SourcePrefab: {fileID: 100100000, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
 --- !u!212 &1908601227754788188 stripped
 SpriteRenderer:
@@ -1821,6 +1984,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
   m_PrefabInstance: {fileID: 3236704888936527166}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6362268553958783692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+  m_PrefabInstance: {fileID: 3236704888936527166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1689112506194878979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6362268553958783692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17da644ed715e5b47a060d2387680530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaker: {fileID: 0}
+  distance: {x: 0, y: 0, z: 0}
 --- !u!1001 &3543713139872223876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1833,6 +2015,10 @@ PrefabInstance:
       propertyPath: bottlerRenderer
       value: 
       objectReference: {fileID: 556879642235106022}
+    - target: {fileID: 2583816783164801079, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_Color.b
       value: 0.3504361
@@ -1912,13 +2098,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7054640482341309159}
   m_SourcePrefab: {fileID: 100100000, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
 --- !u!212 &556879642235106022 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
   m_PrefabInstance: {fileID: 3543713139872223876}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5011811680082648438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+  m_PrefabInstance: {fileID: 3543713139872223876}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7054640482341309159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011811680082648438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17da644ed715e5b47a060d2387680530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaker: {fileID: 0}
+  distance: {x: 0, y: 0, z: 0}
 --- !u!4 &6577930633160312586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
@@ -1936,6 +2144,10 @@ PrefabInstance:
       propertyPath: bottlerRenderer
       value: 
       objectReference: {fileID: 8682935706836374251}
+    - target: {fileID: 2583816783164801079, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_Color.b
       value: 0.70737666
@@ -2015,13 +2227,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6727805959867218759}
   m_SourcePrefab: {fileID: 100100000, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
 --- !u!4 &2633499810169497351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
   m_PrefabInstance: {fileID: 5685899273614373513}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4199636595959315835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+  m_PrefabInstance: {fileID: 5685899273614373513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6727805959867218759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4199636595959315835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17da644ed715e5b47a060d2387680530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaker: {fileID: 0}
+  distance: {x: 0, y: 0, z: 0}
 --- !u!212 &8682935706836374251 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
@@ -2039,6 +2273,10 @@ PrefabInstance:
       propertyPath: bottlerRenderer
       value: 
       objectReference: {fileID: 6319460233654692239}
+    - target: {fileID: 2583816783164801079, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
       propertyPath: m_Color.b
       value: 0.41714135
@@ -2118,13 +2356,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1509495358997039691}
   m_SourcePrefab: {fileID: 100100000, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
 --- !u!4 &810882691805109347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7666337525326779790, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
   m_PrefabInstance: {fileID: 6999887806312466925}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1550606783374607903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8403792187389448178, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
+  m_PrefabInstance: {fileID: 6999887806312466925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1509495358997039691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550606783374607903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17da644ed715e5b47a060d2387680530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaker: {fileID: 0}
+  distance: {x: 0, y: 0, z: 0}
 --- !u!212 &6319460233654692239 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3933792324028866658, guid: 1e033d487ceda184c842ae7dbeed9f3c, type: 3}
