@@ -7,91 +7,102 @@ using static Drink;
 
 public class ResultDrink : MonoBehaviour
 {
+    [Header("Result")]
+    public TypeOfCocktail result;
+
     [Header("Shaker")]
-    public List<TypeOfDrink> shakerResult;
-    public DrinkState shake;
+    public DrinkState shakeState;
+    [SerializeField] private TextMeshPro textMeshPro;
     private int shakerPreviousDrinks;
 
     [Header("Drinks Inside")]
-    [SerializeField] private TextMeshPro textMeshPro;
-
-    [SerializeField] private bool listChanged;
+    public List<TypeOfDrink> drinksInside;
+    private bool listChanged;
 
     #region Drinks
-    [SerializeField] private int rum;
-    [SerializeField] private int gin;
-    [SerializeField] private int vodka;
-    [SerializeField] private int whiskey;
-    [SerializeField] private int tequila;
-    [SerializeField] private int orangeJuice;
-    [SerializeField] private int lemonJuice;
-    [SerializeField] private int cola;
-    [SerializeField] private int soda;
-    [SerializeField] private int tonic;
+    private int rum;
+    private int gin;
+    private int vodka;
+    private int whiskey;
+    private int tequila;
+    private int orangeJuice;
+    private int lemonJuice;
+    private int cola;
+    private int soda;
+    private int tonic;
     #endregion
 
     private void Update()
     {
-        listChanged = shakerPreviousDrinks != shakerResult.Count();
+        listChanged = shakerPreviousDrinks != drinksInside.Count();
 
         if (listChanged)
         {
             UpdateDrinks();
         }
 
-        if (shake == DrinkState.Idle)
+        MakeResult();
+    }
+    private void MakeResult()
+    {
+        if (shakeState == DrinkState.Idle)
         {
             if (gin == 2 && tonic == 4)
             {
-                textMeshPro.text = "Gin Tonic";
+                result = TypeOfCocktail.GinTonic;
             }
             else if (rum == 2 && cola == 4)
             {
-                textMeshPro.text = "Ron Cola";
+                result = TypeOfCocktail.RonCola;
             }
             else if (whiskey == 2)
             {
-                textMeshPro.text = "Old Fashioned";
+                result = TypeOfCocktail.OldFashioned;
             }
         }
-        if (shake == DrinkState.Mixed)
+        if (shakeState == DrinkState.Mixed)
         {
-            if (gin == 2 && tonic == 4)
-            {
-                textMeshPro.text = "Gin Tonic Mixed";
-            }
             if (rum == 2 && lemonJuice == 2 && soda == 4)
             {
-                textMeshPro.text = "Mojito";
+                result = TypeOfCocktail.Mojito;
+            }
+            else if (tequila == 2 && orangeJuice == 2)
+            {
+                result = TypeOfCocktail.TequilaSunrise;
             }
         }
-        if (shake == DrinkState.Shaked)
+        if (shakeState == DrinkState.Shaked)
         {
-            if (gin == 2 && tonic == 4)
-            {
-                textMeshPro.text = "Gin Tonic Shaked";
-            }
             if (tequila == 2 && lemonJuice == 2 && vodka == 2)
             {
-                textMeshPro.text = "Margarita";
+                result = TypeOfCocktail.Margarita;
             }
-        }
-    }
+            else if (vodka == 2 && lemonJuice == 2 && orangeJuice == 2)
+            {
+                result = TypeOfCocktail.SexOnTheBeach;
+            }
+            else if (orangeJuice == 4 && whiskey == 2)
+            {
+                result = TypeOfCocktail.FuzzyNavel;
+            }
 
+        }
+        textMeshPro.text = result.ToString();
+    }
     private void UpdateDrinks()
     {
-        rum = shakerResult.Where(drink => drink != null && drink == TypeOfDrink.Rum).Count();
-        gin = shakerResult.Where(drink => drink != null && drink == TypeOfDrink.Gin).Count();
-        vodka = shakerResult.Where(drink => drink != null && drink == TypeOfDrink.Vodka).Count();
-        whiskey = shakerResult.Where(drink => drink != null && drink == TypeOfDrink.Whiskey).Count();
-        tequila = shakerResult.Where(drink => drink != null && drink == TypeOfDrink.Tequila).Count();
-        orangeJuice = shakerResult.Where(drink => drink != null && drink == TypeOfDrink.OrangeJuice).Count();
-        lemonJuice = shakerResult.Where(drink => drink != null && drink == TypeOfDrink.LemonJuice).Count();
-        cola = shakerResult.Where(drink => drink != null && drink == TypeOfDrink.Cola).Count();
-        soda = shakerResult.Where(drink => drink != null && drink == TypeOfDrink.Soda).Count();
-        tonic = shakerResult.Where(drink => drink != null && drink == TypeOfDrink.Tonic).Count();
+        rum = drinksInside.Where(drink => drink == TypeOfDrink.Rum).Count();
+        gin = drinksInside.Where(drink => drink == TypeOfDrink.Gin).Count();
+        vodka = drinksInside.Where(drink => drink == TypeOfDrink.Vodka).Count();
+        whiskey = drinksInside.Where(drink => drink == TypeOfDrink.Whiskey).Count();
+        tequila = drinksInside.Where(drink => drink == TypeOfDrink.Tequila).Count();
+        orangeJuice = drinksInside.Where(drink => drink == TypeOfDrink.OrangeJuice).Count();
+        lemonJuice = drinksInside.Where(drink => drink == TypeOfDrink.LemonJuice).Count();
+        cola = drinksInside.Where(drink => drink == TypeOfDrink.Cola).Count();
+        soda = drinksInside.Where(drink => drink == TypeOfDrink.Soda).Count();
+        tonic = drinksInside.Where(drink => drink == TypeOfDrink.Tonic).Count();
 
-        shakerPreviousDrinks = shakerResult.Count();
+        shakerPreviousDrinks = drinksInside.Count();
     }
 }
 
@@ -103,5 +114,7 @@ public enum TypeOfCocktail
     OldFashioned,
     Mojito,
     Margarita,
-    SexOnTheBeach
+    SexOnTheBeach,
+    TequilaSunrise,
+    FuzzyNavel
 }
