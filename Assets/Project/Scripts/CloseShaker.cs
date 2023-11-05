@@ -7,9 +7,13 @@ public class CloseShaker : MonoBehaviour
     [SerializeField]
     private bool close;
 
+    [SerializeField] private ShakerAnimation anim;
+
+
     private void OnMouseDown()
     {
         close = !close;
+        anim.SetAnimation(!close);
     }
 
     public bool GetClose()
