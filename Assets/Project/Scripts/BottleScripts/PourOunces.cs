@@ -33,7 +33,7 @@ public class PourOunces : MonoBehaviour
         if (!isShaker)
         {
             bottle = GetComponent<Bottle>();
-            bottlerRenderer = bottle.GetComponent<SpriteRenderer>();
+            bottlerRenderer = bottle.GetComponentInChildren<SpriteRenderer>();
         }
         boxCollider = GetComponent<BoxCollider2D>();
 
