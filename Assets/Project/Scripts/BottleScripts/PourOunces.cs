@@ -82,12 +82,12 @@ public class PourOunces : MonoBehaviour
             {
                 if (boxCollider.IsTouching(resultCollider))
                 {
-                    resultDrink.shakerResult.Clear();
+                    resultDrink.drinksInside.Clear();
                     foreach (TypeOfDrink drink in drinkInsideShaker.GetTypeOfOunces())
                     {
-                        resultDrink.shakerResult.Add(drink);
+                        resultDrink.drinksInside.Add(drink);
                     }
-                    resultDrink.shake = drinkInsideShaker.GetDrinkState();
+                    resultDrink.shakeState = drinkInsideShaker.GetDrinkState();
                 }
             }
         }
