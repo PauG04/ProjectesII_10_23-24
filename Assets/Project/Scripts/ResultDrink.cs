@@ -7,17 +7,20 @@ using static Drink;
 
 public class ResultDrink : MonoBehaviour
 {
+
+    [Header("Drinks List")]
+    [HideInInspector] public List<TypeOfDrink> drinksInside;
+    private bool listChanged;
+
     [Header("Result")]
-    public TypeOfCocktail result;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private List<Sprite> sprites;
+    [SerializeField] private TextMeshPro textMeshPro;
+    private TypeOfCocktail result;
 
     [Header("Shaker")]
-    public DrinkState shakeState;
-    [SerializeField] private TextMeshPro textMeshPro;
+    private DrinkState shakeState;
     private int shakerPreviousDrinks;
-
-    [Header("Drinks Inside")]
-    public List<TypeOfDrink> drinksInside;
-    private bool listChanged;
 
     #region Drinks
     private int rum;
@@ -38,10 +41,11 @@ public class ResultDrink : MonoBehaviour
 
         if (listChanged)
         {
+            StartCoroutine(ResultAnimation());
             UpdateDrinks();
+            MakeResult();
         }
 
-        MakeResult();
     }
     private void MakeResult()
     {
@@ -59,6 +63,10 @@ public class ResultDrink : MonoBehaviour
             {
                 result = TypeOfCocktail.OldFashioned;
             }
+            else
+            {
+                result = TypeOfCocktail.Mierdon;
+            }
         }
         if (shakeState == DrinkState.Mixed)
         {
@@ -69,6 +77,10 @@ public class ResultDrink : MonoBehaviour
             else if (tequila == 2 && orangeJuice == 2)
             {
                 result = TypeOfCocktail.TequilaSunrise;
+            }
+            else
+            {
+                result = TypeOfCocktail.Mierdon;
             }
         }
         if (shakeState == DrinkState.Shaked)
@@ -85,9 +97,14 @@ public class ResultDrink : MonoBehaviour
             {
                 result = TypeOfCocktail.FuzzyNavel;
             }
-
+            else
+            {
+                result = TypeOfCocktail.Mierdon;
+            }
         }
         textMeshPro.text = result.ToString();
+
+        listChanged = false;
     }
     private void UpdateDrinks()
     {
@@ -104,6 +121,18 @@ public class ResultDrink : MonoBehaviour
 
         shakerPreviousDrinks = drinksInside.Count();
     }
+    private IEnumerator ResultAnimation()
+    {
+        for (int spriteIndex = 0; spriteIndex < sprites.Count; spriteIndex++) 
+        {
+            spriteRenderer.sprite = sprites[spriteIndex];
+            yield return new WaitForSeconds(0.4f);
+        }
+    }
+    public void SetShakerStete(DrinkState shakeState)
+    {
+        this.shakeState = shakeState;
+    }
 }
 
 public enum TypeOfCocktail
@@ -116,5 +145,6 @@ public enum TypeOfCocktail
     Margarita,
     SexOnTheBeach,
     TequilaSunrise,
-    FuzzyNavel
+    FuzzyNavel,
+    Mierdon
 }

@@ -361,12 +361,12 @@ Transform:
   - {fileID: 9198593578067161370}
   - {fileID: 785216418893012067}
   - {fileID: 5927702324975621126}
-  - {fileID: 1291954921121935737}
   - {fileID: 4319649942617928953}
   - {fileID: 1004313911618652896}
   - {fileID: 7782796210283896705}
   - {fileID: 2944965218488831744}
   - {fileID: 3342921315944992940}
+  - {fileID: 1291954921121935737}
   - {fileID: 2349929260934722478}
   - {fileID: 6926159304544632790}
   - {fileID: 7230979742401381425}
@@ -1265,6 +1265,10 @@ PrefabInstance:
       propertyPath: typeOfDrink
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
+      propertyPath: ouncesInDrink.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6138047390797385764, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: m_Color.b
       value: 0.4156863
@@ -1687,6 +1691,10 @@ PrefabInstance:
       propertyPath: typeOfDrink
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
+      propertyPath: ouncesInDrink.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6138047390797385764, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: m_Color.b
       value: 0.4666667
@@ -1781,6 +1789,10 @@ PrefabInstance:
       propertyPath: typeOfDrink
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
+      propertyPath: ouncesInDrink.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6138047390797385764, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: m_Color.b
       value: 0.46274513
@@ -1874,6 +1886,10 @@ PrefabInstance:
     - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: typeOfDrink
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
+      propertyPath: ouncesInDrink.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6138047390797385764, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: m_Color.b
@@ -2075,6 +2091,10 @@ PrefabInstance:
     - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: typeOfDrink
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
+      propertyPath: ouncesInDrink.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6138047390797385764, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: m_Color.b
@@ -2496,8 +2516,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
-      propertyPath: typeOfDrink
-      value: 1
+      propertyPath: ouncesInDrink.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6138047390797385764, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: m_Color.b
@@ -2584,6 +2604,10 @@ PrefabInstance:
     - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: typeOfDrink
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
+      propertyPath: ouncesInDrink.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6138047390797385764, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: m_Color.b
@@ -2673,6 +2697,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3724371379578653972, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
+      propertyPath: typeOfDrink
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
+      propertyPath: ouncesInDrink.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6138047390797385764, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
@@ -2876,6 +2908,10 @@ PrefabInstance:
       propertyPath: typeOfDrink
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
+      propertyPath: ouncesInDrink.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6138047390797385764, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -3076,6 +3112,10 @@ PrefabInstance:
     - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: typeOfDrink
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076077389874247441, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
+      propertyPath: ouncesInDrink.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6138047390797385764, guid: 9ff58a254e0374c42b1728a6c3fed75a, type: 3}
       propertyPath: m_Color.b
