@@ -9,9 +9,19 @@ public class DragAndReturn : MonoBehaviour
     private Vector3 offset;
 
     [SerializeField] private Vector3 currentWindowPosition;
+    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private Transform parent;
 
     private void Start()
     {
+        if (transform.parent != null)
+        {
+            parent = transform.parent;
+        }
+        if (GetComponent<SpriteRenderer>() != null)
+        {
+            sprite = GetComponent<SpriteRenderer>();
+        }
         currentWindowPosition = transform.localPosition;
     }
 
@@ -25,19 +35,38 @@ public class DragAndReturn : MonoBehaviour
 
     private void CalculatePosition()
     {
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+        transform.position = new Vector3(
+            Camera.main.ScreenToWorldPoint(Input.mousePosition).x + offset.x,
+            Camera.main.ScreenToWorldPoint(Input.mousePosition).y + offset.y,
+            -20
+            );
+        if (sprite != null)
+        {
+            sprite.sortingOrder = 10;
+        }
     }
 
     private void OnMouseDown()
     {
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.SetParent(null);
         dragging = true;
     }
 
     private void OnMouseUp()
     {
-        dragging = false;
+        if (parent != null)
+        {
+            transform.SetParent(parent);
+        }
+        if (sprite != null)
+        {
+            sprite.sortingOrder = 1;
+        }
         transform.localPosition = currentWindowPosition;
+
+        dragging = false;
+
     }
 
     public bool GetDragging()

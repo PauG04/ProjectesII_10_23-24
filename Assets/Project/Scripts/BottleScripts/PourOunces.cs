@@ -7,7 +7,7 @@ using static Drink;
 public class PourOunces : MonoBehaviour
 {
     private Bottle bottle;
-    private SpriteRenderer bottlerRenderer;
+    [SerializeField] private SpriteRenderer bottlerRenderer;
     [SerializeField] private BoxCollider2D boxCollider;
 
     //[SerializeField]
@@ -33,7 +33,7 @@ public class PourOunces : MonoBehaviour
         if (!isShaker)
         {
             bottle = GetComponent<Bottle>();
-            bottlerRenderer = bottle.GetComponentInChildren<SpriteRenderer>();
+            //bottlerRenderer = bottle.GetComponentInChildren<SpriteRenderer>();
         }
         boxCollider = GetComponent<BoxCollider2D>();
 
@@ -82,12 +82,12 @@ public class PourOunces : MonoBehaviour
             {
                 if (boxCollider.IsTouching(resultCollider))
                 {
-                    resultDrink.shakerResult.Clear();
+                    resultDrink.drinksInside.Clear();
                     foreach (TypeOfDrink drink in drinkInsideShaker.GetTypeOfOunces())
                     {
-                        resultDrink.shakerResult.Add(drink);
+                        resultDrink.drinksInside.Add(drink);
                     }
-                    resultDrink.shake = drinkInsideShaker.GetDrinkState();
+                    resultDrink.SetShakerStete(drinkInsideShaker.GetDrinkState());
                 }
             }
         }

@@ -31,6 +31,7 @@ public class Minimize : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        initialPosition = parentObject.transform.position;
         isMoving = true;
         isMinimize = true;
         times = 0;
@@ -57,23 +58,25 @@ public class Minimize : MonoBehaviour
     { 
         if (isMoving)
         {
-            isMoving = false;
             if (!isMinimize && parentObject.transform.position != initialPosition)
             {
                 times += Time.deltaTime;
                 float time = times / timeToAppear;
                 parentObject.transform.position = Vector3.Lerp(parentObject.transform.position, initialPosition, time);
+                
             }
-            if (isMinimize && parentObject.transform.position != initialPosition)
+            if (!isMinimize && parentObject.transform.position == initialPosition)
+                isMoving = false;
+
+            if (isMinimize && parentObject.transform.position != icon.transform.position)
             {
                 times += Time.deltaTime;
                 float time = times / timeToAppear;
                 parentObject.transform.position = Vector3.Lerp(initialPosition, icon.transform.position, time);
+                
             }
-        }
-        if(!isMoving)
-        {
-            initialPosition = parentObject.transform.position;
+            if (isMinimize && parentObject.transform.position == icon.transform.position)
+                isMoving = false;
         }
     }
     public void SetIsMinimize()
