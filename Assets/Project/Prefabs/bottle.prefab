@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6687059164300943358}
   - component: {fileID: 3933792324028866658}
-  - component: {fileID: 69488147792416425}
   - component: {fileID: 1286347002064519012}
+  - component: {fileID: 69488147792416425}
   m_Layer: 0
-  m_Name: liquid
+  m_Name: Liquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -906865357
+  m_SortingLayer: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 8bdf90143a3404a4b97b65d6e780d145, type: 3}
   m_Color: {r: 0.9716981, g: 0.43543077, b: 0.9446714, a: 1}
   m_FlipX: 0
@@ -86,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &69488147792416425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 750230575186965278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 721fd00fac2abb34aa3c10739ab3525c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1286347002064519012
 Animator:
   serializedVersion: 5
@@ -119,6 +107,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &69488147792416425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750230575186965278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 721fd00fac2abb34aa3c10739ab3525c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8403792187389448178
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,13 +129,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7666337525326779790}
   - component: {fileID: 2583816783164801079}
-  - component: {fileID: 5102962267209901632}
-  - component: {fileID: 992457215909980819}
-  - component: {fileID: 1471898243256944962}
   - component: {fileID: 504637169520663431}
   - component: {fileID: 6209396785236007957}
+  - component: {fileID: 5102962267209901632}
+  - component: {fileID: 1471898243256944962}
+  - component: {fileID: 992457215909980819}
   m_Layer: 0
-  m_Name: bottle
+  m_Name: Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8403792187389448178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3502815, y: 0.2591875, z: 0}
+  m_LocalPosition: {x: -0.331, y: 0.217, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -209,52 +209,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5102962267209901632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8403792187389448178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 309c8e1fc03564046a01c81031ed1b6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ouncesInDrink: 
-  maxOunces: 10
-  typeOfDrink: 0
---- !u!114 &992457215909980819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8403792187389448178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxCollider: {fileID: 0}
-  isShaker: 0
-  drinkInsideShaker: {fileID: 0}
-  shakerCollider: {fileID: 0}
-  resultDrink: {fileID: 0}
-  resultCollider: {fileID: 0}
---- !u!114 &1471898243256944962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8403792187389448178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWindowPosition: {x: 0, y: 0, z: 0}
 --- !u!50 &504637169520663431
 Rigidbody2D:
   serializedVersion: 4
@@ -314,7 +268,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.01779776, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -325,5 +279,54 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.40799528, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5102962267209901632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8403792187389448178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309c8e1fc03564046a01c81031ed1b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ouncesInDrink: 
+  maxOunces: 10
+  typeOfDrink: 0
+--- !u!114 &1471898243256944962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8403792187389448178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b0976fa8db56444a153454403b478c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWindowPosition: {x: 0, y: 0, z: 0}
+  sprite: {fileID: 0}
+  parent: {fileID: 0}
+--- !u!114 &992457215909980819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8403792187389448178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottlerRenderer: {fileID: 3933792324028866658}
+  boxCollider: {fileID: 0}
+  isShaker: 0
+  drinkInsideShaker: {fileID: 0}
+  shakerCollider: {fileID: 0}
+  resultDrink: {fileID: 0}
+  resultCollider: {fileID: 0}

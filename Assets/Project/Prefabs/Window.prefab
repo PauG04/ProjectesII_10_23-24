@@ -27,11 +27,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926924096693482045}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.94377446, y: 0.9218037, z: 0}
-  m_LocalScale: {x: 28.686174, y: 28.538815, z: 39.447735}
+  m_LocalPosition: {x: -0.08, y: 0, z: -0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8781059856512224059}
+  m_Children:
+  - {fileID: 8781059856512224059}
+  m_Father: {fileID: 4616668988803339063}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5314265816353581959
@@ -252,12 +253,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5149128898621359737}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.047100008, y: -0.0323, z: -0.01}
-  m_LocalScale: {x: 0.03486, y: 0.03504, z: 0.025349999}
+  m_LocalPosition: {x: 0.0325, y: -0.0175, z: 0}
+  m_LocalScale: {x: 0.035, y: 0.035, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1065177781891967572}
-  m_Father: {fileID: 4616668988803339063}
+  m_Children: []
+  m_Father: {fileID: 1065177781891967572}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3947413778172656324
@@ -337,8 +337,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5570016045409891326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.007499993, y: -0.0325, z: 0}
-  m_LocalScale: {x: 0.034860842, y: 0.0350399, z: 0.02535334}
+  m_LocalPosition: {x: -0.0075, y: -0.0175, z: 0}
+  m_LocalScale: {x: 0.035, y: 0.035, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9032091427834300852}
@@ -576,8 +576,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1065177781891967572}
   - {fileID: 9032091427834300852}
-  - {fileID: 8781059856512224059}
   m_Father: {fileID: 3510844547516132402}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -654,7 +654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184b3785e2226684abea902712013f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  node: {fileID: 11400000, guid: 56b84e220e53d564cba2793fa81b085a, type: 2}
+  node: {fileID: 11400000, guid: 8279ce35ebd66064e85fac65f5fa7085, type: 2}
   offsetWidth: 0.01
   offsetHeight: 0.04
   windowControl: {fileID: 4616668988803339063}
