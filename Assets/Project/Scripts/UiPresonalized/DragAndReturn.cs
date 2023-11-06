@@ -14,7 +14,7 @@ public class DragAndReturn : MonoBehaviour
 
     private void Start()
     {
-        if (transform.parent.gameObject != null)
+        if (transform.parent != null)
         {
             parent = transform.parent;
         }
