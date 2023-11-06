@@ -71,7 +71,7 @@ namespace Windows
         void SetWindowControlPosition()
         {
             float correctXPos = 0.01f;
-            float correctYPos = 0.03f;
+            float correctYPos = 0.015f;
 
             Vector2 newWindowControlPos = new Vector2(
                 (spriteRendererChild.size.x / 2) - correctXPos,

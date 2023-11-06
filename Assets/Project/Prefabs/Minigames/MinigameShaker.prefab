@@ -1310,7 +1310,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3234976902866947123
@@ -1741,6 +1741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caae91bcdaa79e46926e9eaca44a588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bottlerRenderer: {fileID: 0}
   boxCollider: {fileID: 0}
   isShaker: 1
   drinkInsideShaker: {fileID: 0}
