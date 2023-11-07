@@ -152,7 +152,7 @@ public class Shake : MonoBehaviour
             shaking = true;
         if(!drink.GetIsMouseNotPressed()) 
         {
-            transform.localScale = new Vector3(shakerSize.x + maxSize, shakerSize.y + maxSize, shakerSize.z);
+            transform.localScale = new Vector3(shakerSize.x - maxSize, shakerSize.y - maxSize, shakerSize.z);
             if(!justOneTime)
             {
                 justOneTime = true;
