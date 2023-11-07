@@ -486,6 +486,50 @@ Transform:
   m_Father: {fileID: 3776630752018361071}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &885404184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 885404186}
+  - component: {fileID: 885404185}
+  m_Layer: 0
+  m_Name: MouseManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &885404185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885404184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cae915e7352714283fd26e5ac21e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &885404186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885404184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0600216, y: 0.11986781, z: 0.09054641}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1320731519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1140,7 @@ AudioSource:
   m_GameObject: {fileID: 1695779205}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 2d59c230b3471584d80b0b2887c82e44, type: 2}
+  OutputAudioMixerGroup: {fileID: 2367497774623395339, guid: 2d59c230b3471584d80b0b2887c82e44, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1197,84 +1241,96 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: click
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ounceInShaker
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: shakeShaker
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: shakeShakerUp
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: result1
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: result2
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: result3
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: result4
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: result5
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: shakeShakerDown
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 2
     loop: 0
     source: {fileID: 0}
   - name: goodResult
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: badResult
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: movingBottle
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: happyClient
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: madClient
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  mixer: {fileID: 0}
+  - name: result0
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: result1
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1.2
+    loop: 0
+    source: {fileID: 0}
+  - name: result2
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1.4
+    loop: 0
+    source: {fileID: 0}
+  - name: result3
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1.6
+    loop: 0
+    source: {fileID: 0}
+  - name: result4
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 1.8
+    loop: 0
+    source: {fileID: 0}
+  - name: result5
+    clip: {fileID: 8300000, guid: 8072428a32f395843821e19024abf37d, type: 3}
+    volume: 0.1
+    pitch: 2
+    loop: 0
+    source: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 2d59c230b3471584d80b0b2887c82e44, type: 2}
 --- !u!4 &1695779208
 Transform:
   m_ObjectHideFlags: 0

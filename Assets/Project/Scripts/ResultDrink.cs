@@ -127,6 +127,26 @@ public class ResultDrink : MonoBehaviour
         {
             spriteRenderer.sprite = sprites[spriteIndex];
             yield return new WaitForSeconds(0.4f);
+            switch (spriteIndex)
+            {
+                case 0:
+                    AudioManager.instance.Play("result0");
+                    break;
+                case 1:
+                    AudioManager.instance.Play("result1");
+                    break;
+                case 2:
+                    AudioManager.instance.Play("result2");
+                    break;
+                case 3:
+                    AudioManager.instance.Play("result3");
+                    break;
+                case 4:
+                    AudioManager.instance.Play("result4");
+                    break;
+                case 5:
+                    break;
+            }
         }
     }
     public void SetShakerStete(DrinkState shakeState)

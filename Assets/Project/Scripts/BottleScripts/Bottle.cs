@@ -25,9 +25,9 @@ public class Bottle : Drink
 
     public void SubstractOneOunce()
     {
+        AudioManager.instance.Play("ounceInShaker");
         currentOunces--;
         liquidAnimation.SetAnimation(currentOunces);
-        AudioManager.instance.Play("ounceInShaker");
 
     }
 }
