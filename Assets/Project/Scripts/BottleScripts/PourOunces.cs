@@ -23,6 +23,11 @@ public class PourOunces : MonoBehaviour
     [SerializeField] private ResultDrink resultDrink;
     [SerializeField] private BoxCollider2D resultCollider;
 
+    [Header("Client")]
+    private GameObject client;
+    [SerializeField] private BoxCollider2D clientCollider;
+    [SerializeField] private DialogueScript dialogueScript;
+
     private Shake shake;
     private CloseShaker close;
     private GameObject closeButton;
@@ -33,7 +38,6 @@ public class PourOunces : MonoBehaviour
         if (!isShaker)
         {
             bottle = GetComponent<Bottle>();
-            //bottlerRenderer = bottle.GetComponentInChildren<SpriteRenderer>();
         }
         boxCollider = GetComponent<BoxCollider2D>();
 
@@ -59,7 +63,12 @@ public class PourOunces : MonoBehaviour
             closeButton = GameObject.Find("CloseShaker");
             close = closeButton.GetComponent<CloseShaker>();
         }
-            
+        if (GameObject.Find("Client") != null)
+        {
+            client = GameObject.Find("Client");
+            clientCollider = client.GetComponent<BoxCollider2D>();
+            dialogueScript = client.GetComponent<DialogueScript>();
+        }
     }
 
     private void OnMouseUp()
@@ -77,7 +86,6 @@ public class PourOunces : MonoBehaviour
 
                 }
             }
-
             if (result != null) 
             {
                 if (boxCollider.IsTouching(resultCollider))
@@ -89,6 +97,14 @@ public class PourOunces : MonoBehaviour
                     }
                     resultDrink.SetShakerStete(drinkInsideShaker.GetDrinkState());
                 }
+            }
+        }
+        if (client != null && result != null)
+        {
+            if (boxCollider.IsTouching(clientCollider))
+            {
+                dialogueScript.drinkDropped = resultDrink.GetResult();
+                resultDrink.SetEnabledSprite(false);
             }
         }
     }

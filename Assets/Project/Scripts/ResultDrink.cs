@@ -35,6 +35,10 @@ public class ResultDrink : MonoBehaviour
     private int tonic;
     #endregion
 
+    private void Awake()
+    {
+        spriteRenderer.enabled = false;
+    }
     private void Update()
     {
         listChanged = shakerPreviousDrinks != drinksInside.Count();
@@ -44,6 +48,7 @@ public class ResultDrink : MonoBehaviour
             StartCoroutine(ResultAnimation());
             UpdateDrinks();
             MakeResult();
+            spriteRenderer.enabled = true;
         }
 
     }
@@ -103,8 +108,6 @@ public class ResultDrink : MonoBehaviour
             }
         }
         textMeshPro.text = result.ToString();
-
-        listChanged = false;
     }
     private void UpdateDrinks()
     {
@@ -129,10 +132,19 @@ public class ResultDrink : MonoBehaviour
             yield return new WaitForSeconds(0.4f);
         }
     }
+    public void SetEnabledSprite(bool spriteEnabled)
+    {
+        spriteRenderer.enabled = spriteEnabled;
+    }
     public void SetShakerStete(DrinkState shakeState)
     {
         this.shakeState = shakeState;
     }
+    public TypeOfCocktail GetResult()
+    {
+        return result;
+    }
+
 }
 
 public enum TypeOfCocktail

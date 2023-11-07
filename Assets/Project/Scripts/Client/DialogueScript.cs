@@ -8,7 +8,7 @@ public class DialogueScript : MonoBehaviour
     [SerializeField] private TextMeshPro textMeshPro;
     [SerializeField] private List<TypeOfCocktail> typeOfDrinkList;
     [SerializeField] private TypeOfCocktail drinkThatWants;
-    [SerializeField] private TypeOfCocktail drinkDropped;
+    [SerializeField] public TypeOfCocktail drinkDropped;
 
     private void Awake()
     {
