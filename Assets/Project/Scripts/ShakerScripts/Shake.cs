@@ -46,7 +46,6 @@ public class Shake : MonoBehaviour
     private bool showMesage;
     private bool justOneTime;
     private float timer = 0;
-    private float currentColor;
 
     [SerializeField] private float r;
     [SerializeField] private float g;
@@ -87,7 +86,6 @@ public class Shake : MonoBehaviour
         shakeScale = shakeMesage.transform.localScale;
         arrow.transform.localScale = new Vector3(0, 0, 0);
         shakeMesage.transform.localScale = new Vector3(0, 0, 0);
-        currentColor = 0;
     }
 
     private void Update()
@@ -167,7 +165,7 @@ public class Shake : MonoBehaviour
         {
             shaking = false;
         }
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             transform.localScale = shakerSize;
             showMesage = false;
@@ -265,7 +263,6 @@ public class Shake : MonoBehaviour
         }
         currentSprite = 0;
         g = 1;
-        currentColor = 0;
     }
 
     public SpriteRenderer GetSprite()

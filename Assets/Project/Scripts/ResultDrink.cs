@@ -107,7 +107,6 @@ public class ResultDrink : MonoBehaviour
                 result = TypeOfCocktail.Mierdon;
             }
         }
-        textMeshPro.text = result.ToString();
     }
     private void UpdateDrinks()
     {
@@ -129,6 +128,11 @@ public class ResultDrink : MonoBehaviour
         for (int spriteIndex = 0; spriteIndex < sprites.Count; spriteIndex++) 
         {
             spriteRenderer.sprite = sprites[spriteIndex];
+
+            if (spriteIndex >= sprites.Count - 1)
+            {
+                textMeshPro.text = result.ToString();
+            }
             yield return new WaitForSeconds(0.4f);
         }
     }
@@ -139,6 +143,10 @@ public class ResultDrink : MonoBehaviour
     public void SetShakerStete(DrinkState shakeState)
     {
         this.shakeState = shakeState;
+    }
+    public void SetText(string text)
+    {
+        textMeshPro.text = text;
     }
     public TypeOfCocktail GetResult()
     {

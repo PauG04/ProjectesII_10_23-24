@@ -77,13 +77,15 @@ public class PourOunces : MonoBehaviour
         {
             if (!isShaker && shake.GetProgres() == 0)
             {
-                if (boxCollider.IsTouching(shakerCollider) && bottle.GetCurrentOunces() > 0)
+                if (boxCollider != resultCollider)
                 {
-                    drinkInsideShaker.AddOunce(bottle.GetTypeOfOunces()[0]);
-                    shake.GetSprite().color = bottlerRenderer.color;
-                    shake.SetIndex();
-                    bottle.SubstractOneOunce();
-
+                    if (boxCollider.IsTouching(shakerCollider) && bottle.GetCurrentOunces() > 0)
+                    {
+                        drinkInsideShaker.AddOunce(bottle.GetTypeOfOunces()[0]);
+                        shake.GetSprite().color = bottlerRenderer.color;
+                        shake.SetIndex();
+                        bottle.SubstractOneOunce();
+                    }
                 }
             }
             if (result != null) 
@@ -91,6 +93,7 @@ public class PourOunces : MonoBehaviour
                 if (boxCollider.IsTouching(resultCollider))
                 {
                     resultDrink.drinksInside.Clear();
+                    resultDrink.SetText("");
                     foreach (TypeOfDrink drink in drinkInsideShaker.GetTypeOfOunces())
                     {
                         resultDrink.drinksInside.Add(drink);
@@ -105,6 +108,7 @@ public class PourOunces : MonoBehaviour
             {
                 dialogueScript.drinkDropped = resultDrink.GetResult();
                 resultDrink.SetEnabledSprite(false);
+                resultDrink.SetText("");
             }
         }
     }
