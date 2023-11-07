@@ -112,7 +112,8 @@ public class OpenApp : MonoBehaviour
         boxCollider2DObj.size = new Vector2(0.3f, 0.3f);
 
         spriteRenderObj.sprite = GetComponent<SpriteRenderer>().sprite;
-        spriteRenderObj.sortingOrder = 2;
+        spriteRenderObj.sortingLayerName = "Window";
+        spriteRenderObj.sortingOrder = 3;
 
         openMinimizeObj.minimizeBigIcon = app;
         openMinimizeObj.minimizeWindow = window.GetMinimize();

@@ -150,7 +150,7 @@ public class Shake : MonoBehaviour
             shaking = true;
         if(!drink.GetIsMouseNotPressed()) 
         {
-            transform.localScale = new Vector3(shakerSize.x + maxSize, shakerSize.y + maxSize, shakerSize.z);
+            transform.localScale = new Vector3(shakerSize.x - maxSize, shakerSize.y - maxSize, shakerSize.z);
             if(!justOneTime)
             {
                 justOneTime = true;
@@ -190,10 +190,12 @@ public class Shake : MonoBehaviour
         if (oldShakerPosition.y >= newShakerPosition.y)
         {
             isShakingDown = true;
+            AudioManager.instance.Play("shakeShakerDown");
         }
         else if (oldShakerPosition.y <= newShakerPosition.y)
         {
             isShakingDown = false;
+            AudioManager.instance.Play("shakeShakerUp");
         }
 
     }
@@ -225,6 +227,7 @@ public class Shake : MonoBehaviour
             g -= 0.1f;
             currentBox++;
             value += maxValue / 10;
+            Debug.Log("aaaaa");
         }
     }
 
