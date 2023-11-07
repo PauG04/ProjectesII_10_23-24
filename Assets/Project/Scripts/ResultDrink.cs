@@ -22,11 +22,6 @@ public class ResultDrink : MonoBehaviour
     private DrinkState shakeState;
     private int shakerPreviousDrinks;
 
-    #region Sound
-    [SerializeField] private float originalPitch;
-    [SerializeField] private float pitchAugment;
-    #endregion
-
     #region Drinks
     private int rum;
     private int gin;
@@ -132,11 +127,27 @@ public class ResultDrink : MonoBehaviour
         {
             spriteRenderer.sprite = sprites[spriteIndex];
             yield return new WaitForSeconds(0.4f);
-            AudioManager.instance.Play("result");
-            //aumentar el pitch por cada iteracion
-            AudioManager.instance.sounds[4].pitch += pitchAugment;
+            switch (spriteIndex)
+            {
+                case 0:
+                    AudioManager.instance.Play("result0");
+                    break;
+                case 1:
+                    AudioManager.instance.Play("result1");
+                    break;
+                case 2:
+                    AudioManager.instance.Play("result2");
+                    break;
+                case 3:
+                    AudioManager.instance.Play("result3");
+                    break;
+                case 4:
+                    AudioManager.instance.Play("result4");
+                    break;
+                case 5:
+                    break;
+            }
         }
-            AudioManager.instance.sounds[4].pitch = originalPitch;
     }
     public void SetShakerStete(DrinkState shakeState)
     {
