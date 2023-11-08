@@ -47,6 +47,7 @@ public class DialogueScript : MonoBehaviour
         else if (drinkDropped == drinkThatWants)
         {
             textMeshPro.text = "That drink was delicious!";
+            AudioManager.instance.Play("happyClient");
 
             if (playOnce)
             {
@@ -78,6 +79,7 @@ public class DialogueScript : MonoBehaviour
         else if(drinkDropped != drinkThatWants)
         {
             textMeshPro.text = "What a piece of shit";
+            AudioManager.instance.Play("madClient");
 
             if (playOnce)
             {

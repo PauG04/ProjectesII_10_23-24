@@ -190,10 +190,12 @@ public class Shake : MonoBehaviour
         if (oldShakerPosition.y >= newShakerPosition.y)
         {
             isShakingDown = true;
+            AudioManager.instance.Play("shakeDown");
         }
         else if (oldShakerPosition.y <= newShakerPosition.y)
         {
             isShakingDown = false;
+            AudioManager.instance.Play("shakeUp");
         }
 
     }

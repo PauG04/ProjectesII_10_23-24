@@ -27,5 +27,6 @@ public class Bottle : Drink
     {
         currentOunces--;
         liquidAnimation.SetAnimation(currentOunces);
+            AudioManager.instance.Play("pourOunce");
     }
 }
