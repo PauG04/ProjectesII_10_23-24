@@ -27,5 +27,23 @@ public class Bottle : Drink
     {
         currentOunces--;
         liquidAnimation.SetAnimation(currentOunces);
+        switch (Random.Range(1, 5))
+        {
+            case 1:
+                AudioManager.instance.Play("pourOunce1");
+                break;
+            case 2:
+                AudioManager.instance.Play("pourOunce2");
+                break;
+            case 3:
+                AudioManager.instance.Play("pourOunce3");
+                break;
+            case 4:
+                AudioManager.instance.Play("pourOunce4");
+                break;
+            case 5:
+                AudioManager.instance.Play("pourOunce5");
+                break;
+        }
     }
 }
