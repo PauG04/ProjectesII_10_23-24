@@ -14,6 +14,9 @@ public class DialogueScript : MonoBehaviour
     [SerializeField] private GameObject goodDrink;
     [SerializeField] private bool playOnce;
 
+    private bool playHappySound = true;
+    private bool playMadSound = true;
+
     private void Awake()
     {
         badDrink.SetActive(false);
@@ -47,10 +50,14 @@ public class DialogueScript : MonoBehaviour
         else if (drinkDropped == drinkThatWants)
         {
             textMeshPro.text = "That drink was delicious!";
-            AudioManager.instance.Play("happyClient");
 
             if (playOnce)
             {
+               if (playHappySound)
+               {
+                    AudioManager.instance.Play("happyClient");
+                    playHappySound = false;
+               }
                 goodDrink.SetActive(true);
 
                 goodDrink.transform.SetParent(null);
@@ -73,16 +80,22 @@ public class DialogueScript : MonoBehaviour
                     drinkDropped = TypeOfCocktail.Empty;
                     goodDrink.transform.localScale = Vector3.zero;
                     goodDrink.transform.localPosition = Vector3.zero;
+                    playHappySound = true;
                 }
             }
         }
         else if(drinkDropped != drinkThatWants)
         {
             textMeshPro.text = "What a piece of shit";
-            AudioManager.instance.Play("madClient");
 
             if (playOnce)
             {
+                if (playMadSound)
+                {
+                    AudioManager.instance.Play("madClient");
+                    playMadSound = false;
+                }
+
                 badDrink.SetActive(true);
 
                 badDrink.transform.SetParent(null);
@@ -105,6 +118,7 @@ public class DialogueScript : MonoBehaviour
                     drinkDropped = TypeOfCocktail.Empty;
                     badDrink.transform.localScale = Vector3.zero;
                     badDrink.transform.localPosition = Vector3.zero;
+                    playMadSound = true;
                 }
             }
         }

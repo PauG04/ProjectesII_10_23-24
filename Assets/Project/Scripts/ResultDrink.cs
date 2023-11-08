@@ -150,9 +150,6 @@ public class ResultDrink : MonoBehaviour
                     AudioManager.instance.Play("result3");
                     break;
                 case 4:
-                    AudioManager.instance.Play("result4");
-                    break;
-                case 5:
                     if (result == TypeOfCocktail.Mierdon)
                         AudioManager.instance.Play("badResult");
                     else
