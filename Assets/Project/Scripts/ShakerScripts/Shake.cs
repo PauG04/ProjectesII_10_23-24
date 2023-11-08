@@ -187,11 +187,11 @@ public class Shake : MonoBehaviour
     private void DirectionShaker()
     {
         newShakerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        if (oldShakerPosition.y >= newShakerPosition.y)
+        if (oldShakerPosition.y >= newShakerPosition.y && isShakingDown == false)
         {
             isShakingDown = true;
         }
-        else if (oldShakerPosition.y <= newShakerPosition.y)
+        else if (oldShakerPosition.y <= newShakerPosition.y && isShakingDown == true)
         {
             isShakingDown = false;
         }
@@ -225,6 +225,16 @@ public class Shake : MonoBehaviour
             g -= 0.1f;
             currentBox++;
             value += maxValue / 10;
+
+            switch (Random.Range(1, 2))
+            {
+                case 1:
+                    AudioManager.instance.Play("shake1");
+                    break;
+                case 2:
+                    AudioManager.instance.Play("shake2");
+                    break;
+            }
         }
     }
 
