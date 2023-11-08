@@ -1197,79 +1197,97 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: click
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
+    clip: {fileID: 8300000, guid: dd619f74b9195d849b5135e44a006d5a, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: result0
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
+    clip: {fileID: 8300000, guid: df8610560c8fcc041ba36ff837d43eb8, type: 3}
+    volume: 0.1
+    pitch: 0.8
+    loop: 0
+    source: {fileID: 0}
+  - name: result1
+    clip: {fileID: 8300000, guid: df8610560c8fcc041ba36ff837d43eb8, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: result1
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
+  - name: result2
+    clip: {fileID: 8300000, guid: df8610560c8fcc041ba36ff837d43eb8, type: 3}
     volume: 0.1
     pitch: 1.2
     loop: 0
     source: {fileID: 0}
-  - name: result2
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
+  - name: result3
+    clip: {fileID: 8300000, guid: df8610560c8fcc041ba36ff837d43eb8, type: 3}
     volume: 0.1
     pitch: 1.4
     loop: 0
     source: {fileID: 0}
-  - name: result3
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
-    volume: 0.1
-    pitch: 1.6
-    loop: 0
-    source: {fileID: 0}
-  - name: result4
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
-    volume: 0.1
-    pitch: 1.8
-    loop: 0
-    source: {fileID: 0}
   - name: badResult
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
+    clip: {fileID: 8300000, guid: 9fe7e59669a8a0f4cbb1816e15d77d76, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: goodResult
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
+    clip: {fileID: 8300000, guid: 38960e4b779bd064dacccb0f9802ddc7, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: shakeDown
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
+  - name: shake1
+    clip: {fileID: 8300000, guid: 164f7cff52d50e5459655cfb6a127e72, type: 3}
     volume: 0.1
-    pitch: 1
+    pitch: 0.8
     loop: 0
     source: {fileID: 0}
-  - name: shakeUp
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
+  - name: shake2
+    clip: {fileID: 8300000, guid: 3f4bfd02708d5ea498561fce264cc59c, type: 3}
     volume: 0.1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: pourOunce
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
-    volume: 0.1
-    pitch: 1
+    pitch: 0.8
     loop: 0
     source: {fileID: 0}
   - name: happyClient
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
+    clip: {fileID: 8300000, guid: 873606f1b3cfffa418a0bd0fbe0008ec, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: madClient
-    clip: {fileID: 8300000, guid: 09486dab8cdfa2d47814ef7311c58f4e, type: 3}
+    clip: {fileID: 8300000, guid: e204982b17b736241864ee057cf9328a, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pourOunce1
+    clip: {fileID: 8300000, guid: a60810aa0d1cc9c4d9a67e2f457a6ccd, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pourOunce2
+    clip: {fileID: 8300000, guid: 9d0d7c867ee712b45a1963818a198cba, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pourOunce3
+    clip: {fileID: 8300000, guid: 3f6eb32ca4fd0d84d9c46c92e925f60f, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pourOunce4
+    clip: {fileID: 8300000, guid: 8c527e18cdd736740a85bef894f1e51f, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pourOunce5
+    clip: {fileID: 8300000, guid: 178901ff48f7e094c8fa03de77cbe418, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0
