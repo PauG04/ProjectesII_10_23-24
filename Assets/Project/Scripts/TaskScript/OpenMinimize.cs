@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Windows;
 
-public class OpenMinimize : Button
+public class OpenMinimize : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject minimize;
+    public GameObject minimizeBigIcon;
+    public Minimize minimizeWindow;
 
-    private void Update()
+    private void OnMouseDown()
     {
-        if (SimulateButton(gameObject.name))
+        if (minimizeWindow.IsMinimize())
         {
-            minimize.gameObject.SetActive(true);
+            minimizeBigIcon.SetActive(true);
+            minimizeWindow.SetIsMinimize();
         }
     }
 }

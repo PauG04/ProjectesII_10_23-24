@@ -1,44 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class OrderTaskBar : MonoBehaviour
 {
-    private OpenApp openApp;
-    private bool isOpen = false;
-    private void Awake()
-    {
-        openApp = GetComponent<OpenApp>();
-    }
-    private void OnMouseDown()
-    {
-        if (openApp.GetIsOpen() && !isOpen)
-        {
-            openMinimizeWindow();
-        }      
-    }
+    [SerializeField] private SetTaskBarPosition setTaskBarPosition;
+    public GameObject icon;
 
-    private void Update()
-    {                 
-        if (!openApp.GetIsOpen() && isOpen)
-        {
-            closeMinimizeWindos();
-        }
-    }
+    private int currentIndex;
 
-    private void openMinimizeWindow()
+    public void SetIcon()
     {
-        isOpen = true;
+        setTaskBarPosition.GetList().Add(icon);
     }
-
-    private void closeMinimizeWindos()
+    public void SetCloseIcon()
     {
-        isOpen = false;
+        MoveIcon();
     }
-
-    public bool IsOpen()
+    private void MoveIcon()
     {
-        return isOpen;
+        setTaskBarPosition.GetList().Remove(icon);
     }
-
+    public int GetIndex()
+    {
+        return currentIndex;
+    }
+    public void SetIndex()
+    {
+        currentIndex--;
+    }
 }

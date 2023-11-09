@@ -37,8 +37,6 @@ namespace Dialogue
         }
         public IEnumerable<DialogueNode> GetAllChildren(DialogueNode parentNode)
         {
-            List<DialogueNode> result = new List<DialogueNode>();
-
             foreach (string childID in parentNode.GetChildren())
             {
                 if (nodeLookUp.ContainsKey(childID))

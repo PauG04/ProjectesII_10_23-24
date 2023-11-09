@@ -8,19 +8,21 @@ public class DragAndReturn : MonoBehaviour
 
     private Vector3 offset;
 
-    [SerializeField]
-    private Vector3 initialOffset;
+    [SerializeField] private Vector3 currentWindowPosition;
+    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private Transform parent;
 
-    [SerializeField]
-    private Transform currentWindowPosition;
-
-    [SerializeField]
-    private Rigidbody2D rb;
-
-    private void Awake()
+    private void Start()
     {
-        transform.position = currentWindowPosition.position + initialOffset;
-        rb = GetComponent<Rigidbody2D>();
+        if (transform.parent != null)
+        {
+            parent = transform.parent;
+        }
+        if (GetComponent<SpriteRenderer>() != null)
+        {
+            sprite = GetComponent<SpriteRenderer>();
+        }
+        currentWindowPosition = transform.localPosition;
     }
 
     private void Update()
@@ -33,18 +35,43 @@ public class DragAndReturn : MonoBehaviour
 
     private void CalculatePosition()
     {
-        rb.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset);
+        transform.position = new Vector3(
+            Camera.main.ScreenToWorldPoint(Input.mousePosition).x + offset.x,
+            Camera.main.ScreenToWorldPoint(Input.mousePosition).y + offset.y,
+            -20
+            );
+        if (sprite != null)
+        {
+            sprite.sortingOrder = 10;
+        }
     }
 
     private void OnMouseDown()
     {
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.SetParent(null);
         dragging = true;
     }
 
     private void OnMouseUp()
     {
-        rb.MovePosition(currentWindowPosition.position + initialOffset);
+        if (parent != null)
+        {
+            transform.SetParent(parent);
+        }
+        if (sprite != null)
+        {
+            sprite.sortingOrder = 1;
+        }
+        transform.localPosition = currentWindowPosition;
+
         dragging = false;
+
+    }
+
+    public bool GetDragging()
+    {
+        return dragging;
     }
 }
+

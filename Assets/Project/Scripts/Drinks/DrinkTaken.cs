@@ -5,10 +5,8 @@ using UnityEngine;
 public class DrinkTaken : MonoBehaviour
 {
     private bool isDrinkPrepares = true;
-    [SerializeField]
-    private DrinkScript drinkScript;
-    [SerializeField]
-    private GameObject cup;
+    [SerializeField] private DrinkScript drinkScript;
+    [SerializeField] private GameObject cup;
 
     private void OnTriggerExit2D(Collider2D collision)
     {

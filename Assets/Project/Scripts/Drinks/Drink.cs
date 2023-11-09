@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
-using static Drink;
+using System.Linq;
 
 public class Drink : MonoBehaviour
 {
@@ -32,17 +32,24 @@ public class Drink : MonoBehaviour
     }
     #endregion
 
-    protected List<TypeOfDrink> ouncesInDrink;
+    [SerializeField] protected List<TypeOfDrink> ouncesInDrink;
     protected DrinkState drinkState;
 
-    [SerializeField]
-    protected int maxOunces;
-    protected int currentOunces;
-    protected bool isFull;
+    [SerializeField] protected int maxOunces;
+    [SerializeField] protected int currentOunces;
+    [SerializeField] protected bool isFull;
+
+    [Header("Testing Variables")]
+    [SerializeField] protected TypeOfDrink typeOfDrink;
 
     private void Awake()
     {
         ouncesInDrink = new List<TypeOfDrink>();
+    }
+
+    public void ResetDrinks()
+    {
+        ouncesInDrink.Clear();
     }
 
     #region GETTERS
@@ -50,22 +57,22 @@ public class Drink : MonoBehaviour
     {
         return ouncesInDrink;
     }
-
     public DrinkState GetDrinkState()
     {
         return drinkState;
     }
-
     public int GetCurrentOunces()
     {
         return currentOunces;
     }
-
     public bool GetIsFull()
     {
         return isFull;
     }
-
+    public int GetMaxOunces()
+    {
+        return maxOunces;
+    }
     #endregion
 
     #region SETTERS
