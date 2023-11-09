@@ -38,8 +38,8 @@ public class WindowsIconActivation : MonoBehaviour
         {
             if (!isOpen)
             {
-                startMenu.transform.position = Vector3.Lerp(startMenu.transform.position, new Vector3(startMenu.transform.position.x, taskBar.transform.position.y + 0.1f, startMenu.transform.position.z), 4 * Time.deltaTime);
-                if (startMenu.transform.position.y >= taskBar.transform.position.y + 0.098f)
+                startMenu.transform.position = Vector3.Lerp(startMenu.transform.position, new Vector3(startMenu.transform.position.x, taskBar.transform.position.y + 0.12f, startMenu.transform.position.z), 4 * Time.deltaTime);
+                if (startMenu.transform.position.y >= taskBar.transform.position.y + 0.117f)
                 {
                     shutdDownCollider.enabled = true;
                     SettingCollider.enabled = true;
@@ -51,11 +51,11 @@ public class WindowsIconActivation : MonoBehaviour
             }
             else
             {
-                startMenu.transform.position = Vector3.Lerp(startMenu.transform.position, new Vector3(startMenu.transform.position.x, taskBar.transform.position.y - 0.01f, startMenu.transform.position.z), 4 * Time.deltaTime);
+                startMenu.transform.position = Vector3.Lerp(startMenu.transform.position, new Vector3(startMenu.transform.position.x, taskBar.transform.position.y - 0.12f, startMenu.transform.position.z), 4 * Time.deltaTime);
                 shutdDownCollider.enabled = false;
                 SettingCollider.enabled = false;
                 ResetCollider.enabled = false;
-                if (startMenu.transform.position.y <= taskBar.transform.position.y)
+                if (startMenu.transform.position.y <= taskBar.transform.position.y - 0.118)
                 {
 
                     isOpen = false;
