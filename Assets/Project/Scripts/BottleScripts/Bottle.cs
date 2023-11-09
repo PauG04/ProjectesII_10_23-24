@@ -29,8 +29,9 @@ public class Bottle : Drink
     }
     public void RefillOunces()
     {
-        currentOunces = maxOunces;
         liquidAnimation.ResetAnimation();
+        currentOunces = maxOunces;
+
     }
     public void SubstractOneOunce()
     {
