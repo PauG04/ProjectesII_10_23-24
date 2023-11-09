@@ -10,12 +10,13 @@ public class ResultDrink : MonoBehaviour
 {
 
     [Header("Drinks List")]
-    [HideInInspector] public List<TypeOfDrink> drinksInside;
+    public List<TypeOfDrink> drinksInside;
     private bool listChanged;
 
     [Header("Result")]
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private List<Sprite> sprites;
+    [SerializeField] private Sprite censoredDrink;
     [SerializeField] private TextMeshPro textMeshPro;
     private TypeOfCocktail result;
 
@@ -44,14 +45,13 @@ public class ResultDrink : MonoBehaviour
     {
         listChanged = shakerPreviousDrinks != drinksInside.Count();
 
-        if (listChanged)
+        if (listChanged && drinksInside.Count() > 0)
         {
+            spriteRenderer.enabled = true;
             StartCoroutine(ResultAnimation());
             UpdateDrinks();
             MakeResult();
-            spriteRenderer.enabled = true;
         }
-
     }
     private void MakeResult()
     {
@@ -65,7 +65,7 @@ public class ResultDrink : MonoBehaviour
             {
                 result = TypeOfCocktail.RonCola;
             }
-            else if (whiskey == 2)
+            else if (whiskey == 4)
             {
                 result = TypeOfCocktail.OldFashioned;
             }
@@ -83,6 +83,18 @@ public class ResultDrink : MonoBehaviour
             else if (tequila == 2 && orangeJuice == 2)
             {
                 result = TypeOfCocktail.TequilaSunrise;
+            }
+            else if (gin == 4 && lemonJuice == 2)
+            {
+                result = TypeOfCocktail.TomCollins;
+            }
+            else if (gin == 2 && rum == 2 && orangeJuice == 4 && lemonJuice == 1)
+            {
+                result = TypeOfCocktail.MaiTai;
+            }
+            else if (gin == 4 && lemonJuice == 4 && tonic == 1 && soda == 1)
+            {
+                result = TypeOfCocktail.CorpseReviver;
             }
             else
             {
@@ -102,6 +114,18 @@ public class ResultDrink : MonoBehaviour
             else if (orangeJuice == 4 && whiskey == 2)
             {
                 result = TypeOfCocktail.FuzzyNavel;
+            }
+            else if (whiskey == 4 && lemonJuice == 2 && soda == 1)
+            {
+                result = TypeOfCocktail.WhiskeySour;
+            }
+            else if (vodka == 4 && lemonJuice == 3)
+            {
+                result = TypeOfCocktail.MoscowMule;
+            }
+            else if (gin == 2 && vodka == 2 && rum == 1 && lemonJuice == 2 && orangeJuice == 1 && soda == 2)
+            {
+                result = TypeOfCocktail.LastWord;
             }
             else
             {
@@ -126,47 +150,51 @@ public class ResultDrink : MonoBehaviour
     }
     private IEnumerator ResultAnimation()
     {
-        for (int spriteIndex = 0; spriteIndex < sprites.Count; spriteIndex++) 
+        if (drinksInside.Count > 0)
         {
-            spriteRenderer.sprite = sprites[spriteIndex];
-
-
-            if (result == TypeOfCocktail.Mierdon)
+            for (int spriteIndex = 0; spriteIndex < sprites.Count; spriteIndex++)
             {
+                spriteRenderer.sprite = sprites[spriteIndex];
 
-            }
-            else
-            {
+                if (spriteIndex >= sprites.Count - 1)
+                {
+                    textMeshPro.text = result.ToString();
 
-            }
-            if (spriteIndex >= sprites.Count - 1)
-            {
-                textMeshPro.text = result.ToString();
-            }
-            yield return new WaitForSeconds(0.4f);
-
-            switch (spriteIndex)
-            {
-                case 0:
-                    AudioManager.instance.Play("result0");
-                    break;
-                case 1:
-                    AudioManager.instance.Play("result1");
-                    break;
-                case 2:
-                    AudioManager.instance.Play("result2");
-                    break;
-                case 3:
-                    AudioManager.instance.Play("result3");
-                    break;
-                case 4:
                     if (result == TypeOfCocktail.Mierdon)
-                        AudioManager.instance.Play("badResult");
-                    else
-                        AudioManager.instance.Play("goodResult");
-                    break;
-                default:
-                    break;
+                    {
+                        spriteRenderer.sprite = censoredDrink;
+                    }
+                }
+
+                yield return new WaitForSeconds(0.4f);
+
+                switch (spriteIndex)
+                {
+                    case 0:
+                        AudioManager.instance.Play("result0");
+                        break;
+                    case 1:
+                        AudioManager.instance.Play("result1");
+                        break;
+                    case 2:
+                        AudioManager.instance.Play("result2");
+                        break;
+                    case 3:
+                        AudioManager.instance.Play("result3");
+                        break;
+                    case 4:
+                        if (result == TypeOfCocktail.Mierdon)
+                        {
+                            AudioManager.instance.Play("badResult");
+                        }
+                        else
+                        {
+                            AudioManager.instance.Play("goodResult");
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
@@ -186,7 +214,6 @@ public class ResultDrink : MonoBehaviour
     {
         return result;
     }
-
 }
 
 public enum TypeOfCocktail
@@ -200,5 +227,11 @@ public enum TypeOfCocktail
     SexOnTheBeach,
     TequilaSunrise,
     FuzzyNavel,
+    WhiskeySour,
+    TomCollins,
+    MoscowMule,
+    LastWord,
+    MaiTai,
+    CorpseReviver,
     Mierdon
 }

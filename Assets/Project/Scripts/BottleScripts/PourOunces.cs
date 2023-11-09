@@ -94,21 +94,26 @@ public class PourOunces : MonoBehaviour
                 {
                     resultDrink.drinksInside.Clear();
                     resultDrink.SetText("");
+
                     foreach (TypeOfDrink drink in drinkInsideShaker.GetTypeOfOunces())
                     {
                         resultDrink.drinksInside.Add(drink);
                     }
+
                     resultDrink.SetShakerStete(drinkInsideShaker.GetDrinkState());
                 }
             }
         }
         if (client != null && result != null)
         {
-            if (boxCollider.IsTouching(clientCollider))
-            {
-                dialogueScript.drinkDropped = resultDrink.GetResult();
-                resultDrink.SetEnabledSprite(false);
-                resultDrink.SetText("");
+            if (boxCollider == resultCollider) 
+            { 
+                if (boxCollider.IsTouching(clientCollider))
+                {
+                    dialogueScript.drinkDropped = resultDrink.GetResult();
+                    resultDrink.SetEnabledSprite(false);
+                    resultDrink.SetText("");
+                }
             }
         }
     }
