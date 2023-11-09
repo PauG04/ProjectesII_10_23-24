@@ -79,7 +79,7 @@ public class PourOunces : MonoBehaviour
             {
                 if (boxCollider != resultCollider)
                 {
-                    if (boxCollider.IsTouching(shakerCollider) && bottle.GetCurrentOunces() > 0)
+                    if (boxCollider.IsTouching(shakerCollider) && bottle.GetCurrentOunces() > 0 && drinkInsideShaker.GetTypeOfOunces().Count < 10)
                     {
                         drinkInsideShaker.AddOunce(bottle.GetTypeOfOunces()[0]);
                         shake.GetSprite().color = bottlerRenderer.color;

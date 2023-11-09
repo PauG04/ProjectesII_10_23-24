@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,16 +19,24 @@ public class Bottle : Drink
         liquidAnimation = GetComponentInChildren<LiquidAnimation>();
     }
 
+    private void Update()
+    {
+        if (currentOunces <= 0)
+        {
+            RefillOunces();
+            isFull = true;
+        }
+    }
     public void RefillOunces()
     {
         currentOunces = maxOunces;
+        liquidAnimation.ResetAnimation();
     }
-
     public void SubstractOneOunce()
     {
         currentOunces--;
         liquidAnimation.SetAnimation(currentOunces);
-        switch (Random.Range(1, 5))
+        switch (UnityEngine.Random.Range(1, 5))
         {
             case 1:
                 AudioManager.instance.Play("pourOunce1");

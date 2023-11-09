@@ -36,8 +36,8 @@ public class Drink : MonoBehaviour
     protected DrinkState drinkState;
 
     [SerializeField] protected int maxOunces;
-    protected int currentOunces;
-    protected bool isFull;
+    [SerializeField] protected int currentOunces;
+    [SerializeField] protected bool isFull;
 
     [Header("Testing Variables")]
     [SerializeField] protected TypeOfDrink typeOfDrink;
