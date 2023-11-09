@@ -46,7 +46,6 @@ public class Shake : MonoBehaviour
     private bool showMesage;
     private bool justOneTime;
     private float timer = 0;
-    private float currentColor;
 
     [SerializeField] private float r;
     [SerializeField] private float g;
@@ -87,7 +86,6 @@ public class Shake : MonoBehaviour
         shakeScale = shakeMesage.transform.localScale;
         arrow.transform.localScale = new Vector3(0, 0, 0);
         shakeMesage.transform.localScale = new Vector3(0, 0, 0);
-        currentColor = 0;
     }
 
     private void Update()
@@ -152,7 +150,7 @@ public class Shake : MonoBehaviour
             shaking = true;
         if(!drink.GetIsMouseNotPressed()) 
         {
-            transform.localScale = new Vector3(shakerSize.x - maxSize, shakerSize.y - maxSize, shakerSize.z);
+            transform.localScale = new Vector3(shakerSize.x + maxSize, shakerSize.y + maxSize, shakerSize.z);
             if(!justOneTime)
             {
                 justOneTime = true;
@@ -167,7 +165,7 @@ public class Shake : MonoBehaviour
         {
             shaking = false;
         }
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             transform.localScale = shakerSize;
             showMesage = false;
@@ -189,11 +187,11 @@ public class Shake : MonoBehaviour
     private void DirectionShaker()
     {
         newShakerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        if (oldShakerPosition.y >= newShakerPosition.y)
+        if (oldShakerPosition.y >= newShakerPosition.y && isShakingDown == false)
         {
             isShakingDown = true;
         }
-        else if (oldShakerPosition.y <= newShakerPosition.y)
+        else if (oldShakerPosition.y <= newShakerPosition.y && isShakingDown == true)
         {
             isShakingDown = false;
         }
@@ -227,6 +225,16 @@ public class Shake : MonoBehaviour
             g -= 0.1f;
             currentBox++;
             value += maxValue / 10;
+
+            switch (Random.Range(1, 2))
+            {
+                case 1:
+                    AudioManager.instance.Play("shake1");
+                    break;
+                case 2:
+                    AudioManager.instance.Play("shake2");
+                    break;
+            }
         }
     }
 
@@ -265,7 +273,6 @@ public class Shake : MonoBehaviour
         }
         currentSprite = 0;
         g = 1;
-        currentColor = 0;
     }
 
     public SpriteRenderer GetSprite()

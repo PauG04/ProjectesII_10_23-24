@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class ResetScene : MonoBehaviour
 {
-    [SerializeField] private OpenStartMenu openStartMenu;
+    [SerializeField] private WindowsIconActivation openStartMenu;
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
-        spriteRenderer= GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnMouseDown()
     {
-        if(openStartMenu.GetIsOpen())
+        if (openStartMenu.GetIsOpen())
         {
-            SceneManager.LoadScene("Main");                     
+            SceneManager.LoadScene("Main");
         }
     }
 }
