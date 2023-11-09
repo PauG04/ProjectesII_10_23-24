@@ -8,10 +8,20 @@ public class DialogueScript : MonoBehaviour
     [SerializeField] private TextMeshPro textMeshPro;
     [SerializeField] private List<TypeOfCocktail> typeOfDrinkList;
     [SerializeField] private TypeOfCocktail drinkThatWants;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
     [SerializeField] public TypeOfCocktail drinkDropped;
 
     [SerializeField] private GameObject badDrink;
     [SerializeField] private GameObject goodDrink;
+
+    private bool blink;
+    [SerializeField] private Sprite idleSprite;
+    [SerializeField] private Sprite blinkSprite;
+
+    [SerializeField] private Sprite badDrinkSprite;
+    [SerializeField] private Sprite goodDrinkSprite;
+
     [SerializeField] private bool playOnce;
 
     private bool playHappySound = true;
@@ -19,6 +29,8 @@ public class DialogueScript : MonoBehaviour
 
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         badDrink.SetActive(false);
         goodDrink.SetActive(false);
 
@@ -26,6 +38,7 @@ public class DialogueScript : MonoBehaviour
         goodDrink.transform.localScale = Vector3.zero;
 
         playOnce = true;
+        blink = true;
 
         RandomDrinkChose();
     }
@@ -45,6 +58,11 @@ public class DialogueScript : MonoBehaviour
         if (drinkDropped == TypeOfCocktail.Empty)
         {
             textMeshPro.text = "I want a " + drinkThatWants.ToString();
+            if (blink)
+            {
+                StartCoroutine(Blink());
+                blink = false;
+            }
             playOnce = true;
         }
         else if (drinkDropped == drinkThatWants)
@@ -58,6 +76,8 @@ public class DialogueScript : MonoBehaviour
                     AudioManager.instance.Play("happyClient");
                     playHappySound = false;
                }
+                spriteRenderer.sprite = goodDrinkSprite;
+
                 goodDrink.SetActive(true);
 
                 goodDrink.transform.SetParent(null);
@@ -73,6 +93,7 @@ public class DialogueScript : MonoBehaviour
 
                 if (goodDrink.transform.localScale == Vector3.one)
                 {
+                    spriteRenderer.sprite = idleSprite;
                     goodDrink.transform.SetParent(transform.parent);
                     goodDrink.SetActive(false);
                     playOnce = false;
@@ -95,6 +116,7 @@ public class DialogueScript : MonoBehaviour
                     AudioManager.instance.Play("madClient");
                     playMadSound = false;
                 }
+                spriteRenderer.sprite = badDrinkSprite;
 
                 badDrink.SetActive(true);
 
@@ -111,6 +133,7 @@ public class DialogueScript : MonoBehaviour
 
                 if (badDrink.transform.localScale == Vector3.one)
                 {
+                    spriteRenderer.sprite = idleSprite;
                     badDrink.transform.SetParent(transform.parent);
                     badDrink.SetActive(false);
                     playOnce = false;
@@ -122,5 +145,14 @@ public class DialogueScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator Blink()
+    {
+        yield return new WaitForSeconds(Random.Range(1, 5));
+        spriteRenderer.sprite = blinkSprite;
+        yield return new WaitForSeconds(0.5f);
+        spriteRenderer.sprite = idleSprite;
+        blink = true;
     }
 }

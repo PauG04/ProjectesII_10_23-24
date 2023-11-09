@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 using static Drink;
+using UnityEditor;
 
 public class ResultDrink : MonoBehaviour
 {
@@ -129,6 +130,15 @@ public class ResultDrink : MonoBehaviour
         {
             spriteRenderer.sprite = sprites[spriteIndex];
 
+
+            if (result == TypeOfCocktail.Mierdon)
+            {
+
+            }
+            else
+            {
+
+            }
             if (spriteIndex >= sprites.Count - 1)
             {
                 textMeshPro.text = result.ToString();
