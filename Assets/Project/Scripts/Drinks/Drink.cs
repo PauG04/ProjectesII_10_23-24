@@ -30,10 +30,17 @@ public class Drink : MonoBehaviour
         Shaked,
         Mixed
     }
+
+    public enum DrinkCategory
+    {
+        Alcohol,
+        Soda
+    }
     #endregion
 
     [SerializeField] protected List<TypeOfDrink> ouncesInDrink;
     protected DrinkState drinkState;
+    protected DrinkCategory drinkCategory;
 
     [SerializeField] protected int maxOunces;
     [SerializeField] protected int currentOunces;
@@ -72,6 +79,10 @@ public class Drink : MonoBehaviour
     public int GetMaxOunces()
     {
         return maxOunces;
+    }
+    public DrinkCategory GetDrinkCategory()
+    {
+        return drinkCategory;
     }
     #endregion
 

@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 768655213}
   - component: {fileID: 768655212}
   - component: {fileID: 768655211}
+  - component: {fileID: 768655214}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -215,6 +216,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &768655214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768655210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &1697176213
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +272,8 @@ GameObject:
   - component: {fileID: 1697176218}
   - component: {fileID: 1697176220}
   - component: {fileID: 1697176217}
+  - component: {fileID: 1697176221}
+  - component: {fileID: 1697176222}
   - component: {fileID: 1697176216}
   - component: {fileID: 1697176215}
   - component: {fileID: 1697176214}
@@ -344,6 +391,7 @@ MonoBehaviour:
   targetJoint: {fileID: 0}
   rb: {fileID: 0}
   maxAngle: 30
+  hasToRotate: 1
 --- !u!212 &1697176218
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -423,3 +471,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4439609f50c4b140b9c97b35ccd4b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraShake: {fileID: 0}
+  divideProgress: 50
+  maxProgress: 4
+--- !u!114 &1697176221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697176213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39bd6f2461cd7424e8d93539df27b9ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMouseNotPressed: 1
+--- !u!114 &1697176222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697176213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6a1e0a46df52142bbdeafcbba62ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ouncesInDrink: 
+  maxOunces: 0
+  currentOunces: 0
+  isFull: 0
+  typeOfDrink: 0
