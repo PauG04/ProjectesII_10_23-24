@@ -5,14 +5,12 @@ using UnityEngine;
 public class DragShaker : MonoBehaviour
 {
     private bool dragging = false;
+    private TargetJoint2D targetJoint;
+    private Rigidbody2D rb;
 
-    //[SerializeField] private SpriteRenderer sprite;
-    //[SerializeField] private Transform parent;
-
-    [SerializeField] private TargetJoint2D targetJoint;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float maxAngle = 0.0f;
+    [SerializeField] private float maxAngle;
     [SerializeField] private bool hasToRotate;
+    [SerializeField] private CloseShaker close;
 
     private void Start()
     {
@@ -31,18 +29,20 @@ public class DragShaker : MonoBehaviour
     {
         if(dragging)
             targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        else
+            targetJoint.target = new Vector2(0,0);
+        
     }
 
     private void OnMouseDown()
     {
-        dragging = true;
+        if(close.GetClose())
+            dragging = true;
     }
 
     private void OnMouseUp()
     {
-
         dragging = false;
-
     }
 
     public bool GetDragging()

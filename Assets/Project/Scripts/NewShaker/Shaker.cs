@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Shaker : MonoBehaviour
 {
     [SerializeField] private CameraShake _cameraShake;
     [SerializeField] private float divideProgress;
     [SerializeField] private float maxProgress;
+    [SerializeField] private float IntensityShaking;
 
     private DrinkScript _isPressing;
     private Drink drink;
@@ -19,6 +22,7 @@ public class Shaker : MonoBehaviour
 
     private void Awake()
     {
+        _cameraShake = Camera.main.GetComponent<CameraShake>();
         rb= GetComponent<Rigidbody2D>();
         _isPressing = GetComponent<DrinkScript>();
         drink = GetComponent<Drink>();
@@ -30,12 +34,16 @@ public class Shaker : MonoBehaviour
     {
         StartShaking();
         EndClicking();
-        if (canShake)
+        if (canShake && progress <= maxProgress)
         {
             DirectionShaker();
-            IncreaseBar(isDown);
+            IncreaseBar();
         }
-        SetDrinkState();
+        else
+        {
+            _cameraShake.SetTransforPosition();
+        }
+        SetDrinkState();        
     }
 
     private void StartShaking()
@@ -58,9 +66,9 @@ public class Shaker : MonoBehaviour
         isDown = !(isDown && rb.velocity.y >= 0 && canShake);
     }
 
-    private void IncreaseBar(bool down)
+    private void IncreaseBar()
     {
-        if(down)
+        if(isDown)
         {
             progress += (newPosition.y - transform.position.y) / divideProgress;
         }
@@ -68,6 +76,7 @@ public class Shaker : MonoBehaviour
         {
             progress += (transform.position.y - newPosition.y) / divideProgress;
         }
+        _cameraShake.ShakeCamera((transform.position.y - newPosition.y) * IntensityShaking);
         newPosition = transform.position;
     }
 
@@ -85,5 +94,21 @@ public class Shaker : MonoBehaviour
         {
             drink.SetDrinkState(Drink.DrinkState.Shaked);
         }
+    }
+
+    public float GetProgess()
+    {
+        return progress;
+    }
+
+    public float GetMaxProgress()
+    { 
+        return maxProgress; 
+    }
+
+    public void ResetShaker()
+    {
+        progress = 0;
+        drink.SetDrinkState(Drink.DrinkState.Idle);
     }
 }
