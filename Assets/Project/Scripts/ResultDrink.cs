@@ -24,6 +24,8 @@ public class ResultDrink : MonoBehaviour
     private DrinkState shakeState;
     private int shakerPreviousDrinks;
 
+    private StateManager stateManager;
+
     #region Drinks
     private int rum;
     private int gin;
@@ -165,6 +167,8 @@ public class ResultDrink : MonoBehaviour
                         spriteRenderer.sprite = censoredDrink;
                     }
                 }
+
+                stateManager.AddToState("fatigue", 0.5f);
 
                 yield return new WaitForSeconds(0.4f);
 
