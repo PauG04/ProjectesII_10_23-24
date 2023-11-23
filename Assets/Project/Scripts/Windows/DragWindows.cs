@@ -31,6 +31,7 @@ namespace Windows
             {
                 Vector3 mousePosToWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 
+
                 mousePos = new Vector3(
                     mousePosToWorldPoint.x + offset.x, 
                     mousePosToWorldPoint.y + offset.y, 
@@ -53,6 +54,16 @@ namespace Windows
         private void OnMouseUp()
         {
             isDragging = false;
+        }
+
+        public bool GetIsDragging()
+        {
+            return isDragging;
+        }
+
+        public Vector2 GetPosition()
+        {
+            return parentObject.transform.position;
         }
     }
 }

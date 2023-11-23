@@ -85,17 +85,14 @@ public class Shaker : MonoBehaviour
         if(progress < maxProgress * 0.33f)
         {
             drink.SetDrinkState(Drink.DrinkState.Idle);
-            Debug.Log("si");
         }
         else if(progress >= maxProgress * 0.66f)
         {
             drink.SetDrinkState(Drink.DrinkState.Mixed);
-            Debug.Log("no");
         }
         else
         {
             drink.SetDrinkState(Drink.DrinkState.Shaked);
-            Debug.Log("medio");
         }
     }
 
