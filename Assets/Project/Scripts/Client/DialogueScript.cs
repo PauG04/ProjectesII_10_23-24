@@ -24,6 +24,8 @@ public class DialogueScript : MonoBehaviour
 
     [SerializeField] private bool playOnce;
 
+    private StateManager stateManager;
+
     private bool playHappySound = true;
     private bool playMadSound = true;
 
@@ -108,6 +110,7 @@ public class DialogueScript : MonoBehaviour
         else if(drinkDropped != drinkThatWants)
         {
             textMeshPro.text = "What a piece of shit";
+            stateManager.AddToState("stress", 2);
 
             if (playOnce)
             {
