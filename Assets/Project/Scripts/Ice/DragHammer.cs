@@ -8,58 +8,38 @@ using Windows;
 
 public class DragHammer : MonoBehaviour
 {
-    private bool dragging;
-    private float angle;
-    private bool isATurn;
-    private bool startFalling;
-    private float force;
-    private Vector2 position;
+    private bool dragging = false;
     private TargetJoint2D targetJoint;
-    [SerializeField] private IceBreaking ice;
+    //private Rigidbody2D rb;
+    //private DragWindows window;
+    private Vector2 position;
 
     private void Start()
     {
         targetJoint = GetComponent<TargetJoint2D>();
-        angle = 0;
-        force = 0;
-        transform.localRotation= Quaternion.Euler(0,0,angle);
-        position = transform.localPosition;
+        //window = gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.transform.GetChild(0).GetComponent<DragWindows>();
+        position = transform.position;
     }
 
     private void Update()
     {
         CalculatePosition();
-        transform.localRotation = Quaternion.Euler(0, 0, angle);
-        if(startFalling && angle <= 0)
-        {
-            angle += 0.5f;
-            if(angle >= 0) 
-            {
-                ice.BreakIce();
-            }
-        }
+        //if (window.GetIsDragging())
+        //{
+        //    rb.bodyType = RigidbodyType2D.Kinematic;
+        //}
+        //else
+        //{
+        //    rb.bodyType = RigidbodyType2D.Dynamic;
+        //}
     }
 
     private void CalculatePosition()
     {
-        //if (dragging)
-        //    targetJoint.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //else
-        //    targetJoint.transform.position = position;
-        if(Input.GetKey(KeyCode.A) && isATurn && angle>-90) 
-        {
-            angle-=0.2f;
-            isATurn = false;
-        }
-        else if (Input.GetKey(KeyCode.D) && !isATurn && angle>-90)
-        {
-            angle -= 0.2f;
-            isATurn = true;
-        }
-        else if(angle <=- 90)
-        {
-            startFalling = true;
-        }
+        if (dragging)
+            targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        else
+            targetJoint.target = position;
 
     }
 
@@ -71,6 +51,11 @@ public class DragHammer : MonoBehaviour
     private void OnMouseUp()
     {
         dragging = false;
+    }
+
+    public bool GetDragging()
+    {
+        return dragging;
     }
 }
 
