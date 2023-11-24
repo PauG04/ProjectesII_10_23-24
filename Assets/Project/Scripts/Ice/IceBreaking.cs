@@ -4,29 +4,30 @@ using UnityEngine;
 
 public class IceBreaking : MonoBehaviour
 {
-    private int hits;
+    private bool destroy;
 
     [SerializeField] private Transform iceBroken;
 
     private void Update()
     {
-        if(hits == 3)
+        if (destroy)
         {
             Transform iceBrokenTransform = Instantiate(iceBroken, transform.position, transform.rotation);
-            foreach(Transform child in iceBrokenTransform) 
-            { 
-                if(child.TryGetComponent<Rigidbody>(out Rigidbody childRigidbody))
+            foreach (Transform child in iceBrokenTransform)
+            {
+                if (child.TryGetComponent<Rigidbody>(out Rigidbody childRigidbody))
                 {
                     childRigidbody.AddExplosionForce(100f, transform.position, 5f);
-                    childRigidbody.useGravity= true;
+                    childRigidbody.useGravity = true;
                 }
             }
             Destroy(gameObject);
         }
     }
 
-    public void SetHits()
+    public void BreakIce()
     {
-        hits++;
+        destroy = true;
     }
+
 }

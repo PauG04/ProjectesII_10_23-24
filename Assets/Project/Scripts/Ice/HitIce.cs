@@ -8,6 +8,6 @@ public class HitIce : MonoBehaviour
 
     private void OnMouseDown()
     {
-        ice.SetHits();
+        ice.BreakIce();
     }
 }
