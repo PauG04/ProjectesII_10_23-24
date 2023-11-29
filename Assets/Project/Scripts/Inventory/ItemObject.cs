@@ -7,7 +7,6 @@ using UnityEngine;
 public class ItemObject : ScriptableObject
 {
     public string itemName;
-    public SpriteRenderer spriteRenderer;
     public string description;
     public float prize; 
 }
