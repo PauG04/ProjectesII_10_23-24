@@ -131,7 +131,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.4820001, y: 0.08200001}
+  m_ConnectedAnchor: {x: -1.4820001, y: 0.08200037}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &1286430554083950862
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
-  force: 5
+  force: 1
 --- !u!1 &1064104161641155820
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +325,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.353, y: 0.864}
+  m_ConnectedAnchor: {x: -1.353, y: 0.8640005}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &2897559230317329177
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
-  force: 5
+  force: 1
 --- !u!1 &1399527949748908576
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ Transform:
   m_GameObject: {fileID: 1399527949748908576}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.36127752, y: -0.025241725, z: 0}
-  m_LocalScale: {x: 10.097358, y: 1.9293852, z: 1}
+  m_LocalScale: {x: 11, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7718659877098450668}
@@ -603,7 +603,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.193, y: 0.17000003}
+  m_ConnectedAnchor: {x: 1.1929998, y: 0.17000036}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &5417764240722369520
@@ -665,7 +665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
-  force: 5
+  force: 1
 --- !u!1 &1994659318355114096
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,7 +797,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.651, y: 0.18900001}
+  m_ConnectedAnchor: {x: 0.65099996, y: 0.18900001}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &1662506385920507665
@@ -859,7 +859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
-  force: 5
+  force: 1
 --- !u!1 &2629038322624374684
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,7 +996,7 @@ TargetJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_Anchor: {x: 0, y: 0}
-  m_Target: {x: 0.79399997, y: -0.134}
+  m_Target: {x: 1.292, y: 2.406}
   m_AutoConfigureTarget: 1
   m_MaxForce: 10000
   m_DampingRatio: 1
@@ -1203,7 +1203,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.536, y: 0.929}
+  m_ConnectedAnchor: {x: 1.5359999, y: 0.9289997}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &6969752335069417138
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
-  force: 5
+  force: 1
 --- !u!1 &4923535761069504324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,7 +1300,7 @@ Transform:
   - {fileID: 7114525037462203537}
   - {fileID: 7718659877098450668}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &213408977533542057
 SpriteRenderer:
@@ -1557,7 +1557,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.847, y: 0.07299999}
+  m_ConnectedAnchor: {x: -0.84700006, y: 0.073000416}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &6051231424151676946
@@ -1619,7 +1619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
-  force: 5
+  force: 1
 --- !u!1 &6246351001605134009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1751,7 +1751,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.062, y: 0.864}
+  m_ConnectedAnchor: {x: -0.06200006, y: 0.8640005}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &527843192386281079
@@ -1813,7 +1813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
-  force: 5
+  force: 1
 --- !u!1 &6309359320260016256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1945,7 +1945,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.13000003, y: 0.086}
+  m_ConnectedAnchor: {x: -0.13000008, y: 0.086000465}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &5011071133302605095
@@ -2007,7 +2007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
-  force: 5
+  force: 1
 --- !u!1 &6866131694842468837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,7 +2230,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.63400006, y: 0.631}
+  m_ConnectedAnchor: {x: -0.6340001, y: 0.6310005}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &3100340738985383719
@@ -2292,7 +2292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
-  force: 5
+  force: 1
 --- !u!1 &7801685002861373070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,7 +2424,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.847, y: 0.07299999}
+  m_ConnectedAnchor: {x: -0.84700006, y: 0.073000416}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &5847594588359845916
@@ -2486,7 +2486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
-  force: 5
+  force: 1
 --- !u!1 &8224543506930052956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2618,7 +2618,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.732, y: 0.94}
+  m_ConnectedAnchor: {x: 0.73199993, y: 0.94000024}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &3390105269243804605
@@ -2680,7 +2680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
-  force: 5
+  force: 1
 --- !u!1 &8910418494653813384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2812,7 +2812,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.626, y: 1.306}
+  m_ConnectedAnchor: {x: -0.62600005, y: 1.306}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!61 &3504013520229620168
@@ -2874,4 +2874,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
-  force: 5
+  force: 1
