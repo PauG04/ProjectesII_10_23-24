@@ -18,14 +18,14 @@ public class SlideLemon : MonoBehaviour
         if(collision.gameObject.CompareTag("Slider"))
         {
             Slider slider = collision.gameObject.GetComponent<Slider>();
-            Slice(slider.GetDirection(), slider.transform.position);
+            Slice(LemonSlide.transform.position, slider.transform.position);
         }
     }
 
     void Slice(Vector3 direction, Vector3 pos)
     {
-        Debug.Log("si");
-        LemonSlide.SetActive(true);
+        GameObject newLemon = Instantiate(LemonSlide, transform);
+        newLemon.SetActive(true);
         Vector3 dirtectionRot = direction;
         if(direction.magnitude> 0) 
         {
@@ -33,21 +33,19 @@ public class SlideLemon : MonoBehaviour
         }
 
         Quaternion rotation = Quaternion.LookRotation(dirtectionRot.normalized);
-        LemonSlide.transform.localRotation = rotation;
+        newLemon.transform.localRotation = rotation;
 
-        foreach(Transform slice in LemonSlide.transform) 
+        foreach(Transform slice in newLemon.transform) 
         { 
             Rigidbody rbLemon = slice.GetComponent<Rigidbody>();
             rbLemon.velocity = rb.velocity;
             Vector3 dir = slice.transform.position - pos;
             rbLemon.AddForceAtPosition(dir.normalized, pos, ForceMode.Impulse);
         }
-        LemonSlide.transform.parent = null;
-        LemonSlide.transform.position = transform.position;
-        DestroyImmediate(LemonSlide, true);
+        newLemon.transform.parent = null;
+        newLemon.transform.position = transform.position;
+        Destroy(newLemon, 5f);
 
         Destroy(gameObject);
-
-
     }
 }
