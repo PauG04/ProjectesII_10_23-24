@@ -26,7 +26,7 @@ public class ThrowObject : MonoBehaviour
 
         rb.AddForce(direction * force, ForceMode.Impulse);
 
-        float forceRot = force * 0.01f;
+        float forceRot = force * 0.25f;
 
         float rotX = Random.Range(-forceRot, forceRot);
         float rotY = Random.Range(-forceRot, forceRot);

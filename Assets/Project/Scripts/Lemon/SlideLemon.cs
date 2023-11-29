@@ -13,12 +13,12 @@ public class SlideLemon : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.CompareTag("Slider"))
+        if(other.gameObject.CompareTag("Slider"))
         {
-            Slider slider = collision.gameObject.GetComponent<Slider>();
-            Slice(LemonSlide.transform.position, slider.transform.position);
+            Slider slider = other.gameObject.GetComponent<Slider>();
+            Slice(slider.transform.position, slider.transform.position);
         }
     }
 
