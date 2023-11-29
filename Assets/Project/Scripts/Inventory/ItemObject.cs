@@ -8,5 +8,6 @@ public class ItemObject : ScriptableObject
 {
     public string itemName;
     public string description;
-    public float prize; 
+    public float prize;
+    public Transform transform;
 }
