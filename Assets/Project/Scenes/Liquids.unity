@@ -1602,6 +1602,13 @@ MonoBehaviour:
   simualtion: {fileID: 1144000527}
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   spawnRate: 50
+  maxQuantityOfLiquid: 100
+  fluidRenderer: {fileID: 1864102959}
+  maxWobble: 0.0075
+  wobbleSpeed: 0.5
+  recovery: 0.5
+  maxSlider: 0.58
+  minSlider: 0.51
 --- !u!4 &710820583772760331
 Transform:
   m_ObjectHideFlags: 0

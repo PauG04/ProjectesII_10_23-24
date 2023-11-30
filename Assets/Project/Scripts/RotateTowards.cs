@@ -5,7 +5,7 @@ using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class RotateTowards : MonoBehaviour
+public class BottleController : MonoBehaviour
 {
     #region Rotation Variables
     [Header("Rotation Variables")]
@@ -23,19 +23,42 @@ public class RotateTowards : MonoBehaviour
     private bool isDragging = false;
     #endregion
     
-    #region Liquid Variables
-    [Header("Liquid Variables")]
+    #region Fluid Simulation Variables
+    [Header("Fluid Simulation Variables")]
     [SerializeField] private GameObject simualtion;
     [SerializeField] private GameObject liquidParticle;
     [SerializeField] private float spawnRate;
+    [SerializeField] private int maxQuantityOfLiquid;
 
+    private int quantityOfLiquid;
     private float time;
+    #endregion
+
+    #region Liquid Variables
+    [Header("Liquid Variables")]
+    [SerializeField] private Renderer fluidRenderer;
+
+    [Header("Liquid Wooble Variables")]
+    [SerializeField] private float maxWobble = 0.0075f;
+    [SerializeField] private float wobbleSpeed = 0.5f;
+    [SerializeField] private float recovery = 0.5f;
+
+    private Vector3 lastPosition;
+    private Vector3 lastRotation;
+    private float wobbleAmountToAddX;
+
+    private float liquidTime;
+
+    [Header("Liquid Fill Variables")]
+    [SerializeField] private float maxSlider = 0.58f;
+    [SerializeField] private float minSlider = 0.51f;
     #endregion
 
     private void Start()
     {
         startedScale = transform.localScale;
         startedRotation = transform.rotation;
+        quantityOfLiquid = maxQuantityOfLiquid;
     }
     private void Update()
     {
@@ -43,6 +66,8 @@ public class RotateTowards : MonoBehaviour
         {
             HoldingBottle();
         }
+        SetLiquid();
+        WobbleFluid();
     }
     private void OnMouseDown()
     {
@@ -80,7 +105,7 @@ public class RotateTowards : MonoBehaviour
     }
     private void DropLiquid(float spawnRateLiquid)
     {
-        if (simualtion.transform.childCount < 250)
+        if (quantityOfLiquid > 0)
         {
             time += Time.deltaTime;
 
@@ -93,6 +118,7 @@ public class RotateTowards : MonoBehaviour
             newParticle.transform.parent = simualtion.transform;
             newParticle.transform.position = transform.position;
             time = 0.0f;
+            quantityOfLiquid--;
         }
     }
     private void RotateObjectTowards()
@@ -116,5 +142,28 @@ public class RotateTowards : MonoBehaviour
             Camera.main.ScreenToWorldPoint(Input.mousePosition).y + offset.y,
             0
             );
+    }
+    private void WobbleFluid()
+    {
+        liquidTime += Time.deltaTime;
+        wobbleAmountToAddX = Mathf.Lerp(wobbleAmountToAddX, 0, Time.deltaTime * (recovery));
+
+        float pulse = 2 * Mathf.PI * wobbleSpeed;
+        float wobbleAmountX = wobbleAmountToAddX * Mathf.Sin(pulse * liquidTime);
+
+        fluidRenderer.material.SetFloat("_WobbleX", wobbleAmountX);
+
+        Vector3 velocity = (lastPosition - transform.position) / Time.deltaTime;
+        Vector3 angularVelocity = transform.rotation.eulerAngles - lastRotation;
+
+        wobbleAmountToAddX += Mathf.Clamp((velocity.x + (angularVelocity.z * 0.2f)) * maxWobble, -maxWobble, maxWobble);
+
+        lastPosition = transform.position;
+        lastRotation = transform.rotation.eulerAngles;
+    }
+    private void SetLiquid()
+    {
+        float fillAmount = minSlider + (quantityOfLiquid * (maxSlider - minSlider)) / maxQuantityOfLiquid;
+        fluidRenderer.material.SetFloat("_Fill", fillAmount);
     }
 }
