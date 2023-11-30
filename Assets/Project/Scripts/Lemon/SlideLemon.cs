@@ -5,42 +5,36 @@ using UnityEngine;
 public class SlideLemon : MonoBehaviour
 {
     [SerializeField] private GameObject LemonSlide;
-
-    private Rigidbody rb;
+    [SerializeField] private float force;
+    private Rigidbody2D rb;
+  
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(other.gameObject.CompareTag("Slider"))
+        if (collision.gameObject.CompareTag("Slider"))
         {
-            Slider slider = other.gameObject.GetComponent<Slider>();
-            Slice(slider.transform.position, slider.transform.position);
+            Slider slider = collision.gameObject.GetComponent<Slider>();
+            Slice(transform.position, transform.position);
         }
     }
 
     void Slice(Vector3 direction, Vector3 pos)
     {
         GameObject newLemon = Instantiate(LemonSlide, transform);
-        newLemon.SetActive(true);
-        Vector3 dirtectionRot = direction;
-        if(direction.magnitude> 0) 
-        {
-            dirtectionRot = pos - transform.position;
-        }
 
-        Quaternion rotation = Quaternion.LookRotation(dirtectionRot.normalized);
+        Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(-120, 120));
         newLemon.transform.localRotation = rotation;
 
-        foreach(Transform slice in newLemon.transform) 
-        { 
-            Rigidbody rbLemon = slice.GetComponent<Rigidbody>();
-            rbLemon.velocity = rb.velocity;
+        foreach (Transform slice in newLemon.transform)
+        {
+            Rigidbody2D rbLemon = slice.GetComponent<Rigidbody2D>();
             Vector3 dir = slice.transform.position - pos;
-            rbLemon.AddForceAtPosition(dir.normalized, pos, ForceMode.Impulse);
+            rbLemon.AddForceAtPosition(dir.normalized * Random.Range(-force, force), pos, ForceMode2D.Impulse);
         }
         newLemon.transform.parent = null;
         newLemon.transform.position = transform.position;

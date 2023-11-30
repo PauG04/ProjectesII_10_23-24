@@ -30,16 +30,12 @@ public class BreakIce : MonoBehaviour
     {
         GameObject newIce = Instantiate(iceSlide, transform);
 
-
-        //Quaternion rotation = Quaternion.LookRotation(dirtectionRot.normalized);
-        //newIce.transform.localRotation = rotation;
         Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(-120, 120));
         newIce.transform.localRotation = rotation;
 
         foreach (Transform slice in newIce.transform)
         {
             Rigidbody2D rbLemon = slice.GetComponent<Rigidbody2D>();
-            //rbLemon.velocity = rb.velocity;
             Vector3 dir = slice.transform.position - pos;
             rbLemon.AddForceAtPosition(dir.normalized * Random.Range(-force, force), pos, ForceMode2D.Impulse);
         }

@@ -5,13 +5,16 @@ using UnityEngine;
 public class HammerHit : MonoBehaviour
 {
     private BoxCollider2D m_BoxCollider;
+    private CameraShake _camera;
     private float time = 0;
 
     [SerializeField] private DragHammer hammer;
+    [SerializeField] private float IntensityShaking;
 
     private void Start()
     {
         m_BoxCollider= GetComponent<BoxCollider2D>();
+        _camera = Camera.main.GetComponent<CameraShake>();
     }
 
     private void Update()
@@ -28,6 +31,7 @@ public class HammerHit : MonoBehaviour
         if(Input.GetMouseButtonDown(1) && hammer.GetDragging()) 
         {
             m_BoxCollider.enabled = true;
+            _camera.ShakeCamera(IntensityShaking);
         }
         else if(Input.GetMouseButtonUp(1)||!hammer.GetDragging())
         {
@@ -42,6 +46,7 @@ public class HammerHit : MonoBehaviour
         {
             m_BoxCollider.enabled = false;
             time = 0;
+            _camera.SetTransforPosition();
         }
     }
 

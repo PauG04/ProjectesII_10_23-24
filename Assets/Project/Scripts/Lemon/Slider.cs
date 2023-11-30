@@ -6,14 +6,14 @@ using UnityEngine;
 public class Slider : MonoBehaviour
 {
     private Vector3 direction;
-    BoxCollider collider;
+    BoxCollider2D collider;
 
     Camera mainCamera;
 
     private void Awake()
     {
         mainCamera = Camera.main;
-        collider = GetComponent<BoxCollider>();
+        collider = GetComponent<BoxCollider2D>();
     }
 
     private void FixedUpdate()

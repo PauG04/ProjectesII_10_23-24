@@ -9,28 +9,54 @@ public class SpawnerLemon : MonoBehaviour
 
     [SerializeField] float minForce;
     [SerializeField] float maxForce;
+    [SerializeField] private float maxTimeSpwan;
+    [SerializeField] private float minTimeSpwan;
 
+    private Transform window;
+    private int currentLemon;
+    private int maxLemon = 7;
     float maxWitdh;
+    private float time;
+    private bool spawnLemon;
 
     private void Start()
     {
-        float camWidth = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0.0f)).x;
-        maxWitdh = camWidth - 1.5f;
+        window = window = gameObject.transform.parent.gameObject.transform.parent.GetComponent<Transform>();
+        spawnLemon = true;
+        currentLemon = 0;     
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (currentLemon <= maxLemon && spawnLemon)
         {
             Spwan();
         }
+
+        if(!spawnLemon) 
+        {
+            StartTimer();
+        }
+        
     }
 
     private void Spwan()
     {
         GameObject newLemon = Instantiate(lemon, transform);
-        Vector3 spawnPos = new Vector3(Random.Range(-maxWitdh, maxWitdh), transform.position.y , transform.position.z);
+        Vector3 spawnPos = new Vector3(Random.Range(window.position.x - 0.5f, window.position.x + 0.5f), transform.position.y , transform.position.z);
         newLemon.transform.position = spawnPos;
         newLemon.GetComponent<ThrowObject>().Throw(Random.Range(minForce, maxForce));
+        currentLemon++;
+        spawnLemon = false;
+    }
+
+    private void StartTimer()
+    {
+        time += Time.deltaTime;
+        if (time >= Random.Range(minTimeSpwan, maxTimeSpwan))
+        {
+            time = 0;
+            spawnLemon = true;
+        }
     }
 }
