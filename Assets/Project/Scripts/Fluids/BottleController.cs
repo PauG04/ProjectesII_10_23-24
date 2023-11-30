@@ -62,7 +62,7 @@ public class BottleController : MonoBehaviour
         {
             HoldingBottle();
         }
-        // TODO: Fix when not more draggin, the position stays.
+        // TODO: When we are not draggin anymore, the position stays.
         if (!isShakerSpawned)
         {
             ResetRotation();
