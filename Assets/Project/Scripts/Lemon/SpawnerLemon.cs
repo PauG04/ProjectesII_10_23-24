@@ -11,7 +11,8 @@ public class SpawnerLemon : MonoBehaviour
     [SerializeField] float maxForce;
     [SerializeField] private float maxTimeSpwan;
     [SerializeField] private float minTimeSpwan;
-
+    [SerializeField] private StartCounter counter;
+    
     private Transform window;
     private int currentLemon;
     private int maxLemon = 7;
@@ -28,7 +29,7 @@ public class SpawnerLemon : MonoBehaviour
 
     private void Update()
     {
-        if (currentLemon <= maxLemon && spawnLemon)
+        if (currentLemon <= maxLemon && spawnLemon && counter.GetStartMinigae())
         {
             Spwan();
         }
@@ -36,6 +37,12 @@ public class SpawnerLemon : MonoBehaviour
         if(!spawnLemon) 
         {
             StartTimer();
+        }
+
+        if(currentLemon > maxLemon) 
+        {
+            counter.SetStartMinigae(false);
+            currentLemon = 0;
         }
         
     }
