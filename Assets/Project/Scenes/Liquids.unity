@@ -1335,53 +1335,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1113693614
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1113693616}
-  - component: {fileID: 1113693615}
-  m_Layer: 0
-  m_Name: Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1113693615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113693614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25b8a80c6dae03f4b8d229b5d0ede88f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  simualtion: {fileID: 1144000527}
-  liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
-  spawnRate: 100
---- !u!4 &1113693616
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113693614}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.524, y: 0.48849192, z: -4.4753084}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1144000527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,7 +1398,7 @@ Transform:
   - {fileID: 267106140}
   - {fileID: 1072124207}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1857907247
 SpriteRenderer:
@@ -1596,13 +1549,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shaker: {fileID: 1857907245}
-  shakerPosition: {x: 0, y: 0}
-  startedRotation: {x: 0, y: 0, z: 0, w: 0}
-  startedScale: {x: 0, y: 0, z: 0}
+  rotationVelocity: 5
   simualtion: {fileID: 1144000527}
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   spawnRate: 50
-  maxQuantityOfLiquid: 100
+  maxQuantityOfLiquid: 250
   fluidRenderer: {fileID: 1864102959}
   maxWobble: 0.0075
   wobbleSpeed: 0.5
@@ -1683,7 +1634,7 @@ Transform:
   m_Children:
   - {fileID: 710820583772760331}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4639434937809583282
 SpriteRenderer:
