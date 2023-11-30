@@ -6,12 +6,14 @@ using UnityEngine;
 public class StartCounter : MonoBehaviour
 {
     [SerializeField] private GameObject[] mesage;
+    [SerializeField] private float time;
 
     private Vector3 shakeScale;
     private bool showMesage;
     private bool startShowMesage;
     private bool startMinigame;
     int id;
+
 
     private void Start()
     {
@@ -46,12 +48,12 @@ public class StartCounter : MonoBehaviour
     {
          if(showMesage)
          {
-             mesage[id].transform.localScale = Vector3.Lerp(mesage[id].transform.localScale, shakeScale, 5 * Time.deltaTime);
+             mesage[id].transform.localScale = Vector3.Lerp(mesage[id].transform.localScale, shakeScale, time * Time.deltaTime);
              isBigger();
          }
          else
          {
-             mesage[id].transform.localScale = Vector3.Lerp(mesage[id].transform.localScale, new Vector3(0, 0, 0), 5 * Time.deltaTime);
+             mesage[id].transform.localScale = Vector3.Lerp(mesage[id].transform.localScale, new Vector3(0, 0, 0), time * Time.deltaTime);
              isLower();
          }              
         

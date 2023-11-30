@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class SlideLemon : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class SlideLemon : MonoBehaviour
         newLemon.transform.parent = null;
         newLemon.transform.position = transform.position;
         Destroy(newLemon, 5f);
+
+        
 
         Destroy(gameObject);
     }

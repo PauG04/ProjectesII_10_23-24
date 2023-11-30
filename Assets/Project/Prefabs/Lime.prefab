@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891991740987476304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8, y: 0.07, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LemonSlide: {fileID: 8690186931146698683, guid: ae5671fdadd10af4a83088720e3ed01b, type: 3}
   force: 50
+  particle: {fileID: 0}
 --- !u!114 &6864076086968239343
 MonoBehaviour:
   m_ObjectHideFlags: 0
