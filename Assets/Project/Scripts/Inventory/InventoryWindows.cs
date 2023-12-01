@@ -9,14 +9,14 @@ public class InventoryWindows : MonoBehaviour
     [SerializeField] private Vector2 maxItems;
     private List<Vector2> posInWindows;
 
-    private InventoryManager inventoryManager;
+    private GameManager gameManager;
 
     private void Awake()
     {
-        inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         posInWindows = new List<Vector2>();
         SetPositionsInWindows();
-        SetItemPositions(inventoryManager.GetInventory());
+        SetItemPositions(gameManager.GetInventory());
     }
 
     private void SetPositionsInWindows()
@@ -41,7 +41,7 @@ public class InventoryWindows : MonoBehaviour
 
         foreach (KeyValuePair<ItemObject, int> item in inventory)
         {
-            item.Key.transform.position = posInWindows[i];
+            //item.Key.transform.position = posInWindows[i];
             i++;
         }
     }

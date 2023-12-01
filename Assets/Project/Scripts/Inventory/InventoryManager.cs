@@ -4,39 +4,34 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    private Dictionary<ItemObject, int> inventory;
-    
+    [SerializeField] GameManager gameManager;
+
     private void Awake()
     {
-        inventory = new Dictionary<ItemObject, int>();
+        gameManager = gameObject.GetComponent<GameManager>();
     }
 
     public void AddItem(ItemObject item)
     {
-        if (inventory.ContainsKey(item))
+        if (gameManager.GetInventory().ContainsKey(item))
         {
-            inventory[item]++;
+            gameManager.GetInventory()[item]++;
         }
         else
         {
-            inventory.Add(item, 1);
+            gameManager.GetInventory().Add(item, 1);
         }
     }
 
     public void UseItem(ItemObject item)
     {
-        if (inventory.ContainsKey(item) && inventory[item] > 0)
+        if (gameManager.GetInventory().ContainsKey(item) && gameManager.GetInventory()[item] > 0)
         {
-            inventory[item]--;
-            if (inventory[item] <= 0)
+            gameManager.GetInventory()[item]--;
+            if (gameManager.GetInventory()[item] <= 0)
             {
-                inventory.Remove(item);
+                gameManager.GetInventory().Remove(item);
             }
         }
-    }
-
-    public Dictionary<ItemObject, int> GetInventory()
-    {
-        return inventory;
     }
 }
