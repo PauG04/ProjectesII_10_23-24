@@ -32,6 +32,7 @@ public class HammerHit : MonoBehaviour
         {
             m_BoxCollider.enabled = true;
             _camera.ShakeCamera(IntensityShaking);
+            hammer.Animation(true);
         }
         else if(Input.GetMouseButtonUp(1)||!hammer.GetDragging())
         {
@@ -47,6 +48,7 @@ public class HammerHit : MonoBehaviour
             m_BoxCollider.enabled = false;
             time = 0;
             _camera.SetTransforPosition();
+            hammer.Animation(false);
         }
     }
 

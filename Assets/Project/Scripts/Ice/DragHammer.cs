@@ -10,6 +10,7 @@ public class DragHammer : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 position;
     private DragWindows window;
+    private Animator anim;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class DragHammer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         window = gameObject.transform.parent.gameObject.transform.parent.GetChild(0).GetComponent<DragWindows>();
         position = transform.position;
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -54,6 +56,11 @@ public class DragHammer : MonoBehaviour
     public bool GetDragging()
     {
         return dragging;
+    }
+
+    public void Animation(bool state)
+    {
+        anim.SetBool("isPressing", state);
     }
 }
 

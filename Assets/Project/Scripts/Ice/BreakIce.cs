@@ -41,7 +41,6 @@ public class BreakIce : MonoBehaviour
         }
         newIce.transform.parent = null;
         newIce.transform.position = transform.position;
-        Destroy(newIce, 5f);
 
         Destroy(gameObject);
     }
