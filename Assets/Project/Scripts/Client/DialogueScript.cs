@@ -24,7 +24,7 @@ public class DialogueScript : MonoBehaviour
 
     [SerializeField] private bool playOnce;
 
-    private StateManager stateManager;
+    private StateMachineManager stateManager;
 
     private bool playHappySound = true;
     private bool playMadSound = true;
