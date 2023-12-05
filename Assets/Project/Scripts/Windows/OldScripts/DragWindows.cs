@@ -31,7 +31,6 @@ namespace Windows
             {
                 Vector3 mousePosToWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 
-
                 mousePos = new Vector3(
                     mousePosToWorldPoint.x + offset.x, 
                     mousePosToWorldPoint.y + offset.y, 

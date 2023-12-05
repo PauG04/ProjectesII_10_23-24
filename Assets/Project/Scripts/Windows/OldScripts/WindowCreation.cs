@@ -83,7 +83,6 @@ namespace Windows
         public ReOrderWindows GetOrderWindow()
         {
             return GetComponent<ReOrderWindows>();
-
         }
         public Minimize GetMinimize()
         {

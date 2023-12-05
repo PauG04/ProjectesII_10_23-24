@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateMachineManager : MonoBehaviour
+public class StateManager : MonoBehaviour
 {
     [SerializeField]GameManager gameManager;
 

@@ -9,11 +9,11 @@ public abstract class StateMachineManager<EState> : MonoBehaviour where EState :
 
     protected bool IsTranistioningState = false;
 
-    private void Start()
+    void Start()
     {
         CurrentState.EnterState();
     }
-    private void Update()
+    void Update()
     {
         EState nextStateKey = CurrentState.GetNextState();
 
@@ -30,7 +30,7 @@ public abstract class StateMachineManager<EState> : MonoBehaviour where EState :
         }
     }
 
-    private void TransitionToState(EState stateKey)
+    public void TransitionToState(EState stateKey)
     {
         IsTranistioningState = true;
         CurrentState.ExitState();
@@ -38,17 +38,17 @@ public abstract class StateMachineManager<EState> : MonoBehaviour where EState :
         CurrentState.EnterState();
         IsTranistioningState = false;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision) 
-    { 
-        CurrentState.OnTriggerEnter(collision);
+    void OnMouseDown()
+    {
+        CurrentState.OnMouseDown();
     }
-    private void OnTriggerStay2D(Collider2D collision) 
-    { 
-        CurrentState.OnTriggerStay(collision);
+    private void OnMouseDrag()
+    {
+        CurrentState.OnMouseDrag();
     }
-    private void OnTriggerExit2D(Collider2D collision) 
-    { 
-        CurrentState.OnTriggerExit(collision);
+    void OnMouseUp()
+    {
+        CurrentState.OnMouseUp();
     }
+   
 }

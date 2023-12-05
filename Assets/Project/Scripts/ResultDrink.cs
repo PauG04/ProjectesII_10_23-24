@@ -24,7 +24,7 @@ public class ResultDrink : MonoBehaviour
     private DrinkState shakeState;
     private int shakerPreviousDrinks;
 
-    private StateMachineManager stateManager;
+    private StateManager stateManager;
 
     #region Drinks
     private int rum;
