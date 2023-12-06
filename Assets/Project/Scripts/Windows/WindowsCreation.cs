@@ -10,17 +10,17 @@ public class WindowCreation : BaseState<WindowsStateMachine.WindowState>
 
     private WindowNode _node;
 
+    #region Adjustements Window
     private float _offsetWidth = 0.02f;
-    private float _offsetHeight = 0.08f;
+    private float _offsetHeight = 0.05f;
+    private float _moveHeight = -0.015f;
+    #endregion
 
     private SpriteRenderer _spriteRenderer;
-    public WindowCreation(WindowsStateMachine windowsStateMachine, WindowNode node, float offsetWidth, float offsetHeight) : base(WindowsStateMachine.WindowState.Creating)
+    public WindowCreation(WindowsStateMachine windowsStateMachine, WindowNode node) : base(WindowsStateMachine.WindowState.Creating)
     {
         _windowsStateMachine = windowsStateMachine;
         _node = node;
-
-        _offsetWidth = offsetWidth;
-        _offsetHeight = offsetHeight;
     }
 
     public override void EnterState()
@@ -57,23 +57,36 @@ public class WindowCreation : BaseState<WindowsStateMachine.WindowState>
     public override void UpdateState()
     {
         RenameObject();
+        ResizeWindowToAdjust();
         CreatePrefabInsideWindow();
-        ResizeWindowToPrefab();
         _state = WindowsStateMachine.WindowState.Idle;
     }
 
     private void RenameObject()
     {
         _windowsStateMachine.gameObject.name = _node.GetWindowName();
-
     }
     private void CreatePrefabInsideWindow()
     {
+        ResizeWindowToAdjust();
+
         GameObject prefabInstance = GameObject.Instantiate(_node.GetPrefabChild());
         prefabInstance.transform.parent = _windowsStateMachine.transform;
+
+        MoveWindowToAdjust(prefabInstance);
     }
-    private void ResizeWindowToPrefab()
+    private void MoveWindowToAdjust(GameObject prefab)
     {
+        prefab.transform.position = new Vector2(
+             _windowsStateMachine.transform.position.x,
+             _windowsStateMachine.transform.position.y + _moveHeight
+        );
+    }
+    private void ResizeWindowToAdjust()
+    {
+        /*
+         * Change position of the windows to put in front
+         * 
         _node.GetPrefabChild().transform.position = new Vector3(
             _node.GetPrefabChild().transform.position.x,
             _node.GetPrefabChild().transform.position.y,
@@ -81,7 +94,7 @@ public class WindowCreation : BaseState<WindowsStateMachine.WindowState>
         );
 
         _windowsStateMachine.transform.position = _node.GetPrefabChild().transform.position;
-
+        */
         Vector2 newWindowSize = new Vector2(
             _node.GetPrefabChild().transform.localScale.x + _offsetWidth,
             _node.GetPrefabChild().transform.localScale.y + _offsetHeight
@@ -89,4 +102,6 @@ public class WindowCreation : BaseState<WindowsStateMachine.WindowState>
 
         _spriteRenderer.size = newWindowSize;
     }
+
+    
 }
