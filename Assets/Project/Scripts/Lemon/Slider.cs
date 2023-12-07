@@ -39,4 +39,9 @@ public class Slider : MonoBehaviour
     {
         return direction;
     }
+
+    public BoxCollider2D GetCollider()
+    {
+        return collider;
+    }
 }
