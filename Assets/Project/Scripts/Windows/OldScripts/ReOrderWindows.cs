@@ -8,12 +8,12 @@ namespace Windows
 { 
     public class ReOrderWindows : MonoBehaviour
     {
-        [SerializeField] private GetListOfWindows listOfWindows;
+        [SerializeField] private ListOfWindows listOfWindows;
         [SerializeField] private List<GameObject> windows;
 
         private void Start()
         {
-            listOfWindows = transform.parent.GetComponent<GetListOfWindows>();
+            listOfWindows = transform.parent.GetComponent<ListOfWindows>();
             listOfWindows.AddWindowInList(gameObject);
             MoveObjectInZ();
         }
@@ -27,7 +27,6 @@ namespace Windows
             {
                 windows.Remove(pressedObject);
             }
-            windows.Insert(0, pressedObject);
 
             MoveObjectInZ();
         }

@@ -37,10 +37,13 @@ public class DragHammer : MonoBehaviour
     private void CalculatePosition()
     {
         if (dragging)
-            targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        {
+           targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
         else
-            targetJoint.target = window.GetPosition() + position;
-
+        {
+           targetJoint.target = window.GetPosition() + position;
+        }
     }
 
     private void OnMouseDown()

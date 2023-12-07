@@ -3,7 +3,7 @@ using UnityEngine;
 using Windows;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class WindowCreation : BaseState<WindowsStateMachine.WindowState>
+public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 {
     private WindowsStateMachine _windowsStateMachine;
     private WindowsStateMachine.WindowState _state;
@@ -17,7 +17,7 @@ public class WindowCreation : BaseState<WindowsStateMachine.WindowState>
     #endregion
 
     private SpriteRenderer _spriteRenderer;
-    public WindowCreation(WindowsStateMachine windowsStateMachine, WindowNode node) : base(WindowsStateMachine.WindowState.Creating)
+    public WindowsCreation(WindowsStateMachine windowsStateMachine, WindowNode node) : base(WindowsStateMachine.WindowState.Creating)
     {
         _windowsStateMachine = windowsStateMachine;
         _node = node;
@@ -26,15 +26,11 @@ public class WindowCreation : BaseState<WindowsStateMachine.WindowState>
     public override void EnterState()
     {
         _state = WindowsStateMachine.WindowState.Creating;
-
         _spriteRenderer = _windowsStateMachine.gameObject.GetComponent<SpriteRenderer>();
-
-        Debug.Log("Enter Window Creation State");
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exit Window Creation State");
     }
 
     public override WindowsStateMachine.WindowState GetNextState()
@@ -59,7 +55,7 @@ public class WindowCreation : BaseState<WindowsStateMachine.WindowState>
         RenameObject();
         ResizeWindowToAdjust();
         CreatePrefabInsideWindow();
-        _state = WindowsStateMachine.WindowState.Idle;
+        _state = WindowsStateMachine.WindowState.Order;
     }
 
     private void RenameObject()
@@ -81,27 +77,22 @@ public class WindowCreation : BaseState<WindowsStateMachine.WindowState>
              _windowsStateMachine.transform.position.x,
              _windowsStateMachine.transform.position.y + _moveHeight
         );
+        // Reset collision autotiling to autosize with the object.
+        /*
+        PolygonCollider2D polygonCollider = _windowsStateMachine.GetComponent<PolygonCollider2D>();
+
+        polygonCollider.autoTiling = false;
+        */
     }
     private void ResizeWindowToAdjust()
     {
-        /*
-         * Change position of the windows to put in front
-         * 
-        _node.GetPrefabChild().transform.position = new Vector3(
-            _node.GetPrefabChild().transform.position.x,
-            _node.GetPrefabChild().transform.position.y,
-            _windowsStateMachine.transform.position.z
-        );
-
-        _windowsStateMachine.transform.position = _node.GetPrefabChild().transform.position;
-        */
         Vector2 newWindowSize = new Vector2(
             _node.GetPrefabChild().transform.localScale.x + _offsetWidth,
             _node.GetPrefabChild().transform.localScale.y + _offsetHeight
-        );
+        ); 
 
         _spriteRenderer.size = newWindowSize;
     }
 
-    
+
 }

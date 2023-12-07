@@ -5,12 +5,15 @@ public class WindowsDragging : BaseState<WindowsStateMachine.WindowState>
     private WindowsStateMachine.WindowState _state;
     private WindowsStateMachine _windowsStateMachine;
 
+    private ListOfWindows _listOfWindows;
+
     private Vector3 _offset;
     private Vector3 _mousePos;
 
-    public WindowsDragging(WindowsStateMachine windowsStateMachine) : base(WindowsStateMachine.WindowState.Dragging)
+    public WindowsDragging(WindowsStateMachine windowsStateMachine, ListOfWindows listOfWindows) : base(WindowsStateMachine.WindowState.Dragging)
     {
         _windowsStateMachine = windowsStateMachine;
+        _listOfWindows = listOfWindows;
     }
 
     public override void EnterState()
@@ -21,8 +24,6 @@ public class WindowsDragging : BaseState<WindowsStateMachine.WindowState>
             _windowsStateMachine.transform.position.x - Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
             _windowsStateMachine.transform.position.y - Camera.main.ScreenToWorldPoint(Input.mousePosition).y
         );
-
-        Debug.Log("Enter Window Dragging State");
     }
 
     public override void ExitState()
@@ -49,6 +50,8 @@ public class WindowsDragging : BaseState<WindowsStateMachine.WindowState>
     }
     public override void UpdateState()
     {
+        _listOfWindows.MoveObjectInFront(_windowsStateMachine.gameObject);
+
         Vector3 mousePosToWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         _mousePos = new Vector3(
