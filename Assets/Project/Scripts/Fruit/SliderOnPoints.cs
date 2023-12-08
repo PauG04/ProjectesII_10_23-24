@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class SliderOnPoints : MonoBehaviour
 {
+    [SerializeField] private CircleCollider2D[] points;
 
-    [SerializeField] private BoxCollider2D[] points;
-
-    private Slider collision;
+    private BoxCollider2D collider;
     private int id;
     private bool isPressing;
     private void Start()
     {
-        collision = GetComponent<Slider>();
+        collider = GetComponent<BoxCollider2D>();
         id = 0;
     }
 
@@ -26,12 +25,11 @@ public class SliderOnPoints : MonoBehaviour
 
     private void DetectCollision()
     {
-        if (collision.GetCollider().IsTouching(points[id]))
+        if (collider.IsTouching(points[id]))
         {
             id++;
-            Debug.Log(id);
         }
-        if(id == points.Length) 
+        if (id == points.Length) 
         {
             id = 0;
         }
@@ -46,5 +44,6 @@ public class SliderOnPoints : MonoBehaviour
     private void OnMouseUp()
     {
         isPressing= false;
+        id = 0;
     }
 }
