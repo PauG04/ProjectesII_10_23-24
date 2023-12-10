@@ -1,49 +1,79 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SliderOnPoints : MonoBehaviour
 {
-    [SerializeField] private CircleCollider2D[] points;
+    [SerializeField] private float value;
+    [SerializeField] private float maxSlider;
+    [SerializeField] private float minVelocity;
+    [SerializeField] private float distanceX;
+    [SerializeField] private float distanceY;
+    [SerializeField] private float diference;
 
-    private BoxCollider2D collider;
-    private int id;
-    private bool isPressing;
+    [SerializeField] private float valueSlider;
+    private Vector3 position;
+    private Click click;
+    private bool isUp;
+    private bool isRight;
+    private bool isOut;
+
     private void Start()
     {
-        collider = GetComponent<BoxCollider2D>();
-        id = 0;
+        click = GetComponent<Click>();
+        valueSlider = 0;
+        position = transform.position;
+        isUp = true;
+        isRight = true;
     }
 
     private void Update()
     {
-        if(isPressing)
+        isOut = CalculatePosition();
+        SetPosition();
+        if (click.GetRigidbody2D().velocity.magnitude > minVelocity && isOut && valueSlider < maxSlider)
         {
-            DetectCollision();
-        }    
-    }
-
-    private void DetectCollision()
-    {
-        if (collider.IsTouching(points[id]))
-        {
-            id++;
+            valueSlider += (value * click.GetRigidbody2D().velocity.magnitude) / diference;
         }
-        if (id == points.Length) 
+    }
+
+    private bool CalculatePosition()
+    {
+        if (position.x <= transform.position.x + distanceX && position.x >= transform.position.x - distanceX)
         {
-            id = 0;
+            return false;
         }
-            
+        if (position.y <= transform.position.y + distanceY && position.y >= transform.position.y - distanceY)
+        {
+            return false;
+        }
+
+        return true;
     }
 
-    private void OnMouseDown()
+    private void SetPosition()
     {
-        isPressing = true;
+        if (isUp && click.GetRigidbody2D().velocity.y < 0)
+        {
+            isUp = false;
+            position = transform.position;
+        }
+        else if (!isUp && click.GetRigidbody2D().velocity.y > 0)
+        {
+            isUp = true;
+            position = transform.position;
+        }
+        if (isRight && click.GetRigidbody2D().velocity.x < 0)
+        {
+            isRight = false;
+            position = transform.position;
+        }
+        else if (!isRight && click.GetRigidbody2D().velocity.x > 0)
+        {
+            isRight = true;
+            position = transform.position;
+        }
     }
 
-    private void OnMouseUp()
-    {
-        isPressing= false;
-        id = 0;
-    }
 }
