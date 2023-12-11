@@ -17,10 +17,6 @@ public class ListOfWindows : MonoBehaviour
             windows.Add(transform.GetChild(i).gameObject);
         }
     }
-    public void AddWindowInList(GameObject obj)
-    {
-        windows.Add(obj);
-    }
     public void MoveObjectInFront(GameObject selectedWindows)
     {
         if (windows.Contains(selectedWindows))
@@ -42,6 +38,10 @@ public class ListOfWindows : MonoBehaviour
             newPosition.z = i;
             windows[i].transform.position = newPosition;
         }
+    }
+    public void AddWindowInList(GameObject obj)
+    {
+        windows.Add(obj);
     }
     public List<GameObject> GetWindowsList()
     {

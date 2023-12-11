@@ -15,5 +15,4 @@ public abstract class BaseState<EState> where EState : Enum
     public abstract void OnMouseDown();
     public abstract void OnMouseDrag();
     public abstract void OnMouseUp();
-
 }

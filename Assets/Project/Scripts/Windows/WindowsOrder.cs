@@ -7,7 +7,6 @@ public class WindowsOrder : BaseState<WindowsStateMachine.WindowState>
 
     private ListOfWindows _listOfWindows;
 
-
     public WindowsOrder(WindowsStateMachine windowsStateMachine, ListOfWindows listOfWindows) : base(WindowsStateMachine.WindowState.Order)
     {
         _windowsStateMachine = windowsStateMachine;
@@ -17,6 +16,7 @@ public class WindowsOrder : BaseState<WindowsStateMachine.WindowState>
     public override void EnterState()
     {
         _state = WindowsStateMachine.WindowState.Order;
+        Debug.Log("Order Windows");
     }
     public override void ExitState()
     {

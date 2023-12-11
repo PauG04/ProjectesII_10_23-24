@@ -9,11 +9,11 @@ public abstract class StateMachineManager<EState> : MonoBehaviour where EState :
 
     protected bool IsTranistioningState = false;
 
-    void Start()
+    private void Start()
     {
         CurrentState.EnterState();
     }
-    void Update()
+    private void Update()
     {
         EState nextStateKey = CurrentState.GetNextState();
 
@@ -38,7 +38,7 @@ public abstract class StateMachineManager<EState> : MonoBehaviour where EState :
         CurrentState.EnterState();
         IsTranistioningState = false;
     }
-    void OnMouseDown()
+    private void OnMouseDown()
     {
         CurrentState.OnMouseDown();
     }
@@ -46,7 +46,7 @@ public abstract class StateMachineManager<EState> : MonoBehaviour where EState :
     {
         CurrentState.OnMouseDrag();
     }
-    void OnMouseUp()
+    private void OnMouseUp()
     {
         CurrentState.OnMouseUp();
     }

@@ -1,7 +1,6 @@
 ﻿using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Windows;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 {
@@ -27,6 +26,7 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
     {
         _state = WindowsStateMachine.WindowState.Creating;
         _spriteRenderer = _windowsStateMachine.gameObject.GetComponent<SpriteRenderer>();
+        Debug.Log("Created Windows: " + _node.GetWindowName());
     }
 
     public override void ExitState()
@@ -53,7 +53,6 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
     public override void UpdateState()
     {
         RenameObject();
-        ResizeWindowToAdjust();
         CreatePrefabInsideWindow();
         _state = WindowsStateMachine.WindowState.Order;
     }
@@ -67,22 +66,24 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
         ResizeWindowToAdjust();
 
         GameObject prefabInstance = GameObject.Instantiate(_node.GetPrefabChild());
+
+        Vector3 previousScale = prefabInstance.transform.localScale;
+
         prefabInstance.transform.parent = _windowsStateMachine.transform;
+
+        prefabInstance.transform.localScale = previousScale;
 
         MoveWindowToAdjust(prefabInstance);
     }
     private void MoveWindowToAdjust(GameObject prefab)
     {
-        prefab.transform.position = new Vector2(
+        Vector3 newPosition = new Vector3(
              _windowsStateMachine.transform.position.x,
-             _windowsStateMachine.transform.position.y + _moveHeight
+             _windowsStateMachine.transform.position.y + _moveHeight,
+             _windowsStateMachine.transform.position.z
         );
-        // Reset collision autotiling to autosize with the object.
-        /*
-        PolygonCollider2D polygonCollider = _windowsStateMachine.GetComponent<PolygonCollider2D>();
 
-        polygonCollider.autoTiling = false;
-        */
+        prefab.transform.localPosition = newPosition;
     }
     private void ResizeWindowToAdjust()
     {
@@ -93,6 +94,4 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 
         _spriteRenderer.size = newWindowSize;
     }
-
-
 }
