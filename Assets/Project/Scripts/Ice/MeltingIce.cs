@@ -5,10 +5,12 @@ using UnityEngine;
 public class MeltingIce : MonoBehaviour
 {
     [SerializeField] private float maxTimer;
+    [SerializeField] private float minTimer;
     [SerializeField] private GameObject liquidParticle;
     [SerializeField] private int meltPhases;
     [SerializeField] private float massLiquid;
     [SerializeField] private float increaseMass;
+    [SerializeField] private float timeToMelt;
 
     private Vector3 startScale;
     private Vector3 currentScale;
@@ -44,7 +46,7 @@ public class MeltingIce : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= maxTimer)
+        if (time >= timeToMelt)
         {
             time = 0;
             startMelting = true;
@@ -57,6 +59,7 @@ public class MeltingIce : MonoBehaviour
         {
             isWaterDropped = false;
             startMelting = false;
+            timeToMelt = Random.Range(minTimer, maxTimer);
             meltScale -= currentScale;
         }
         else
@@ -85,6 +88,7 @@ public class MeltingIce : MonoBehaviour
             Vector3 newPosition = new Vector3(transform.position.x - spriteRenderer.bounds.size.x/2, transform.position.y, transform.position.z);
             GameObject newParticle = Instantiate(liquidParticle, newPosition, Quaternion.identity);
             Rigidbody2D rb = newParticle.GetComponent<Rigidbody2D>();
+            //SetScale(newParticle);
             IncreaseMass(rb);
         }
         for (int i = 0; i < Random.Range(2, 5); i++)
@@ -92,8 +96,15 @@ public class MeltingIce : MonoBehaviour
             Vector3 newPosition = new Vector3(transform.position.x + spriteRenderer.bounds.size.x / 2, transform.position.y, transform.position.z);
             GameObject newParticle = Instantiate(liquidParticle, newPosition, Quaternion.identity);
             Rigidbody2D rb = newParticle.GetComponent<Rigidbody2D>();
+            //SetScale(newParticle);
             IncreaseMass(rb);
         }
+    }
+
+    private void SetScale(GameObject newParticle)
+    {
+        Transform liquidTransform = newParticle.GetComponent<Transform>();
+        liquidParticle.transform.localScale = transform.localScale;
     }
 
     private void IncreaseMass(Rigidbody2D rb)

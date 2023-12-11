@@ -5,8 +5,8 @@ using Windows;
 
 public class Click : MonoBehaviour
 {
+    [SerializeField] private MoveMouse moveMouse;
 
-    private bool dragging = false;
     private TargetJoint2D targetJoint;
     private Rigidbody2D rb;
     private DragWindows window;
@@ -35,21 +35,11 @@ public class Click : MonoBehaviour
 
     private void CalculatePosition()
     {
-        if (dragging)
+        if (moveMouse.GetDragging())
             targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         else
             targetJoint.target = window.GetPosition() + position;
 
-    }
-
-    private void OnMouseDown()
-    {
-        dragging = true;
-    }
-
-    private void OnMouseUp()
-    {
-        dragging = false;
     }
 
     public Rigidbody2D GetRigidbody2D()
