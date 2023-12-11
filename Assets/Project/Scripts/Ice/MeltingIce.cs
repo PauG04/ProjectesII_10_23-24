@@ -10,8 +10,11 @@ public class MeltingIce : MonoBehaviour
     [SerializeField] private int meltPhases;
     [SerializeField] private float massLiquid;
     [SerializeField] private float increaseMass;
-    [SerializeField] private float timeToMelt;
-
+    [SerializeField] private int maxLiquid;
+    [SerializeField] private int minLiquid;
+    [SerializeField] private float reduceGravity;
+    
+    private float timeToMelt;
     private Vector3 startScale;
     private Vector3 currentScale;
     private Vector3 meltScale;
@@ -83,35 +86,37 @@ public class MeltingIce : MonoBehaviour
 
     private void GenerateLiquid()
     {
-        for (int i = 0; i < Random.Range(2, 5); i++)
+        for (int i = 0; i < Random.Range(minLiquid, maxLiquid); i++)
         {
-            Vector3 newPosition = new Vector3(transform.position.x - spriteRenderer.bounds.size.x/2, transform.position.y, transform.position.z);
+            Vector3 newPosition = new Vector3(transform.position.x - spriteRenderer.bounds.size.x/2.5f, transform.position.y + Random.Range(-spriteRenderer.bounds.size.y/2.5f, spriteRenderer.bounds.size.y/2.5f), transform.position.z);
             GameObject newParticle = Instantiate(liquidParticle, newPosition, Quaternion.identity);
             Rigidbody2D rb = newParticle.GetComponent<Rigidbody2D>();
-            //SetScale(newParticle);
+            rb.gravityScale = 0.0f;
+            SetScale(newParticle);
             IncreaseMass(rb);
         }
-        for (int i = 0; i < Random.Range(2, 5); i++)
+        for (int i = 0; i < Random.Range(minLiquid, maxLiquid); i++)
         {
-            Vector3 newPosition = new Vector3(transform.position.x + spriteRenderer.bounds.size.x / 2, transform.position.y, transform.position.z);
+            Vector3 newPosition = new Vector3(transform.position.x + spriteRenderer.bounds.size.x / 2.5f, transform.position.y + Random.Range(-spriteRenderer.bounds.size.y / 2.5f, spriteRenderer.bounds.size.y / 2.5f), transform.position.z);
             GameObject newParticle = Instantiate(liquidParticle, newPosition, Quaternion.identity);
             Rigidbody2D rb = newParticle.GetComponent<Rigidbody2D>();
-            //SetScale(newParticle);
+            rb.gravityScale = 0.0f;
+            SetScale(newParticle);
             IncreaseMass(rb);
         }
     }
 
     private void SetScale(GameObject newParticle)
     {
-        Transform liquidTransform = newParticle.GetComponent<Transform>();
-        liquidParticle.transform.localScale = transform.localScale;
+        newParticle.transform.parent = transform.parent;
+        newParticle.transform.localScale = transform.localScale / reduceGravity;
     }
 
     private void IncreaseMass(Rigidbody2D rb)
     {
-        if(rb.mass < massLiquid)
+        if(rb.gravityScale < massLiquid)
         {
-            rb.mass += increaseMass;
+            rb.gravityScale += increaseMass;
         }
     }
 }
