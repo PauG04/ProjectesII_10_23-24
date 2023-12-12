@@ -44,7 +44,7 @@ public class OpenApp : MonoBehaviour
 
             if (!isCreated)
             {
-                CreateWindows();
+                //CreateWindows();
                 orderTaskBar.SetIcon();
             }
 
@@ -83,8 +83,10 @@ public class OpenApp : MonoBehaviour
             }
         }
     }
+    /*
     private void CreateWindows()
     {
+        
         windowPrefab.GetComponent<WindowCreation>().node = node;
 
         app = Instantiate(windowPrefab);
@@ -97,6 +99,7 @@ public class OpenApp : MonoBehaviour
 
         orderTaskBar.enabled = true;
         isCreated = true;
+        
     }
     private void CreateMiniIcon(WindowCreation window)
     {
@@ -129,6 +132,7 @@ public class OpenApp : MonoBehaviour
 
         orderTaskBar.icon = obj;
     }
+*/
     public void DesactiveApp()
     {
         elapsedTime = 0; 
