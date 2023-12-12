@@ -15,10 +15,10 @@ public class ThrowObject : MonoBehaviour
     }
     private void Update()
     {
-        if(transform.localPosition.y < 0)
-        {
-            Destroy(gameObject);
-        }
+        //if(transform.localPosition.y < 0)
+        //{
+        //    Destroy(gameObject);
+        //}
     }
     public void Throw(float force)
     {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Slider : MonoBehaviour
 {
+    [SerializeField] private float magnitude;
+
     private Vector3 direction;
     BoxCollider2D collider;
 
@@ -21,7 +23,7 @@ public class Slider : MonoBehaviour
         newPosition.z = 0;
 
         direction = newPosition - transform.position;
-        if (direction.magnitude > 0.01f)
+        if (direction.magnitude > magnitude)
         {
             collider.enabled = true;
         }
@@ -36,5 +38,10 @@ public class Slider : MonoBehaviour
     public Vector3 GetDirection()
     {
         return direction;
+    }
+
+    public BoxCollider2D GetCollider()
+    {
+        return collider;
     }
 }
