@@ -104,13 +104,7 @@ public class DesktopApp : MonoBehaviour
 
         button.colors = buttonColors;
 
-        button.onClick.AddListener(
-            Button
-        );
-    }
-    private void Button()
-    {
-        app.GetComponent<WindowsStateMachine>().ChangeState(WindowsStateMachine.WindowState.Order);
+        button.onClick.AddListener(PutWindowInFront);
     }
     private void PutWindowInFront()
     {
