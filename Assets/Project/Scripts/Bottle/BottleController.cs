@@ -12,13 +12,14 @@ public class BottleController : MonoBehaviour
     [SerializeField] private float rotationVelocity = 5f;
 
     private Vector2 shakerPosition;
-    private Quaternion startedRotation;
     private bool isShakerSpawned;
     #endregion
     #region Drag Variables
-    [Header("Drag Variables")]
     private Vector3 offset;
     private bool isDragging = false;
+    #endregion
+    #region Bottle Variables
+    [SerializeField] private Drink.TypeOfDrink drinksType;
     #endregion
     #region Fluid Simulation Variables
     [Header("Fluid Simulation Variables")]
@@ -26,6 +27,8 @@ public class BottleController : MonoBehaviour
     [SerializeField] private GameObject liquidParticle;
     [SerializeField] private float spawnRate;
     [SerializeField] private int maxQuantityOfLiquid;
+    [Space(20)]
+    [SerializeField] private Renderer filterRenderer;
 
     private int quantityOfLiquid;
     private float time;
@@ -33,6 +36,7 @@ public class BottleController : MonoBehaviour
     #region Liquid Variables
     [Header("Liquid Variables")]
     [SerializeField] private Renderer fluidRenderer;
+    [SerializeField] private Color liquidColor;
 
     [Header("Liquid Wooble Variables")]
     [SerializeField] private float maxWobble = 0.0075f;
@@ -52,8 +56,8 @@ public class BottleController : MonoBehaviour
 
     private void Start()
     {
-        startedRotation = transform.rotation;
         quantityOfLiquid = maxQuantityOfLiquid;
+        fluidRenderer.material.SetColor("_Color", liquidColor);
     }
     private void Update()
     {
@@ -112,6 +116,8 @@ public class BottleController : MonoBehaviour
             {
                 return;
             }
+            // TODO: The color changes the material, but doing that changes all the other particles colors, find other method
+            filterRenderer.material.SetColor("_Color", liquidColor);
 
             GameObject newParticle = Instantiate(liquidParticle, transform.position, Quaternion.identity);
             newParticle.transform.parent = simualtion.transform;
