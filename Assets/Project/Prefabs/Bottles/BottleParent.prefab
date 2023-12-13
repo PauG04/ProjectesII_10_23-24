@@ -137,7 +137,10 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   spawnRate: 40
   maxQuantityOfLiquid: 300
+  shader: {fileID: -6465566751694194690, guid: 6dce810e4d0b2b348ac6b8a85e762a48, type: 3}
+  meshRenderer: {fileID: 0}
   fluidRenderer: {fileID: 7206215372518122062}
+  liquidColor: {r: 1, g: 1, b: 1, a: 0}
   maxWobble: 0.0075
   wobbleSpeed: 0.5
   recovery: 0.5
