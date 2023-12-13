@@ -8,18 +8,19 @@ public class MoveLeaf : MonoBehaviour
     [SerializeField] private float maxVelocity;
     [SerializeField] private float force;
     [SerializeField] private GameObject brokenLeaf;
+    [SerializeField] private GetWindow window;
 
     private bool dragging = false;
     private TargetJoint2D targetJoint;
     private Rigidbody2D rb;
     private Vector2 position;
-    private WindowsStateMachine window;
+    
 
     private void Start()
     {
         targetJoint = GetComponent<TargetJoint2D>();
         rb = GetComponent<Rigidbody2D>();
-        window = gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.GetComponent<WindowsStateMachine>();
+        window = gameObject.transform.parent.gameObject.transform.parent.GetComponent<GetWindow>();
         position = transform.position;
     }
 
@@ -27,7 +28,7 @@ public class MoveLeaf : MonoBehaviour
     {
         CalculatePosition();
         DestroyLeaf();
-        if (window.GetCurrentState() == WindowsStateMachine.WindowState.Dragging)
+        if (window.GetWindows().GetCurrentState() == WindowsStateMachine.WindowState.Dragging)
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
         }

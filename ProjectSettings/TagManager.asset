@@ -7,9 +7,6 @@ TagManager:
   - Shaker
   - Drink
   - Fruit
-  - Knife
-  - End
-  - Start
   - Ice
   - Hammer
   - Slider
@@ -19,11 +16,13 @@ TagManager:
   - JuicerPoints
   - Mint
   - Leaf
+  - Fluid
+  - Destructor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Destructor
   - Water
   - UI
   - Window
