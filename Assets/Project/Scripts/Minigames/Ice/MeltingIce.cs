@@ -9,10 +9,11 @@ public class MeltingIce : MonoBehaviour
     [SerializeField] private GameObject liquidParticle;
     [SerializeField] private int meltPhases;
     [SerializeField] private float massLiquid;
-    [SerializeField] private float increaseMass;
+    [SerializeField] private float minIncreaseMass;
+    [SerializeField] private float maxIncreaseMass;
     [SerializeField] private int maxLiquid;
     [SerializeField] private int minLiquid;
-    [SerializeField] private float reduceGravity;
+    [SerializeField] private float reduceScale;
     
     private float timeToMelt;
     private Vector3 startScale;
@@ -109,14 +110,14 @@ public class MeltingIce : MonoBehaviour
     private void SetScale(GameObject newParticle)
     {
         newParticle.transform.parent = transform.parent;
-        newParticle.transform.localScale = transform.localScale / reduceGravity;
+        newParticle.transform.localScale = transform.localScale / reduceScale;
     }
 
     private void IncreaseMass(Rigidbody2D rb)
     {
         if(rb.gravityScale < massLiquid)
         {
-            rb.gravityScale += increaseMass;
+            rb.gravityScale += Random.Range(minIncreaseMass, maxIncreaseMass);
         }
     }
 }

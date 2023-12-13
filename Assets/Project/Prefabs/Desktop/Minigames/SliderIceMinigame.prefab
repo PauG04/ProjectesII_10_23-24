@@ -106,10 +106,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &8177983720985083767
 Rigidbody2D:
   serializedVersion: 4
@@ -322,10 +323,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &6622030735243668400
 Rigidbody2D:
   serializedVersion: 4
@@ -538,10 +540,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &3443362665260790456
 Rigidbody2D:
   serializedVersion: 4
@@ -852,10 +855,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &574286984078126441
 Rigidbody2D:
   serializedVersion: 4
@@ -1283,10 +1287,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &5333758356559533655
 Rigidbody2D:
   serializedVersion: 4
@@ -1670,10 +1675,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &3972328621268475951
 Rigidbody2D:
   serializedVersion: 4
@@ -1886,10 +1892,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &4197441118155406320
 Rigidbody2D:
   serializedVersion: 4
@@ -2190,10 +2197,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &1118666849408814664
 Rigidbody2D:
   serializedVersion: 4
@@ -2406,10 +2414,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &179994947519778230
 Rigidbody2D:
   serializedVersion: 4
@@ -2622,10 +2631,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &2255216876015153084
 Rigidbody2D:
   serializedVersion: 4
@@ -2930,10 +2940,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &5611734342419249398
 Rigidbody2D:
   serializedVersion: 4
@@ -3146,10 +3157,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &7669597335148821448
 Rigidbody2D:
   serializedVersion: 4
@@ -3362,10 +3374,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &3842094790284504916
 Rigidbody2D:
   serializedVersion: 4
@@ -3578,10 +3591,11 @@ MonoBehaviour:
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   meltPhases: 5
   massLiquid: 2.5
-  increaseMass: 0.04
+  minIncreaseMass: 0.01
+  maxIncreaseMass: 0.05
   maxLiquid: 5
   minLiquid: 2
-  reduceGravity: 10
+  reduceScale: 15
 --- !u!50 &3883853875635567683
 Rigidbody2D:
   serializedVersion: 4
