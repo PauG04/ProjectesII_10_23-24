@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class LiquidManager : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    [SerializeField] private List<Drink.TypeOfDrink> typeOfDrinkInside;
+    private int numberOfParticles = 0;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Liquid"))
+        if (collision.CompareTag("Liquid"))
         {
             Destroy(collision.gameObject);
-            Debug.Log("AVEMARIA PURISIMA");
+            numberOfParticles++;
         }
     }
 }
