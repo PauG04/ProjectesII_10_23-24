@@ -48,10 +48,11 @@ public class BottleController : MonoBehaviour
     private float wobbleAmountToAddX;
 
     private float liquidTime;
-
+    /*
     [Header("Liquid Fill Variables")]
     [SerializeField] private float maxSlider = 0.58f;
     [SerializeField] private float minSlider = 0.51f;
+    */
     #endregion
 
     private void Start()
@@ -170,7 +171,8 @@ public class BottleController : MonoBehaviour
     }
     private void SetLiquid()
     {
-        float fillAmount = minSlider + (quantityOfLiquid * (maxSlider - minSlider)) / maxQuantityOfLiquid;
+        //float fillAmount = minSlider + (quantityOfLiquid * (maxSlider - minSlider)) / maxQuantityOfLiquid;
+        float fillAmount = (float)quantityOfLiquid / maxQuantityOfLiquid;
         fluidRenderer.material.SetFloat("_Fill", fillAmount);
     }
 }
