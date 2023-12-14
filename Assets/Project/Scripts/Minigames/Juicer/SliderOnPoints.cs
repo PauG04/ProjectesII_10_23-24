@@ -18,6 +18,7 @@ public class SliderOnPoints : MonoBehaviour
     private bool isUp;
     private bool isRight;
     private bool isOut;
+    private bool isFull;
 
     private void Start()
     {
@@ -26,15 +27,20 @@ public class SliderOnPoints : MonoBehaviour
         position = transform.position;
         isUp = true;
         isRight = true;
+        isFull = false;
     }
 
     private void Update()
     {
         isOut = CalculatePosition();
         SetPosition();
-        if (click.GetRigidbody2D().velocity.magnitude > minVelocity && isOut && valueSlider < maxSlider)
+        if (click.GetRigidbody2D().velocity.magnitude > minVelocity && isOut && !isFull)
         {
             valueSlider += (value * click.GetRigidbody2D().velocity.magnitude) / diference;
+        }
+        if(valueSlider > maxSlider)
+        {
+            isFull = true;
         }
     }
 
@@ -74,6 +80,16 @@ public class SliderOnPoints : MonoBehaviour
             isRight = true;
             position = transform.position;
         }
+    }
+
+    public bool GetIsFull()
+    {
+        return isFull;
+    }
+
+    public bool GetIsOut()
+    {
+        return isOut;
     }
 
 }

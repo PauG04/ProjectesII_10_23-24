@@ -6,24 +6,24 @@ using Windows;
 public class Click : MonoBehaviour
 {
     [SerializeField] private MoveMouse moveMouse;
+    [SerializeField] private GetWindow window;
 
     private TargetJoint2D targetJoint;
     private Rigidbody2D rb;
-    private DragWindows window;
+    
     private Vector2 position;
 
     private void Start()
     {
         targetJoint = GetComponent<TargetJoint2D>();
         rb = GetComponent<Rigidbody2D>();
-        window = gameObject.transform.parent.gameObject.transform.parent.transform.GetChild(0).GetComponent<DragWindows>();
         position = transform.position;
     }
 
     private void Update()
     {
         CalculatePosition();
-        if (window.GetIsDragging())
+        if (window.GetWindows().GetCurrentState() == WindowsStateMachine.WindowState.Dragging)
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
         }
@@ -38,7 +38,7 @@ public class Click : MonoBehaviour
         if (moveMouse.GetDragging())
             targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         else
-            targetJoint.target = window.GetPosition() + position;
+            targetJoint.target = (Vector2)window.GetWindows().transform.localPosition + position;
 
     }
 

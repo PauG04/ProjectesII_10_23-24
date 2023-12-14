@@ -9,14 +9,14 @@ public class DragHammer : MonoBehaviour
     private TargetJoint2D targetJoint;
     private Rigidbody2D rb;
     private Vector2 position;
-    private WindowsStateMachine window;
     private Animator anim;
+
+    [SerializeField] private GetWindow window;
 
     private void Start()
     {
         targetJoint = GetComponent<TargetJoint2D>();
         rb = GetComponent<Rigidbody2D>();
-        window = gameObject.transform.parent.gameObject.transform.parent.GetComponent<WindowsStateMachine>();
         position = transform.position;
         anim = GetComponent<Animator>();
     }
@@ -24,7 +24,7 @@ public class DragHammer : MonoBehaviour
     private void Update()
     {
         CalculatePosition();
-        if (window.GetCurrentState() == WindowsStateMachine.WindowState.Dragging)
+        if (window.GetWindows().GetCurrentState() == WindowsStateMachine.WindowState.Dragging)
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
         }
@@ -42,7 +42,7 @@ public class DragHammer : MonoBehaviour
         }
         else
         {
-           targetJoint.target = (Vector2)window.transform.localPosition + position;
+           targetJoint.target = (Vector2)window.GetWindows().transform.localPosition + position;
         }
     }
 
