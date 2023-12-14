@@ -206,7 +206,7 @@ public class ResultDrink : MonoBehaviour
     {
         spriteRenderer.enabled = spriteEnabled;
     }
-    public void SetShakerStete(DrinkState shakeState)
+    public void SetShakerState(DrinkState shakeState)
     {
         this.shakeState = shakeState;
     }

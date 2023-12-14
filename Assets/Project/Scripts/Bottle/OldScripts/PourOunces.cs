@@ -100,7 +100,7 @@ public class PourOunces : MonoBehaviour
                         resultDrink.drinksInside.Add(drink);
                     }
 
-                    resultDrink.SetShakerStete(drinkInsideShaker.GetDrinkState());
+                    resultDrink.SetShakerState(drinkInsideShaker.GetDrinkState());
                 }
             }
         }
