@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    [SerializeField]GameManager gameManager;
+    [SerializeField] GameManager gameManager;
 
     private void Awake()
     {
-        gameManager = gameObject.GetComponent<GameManager>();
         gameManager.GetStates().Add("health", 10);
         gameManager.GetStates().Add("stress", 1);
         gameManager.GetStates().Add("fatigue", 1);
