@@ -22,7 +22,15 @@ public class DesktopApp : MonoBehaviour
 
     private bool isOpen = false;
     private bool isCreated = false;
-
+    private void Awake()
+    {
+        windowsGroupManager = GameObject.Find("WindowsGroup");
+        miniIconsPanel = GameObject.Find("MiniIconsPanel");
+    }
+    private void OnMouseDown()
+    {
+        OpenApp();
+    }
     public void OpenApp()
     {
         if (!isOpen)

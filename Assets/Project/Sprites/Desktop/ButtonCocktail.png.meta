@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b51d9508f6786df46b7a060aa84b413f
+guid: 41b503c1ccfff0141a866adc7583e187
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,12 +48,12 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -98,33 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -136,36 +110,10 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline: []
-    physicsShape:
-    - - {x: 6, y: 6}
-      - {x: 6, y: -3}
-      - {x: 5, y: -4}
-      - {x: 5, y: -11}
-      - {x: 4, y: -12}
-      - {x: 4, y: -15}
-      - {x: -4, y: -15}
-      - {x: -4, y: -12}
-      - {x: -5, y: -11}
-      - {x: -5, y: -4}
-      - {x: -6, y: -3}
-      - {x: -6, y: 6}
-      - {x: -7, y: 6}
-      - {x: -7, y: -4}
-      - {x: -6, y: -12}
-      - {x: -5, y: -15}
-      - {x: -4, y: -16}
-      - {x: 4, y: -16}
-      - {x: 5, y: -15}
-      - {x: 6, y: -12}
-      - {x: 7, y: -4}
-      - {x: 7, y: 6}
-    - - {x: -7, y: 6}
-      - {x: -7, y: 6}
-      - {x: -7, y: 6}
-      - {x: -7, y: 6}
+    physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []

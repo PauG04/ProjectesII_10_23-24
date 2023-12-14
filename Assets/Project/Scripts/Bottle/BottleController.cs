@@ -20,10 +20,11 @@ public class BottleController : MonoBehaviour
     #endregion
     #region Bottle Variables
     [SerializeField] private Drink.TypeOfDrink drinksType;
+    [SerializeField] private Transform parentObject;
     #endregion
     #region Fluid Simulation Variables
     [Header("Fluid Simulation Variables")]
-    [SerializeField] private GameObject simualtion;
+    [SerializeField] private GameObject simulation;
     [SerializeField] private GameObject liquidParticle;
     [SerializeField] private float spawnRate;
     [SerializeField] private int maxQuantityOfLiquid;
@@ -57,11 +58,20 @@ public class BottleController : MonoBehaviour
 
     private void Start()
     {
+        parentObject = transform.parent;
         quantityOfLiquid = maxQuantityOfLiquid;
         fluidRenderer.material.SetColor("_Color", liquidColor);
+        filterRenderer = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<Renderer>();
+        simulation = GameObject.Find("Simulation");
     }
     private void Update()
     {
+        // Temporal Scripts
+        if (GameObject.Find("Shaker") != null)
+        {
+            shaker = GameObject.Find("Shaker");
+        }
+
         if (isDragging)
         {
             HoldingBottle();
@@ -82,6 +92,8 @@ public class BottleController : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        transform.SetParent(parentObject);
+        transform.localPosition = Vector3.zero;
         isDragging = false;
     }
     private void HoldingBottle()
@@ -122,7 +134,7 @@ public class BottleController : MonoBehaviour
             liquidParticle.GetComponent<LiquidParticle>().liquidType = drinksType;
 
             GameObject newParticle = Instantiate(liquidParticle, transform.position, Quaternion.identity);
-            newParticle.transform.parent = simualtion.transform;
+            newParticle.transform.parent = simulation.transform;
             newParticle.transform.position = transform.position;
             time = 0.0f;
             quantityOfLiquid--;

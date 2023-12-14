@@ -6,6 +6,8 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
 {
     [Header("Windows Creation Variables")]
     [SerializeField] private WindowNode _node;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private PolygonCollider2D _collider;
 
     [Header("Windows Ordering Variables")]
     [SerializeField] private ListOfWindows _listOfWindows;
