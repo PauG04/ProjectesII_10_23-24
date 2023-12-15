@@ -6,7 +6,6 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 {
     private WindowsStateMachine _windowsStateMachine;
     private WindowsStateMachine.WindowState _state;
-
     private WindowNode _node;
 
     #region Adjustements Window
@@ -16,9 +15,12 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
     #endregion
 
     private SpriteRenderer _spriteRenderer;
+    private PolygonCollider2D _collider;
+
     public WindowsCreation(WindowsStateMachine windowsStateMachine, WindowNode node) : base(WindowsStateMachine.WindowState.Creating)
     {
         _windowsStateMachine = windowsStateMachine;
+        
         _node = node;
     }
 
@@ -26,6 +28,7 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
     {
         _state = WindowsStateMachine.WindowState.Creating;
         _spriteRenderer = _windowsStateMachine.gameObject.GetComponent<SpriteRenderer>();
+        _collider = _windowsStateMachine.gameObject.GetComponent<PolygonCollider2D>();
         Debug.Log("Created Windows: " + _node.GetWindowName());
     }
 
@@ -90,7 +93,7 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
         Vector2 newWindowSize = new Vector2(
             _node.GetPrefabChild().transform.localScale.x + _offsetWidth,
             _node.GetPrefabChild().transform.localScale.y + _offsetHeight
-        ); 
+        );
 
         _spriteRenderer.size = newWindowSize;
     }

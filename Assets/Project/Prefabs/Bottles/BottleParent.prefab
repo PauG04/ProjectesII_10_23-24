@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -889591459
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b74d5095a8e26184a8c2da6953474659, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,7 +117,7 @@ Transform:
   m_Children:
   - {fileID: 3715446978499891718}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2905693172982613635
 MonoBehaviour:
@@ -133,19 +133,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shaker: {fileID: 0}
   rotationVelocity: 5
+  drinksType: 0
   simualtion: {fileID: 0}
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   spawnRate: 40
   maxQuantityOfLiquid: 300
-  shader: {fileID: -6465566751694194690, guid: 6dce810e4d0b2b348ac6b8a85e762a48, type: 3}
-  meshRenderer: {fileID: 0}
+  filterRenderer: {fileID: 0}
   fluidRenderer: {fileID: 7206215372518122062}
   liquidColor: {r: 1, g: 1, b: 1, a: 0}
   maxWobble: 0.0075
   wobbleSpeed: 0.5
   recovery: 0.5
-  maxSlider: 0.58
-  minSlider: 0.51
 --- !u!61 &239953081164795271
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -289,8 +287,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -355274403
-  m_SortingLayer: 1
+  m_SortingLayerID: -889591459
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1c6c7e1a2781b5e46ac62f13fdedf551, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
