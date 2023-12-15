@@ -6,13 +6,13 @@ public class DrinkTaken : MonoBehaviour
 {
     private bool isDrinkPrepares = true;
     [SerializeField] private DrinkScript drinkScript;
-    [SerializeField] private GameObject cup;
+    [SerializeField] private GameObject glass;
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Drink" && drinkScript.GetIsMouseNotPressed())
         {
-            cup.SetActive(false);
+            glass.SetActive(false);
             isDrinkPrepares = true;
             Debug.Log("SI");
         }
