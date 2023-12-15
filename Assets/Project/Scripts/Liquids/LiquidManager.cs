@@ -8,7 +8,6 @@ public class LiquidManager : MonoBehaviour
     [SerializeField] private Renderer fluidRenderer;
     [SerializeField] private float maxCapacity;
     
-
     private Dictionary<Drink.TypeOfDrink, int> typeOfDrinkInside;  
     private float fill;
     private int currentLayer;

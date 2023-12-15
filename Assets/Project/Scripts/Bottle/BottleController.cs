@@ -6,6 +6,11 @@ using UnityEngine.U2D;
 
 public class BottleController : MonoBehaviour
 {
+    #region Bottle Variables
+    [Header("BottleVariables")]
+    [SerializeField] private Drink.TypeOfDrink drinksType;
+    [SerializeField] private Transform parentObject;
+    #endregion
     #region Rotation Variables
     [Header("Rotation Variables")]
     [SerializeField] private GameObject shaker;
@@ -21,17 +26,13 @@ public class BottleController : MonoBehaviour
     private Vector3 oldScale;
     private Quaternion oldRotation;
     #endregion
-    #region Bottle Variables
-    [SerializeField] private Drink.TypeOfDrink drinksType;
-    [SerializeField] private Transform parentObject;
-    #endregion
     #region Fluid Simulation Variables
     [Header("Fluid Simulation Variables")]
-    [SerializeField] private GameObject simulation;
     [SerializeField] private GameObject liquidParticle;
     [SerializeField] private float spawnRate;
     [SerializeField] private int maxQuantityOfLiquid;
     [Space(20)]
+    [SerializeField] private GameObject simulation;
     [SerializeField] private Renderer filterRenderer;
 
     private int quantityOfLiquid;
