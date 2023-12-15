@@ -6,11 +6,11 @@ using TMPro;
 public class DialogueScript : MonoBehaviour
 {
     [SerializeField] private TextMeshPro textMeshPro;
-    [SerializeField] private List<TypeOfCocktail> typeOfDrinkList;
-    [SerializeField] private TypeOfCocktail drinkThatWants;
+    [SerializeField] private List<ResultPrecentDrink.TypeOfCocktail> typeOfDrinkList;
+    [SerializeField] private ResultPrecentDrink.TypeOfCocktail drinkThatWants;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    [SerializeField] public TypeOfCocktail drinkDropped;
+    [SerializeField] public ResultPrecentDrink.TypeOfCocktail drinkDropped;
 
     [SerializeField] private GameObject badDrink;
     [SerializeField] private GameObject goodDrink;
@@ -57,7 +57,7 @@ public class DialogueScript : MonoBehaviour
     }
     private void CheckDrink()
     {
-        if (drinkDropped == TypeOfCocktail.Empty)
+        if (drinkDropped == ResultPrecentDrink.TypeOfCocktail.Empty)
         {
             textMeshPro.text = "I want a " + drinkThatWants.ToString();
             if (blink)
@@ -100,7 +100,7 @@ public class DialogueScript : MonoBehaviour
                     goodDrink.SetActive(false);
                     playOnce = false;
                     RandomDrinkChose();
-                    drinkDropped = TypeOfCocktail.Empty;
+                    drinkDropped = ResultPrecentDrink.TypeOfCocktail.Empty;
                     goodDrink.transform.localScale = Vector3.zero;
                     goodDrink.transform.localPosition = Vector3.zero;
                     playHappySound = true;
@@ -141,7 +141,7 @@ public class DialogueScript : MonoBehaviour
                     badDrink.SetActive(false);
                     playOnce = false;
                     RandomDrinkChose();
-                    drinkDropped = TypeOfCocktail.Empty;
+                    drinkDropped = ResultPrecentDrink.TypeOfCocktail.Empty;
                     badDrink.transform.localScale = Vector3.zero;
                     badDrink.transform.localPosition = Vector3.zero;
                     playMadSound = true;

@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static Drink;
 
 public class PourOunces : MonoBehaviour
-{
+{/*
     private Bottle bottle;
     [SerializeField] private SpriteRenderer bottlerRenderer;
     [SerializeField] private BoxCollider2D boxCollider;
@@ -20,7 +19,7 @@ public class PourOunces : MonoBehaviour
 
     [Header("Result")]
     private GameObject result;
-    [SerializeField] private ResultDrink resultDrink;
+    [SerializeField] private ResultPercentDrink resultDrink;
     [SerializeField] private BoxCollider2D resultCollider;
 
     [Header("Client")]
@@ -117,4 +116,5 @@ public class PourOunces : MonoBehaviour
             }
         }
     }
+    */
 }

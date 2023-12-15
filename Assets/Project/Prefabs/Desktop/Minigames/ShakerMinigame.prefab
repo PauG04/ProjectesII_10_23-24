@@ -1860,7 +1860,6 @@ GameObject:
   - component: {fileID: 467318719061896572}
   - component: {fileID: 383195395833036578}
   - component: {fileID: 2608999705031041943}
-  - component: {fileID: 5281224759276820332}
   - component: {fileID: 5943047910625811903}
   m_Layer: 0
   m_Name: Shaker
@@ -2082,6 +2081,13 @@ MonoBehaviour:
   maxAngle: 0.5
   hasToRotate: 1
   close: {fileID: 4854350903556283927}
+  liquidParticle: {fileID: 0}
+  spawnRate: 0
+  maxQuantityOfLiquid: 0
+  simulation: {fileID: 0}
+  filterRenderer: {fileID: 0}
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
+  drinksType: 0
 --- !u!114 &2608999705031041943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2095,23 +2101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMouseNotPressed: 1
---- !u!114 &5281224759276820332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6766754822652618108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f6a1e0a46df52142bbdeafcbba62ea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ouncesInDrink: 
-  maxOunces: 10
-  currentOunces: 0
-  isFull: 0
-  typeOfDrink: 0
 --- !u!114 &5943047910625811903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2553,7 +2542,7 @@ MonoBehaviour:
   fluidRenderer: {fileID: 0}
   maxCapacity: 50
   numberOfParticles: 0
-  isShaker: 0
+  isShaker: 1
   maxColliderPos: -0.138
   minColliderPos: -0.68
 --- !u!1 &7937881860423547478

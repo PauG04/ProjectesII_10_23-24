@@ -10,7 +10,7 @@ public class Shaker : MonoBehaviour
     [SerializeField] private float IntensityShaking;
 
     private DrinkScript _isPressing;
-    private Drink drink;
+    private LiquidManager liquidManager;
     private Rigidbody2D rb;
     private bool isDown;
     private bool canShake;
@@ -22,7 +22,7 @@ public class Shaker : MonoBehaviour
         _cameraShake = Camera.main.GetComponent<CameraShake>();
         rb= GetComponent<Rigidbody2D>();
         _isPressing = GetComponent<DrinkScript>();
-        drink = GetComponent<Drink>();
+        liquidManager = GetComponent<LiquidManager>();
         canShake = false;
         newPosition = transform.position;
     }
@@ -40,7 +40,7 @@ public class Shaker : MonoBehaviour
         {
             _cameraShake.SetTransforPosition();
         }
-        SetDrinkState();        
+        //SetDrinkState();
     }
 
     private void StartShaking()
@@ -81,15 +81,15 @@ public class Shaker : MonoBehaviour
     {
         if(progress < maxProgress * 0.33f)
         {
-            drink.SetDrinkState(Drink.DrinkState.Idle);
+            liquidManager.SetDrinkState(LiquidManager.DrinkState.Idle);
         }
         else if(progress >= maxProgress * 0.66f)
         {
-            drink.SetDrinkState(Drink.DrinkState.Mixed);
+            liquidManager.SetDrinkState(LiquidManager.DrinkState.Mixed);
         }
         else
         {
-            drink.SetDrinkState(Drink.DrinkState.Shaked);
+            liquidManager.SetDrinkState(LiquidManager.DrinkState.Shaked);
         }
     }
 
@@ -106,6 +106,6 @@ public class Shaker : MonoBehaviour
     public void ResetShaker()
     {
         progress = 0;
-        drink.SetDrinkState(Drink.DrinkState.Idle);
+        liquidManager.SetDrinkState(LiquidManager.DrinkState.Idle);
     }
 }

@@ -331,7 +331,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fluidRenderer: {fileID: 586464126}
-  maxCapacity: 50
+  maxCapacity: 150
+  numberOfParticles: 0
+  isShaker: 0
   maxColliderPos: 0.15
   minColliderPos: -0.23
 --- !u!61 &481933380
@@ -720,6 +722,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fluidRenderer: {fileID: 0}
   maxCapacity: 0
+  numberOfParticles: 0
+  isShaker: 0
   maxColliderPos: 0.1475
   minColliderPos: -0.23
 --- !u!61 &1201391988
@@ -1039,6 +1043,10 @@ PrefabInstance:
     - target: {fileID: 1768445010186383136, guid: 3f5fa835e7b03104482570982e6dce7d, type: 3}
       propertyPath: m_Name
       value: FluidCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615049085978726468, guid: 3f5fa835e7b03104482570982e6dce7d, type: 3}
+      propertyPath: m_TagString
+      value: FluidTextureCamera
       objectReference: {fileID: 0}
     - target: {fileID: 6502887919910539448, guid: 3f5fa835e7b03104482570982e6dce7d, type: 3}
       propertyPath: m_RootOrder
