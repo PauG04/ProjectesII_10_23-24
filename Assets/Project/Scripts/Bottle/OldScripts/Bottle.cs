@@ -11,7 +11,7 @@ public class Bottle : Drink
     {
         for (int i = 0; i < maxOunces; i++)
         {
-            ouncesInDrink.Add(typeOfDrink);
+            particlesInDrink.Add(typeOfDrink);
         }
         currentOunces = maxOunces;
         isFull = true;

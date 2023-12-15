@@ -1,14 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Drink;
+using static LiquidManager;
 
 public class ResultPrecentDrink : MonoBehaviour
 {
-    private LiquidManager liquidManager;
-    private Dictionary<Drink.TypeOfDrink, int> lastDrink;
+    public enum TypeOfCocktail
+    {
+        Empty,
+        GinTonic,
+        RonCola,
+        OldFashioned,
+        Mojito,
+        Margarita,
+        SexOnTheBeach,
+        TequilaSunrise,
+        FuzzyNavel,
+        WhiskeySour,
+        TomCollins,
+        MoscowMule,
+        LastWord,
+        MaiTai,
+        CorpseReviver,
+        Mierdon
+    }
 
-    [SerializeField] private DrinkState shakeState;
+    private LiquidManager liquidManager;
+    private Dictionary<LiquidManager.TypeOfDrink, int> lastDrink;
+
+    [SerializeField] private LiquidManager.DrinkState shakeState;
 
     private TypeOfCocktail result;
 
@@ -28,11 +48,12 @@ public class ResultPrecentDrink : MonoBehaviour
     private void Awake()
     {
         liquidManager = GetComponent<LiquidManager>();
+        lastDrink = new Dictionary<LiquidManager.TypeOfDrink, int>();
     }
 
     private void Update()
     {
-        if (lastDrink != liquidManager.GetTypeOfDrinkInside())
+        if (CompareDrinks(lastDrink, liquidManager.GetTypeOfDrinkInside()))
         {
             UpdateDrinks();
             Result();
@@ -41,45 +62,45 @@ public class ResultPrecentDrink : MonoBehaviour
 
     private void UpdateDrinks()
     {
-        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(TypeOfDrink.Rum))
+        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(LiquidManager.TypeOfDrink.Rum))
         {
-            rum = liquidManager.GetTypeOfDrinkInside()[TypeOfDrink.Rum] * 100 / liquidManager.GetMaxCapacity();
+            rum = liquidManager.GetTypeOfDrinkInside()[LiquidManager.TypeOfDrink.Rum] * 100 / liquidManager.GetMaxCapacity();
         }
-        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(TypeOfDrink.Gin))
+        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(LiquidManager.TypeOfDrink.Gin))
         {
-            gin = liquidManager.GetTypeOfDrinkInside()[TypeOfDrink.Gin] * 100 / liquidManager.GetMaxCapacity();
+            gin = liquidManager.GetTypeOfDrinkInside()[LiquidManager.TypeOfDrink.Gin] * 100 / liquidManager.GetMaxCapacity();
         }
-        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(TypeOfDrink.Vodka))
+        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(LiquidManager.TypeOfDrink.Vodka))
         {
-            vodka = liquidManager.GetTypeOfDrinkInside()[TypeOfDrink.Vodka] * 100 / liquidManager.GetMaxCapacity();
+            vodka = liquidManager.GetTypeOfDrinkInside()[LiquidManager.TypeOfDrink.Vodka] * 100 / liquidManager.GetMaxCapacity();
         }
-        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(TypeOfDrink.Whiskey))
+        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(LiquidManager.TypeOfDrink.Whiskey))
         {
-            whiskey = liquidManager.GetTypeOfDrinkInside()[TypeOfDrink.Whiskey] * 100 / liquidManager.GetMaxCapacity();
+            whiskey = liquidManager.GetTypeOfDrinkInside()[LiquidManager.TypeOfDrink.Whiskey] * 100 / liquidManager.GetMaxCapacity();
         }
-        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(TypeOfDrink.Tequila))
+        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(LiquidManager.TypeOfDrink.Tequila))
         {
-            tequila = liquidManager.GetTypeOfDrinkInside()[TypeOfDrink.Tequila] * 100 / liquidManager.GetMaxCapacity();
+            tequila = liquidManager.GetTypeOfDrinkInside()[LiquidManager.TypeOfDrink.Tequila] * 100 / liquidManager.GetMaxCapacity();
         }
-        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(TypeOfDrink.OrangeJuice))
+        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(LiquidManager.TypeOfDrink.OrangeJuice))
         {
-            orangeJuice = liquidManager.GetTypeOfDrinkInside()[TypeOfDrink.OrangeJuice] * 100 / liquidManager.GetMaxCapacity();
+            orangeJuice = liquidManager.GetTypeOfDrinkInside()[LiquidManager.TypeOfDrink.OrangeJuice] * 100 / liquidManager.GetMaxCapacity();
         }
-        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(TypeOfDrink.LemonJuice))
+        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(LiquidManager.TypeOfDrink.LemonJuice))
         {
-            lemonJuice = liquidManager.GetTypeOfDrinkInside()[TypeOfDrink.LemonJuice] * 100 / liquidManager.GetMaxCapacity();
+            lemonJuice = liquidManager.GetTypeOfDrinkInside()[LiquidManager.TypeOfDrink.LemonJuice] * 100 / liquidManager.GetMaxCapacity();
         }
-        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(TypeOfDrink.Cola))
+        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(LiquidManager.TypeOfDrink.Cola))
         {
-            cola = liquidManager.GetTypeOfDrinkInside()[TypeOfDrink.Cola] * 100 / liquidManager.GetMaxCapacity();
+            cola = liquidManager.GetTypeOfDrinkInside()[LiquidManager.TypeOfDrink.Cola] * 100 / liquidManager.GetMaxCapacity();
         }
-        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(TypeOfDrink.Soda))
+        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(LiquidManager.TypeOfDrink.Soda))
         {
-            soda = liquidManager.GetTypeOfDrinkInside()[TypeOfDrink.Soda] * 100 / liquidManager.GetMaxCapacity();
+            soda = liquidManager.GetTypeOfDrinkInside()[LiquidManager.TypeOfDrink.Soda] * 100 / liquidManager.GetMaxCapacity();
         }
-        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(TypeOfDrink.Tonic))
+        if (liquidManager.GetTypeOfDrinkInside().ContainsKey(LiquidManager.TypeOfDrink.Tonic))
         {
-            tonic = liquidManager.GetTypeOfDrinkInside()[TypeOfDrink.Tonic] * 100 / liquidManager.GetMaxCapacity();
+            tonic = liquidManager.GetTypeOfDrinkInside()[LiquidManager.TypeOfDrink.Tonic] * 100 / liquidManager.GetMaxCapacity();
         }
 
         lastDrink = liquidManager.GetTypeOfDrinkInside();
@@ -87,7 +108,7 @@ public class ResultPrecentDrink : MonoBehaviour
 
     private void Result()
     {
-        if (shakeState == DrinkState.Shaked)
+        if (shakeState == LiquidManager.DrinkState.Shaked)
         {
             if ((rum >= 30.0f && rum <= 40.0f) && (cola >= 60.0f && cola <= 70.0f))
             {
@@ -96,12 +117,46 @@ public class ResultPrecentDrink : MonoBehaviour
         }
     }
 
+    public bool CompareDrinks(Dictionary<TypeOfDrink, int> drink1, Dictionary<TypeOfDrink, int> drink2)
+    {
+        if (drink1 == drink2)
+        {
+            return true;
+        }
+
+        if ((drink1 == null) || (drink2 == null))
+        {
+            return false;
+        }
+
+        if (drink1.Count != drink2.Count)
+        {
+            return false;
+        }
+
+        EqualityComparer<int> valueComparer = EqualityComparer<int>.Default;
+
+        foreach (KeyValuePair<TypeOfDrink, int> kvp in drink1)
+        {
+            int value2;
+            if (!drink2.TryGetValue(kvp.Key, out value2))
+            {
+                return false;
+            }
+            if (!valueComparer.Equals(kvp.Value, value2))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public TypeOfCocktail GetResult()
     {
         return result;
     }
 
-    public void SetShakerState(DrinkState shakeState)
+    public void SetShakerState(LiquidManager.DrinkState shakeState)
     {
         this.shakeState = shakeState;
     }
