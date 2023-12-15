@@ -5,7 +5,7 @@ using UnityEngine;
 public class LiquidManager : MonoBehaviour
 {
     [SerializeField] private Renderer fluidRenderer;
-    [SerializeField] private float maxCapacity;
+    [SerializeField] private int maxCapacity;
     
     private Dictionary<Drink.TypeOfDrink, int> typeOfDrinkInside;  
     private float fill;
@@ -55,5 +55,15 @@ public class LiquidManager : MonoBehaviour
 
             numberOfParticles++;
         }
+    }
+
+    public Dictionary<Drink.TypeOfDrink, int> GetTypeOfDrinkInside()
+    {
+        return typeOfDrinkInside;
+    }
+
+    public int GetMaxCapacity()
+    {
+        return maxCapacity;
     }
 }
