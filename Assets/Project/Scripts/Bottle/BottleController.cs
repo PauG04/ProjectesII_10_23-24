@@ -17,6 +17,9 @@ public class BottleController : MonoBehaviour
     #region Drag Variables
     private Vector3 offset;
     private bool isDragging = false;
+
+    private Vector3 oldScale;
+    private Quaternion oldRotation;
     #endregion
     #region Bottle Variables
     [SerializeField] private Drink.TypeOfDrink drinksType;
@@ -86,6 +89,9 @@ public class BottleController : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        oldScale = transform.localScale;
+        oldRotation = transform.localRotation;
+
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.SetParent(null);
         isDragging = true;
@@ -93,7 +99,12 @@ public class BottleController : MonoBehaviour
     private void OnMouseUp()
     {
         transform.SetParent(parentObject);
+
+        transform.localScale = oldScale;
+        transform.localRotation = oldRotation;
+
         transform.localPosition = Vector3.zero;
+
         isDragging = false;
     }
     private void HoldingBottle()

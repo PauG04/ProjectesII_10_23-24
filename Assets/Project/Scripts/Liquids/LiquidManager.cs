@@ -11,6 +11,9 @@ public class LiquidManager : MonoBehaviour
     private float fill;
     private int numberOfParticles = 0;
 
+    [Header("Shaker Variables")]
+    [SerializeField] private bool isShaker;
+
     [Header("Liquid Fill Variables")]
     [SerializeField] private float maxColliderPos = 0.1475f;
     [SerializeField] private float minColliderPos = -0.23f;
@@ -20,7 +23,14 @@ public class LiquidManager : MonoBehaviour
     }
     private void Update()
     {
-        FillDrink();
+        if (!isShaker)
+        {
+            FillShaker();
+        }
+        else
+        {
+            FillDrink();
+        }
     }
 
     private void FillDrink()
@@ -32,6 +42,17 @@ public class LiquidManager : MonoBehaviour
             fill = numberOfParticles / maxCapacity;
             float colliderPosition = minColliderPos + (fill * (maxColliderPos - minColliderPos)) / 1;
             transform.localPosition = new Vector3(transform.localPosition.x, colliderPosition, transform.localPosition.z);
+        }
+    }
+
+    private void FillShaker()
+    {
+        if (numberOfParticles < maxCapacity)
+        {
+            fill = numberOfParticles / maxCapacity;
+        } else
+        {
+            GetComponent<BoxCollider2D>().isTrigger = false;
         }
     }
 
