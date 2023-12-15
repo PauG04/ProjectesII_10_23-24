@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class LiquidManager : MonoBehaviour
 {
+    [Header("Renderer Variables")]
     [SerializeField] private Renderer fluidRenderer;
     [SerializeField] private float maxCapacity;
     
+
     private Dictionary<Drink.TypeOfDrink, int> typeOfDrinkInside;  
     private float fill;
-    private int numberOfParticles = 0;
+    private int currentLayer;
+    [SerializeField] private int numberOfParticles = 0;
 
     [Header("Shaker Variables")]
     [SerializeField] private bool isShaker;
@@ -20,6 +23,7 @@ public class LiquidManager : MonoBehaviour
     private void Awake()
     {
         typeOfDrinkInside = new Dictionary<Drink.TypeOfDrink, int>();
+        currentLayer = gameObject.layer;
     }
     private void Update()
     {
@@ -49,11 +53,19 @@ public class LiquidManager : MonoBehaviour
     {
         if (numberOfParticles < maxCapacity)
         {
+            gameObject.layer = currentLayer;
             fill = numberOfParticles / maxCapacity;
-        } else
+        } 
+        else
         {
-            GetComponent<BoxCollider2D>().isTrigger = false;
+            gameObject.layer = 0;
         }
+    }
+
+    public void ResetDrink()
+    {
+        typeOfDrinkInside.Clear();
+        numberOfParticles = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -70,7 +82,7 @@ public class LiquidManager : MonoBehaviour
             {
                 typeOfDrinkInside[particleCollision.liquidType]++;
             }
-            //Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
+            Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
 
             Destroy(collision.gameObject);
 
