@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class LiquidParticle : MonoBehaviour
 {
-    public Drink.TypeOfDrink liquidType;
+    public LiquidManager.TypeOfDrink liquidType;
 
 }

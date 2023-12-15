@@ -16,7 +16,7 @@ public class Shake : MonoBehaviour
     [SerializeField] private float minimizeBarProgress;
     [SerializeField] private bool isShakingDown;
 
-    private Drink shaker;
+    private LiquidManager shaker;
     private DrinkScript drink;
 
     [SerializeField] private GameObject[] sliders;
@@ -56,7 +56,7 @@ public class Shake : MonoBehaviour
     private void Awake()
     {
         drink = GetComponent<DrinkScript>();
-        shaker = GetComponent<Drink>();
+        shaker = GetComponent<LiquidManager>();
         _camera = CameraShake.FindObjectOfType<CameraShake>();
         starterRot = transform.rotation;
         shakerSize = transform.localScale;
@@ -242,23 +242,23 @@ public class Shake : MonoBehaviour
     {
         if (progress >= maxValue)
         {
-            shaker.SetDrinkState(Drink.DrinkState.Shaked);
+            shaker.SetDrinkState(LiquidManager.DrinkState.Shaked);
         }
         else if (progress > (maxValue / 2) && progress < maxValue)
         {
-            shaker.SetDrinkState(Drink.DrinkState.Mixed);
+            shaker.SetDrinkState(LiquidManager.DrinkState.Mixed);
         }
 
         else
         {
-            shaker.SetDrinkState(Drink.DrinkState.Idle);
+            shaker.SetDrinkState(LiquidManager.DrinkState.Idle);
         }
 
     }
     public void ResetShaker()
     {
         progress = 0;
-        shaker.SetDrinkState(Drink.DrinkState.Idle);
+        shaker.SetDrinkState(LiquidManager.DrinkState.Idle);
         value = maxValue / 10;
         currentBox = 0;
         for (int i = 0; i < sliders.Length; i++)

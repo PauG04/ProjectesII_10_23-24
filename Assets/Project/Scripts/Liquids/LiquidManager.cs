@@ -37,6 +37,8 @@ public class LiquidManager : MonoBehaviour
     }
     #endregion
 
+    private DrinkState drinkState;
+
     [Header("Renderer Variables")]
     [SerializeField] private Renderer fluidRenderer;
     [SerializeField] private int maxCapacity;
@@ -55,12 +57,13 @@ public class LiquidManager : MonoBehaviour
 
     private void Awake()
     {
-        typeOfDrinkInside = new Dictionary<Drink.TypeOfDrink, int>();
+        typeOfDrinkInside = new Dictionary<LiquidManager.TypeOfDrink, int>();
         currentLayer = gameObject.layer;
+        drinkState = DrinkState.Idle;
     }
     private void Update()
     {
-        if (!isShaker)
+        if (isShaker)
         {
             FillShaker();
         }
@@ -76,7 +79,7 @@ public class LiquidManager : MonoBehaviour
 
         if (numberOfParticles < maxCapacity)
         {
-            fill = numberOfParticles / maxCapacity;
+            fill = (float)numberOfParticles / maxCapacity;
             float colliderPosition = minColliderPos + (fill * (maxColliderPos - minColliderPos)) / 1;
             transform.localPosition = new Vector3(transform.localPosition.x, colliderPosition, transform.localPosition.z);
         }
@@ -103,7 +106,7 @@ public class LiquidManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Liquid"))
+        if (collision.CompareTag("Liquid") && numberOfParticles < maxCapacity)
         {
             LiquidParticle particleCollision = collision.GetComponent<LiquidParticle>();
 
@@ -115,7 +118,7 @@ public class LiquidManager : MonoBehaviour
             {
                 typeOfDrinkInside[particleCollision.liquidType]++;
             }
-            Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
+            //Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
 
             Destroy(collision.gameObject);
             numberOfParticles++;
@@ -130,5 +133,10 @@ public class LiquidManager : MonoBehaviour
     public int GetMaxCapacity()
     {
         return maxCapacity;
+    }
+
+    public void SetDrinkState(DrinkState _drinkState)
+    {
+        drinkState = _drinkState;
     }
 }

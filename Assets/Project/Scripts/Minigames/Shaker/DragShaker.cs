@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Windows;
-using static Drink;
 
 public class DragShaker : MonoBehaviour
 {
@@ -24,6 +23,8 @@ public class DragShaker : MonoBehaviour
     [Space(20)]
     [SerializeField] private GameObject simulation;
     [SerializeField] private Renderer filterRenderer;
+    [SerializeField] private Color liquidColor;
+    public LiquidManager.TypeOfDrink drinksType;
 
     private int quantityOfLiquid;
     private float time;

@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bottle : Drink
+public class Bottle : MonoBehaviour
 {
-    private LiquidAnimation liquidAnimation;
+    /*private LiquidAnimation liquidAnimation;
 
     private void Awake()
     {
@@ -56,4 +56,5 @@ public class Bottle : Drink
                 break;
         }
     }
+    */
 }
