@@ -37,12 +37,17 @@ public class LiquidManager : MonoBehaviour
     }
     #endregion
 
+    [Header("Renderer Variables")]
     [SerializeField] private Renderer fluidRenderer;
     [SerializeField] private int maxCapacity;
     
     private Dictionary<TypeOfDrink, int> typeOfDrinkInside;  
     private float fill;
-    private int numberOfParticles = 0;
+    private int currentLayer;
+    [SerializeField] private int numberOfParticles = 0;
+
+    [Header("Shaker Variables")]
+    [SerializeField] private bool isShaker;
 
     [Header("Liquid Fill Variables")]
     [SerializeField] private float maxColliderPos = 0.1475f;
@@ -50,11 +55,19 @@ public class LiquidManager : MonoBehaviour
 
     private void Awake()
     {
-        typeOfDrinkInside = new Dictionary<TypeOfDrink, int>();
+        typeOfDrinkInside = new Dictionary<Drink.TypeOfDrink, int>();
+        currentLayer = gameObject.layer;
     }
     private void Update()
     {
-        FillDrink();
+        if (!isShaker)
+        {
+            FillShaker();
+        }
+        else
+        {
+            FillDrink();
+        }
     }
 
     private void FillDrink()
@@ -67,6 +80,25 @@ public class LiquidManager : MonoBehaviour
             float colliderPosition = minColliderPos + (fill * (maxColliderPos - minColliderPos)) / 1;
             transform.localPosition = new Vector3(transform.localPosition.x, colliderPosition, transform.localPosition.z);
         }
+    }
+
+    private void FillShaker()
+    {
+        if (numberOfParticles < maxCapacity)
+        {
+            gameObject.layer = currentLayer;
+            fill = numberOfParticles / maxCapacity;
+        } 
+        else
+        {
+            gameObject.layer = 0;
+        }
+    }
+
+    public void ResetDrink()
+    {
+        typeOfDrinkInside.Clear();
+        numberOfParticles = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -83,7 +115,7 @@ public class LiquidManager : MonoBehaviour
             {
                 typeOfDrinkInside[particleCollision.liquidType]++;
             }
-            //Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
+            Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
 
             Destroy(collision.gameObject);
             numberOfParticles++;

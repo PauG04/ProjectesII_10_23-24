@@ -76,9 +76,17 @@ public class DesktopApp : MonoBehaviour
         Image imageMiniIcon = newMiniIcon.AddComponent<Image>();
         RectTransform rectTransformMiniIcon = newMiniIcon.GetComponent<RectTransform>();
 
-        imageMiniIcon.sprite = GetComponent<Image>().sprite;
+        if (gameObject.GetComponent<SpriteRenderer>() != null)
+        {
+            imageMiniIcon.sprite = GetComponent<SpriteRenderer>().sprite;
+        }
+        else
+        {
+            imageMiniIcon.sprite = GetComponent<Image>().sprite;
+        }
 
         rectTransformMiniIcon.sizeDelta = new Vector2(50, 50);
+        
 
         CreateButtonMiniIcon(newMiniIcon);
 

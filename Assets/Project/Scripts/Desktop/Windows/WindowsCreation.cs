@@ -29,7 +29,6 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
         _state = WindowsStateMachine.WindowState.Creating;
         _spriteRenderer = _windowsStateMachine.gameObject.GetComponent<SpriteRenderer>();
         _collider = _windowsStateMachine.gameObject.GetComponent<PolygonCollider2D>();
-        Debug.Log("Created Windows: " + _node.GetWindowName());
     }
 
     public override void ExitState()

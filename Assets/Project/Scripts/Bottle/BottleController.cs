@@ -6,6 +6,11 @@ using UnityEngine.U2D;
 
 public class BottleController : MonoBehaviour
 {
+    #region Bottle Variables
+    [Header("BottleVariables")]
+    [SerializeField] private Drink.TypeOfDrink drinksType;
+    [SerializeField] private Transform parentObject;
+    #endregion
     #region Rotation Variables
     [Header("Rotation Variables")]
     [SerializeField] private GameObject shaker;
@@ -17,18 +22,17 @@ public class BottleController : MonoBehaviour
     #region Drag Variables
     private Vector3 offset;
     private bool isDragging = false;
-    #endregion
-    #region Bottle Variables
-    [SerializeField] private Drink.TypeOfDrink drinksType;
-    [SerializeField] private Transform parentObject;
+
+    private Vector3 oldScale;
+    private Quaternion oldRotation;
     #endregion
     #region Fluid Simulation Variables
     [Header("Fluid Simulation Variables")]
-    [SerializeField] private GameObject simulation;
     [SerializeField] private GameObject liquidParticle;
     [SerializeField] private float spawnRate;
     [SerializeField] private int maxQuantityOfLiquid;
     [Space(20)]
+    [SerializeField] private GameObject simulation;
     [SerializeField] private Renderer filterRenderer;
 
     private int quantityOfLiquid;
@@ -86,6 +90,9 @@ public class BottleController : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        oldScale = transform.localScale;
+        oldRotation = transform.localRotation;
+
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.SetParent(null);
         isDragging = true;
@@ -93,7 +100,12 @@ public class BottleController : MonoBehaviour
     private void OnMouseUp()
     {
         transform.SetParent(parentObject);
+
+        transform.localScale = oldScale;
+        transform.localRotation = oldRotation;
+
         transform.localPosition = Vector3.zero;
+
         isDragging = false;
     }
     private void HoldingBottle()

@@ -16,7 +16,6 @@ public class WindowsOrder : BaseState<WindowsStateMachine.WindowState>
     public override void EnterState()
     {
         _state = WindowsStateMachine.WindowState.Order;
-        Debug.Log("Order Windows");
     }
     public override void ExitState()
     {
