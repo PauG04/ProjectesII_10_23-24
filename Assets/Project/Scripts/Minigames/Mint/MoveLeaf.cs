@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Windows;
@@ -8,7 +8,7 @@ public class MoveLeaf : MonoBehaviour
     [SerializeField] private float maxVelocity;
     [SerializeField] private float force;
     [SerializeField] private GameObject brokenLeaf;
-    [SerializeField] private GetWindow window;
+    [SerializeField] private WindowsSetup window;
 
     private bool dragging = false;
     private TargetJoint2D targetJoint;
@@ -20,7 +20,7 @@ public class MoveLeaf : MonoBehaviour
     {
         targetJoint = GetComponent<TargetJoint2D>();
         rb = GetComponent<Rigidbody2D>();
-        window = gameObject.transform.parent.gameObject.transform.parent.GetComponent<GetWindow>();
+        window = gameObject.transform.parent.gameObject.transform.parent.GetComponent<WindowsSetup>();
         position = transform.position;
     }
 

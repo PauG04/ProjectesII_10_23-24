@@ -1,4 +1,4 @@
-using UnityEngine.Audio;
+﻿using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
@@ -13,10 +13,14 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-            instance = this;
+	    if (instance == null)
+	    {
+		    instance = this;
+	    }
         else
-            Destroy(gameObject);
+        {
+	        Destroy(gameObject);
+        }
 
         DontDestroyOnLoad(gameObject);
 

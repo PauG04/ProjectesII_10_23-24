@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProgressSlider : MonoBehaviour
 {
-    [SerializeField] private Shaker shaker;
+    [SerializeField] private ShakerController shaker;
     [SerializeField] private GameObject[] slider;
     [SerializeField] private float r;
     [SerializeField] private float g;
@@ -15,7 +15,7 @@ public class ProgressSlider : MonoBehaviour
     private float maxProgress;
     private float value;
     private int currentSlider;
-
+    
     private void Start()
     {
         maxProgress = shaker.GetMaxProgress();

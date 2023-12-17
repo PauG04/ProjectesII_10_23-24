@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -59,7 +59,7 @@ public class BottleController : MonoBehaviour
     [SerializeField] private float minSlider = 0.51f;
     */
     #endregion
-
+	
     private void Start()
     {
         parentObject = transform.parent;
@@ -81,7 +81,7 @@ public class BottleController : MonoBehaviour
             HoldingBottle();
         }
         // TODO: When we are not draggin anymore, the position stays.
-        if (!isShakerSpawned)
+	    if (!isDragging)
         {
             ResetRotation();
         }

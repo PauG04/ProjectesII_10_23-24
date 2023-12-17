@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,16 +7,16 @@ public class Slider : MonoBehaviour
     [SerializeField] private float magnitude;
 
     private Vector3 direction;
-    BoxCollider2D collider;
+	private BoxCollider2D lemonCollider;
 
     Camera mainCamera;
 
     private void Awake()
     {
         mainCamera = Camera.main;
-        collider = GetComponent<BoxCollider2D>();
+        lemonCollider = GetComponent<BoxCollider2D>();
     }
-
+	
     private void FixedUpdate()
     {
         Vector3 newPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -25,11 +25,11 @@ public class Slider : MonoBehaviour
         direction = newPosition - transform.position;
         if (direction.magnitude > magnitude)
         {
-            collider.enabled = true;
+            lemonCollider.enabled = true;
         }
         else
         {
-            collider.enabled = false;
+            lemonCollider.enabled = false;
         }
 
         transform.position = newPosition;
@@ -42,6 +42,6 @@ public class Slider : MonoBehaviour
 
     public BoxCollider2D GetCollider()
     {
-        return collider;
+        return lemonCollider;
     }
 }
