@@ -34,14 +34,15 @@ public class ShakerController : MonoBehaviour
 	private bool draggingOpenShaker = false;
 	private TargetJoint2D targetJoint;
 	private Vector2 position;
-	#endregion
-	#region Shaker Rotation Variables
-	[Header("Shaker Rotation Variables")]
+    private Vector3 offset;
+    #endregion
+    #region Shaker Rotation Variables
+    [Header("Shaker Rotation Variables")]
 	[SerializeField] private GameObject rotateTowards;
 	[SerializeField] private float rotationVelocity;
 
+    private bool isRotating = false;
     private Vector2 objectPosition;
-	private bool objectIsSpawned;
     #endregion
     #region Fluid Simulation Variables
     [Header("Fluid Simulation Variables")]
@@ -80,12 +81,22 @@ public class ShakerController : MonoBehaviour
             Shaking();
 			DragShakerIfClosed();
 		}
-		else 
+
+		if (!close.GetClose())
 		{
-			rb.bodyType = RigidbodyType2D.Kinematic;
-			DragShakerIfOpen();
-		}
-	}
+            rb.bodyType = RigidbodyType2D.Kinematic;
+
+            if (draggingOpenShaker)
+            {
+                DragShakerIfOpen();
+            }
+        }
+        
+        if (!isPressing || !isRotating)
+        {
+            ResetShakerTransform();
+        }
+    }
     private void OnMouseDown()
     {
         if (close.GetClose())
@@ -94,6 +105,7 @@ public class ShakerController : MonoBehaviour
         }
         else
         {
+            offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
             draggingOpenShaker = true;
         }
         isPressing = true;
@@ -108,7 +120,7 @@ public class ShakerController : MonoBehaviour
 	#region Dragging Functions
 	private void DragShakerIfClosed()
 	{
-		CalculatePosition();
+		CalculatePositionClosed();
 		if (hasToRotate)
 		{
 			rb.SetRotation(Vector2.Dot(rb.velocity.normalized, Vector2.up) * rb.velocity.sqrMagnitude * maxAngle);
@@ -123,32 +135,24 @@ public class ShakerController : MonoBehaviour
 			rb.bodyType = RigidbodyType2D.Dynamic;
 		}
 	}
-	private void DragShakerIfOpen()
-	{
-		HoldingBottle();
-				
-		if (transform.up.y < 0)
-		{
-			float spawnRateLiquid = (transform.up.y * spawnRate) / -1;
-			DropLiquid(spawnRateLiquid);
-		}
-    }
-    private void HoldingBottle()
+    private void DragShakerIfOpen()
     {
-        CalculatePosition();
-		RotateObjectTowards();
+        CalculatePositionOpen();
+
+		if(isRotating)
+		{
+            RotateObjectTowards();
+        }
 
         if (Input.GetMouseButtonDown(1) && rotateTowards != null)
         {
-            objectIsSpawned = true;
             objectPosition = rotateTowards.transform.position;
-
-            RotateObjectTowards();
+			isRotating = true;
 		}
         if (Input.GetMouseButtonUp(1) && rotateTowards != null)
         {
-            objectIsSpawned = false;
             objectPosition = Vector2.zero;
+			isRotating = false;
         }
         if (transform.up.y < 0)
         {
@@ -156,7 +160,15 @@ public class ShakerController : MonoBehaviour
             DropLiquid(spawnRateLiquid);
         }
     }
-    private void CalculatePosition()
+    private void CalculatePositionOpen()
+    {
+        transform.position = new Vector3(
+            Camera.main.ScreenToWorldPoint(Input.mousePosition).x + offset.x,
+            Camera.main.ScreenToWorldPoint(Input.mousePosition).y + offset.y,
+            0
+            );
+    }
+    private void CalculatePositionClosed()
 	{
 		if (draggingClosedShaker)
 		{
@@ -176,7 +188,7 @@ public class ShakerController : MonoBehaviour
 		Quaternion objectiveRotation = Quaternion.Euler(0, 0, -angle);
 		transform.rotation = Quaternion.Lerp(transform.rotation, objectiveRotation, rotationVelocity * Time.deltaTime);
 	}
-	private void ResetRotation()
+	private void ResetShakerTransform()
 	{
 		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, rotationVelocity * Time.deltaTime);
 	}

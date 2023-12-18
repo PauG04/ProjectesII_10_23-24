@@ -17,6 +17,7 @@ public class BottleController : MonoBehaviour
     [SerializeField] private float rotationVelocity = 5f;
 
     private Vector2 shakerPosition;
+    private bool isRotating = false;
     private bool isShakerSpawned;
     #endregion
     #region Drag Variables
@@ -81,7 +82,7 @@ public class BottleController : MonoBehaviour
             HoldingBottle();
         }
         // TODO: When we are not draggin anymore, the position stays.
-	    if (!isDragging)
+	    if (!isDragging || !isRotating)
         {
             ResetRotation();
         }
@@ -111,19 +112,23 @@ public class BottleController : MonoBehaviour
     private void HoldingBottle()
     {
         CalculatePosition();
-        RotateObjectTowards();
+
+        if (isRotating)
+        {
+            RotateObjectTowards();
+        }
 
         if (Input.GetMouseButtonDown(1) && shaker != null)
         {
             isShakerSpawned = true;
             shakerPosition = shaker.transform.position;
-
-            RotateObjectTowards();
+            isRotating = true;
         }
         if (Input.GetMouseButtonUp(1) && shaker != null)
         {
             isShakerSpawned = false;
             shakerPosition = Vector2.zero;
+            isRotating = false;
         }
         if (transform.up.y < 0)
         {
