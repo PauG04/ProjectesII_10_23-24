@@ -10,13 +10,12 @@ public class ShakerController : MonoBehaviour
 	[SerializeField] private CameraShake cameraShake;
 	[SerializeField] private WindowsSetup windowSetup;
 	[SerializeField] private CloseShaker close;
-	[SerializeField] private float divideProgress;
+    [SerializeField] private GameObject shakerTop;
+    [SerializeField] private float divideProgress;
 	[SerializeField] private float maxProgress;
 	[SerializeField] private float intensityShaking;
 
-	private LiquidManager liquidManager;
 	private Rigidbody2D rb;
-	private Animator anim;
 	private Vector2 newPosition;
 	private Transform parent;
 
@@ -30,32 +29,30 @@ public class ShakerController : MonoBehaviour
 	[SerializeField] private float maxAngle;
 	[SerializeField] private bool hasToRotate;
 
-	private bool draggingClosedShaker = false;
-	private bool draggingOpenShaker = false;
-	private TargetJoint2D targetJoint;
-	private Vector2 position;
+    private TargetJoint2D targetJoint;
+    private Vector2 position;
     private Vector3 offset;
+    private bool draggingClosedShaker = false;
+	private bool draggingOpenShaker = false;
     #endregion
     #region Shaker Rotation Variables
     [Header("Shaker Rotation Variables")]
 	[SerializeField] private GameObject rotateTowards;
 	[SerializeField] private float rotationVelocity;
 
-    private bool isRotating = false;
     private Vector2 objectPosition;
+    private bool isRotating = false;
     #endregion
     #region Fluid Simulation Variables
     [Header("Fluid Simulation Variables")]
-	[SerializeField] private GameObject liquidParticle;
+    [SerializeField] private LiquidManager liquidManager;
+    [SerializeField] private GameObject liquidParticle;
 	[SerializeField] private float spawnRate;
-	[SerializeField] private int maxQuantityOfLiquid;
 	[Space(20)]
 	[SerializeField] private GameObject simulation;
 	[SerializeField] private Renderer filterRenderer;
 	[SerializeField] private Color liquidColor;
-	public LiquidManager.TypeOfDrink drinksType;
 
-	private int quantityOfLiquid;
 	private float time;
 	#endregion
 	
@@ -65,37 +62,45 @@ public class ShakerController : MonoBehaviour
 		cameraShake = Camera.main.GetComponent<CameraShake>();
 		rb = GetComponent<Rigidbody2D>();
 		targetJoint= GetComponent<TargetJoint2D>();
-		liquidManager = GetComponent<LiquidManager>();
 		parent = transform.parent.GetComponent<Transform>();
 		filterRenderer = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<Renderer>();
 		simulation = GameObject.Find("Simulation");
-		anim = GetComponent<Animator>();
 
 		canShake = false;
-		newPosition = transform.position;
+        newPosition = transform.position;
 	}
 	private void Update()
 	{
-		if (draggingClosedShaker)
-		{
-            Shaking();
-			DragShakerIfClosed();
-		}
-
 		if (!close.GetClose())
 		{
+            shakerTop.SetActive(false);
             rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
 
             if (draggingOpenShaker)
             {
                 DragShakerIfOpen();
             }
+            if (!isRotating)
+            {
+				ResetRotation();
+            }
         }
-        
-        if (!isPressing || !isRotating)
-        {
+		else
+		{
+			shakerTop.SetActive(true);
+            if (draggingClosedShaker)
+            {
+                Shaking();
+                DragShakerIfClosed();
+            }
+        }
+
+		if (!isPressing)
+		{
+            liquidManager.GetComponent<BoxCollider2D>().enabled = true;
             ResetShakerTransform();
-        }
+		}
     }
     private void OnMouseDown()
     {
@@ -121,7 +126,9 @@ public class ShakerController : MonoBehaviour
 	private void DragShakerIfClosed()
 	{
 		CalculatePositionClosed();
-		if (hasToRotate)
+        transform.SetParent(null);
+
+        if (hasToRotate)
 		{
 			rb.SetRotation(Vector2.Dot(rb.velocity.normalized, Vector2.up) * rb.velocity.sqrMagnitude * maxAngle);
 		}
@@ -132,12 +139,14 @@ public class ShakerController : MonoBehaviour
 		}
 		else
 		{
+			rb.constraints = RigidbodyConstraints2D.None;
 			rb.bodyType = RigidbodyType2D.Dynamic;
 		}
 	}
     private void DragShakerIfOpen()
     {
         CalculatePositionOpen();
+		transform.SetParent(null);
 
 		if(isRotating)
 		{
@@ -156,6 +165,7 @@ public class ShakerController : MonoBehaviour
         }
         if (transform.up.y < 0)
         {
+            liquidManager.GetComponent<BoxCollider2D>().enabled = false;
             float spawnRateLiquid = (transform.up.y * spawnRate) / -1;
             DropLiquid(spawnRateLiquid);
         }
@@ -166,7 +176,7 @@ public class ShakerController : MonoBehaviour
             Camera.main.ScreenToWorldPoint(Input.mousePosition).x + offset.x,
             Camera.main.ScreenToWorldPoint(Input.mousePosition).y + offset.y,
             0
-            );
+        );
     }
     private void CalculatePositionClosed()
 	{
@@ -188,15 +198,20 @@ public class ShakerController : MonoBehaviour
 		Quaternion objectiveRotation = Quaternion.Euler(0, 0, -angle);
 		transform.rotation = Quaternion.Lerp(transform.rotation, objectiveRotation, rotationVelocity * Time.deltaTime);
 	}
-	private void ResetShakerTransform()
+	private void ResetRotation()
 	{
-		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, rotationVelocity * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, rotationVelocity * Time.deltaTime);
+    }
+    private void ResetShakerTransform()
+	{
+		transform.SetParent(parent);
+		transform.localPosition = Vector3.zero;
 	}
 	#endregion
 	#region Fluid Functions
 	private void DropLiquid(float spawnRateLiquid)
 	{
-		if (quantityOfLiquid > 0)
+		if (liquidManager.GetCurrentLiquid() > 0)
 		{
 			time += Time.deltaTime;
 
@@ -206,13 +221,12 @@ public class ShakerController : MonoBehaviour
 			}
 			// TODO: The color changes the material, but doing that changes all the other particles colors, find other method
 			filterRenderer.material.SetColor("_Color", liquidColor);
-			liquidParticle.GetComponent<LiquidParticle>().liquidType = drinksType;
 
 			GameObject newParticle = Instantiate(liquidParticle, transform.position, Quaternion.identity);
 			newParticle.transform.parent = simulation.transform;
 			newParticle.transform.position = transform.position;
 			time = 0.0f;
-			quantityOfLiquid--;
+			liquidManager.DecreaseLiquid();
 		}
 	}
 	#endregion
@@ -230,7 +244,7 @@ public class ShakerController : MonoBehaviour
 		{
 			cameraShake.SetTransforPosition();
 		}
-		//SetDrinkState();
+		SetDrinkState();
 	}
 	private void StartShaking()
 	{
@@ -298,10 +312,6 @@ public class ShakerController : MonoBehaviour
 	public bool GetIsMousePressed()
 	{
 		return isPressing;
-	}
-	public void SetAnimation(bool value)
-	{
-		anim.SetBool("isOpen", value);
 	}
 	#endregion
 }

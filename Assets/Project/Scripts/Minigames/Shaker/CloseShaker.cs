@@ -11,7 +11,6 @@ public class CloseShaker : MonoBehaviour
     private void OnMouseDown()
     {
         close = !close;
-        shakerController.SetAnimation(!close);
     }
 
     public bool GetClose()

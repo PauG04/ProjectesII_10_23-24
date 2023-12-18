@@ -54,11 +54,6 @@ public class BottleController : MonoBehaviour
     private float wobbleAmountToAddX;
 
     private float liquidTime;
-    /*
-    [Header("Liquid Fill Variables")]
-    [SerializeField] private float maxSlider = 0.58f;
-    [SerializeField] private float minSlider = 0.51f;
-    */
     #endregion
 	
     private void Start()

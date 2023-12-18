@@ -6,6 +6,10 @@ using static UnityEngine.Rendering.DebugUI;
 public class LiquidManager : MonoBehaviour
 {
     #region ENUMS
+    public enum TypeOfCocktail
+    {
+        GinTonic
+    }
     public enum TypeOfDrink
     {
         //Alcoholic Drinks
@@ -90,7 +94,6 @@ public class LiquidManager : MonoBehaviour
         if (numberOfParticles < maxCapacity)
         {
             gameObject.layer = currentLayer;
-            fill = numberOfParticles / maxCapacity;
         } 
         else
         {
@@ -118,7 +121,7 @@ public class LiquidManager : MonoBehaviour
             {
                 typeOfDrinkInside[particleCollision.liquidType]++;
             }
-            //Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
+            Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
 
             Destroy(collision.gameObject);
             numberOfParticles++;
@@ -134,7 +137,14 @@ public class LiquidManager : MonoBehaviour
     {
         return maxCapacity;
     }
-
+    public int GetCurrentLiquid()
+    {
+        return numberOfParticles;
+    }
+    public void DecreaseLiquid()
+    {
+        numberOfParticles--;
+    }
     public void SetDrinkState(DrinkState _drinkState)
     {
         drinkState = _drinkState;
