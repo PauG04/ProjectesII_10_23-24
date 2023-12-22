@@ -34,7 +34,6 @@ public class ResultManager : MonoBehaviour
 		
 		if (numberOfParticles >= maxCapacity)
 		{
-			
 			textMeshPro.text = GetMostPopularCocktail().ToString();
 		}
 	}

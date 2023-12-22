@@ -155,10 +155,10 @@ public class LiquidManager : MonoBehaviour
 		}
 		else if (typeOfDrinkInside.ContainsKey(TypeOfDrink.Rum) && typeOfDrinkInside.ContainsKey(TypeOfDrink.Cola))
 		{
-			int rumCount = typeOfDrinkInside[TypeOfDrink.Gin];
-			int colaCount = typeOfDrinkInside[TypeOfDrink.Tonic];
+			int rumCount = typeOfDrinkInside[TypeOfDrink.Rum];
+			int colaCount = typeOfDrinkInside[TypeOfDrink.Cola];
 
-			if (colaCount >= 25 && colaCount >= 25 && drinkState == DrinkState.Shaked)
+			if (rumCount >= 25 && colaCount >= 25 && drinkState == DrinkState.Shaked)
 			{
 				typeOfCocktail = TypeOfCocktail.RumCola;
 			}

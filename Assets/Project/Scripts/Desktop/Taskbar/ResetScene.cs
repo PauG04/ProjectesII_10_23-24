@@ -1,23 +1,13 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ResetScene : MonoBehaviour
 {
-    //[SerializeField] private WindowsIconActivation openStartMenu;
-    private SpriteRenderer spriteRenderer;
-
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void OnMouseDown()
-    {
-        /*if (openStartMenu.GetIsOpen())
-        {
-            SceneManager.LoadScene("Main");
-        }*/
+	public void Reset()
+	{
+		Scene scene = SceneManager.GetActiveScene();
+		SceneManager.LoadScene(scene.name);
     }
 }
