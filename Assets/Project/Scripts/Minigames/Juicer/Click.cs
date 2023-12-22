@@ -6,7 +6,7 @@ using Windows;
 public class Click : MonoBehaviour
 {
     [SerializeField] private MoveMouse moveMouse;
-    [SerializeField] private GetWindow window;
+    [SerializeField] private WindowsSetup window;
 
     private TargetJoint2D targetJoint;
     private Rigidbody2D rb;

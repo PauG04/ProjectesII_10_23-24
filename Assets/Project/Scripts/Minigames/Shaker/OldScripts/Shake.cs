@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Shake : MonoBehaviour
 {
+    /*
     [SerializeField] private float progress = 0.0f;
 
     Vector3 shakerPosition;
@@ -290,4 +291,5 @@ public class Shake : MonoBehaviour
     {
         return progress;
     }
+    */
 }

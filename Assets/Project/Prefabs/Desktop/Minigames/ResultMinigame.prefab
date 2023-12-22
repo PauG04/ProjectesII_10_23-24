@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2038411348253361836}
   m_Layer: 0
-  m_Name: BottlePivot
+  m_Name: ResultPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1816027767839115828}
   - component: {fileID: 1434464756007468000}
-  - component: {fileID: 8578539894469387818}
+  - component: {fileID: 8345454657423451984}
   m_Layer: 13
   m_Name: DestroyLiquidTrigger
   m_TagString: Untagged
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.0675}
   m_EdgeRadius: 0
---- !u!114 &8578539894469387818
+--- !u!114 &8345454657423451984
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,15 +118,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4357068226038599805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fffb9259e79adfa48b922bc50b9771cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 627ebc4d26e89d84e8b42e23e9e84a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fluidRenderer: {fileID: 3438135944573585231}
-  maxCapacity: 150
-  numberOfParticles: 0
-  isShaker: 0
-  maxColliderPos: 0.15
+  maxCapacity: 100
+  maxColliderPos: 0.1475
   minColliderPos: -0.23
+  textMeshPro: {fileID: 6117875321674800987}
 --- !u!1 &4377119796690066168
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,8 +199,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -889591459
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 500c5432e02c493408194b1b337fb15d, type: 3}
   m_Color: {r: 0.69803923, g: 0.050980397, b: 0.30980393, a: 1}
@@ -224,7 +223,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3097008734857362770}
   - component: {fileID: 5684510910803904983}
-  - component: {fileID: 4936716321914930809}
   m_Layer: 13
   m_Name: DrinkGlassTest
   m_TagString: Untagged
@@ -290,7 +288,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -889591459
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 867dbeb6b7ce9aa4d902666a7c0ecd20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -302,71 +300,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &4936716321914930809
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5666790301953448252}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.48, y: 0.56}
-    newSize: {x: 0.48, y: 0.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.12, y: 0.19999999}
-      - {x: 0.12, y: 0.038272996}
-      - {x: 0.099999994, y: 0.02}
-      - {x: 0.099999994, y: -0.13827339}
-      - {x: 0.08, y: -0.16}
-      - {x: 0.08, y: -0.24}
-      - {x: -0.08, y: -0.24}
-      - {x: -0.08, y: -0.16}
-      - {x: -0.099049985, y: -0.13957468}
-      - {x: -0.099999994, y: 0.02}
-      - {x: -0.11952499, y: 0.049450297}
-      - {x: -0.12, y: 0.19999999}
-      - {x: -0.14, y: 0.19999999}
-      - {x: -0.16, y: 0.17999999}
-      - {x: -0.16, y: 0}
-      - {x: -0.099999994, y: -0.28}
-      - {x: 0.099999994, y: -0.28}
-      - {x: 0.16, y: 0}
-      - {x: 0.16, y: 0.17999999}
-      - {x: 0.14, y: 0.19999999}
-  m_UseDelaunayMesh: 0
 --- !u!1 &6468962216988290656
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,9 +370,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -906865357
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: -889591459
+  m_SortingLayer: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 26d99b4643fb1a04ca1173687e8bd06a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -521,9 +454,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -889591459
+  m_SortingLayer: 3
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: ff1eda6a443ac3748b592ca60b2f7e1d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -546,6 +479,7 @@ GameObject:
   - component: {fileID: 1510902164239161678}
   - component: {fileID: 6385243002726358255}
   - component: {fileID: 6117875321674800987}
+  - component: {fileID: 6569648012298697148}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -707,6 +641,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6385243002726358255}
   m_maskType: 0
+--- !u!210 &6569648012298697148
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657894130906460586}
+  m_Enabled: 1
+  m_SortingLayerID: -532472325
+  m_SortingLayer: 4
+  m_SortingOrder: 40
+  m_SortAtRoot: 0
 --- !u!1 &8739862838232757912
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,9 +770,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -889591459
+  m_SortingLayer: 3
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 8bacf8be637fbc04985b331365f3aec1, type: 3}
   m_Color: {r: 0.69803923, g: 0.050980397, b: 0.30980393, a: 1}
   m_FlipX: 0

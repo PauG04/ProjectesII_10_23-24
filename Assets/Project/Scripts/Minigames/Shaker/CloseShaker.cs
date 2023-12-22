@@ -1,19 +1,16 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CloseShaker : MonoBehaviour
 {
-    [SerializeField]
-    private bool close;
 
-    [SerializeField] private ShakerAnimation anim;
-
+	[SerializeField] private ShakerController shakerController;
+	private bool close;
 
     private void OnMouseDown()
     {
         close = !close;
-        anim.SetAnimation(!close);
     }
 
     public bool GetClose()

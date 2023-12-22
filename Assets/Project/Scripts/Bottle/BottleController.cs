@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -17,6 +17,7 @@ public class BottleController : MonoBehaviour
     [SerializeField] private float rotationVelocity = 5f;
 
     private Vector2 shakerPosition;
+    private bool isRotating = false;
     private bool isShakerSpawned;
     #endregion
     #region Drag Variables
@@ -53,13 +54,8 @@ public class BottleController : MonoBehaviour
     private float wobbleAmountToAddX;
 
     private float liquidTime;
-    /*
-    [Header("Liquid Fill Variables")]
-    [SerializeField] private float maxSlider = 0.58f;
-    [SerializeField] private float minSlider = 0.51f;
-    */
     #endregion
-
+	
     private void Start()
     {
         parentObject = transform.parent;
@@ -81,7 +77,7 @@ public class BottleController : MonoBehaviour
             HoldingBottle();
         }
         // TODO: When we are not draggin anymore, the position stays.
-        if (!isShakerSpawned)
+	    if (!isDragging || !isRotating)
         {
             ResetRotation();
         }
@@ -111,19 +107,23 @@ public class BottleController : MonoBehaviour
     private void HoldingBottle()
     {
         CalculatePosition();
-        RotateObjectTowards();
+
+        if (isRotating)
+        {
+            RotateObjectTowards();
+        }
 
         if (Input.GetMouseButtonDown(1) && shaker != null)
         {
             isShakerSpawned = true;
             shakerPosition = shaker.transform.position;
-
-            RotateObjectTowards();
+            isRotating = true;
         }
         if (Input.GetMouseButtonUp(1) && shaker != null)
         {
             isShakerSpawned = false;
             shakerPosition = Vector2.zero;
+            isRotating = false;
         }
         if (transform.up.y < 0)
         {

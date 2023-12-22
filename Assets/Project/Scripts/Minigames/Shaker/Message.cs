@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Message : MonoBehaviour
 {
-    [SerializeField] private DrinkScript _isPressing;
+    [SerializeField] private ShakerController shakerController;
     [SerializeField] private CloseShaker close;
 
     private Vector3 shakeScale;
@@ -58,11 +58,11 @@ public class Message : MonoBehaviour
 
     private void StartCliking()
     {
-        if (!_isPressing.GetIsMouseNotPressed() && isFirtTime)
+        if (shakerController.GetIsMousePressed() && isFirtTime)
         {
             showMesage = true;
         }
-        else if(_isPressing.GetIsMouseNotPressed())
+        else if(!shakerController.GetIsMousePressed())
         {
             showMesage = false;
             isFirtTime = true;

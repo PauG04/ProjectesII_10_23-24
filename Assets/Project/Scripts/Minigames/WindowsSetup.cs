@@ -1,8 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GetWindow : MonoBehaviour
+public class WindowsSetup : MonoBehaviour
 {
     private WindowsStateMachine window;
 

@@ -11,7 +11,7 @@ public class DragHammer : MonoBehaviour
     private Vector2 position;
     private Animator anim;
 
-    [SerializeField] private GetWindow window;
+    [SerializeField] private WindowsSetup window;
 
     private void Start()
     {

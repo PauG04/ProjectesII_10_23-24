@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -90,7 +90,7 @@ public class DesktopApp : MonoBehaviour
 
         CreateButtonMiniIcon(newMiniIcon);
 
-        newMiniIcon.transform.parent = miniIconsPanel.transform;
+	    newMiniIcon.transform.SetParent(miniIconsPanel.transform);
         newMiniIcon.transform.localScale = Vector3.one;
     }
 

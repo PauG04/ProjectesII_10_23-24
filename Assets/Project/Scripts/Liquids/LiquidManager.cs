@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
@@ -6,6 +6,13 @@ using static UnityEngine.Rendering.DebugUI;
 public class LiquidManager : MonoBehaviour
 {
     #region ENUMS
+    public enum TypeOfCocktail
+	{
+		Mierdon,
+	    GinTonic,
+		RumCola,
+	    Negroni
+    }
     public enum TypeOfDrink
     {
         //Alcoholic Drinks
@@ -22,7 +29,7 @@ public class LiquidManager : MonoBehaviour
         Soda,
         Tonic
     }
-
+    
     public enum DrinkState
     {
         Idle,
@@ -37,23 +44,27 @@ public class LiquidManager : MonoBehaviour
     }
     #endregion
 
-    private DrinkState drinkState;
-
     [Header("Renderer Variables")]
+    private DrinkState drinkState;
     [SerializeField] private Renderer fluidRenderer;
     [SerializeField] private int maxCapacity;
     
     private Dictionary<TypeOfDrink, int> typeOfDrinkInside;  
+
     private float fill;
     private int currentLayer;
-    [SerializeField] private int numberOfParticles = 0;
+    private int numberOfParticles = 0;
 
     [Header("Shaker Variables")]
     [SerializeField] private bool isShaker;
+	[SerializeField] private ShakerController shakerController;
 
     [Header("Liquid Fill Variables")]
     [SerializeField] private float maxColliderPos = 0.1475f;
     [SerializeField] private float minColliderPos = -0.23f;
+
+	[Header("Cocktail")]
+	public TypeOfCocktail typeOfCocktail;
 
     private void Awake()
     {
@@ -71,39 +82,8 @@ public class LiquidManager : MonoBehaviour
         {
             FillDrink();
         }
+	    CreateCocktail();
     }
-
-    private void FillDrink()
-    {
-        fluidRenderer.material.SetFloat("_Fill", fill);
-
-        if (numberOfParticles < maxCapacity)
-        {
-            fill = (float)numberOfParticles / maxCapacity;
-            float colliderPosition = minColliderPos + (fill * (maxColliderPos - minColliderPos)) / 1;
-            transform.localPosition = new Vector3(transform.localPosition.x, colliderPosition, transform.localPosition.z);
-        }
-    }
-
-    private void FillShaker()
-    {
-        if (numberOfParticles < maxCapacity)
-        {
-            gameObject.layer = currentLayer;
-            fill = numberOfParticles / maxCapacity;
-        } 
-        else
-        {
-            gameObject.layer = 0;
-        }
-    }
-
-    public void ResetDrink()
-    {
-        typeOfDrinkInside.Clear();
-        numberOfParticles = 0;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Liquid") && numberOfParticles < maxCapacity)
@@ -118,23 +98,110 @@ public class LiquidManager : MonoBehaviour
             {
                 typeOfDrinkInside[particleCollision.liquidType]++;
             }
-            //Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
+	        //Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
 
             Destroy(collision.gameObject);
             numberOfParticles++;
         }
     }
+    private void FillDrink()
+    {
+        fluidRenderer.material.SetFloat("_Fill", fill);
 
+        if (numberOfParticles < maxCapacity)
+        {
+            fill = (float)numberOfParticles / maxCapacity;
+            float colliderPosition = minColliderPos + (fill * (maxColliderPos - minColliderPos)) / 1;
+            transform.localPosition = new Vector3(transform.localPosition.x, colliderPosition, transform.localPosition.z);
+        }
+    }
+    private void FillShaker()
+    {
+        if (numberOfParticles < maxCapacity)
+        {
+            gameObject.layer = currentLayer;
+        } 
+        else
+        {
+            gameObject.layer = 0;
+        }
+    }
+    public void ResetDrink()
+    {
+        typeOfDrinkInside.Clear();
+        numberOfParticles = 0;
+    }
+    public static Color CombineColors(params Color[] aColors)
+    {
+        Color result = new Color(0, 0, 0, 0);
+        foreach (Color c in aColors)
+        {
+            result += c;
+        }
+        result /= aColors.Length;
+        return result;
+    }
+	public void CreateCocktail()
+	{
+		if (typeOfDrinkInside.ContainsKey(TypeOfDrink.Gin) && typeOfDrinkInside.ContainsKey(TypeOfDrink.Tonic))
+		{
+			int ginCount = typeOfDrinkInside[TypeOfDrink.Gin];
+			int tonicCount = typeOfDrinkInside[TypeOfDrink.Tonic];
+
+			if (ginCount >= 25 && tonicCount >= 25 && drinkState == DrinkState.Idle)
+			{
+				typeOfCocktail = TypeOfCocktail.GinTonic;
+			}
+		}
+		else if (typeOfDrinkInside.ContainsKey(TypeOfDrink.Rum) && typeOfDrinkInside.ContainsKey(TypeOfDrink.Cola))
+		{
+			int rumCount = typeOfDrinkInside[TypeOfDrink.Rum];
+			int colaCount = typeOfDrinkInside[TypeOfDrink.Cola];
+
+			if (rumCount >= 25 && colaCount >= 25 && drinkState == DrinkState.Shaked)
+			{
+				typeOfCocktail = TypeOfCocktail.RumCola;
+			}
+		}
+		else 
+		{
+			typeOfCocktail = TypeOfCocktail.Mierdon;
+		}
+	}
+	// Temporal, use later
+	public Dictionary<TypeOfDrink, int> TraspassDrinks()
+	{
+		Dictionary<TypeOfDrink, int> newDictionary = new Dictionary<TypeOfDrink, int>(typeOfDrinkInside);
+		
+		foreach (TypeOfDrink drinkType in typeOfDrinkInside.Keys)
+		{
+			if (typeOfDrinkInside[drinkType] > 0)
+			{
+				newDictionary[drinkType] = typeOfDrinkInside[drinkType] - 1;
+			}
+		}
+		
+		typeOfDrinkInside = newDictionary;
+		return typeOfDrinkInside;
+	}
+	
+	
     public Dictionary<TypeOfDrink, int> GetTypeOfDrinkInside()
     {
         return typeOfDrinkInside;
     }
-
     public int GetMaxCapacity()
     {
         return maxCapacity;
     }
-
+    public int GetCurrentLiquid()
+    {
+        return numberOfParticles;
+    }
+    public void DecreaseLiquid()
+    {
+        numberOfParticles--;
+    }
     public void SetDrinkState(DrinkState _drinkState)
     {
         drinkState = _drinkState;
