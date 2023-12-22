@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static LiquidManager;
@@ -25,12 +25,12 @@ public class ResultPrecentDrink : MonoBehaviour
         Mierdon
     }
 
-    private LiquidManager liquidManager;
-    private Dictionary<LiquidManager.TypeOfDrink, int> lastDrink;
+    [SerializeField] private LiquidManager liquidManager;
+    [SerializeField] private Dictionary<LiquidManager.TypeOfDrink, int> lastDrink;
 
     [SerializeField] private LiquidManager.DrinkState shakeState;
 
-    private TypeOfCocktail result;
+    [SerializeField] private TypeOfCocktail result;
 
     #region Drinks
     private int rum;
@@ -47,7 +47,6 @@ public class ResultPrecentDrink : MonoBehaviour
 
     private void Awake()
     {
-        liquidManager = GetComponent<LiquidManager>();
         lastDrink = new Dictionary<LiquidManager.TypeOfDrink, int>();
     }
 
@@ -56,12 +55,13 @@ public class ResultPrecentDrink : MonoBehaviour
         if (CompareDrinks(lastDrink, liquidManager.GetTypeOfDrinkInside()))
         {
             UpdateDrinks();
-            Result();
+	        Result();
+	        Debug.Log("Rum: " + rum);
         }
     }
 
     private void UpdateDrinks()
-    {
+	{
         if (liquidManager.GetTypeOfDrinkInside().ContainsKey(LiquidManager.TypeOfDrink.Rum))
         {
             rum = liquidManager.GetTypeOfDrinkInside()[LiquidManager.TypeOfDrink.Rum] * 100 / liquidManager.GetMaxCapacity();

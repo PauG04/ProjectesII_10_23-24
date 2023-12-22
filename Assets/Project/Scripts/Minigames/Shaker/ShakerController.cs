@@ -71,6 +71,10 @@ public class ShakerController : MonoBehaviour
 	}
 	private void Update()
 	{
+		if (GameObject.Find("ResultPivot"))
+		{
+			rotateTowards = GameObject.Find("ResultPivot");
+		}
 		if (!close.GetClose())
 		{
             shakerTop.SetActive(false);
@@ -226,6 +230,7 @@ public class ShakerController : MonoBehaviour
 			newParticle.transform.parent = simulation.transform;
 			newParticle.transform.position = transform.position;
 			time = 0.0f;
+			newParticle.GetComponent<LiquidParticle>().cocktailType = liquidManager.typeOfCocktail;
 			liquidManager.DecreaseLiquid();
 		}
 	}

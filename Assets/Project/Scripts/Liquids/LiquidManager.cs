@@ -7,8 +7,11 @@ public class LiquidManager : MonoBehaviour
 {
     #region ENUMS
     public enum TypeOfCocktail
-    {
-        GinTonic
+	{
+		Mierdon,
+	    GinTonic,
+		RumCola,
+	    Negroni
     }
     public enum TypeOfDrink
     {
@@ -47,17 +50,21 @@ public class LiquidManager : MonoBehaviour
     [SerializeField] private int maxCapacity;
     
     private Dictionary<TypeOfDrink, int> typeOfDrinkInside;  
-    private TypeOfCocktail typeOfCocktail;
+
     private float fill;
     private int currentLayer;
-    [SerializeField] private int numberOfParticles = 0;
+    private int numberOfParticles = 0;
 
     [Header("Shaker Variables")]
     [SerializeField] private bool isShaker;
+	[SerializeField] private ShakerController shakerController;
 
     [Header("Liquid Fill Variables")]
     [SerializeField] private float maxColliderPos = 0.1475f;
     [SerializeField] private float minColliderPos = -0.23f;
+
+	[Header("Cocktail")]
+	public TypeOfCocktail typeOfCocktail;
 
     private void Awake()
     {
@@ -75,6 +82,7 @@ public class LiquidManager : MonoBehaviour
         {
             FillDrink();
         }
+	    CreateCocktail();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -90,7 +98,7 @@ public class LiquidManager : MonoBehaviour
             {
                 typeOfDrinkInside[particleCollision.liquidType]++;
             }
-            Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
+	        //Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
 
             Destroy(collision.gameObject);
             numberOfParticles++;
@@ -133,6 +141,51 @@ public class LiquidManager : MonoBehaviour
         result /= aColors.Length;
         return result;
     }
+	public void CreateCocktail()
+	{
+		if (typeOfDrinkInside.ContainsKey(TypeOfDrink.Gin) && typeOfDrinkInside.ContainsKey(TypeOfDrink.Tonic))
+		{
+			int ginCount = typeOfDrinkInside[TypeOfDrink.Gin];
+			int tonicCount = typeOfDrinkInside[TypeOfDrink.Tonic];
+
+			if (ginCount >= 25 && tonicCount >= 25 && drinkState == DrinkState.Idle)
+			{
+				typeOfCocktail = TypeOfCocktail.GinTonic;
+			}
+		}
+		else if (typeOfDrinkInside.ContainsKey(TypeOfDrink.Rum) && typeOfDrinkInside.ContainsKey(TypeOfDrink.Cola))
+		{
+			int rumCount = typeOfDrinkInside[TypeOfDrink.Gin];
+			int colaCount = typeOfDrinkInside[TypeOfDrink.Tonic];
+
+			if (colaCount >= 25 && colaCount >= 25 && drinkState == DrinkState.Shaked)
+			{
+				typeOfCocktail = TypeOfCocktail.RumCola;
+			}
+		}
+		else 
+		{
+			typeOfCocktail = TypeOfCocktail.Mierdon;
+		}
+	}
+	// Temporal, use later
+	public Dictionary<TypeOfDrink, int> TraspassDrinks()
+	{
+		Dictionary<TypeOfDrink, int> newDictionary = new Dictionary<TypeOfDrink, int>(typeOfDrinkInside);
+		
+		foreach (TypeOfDrink drinkType in typeOfDrinkInside.Keys)
+		{
+			if (typeOfDrinkInside[drinkType] > 0)
+			{
+				newDictionary[drinkType] = typeOfDrinkInside[drinkType] - 1;
+			}
+		}
+		
+		typeOfDrinkInside = newDictionary;
+		return typeOfDrinkInside;
+	}
+	
+	
     public Dictionary<TypeOfDrink, int> GetTypeOfDrinkInside()
     {
         return typeOfDrinkInside;

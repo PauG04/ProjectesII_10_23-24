@@ -4,8 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Cocktail", menuName = "Cocktail", order = 3)]
-public class TypeOfCocktails
+public class TypeOfCocktails : ScriptableObject
 {
+	[System.Serializable]
+	public class DrinkQuantity
+	{
+		public TypeOfDrinks.TypeOfDrink type;
+		public int quantity;
+	}
+	
     public enum TypeOfCocktail
     {
         LondonMist,
@@ -15,5 +22,5 @@ public class TypeOfCocktails
     }
 
     public TypeOfCocktail typeOfCocktail;
-    public List<TypeOfDrinks> typeOfDrinksNeeded;
+	public List<DrinkQuantity> typeOfDrinksNeeded;
 }
