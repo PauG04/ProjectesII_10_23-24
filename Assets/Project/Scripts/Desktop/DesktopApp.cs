@@ -17,11 +17,14 @@ public class DesktopApp : MonoBehaviour
     [Header("Taskbar Setup")]
     [SerializeField] private GameObject miniIconsPanel;
 
-    private GameObject app;
-    private ListOfWindows listOfWindows;
+    [SerializeField] private GameObject app;
+    [SerializeField] private ListOfWindows listOfWindows;
 
-    private bool isOpen = false;
-    private bool isCreated = false;
+    [SerializeField] private bool isOpen = false;
+	[SerializeField] private bool isCreated = false;
+    
+	[SerializeField] private GameObject newMiniIcon;
+    
     private void Awake()
     {
         windowsGroupManager = GameObject.Find("WindowsGroup");
@@ -39,8 +42,8 @@ public class DesktopApp : MonoBehaviour
 
             if (!isCreated)
             {
+            	CreateMiniIcons();
                 CreateWindows();
-                CreateMiniIcons();
             }
         } 
         else
@@ -55,6 +58,8 @@ public class DesktopApp : MonoBehaviour
 
         windows.SetNode(node);
         windows.SetListOfWindows(listOfWindows);
+	    windows.SetMiniIcon(newMiniIcon);
+	    windows.SetApp(this);
 
         app = Instantiate(windowsPrefab, windowsGroupManager.transform);
         app.transform.localScale = Vector3.zero;
@@ -69,7 +74,7 @@ public class DesktopApp : MonoBehaviour
     }
     private void CreateMiniIcons()
     {
-        GameObject newMiniIcon = new GameObject();
+        newMiniIcon = new GameObject();
 
         newMiniIcon.name = gameObject.name + "_miniIcon";
 
@@ -140,4 +145,21 @@ public class DesktopApp : MonoBehaviour
 
         app.transform.localScale = Vector3.one;
     }
+	public void ResetApp()
+	{
+		app = null;
+		listOfWindows = null;
+		newMiniIcon = null;
+		
+		isCreated = false;
+		isOpen = false;
+	}
+	public void SetIsCreated(bool isCreated)
+	{
+		this.isCreated = isCreated;
+	}
+	public void SetIsOpen(bool isOpen)
+	{
+		this.isOpen = isOpen;
+	}
 }

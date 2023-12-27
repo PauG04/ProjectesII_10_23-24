@@ -15,7 +15,7 @@ public class WindowsMinimize : BaseState<WindowsStateMachine.WindowState>
 	
 	public override void EnterState()
 	{
-		
+		Debug.Log("Minimize Windows " + _windowsStateMachine.gameObject.name);
 	}
 
 	public override void ExitState()

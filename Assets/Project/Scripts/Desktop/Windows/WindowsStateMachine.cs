@@ -19,6 +19,10 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
     [Header("Testing Variables")]
     [SerializeField] private bool isTesting = false;
     
+	[Header("UI Objects")]
+	[SerializeField] private GameObject _miniIcon;
+	[SerializeField] private DesktopApp _app;
+    
     public enum WindowState
     {
         Idle,
@@ -32,10 +36,10 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
     private void Awake()
     {
 	    States.Add(WindowState.Idle, new WindowsIdle(_close, _minimize));
-	    States.Add(WindowState.Creating, new WindowsCreation(this, _node, _close, _minimize));
+	    States.Add(WindowState.Creating, new WindowsCreation(this, _listOfWindows, _node, _close, _minimize));
         States.Add(WindowState.Order, new WindowsOrder(this, _listOfWindows));
         States.Add(WindowState.Dragging, new WindowsDragging(this, _listOfWindows));
-	    States.Add(WindowState.Closing, new WindowsClose(this, _close));
+	    States.Add(WindowState.Closing, new WindowsClose(this, _listOfWindows, _close, _miniIcon, _app));
 	    States.Add(WindowState.Minimize, new WindowsMinimize(this, _minimize));
 	    
         if (isTesting)
@@ -59,4 +63,12 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
     {
         _listOfWindows = listOfWindows;
     }
+	public void SetMiniIcon(GameObject miniIcon)
+	{
+		_miniIcon = miniIcon;
+	}
+	public void SetApp(DesktopApp app)
+	{
+		_app = app;
+	}
 }

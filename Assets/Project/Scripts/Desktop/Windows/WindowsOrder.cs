@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WindowsOrder : BaseState<WindowsStateMachine.WindowState>
 {
@@ -7,10 +7,10 @@ public class WindowsOrder : BaseState<WindowsStateMachine.WindowState>
 
     private ListOfWindows _listOfWindows;
 
-    public WindowsOrder(WindowsStateMachine windowsStateMachine, ListOfWindows listOfWindows) : base(WindowsStateMachine.WindowState.Order)
+	public WindowsOrder(WindowsStateMachine windowsStateMachine, ListOfWindows listOfWindows) : base(WindowsStateMachine.WindowState.Order)
     {
         _windowsStateMachine = windowsStateMachine;
-        _listOfWindows = listOfWindows;
+	    _listOfWindows = listOfWindows;
     }
 
     public override void EnterState()
