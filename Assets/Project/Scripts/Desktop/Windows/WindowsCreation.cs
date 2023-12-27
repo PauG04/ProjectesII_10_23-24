@@ -7,6 +7,9 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
     private WindowsStateMachine _windowsStateMachine;
     private WindowsStateMachine.WindowState _state;
     private WindowNode _node;
+	
+	private GameObject _close;
+	private GameObject _minimize;
 
     #region Adjustements Window
     private float _offsetWidth = 0.02f;
@@ -17,11 +20,12 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
     private SpriteRenderer _spriteRenderer;
     private PolygonCollider2D _collider;
 
-    public WindowsCreation(WindowsStateMachine windowsStateMachine, WindowNode node) : base(WindowsStateMachine.WindowState.Creating)
+	public WindowsCreation(WindowsStateMachine windowsStateMachine, WindowNode node, GameObject close, GameObject minimize) : base(WindowsStateMachine.WindowState.Creating)
     {
         _windowsStateMachine = windowsStateMachine;
-        
-        _node = node;
+	    _node = node;
+	    _close = close;
+	    _minimize = minimize;
     }
 
     public override void EnterState()
@@ -96,4 +100,11 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 
         _spriteRenderer.size = newWindowSize;
     }
+	private void MoveCloseAndMinimize()
+	{
+		_close.transform.localPosition = new Vector2 (
+			_close.transform.localPosition.x + _offsetWidth,
+			_close.transform.localPosition.y + _offsetHeight
+		);
+	}
 }

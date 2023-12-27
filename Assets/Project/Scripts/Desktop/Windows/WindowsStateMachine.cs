@@ -12,25 +12,32 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
     [Header("Windows Ordering Variables")]
     [SerializeField] private ListOfWindows _listOfWindows;
 
+	[Header("Windows Control Variables")]
+	[SerializeField] private GameObject _close;
+	[SerializeField] private GameObject _minimize;
+
     [Header("Testing Variables")]
     [SerializeField] private bool isTesting = false;
+    
     public enum WindowState
     {
         Idle,
         Creating,
         Order,
         Dragging,
-        Minimized,
+	    Minimize,
         Closing
     }
 
     private void Awake()
     {
-        States.Add(WindowState.Idle, new WindowsIdle());
-        States.Add(WindowState.Creating, new WindowsCreation(this, _node));
+	    States.Add(WindowState.Idle, new WindowsIdle(_close, _minimize));
+	    States.Add(WindowState.Creating, new WindowsCreation(this, _node, _close, _minimize));
         States.Add(WindowState.Order, new WindowsOrder(this, _listOfWindows));
         States.Add(WindowState.Dragging, new WindowsDragging(this, _listOfWindows));
-
+	    States.Add(WindowState.Closing, new WindowsClose(this, _close));
+	    States.Add(WindowState.Minimize, new WindowsMinimize(this, _minimize));
+	    
         if (isTesting)
         {
             CurrentState = States[WindowState.Creating];

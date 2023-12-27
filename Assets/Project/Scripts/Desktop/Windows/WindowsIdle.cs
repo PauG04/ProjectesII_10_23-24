@@ -1,16 +1,26 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WindowsIdle : BaseState<WindowsStateMachine.WindowState>
 {
-    private WindowsStateMachine.WindowState _state;
+	private WindowsStateMachine.WindowState _state;
+    
+	private GameObject _close;
+	private GameObject _minimize;
 
-    public WindowsIdle() : base(WindowsStateMachine.WindowState.Idle)
+	private BoxCollider2D _closeCollider;
+	private BoxCollider2D _minimizeCollider;
+
+	public WindowsIdle(GameObject close, GameObject minimize) : base(WindowsStateMachine.WindowState.Idle)
     {
-
+	    _close = close;
+	    _minimize = minimize;
     }
     public override void EnterState()
     {
-        _state = WindowsStateMachine.WindowState.Idle;
+	    _state = WindowsStateMachine.WindowState.Idle;
+        
+	    _closeCollider = _close.GetComponent<BoxCollider2D>();
+    	_minimizeCollider = _minimize.GetComponent<BoxCollider2D>();
     }
     public override void ExitState()
     {
@@ -34,6 +44,17 @@ public class WindowsIdle : BaseState<WindowsStateMachine.WindowState>
     }
     public override void UpdateState()
     {
-
+	    if (Input.GetMouseButtonDown(0))   
+	    {
+	    	Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+	    	if (_closeCollider.OverlapPoint(position))
+	    	{
+	    		Debug.Log("Closed");
+	    	}
+	    	if (_minimizeCollider.OverlapPoint(position))
+	    	{
+	    		Debug.Log("Minimize");	
+	    	}
+	    }
     }
 }
