@@ -66,11 +66,21 @@ public class LiquidManager : MonoBehaviour
 	[Header("Cocktail")]
 	public TypeOfCocktail typeOfCocktail;
 
+    [Header("Slider")]
+    [SerializeField] private float maxBar;
+    private GameObject currentSlider;
+    [SerializeField] private CreateSlider slider;
+    private Color currentColor;
+    private float nextSliderPositon;
+
+
     private void Awake()
     {
         typeOfDrinkInside = new Dictionary<LiquidManager.TypeOfDrink, int>();
         currentLayer = gameObject.layer;
         drinkState = DrinkState.Idle;
+        currentColor = Color.clear;
+        nextSliderPositon = 0;
     }
     private void Update()
     {
@@ -100,7 +110,16 @@ public class LiquidManager : MonoBehaviour
             }
 	        //Debug.Log(particleCollision.liquidType + " has " + typeOfDrinkInside[particleCollision.liquidType] + " particles inside.");
 
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject);     
+            if(currentColor != collision.GetComponent<LiquidParticle>().color)
+            {        
+                currentSlider = slider.CreateCurrentSlider(nextSliderPositon);
+                
+                currentColor = collision.GetComponent<LiquidParticle>().color;
+            }
+            currentSlider.GetComponentInChildren<SpriteRenderer>().color = collision.GetComponent<LiquidParticle>().color;
+            nextSliderPositon = currentSlider.transform.localPosition.y + currentSlider.GetComponentInChildren<SpriteRenderer>().bounds.size.y;
+            currentSlider.transform.localScale += new Vector3(0, (maxBar / maxCapacity), 0);
             numberOfParticles++;
         }
     }

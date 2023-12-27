@@ -144,6 +144,7 @@ public class BottleController : MonoBehaviour
             // TODO: The color changes the material, but doing that changes all the other particles colors, find other method
             filterRenderer.material.SetColor("_Color", liquidColor);
             liquidParticle.GetComponent<LiquidParticle>().liquidType = drinksType;
+            liquidParticle.GetComponent<LiquidParticle>().color = liquidColor;
 
             GameObject newParticle = Instantiate(liquidParticle, transform.position, Quaternion.identity);
             newParticle.transform.parent = simulation.transform;
