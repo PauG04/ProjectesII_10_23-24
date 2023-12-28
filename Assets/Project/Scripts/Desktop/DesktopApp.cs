@@ -17,18 +17,18 @@ public class DesktopApp : MonoBehaviour
     [Header("Taskbar Setup")]
     [SerializeField] private GameObject miniIconsPanel;
 
-    [SerializeField] private GameObject app;
-    [SerializeField] private ListOfWindows listOfWindows;
+    private GameObject app;
+    private ListOfWindows listOfWindows;
 
-    [SerializeField] private bool isOpen = false;
-	[SerializeField] private bool isCreated = false;
+    private bool isOpen = false;
+	private bool isCreated = false;
     
-	[SerializeField] private GameObject newMiniIcon;
+	private GameObject newMiniIcon;
     
     private void Awake()
     {
-        windowsGroupManager = GameObject.Find("WindowsGroup");
-        miniIconsPanel = GameObject.Find("MiniIconsPanel");
+	    windowsGroupManager = GameObject.Find("WindowsGroup");
+	    miniIconsPanel = GameObject.Find("MiniIconsPanel");
     }
     private void OnMouseDown()
     {
@@ -38,10 +38,10 @@ public class DesktopApp : MonoBehaviour
     {
         if (!isOpen)
         {
-            isOpen = true;
-
             if (!isCreated)
             {
+	            isOpen = true;
+
             	CreateMiniIcons();
                 CreateWindows();
             }
@@ -68,7 +68,7 @@ public class DesktopApp : MonoBehaviour
 
         app.GetComponent<WindowsStateMachine>().ChangeState(WindowsStateMachine.WindowState.Creating);
 
-        StartCoroutine(ScaleWindows());
+	    StartCoroutine(ScaleWindows(Vector3.one));
 
         isCreated = true;
     }
@@ -125,25 +125,53 @@ public class DesktopApp : MonoBehaviour
 
         button.colors = buttonColors;
 
-        button.onClick.AddListener(PutWindowInFront);
+        button.onClick.AddListener(Minimize);
     }
     private void PutWindowInFront()
     {
         listOfWindows.MoveObjectInFront(app);
     }
-    private IEnumerator ScaleWindows()
+	public void Minimize()
+	{
+		if (app.transform.GetChild(transform.childCount).GetComponent<WindowsSetup>() != null)
+		{
+			if (!isOpen)
+			{
+				app.transform.GetChild(transform.childCount).GetComponent<WindowsSetup>().LoadChildPosition();
+				Debug.Log("Load Positions");
+			}
+			else 
+			{
+				app.transform.GetChild(transform.childCount).GetComponent<WindowsSetup>().SaveChildPosition();
+				Debug.Log("Save Positions");
+			}
+		}
+		
+		if(isOpen)
+		{
+			StartCoroutine(ScaleWindows(Vector3.zero));
+		}
+		else
+		{
+			PutWindowInFront();
+			StartCoroutine(ScaleWindows(Vector3.one));
+		}
+				
+		isOpen = !isOpen;
+	}
+	private IEnumerator ScaleWindows(Vector3 objectiveScale)
     {
         Vector3 initialScale = app.transform.localScale;
         float elapsedTime = 0f;
 
         while (elapsedTime < 1f)
         {
-            app.transform.localScale = Vector3.Lerp(initialScale, Vector3.one, elapsedTime);
+            app.transform.localScale = Vector3.Lerp(initialScale, objectiveScale, elapsedTime);
             elapsedTime += Time.deltaTime * scaleSpeed;
             yield return null;
         }
 
-        app.transform.localScale = Vector3.one;
+        app.transform.localScale = objectiveScale;
     }
 	public void ResetApp()
 	{

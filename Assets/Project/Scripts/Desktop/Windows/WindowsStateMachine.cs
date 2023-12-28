@@ -40,7 +40,7 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
         States.Add(WindowState.Order, new WindowsOrder(this, _listOfWindows));
         States.Add(WindowState.Dragging, new WindowsDragging(this, _listOfWindows));
 	    States.Add(WindowState.Closing, new WindowsClose(this, _listOfWindows, _close, _miniIcon, _app));
-	    States.Add(WindowState.Minimize, new WindowsMinimize(this, _minimize));
+	    States.Add(WindowState.Minimize, new WindowsMinimize(this, _app, _minimize));
 	    
         if (isTesting)
         {

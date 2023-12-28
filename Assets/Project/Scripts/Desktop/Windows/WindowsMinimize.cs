@@ -6,16 +6,18 @@ public class WindowsMinimize : BaseState<WindowsStateMachine.WindowState>
 	private WindowsStateMachine _windowsStateMachine;
 	
 	private GameObject _minimizeGameObject;
+	private DesktopApp _app;
 	
-	public WindowsMinimize(WindowsStateMachine windowsStateMachine, GameObject gameObject) : base(WindowsStateMachine.WindowState.Minimize)
+	public WindowsMinimize(WindowsStateMachine windowsStateMachine, DesktopApp app,GameObject minimizeGameObject) : base(WindowsStateMachine.WindowState.Minimize)
 	{
 		_windowsStateMachine = windowsStateMachine;
-		_minimizeGameObject = gameObject;
+		_app = app;
+		_minimizeGameObject = minimizeGameObject;
 	}
 	
 	public override void EnterState()
 	{
-		Debug.Log("Minimize Windows " + _windowsStateMachine.gameObject.name);
+		_state = WindowsStateMachine.WindowState.Minimize;
 	}
 
 	public override void ExitState()
@@ -42,6 +44,7 @@ public class WindowsMinimize : BaseState<WindowsStateMachine.WindowState>
 	}
 	public override void UpdateState()
 	{
-		
+		_app.Minimize();
+		_state = WindowsStateMachine.WindowState.Idle;
 	}
 }
