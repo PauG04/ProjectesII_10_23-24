@@ -5,15 +5,14 @@ using UnityEngine;
 public class WindowsSetup : MonoBehaviour
 {
 	private WindowsStateMachine window;
-    
-	[SerializeField] private List<Vector3> childPositions;
 
     private void Start()
 	{
-		childPositions = new List<Vector3>();
+		//childPositions = new List<Vector3>();
     	window = gameObject.transform.parent.GetComponent<WindowsStateMachine>();
     }
 
+	/*
 	public void SaveChildPosition()
 	{
 		childPositions.Clear();
@@ -32,6 +31,7 @@ public class WindowsSetup : MonoBehaviour
 			child.localPosition = childPositions[i];
 		}
 	}
+	*/
 	
     public WindowsStateMachine GetWindows()
     {

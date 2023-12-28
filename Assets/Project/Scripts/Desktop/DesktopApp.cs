@@ -22,6 +22,7 @@ public class DesktopApp : MonoBehaviour
 
     private bool isOpen = false;
 	private bool isCreated = false;
+	private bool isAnimationDone = false;
     
 	private GameObject newMiniIcon;
     
@@ -133,20 +134,6 @@ public class DesktopApp : MonoBehaviour
     }
 	public void Minimize()
 	{
-		if (app.transform.GetChild(transform.childCount).GetComponent<WindowsSetup>() != null)
-		{
-			if (!isOpen)
-			{
-				app.transform.GetChild(transform.childCount).GetComponent<WindowsSetup>().LoadChildPosition();
-				Debug.Log("Load Positions");
-			}
-			else 
-			{
-				app.transform.GetChild(transform.childCount).GetComponent<WindowsSetup>().SaveChildPosition();
-				Debug.Log("Save Positions");
-			}
-		}
-		
 		if(isOpen)
 		{
 			StartCoroutine(ScaleWindows(Vector3.zero));
@@ -168,7 +155,8 @@ public class DesktopApp : MonoBehaviour
         {
             app.transform.localScale = Vector3.Lerp(initialScale, objectiveScale, elapsedTime);
             elapsedTime += Time.deltaTime * scaleSpeed;
-            yield return null;
+	        yield return null;
+	        isAnimationDone = true;
         }
 
         app.transform.localScale = objectiveScale;

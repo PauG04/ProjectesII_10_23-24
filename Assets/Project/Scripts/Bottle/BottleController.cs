@@ -76,10 +76,10 @@ public class BottleController : MonoBehaviour
         {
             HoldingBottle();
         }
-        // TODO: When we are not draggin anymore, the position stays.
 	    if (!isDragging || !isRotating)
         {
-            ResetRotation();
+		    ResetRotation();
+		    transform.localPosition = Vector3.zero;
         }
         SetLiquid();
         WobbleFluid();
