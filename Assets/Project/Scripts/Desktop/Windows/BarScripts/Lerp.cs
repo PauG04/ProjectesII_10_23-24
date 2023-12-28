@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Lerp : MonoBehaviour
 {
-    [SerializeField] private OpenApps openApp;
     [SerializeField] private Vector2 endScale;
     [SerializeField] private GameObject[] apps;
 
     private Vector2 startScale;
+    private OpenApps openApp;
 
     private void Start()
     {
         startScale = transform.localScale;
+        openApp = GetComponent<OpenApps>();
     }
 
     private void Update()
@@ -35,7 +36,7 @@ public class Lerp : MonoBehaviour
     private void GrowBar()
     {
         transform.localScale = Vector3.Lerp(transform.localScale, endScale, Time.deltaTime * 15);
-        if(transform.localScale.x > endScale.x - 0.05) 
+        if(transform.localScale.x > endScale.x - 0.01) 
         {
             openApp.SetStartLoop(false);
             for (int i = 0; i < apps.Length; i++)
@@ -48,7 +49,7 @@ public class Lerp : MonoBehaviour
     private void MinimizeBar()
     {
         transform.localScale = Vector3.Lerp(transform.localScale, startScale, Time.deltaTime * 15);
-        if (transform.localScale.x < startScale.x + 0.05)
+        if (transform.localScale.x < startScale.x + 0.01)
         {
             openApp.SetStartLoop(false);
         }
