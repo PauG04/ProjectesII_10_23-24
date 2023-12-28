@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -27,7 +27,8 @@ public class DragJigger : MonoBehaviour
     private Quaternion oldRotation;
     #endregion
     #region Fluid Simulation Variables
-    [Header("Fluid Simulation Variables")]
+	[Header("Fluid Simulation Variables")]
+	[SerializeField] private Color liquidColor;
     [SerializeField] private GameObject liquidParticle;
     [SerializeField] private float spawnRate;
     [SerializeField] private int maxQuantityOfLiquid;
@@ -38,29 +39,14 @@ public class DragJigger : MonoBehaviour
     private int quantityOfLiquid;
     private float time;
     #endregion
-    #region Liquid Variables
-    [Header("Liquid Variables")]
-    [SerializeField] private Renderer fluidRenderer;
-    [SerializeField] private Color liquidColor;
-
-    [Header("Liquid Wooble Variables")]
-    [SerializeField] private float maxWobble = 0.0075f;
-    [SerializeField] private float wobbleSpeed = 0.5f;
-    [SerializeField] private float recovery = 0.5f;
-
-    private Vector3 lastPosition;
-    private Vector3 lastRotation;
-    private float wobbleAmountToAddX;
-
-    private float liquidTime;
-    #endregion
 
     private void Start()
     {
         parentObject = transform.parent;
-        quantityOfLiquid = maxQuantityOfLiquid;
-        fluidRenderer.material.SetColor("_Color", liquidColor);
-        filterRenderer = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<Renderer>();
+	    quantityOfLiquid = maxQuantityOfLiquid;
+        
+	    filterRenderer = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<Renderer>();
+        filterRenderer.material.SetColor("_Color", liquidColor);
         simulation = GameObject.Find("Simulation");
     }
     private void Update()
@@ -80,8 +66,6 @@ public class DragJigger : MonoBehaviour
         {
             ResetRotation();
         }
-        SetLiquid();
-        WobbleFluid();
     }
     private void OnMouseDown()
     {
@@ -176,29 +160,4 @@ public class DragJigger : MonoBehaviour
             0
             );
     }
-    private void WobbleFluid()
-    {
-        liquidTime += Time.deltaTime;
-        wobbleAmountToAddX = Mathf.Lerp(wobbleAmountToAddX, 0, Time.deltaTime * (recovery));
-
-        float pulse = 2 * Mathf.PI * wobbleSpeed;
-        float wobbleAmountX = wobbleAmountToAddX * Mathf.Sin(pulse * liquidTime);
-
-        fluidRenderer.material.SetFloat("_WobbleX", wobbleAmountX);
-
-        Vector3 velocity = (lastPosition - transform.position) / Time.deltaTime;
-        Vector3 angularVelocity = transform.rotation.eulerAngles - lastRotation;
-
-        wobbleAmountToAddX += Mathf.Clamp((velocity.x + (angularVelocity.z * 0.2f)) * maxWobble, -maxWobble, maxWobble);
-
-        lastPosition = transform.position;
-        lastRotation = transform.rotation.eulerAngles;
-    }
-    private void SetLiquid()
-    {
-        //float fillAmount = minSlider + (quantityOfLiquid * (maxSlider - minSlider)) / maxQuantityOfLiquid;
-        float fillAmount = (float)quantityOfLiquid / maxQuantityOfLiquid;
-        fluidRenderer.material.SetFloat("_Fill", fillAmount);
-    }
-
 }
