@@ -21,11 +21,15 @@ public class DesktopApp : MonoBehaviour
     private ListOfWindows listOfWindows;
 
     private bool isOpen = false;
-    private bool isCreated = false;
+	private bool isCreated = false;
+	private bool isAnimationDone = false;
+    
+	private GameObject newMiniIcon;
+    
     private void Awake()
     {
-        windowsGroupManager = GameObject.Find("WindowsGroup");
-        miniIconsPanel = GameObject.Find("MiniIconsPanel");
+	    windowsGroupManager = GameObject.Find("WindowsGroup");
+	    miniIconsPanel = GameObject.Find("MiniIconsPanel");
     }
     private void OnMouseDown()
     {
@@ -35,12 +39,12 @@ public class DesktopApp : MonoBehaviour
     {
         if (!isOpen)
         {
-            isOpen = true;
-
             if (!isCreated)
             {
+	            isOpen = true;
+
+            	CreateMiniIcons();
                 CreateWindows();
-                CreateMiniIcons();
             }
         } 
         else
@@ -55,6 +59,8 @@ public class DesktopApp : MonoBehaviour
 
         windows.SetNode(node);
         windows.SetListOfWindows(listOfWindows);
+	    windows.SetMiniIcon(newMiniIcon);
+	    windows.SetApp(this);
 
         app = Instantiate(windowsPrefab, windowsGroupManager.transform);
         app.transform.localScale = Vector3.zero;
@@ -63,13 +69,13 @@ public class DesktopApp : MonoBehaviour
 
         app.GetComponent<WindowsStateMachine>().ChangeState(WindowsStateMachine.WindowState.Creating);
 
-        StartCoroutine(ScaleWindows());
+	    StartCoroutine(ScaleWindows(Vector3.one));
 
         isCreated = true;
     }
     private void CreateMiniIcons()
     {
-        GameObject newMiniIcon = new GameObject();
+        newMiniIcon = new GameObject();
 
         newMiniIcon.name = gameObject.name + "_miniIcon";
 
@@ -120,24 +126,56 @@ public class DesktopApp : MonoBehaviour
 
         button.colors = buttonColors;
 
-        button.onClick.AddListener(PutWindowInFront);
+        button.onClick.AddListener(Minimize);
     }
     private void PutWindowInFront()
     {
         listOfWindows.MoveObjectInFront(app);
     }
-    private IEnumerator ScaleWindows()
+	public void Minimize()
+	{
+		if(isOpen)
+		{
+			StartCoroutine(ScaleWindows(Vector3.zero));
+		}
+		else
+		{
+			PutWindowInFront();
+			StartCoroutine(ScaleWindows(Vector3.one));
+		}
+				
+		isOpen = !isOpen;
+	}
+	private IEnumerator ScaleWindows(Vector3 objectiveScale)
     {
         Vector3 initialScale = app.transform.localScale;
         float elapsedTime = 0f;
 
         while (elapsedTime < 1f)
         {
-            app.transform.localScale = Vector3.Lerp(initialScale, Vector3.one, elapsedTime);
+            app.transform.localScale = Vector3.Lerp(initialScale, objectiveScale, elapsedTime);
             elapsedTime += Time.deltaTime * scaleSpeed;
-            yield return null;
+	        yield return null;
+	        isAnimationDone = true;
         }
 
-        app.transform.localScale = Vector3.one;
+        app.transform.localScale = objectiveScale;
     }
+	public void ResetApp()
+	{
+		app = null;
+		listOfWindows = null;
+		newMiniIcon = null;
+		
+		isCreated = false;
+		isOpen = false;
+	}
+	public void SetIsCreated(bool isCreated)
+	{
+		this.isCreated = isCreated;
+	}
+	public void SetIsOpen(bool isOpen)
+	{
+		this.isOpen = isOpen;
+	}
 }

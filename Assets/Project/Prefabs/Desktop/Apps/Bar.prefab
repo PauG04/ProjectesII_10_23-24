@@ -351,6 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 682963972692487831}
   - component: {fileID: 7250037038630897718}
+  - component: {fileID: 532110191902393828}
   m_Layer: 0
   m_Name: Bar
   m_TagString: Untagged
@@ -428,6 +429,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &532110191902393828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5214828439131189004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3dc269d66b871f4cac1b64f73ef26e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetObjectPositions:
+  - {fileID: 2300862827581249849}
+  - {fileID: 2544646383431621414}
+  - {fileID: 2075001576726216621}
+  - {fileID: 314640410479729913}
+  - {fileID: 4711228942271278588}
+  - {fileID: 2146495992982200484}
+  - {fileID: 1137040510508827615}
+  - {fileID: 3668084570874424277}
+  - {fileID: 6799336313729493057}
+  - {fileID: 353057126838596588}
 --- !u!1 &5320426330784000252
 GameObject:
   m_ObjectHideFlags: 0

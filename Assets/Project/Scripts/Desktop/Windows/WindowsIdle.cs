@@ -47,13 +47,14 @@ public class WindowsIdle : BaseState<WindowsStateMachine.WindowState>
 	    if (Input.GetMouseButtonDown(0))   
 	    {
 	    	Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+	    	
 	    	if (_closeCollider.OverlapPoint(position))
 	    	{
-	    		Debug.Log("Closed");
+	    		_state = WindowsStateMachine.WindowState.Closing;
 	    	}
 	    	if (_minimizeCollider.OverlapPoint(position))
 	    	{
-	    		Debug.Log("Minimize");	
+	    		_state = WindowsStateMachine.WindowState.Minimize;
 	    	}
 	    }
     }
