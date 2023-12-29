@@ -12,6 +12,7 @@ public class DragHammer : MonoBehaviour
     private Animator anim;
 
     [SerializeField] private WindowsSetup window;
+    [SerializeField] private Vector2 initPosition;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class DragHammer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         position = transform.position;
         anim = GetComponent<Animator>();
+        transform.localPosition = initPosition;
     }
 
     private void Update()
@@ -42,7 +44,7 @@ public class DragHammer : MonoBehaviour
         }
         else
         {
-           targetJoint.target = (Vector2)window.GetWindows().transform.localPosition + position;
+           targetJoint.target = (Vector2)window.GetWindows().transform.localPosition + initPosition;
         }
     }
 

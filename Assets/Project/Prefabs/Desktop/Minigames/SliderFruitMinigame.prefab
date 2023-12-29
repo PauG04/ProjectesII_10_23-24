@@ -224,6 +224,7 @@ MonoBehaviour:
   maxTimeSpwan: 3
   minTimeSpwan: 1
   counter: {fileID: 2271096734131076114}
+  trailRenderer: {fileID: 4002523714836971128}
 --- !u!1 &5568183811089259853
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +558,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7189734186057325097}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

@@ -217,6 +217,7 @@ MonoBehaviour:
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
   force: 1
+  position: {x: 0.78, y: 2.06, z: 0}
 --- !u!1 &1064104161641155820
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +435,7 @@ MonoBehaviour:
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
   force: 1
+  position: {x: 0, y: 1.54, z: 0}
 --- !u!1 &1788361201292513145
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +653,7 @@ MonoBehaviour:
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
   force: 1
+  position: {x: 1.86, y: 0.45, z: 0}
 --- !u!1 &1950743654481002298
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +969,7 @@ MonoBehaviour:
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
   force: 1
+  position: {x: 0.69, y: 1.06, z: 0}
 --- !u!1 &2629038322624374684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,8 +1046,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -355274403
-  m_SortingLayer: 1
+  m_SortingLayerID: -889591459
+  m_SortingLayer: 3
   m_SortingOrder: 3
   m_Sprite: {fileID: -2115062143, guid: 0579574d3b509c5448aa7c9760c32f71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1069,6 +1073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 5771467901327209205}
+  initPosition: {x: 0.426, y: -0.134}
 --- !u!61 &189212017412529637
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1101,7 +1106,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0071627125, y: -0.18622616}
+  m_Offset: {x: -0.00053363293, y: -0.032298476}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1112,7 +1117,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14352806, y: 0.5019705}
+  m_Size: {x: 0.22818835, y: 0.80982596}
   m_EdgeRadius: 0
 --- !u!50 &1199616448040710421
 Rigidbody2D:
@@ -1192,11 +1197,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3536386149281579168}
   - component: {fileID: 1988768703845109855}
+  - component: {fileID: 4760742445457764418}
   - component: {fileID: 8139073134494496572}
   - component: {fileID: 5333758356559533655}
   - component: {fileID: 1727831465063292888}
   - component: {fileID: 4770844299497792930}
-  - component: {fileID: 4760742445457764418}
   m_Layer: 9
   m_Name: IceCube (12)
   m_TagString: Ice
@@ -1271,6 +1276,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4760742445457764418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097691172940513501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb6cfe9fe8a8e54889d1f22eff5b58a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
+  hammer: {fileID: 6866131694842468837}
+  force: 1
+  position: {x: 0.38, y: 2.88, z: 0}
 --- !u!114 &8139073134494496572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1384,21 +1405,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4760742445457764418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3097691172940513501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb6cfe9fe8a8e54889d1f22eff5b58a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
-  hammer: {fileID: 6866131694842468837}
-  force: 1
 --- !u!1 &3129789929870293069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,6 +1414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7114525037462203537}
+  - component: {fileID: 2641073255637341901}
   - component: {fileID: 1281773670981473592}
   m_Layer: 0
   m_Name: Ice
@@ -1445,6 +1452,19 @@ Transform:
   m_Father: {fileID: 419906385667131027}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2641073255637341901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129789929870293069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0913f79b2053c9245abf944a9a544c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: -0.107, y: -0.274, z: 0}
 --- !u!50 &1281773670981473592
 Rigidbody2D:
   serializedVersion: 4
@@ -1787,6 +1807,7 @@ MonoBehaviour:
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
   force: 1
+  position: {x: 0, y: 0.59, z: 0}
 --- !u!1 &3599021868528522939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,11 +1818,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7074737862306289917}
   - component: {fileID: 778751429922522400}
+  - component: {fileID: 5961339999562592723}
   - component: {fileID: 7937666529025246939}
   - component: {fileID: 4197441118155406320}
   - component: {fileID: 4757506388224108223}
   - component: {fileID: 3941814037976208678}
-  - component: {fileID: 5961339999562592723}
   m_Layer: 9
   m_Name: IceCube (13)
   m_TagString: Ice
@@ -1876,6 +1897,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5961339999562592723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599021868528522939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb6cfe9fe8a8e54889d1f22eff5b58a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
+  hammer: {fileID: 6866131694842468837}
+  force: 1
+  position: {x: 1.44, y: 2.99, z: 0}
 --- !u!114 &7937666529025246939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1989,21 +2026,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5961339999562592723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3599021868528522939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb6cfe9fe8a8e54889d1f22eff5b58a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
-  hammer: {fileID: 6866131694842468837}
-  force: 1
 --- !u!1 &4923535761069504324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,6 +2344,7 @@ MonoBehaviour:
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
   force: 1
+  position: {x: 2.15, y: 1.64, z: 0}
 --- !u!1 &6246351001605134009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,6 +2562,7 @@ MonoBehaviour:
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
   force: 1
+  position: {x: -0.77, y: 0.94, z: 0}
 --- !u!1 &6309359320260016256
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,6 +2780,7 @@ MonoBehaviour:
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
   force: 1
+  position: {x: 0.93, y: 0.29, z: 0}
 --- !u!1 &6866131694842468837
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,6 +3090,7 @@ MonoBehaviour:
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
   force: 1
+  position: {x: -0.18, y: -0.19, z: 0}
 --- !u!1 &7801685002861373070
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,6 +3308,7 @@ MonoBehaviour:
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
   force: 1
+  position: {x: 1.4, y: 1.48, z: 0}
 --- !u!1 &8224543506930052956
 GameObject:
   m_ObjectHideFlags: 0
@@ -3499,6 +3526,7 @@ MonoBehaviour:
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
   force: 1
+  position: {x: -0.35, y: 2.16, z: 0}
 --- !u!1 &8910418494653813384
 GameObject:
   m_ObjectHideFlags: 0
@@ -3716,3 +3744,4 @@ MonoBehaviour:
   iceSlide: {fileID: 3215923579775569065, guid: 5b5e72218c7cca14bb2a29e11b1a70cd, type: 3}
   hammer: {fileID: 6866131694842468837}
   force: 1
+  position: {x: 1.84, y: 2.29, z: 0}

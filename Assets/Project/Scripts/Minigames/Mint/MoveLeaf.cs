@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Windows;
 
 public class MoveLeaf : MonoBehaviour
@@ -9,19 +10,19 @@ public class MoveLeaf : MonoBehaviour
     [SerializeField] private float force;
     [SerializeField] private GameObject brokenLeaf;
     [SerializeField] private WindowsSetup window;
+    [SerializeField] private Vector3 initPosition;
 
     private bool dragging = false;
     private TargetJoint2D targetJoint;
     private Rigidbody2D rb;
     private Vector2 position;
-    
 
     private void Start()
     {
         targetJoint = GetComponent<TargetJoint2D>();
         rb = GetComponent<Rigidbody2D>();
         window = gameObject.transform.parent.gameObject.transform.parent.GetComponent<WindowsSetup>();
-        position = transform.position;
+        transform.localPosition = initPosition;
     }
 
     private void Update()
@@ -36,6 +37,9 @@ public class MoveLeaf : MonoBehaviour
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
         }
+        if(transform.localPosition != initPosition && !dragging && targetJoint.enabled)
+            transform.localPosition = initPosition;
+
     }
 
     private void CalculatePosition()
