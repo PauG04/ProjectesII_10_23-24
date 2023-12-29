@@ -27,7 +27,6 @@ public class OpenApps : MonoBehaviour
         }
         startLerp = true;
     }
-
     public bool GetIsOpen()
     {
         return isOpen;

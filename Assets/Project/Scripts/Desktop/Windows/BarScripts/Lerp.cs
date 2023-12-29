@@ -6,14 +6,14 @@ public class Lerp : MonoBehaviour
 {
     [SerializeField] private Vector2 endScale;
     [SerializeField] private GameObject[] apps;
+    [SerializeField] private OpenApps openApp;
 
     private Vector2 startScale;
-    private OpenApps openApp;
+    
 
     private void Start()
     {
         startScale = transform.localScale;
-        openApp = GetComponent<OpenApps>();
     }
 
     private void Update()
@@ -21,7 +21,6 @@ public class Lerp : MonoBehaviour
         if (openApp.GetIsOpen() && openApp.GetStartLerp())
         {
             GrowBar();
-            
         }
         if (!openApp.GetIsOpen() && openApp.GetStartLerp())
         {
