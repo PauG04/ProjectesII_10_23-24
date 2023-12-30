@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -12,7 +12,10 @@ namespace Dialogue
         [SerializeField] private bool isPlayerSpeaking = false;
         [SerializeField] private string text;
         [SerializeField] private List<string> children = new List<string>();
-        [SerializeField] private Rect rect = new Rect(0, 0, 200, 100);
+	    [SerializeField] private Rect rect = new Rect(0, 0, 200, 100);
+	    
+	    [SerializeField] private string onEnterAction;
+	    [SerializeField] private string onExitAction;
 
         public Rect GetRect() 
         { 
@@ -30,6 +33,16 @@ namespace Dialogue
         {
             return isPlayerSpeaking;
         }
+	    public string GetOnEnterAction()
+	    {
+	    	return onEnterAction;
+	    }
+	    public string GetOnExitAction()
+	    {
+	    	return onExitAction;
+	    }
+        
+        
 #if UNITY_EDITOR
         public void SetPosition(Vector2 newPosition)
         {

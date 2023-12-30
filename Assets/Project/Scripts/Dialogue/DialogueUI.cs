@@ -11,29 +11,35 @@ namespace UI
 	{
 		private PlayerConversant playerConversant;
 		[SerializeField] private TextMeshProUGUI AIText;
-		[SerializeField] private Button nextButton;
 		[SerializeField] private GameObject AIResponse;
 		
 		[Header("Choices")]
 		[SerializeField] private Transform choiceRoot;
 		[SerializeField] private GameObject choicePrefab;
 	
+		[Header("Buttons")]
+		[SerializeField] private Button nextButton;
+		[SerializeField] private Button quitButton;
+	
 		private void Start()
 	    {
 		    playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
-		    nextButton.onClick.AddListener(Next);
+		    playerConversant.onConversationUpdated += UpdateUI;
+		    nextButton.onClick.AddListener(() => playerConversant.Next());
+		    quitButton.onClick.AddListener(() => playerConversant.Quit());
 		    
 		    UpdateUI();
 	    }
 	
-		private void Next()
-		{
-			playerConversant.Next();	
-			UpdateUI();
-		}
-	
 		private void UpdateUI()
 		{
+			gameObject.SetActive(playerConversant.IsActive());
+			
+			if(!playerConversant.IsActive())
+			{
+				return;
+			}
+			
 			AIResponse.SetActive(!playerConversant.IsChoosing());
 			choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
 		    
@@ -60,7 +66,6 @@ namespace UI
 				button.onClick.AddListener(() => 
 				{
 					playerConversant.SelectChoice(choice);
-					UpdateUI();
 				});
 			}
 		}
