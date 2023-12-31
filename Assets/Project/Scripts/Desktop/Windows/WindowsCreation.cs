@@ -15,6 +15,7 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 	private float _scaleSpeed = 3f;
 	private bool _isCreated;
 
+	private bool _isCanvas;
 
     #region Adjustements Window
     private float _offsetWidth = 0.02f;

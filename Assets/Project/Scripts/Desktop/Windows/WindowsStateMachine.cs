@@ -15,14 +15,15 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
 	[Header("Windows Control Variables")]
 	[SerializeField] private GameObject _close;
 	[SerializeField] private GameObject _minimize;
-
-    [Header("Testing Variables")]
-    [SerializeField] private bool isTesting = false;
-    
+	
 	[Header("UI Objects")]
 	[SerializeField] private GameObject _miniIcon;
 	[SerializeField] private DesktopApp _app;
     
+    [Header("Testing Variables")]
+    [SerializeField] private bool isTesting = false;
+    
+
     public enum WindowState
     {
         Idle,
