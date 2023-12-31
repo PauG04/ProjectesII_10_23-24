@@ -18,9 +18,14 @@ public class TypeOfCocktails : ScriptableObject
         LondonMist,
         CambridgeBreeze,
         BristolBloom,
-        ManchesterMule
+        ManchesterMule,
+        Sekiro
     }
 
     public TypeOfCocktail typeOfCocktail;
 	public List<DrinkQuantity> typeOfDrinksNeeded;
+    public float price;
+    public string subtitle;
+    public string description;
+    public Sprite sprite;
 }

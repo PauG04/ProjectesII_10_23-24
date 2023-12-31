@@ -8,10 +8,10 @@ public class TypeOfDrinks : ScriptableObject
     public enum TypeOfDrink
     {
         //Alcoholic Drinks
-        Rum,
-        Gin,
-        Vodka,
-        Whiskey,
+        GlacierSpirit,
+        RusticGold,
+        DesertRose,
+        HerbHaven,
         Tequila,
         //Juices
         OrangeJuice,
@@ -22,6 +22,7 @@ public class TypeOfDrinks : ScriptableObject
         Tonic
     }
 
+    //public string drinkName;
     public string description;
     public TypeOfDrink type;
     public Color color;

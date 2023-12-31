@@ -56,7 +56,7 @@ public class ResultPrecentDrink : MonoBehaviour
         {
             UpdateDrinks();
 	        Result();
-	        Debug.Log("Rum: " + rum);
+	        Debug.Log("GlacierSpirit: " + rum);
         }
     }
 
