@@ -12,7 +12,7 @@ public class TypeOfDrinks : ScriptableObject
         RusticGold,
         DesertRose,
         HerbHaven,
-        Tequila,
+        Moszkowski,
         //Juices
         OrangeJuice,
         LemonJuice,

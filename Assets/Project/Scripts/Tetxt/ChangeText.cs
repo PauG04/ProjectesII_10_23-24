@@ -14,7 +14,7 @@ public class ChangeText : MonoBehaviour
 
     public void ChangeName(TypeOfCocktails cocktail)
     {
-        textToShow.text = cocktail.name + " - " + cocktail.price + "$";
+        textToShow.text = cocktail.cocktailName + " - " + cocktail.price + "$";
     }
     public void ChangeSubtitle(TypeOfCocktails cocktail)
     {
