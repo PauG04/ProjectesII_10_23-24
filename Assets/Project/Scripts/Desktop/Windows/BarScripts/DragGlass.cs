@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DragGlass : MonoBehaviour
 {
+    [SerializeField] private GameObject[] activeObject;
     private CreateGlass createGlass;
     private bool isLocated;
     private Rigidbody2D rigidbody;
@@ -19,6 +20,10 @@ public class DragGlass : MonoBehaviour
         createGlass = gameObject.GetComponentInParent<CreateGlass>();
         startScale = transform.localScale;
         isLocated = false;
+        for (int i = 0; i < activeObject.Length; i++)
+        {
+            activeObject[i].SetActive(false);
+        }
     }
 
     private void Update()
@@ -72,6 +77,10 @@ public class DragGlass : MonoBehaviour
             isDragging = false;
             isEmpty.SetIsEmpty(false);
             isEmpty.SetGlass(this.gameObject);
+            for(int i = 0; i< activeObject.Length; i++)
+            {
+                activeObject[i].SetActive(true);
+            }
             this.enabled = false;        
         }
 
