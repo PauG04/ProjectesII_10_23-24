@@ -6,6 +6,9 @@ using UnityEngine;
 public class DragGlass : MonoBehaviour
 {
     [SerializeField] private GameObject[] activeObject;
+    [SerializeField] private GameObject shader;
+    [SerializeField] private float startFloat;
+
     private CreateGlass createGlass;
     private bool isLocated;
     private Rigidbody2D rigidbody;
@@ -77,7 +80,9 @@ public class DragGlass : MonoBehaviour
             isDragging = false;
             isEmpty.SetIsEmpty(false);
             isEmpty.SetGlass(this.gameObject);
-            for(int i = 0; i< activeObject.Length; i++)
+            shader.GetComponent<SpriteRenderer>().material.SetFloat("FixerFloat", startFloat);
+           
+            for (int i = 0; i< activeObject.Length; i++)
             {
                 activeObject[i].SetActive(true);
             }

@@ -6,7 +6,6 @@ public class DragBucketObject : MonoBehaviour
 {
     private bool isDragging;
     private Rigidbody2D rigidbody;
-
     private void Start()
     {
         isDragging = true;
@@ -15,6 +14,7 @@ public class DragBucketObject : MonoBehaviour
 
     private void Update()
     {
+        
         if (isDragging)
         {
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
@@ -26,6 +26,10 @@ public class DragBucketObject : MonoBehaviour
             isDragging = false;
             rigidbody.isKinematic = false;
             
+        }
+        if(Input.GetMouseButtonDown(1))
+        {
+            transform.Rotate(0.0f, 0.0f, 90.0f);
         }
     }
 

@@ -118,7 +118,7 @@ public class LiquidManager : MonoBehaviour
                 currentColor = collision.GetComponent<LiquidParticle>().color;
             }
             currentSlider.GetComponentInChildren<SpriteRenderer>().color = collision.GetComponent<LiquidParticle>().color;
-            nextSliderPositon = currentSlider.transform.localPosition.y + currentSlider.GetComponentInChildren<SpriteRenderer>().bounds.size.y;
+            nextSliderPositon = currentSlider.transform.localPosition.y + currentSlider.GetComponentInChildren<SpriteRenderer>().bounds.size.y/1.5f;
             currentSlider.transform.localScale += new Vector3(0, (maxBar / maxCapacity), 0);
             numberOfParticles++;
         }

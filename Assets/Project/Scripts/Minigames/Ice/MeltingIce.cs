@@ -93,6 +93,7 @@ public class MeltingIce : MonoBehaviour
             GameObject newParticle = Instantiate(liquidParticle, newPosition, Quaternion.identity);
             Rigidbody2D rb = newParticle.GetComponent<Rigidbody2D>();
             rb.gravityScale = 0.0f;
+            newParticle.tag = "IceLiquid";
             SetScale(newParticle);
             IncreaseMass(rb);
         }
@@ -102,6 +103,7 @@ public class MeltingIce : MonoBehaviour
             GameObject newParticle = Instantiate(liquidParticle, newPosition, Quaternion.identity);
             Rigidbody2D rb = newParticle.GetComponent<Rigidbody2D>();
             rb.gravityScale = 0.0f;
+            newParticle.tag = "IceLiquid";
             SetScale(newParticle);
             IncreaseMass(rb);
         }
