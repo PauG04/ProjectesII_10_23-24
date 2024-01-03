@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5098358512656769514}
   m_Layer: 9
   m_Name: IceCube Part 1
-  m_TagString: Ice
+  m_TagString: IceBroken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,6 +180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5572711309168060423}
+  - component: {fileID: 511886220062370408}
   m_Layer: 9
   m_Name: IceCube Slide
   m_TagString: Ice
@@ -206,6 +207,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &511886220062370408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215923579775569065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d9fd9c58336fd4991b9d7610df39d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sons:
+  - {fileID: 507954105892353290}
+  - {fileID: 8121670825197112051}
+  - {fileID: 7310993970994755757}
+  - {fileID: 4932875368968028381}
 --- !u!1 &4932875368968028381
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +239,7 @@ GameObject:
   - component: {fileID: 5041774075084854445}
   m_Layer: 9
   m_Name: IceCube Part 4
-  m_TagString: Ice
+  m_TagString: IceBroken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,7 +410,7 @@ GameObject:
   - component: {fileID: 8027294777250231619}
   m_Layer: 9
   m_Name: IceCube Part 3
-  m_TagString: Ice
+  m_TagString: IceBroken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -563,7 +581,7 @@ GameObject:
   - component: {fileID: 5553050664112836087}
   m_Layer: 9
   m_Name: IceCube Part 2
-  m_TagString: Ice
+  m_TagString: IceBroken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
