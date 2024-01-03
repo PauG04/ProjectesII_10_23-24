@@ -59,5 +59,11 @@ public class DestroyObjects : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+
+        if (collision.CompareTag("BottleBroken"))
+        {
+            Destroy(collision.gameObject);
+        }
+        
     }
 }

@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4567414136593532067}
   - component: {fileID: 2905693172982613635}
+  - component: {fileID: 1963338669902139495}
   - component: {fileID: 239953081164795271}
   - component: {fileID: 2666402312033371586}
   m_Layer: 0
@@ -131,19 +132,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97201f65a0c96d428889a6cd44db34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drinksType: 0
+  parentObject: {fileID: 0}
   shaker: {fileID: 0}
   rotationVelocity: 5
-  drinksType: 0
-  simualtion: {fileID: 0}
   liquidParticle: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
   spawnRate: 40
   maxQuantityOfLiquid: 300
+  simulation: {fileID: 0}
   filterRenderer: {fileID: 0}
   fluidRenderer: {fileID: 7206215372518122062}
   liquidColor: {r: 1, g: 1, b: 1, a: 0}
   maxWobble: 0.0075
   wobbleSpeed: 0.5
   recovery: 0.5
+--- !u!114 &1963338669902139495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105713940673632212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81674c072cdf87e4cb90a0a637604c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottleBroken: {fileID: 3215923579775569065, guid: 27567032f3c1e90428ac85cf1c948ff8, type: 3}
+  liquid: {fileID: 7190160348179455622, guid: 0939d7c274c46ce4884bf8cddcb30071, type: 3}
+  force: 0.75
+  liquidForce: 10
 --- !u!61 &239953081164795271
 BoxCollider2D:
   m_ObjectHideFlags: 0

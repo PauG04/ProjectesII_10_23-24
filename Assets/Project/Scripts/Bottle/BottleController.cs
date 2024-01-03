@@ -55,7 +55,7 @@ public class BottleController : MonoBehaviour
 
     private float liquidTime;
     #endregion
-	
+
     private void Start()
     {
         parentObject = transform.parent;
@@ -160,7 +160,7 @@ public class BottleController : MonoBehaviour
 
             float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
 
-            Quaternion objectiveRotation = Quaternion.Euler(0, 0, -angle); 
+            Quaternion objectiveRotation = Quaternion.Euler(0, 0, -angle);
             transform.rotation = Quaternion.Lerp(transform.rotation, objectiveRotation, rotationVelocity * Time.deltaTime);
         }
     }
@@ -199,5 +199,15 @@ public class BottleController : MonoBehaviour
         //float fillAmount = minSlider + (quantityOfLiquid * (maxSlider - minSlider)) / maxQuantityOfLiquid;
         float fillAmount = (float)quantityOfLiquid / maxQuantityOfLiquid;
         fluidRenderer.material.SetFloat("_Fill", fillAmount);
+    }
+
+    public int GetLiquid()
+    {
+        return quantityOfLiquid;
+    }
+
+    public Color GetColor()
+    {
+        return liquidColor;
     }
 }
