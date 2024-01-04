@@ -28,7 +28,7 @@ public class BreakBottle : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Hammer"))
+        if (collision.CompareTag("Hammer") && collision.GetComponentInParent<DragHammer>().GetIsOut())
         {
             currentHit++;
         }
@@ -61,6 +61,7 @@ public class BreakBottle : MonoBehaviour
             newIce.GetComponent<LiquidParticle>().color = bottle.GetColor();
 
             newIce.transform.localScale = new Vector2(0.1f, 0.1f);
+            newIce.GetComponent<SpriteRenderer>().tag = "IceLiquid";
             Rigidbody2D rbLemon = newIce.GetComponent<Rigidbody2D>();
             Vector3 dir = newIce.transform.position - transform.position;
             rbLemon.AddForceAtPosition(transform.position * Random.Range(-liquidForce, liquidForce), transform.position, ForceMode2D.Impulse);
