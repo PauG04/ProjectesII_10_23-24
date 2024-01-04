@@ -24,4 +24,9 @@ public class ChangeText : MonoBehaviour
     {
         textToShow.text = cocktail.description;
     }
+
+    public void ChangeNumberOfItems(int newNumber)
+    {
+        textToShow.text = "x" + newNumber;
+    }
 }
