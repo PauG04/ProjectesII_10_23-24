@@ -4,50 +4,34 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager instance;
-    private Dictionary<Item, int> items;
-
-    private Transform itemContent;
-    private GameObject inventoryItem;
-
+    [SerializeField] GameManager gameManager;
 
     private void Awake()
     {
-        instance = this;
-
-        items = new Dictionary<Item, int>();
+        gameManager = gameObject.GetComponent<GameManager>();
     }
 
-    public void AddItem(Item item)
+    public void AddItem(ItemObject item)
     {
-        if (items.ContainsKey(item))
+        if (gameManager.GetInventory().ContainsKey(item))
         {
-            items[item]++;
+            gameManager.GetInventory()[item]++;
         }
         else
         {
-            items.Add(item, 1);
+            gameManager.GetInventory().Add(item, 1);
         }
     }
 
-    public void UseItem(Item item)
+    public void UseItem(ItemObject item)
     {
-        if (items.ContainsKey(item) && items[item] > 0)
+        if (gameManager.GetInventory().ContainsKey(item) && gameManager.GetInventory()[item] > 0)
         {
-            items[item]--;
-            if (items[item] <= 0)
+            gameManager.GetInventory()[item]--;
+            if (gameManager.GetInventory()[item] <= 0)
             {
-                items.Remove(item);
+                gameManager.GetInventory().Remove(item);
             }
-        }
-    }
-
-    public void ListItems()
-    {
-        foreach (KeyValuePair<Item, int> item in items)
-        {
-            GameObject obj = Instantiate(inventoryItem, itemContent);
-            var itermName = obj.transform.Find("Item/itemName").GetComponent<Text>();
         }
     }
 }

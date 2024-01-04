@@ -17,8 +17,8 @@ public class StateManager : MonoBehaviour
     {
         gameManager.GetStates()[name] += value;
 
-        if (gameManager.GetStates()[name] > 10)
-            gameManager.GetStates()[name] = 10;
+        if (gameManager.GetStates()[name] > 100)
+            gameManager.GetStates()[name] = 100;
         else if (gameManager.GetStates()[name] < 0)
             gameManager.GetStates()[name] = 0;
     }
