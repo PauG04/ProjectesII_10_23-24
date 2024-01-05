@@ -29,6 +29,8 @@ namespace Dialogue
 		}
 		public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
+			isChoosing = false;
+			
 			currentConversant = newConversant;
 			currentDialogue = newDialogue;
 			currentNode = currentDialogue.GetRootNode();
@@ -67,10 +69,6 @@ namespace Dialogue
 		}
 		public string GetCurrentConversantName()
 		{
-			if (isChoosing)
-			{
-				return playerName;
-			}
 			return currentConversant.GetName();
 		}
 		public IEnumerable<DialogueNode> GetChoices()
