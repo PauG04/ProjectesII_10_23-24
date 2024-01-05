@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class MouseManager : MonoBehaviour
 {
+    [SerializeField] private Item newItem;
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
-            AudioManager.instance.Play("click");
+            InventoryManager.instance.AddItem(newItem);
     }
 }

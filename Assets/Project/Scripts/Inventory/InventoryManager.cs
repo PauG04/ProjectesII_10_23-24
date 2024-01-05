@@ -1,36 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
+    public static InventoryManager instance;
+    private Dictionary<Item, int> items;
 
     private void Awake()
     {
-        gameManager = gameObject.GetComponent<GameManager>();
+        instance = this;
+        items = new Dictionary<Item, int>();
     }
 
-    public void AddItem(ItemObject item)
+    public Dictionary<Item, int> GetItems()
     {
-        if (gameManager.GetInventory().ContainsKey(item))
+        return items;
+    }
+
+    public void AddItem(Item item)
+    {
+        if (items.ContainsKey(item))
         {
-            gameManager.GetInventory()[item]++;
+            items[item]++;
         }
         else
         {
-            gameManager.GetInventory().Add(item, 1);
+            items.Add(item, 1);
         }
     }
 
-    public void UseItem(ItemObject item)
+    public void UseItem(Item item)
     {
-        if (gameManager.GetInventory().ContainsKey(item) && gameManager.GetInventory()[item] > 0)
+        if (items.ContainsKey(item) && items[item] > 0)
         {
-            gameManager.GetInventory()[item]--;
-            if (gameManager.GetInventory()[item] <= 0)
+            items[item]--;
+            if (items[item] <= 0)
             {
-                gameManager.GetInventory().Remove(item);
+                items.Remove(item);
             }
         }
     }
