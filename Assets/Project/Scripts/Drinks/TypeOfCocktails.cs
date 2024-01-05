@@ -15,12 +15,24 @@ public class TypeOfCocktails : ScriptableObject
 	
     public enum TypeOfCocktail
     {
-        LondonMist,
-        CambridgeBreeze,
-        BristolBloom,
-        ManchesterMule
+        Sekiro,
+        Morgana,
+        Thresh,
+        PipiStrate,
+        MoszkowskiFlip,
+        LobsterCrami,
+        BluLeibel,
+        Tiefti,
+        Razz,
+        Invade,
+        Añil
     }
 
     public TypeOfCocktail typeOfCocktail;
 	public List<DrinkQuantity> typeOfDrinksNeeded;
+    public float price;
+    public string cocktailName;
+    public string subtitle;
+    public string description;
+    public Sprite sprite;
 }
