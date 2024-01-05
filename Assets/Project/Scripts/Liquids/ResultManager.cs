@@ -32,7 +32,11 @@ public class ResultManager : MonoBehaviour
 	{
 		FillDrink();
 		
-		if (numberOfParticles >= maxCapacity)
+		if(textMeshPro == null)
+		{
+            textMeshPro = transform.parent.gameObject.transform.parent.transform.parent.GetChild(1).GetComponent<TextMeshPro>();
+        }
+        if (numberOfParticles >= maxCapacity)
 		{
 			textMeshPro.text = GetMostPopularCocktail().ToString();
 		}

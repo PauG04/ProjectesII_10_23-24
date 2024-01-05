@@ -10,8 +10,12 @@ public class DragHammer : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 position;
     private Animator anim;
+    private bool isOut;
+    private bool pressing;
+    private Transform parent;
 
     [SerializeField] private WindowsSetup window;
+    [SerializeField] private Vector2 initPosition;
 
     private void Start()
     {
@@ -19,6 +23,10 @@ public class DragHammer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         position = transform.position;
         anim = GetComponent<Animator>();
+        transform.localPosition = initPosition;
+        isOut = false;
+        pressing = false;
+        parent = transform.parent;
     }
 
     private void Update()
@@ -32,6 +40,16 @@ public class DragHammer : MonoBehaviour
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
         }
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            pressing = true;
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            pressing = false;
+        }
     }
 
     private void CalculatePosition()
@@ -42,18 +60,38 @@ public class DragHammer : MonoBehaviour
         }
         else
         {
-           targetJoint.target = (Vector2)window.GetWindows().transform.localPosition + position;
+           targetJoint.target = (Vector2)window.GetWindows().transform.localPosition + initPosition;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("IceWindows") && !pressing)
+        {
+            Debug.Log("salimos");
+            isOut = true;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("IceWindows") && !pressing)
+        {
+            Debug.Log("entramos");
+            isOut = false;
+        }
+    }
+
 
     private void OnMouseDown()
     {
         dragging = true;
+        transform.SetParent(null);
     }
 
     private void OnMouseUp()
     {
         dragging = false;
+        transform.SetParent(parent);
     }
 
     public bool GetDragging()
@@ -65,6 +103,13 @@ public class DragHammer : MonoBehaviour
     {
         anim.SetBool("isPressing", state);
     }
+
+    public bool GetIsOut()
+    {
+        return isOut;
+    }
+
+
 }
 
 

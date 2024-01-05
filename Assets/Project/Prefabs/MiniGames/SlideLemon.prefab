@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6632342666767048460}
   m_Layer: 0
   m_Name: 'LemonParticle '
-  m_TagString: Untagged
+  m_TagString: LemonSlide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4928,7 +4928,7 @@ GameObject:
   - component: {fileID: 8564604157663627587}
   m_Layer: 0
   m_Name: HalfLemon2
-  m_TagString: Untagged
+  m_TagString: LemonSlide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5086,7 +5086,7 @@ GameObject:
   - component: {fileID: 3486952119260786687}
   m_Layer: 0
   m_Name: HalfLemon
-  m_TagString: Untagged
+  m_TagString: LemonSlide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5239,6 +5239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1061044448624796582}
+  - component: {fileID: 1426802858000274842}
   m_Layer: 0
   m_Name: SlideLemon
   m_TagString: Untagged
@@ -5264,3 +5265,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1426802858000274842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8690186931146698683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d9fd9c58336fd4991b9d7610df39d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sons:
+  - {fileID: 7900920806442265921}
+  - {fileID: 3425571352010966579}

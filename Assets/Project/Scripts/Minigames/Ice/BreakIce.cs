@@ -11,12 +11,21 @@ public class BreakIce : MonoBehaviour
     [SerializeField] private GameObject iceSlide;
     [SerializeField] private GameObject hammer;
     [SerializeField] private float force;
+    [SerializeField] private Vector3 position;
 
     private void Start()
     {
         fixedJoint2= GetComponent<FixedJoint2D>();
         rb = GetComponent<Rigidbody2D>();
+        transform.localPosition = position;
     }
+
+    private void Update()
+    {
+        if(transform.localPosition != position)
+            transform.localPosition = position;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Hammer"))

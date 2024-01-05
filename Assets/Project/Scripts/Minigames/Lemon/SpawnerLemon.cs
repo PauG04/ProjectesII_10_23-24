@@ -12,11 +12,11 @@ public class SpawnerLemon : MonoBehaviour
     [SerializeField] private float maxTimeSpwan;
     [SerializeField] private float minTimeSpwan;
     [SerializeField] private StartCounter counter;
+    [SerializeField] private TrailRenderer trailRenderer;
     
     private Transform window;
     private int currentLemon;
     private int maxLemon = 7;
-    float maxWitdh;
     private float time;
     private bool spawnLemon;
 
@@ -32,6 +32,7 @@ public class SpawnerLemon : MonoBehaviour
         if (currentLemon <= maxLemon && spawnLemon && counter.GetStartMinigae())
         {
             Spwan();
+            trailRenderer.enabled = true; 
         }
 
         if(!spawnLemon) 
@@ -43,6 +44,7 @@ public class SpawnerLemon : MonoBehaviour
         {
             counter.SetStartMinigae(false);
             currentLemon = 0;
+            trailRenderer.enabled = false;
         }
         
     }

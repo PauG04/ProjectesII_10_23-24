@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -889591459
   m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,6 +103,8 @@ MonoBehaviour:
   maxVelocity: 2
   force: 0.5
   brokenLeaf: {fileID: 6720403613200487302, guid: f66b3cbe5bdc2a249b7329dabb18f606, type: 3}
+  window: {fileID: 0}
+  scale: {x: 1.5, y: 0.1, z: 1}
 --- !u!50 &3177365732213343290
 Rigidbody2D:
   serializedVersion: 4

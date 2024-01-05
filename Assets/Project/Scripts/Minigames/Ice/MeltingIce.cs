@@ -14,7 +14,8 @@ public class MeltingIce : MonoBehaviour
     [SerializeField] private int maxLiquid;
     [SerializeField] private int minLiquid;
     [SerializeField] private float reduceScale;
-    
+    [SerializeField] private Renderer filterRenderer;
+
     private float timeToMelt;
     private Vector3 startScale;
     private Vector3 currentScale;
@@ -31,6 +32,7 @@ public class MeltingIce : MonoBehaviour
         startScale = transform.localScale;
         currentScale = startScale / meltPhases;
         meltScale = currentScale * (meltPhases - 1);
+        filterRenderer = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<Renderer>();
     }
 
     private void Update()
@@ -92,7 +94,9 @@ public class MeltingIce : MonoBehaviour
             Vector3 newPosition = new Vector3(transform.position.x - spriteRenderer.bounds.size.x/2.5f, transform.position.y + Random.Range(-spriteRenderer.bounds.size.y/2.5f, spriteRenderer.bounds.size.y/2.5f), transform.position.z);
             GameObject newParticle = Instantiate(liquidParticle, newPosition, Quaternion.identity);
             Rigidbody2D rb = newParticle.GetComponent<Rigidbody2D>();
+            //filterRenderer.material.SetColor("_Color", Color.blue);
             rb.gravityScale = 0.0f;
+            newParticle.tag = "IceLiquid";
             SetScale(newParticle);
             IncreaseMass(rb);
         }
@@ -101,7 +105,9 @@ public class MeltingIce : MonoBehaviour
             Vector3 newPosition = new Vector3(transform.position.x + spriteRenderer.bounds.size.x / 2.5f, transform.position.y + Random.Range(-spriteRenderer.bounds.size.y / 2.5f, spriteRenderer.bounds.size.y / 2.5f), transform.position.z);
             GameObject newParticle = Instantiate(liquidParticle, newPosition, Quaternion.identity);
             Rigidbody2D rb = newParticle.GetComponent<Rigidbody2D>();
+            //filterRenderer.material.SetColor("_Color", Color.blue);
             rb.gravityScale = 0.0f;
+            newParticle.tag = "IceLiquid";
             SetScale(newParticle);
             IncreaseMass(rb);
         }
