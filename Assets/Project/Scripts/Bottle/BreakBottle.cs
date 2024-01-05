@@ -13,11 +13,12 @@ public class BreakBottle : MonoBehaviour
     [SerializeField] private float min;
     [SerializeField] private float difference;
     [SerializeField] private Renderer filterRenderer;
+    [SerializeField] private WindowsSetup windows;
 
     private float currentHit;
     private float HP;
     private BottleController bottle;
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rigidbody2D; 
 
     private void Start()
     {

@@ -12,6 +12,7 @@ public class DragHammer : MonoBehaviour
     private Animator anim;
     private bool isOut;
     private bool pressing;
+    private Transform parent;
 
     [SerializeField] private WindowsSetup window;
     [SerializeField] private Vector2 initPosition;
@@ -25,6 +26,7 @@ public class DragHammer : MonoBehaviour
         transform.localPosition = initPosition;
         isOut = false;
         pressing = false;
+        parent = transform.parent;
     }
 
     private void Update()
@@ -83,11 +85,13 @@ public class DragHammer : MonoBehaviour
     private void OnMouseDown()
     {
         dragging = true;
+        transform.SetParent(null);
     }
 
     private void OnMouseUp()
     {
         dragging = false;
+        transform.SetParent(parent);
     }
 
     public bool GetDragging()

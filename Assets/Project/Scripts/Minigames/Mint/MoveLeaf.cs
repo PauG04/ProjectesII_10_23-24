@@ -56,6 +56,13 @@ public class MoveLeaf : MonoBehaviour
         }
 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Hammer") && collision.GetComponentInParent<DragHammer>().GetIsOut())
+        {
+            Slice(transform.position, transform.position);
+        }
+    }
 
     private void OnMouseDown()
     {

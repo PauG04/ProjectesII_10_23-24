@@ -1612,6 +1612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 682963972692487831}
+  - component: {fileID: 3505449182507040980}
   - component: {fileID: 7250037038630897718}
   m_Layer: 0
   m_Name: Bar
@@ -1640,6 +1641,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3505449182507040980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5214828439131189004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3dc269d66b871f4cac1b64f73ef26e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &7250037038630897718
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3329,6 +3342,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4774777232813144468}
     m_Modifications:
+    - target: {fileID: 1963338669902139495, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: filterRenderer
+      value: 
+      objectReference: {fileID: 7250037038630897718}
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: drinksType
       value: 7
@@ -3348,6 +3365,14 @@ PrefabInstance:
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: liquidColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.x
+      value: -0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.y
+      value: -0.2628
       objectReference: {fileID: 0}
     - target: {fileID: 4105713940673632212, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: m_Name
@@ -3423,6 +3448,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8864998997449655917}
     m_Modifications:
+    - target: {fileID: 1963338669902139495, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: filterRenderer
+      value: 
+      objectReference: {fileID: 7250037038630897718}
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: drinksType
       value: 1
@@ -3442,6 +3471,14 @@ PrefabInstance:
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: liquidColor.r
       value: 0.3584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.x
+      value: -0.425
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.y
+      value: 0.40152
       objectReference: {fileID: 0}
     - target: {fileID: 4105713940673632212, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: m_Name
@@ -3517,6 +3554,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7670756602590649777}
     m_Modifications:
+    - target: {fileID: 1963338669902139495, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: filterRenderer
+      value: 
+      objectReference: {fileID: 7250037038630897718}
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: liquidColor.a
       value: 1
@@ -3532,6 +3573,14 @@ PrefabInstance:
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: liquidColor.r
       value: 0.149055
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.x
+      value: -0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.y
+      value: 0.40152
       objectReference: {fileID: 0}
     - target: {fileID: 4105713940673632212, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: m_Name
@@ -3607,6 +3656,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6183556126691879705}
     m_Modifications:
+    - target: {fileID: 1963338669902139495, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: filterRenderer
+      value: 
+      objectReference: {fileID: 7250037038630897718}
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: drinksType
       value: 5
@@ -3626,6 +3679,14 @@ PrefabInstance:
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: liquidColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.x
+      value: -0.425
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.y
+      value: 0.08208001
       objectReference: {fileID: 0}
     - target: {fileID: 4105713940673632212, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: m_Name
@@ -3701,6 +3762,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3539552462358042267}
     m_Modifications:
+    - target: {fileID: 1963338669902139495, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: filterRenderer
+      value: 
+      objectReference: {fileID: 7250037038630897718}
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: drinksType
       value: 2
@@ -3720,6 +3785,14 @@ PrefabInstance:
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: liquidColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.x
+      value: -0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.y
+      value: 0.40152
       objectReference: {fileID: 0}
     - target: {fileID: 4105713940673632212, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: m_Name
@@ -3795,6 +3868,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1608211006625596445}
     m_Modifications:
+    - target: {fileID: 1963338669902139495, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: filterRenderer
+      value: 
+      objectReference: {fileID: 7250037038630897718}
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: drinksType
       value: 6
@@ -3814,6 +3891,14 @@ PrefabInstance:
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: liquidColor.r
       value: 0.9733329
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.x
+      value: -0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.y
+      value: 0.08208001
       objectReference: {fileID: 0}
     - target: {fileID: 4105713940673632212, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: m_Name
@@ -3889,6 +3974,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1189482826544589296}
     m_Modifications:
+    - target: {fileID: 1963338669902139495, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: filterRenderer
+      value: 
+      objectReference: {fileID: 7250037038630897718}
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: drinksType
       value: 3
@@ -3908,6 +3997,14 @@ PrefabInstance:
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: liquidColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.x
+      value: 0.085
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.y
+      value: 0.40152
       objectReference: {fileID: 0}
     - target: {fileID: 4105713940673632212, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: m_Name
@@ -3983,6 +4080,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8579470572066506434}
     m_Modifications:
+    - target: {fileID: 1963338669902139495, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: filterRenderer
+      value: 
+      objectReference: {fileID: 7250037038630897718}
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: drinksType
       value: 9
@@ -4002,6 +4103,14 @@ PrefabInstance:
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: liquidColor.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.x
+      value: -0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.y
+      value: -0.2628
       objectReference: {fileID: 0}
     - target: {fileID: 4105713940673632212, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: m_Name
@@ -4077,6 +4186,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9040669132203281016}
     m_Modifications:
+    - target: {fileID: 1963338669902139495, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: filterRenderer
+      value: 
+      objectReference: {fileID: 7250037038630897718}
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: drinksType
       value: 8
@@ -4096,6 +4209,14 @@ PrefabInstance:
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: liquidColor.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.x
+      value: -0.425
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.y
+      value: -0.2628
       objectReference: {fileID: 0}
     - target: {fileID: 4105713940673632212, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: m_Name
@@ -4171,6 +4292,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7699691011188435929}
     m_Modifications:
+    - target: {fileID: 1963338669902139495, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: filterRenderer
+      value: 
+      objectReference: {fileID: 7250037038630897718}
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: drinksType
       value: 4
@@ -4190,6 +4315,14 @@ PrefabInstance:
     - target: {fileID: 2905693172982613635, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: liquidColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.x
+      value: -0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171518793954400458, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
+      propertyPath: m_Target.y
+      value: 0.08208001
       objectReference: {fileID: 0}
     - target: {fileID: 4105713940673632212, guid: e0e10ab7f1622764697bf7cc56e52919, type: 3}
       propertyPath: m_Name
