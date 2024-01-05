@@ -80,7 +80,7 @@ public class DragGlass : MonoBehaviour
             isDragging = false;
             isEmpty.SetIsEmpty(false);
             isEmpty.SetGlass(this.gameObject);
-            shader.GetComponent<SpriteRenderer>().material.SetFloat("FixerFloat", startFloat);
+            shader.GetComponent<Renderer>().material.SetFloat("_FixerFloat", startFloat);
            
             for (int i = 0; i< activeObject.Length; i++)
             {

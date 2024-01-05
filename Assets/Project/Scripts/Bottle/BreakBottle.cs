@@ -9,22 +9,41 @@ public class BreakBottle : MonoBehaviour
     [SerializeField] private GameObject liquid;
     [SerializeField] private float  force;
     [SerializeField] private float  liquidForce;
+    [SerializeField] private float max;
+    [SerializeField] private float min;
+    [SerializeField] private float difference;
+    [SerializeField] private Renderer filterRenderer;
 
     private float currentHit;
+    private float HP;
     private BottleController bottle;
+    private Rigidbody2D rigidbody2D;
+
     private void Start()
     {
+        HP = 100;
         currentHit = 0;
         bottle = GetComponent<BottleController>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        filterRenderer = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<Renderer>();
     }
     private void Update()
     {
-        if(currentHit == 3)
+        if(currentHit == 3 || HP <= 0)
         {
             Slice(transform.position, transform.position);
             CreateLiquid();
             Destroy(gameObject);
         }
+        if(rigidbody2D.velocity.y > max)
+        {
+            HP -= rigidbody2D.velocity.y / difference;
+        }
+        if(rigidbody2D.velocity.y < min)
+        {
+            HP += rigidbody2D.velocity.y / difference;
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -58,7 +77,7 @@ public class BreakBottle : MonoBehaviour
 
             Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(-120, 120));
             newIce.transform.localRotation = rotation;
-            newIce.GetComponent<LiquidParticle>().color = bottle.GetColor();
+            filterRenderer.material.SetColor("_Color", bottle.GetColor());
 
             newIce.transform.localScale = new Vector2(0.1f, 0.1f);
             newIce.GetComponent<SpriteRenderer>().tag = "IceLiquid";

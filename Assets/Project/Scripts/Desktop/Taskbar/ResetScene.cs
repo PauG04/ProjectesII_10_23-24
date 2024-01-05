@@ -33,7 +33,7 @@ public class ResetScene : MonoBehaviour
             for(int i = 0; i<buttons.Length; i++)
             {
                 buttons[i].SetActive(true);
-                buttons[i].GetComponent<SpriteRenderer>().sortingOrder = 2;
+                buttons[i].GetComponent<SpriteRenderer>().sortingOrder = 3;
             }
         }
         else

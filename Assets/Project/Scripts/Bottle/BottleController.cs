@@ -10,6 +10,9 @@ public class BottleController : MonoBehaviour
     [Header("BottleVariables")]
     [SerializeField] private LiquidManager.TypeOfDrink drinksType;
     [SerializeField] private Transform parentObject;
+
+    private TargetJoint2D targetJoint2D;
+    private Rigidbody2D rigidbody2D;
     #endregion
     #region Rotation Variables
     [Header("Rotation Variables")]
@@ -63,6 +66,10 @@ public class BottleController : MonoBehaviour
         fluidRenderer.material.SetColor("_Color", liquidColor);
         filterRenderer = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<Renderer>();
         simulation = GameObject.Find("Simulation");
+        targetJoint2D = GetComponent<TargetJoint2D>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody2D.isKinematic = true;
+        targetJoint2D.enabled = false;
     }
     private void Update()
     {
@@ -76,8 +83,13 @@ public class BottleController : MonoBehaviour
         {
             HoldingBottle();
         }
+        if(!isDragging)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
         if (!isDragging && !isRotating)
         {
+            transform.eulerAngles = new Vector3(0, 0, 0);
             transform.localPosition = Vector3.zero;
         }
         SetLiquid();
@@ -86,22 +98,29 @@ public class BottleController : MonoBehaviour
     private void OnMouseDown()
     {
         oldScale = transform.localScale;
-        oldRotation = transform.localRotation;
+        //oldRotation = transform.localRotation;
+        rigidbody2D.isKinematic = false;
 
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.SetParent(null);
         isDragging = true;
+        targetJoint2D.enabled = true;
     }
     private void OnMouseUp()
     {
         transform.SetParent(parentObject);
+        //rigidbody2D.velocity = new Vector2(0, 0);
+        transform.eulerAngles = new Vector3(0, 0, 0);
+        rigidbody2D.isKinematic = true;
 
         transform.localScale = oldScale;
-        transform.localRotation = oldRotation;
+        //transform.localRotation = oldRotation;
+        
 
         transform.localPosition = Vector3.zero;
 
         isDragging = false;
+        targetJoint2D.enabled = false;
     }
     private void HoldingBottle()
     {
@@ -114,15 +133,24 @@ public class BottleController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1) && shaker != null)
         {
+            rigidbody2D.isKinematic = true;
+            targetJoint2D.enabled = false;
             isShakerSpawned = true;
+            
             shakerPosition = shaker.transform.position;
             isRotating = true;
+            
         }
         if (Input.GetMouseButtonUp(1) && shaker != null)
         {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+            targetJoint2D.enabled = false;
+            rigidbody2D.isKinematic = false;
             isShakerSpawned = false;
+            
             shakerPosition = Vector2.zero;
             isRotating = false;
+            
         }
         if (transform.up.y < 0)
         {
@@ -170,11 +198,18 @@ public class BottleController : MonoBehaviour
     }
     private void CalculatePosition()
     {
-        transform.position = new Vector3(
+        if(!targetJoint2D.enabled)
+        {
+            transform.position = new Vector3(
             Camera.main.ScreenToWorldPoint(Input.mousePosition).x + offset.x,
             Camera.main.ScreenToWorldPoint(Input.mousePosition).y + offset.y,
             0
-            );
+           );      
+        }
+        else
+        {
+            targetJoint2D.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }     
     }
     private void WobbleFluid()
     {
