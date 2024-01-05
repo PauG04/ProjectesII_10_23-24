@@ -11,34 +11,35 @@ namespace Dialogue
 	{
 		//[SerializeField] private Dialogue testDialogue;
 		[SerializeField] private string playerName;
+		[SerializeField] private float secondsDialogueDelay = 1f;
 		
-		
+		[Header("Dialogue Options")]
 		private Dialogue currentDialogue;
 		private DialogueNode currentNode = null;
 		private AIConversant currentConversant = null;
 		private bool isChoosing = false;
+		private bool isStartingNewConversant = false;
 		
 		public event Action onConversationUpdated;
-
-		/*
-		private IEnumerator Start()
+				
+		public IEnumerator WriteTextWithDelay()
 		{
-			yield return new WaitForSeconds(2f);
-			StartDialogue(testDialogue);
+			yield return new WaitForSeconds(secondsDialogueDelay);
+			Next();
 		}
-		*/
 		public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
 			currentConversant = newConversant;
 			currentDialogue = newDialogue;
 			currentNode = currentDialogue.GetRootNode();
+
 			TriggerEnterAction();
+			isStartingNewConversant = true;
 			onConversationUpdated();
+			isStartingNewConversant = false;
 		}
-		
 		public void Quit()
 		{
-			
 			currentDialogue = null;
 			TriggerExitAction();
 			currentNode = null;
@@ -46,12 +47,10 @@ namespace Dialogue
 			currentConversant = null;
 			onConversationUpdated();
 		}
-		
 		public bool IsActive()
 		{
 			return currentDialogue != null;
 		}
-		
 		public bool IsChoosing()
 		{
 			return isChoosing;
@@ -83,7 +82,7 @@ namespace Dialogue
 			currentNode = choseNode;
 			TriggerEnterAction();
 			isChoosing = false;
-			Next();
+			
 		}
 		public void Next()
 		{
@@ -104,12 +103,14 @@ namespace Dialogue
 			TriggerEnterAction();
 			onConversationUpdated();
 		}
-		
 		public bool HasNext()
 		{
 			return currentDialogue.GetAllChildren(currentNode).Count() > 0;
 		}
-		
+		public bool IsNewConversant()
+		{
+			return isStartingNewConversant;
+		}
 		private void TriggerEnterAction()
 		{
 			if(currentNode != null)
@@ -117,7 +118,6 @@ namespace Dialogue
 				TriggerAction(currentNode.GetOnEnterAction());
 			}
 		}
-		
 		private void TriggerExitAction()
 		{
 			if(currentNode != null)
@@ -125,7 +125,6 @@ namespace Dialogue
 				TriggerAction(currentNode.GetOnEnterAction());
 			}
 		}
-		
 		private void TriggerAction(string action)
 		{
 			if(action == "") 

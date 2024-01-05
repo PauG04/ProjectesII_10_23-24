@@ -32,7 +32,7 @@ namespace Dialogue
             return nodes;
         }
         public DialogueNode GetRootNode()
-        {
+	    {
             return nodes[0];
         }
         public IEnumerable<DialogueNode> GetAllChildren(DialogueNode parentNode)

@@ -20,18 +20,14 @@ namespace Dialogue
 		{
 			return CursorType.Dialogue;
 		}
-		public bool HandleDialogue(PlayerConversant playerConversant)
+		public void HandleDialogue(PlayerConversant playerConversant)
 		{
 			if(dialogue == null)
 			{
-				return false;
+				return;
 			}
-			
-			if(Input.GetMouseButtonDown(0))
-			{
-				playerConversant.StartDialogue(this, dialogue);
-			}
-			return true;
+
+			playerConversant.StartDialogue(this, dialogue);
 		}
 		private void OnMouseDown()
 		{
@@ -41,5 +37,6 @@ namespace Dialogue
 		{
 			return conversantName;
 		}
+		
 	}
 }

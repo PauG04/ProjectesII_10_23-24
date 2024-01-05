@@ -13,16 +13,17 @@ namespace UI
 		[SerializeField] private Transform bubbleRoot;
 		private PlayerConversant playerConversant;
 		
+		[Header("Conversant Name")]
+		[SerializeField] private GameObject prefabNameLabel;
+		private TextMeshProUGUI conversantName;
+		
 		[Header("AI Text")]
 		[SerializeField] private GameObject prefabAibubble;
-		[SerializeField] private TextMeshProUGUI AIText;
-		[SerializeField] private TextMeshProUGUI conversantName;
-		[Space(10)]
-		[SerializeField] private GameObject AIResponse;
+		private TextMeshProUGUI AIText;
 		
 		[Header("Player Text")]
 		[SerializeField] private GameObject prefabPlayerbubble;
-		[SerializeField] private TextMeshProUGUI playerText;
+		private TextMeshProUGUI playerText;
 		
 		[Header("Choices")]
 		[SerializeField] private Transform choiceRoot;
@@ -34,55 +35,49 @@ namespace UI
 	
 		private void Start()
 		{
-			
 		    playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
-		    playerConversant.onConversationUpdated += UpdateChat;
-		    nextButton.onClick.AddListener(() => playerConversant.Next());
+			playerConversant.onConversationUpdated += UpdateChat;
+		    
+			//nextButton.onClick.AddListener(() => playerConversant.Next());
 		    quitButton.onClick.AddListener(() => playerConversant.Quit());
 		    
 		    AIText = prefabAibubble.GetComponentInChildren<TextMeshProUGUI>();
 		    playerText = prefabPlayerbubble.GetComponentInChildren<TextMeshProUGUI>();
+			conversantName = prefabNameLabel.GetComponentInChildren<TextMeshProUGUI>();
 		    
-			bubbleRoot.DetachChildren();
+			DestroyChildrens(bubbleRoot);
+			DestroyChildrens(choiceRoot);
+			nextButton.gameObject.SetActive(false);
 			//UpdateChat();
 		    //UpdateUI();
-	    }
-	
-		private void UpdateUI()
-		{
-			gameObject.SetActive(playerConversant.IsActive());
-			
-			if(!playerConversant.IsActive())
-			{
-				return;
-			}
-			conversantName.text = playerConversant.GetCurrentConversantName();
-			AIResponse.SetActive(!playerConversant.IsChoosing());
-			choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
-		    
-			if (playerConversant.IsChoosing())
-			{
-				BuildChoiceList();
-			}
-			else 
-			{
-				AIText.text = playerConversant.GetText();
-				nextButton.gameObject.SetActive(playerConversant.HasNext());
-			}
 		}
 		
+		private void Update()
+		{
+			if (playerConversant.IsActive())
+			{
+				if (playerConversant.HasNext() && !playerConversant.IsChoosing())
+				{
+					playerConversant.Next();
+				}
+			}
+		}
+
 		private void UpdateChat()
 		{
-			GameObject conversantBubble = Instantiate(prefabAibubble, bubbleRoot);
-			
 			if (!playerConversant.IsActive())
 			{
 				return;
 			}
+						
+			if(playerConversant.IsNewConversant())
+			{
+				conversantName.text = playerConversant.GetCurrentConversantName();
+				GameObject nameLabel = Instantiate(prefabNameLabel, bubbleRoot);
+			}
 			
-			conversantName.text = playerConversant.GetCurrentConversantName();
 			choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
-			
+
 			if (playerConversant.IsChoosing())
 			{
 				BuildChoiceList();
@@ -90,24 +85,46 @@ namespace UI
 			else 
 			{
 				AIText.text = playerConversant.GetText();
-				nextButton.gameObject.SetActive(playerConversant.HasNext());
+				
+				GameObject conversantBubble = Instantiate(prefabAibubble, bubbleRoot);
 			}
+			
 		}
 	
 		private void BuildChoiceList()
 		{
-			choiceRoot.DetachChildren();
+			DestroyChildrens(choiceRoot);
+			
 			foreach (DialogueNode choice in playerConversant.GetChoices())
 			{
 				GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);
+				
 				TextMeshProUGUI textComponent =	choiceInstance.GetComponentInChildren<TextMeshProUGUI>();
 				textComponent.text = choice.GetText();
+				
 				Button button = choiceInstance.GetComponentInChildren<Button>();
+				
 				button.onClick.AddListener(() => 
 				{
+					PlayerBubble(choice.GetText());
 					playerConversant.SelectChoice(choice);
 				});
 			}
 		}
+		
+		private void PlayerBubble(string text)
+		{
+			playerText.text = text;
+			GameObject playerBubble = Instantiate(prefabPlayerbubble, bubbleRoot);
+		}
+		
+		private void DestroyChildrens(Transform root)
+		{
+			foreach (Transform item in root)
+			{
+				Destroy(item.gameObject);
+			}
+		}
+
 	}
 }

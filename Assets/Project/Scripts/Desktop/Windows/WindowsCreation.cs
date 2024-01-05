@@ -70,7 +70,7 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 
     public override void ExitState()
 	{
-		Debug.Log("Exit Creating State");
+		
     }
 
     public override WindowsStateMachine.WindowState GetNextState()
