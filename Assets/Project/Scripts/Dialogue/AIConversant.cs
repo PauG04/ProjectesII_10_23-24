@@ -8,6 +8,7 @@ namespace Dialogue
 	public class AIConversant : MonoBehaviour
 	{
 		[SerializeField] private Dialogue dialogue = null;
+		[SerializeField] private string conversantName;
 		[SerializeField] private PlayerConversant playerConversant;
 		
 		protected void Awake()
@@ -36,6 +37,9 @@ namespace Dialogue
 		{
 			HandleDialogue(playerConversant);
 		}
+		public string GetName()
+		{
+			return conversantName;
+		}
 	}
-
 }

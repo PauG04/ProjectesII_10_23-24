@@ -10,6 +10,8 @@ namespace Dialogue
 	public class PlayerConversant : MonoBehaviour
 	{
 		//[SerializeField] private Dialogue testDialogue;
+		[SerializeField] private string playerName;
+		
 		
 		private Dialogue currentDialogue;
 		private DialogueNode currentNode = null;
@@ -64,11 +66,18 @@ namespace Dialogue
 			
 			return currentNode.GetText();
 		}
+		public string GetCurrentConversantName()
+		{
+			if (isChoosing)
+			{
+				return playerName;
+			}
+			return currentConversant.GetName();
+		}
 		public IEnumerable<DialogueNode> GetChoices()
 		{
 			return currentDialogue.GetPlayerChildren(currentNode);
 		}
-		
 		public void SelectChoice(DialogueNode choseNode)
 		{
 			currentNode = choseNode;
@@ -76,7 +85,6 @@ namespace Dialogue
 			isChoosing = false;
 			Next();
 		}
-		
 		public void Next()
 		{
 			int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();

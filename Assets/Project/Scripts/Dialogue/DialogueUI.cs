@@ -9,9 +9,20 @@ namespace UI
 {
 	public class DialogueUI : MonoBehaviour
 	{
+		[Header("General Configuration")]
+		[SerializeField] private Transform bubbleRoot;
 		private PlayerConversant playerConversant;
+		
+		[Header("AI Text")]
+		[SerializeField] private GameObject prefabAibubble;
 		[SerializeField] private TextMeshProUGUI AIText;
+		[SerializeField] private TextMeshProUGUI conversantName;
+		[Space(10)]
 		[SerializeField] private GameObject AIResponse;
+		
+		[Header("Player Text")]
+		[SerializeField] private GameObject prefabPlayerbubble;
+		[SerializeField] private TextMeshProUGUI playerText;
 		
 		[Header("Choices")]
 		[SerializeField] private Transform choiceRoot;
@@ -22,13 +33,19 @@ namespace UI
 		[SerializeField] private Button quitButton;
 	
 		private void Start()
-	    {
+		{
+			
 		    playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
-		    playerConversant.onConversationUpdated += UpdateUI;
+		    playerConversant.onConversationUpdated += UpdateChat;
 		    nextButton.onClick.AddListener(() => playerConversant.Next());
 		    quitButton.onClick.AddListener(() => playerConversant.Quit());
 		    
-		    UpdateUI();
+		    AIText = prefabAibubble.GetComponentInChildren<TextMeshProUGUI>();
+		    playerText = prefabPlayerbubble.GetComponentInChildren<TextMeshProUGUI>();
+		    
+			bubbleRoot.DetachChildren();
+			//UpdateChat();
+		    //UpdateUI();
 	    }
 	
 		private void UpdateUI()
@@ -39,7 +56,7 @@ namespace UI
 			{
 				return;
 			}
-			
+			conversantName.text = playerConversant.GetCurrentConversantName();
 			AIResponse.SetActive(!playerConversant.IsChoosing());
 			choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
 		    
@@ -53,7 +70,30 @@ namespace UI
 				nextButton.gameObject.SetActive(playerConversant.HasNext());
 			}
 		}
-	    
+		
+		private void UpdateChat()
+		{
+			GameObject conversantBubble = Instantiate(prefabAibubble, bubbleRoot);
+			
+			if (!playerConversant.IsActive())
+			{
+				return;
+			}
+			
+			conversantName.text = playerConversant.GetCurrentConversantName();
+			choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
+			
+			if (playerConversant.IsChoosing())
+			{
+				BuildChoiceList();
+			}
+			else 
+			{
+				AIText.text = playerConversant.GetText();
+				nextButton.gameObject.SetActive(playerConversant.HasNext());
+			}
+		}
+	
 		private void BuildChoiceList()
 		{
 			choiceRoot.DetachChildren();

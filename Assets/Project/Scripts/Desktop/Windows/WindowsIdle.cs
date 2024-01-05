@@ -7,32 +7,39 @@ public class WindowsIdle : BaseState<WindowsStateMachine.WindowState>
 	private GameObject _close;
 	private GameObject _minimize;
 
+	private bool _isCanvas;
+
 	private BoxCollider2D _closeCollider;
 	private BoxCollider2D _minimizeCollider;
 
-	public WindowsIdle(GameObject close, GameObject minimize) : base(WindowsStateMachine.WindowState.Idle)
+	public WindowsIdle(GameObject close, GameObject minimize, bool isCanvas) : base(WindowsStateMachine.WindowState.Idle)
     {
 	    _close = close;
 	    _minimize = minimize;
+	    _isCanvas = isCanvas;
     }
     public override void EnterState()
-    {
+	{
+   
 	    _state = WindowsStateMachine.WindowState.Idle;
         
 	    _closeCollider = _close.GetComponent<BoxCollider2D>();
     	_minimizeCollider = _minimize.GetComponent<BoxCollider2D>();
     }
     public override void ExitState()
-    {
-
+	{
+    	
     }
     public override WindowsStateMachine.WindowState GetNextState()
     {
         return _state;
     }
     public override void OnMouseDown()
-    {
-        _state = WindowsStateMachine.WindowState.Dragging;
+	{
+		if (!_isCanvas)
+		{
+			_state = WindowsStateMachine.WindowState.Dragging;
+		}
     }
     public override void OnMouseDrag()
     {
@@ -43,8 +50,9 @@ public class WindowsIdle : BaseState<WindowsStateMachine.WindowState>
 
     }
     public override void UpdateState()
-    {
-	    if (Input.GetMouseButtonDown(0))   
+	{
+		
+		if (Input.GetMouseButtonDown(0) && !_isCanvas)   
 	    {
 	    	Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 	    	
