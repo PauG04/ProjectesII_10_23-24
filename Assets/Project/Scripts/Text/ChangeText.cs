@@ -16,10 +16,12 @@ public class ChangeText : MonoBehaviour
     {
         textToShow.text = cocktail.cocktailName + " - " + cocktail.price + "$";
     }
+
     public void ChangeSubtitle(TypeOfCocktails cocktail)
     {
         textToShow.text = cocktail.subtitle;
     }
+
     public void ChangeDescription(TypeOfCocktails cocktail)
     {
         textToShow.text = cocktail.description;
