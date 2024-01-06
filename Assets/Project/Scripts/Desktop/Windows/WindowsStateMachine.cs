@@ -19,6 +19,8 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
 	[Header("Windows Control Variables")]
 	[SerializeField] private GameObject _close;
 	[SerializeField] private GameObject _minimize;
+	[SerializeField] private bool _externalClose;
+	[SerializeField] private bool _externalMinimize;
 	
 	[Header("UI Objects")]
 	[SerializeField] private GameObject _miniIcon;

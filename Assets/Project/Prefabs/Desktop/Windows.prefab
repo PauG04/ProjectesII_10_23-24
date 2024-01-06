@@ -140,9 +140,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8452697056842371583}
   - component: {fileID: 634939878751904525}
+  - component: {fileID: 3732338869242140821}
   - component: {fileID: 3464764955626117831}
   - component: {fileID: 9168758653613587053}
-  - component: {fileID: 3732338869242140821}
   m_Layer: 0
   m_Name: Windows
   m_TagString: Untagged
@@ -219,6 +219,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &3732338869242140821
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5528909468779342571}
+  m_Enabled: 1
+  m_SortingLayerID: -906865357
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!61 &3464764955626117831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -276,28 +288,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc53b8232398784390e62bc2813a3d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _node: {fileID: 11400000, guid: 8279ce35ebd66064e85fac65f5fa7085, type: 2}
+  _node: {fileID: 11400000, guid: aa3df97313e418f42b59aaee504f5341, type: 2}
   _spriteRenderer: {fileID: 0}
   _collider: {fileID: 0}
   _isCanvas: 0
   _listOfWindows: {fileID: 0}
   _close: {fileID: 6415798422616388447}
   _minimize: {fileID: 984542826152240383}
+  _externalClose: 0
+  _externalMinimize: 0
   _miniIcon: {fileID: 0}
   _app: {fileID: 0}
   isTesting: 0
---- !u!210 &3732338869242140821
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5528909468779342571}
-  m_Enabled: 1
-  m_SortingLayerID: -906865357
-  m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_SortAtRoot: 0
 --- !u!1 &6415798422616388447
 GameObject:
   m_ObjectHideFlags: 0

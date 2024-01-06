@@ -36,7 +36,7 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
     #endregion
 
     private SpriteRenderer _spriteRenderer;
-	private PolygonCollider2D _collider;
+	private BoxCollider2D _collider;
 	private Image _imageRenderer;
 
 	public WindowsCreation(
@@ -63,8 +63,9 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 	    if (!_isCanvas)
 	    {
 		    _spriteRenderer = _windowsStateMachine.gameObject.GetComponent<SpriteRenderer>();
-		    _collider = _windowsStateMachine.gameObject.GetComponent<PolygonCollider2D>();
 	    }
+	    
+	    _collider = _windowsStateMachine.gameObject.GetComponent<BoxCollider2D>();
 	    _isCreated = false;
     }
 
@@ -207,6 +208,9 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 			rectTransform.sizeDelta.y + _offsetHeightCanvas
 		);
 
+		_collider.offset = new Vector2(newWindowsSizeCanvas.x / 2f, _collider.offset.y);
+		_collider.size = new Vector2(newWindowsSizeCanvas.x, _collider.size.y);
+		
 		_windowsStateMachine.GetComponent<RectTransform>().sizeDelta = newWindowsSizeCanvas;
 	}
 	
