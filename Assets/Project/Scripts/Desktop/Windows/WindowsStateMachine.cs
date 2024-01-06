@@ -55,17 +55,17 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
         }
     }
     public void ChangeState(WindowState state)
-    {
-        CurrentState = States[state];
+	{
+		CurrentState = States[state];
     }
     
 	public void SetStateClosed()
 	{
-		CurrentState = States[WindowState.Closing];
+		TransitionToState(WindowState.Closing);
 	}
 	public void SetStateMinimize()
 	{
-		CurrentState = States[WindowState.Minimize];
+		TransitionToState(WindowState.Minimize);
 	}
 	
     public WindowState GetCurrentState()

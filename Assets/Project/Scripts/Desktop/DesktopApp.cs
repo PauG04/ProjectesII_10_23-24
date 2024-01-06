@@ -29,6 +29,8 @@ public class DesktopApp : MonoBehaviour
     
 	private GameObject newMiniIcon;
     
+	private Vector3 correctSize;
+    
     private void Awake()
     {
 	    windowsGroupManager = GameObject.Find("WindowsGroup");
@@ -39,22 +41,17 @@ public class DesktopApp : MonoBehaviour
         OpenApp();
     }
     public void OpenApp()
-    {
-        if (!isOpen)
-        {
-            if (!isCreated)
-            {
-	            isOpen = true;
+	{
+		if (!isCreated)
+		{
+			isOpen = true;
 
-            	CreateMiniIcons();
-                CreateWindows();
-            }
-        } 
-        else
-        {
-            PutWindowInFront();
-        }
-    }
+			CreateMiniIcons();
+			CreateWindows();
+		}
+		AppControl();
+	}
+    
     private void CreateWindows()
 	{
 		WindowsStateMachine windows;
@@ -74,8 +71,6 @@ public class DesktopApp : MonoBehaviour
         windows.SetListOfWindows(listOfWindows);
 	    windows.SetMiniIcon(newMiniIcon);
 	    windows.SetApp(this);
-
-		Vector3 correctSize;
 
 		if (isCanvas)
 		{
@@ -151,8 +146,19 @@ public class DesktopApp : MonoBehaviour
 
         button.colors = buttonColors;
 
-        button.onClick.AddListener(Minimize);
+        button.onClick.AddListener(AppControl);
     }
+	public void AppControl()
+	{
+		if (!isOpen)
+		{
+			Minimize();
+		} 
+		else
+		{
+			PutWindowInFront();
+		}
+	}
     private void PutWindowInFront()
     {
         listOfWindows.MoveObjectInFront(app);
@@ -166,7 +172,7 @@ public class DesktopApp : MonoBehaviour
 		else
 		{
 			PutWindowInFront();
-			StartCoroutine(ScaleWindows(Vector3.one));
+			StartCoroutine(ScaleWindows(correctSize));
 		}
 				
 		isOpen = !isOpen;

@@ -41,7 +41,7 @@ public class WindowsDragging : BaseState<WindowsStateMachine.WindowState>
 
     public override void ExitState()
     {
-	    Debug.Log("Exit Drag State");
+	    
     }
 
     public override WindowsStateMachine.WindowState GetNextState()
