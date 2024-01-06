@@ -430,8 +430,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1815193595}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &169826739
 AudioSource:
@@ -1029,7 +1029,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &540855245
 PrefabInstance:
@@ -1176,6 +1176,10 @@ PrefabInstance:
       propertyPath: taskBar
       value: 
       objectReference: {fileID: 1431679556}
+    - target: {fileID: 546971092680054425, guid: 6bd326049d923be49b13a1449e3b6952, type: 3}
+      propertyPath: isCanvas
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 546971092680054425, guid: 6bd326049d923be49b13a1449e3b6952, type: 3}
       propertyPath: scaleSpeed
       value: 5
@@ -2300,7 +2304,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1573136737}
-  - component: {fileID: 1573136738}
   m_Layer: 0
   m_Name: ----- DESKTOP -----
   m_TagString: Untagged
@@ -2317,7 +2320,7 @@ Transform:
   m_GameObject: {fileID: 1573136736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2019872728}
@@ -2325,18 +2328,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1573136738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573136736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3b16083f83aff347b9b84cb58c02b4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1638277707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,11 +2588,15 @@ PrefabInstance:
     - target: {fileID: 546971092680054425, guid: 6bd326049d923be49b13a1449e3b6952, type: 3}
       propertyPath: node
       value: 
-      objectReference: {fileID: 11400000, guid: 459a104322cf5dd4a9cb42ad26cac1f3, type: 2}
+      objectReference: {fileID: 11400000, guid: a342904f50710364292175a4a41ade99, type: 2}
     - target: {fileID: 546971092680054425, guid: 6bd326049d923be49b13a1449e3b6952, type: 3}
       propertyPath: taskBar
       value: 
       objectReference: {fileID: 1431679556}
+    - target: {fileID: 546971092680054425, guid: 6bd326049d923be49b13a1449e3b6952, type: 3}
+      propertyPath: isCanvas
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 546971092680054425, guid: 6bd326049d923be49b13a1449e3b6952, type: 3}
       propertyPath: scaleSpeed
       value: 5
@@ -2902,7 +2897,6 @@ Transform:
   - {fileID: 1526827909}
   - {fileID: 1670929199}
   - {fileID: 1846114166}
-  - {fileID: 169826738}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

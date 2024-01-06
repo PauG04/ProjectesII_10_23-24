@@ -29,10 +29,10 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
     #endregion
     
     #region WindowsControl Adjustements
-	private Vector2 _closeAdjustement = new Vector2(0.0225f, 0.02f);
-	private Vector2 _minimizeAdjustement = new Vector2(0.0625f, 0.02f);
-	private Vector2 _newClosePosition;
-	private Vector2 _newMinimizePosition;
+	private Vector3 _closeAdjustement = new Vector3(0.0225f, 0.02f, -0.01f);
+	private Vector3 _minimizeAdjustement = new Vector3(0.0625f, 0.02f, -0.01f);
+	private Vector3 _newClosePosition;
+	private Vector3 _newMinimizePosition;
     #endregion
 
     private SpriteRenderer _spriteRenderer;
@@ -161,14 +161,16 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
     }
 	private void AdjustChildPositions()
 	{
-		_newClosePosition = new Vector2(
+		_newClosePosition = new Vector3(
 			_spriteRenderer.bounds.max.x - _closeAdjustement.x, 
-			_spriteRenderer.bounds.max.y - _closeAdjustement.y
+			_spriteRenderer.bounds.max.y - _closeAdjustement.y,
+			_closeAdjustement.z
 		);
 		
-		_newMinimizePosition = new Vector2(
+		_newMinimizePosition = new Vector3(
 			_spriteRenderer.bounds.max.x - _minimizeAdjustement.x, 
-			_spriteRenderer.bounds.max.y - _minimizeAdjustement.y
+			_spriteRenderer.bounds.max.y - _minimizeAdjustement.y,
+			_minimizeAdjustement.z
 		);
 
 		_close.transform.position = _newClosePosition;
