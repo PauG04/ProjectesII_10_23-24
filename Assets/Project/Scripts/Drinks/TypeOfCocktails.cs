@@ -12,6 +12,13 @@ public class TypeOfCocktails : ScriptableObject
 		public TypeOfDrinks.TypeOfDrink type;
 		public int quantity;
 	}
+
+    public enum StateOfCocktail
+    {
+        Idle,
+        Shaked,
+        Mixed
+    }
 	
     public enum TypeOfCocktail
     {
@@ -21,13 +28,14 @@ public class TypeOfCocktails : ScriptableObject
         PipiStrate,
         MoszkowskiFlip,
         LobsterCrami,
-        BluLeibel,
+        PinkLeibel,
         Tiefti,
         Razz,
         Invade,
-        Añil
+        DiscoN
     }
 
+    public StateOfCocktail stateOfCocktail;
     public TypeOfCocktail typeOfCocktail;
 	public List<DrinkQuantity> typeOfDrinksNeeded;
     public float price;
