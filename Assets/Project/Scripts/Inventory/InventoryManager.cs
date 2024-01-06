@@ -7,11 +7,13 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
     private Dictionary<Item, int> items;
+    private bool listItems;
 
     private void Awake()
     {
         instance = this;
         items = new Dictionary<Item, int>();
+        listItems = false;
     }
 
     public Dictionary<Item, int> GetItems()
@@ -29,6 +31,8 @@ public class InventoryManager : MonoBehaviour
         {
             items.Add(item, 1);
         }
+
+        listItems = true;
     }
 
     public void UseItem(Item item)
@@ -41,5 +45,17 @@ public class InventoryManager : MonoBehaviour
                 items.Remove(item);
             }
         }
+
+        listItems = true;
+    }
+
+    public bool GetListItems()
+    {
+        return listItems;
+    }
+
+    public void SetListItems(bool value)
+    {
+        listItems = value;
     }
 }

@@ -17,6 +17,8 @@ public class SetObjects : MonoBehaviour
 
     public void ListItems()
     {
+        Debug.Log("AAAAAAA");
+
         foreach (RectTransform item in itemContent)
         {
 	        Destroy(item.gameObject);
@@ -28,11 +30,16 @@ public class SetObjects : MonoBehaviour
             obj.transform.GetChild(0).GetComponent<Image>().sprite = item.Key.icon;
             obj.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.Key.itemName + "\nx" + item.Value;
         }
+
+        InventoryManager.instance.SetListItems(false);
     }
 
     private void Update()
     {
-	    //ListItems();
+	    if(InventoryManager.instance.GetListItems())
+        {
+            ListItems();
+        }
     }
 
 }
