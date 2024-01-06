@@ -1,0 +1,296 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6857762664382232647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 4b1f5d2a-009c-49be-9dbf-eb9cba440d3b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Something elegant
+  children:
+  - 1fcb3c3c-e0c2-49ca-9fe0-3870b239006e
+  - d130716f-871c-4654-ae3d-9e9d186a1c78
+  rect:
+    serializedVersion: 2
+    x: 1079
+    y: 270
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-5884821869331768684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: a0728f98-64dc-4701-8636-e1592fbbb836
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Something sweet
+  children:
+  - d130716f-871c-4654-ae3d-9e9d186a1c78
+  - 1fcb3c3c-e0c2-49ca-9fe0-3870b239006e
+  rect:
+    serializedVersion: 2
+    x: 1079
+    y: 159
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-5827808497583090626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 106665c2-1fba-4785-bb26-28381681c8e7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Something sour
+  children:
+  - 1fcb3c3c-e0c2-49ca-9fe0-3870b239006e
+  - d130716f-871c-4654-ae3d-9e9d186a1c78
+  rect:
+    serializedVersion: 2
+    x: 1084
+    y: 19
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4944220267740556185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 45aa0d71-0ba1-4c81-a6b7-92764c1d64f8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Can you serve me a cocktail?
+  children:
+  - 39392f65-6e19-4345-9b96-585e3462b29d
+  - 129f1502-266a-409c-bf98-239ac70e8b3b
+  rect:
+    serializedVersion: 2
+    x: 314
+    y: 204
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-765535962589046990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 39392f65-6e19-4345-9b96-585e3462b29d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Of course, what do you want?
+  children:
+  - 106665c2-1fba-4785-bb26-28381681c8e7
+  - a0728f98-64dc-4701-8636-e1592fbbb836
+  - 4b1f5d2a-009c-49be-9dbf-eb9cba440d3b
+  - d95ee954-725a-4409-91a1-8c30502c2f3f
+  rect:
+    serializedVersion: 2
+    x: 594
+    y: 105
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77056c9850a05b846afbf1ab604035bd, type: 3}
+  m_Name: MainDialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 8327638106507580674}
+  - {fileID: -4944220267740556185}
+  - {fileID: -765535962589046990}
+  - {fileID: 826290549452390270}
+  - {fileID: -5827808497583090626}
+  - {fileID: 265282610227660603}
+  - {fileID: 7359728757595331310}
+  - {fileID: -5884821869331768684}
+  - {fileID: -6857762664382232647}
+  - {fileID: 6728980378326531268}
+  - {fileID: 7707511664804575534}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &265282610227660603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 1fcb3c3c-e0c2-49ca-9fe0-3870b239006e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Holy, this is delicious
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1432
+    y: 149
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &826290549452390270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 129f1502-266a-409c-bf98-239ac70e8b3b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Get out from my fucking bar
+  children:
+  - b73c9fbc-e705-40c5-a0c0-1918278bc587
+  rect:
+    serializedVersion: 2
+    x: 540
+    y: 375
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6728980378326531268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: d95ee954-725a-4409-91a1-8c30502c2f3f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Something exotic
+  children:
+  - 1fcb3c3c-e0c2-49ca-9fe0-3870b239006e
+  - d130716f-871c-4654-ae3d-9e9d186a1c78
+  rect:
+    serializedVersion: 2
+    x: 1086
+    y: 397
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7359728757595331310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: d130716f-871c-4654-ae3d-9e9d186a1c78
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Fuck, I gonna puke
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1442
+    y: 305
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7707511664804575534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: b73c9fbc-e705-40c5-a0c0-1918278bc587
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Fuck off
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 753
+    y: 374
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8327638106507580674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 9eb8b76b-d131-4a57-8d20-55480cb83229
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hey bro!!!
+  children:
+  - 45aa0d71-0ba1-4c81-a6b7-92764c1d64f8
+  rect:
+    serializedVersion: 2
+    x: 67
+    y: 202
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
