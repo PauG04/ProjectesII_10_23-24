@@ -8,8 +8,12 @@ public class DesktopApp : MonoBehaviour
 {
     [Header("Windows Setup")]
     [SerializeField] private GameObject windowsGroupManager;
-    [SerializeField] private GameObject windowsPrefab;
-    [SerializeField] private WindowNode node;
+	[SerializeField] private GameObject windowsPrefab;
+	[SerializeField] private WindowNode node;
+    
+	[Header("Windows Setup Canvas")]
+	[SerializeField] private GameObject windowsPrefabCanvas;
+	[SerializeField] private bool isCanvas;
 
     [Header("Animation Windows Speed")]
     [SerializeField] private float scaleSpeed = 3f;
@@ -25,6 +29,8 @@ public class DesktopApp : MonoBehaviour
     
 	private GameObject newMiniIcon;
     
+	private Vector3 correctSize;
+    
     private void Awake()
     {
 	    windowsGroupManager = GameObject.Find("WindowsGroup");
@@ -35,41 +41,56 @@ public class DesktopApp : MonoBehaviour
         OpenApp();
     }
     public void OpenApp()
-    {
-        if (!isOpen)
-        {
-            if (!isCreated)
-            {
-	            isOpen = true;
+	{
+		if (!isCreated)
+		{
+			isOpen = true;
 
-            	CreateMiniIcons();
-                CreateWindows();
-            }
-        } 
-        else
-        {
-            PutWindowInFront();
-        }
-    }
+			CreateMiniIcons();
+			CreateWindows();
+		}
+		AppControl();
+	}
+    
     private void CreateWindows()
-    {
-        WindowsStateMachine windows = windowsPrefab.GetComponent<WindowsStateMachine>();
+	{
+		WindowsStateMachine windows;
+		
+		if (isCanvas)
+		{
+			windows = windowsPrefabCanvas.GetComponent<WindowsStateMachine>();
+		}
+		else 
+		{
+			windows = windowsPrefab.GetComponent<WindowsStateMachine>();
+		}
         listOfWindows = windowsGroupManager.GetComponent<ListOfWindows>();
 
+		windows.SetIsCanvas(isCanvas);
         windows.SetNode(node);
         windows.SetListOfWindows(listOfWindows);
 	    windows.SetMiniIcon(newMiniIcon);
 	    windows.SetApp(this);
 
-        app = Instantiate(windowsPrefab, windowsGroupManager.transform);
-        app.transform.localScale = Vector3.zero;
+		if (isCanvas)
+		{
+			app = Instantiate(windowsPrefabCanvas, windowsGroupManager.transform);
+			correctSize = windowsPrefabCanvas.GetComponent<RectTransform>().localScale;
+			app.GetComponent<RectTransform>().localScale = Vector3.zero;
+		}
+		else 
+		{
+			app = Instantiate(windowsPrefab, windowsGroupManager.transform);
+			correctSize = app.transform.localScale;
+			app.transform.localScale = Vector3.zero;
+		}
 
         listOfWindows.AddWindowInList(app);
 
         app.GetComponent<WindowsStateMachine>().ChangeState(WindowsStateMachine.WindowState.Creating);
 
-	    StartCoroutine(ScaleWindows(Vector3.one));
-
+		StartCoroutine(ScaleWindows(correctSize));
+	
         isCreated = true;
     }
     private void CreateMiniIcons()
@@ -125,8 +146,19 @@ public class DesktopApp : MonoBehaviour
 
         button.colors = buttonColors;
 
-        button.onClick.AddListener(Minimize);
+        button.onClick.AddListener(AppControl);
     }
+	public void AppControl()
+	{
+		if (!isOpen)
+		{
+			Minimize();
+		} 
+		else
+		{
+			PutWindowInFront();
+		}
+	}
     private void PutWindowInFront()
     {
         listOfWindows.MoveObjectInFront(app);
@@ -140,7 +172,7 @@ public class DesktopApp : MonoBehaviour
 		else
 		{
 			PutWindowInFront();
-			StartCoroutine(ScaleWindows(Vector3.one));
+			StartCoroutine(ScaleWindows(correctSize));
 		}
 				
 		isOpen = !isOpen;

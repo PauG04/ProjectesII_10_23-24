@@ -28,6 +28,11 @@ public class ListOfWindows : MonoBehaviour
 
         for (int i = 0; i < windows.Count; i++)
         {
+        	if(windows[i].GetComponent<Canvas>() != null)
+        	{
+        		windows[i].GetComponent<Canvas>().sortingOrder = windows.Count - i - 1;
+        	}
+        	
             SortingGroup sortingGroup = windows[i].GetComponent<SortingGroup>();
 
             if (sortingGroup != null)
@@ -36,7 +41,7 @@ public class ListOfWindows : MonoBehaviour
             }
 
             Vector3 newPosition = windows[i].transform.position;
-            newPosition.z = i;
+	        newPosition.z = i;
             windows[i].transform.position = newPosition;
         }
     }

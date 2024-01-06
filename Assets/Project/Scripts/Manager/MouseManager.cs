@@ -8,7 +8,10 @@ public class MouseManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            AudioManager.instance.Play("click");
+	    if (Input.GetMouseButtonDown(0))
+	    {
+	    	InventoryManager.instance.AddItem(newItem);
+		    AudioManager.instance.Play("click");
+	    }
     }
 }

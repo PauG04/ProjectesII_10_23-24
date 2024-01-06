@@ -36,10 +36,13 @@ public class WindowsIdle : BaseState<WindowsStateMachine.WindowState>
     }
     public override void OnMouseDown()
 	{
+		/*
 		if (!_isCanvas)
 		{
 			_state = WindowsStateMachine.WindowState.Dragging;
 		}
+		*/
+		_state = WindowsStateMachine.WindowState.Dragging;
     }
     public override void OnMouseDrag()
     {

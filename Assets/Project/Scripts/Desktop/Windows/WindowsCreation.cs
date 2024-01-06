@@ -29,14 +29,14 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
     #endregion
     
     #region WindowsControl Adjustements
-	private Vector2 _closeAdjustement = new Vector2(0.0225f, 0.02f);
-	private Vector2 _minimizeAdjustement = new Vector2(0.0625f, 0.02f);
-	private Vector2 _newClosePosition;
-	private Vector2 _newMinimizePosition;
+	private Vector3 _closeAdjustement = new Vector3(0.0225f, 0.02f, -0.01f);
+	private Vector3 _minimizeAdjustement = new Vector3(0.0625f, 0.02f, -0.01f);
+	private Vector3 _newClosePosition;
+	private Vector3 _newMinimizePosition;
     #endregion
 
     private SpriteRenderer _spriteRenderer;
-	private PolygonCollider2D _collider;
+	private BoxCollider2D _collider;
 	private Image _imageRenderer;
 
 	public WindowsCreation(
@@ -63,8 +63,9 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 	    if (!_isCanvas)
 	    {
 		    _spriteRenderer = _windowsStateMachine.gameObject.GetComponent<SpriteRenderer>();
-		    _collider = _windowsStateMachine.gameObject.GetComponent<PolygonCollider2D>();
 	    }
+	    
+	    _collider = _windowsStateMachine.gameObject.GetComponent<BoxCollider2D>();
 	    _isCreated = false;
     }
 
@@ -160,14 +161,16 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
     }
 	private void AdjustChildPositions()
 	{
-		_newClosePosition = new Vector2(
+		_newClosePosition = new Vector3(
 			_spriteRenderer.bounds.max.x - _closeAdjustement.x, 
-			_spriteRenderer.bounds.max.y - _closeAdjustement.y
+			_spriteRenderer.bounds.max.y - _closeAdjustement.y,
+			_closeAdjustement.z
 		);
 		
-		_newMinimizePosition = new Vector2(
+		_newMinimizePosition = new Vector3(
 			_spriteRenderer.bounds.max.x - _minimizeAdjustement.x, 
-			_spriteRenderer.bounds.max.y - _minimizeAdjustement.y
+			_spriteRenderer.bounds.max.y - _minimizeAdjustement.y,
+			_minimizeAdjustement.z
 		);
 
 		_close.transform.position = _newClosePosition;
@@ -207,6 +210,9 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 			rectTransform.sizeDelta.y + _offsetHeightCanvas
 		);
 
+		_collider.offset = new Vector2(newWindowsSizeCanvas.x / 2f, _collider.offset.y);
+		_collider.size = new Vector2(newWindowsSizeCanvas.x, _collider.size.y);
+		
 		_windowsStateMachine.GetComponent<RectTransform>().sizeDelta = newWindowsSizeCanvas;
 	}
 	

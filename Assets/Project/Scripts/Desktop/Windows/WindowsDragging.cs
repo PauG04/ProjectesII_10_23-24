@@ -24,9 +24,7 @@ public class WindowsDragging : BaseState<WindowsStateMachine.WindowState>
     }
 
     public override void EnterState()
-	{
-		Debug.Log("Enter Drag State");
-		
+	{		
 		if (_isCanvas)
 		{
 			_canvas = _windowsStateMachine.GetComponent<Canvas>();
@@ -43,7 +41,7 @@ public class WindowsDragging : BaseState<WindowsStateMachine.WindowState>
 
     public override void ExitState()
     {
-	    Debug.Log("Exit Drag State");
+	    
     }
 
     public override WindowsStateMachine.WindowState GetNextState()
@@ -67,10 +65,7 @@ public class WindowsDragging : BaseState<WindowsStateMachine.WindowState>
     {
 	    _listOfWindows.MoveObjectInFront(_windowsStateMachine.gameObject);
         
-	    if(!_isCanvas)
-	    {
-		    DragWindows();
-	    }
+	    DragWindows();
     }
     
 	private void DragWindows()
