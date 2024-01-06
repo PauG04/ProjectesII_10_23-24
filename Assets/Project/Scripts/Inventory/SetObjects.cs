@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,14 +12,14 @@ public class SetObjects : MonoBehaviour
 
     private void Awake()
     {
-        //ListItems();
+        ListItems();
     }
 
     public void ListItems()
     {
         foreach (RectTransform item in itemContent)
         {
-            Destroy(item.gameObject);
+	        Destroy(item.gameObject);
         }
 
         foreach (KeyValuePair<Item, int> item in InventoryManager.instance.GetItems())
@@ -32,7 +32,7 @@ public class SetObjects : MonoBehaviour
 
     private void Update()
     {
-        ListItems();
+	    //ListItems();
     }
 
 }
