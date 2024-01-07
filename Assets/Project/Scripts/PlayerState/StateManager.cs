@@ -7,11 +7,13 @@ public class StateManager : MonoBehaviour
     [SerializeField] GameManager gameManager;
 
     private void Awake()
-    {
+	{
+		/*
         gameManager.GetStates().Add("health", 10);
         gameManager.GetStates().Add("stress", 1);
         gameManager.GetStates().Add("fatigue", 1);
-    }
+		*/    
+		}
 
     public void AddToState(string name, float value)
     {
