@@ -121,9 +121,10 @@ public class ShakerController : MonoBehaviour
     }
     private void OnMouseUp()
 	{
+		transform.localEulerAngles = Vector3.zero;
 		draggingClosedShaker = false;
 		draggingOpenShaker = false;
-        isPressing = false;
+		isPressing = false;
 	}
 	#endregion
 	#region Dragging Functions
@@ -309,6 +310,10 @@ public class ShakerController : MonoBehaviour
 	public float GetProgess()
 	{
 		return progress;
+	}
+	public void SetProgress(float progress)
+	{
+		this.progress = progress;
 	}
 	public float GetMaxProgress()
 	{ 

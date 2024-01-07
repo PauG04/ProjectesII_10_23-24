@@ -114,9 +114,9 @@ public class LiquidManager : MonoBehaviour
             if(currentColor != collision.GetComponent<LiquidParticle>().color)
             {        
                 currentSlider = slider.CreateCurrentSlider(nextSliderPositon);
-                
                 currentColor = collision.GetComponent<LiquidParticle>().color;
             }
+            
             currentSlider.GetComponentInChildren<SpriteRenderer>().color = collision.GetComponent<LiquidParticle>().color;
             nextSliderPositon = currentSlider.transform.localPosition.y + currentSlider.GetComponentInChildren<SpriteRenderer>().bounds.size.y/1.5f;
             currentSlider.transform.localScale += new Vector3(0, (maxBar / maxCapacity), 0);
@@ -148,7 +148,12 @@ public class LiquidManager : MonoBehaviour
     public void ResetDrink()
     {
         typeOfDrinkInside.Clear();
-        numberOfParticles = 0;
+	    DestroyChildrens(slider.transform);
+	    numberOfParticles = 0;
+	    currentSlider = null;
+	    nextSliderPositon = 0;
+	    currentColor = Color.magenta;
+	    drinkState = DrinkState.Idle;
     }
     public static Color CombineColors(params Color[] aColors)
     {
@@ -225,4 +230,11 @@ public class LiquidManager : MonoBehaviour
     {
         drinkState = _drinkState;
     }
+	private void DestroyChildrens(Transform root)
+	{
+		foreach (Transform item in root)
+		{
+			Destroy(item.gameObject);
+		}
+	}
 }
