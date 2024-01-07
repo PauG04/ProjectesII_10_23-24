@@ -61,7 +61,7 @@ public class ResultManager : MonoBehaviour
 			numberOfParticles++;
 		}
 	}
-	private TypeOfCocktails.TypeOfCocktail GetMostPopularCocktail()
+	public TypeOfCocktails.TypeOfCocktail GetMostPopularCocktail()
 	{
 		if (cocktail.Values.Count() == 0)
 		{
