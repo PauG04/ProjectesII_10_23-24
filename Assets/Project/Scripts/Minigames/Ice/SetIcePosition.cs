@@ -5,7 +5,12 @@ using UnityEngine;
 public class SetIcePosition : MonoBehaviour
 {
     [SerializeField] private Vector3 position;
+    [SerializeField] private Item blockIce;
 
+    private void Start()
+    {
+        InventoryManager.instance.UseItem(blockIce);
+    }
     private void Update()
     {
         if(transform.localPosition != position)

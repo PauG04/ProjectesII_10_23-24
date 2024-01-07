@@ -6,6 +6,7 @@ public class StartCounter : MonoBehaviour
 {
     [SerializeField] private GameObject[] mesage;
     [SerializeField] private float time;
+    [SerializeField] private Item bagOfLemon;
 
     private Vector3 shakeScale;
     private bool showMesage;
@@ -40,6 +41,7 @@ public class StartCounter : MonoBehaviour
         {
             startShowMesage = true;
             showMesage = true;
+            InventoryManager.instance.UseItem(bagOfLemon);
         }
     }
 

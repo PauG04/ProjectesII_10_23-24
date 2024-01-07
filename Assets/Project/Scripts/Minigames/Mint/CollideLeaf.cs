@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CollideLeaf : MonoBehaviour
 {
+    [SerializeField] private Item mint;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Leaf"))
         {
-            Debug.Log("Leaf Collided With Inventory");
+            InventoryManager.instance.AddItem(mint);
             Destroy(collision.gameObject);
         }
     }
