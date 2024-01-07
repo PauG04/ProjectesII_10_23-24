@@ -55,6 +55,7 @@ public class BottleController : MonoBehaviour
     private Vector3 lastPosition;
     private Vector3 lastRotation;
     private float wobbleAmountToAddX;
+    private Vector3 initPosition;
 
     private float liquidTime;
     #endregion
@@ -70,6 +71,7 @@ public class BottleController : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         rigidbody2D.isKinematic = true;
         targetJoint2D.enabled = false;
+        initPosition = transform.localPosition;
     }
     private void Update()
     {
@@ -86,6 +88,7 @@ public class BottleController : MonoBehaviour
         if(!isDragging)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.localPosition = initPosition;
         }
         if (!isDragging && !isRotating)
         {
