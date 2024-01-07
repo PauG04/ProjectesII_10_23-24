@@ -19,6 +19,10 @@ namespace Dialogue
 		private AIConversant currentConversant = null;
 		private bool isChoosing = false;
 		private bool isStartingNewConversant = false;
+
+		/// TODO:
+		/// 	find a better way to give the child to other objects instead of a numeric one
+		private int currentChildNumber;
 		
 		public event Action onConversationUpdated;
 				
@@ -37,7 +41,10 @@ namespace Dialogue
 
 			TriggerEnterAction();
 			isStartingNewConversant = true;
-			onConversationUpdated();
+			if (onConversationUpdated != null)
+			{
+				onConversationUpdated();
+			}
 			isStartingNewConversant = false;
 		}
 		public void Quit()
@@ -95,15 +102,15 @@ namespace Dialogue
 			}
 			
 			DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
-			int randomIndex = UnityEngine.Random.Range(0, children.Count());
+			currentChildNumber = UnityEngine.Random.Range(0, children.Count());
 			TriggerExitAction();
-			currentNode = children[randomIndex];
+			currentNode = children[currentChildNumber];
 			TriggerEnterAction();
 			onConversationUpdated();
 		}
 		public bool HasNext()
 		{
-			return currentDialogue.GetAllChildren(currentNode).Count() > 0;
+			return currentDialogue.GetAllChildren(currentNode).Count() > 0 && !currentConversant.stopDialogue;
 		}
 		public bool IsNewConversant()
 		{
@@ -133,6 +140,11 @@ namespace Dialogue
 			{
 				triggers.Trigger(action);
 			}
+		}
+		
+		public int GetChildNumber()
+		{
+			return currentChildNumber;
 		}
 	}
 

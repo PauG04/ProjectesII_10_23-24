@@ -48,8 +48,6 @@ namespace UI
 			DestroyChildrens(bubbleRoot);
 			DestroyChildrens(choiceRoot);
 			nextButton.gameObject.SetActive(false);
-			//UpdateChat();
-		    //UpdateUI();
 		}
 		
 		private void Update()
@@ -111,7 +109,6 @@ namespace UI
 				});
 			}
 		}
-		
 		private void PlayerBubble(string text)
 		{
 			playerText.text = text;
@@ -126,5 +123,9 @@ namespace UI
 			}
 		}
 
+		protected void OnDestroy()
+		{
+			playerConversant.onConversationUpdated -= UpdateChat;
+		}
 	}
 }

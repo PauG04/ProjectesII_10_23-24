@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -16,6 +16,9 @@ public class DragGlass : MonoBehaviour
     private Vector3 startScale;
     private Transform position;
     private IsEmpty isEmpty;
+	
+	[SerializeField] private GameObject decorationCollider;
+
 
     private void Start()
     {
@@ -42,7 +45,7 @@ public class DragGlass : MonoBehaviour
         isEmpty = collision.GetComponent<IsEmpty>();
         if (collision.CompareTag("Glass") && isDragging == true && isEmpty.GetIsEmpty())
         {
-            transform.localScale = Vector3.Lerp(startScale, transform.localScale * 7, Time.deltaTime*20);
+	        transform.localScale = Vector3.Lerp(startScale, transform.localScale * 3, Time.deltaTime*20);
             isLocated= true;
             position = collision.transform;
         }
@@ -58,15 +61,17 @@ public class DragGlass : MonoBehaviour
     }
 
     private void OnMouseDown()
-    {
-         isDragging = true;
-         createGlass.CreateNewGlass();
-         transform.SetParent(null);
-         startScale = transform.localScale;     
+	{
+		decorationCollider.SetActive(false);
+        isDragging = true;
+        createGlass.CreateNewGlass();
+        transform.SetParent(null);
+        startScale = transform.localScale;     
     }
 
     private void OnMouseUp()
-    {
+	{
+		decorationCollider.SetActive(true);
         if(!isLocated)
         {
             isDragging = false;
@@ -78,7 +83,7 @@ public class DragGlass : MonoBehaviour
             transform.position = position.transform.position;
             isEmpty = GetComponentInParent<IsEmpty>();
             isDragging = false;
-            isEmpty.SetIsEmpty(false);
+	        //isEmpty.SetIsEmpty(false);
             isEmpty.SetGlass(this.gameObject);
             shader.GetComponent<Renderer>().material.SetFloat("_FixerFloat", startFloat);
            
@@ -86,7 +91,7 @@ public class DragGlass : MonoBehaviour
             {
                 activeObject[i].SetActive(true);
             }
-            this.enabled = false;        
+	        //this.enabled = false;        
         }
 
     }

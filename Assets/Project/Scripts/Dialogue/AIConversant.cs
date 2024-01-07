@@ -11,9 +11,12 @@ namespace Dialogue
 		[SerializeField] private string conversantName;
 		[SerializeField] private PlayerConversant playerConversant;
 		
+		[HideInInspector] public bool stopDialogue;
+		
 		protected void Awake()
 		{
 			playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
+			stopDialogue = false;
 		}	
 	
  		public CursorType GetCursorType()
@@ -26,13 +29,25 @@ namespace Dialogue
 			{
 				return;
 			}
-
+			
+			stopDialogue = false;
 			playerConversant.StartDialogue(this, dialogue);
 		}
 		private void OnMouseDown()
 		{
 			HandleDialogue(playerConversant);
 		}
+		
+		public void StopDialogue()
+		{
+			stopDialogue = true;
+		}
+		
+		public void ContinueDialogue()
+		{
+			stopDialogue = false;
+		}
+		
 		public string GetName()
 		{
 			return conversantName;

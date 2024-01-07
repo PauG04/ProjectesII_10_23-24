@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2798084087025034275}
   - component: {fileID: 4713622095521788504}
   - component: {fileID: 707887735804938408}
+  - component: {fileID: 5447203844211761261}
   m_Layer: 0
   m_Name: ClientSprite
   m_TagString: Untagged
@@ -214,6 +215,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &5447203844211761261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3758263627819736753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe8c26fbbd73e04fbb8279ed8ecfd30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerConversant: {fileID: 0}
+  typeOfDrinkList: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a000000
+  drinkThatWants: 0
+  drinkDropped: 0
+  badDrink: {fileID: 2805651484410593760}
+  goodDrink: {fileID: 5193058833850684327}
+  idleSprite: {fileID: 21300000, guid: eaa090b6c7f6696428c1b323ea1e978a, type: 3}
+  blinkSprite: {fileID: 21300000, guid: a4b34334f542bb64a99ce5082e4e632d, type: 3}
+  badDrinkSprite: {fileID: 21300000, guid: 37edf3fd6a2f59444a5e1acb15ec8f2a, type: 3}
+  goodDrinkSprite: {fileID: 21300000, guid: 87072f92077694d47add8791916b6a3f, type: 3}
+  playOnce: 0
 --- !u!1 &4187550443736334605
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +250,8 @@ GameObject:
   - component: {fileID: 501898725712303233}
   - component: {fileID: 1921393954336648888}
   - component: {fileID: 2324124684892810684}
+  - component: {fileID: 2437808796303656190}
+  - component: {fileID: 4001951865756506172}
   m_Layer: 0
   m_Name: BubbleChatLogo
   m_TagString: Untagged
@@ -357,9 +383,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01e9bb7b45eb614db8ae0a18aaf22af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 11400000, guid: 11eed0fc63391fa49841f86ee2a276ae, type: 2}
   conversantName: Amanda
   playerConversant: {fileID: 0}
+  stopDialogue: 0
+--- !u!114 &2437808796303656190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4187550443736334605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa726dbedb141047a88080f72582d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: stopDialogue
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2324124684892810684}
+        m_TargetAssemblyTypeName: Dialogue.AIConversant, Assembly-CSharp
+        m_MethodName: StopDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5447203844211761261}
+        m_TargetAssemblyTypeName: Client, Assembly-CSharp
+        m_MethodName: ChoseDrink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4001951865756506172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4187550443736334605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa726dbedb141047a88080f72582d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: drinkServed
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3758263627819736753}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2324124684892810684}
+        m_TargetAssemblyTypeName: Dialogue.AIConversant, Assembly-CSharp
+        m_MethodName: ContinueDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5193058833850684327
 GameObject:
   m_ObjectHideFlags: 0
