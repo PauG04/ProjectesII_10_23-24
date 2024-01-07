@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -124,6 +125,7 @@ public class BottleController : MonoBehaviour
 
         isDragging = false;
         targetJoint2D.enabled = false;
+        //isRotating = false;
     }
     private void HoldingBottle()
     {
@@ -153,13 +155,14 @@ public class BottleController : MonoBehaviour
             
             shakerPosition = Vector2.zero;
             isRotating = false;
-            
+
         }
         if (transform.up.y < 0)
         {
             float spawnRateLiquid = (transform.up.y * spawnRate) / -1;
             DropLiquid(spawnRateLiquid);
         }
+        
     }
     private void DropLiquid(float spawnRateLiquid)
     {
@@ -247,5 +250,15 @@ public class BottleController : MonoBehaviour
     public Color GetColor()
     {
         return liquidColor;
+    }
+
+    public bool IsDragging()
+    {
+        return isDragging;
+    }
+
+    public bool IsRotation()
+    {
+        return isRotating;
     }
 }
