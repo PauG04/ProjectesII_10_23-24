@@ -17,8 +17,6 @@ public class SetObjects : MonoBehaviour
 
     public void ListItems()
     {
-        Debug.Log("AAAAAAA");
-
         foreach (RectTransform item in itemContent)
         {
 	        Destroy(item.gameObject);
