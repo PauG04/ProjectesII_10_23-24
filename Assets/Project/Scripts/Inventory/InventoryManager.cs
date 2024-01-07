@@ -5,13 +5,21 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager instance;
+    public static InventoryManager instance { get; private set; }
     private Dictionary<Item, int> items;
     private bool listItems;
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         items = new Dictionary<Item, int>();
         listItems = false;
     }
