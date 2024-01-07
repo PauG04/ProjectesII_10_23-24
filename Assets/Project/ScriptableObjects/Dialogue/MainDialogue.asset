@@ -23,8 +23,8 @@ MonoBehaviour:
     y: 941
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 
+  onEnterAction: stopDialogue
+  onExitAction: drinkServed
 --- !u!114 &-6857762664382232647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,11 +45,11 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1079
-    y: 270
+    y: 269
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 
+  onEnterAction: stopDialogue
+  onExitAction: drinkServed
 --- !u!114 &-5884821869331768684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,8 +73,8 @@ MonoBehaviour:
     y: 159
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 
+  onEnterAction: stopDialogue
+  onExitAction: drinkServed
 --- !u!114 &-5827808497583090626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,12 +94,12 @@ MonoBehaviour:
   - d130716f-871c-4654-ae3d-9e9d186a1c78
   rect:
     serializedVersion: 2
-    x: 1084
-    y: 19
+    x: 1078
+    y: 24
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 
+  onEnterAction: stopDialogue
+  onExitAction: drinkServed
 --- !u!114 &-4944220267740556185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,11 +115,11 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: Can you serve me a cocktail?
   children:
-  - 39392f65-6e19-4345-9b96-585e3462b29d
   - 129f1502-266a-409c-bf98-239ac70e8b3b
+  - 7917fd80-f43b-4d20-9b49-d2afb59ebd46
   rect:
     serializedVersion: 2
-    x: 314
+    x: 315
     y: 204
     width: 200
     height: 100
@@ -148,8 +148,8 @@ MonoBehaviour:
     y: 1055
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 
+  onEnterAction: stopDialogue
+  onExitAction: drinkServed
 --- !u!114 &-1652336432968824317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,42 +173,8 @@ MonoBehaviour:
     y: 627
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-765535962589046990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
-  m_Name: 39392f65-6e19-4345-9b96-585e3462b29d
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: Of course, what do you want?
-  children:
-  - 106665c2-1fba-4785-bb26-28381681c8e7
-  - a0728f98-64dc-4701-8636-e1592fbbb836
-  - 4b1f5d2a-009c-49be-9dbf-eb9cba440d3b
-  - d95ee954-725a-4409-91a1-8c30502c2f3f
-  - 31e6bfcd-a5ee-48ac-9b5d-cbfa65edafdf
-  - 8a362021-8d76-4af1-a4f5-5bb33058afbf
-  - 0e3081b4-7e17-46c9-9a3c-71b41f092855
-  - 125e8722-bfcd-429e-89c5-f48e9e9e048e
-  - cac19ded-81e3-462a-9bbb-cf8f9a95fd17
-  - c1794ae5-c997-41a6-af01-8617b65952ab
-  - 30ffaec8-0ea2-44c4-b3f6-aef70401f00c
-  rect:
-    serializedVersion: 2
-    x: 594
-    y: 103
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
+  onEnterAction: stopDialogue
+  onExitAction: drinkServed
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +190,6 @@ MonoBehaviour:
   nodes:
   - {fileID: 8327638106507580674}
   - {fileID: -4944220267740556185}
-  - {fileID: -765535962589046990}
   - {fileID: 826290549452390270}
   - {fileID: -5827808497583090626}
   - {fileID: 265282610227660603}
@@ -240,6 +205,7 @@ MonoBehaviour:
   - {fileID: -8552370974760141017}
   - {fileID: -4508052676167999560}
   - {fileID: 3830026907830263225}
+  - {fileID: 7828208269475762956}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &265282610227660603
 MonoBehaviour:
@@ -301,7 +267,7 @@ MonoBehaviour:
   m_Name: 31e6bfcd-a5ee-48ac-9b5d-cbfa65edafdf
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Something  bitter
+  text: Something bitter
   children:
   - 1fcb3c3c-e0c2-49ca-9fe0-3870b239006e
   - d130716f-871c-4654-ae3d-9e9d186a1c78
@@ -311,8 +277,8 @@ MonoBehaviour:
     y: 508
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 
+  onEnterAction: stopDialogue
+  onExitAction: drinkServed
 --- !u!114 &2380372130499291023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,8 +302,8 @@ MonoBehaviour:
     y: 833
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 
+  onEnterAction: stopDialogue
+  onExitAction: drinkServed
 --- !u!114 &3830026907830263225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,8 +327,8 @@ MonoBehaviour:
     y: 1166
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 
+  onEnterAction: stopDialogue
+  onExitAction: drinkServed
 --- !u!114 &5782355781515143067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,12 +348,12 @@ MonoBehaviour:
   - d130716f-871c-4654-ae3d-9e9d186a1c78
   rect:
     serializedVersion: 2
-    x: 1081
-    y: 730
+    x: 1082
+    y: 728
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 
+  onEnterAction: stopDialogue
+  onExitAction: drinkServed
 --- !u!114 &6728980378326531268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,11 +374,11 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1086
-    y: 397
+    y: 393
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 
+  onEnterAction: stopDialogue
+  onExitAction: drinkServed
 --- !u!114 &7359728757595331310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,6 +421,40 @@ MonoBehaviour:
     serializedVersion: 2
     x: 753
     y: 374
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7828208269475762956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 7917fd80-f43b-4d20-9b49-d2afb59ebd46
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Of course, what do you want?
+  children:
+  - 106665c2-1fba-4785-bb26-28381681c8e7
+  - a0728f98-64dc-4701-8636-e1592fbbb836
+  - 4b1f5d2a-009c-49be-9dbf-eb9cba440d3b
+  - d95ee954-725a-4409-91a1-8c30502c2f3f
+  - 31e6bfcd-a5ee-48ac-9b5d-cbfa65edafdf
+  - 8a362021-8d76-4af1-a4f5-5bb33058afbf
+  - 0e3081b4-7e17-46c9-9a3c-71b41f092855
+  - 125e8722-bfcd-429e-89c5-f48e9e9e048e
+  - cac19ded-81e3-462a-9bbb-cf8f9a95fd17
+  - c1794ae5-c997-41a6-af01-8617b65952ab
+  - 30ffaec8-0ea2-44c4-b3f6-aef70401f00c
+  rect:
+    serializedVersion: 2
+    x: 651
+    y: 99
     width: 200
     height: 100
   onEnterAction: 

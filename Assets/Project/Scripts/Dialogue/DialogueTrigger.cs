@@ -6,8 +6,8 @@ namespace Dialogue
 {
 	public class DialogueTrigger : MonoBehaviour
 	{
-		[SerializeField] string action;
-		[SerializeField] UnityEvent onTrigger;
+		[SerializeField] private string action;
+		[SerializeField] private UnityEvent onTrigger;
 		
 		public void Trigger(string actionToTrigger)
 		{

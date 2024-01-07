@@ -1035,15 +1035,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleRoot: {fileID: 8317752224478787120}
   prefabNameLabel: {fileID: 9154528221261005282, guid: 9eed0746516f76c43a262970cc195f0f, type: 3}
-  conversantName: {fileID: 2904384881965197874}
   prefabAibubble: {fileID: 7541714593199392942, guid: a0e36176c1ffbea4a9e444b6ec14432b, type: 3}
-  AIText: {fileID: 0}
   prefabPlayerbubble: {fileID: 7007809977914089220, guid: ebada3f05da4a3e4db349c5ad435c398, type: 3}
-  playerText: {fileID: 0}
   choiceRoot: {fileID: 7015240504252193458}
   choicePrefab: {fileID: 8972871094382157739, guid: dc14b2a460486e2499594413dae41f3d, type: 3}
   nextButton: {fileID: 4463842587211843398}
   quitButton: {fileID: 7688086311127264926}
+  stopDialogue: 0
 --- !u!1 &8020425935411838282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,6 +1515,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8317752224478787120}
     m_Modifications:
+    - target: {fileID: 2434444133582362521, guid: 9eed0746516f76c43a262970cc195f0f, type: 3}
+      propertyPath: m_text
+      value: Conversant Name
+      objectReference: {fileID: 0}
     - target: {fileID: 8698699177777856523, guid: 9eed0746516f76c43a262970cc195f0f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1610,17 +1612,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eed0746516f76c43a262970cc195f0f, type: 3}
---- !u!114 &2904384881965197874 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2434444133582362521, guid: 9eed0746516f76c43a262970cc195f0f, type: 3}
-  m_PrefabInstance: {fileID: 686395027055263147}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &8156419643206516128 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8698699177777856523, guid: 9eed0746516f76c43a262970cc195f0f, type: 3}
@@ -2091,6 +2082,10 @@ PrefabInstance:
     - target: {fileID: 7259577913144273074, guid: ebada3f05da4a3e4db349c5ad435c398, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411036673862565780, guid: ebada3f05da4a3e4db349c5ad435c398, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
