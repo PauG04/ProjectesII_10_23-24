@@ -43,13 +43,20 @@ public class DragGlass : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isEmpty = collision.GetComponent<IsEmpty>();
+	    isEmpty = collision.GetComponent<IsEmpty>();
+        
         if (collision.CompareTag("Glass") && isDragging == true && isEmpty.GetIsEmpty())
         {
 	        transform.localScale = Vector3.Lerp(startScale, transform.localScale * 3, Time.deltaTime*20);
             isLocated= true;
             position = collision.transform;
         }
+        
+	    if (collision.CompareTag("Client") && isDragging == true)
+	    {
+	    	collision.GetComponent<Client>().drinkDropped = result.GetMostPopularCocktail();
+	    	Destroy(this.gameObject);
+	    }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

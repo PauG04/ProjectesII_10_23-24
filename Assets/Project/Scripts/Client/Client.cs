@@ -145,7 +145,9 @@ public class Client : MonoBehaviour
 				spriteRenderer.sprite = idleSprite;
 				goodDrink.transform.SetParent(transform.parent);
 				goodDrink.SetActive(false);
-				playOnce = false;
+				playOnce = false;	
+				
+				AddPositiveStates();
 					
 				drinkDropped = TypeOfCocktails.TypeOfCocktail.Empty;
 				goodDrink.transform.localScale = Vector3.zero;
@@ -155,10 +157,15 @@ public class Client : MonoBehaviour
 		}
 	}
 
+	private void AddPositiveStates()
+	{
+		MoneyManager.instance.AddDayEarnings(10);
+		StateManager.instance.AddToState("Fatigue", 1);
+		StateManager.instance.AddToState("Stress", -1);
+	}
+
 	private void BadDrinkServed()
 	{
-		stateManager.AddToState("stress", 2);
-
 		if (playOnce)
 		{
 			if (playMadSound)
@@ -188,14 +195,22 @@ public class Client : MonoBehaviour
 				badDrink.SetActive(false);
 				playOnce = false;
 					
+				AddNegativeStates();
+					
 				drinkDropped = TypeOfCocktails.TypeOfCocktail.Empty;
 				badDrink.transform.localScale = Vector3.zero;
 				badDrink.transform.localPosition = Vector3.zero;
 				playMadSound = true;
+				
 			}
 		}
 	}
-
+	private void AddNegativeStates()
+	{
+		StateManager.instance.AddToState("Health", -1);
+		StateManager.instance.AddToState("Fatigue", 2);
+		StateManager.instance.AddToState("Stress", 2);
+	}
 	IEnumerator Blink()
 	{
 		yield return new WaitForSeconds(Random.Range(1, 5));
