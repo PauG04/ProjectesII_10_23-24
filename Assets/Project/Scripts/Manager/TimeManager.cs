@@ -1,27 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
+    public static TimeManager instance { get; private set; }
+
+    [SerializeField] GameObject endDayWindow;
+
+    private int days;
     private float seconds;
     private int minutes;
     private int hours;
 
     private bool timerStopped;
 
-    private TextMeshProUGUI timeText;
+    private TextMeshProUGUI timerText;
 
     private void Awake()
     {
-        seconds = 0.0f;
-        minutes = 0;
-        hours = 0;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-        timerStopped = false;
-
-        timeText = GetComponent<TextMeshProUGUI>();
+        InitTimeManager();
     }
 
     private void Update()
@@ -34,17 +43,39 @@ public class TimeManager : MonoBehaviour
 
     }
 
+    private void InitTimeManager()
+    {
+        days = 0;
+
+        seconds = 0.0f;
+        minutes = 0;
+        hours = 0;
+
+        timerStopped = true;
+
+        timerText = GetComponentInChildren<TextMeshProUGUI>();
+
+        StartDay();
+    }
+
     public void StartDay()
     {
         timerStopped = false;
+        hours = 10;
+        minutes = 0;
+        seconds = 0.0f;
+
+        days++;
     }
 
     public void EndDay()
     {
         timerStopped = true;
+        hours = 2;
+        minutes = 0;
+        seconds = 0.0f;
 
-
-
+        Instantiate(endDayWindow, transform);
         // Parar Timer
         // Crear/Abrir una ventana de Final del dia
         // La ventana tiene que tener: 
@@ -56,7 +87,7 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateTime()
     {
-        seconds += Time.deltaTime;
+        seconds += Time.deltaTime * 84;
 
         if (seconds >= 60.0f)
         {
@@ -79,7 +110,12 @@ public class TimeManager : MonoBehaviour
     }
     private void UpdateText()
     {
-        timeText.text = hours.ToString("00") + ":" + minutes.ToString("00") + ":" + seconds.ToString("00");
+        timerText.text = hours.ToString("00") + ":" + minutes.ToString("00");
+    }
+
+    public int GetDays()
+    {
+        return days;
     }
 
 }
