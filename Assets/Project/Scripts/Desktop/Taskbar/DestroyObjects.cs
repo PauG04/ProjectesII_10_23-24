@@ -22,7 +22,6 @@ public class DestroyObjects : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("si");
         if (collision.CompareTag("Decoration")) 
         {
             Destroy(collision.gameObject);

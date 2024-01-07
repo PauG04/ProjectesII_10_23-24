@@ -18,7 +18,9 @@ public class BreakBottle : MonoBehaviour
     private float currentHit;
     private float HP;
     private BottleController bottle;
-    private Rigidbody2D rigidbody2D; 
+    private Rigidbody2D rigidbody2D;
+    private BottleController bottleController;
+    private bool canDestroy;
 
     private void Start()
     {
@@ -27,6 +29,7 @@ public class BreakBottle : MonoBehaviour
         bottle = GetComponent<BottleController>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         filterRenderer = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<Renderer>();
+        bottleController = GetComponent<BottleController>();
     }
     private void Update()
     {
@@ -36,16 +39,18 @@ public class BreakBottle : MonoBehaviour
             CreateLiquid();
             Destroy(gameObject);
         }
-	    /*
+	    
         if(rigidbody2D.velocity.y > max)
-        {
+        {       
             HP -= rigidbody2D.velocity.y / difference;
         }
-        if(rigidbody2D.velocity.y < min)
-        {
-            HP += rigidbody2D.velocity.y / difference;
-        }
-	    */
+        //if(rigidbody2D.velocity.y < min && bottleController.IsDragging() && transform.rotation.z == 0)
+        //{
+        //    Debug.Log(bottleController.transform.localRotation.z);
+        //    Debug.Log("no");
+        //    HP += rigidbody2D.velocity.y / difference;
+        //}
+	   
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

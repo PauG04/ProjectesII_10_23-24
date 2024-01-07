@@ -7,6 +7,6 @@ public class EnterUser : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        SceneManager.LoadScene("MarcosScene2");
+        SceneManager.LoadScene("Main");
     }
 }
