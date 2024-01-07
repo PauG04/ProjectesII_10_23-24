@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
+    [SerializeField] GameObject endDayWindow;
+
     private float seconds;
     private int minutes;
     private int hours;
 
     private bool timerStopped;
 
-    private TextMeshProUGUI timeText;
+    private TextMeshProUGUI timerText;
 
     private void Awake()
     {
@@ -19,9 +21,11 @@ public class TimeManager : MonoBehaviour
         minutes = 0;
         hours = 0;
 
-        timerStopped = false;
+        timerStopped = true;
 
-        timeText = GetComponent<TextMeshProUGUI>();
+        timerText = GetComponentInChildren<TextMeshProUGUI>();
+
+        StartDay();
     }
 
     private void Update()
@@ -37,14 +41,19 @@ public class TimeManager : MonoBehaviour
     public void StartDay()
     {
         timerStopped = false;
+        hours = 10;
+        minutes = 0;
+        seconds = 0.0f;
     }
 
     public void EndDay()
     {
         timerStopped = true;
+        hours = 2;
+        minutes = 0;
+        seconds = 0.0f;
 
-
-
+        Instantiate(endDayWindow, transform);
         // Parar Timer
         // Crear/Abrir una ventana de Final del dia
         // La ventana tiene que tener: 
@@ -56,7 +65,7 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateTime()
     {
-        seconds += Time.deltaTime;
+        seconds += Time.deltaTime * 84;
 
         if (seconds >= 60.0f)
         {
@@ -79,7 +88,7 @@ public class TimeManager : MonoBehaviour
     }
     private void UpdateText()
     {
-        timeText.text = hours.ToString("00") + ":" + minutes.ToString("00") + ":" + seconds.ToString("00");
+        timerText.text = hours.ToString("00") + ":" + minutes.ToString("00");
     }
 
 }
