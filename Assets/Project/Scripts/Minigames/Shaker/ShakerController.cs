@@ -289,21 +289,21 @@ public class ShakerController : MonoBehaviour
 	{
 		if(progress < maxProgress * 0.33f)
 		{
-			liquidManager.SetDrinkState(LiquidManager.DrinkState.Idle);
+			liquidManager.SetDrinkState(TypeOfCocktails.StateOfCocktail.Idle);
 		}
 		else if(progress >= maxProgress * 0.66f)
 		{
-			liquidManager.SetDrinkState(LiquidManager.DrinkState.Mixed);
+			liquidManager.SetDrinkState(TypeOfCocktails.StateOfCocktail.Mixed);
 		}
 		else
 		{
-			liquidManager.SetDrinkState(LiquidManager.DrinkState.Shaked);
+			liquidManager.SetDrinkState(TypeOfCocktails.StateOfCocktail.Shaked);
 		}
 	}
 	public void ResetShaker()
 	{
 		progress = 0;
-		liquidManager.SetDrinkState(LiquidManager.DrinkState.Idle);
+		liquidManager.SetDrinkState(TypeOfCocktails.StateOfCocktail.Idle);
 	}
 	#endregion
 	#region Setters and Getters 

@@ -23,9 +23,9 @@ public class ResultPrecentDrink : MonoBehaviour
     }
 
     [SerializeField] private LiquidManager liquidManager;
-    [SerializeField] private Dictionary<LiquidManager.TypeOfDrink, int> lastDrink;
+	[SerializeField] private Dictionary<TypeOfDrinks.TypeOfDrink, int> lastDrink;
 
-    [SerializeField] private LiquidManager.DrinkState shakeState;
+	[SerializeField] private TypeOfCocktails.StateOfCocktail shakeState;
 
     [SerializeField] private TypeOfCocktail result;
 
@@ -44,7 +44,7 @@ public class ResultPrecentDrink : MonoBehaviour
 
     private void Awake()
     {
-        lastDrink = new Dictionary<LiquidManager.TypeOfDrink, int>();
+        lastDrink = new Dictionary<TypeOfDrinks.TypeOfDrink, int>();
     }
 
     private void Update()
@@ -114,7 +114,7 @@ public class ResultPrecentDrink : MonoBehaviour
         //}
     }
 
-    public bool CompareDrinks(Dictionary<TypeOfDrink, int> drink1, Dictionary<TypeOfDrink, int> drink2)
+	public bool CompareDrinks(Dictionary<TypeOfDrinks.TypeOfDrink, int> drink1, Dictionary<TypeOfDrinks.TypeOfDrink, int> drink2)
     {
         if (drink1 == drink2)
         {
@@ -133,7 +133,7 @@ public class ResultPrecentDrink : MonoBehaviour
 
         EqualityComparer<int> valueComparer = EqualityComparer<int>.Default;
 
-        foreach (KeyValuePair<TypeOfDrink, int> kvp in drink1)
+        foreach (KeyValuePair<TypeOfDrinks.TypeOfDrink, int> kvp in drink1)
         {
             int value2;
             if (!drink2.TryGetValue(kvp.Key, out value2))
@@ -153,7 +153,7 @@ public class ResultPrecentDrink : MonoBehaviour
         return result;
     }
 
-    public void SetShakerState(LiquidManager.DrinkState shakeState)
+	public void SetShakerState(TypeOfCocktails.StateOfCocktail shakeState)
     {
         this.shakeState = shakeState;
     }

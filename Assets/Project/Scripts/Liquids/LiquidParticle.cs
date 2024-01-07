@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LiquidParticle : MonoBehaviour
 {
-    public LiquidManager.TypeOfDrink liquidType;
-    public LiquidManager.TypeOfCocktail cocktailType;
+	public TypeOfDrinks.TypeOfDrink liquidType;
+	public TypeOfCocktails.TypeOfCocktail cocktailType;
     public Color color;
 }

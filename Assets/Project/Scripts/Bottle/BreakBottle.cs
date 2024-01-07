@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
@@ -36,6 +36,7 @@ public class BreakBottle : MonoBehaviour
             CreateLiquid();
             Destroy(gameObject);
         }
+	    /*
         if(rigidbody2D.velocity.y > max)
         {
             HP -= rigidbody2D.velocity.y / difference;
@@ -44,7 +45,7 @@ public class BreakBottle : MonoBehaviour
         {
             HP += rigidbody2D.velocity.y / difference;
         }
-
+	    */
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

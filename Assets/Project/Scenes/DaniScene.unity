@@ -1071,7 +1071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452383fbc784f724bb9113104b1969cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1171588492}
 --- !u!1 &790591040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,6 +1246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f0ebdca8c30194c838c82ade6b7c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bagOfLemons: {fileID: 0}
+  bagOfIce: {fileID: 0}
+  springMint: {fileID: 0}
 --- !u!1 &908935210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1406,10 @@ PrefabInstance:
       propertyPath: taskBar
       value: 
       objectReference: {fileID: 1687163559}
+    - target: {fileID: 546971092680054425, guid: 6bd326049d923be49b13a1449e3b6952, type: 3}
+      propertyPath: isCanvas
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 546971092680054425, guid: 6bd326049d923be49b13a1449e3b6952, type: 3}
       propertyPath: scaleSpeed
       value: 5
@@ -1568,7 +1574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cae915e7352714283fd26e5ac21e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newItem: {fileID: 11400000, guid: 74fd8973a7cc4384ea45a8a255690755, type: 2}
 --- !u!1001 &1028168115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2372,7 +2377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -743.30005, y: 35}
+  m_AnchoredPosition: {x: -743.3, y: 35}
   m_SizeDelta: {x: -1606.6, y: -190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649710936

@@ -21,11 +21,11 @@ public class ResultManager : MonoBehaviour
 	[Header("Text Variables")]
 	[SerializeField] private TextMeshPro textMeshPro;
 	
-	private Dictionary<LiquidManager.TypeOfCocktail, int> cocktail;
+	private Dictionary<TypeOfCocktails.TypeOfCocktail, int> cocktail;
 
 	protected void Awake()
 	{
-		cocktail = new Dictionary<LiquidManager.TypeOfCocktail, int>();
+		cocktail = new Dictionary<TypeOfCocktails.TypeOfCocktail, int>();
 		currentLayer = gameObject.layer;
 	}
 	protected void Update()
@@ -61,11 +61,11 @@ public class ResultManager : MonoBehaviour
 			numberOfParticles++;
 		}
 	}
-	private LiquidManager.TypeOfCocktail GetMostPopularCocktail()
+	private TypeOfCocktails.TypeOfCocktail GetMostPopularCocktail()
 	{
 		if (cocktail.Values.Count() == 0)
 		{
-			return LiquidManager.TypeOfCocktail.Mierdon;
+			return TypeOfCocktails.TypeOfCocktail.Mierdon;
 		}
 		
 		var mostPopularCocktail = cocktail.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;

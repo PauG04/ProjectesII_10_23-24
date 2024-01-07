@@ -33,7 +33,8 @@ public class TypeOfCocktails : ScriptableObject
         Tiefti,
         Razz,
         Invade,
-        DiscoN
+		DiscoN,
+		Mierdon
     }
 
     public StateOfCocktail stateOfCocktail;
