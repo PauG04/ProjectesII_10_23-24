@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,8 +48,9 @@ public class ProgressSlider : MonoBehaviour
     }
 
     public void ResetSlider()
-    {
-        value = maxProgress / 10;
+	{
+		shaker.SetProgress(0);
+        value = maxProgress / slider.Length;
         for (int i = 0; i < slider.Length; i++)
         {
             slider[i].SetActive(false);
