@@ -21,11 +21,11 @@ public class ResultManager : MonoBehaviour
 	[Header("Text Variables")]
 	[SerializeField] private TextMeshPro textMeshPro;
 	
-	private Dictionary<TypeOfCocktails.TypeOfCocktail, int> cocktail;
+	private Dictionary<LiquidManager.TypeOfCocktail, int> cocktail;
 
 	protected void Awake()
 	{
-		cocktail = new Dictionary<TypeOfCocktails.TypeOfCocktail, int>();
+		cocktail = new Dictionary<LiquidManager.TypeOfCocktail, int>();
 		currentLayer = gameObject.layer;
 	}
 	protected void Update()
