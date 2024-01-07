@@ -19,10 +19,12 @@ MonoBehaviour:
   - 6889ef77-1624-4ca9-bcfd-933d58d18829
   rect:
     serializedVersion: 2
-    x: 554
-    y: 344
+    x: 547
+    y: 362
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-3301356045552889200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,10 +45,12 @@ MonoBehaviour:
   - f1946228-0f57-4fe7-91ac-8a43e8c9bca3
   rect:
     serializedVersion: 2
-    x: 311
-    y: 236
+    x: 308
+    y: 243
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-2415646362815305552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +74,31 @@ MonoBehaviour:
     y: 249
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1866142436223151728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 39d823b4-f313-4a8a-a570-0fdb40c2b481
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Gracias
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1052
+    y: 197
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +121,8 @@ MonoBehaviour:
   - {fileID: 4187281459644157671}
   - {fileID: -4647048520859785291}
   - {fileID: 2664155393086170332}
+  - {fileID: 6652618421481169081}
+  - {fileID: -1866142436223151728}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &357393040466352906
 MonoBehaviour:
@@ -111,10 +142,12 @@ MonoBehaviour:
   - f3d47836-b8fe-4c59-ba7f-520d896fc464
   rect:
     serializedVersion: 2
-    x: 309
-    y: 139
+    x: 312
+    y: 140
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &2664155393086170332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,13 +162,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: Aqui tienes la bebida
-  children: []
+  children:
+  - 39d823b4-f313-4a8a-a570-0fdb40c2b481
   rect:
     serializedVersion: 2
-    x: 830
+    x: 831
     y: 198
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &4033930216238779852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +193,8 @@ MonoBehaviour:
     y: 58
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &4187281459644157671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,13 +209,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: No he podido servirle la bebida
+  children:
+  - 7291c645-3b7f-4369-b1f6-083c4cf78c02
+  rect:
+    serializedVersion: 2
+    x: 835
+    y: 301
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6652618421481169081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03350170dfb704ba29ef64fdf5c792, type: 3}
+  m_Name: 7291c645-3b7f-4369-b1f6-083c4cf78c02
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Me voy
   children: []
   rect:
     serializedVersion: 2
-    x: 831
-    y: 297
+    x: 1052
+    y: 299
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &8357450422594144125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +265,8 @@ MonoBehaviour:
     y: 152
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &8694253259664521876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,3 +290,5 @@ MonoBehaviour:
     y: 191
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 

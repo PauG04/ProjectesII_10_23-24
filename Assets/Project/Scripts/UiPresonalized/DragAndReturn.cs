@@ -38,7 +38,7 @@ public class DragAndReturn : MonoBehaviour
         transform.position = new Vector3(
             Camera.main.ScreenToWorldPoint(Input.mousePosition).x + offset.x,
             Camera.main.ScreenToWorldPoint(Input.mousePosition).y + offset.y,
-            -20
+            0
             );
         if (sprite != null)
         {

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f09f593b64b8a48a98459f97bdbae9, type: 3}
+  m_Name: BluLeibel
+  m_EditorClassIdentifier: 
+  stateOfCocktail: 1
+  typeOfCocktail: 6
+  typeOfDrinksNeeded:
+  - type: 0
+    quantity: 2
+  - type: 4
+    quantity: 2
+  - type: 6
+    quantity: 6
+  price: 13.99
+  cocktailName: Pink Leibel
+  subtitle: Sweet
+  description: 'Ounces: 2 Glacier Spirit, 2 Moskowski, 6 Lemon Juice. State: Shaked'
+  sprite: {fileID: -1064073441, guid: ea48fe9ab05d661498b25db45a68c107, type: 3}

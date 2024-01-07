@@ -5,16 +5,16 @@ using UnityEngine;
 public class DrinkTaken : MonoBehaviour
 {
     private bool isDrinkPrepares = true;
-    [SerializeField] private DrinkScript drinkScript;
-    [SerializeField] private GameObject cup;
+    [SerializeField] private ShakerController shakerController;
+    [SerializeField] private GameObject glass;
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Drink" && drinkScript.GetIsMouseNotPressed())
+        if (collision.tag == "Drink" && shakerController.GetIsMousePressed())
         {
-            cup.SetActive(false);
+            glass.SetActive(false);
             isDrinkPrepares = true;
-            Debug.Log("SI");
+            Debug.Log("Si");
         }
     }
 
