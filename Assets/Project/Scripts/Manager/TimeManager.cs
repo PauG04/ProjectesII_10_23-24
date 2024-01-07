@@ -8,7 +8,7 @@ public class TimeManager : MonoBehaviour
 {
     public static TimeManager instance { get; private set; }
 
-    [SerializeField] GameObject endDayWindow;
+    private DesktopApp desktopApp;
 
     private int days;
     private float seconds;
@@ -30,6 +30,7 @@ public class TimeManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        desktopApp = GetComponent<DesktopApp>();
         InitTimeManager();
     }
 
@@ -40,7 +41,13 @@ public class TimeManager : MonoBehaviour
             UpdateTime();
             UpdateText();
         }
-
+        else
+        {
+            if(!desktopApp.GetIsCreated())
+            {
+                StartDay();
+            }
+        }
     }
 
     private void InitTimeManager()
@@ -75,14 +82,7 @@ public class TimeManager : MonoBehaviour
         minutes = 0;
         seconds = 0.0f;
 
-        Instantiate(endDayWindow, transform);
-        // Parar Timer
-        // Crear/Abrir una ventana de Final del dia
-        // La ventana tiene que tener: 
-        // Boton de siguiente dia
-        // Dinero Actual
-        // Impuestos Diarios
-        // Ganancias del día
+        desktopApp.OpenApp();
     }
 
     private void UpdateTime()
