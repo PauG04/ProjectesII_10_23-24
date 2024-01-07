@@ -208,4 +208,9 @@ public class DesktopApp : MonoBehaviour
 	{
 		this.isOpen = isOpen;
 	}
+
+	public bool GetIsCreated()
+	{
+		return isCreated;
+	}
 }

@@ -9,18 +9,26 @@ public class LiquidManager : MonoBehaviour
     public enum TypeOfCocktail
 	{
 		Mierdon,
-	    GinTonic,
-		RumCola,
-	    Negroni
+        Sekiro,
+        Morgana,
+        Thresh,
+        PipiStrate,
+        MoszkowskiFlip,
+        LobsterCrami,
+        PinkLeibel,
+        Tiefti,
+        Razz,
+        Invade,
+        DiscoN
     }
     public enum TypeOfDrink
     {
         //Alcoholic Drinks
-        Rum,
-        Gin,
-        Vodka,
-        Whiskey,
-        Tequila,
+        GlacierSpirit,
+        RusticGold,
+        DesertRose,
+        HerbHaven,
+        Moszkowski,
         //Juices
         OrangeJuice,
         LemonJuice,
@@ -167,30 +175,30 @@ public class LiquidManager : MonoBehaviour
     }
 	public void CreateCocktail()
 	{
-		if (typeOfDrinkInside.ContainsKey(TypeOfDrink.Gin) && typeOfDrinkInside.ContainsKey(TypeOfDrink.Tonic))
-		{
-			int ginCount = typeOfDrinkInside[TypeOfDrink.Gin];
-			int tonicCount = typeOfDrinkInside[TypeOfDrink.Tonic];
+		//if (typeOfDrinkInside.ContainsKey(TypeOfDrink.Gin) && typeOfDrinkInside.ContainsKey(TypeOfDrink.Tonic))
+		//{
+		//	int ginCount = typeOfDrinkInside[TypeOfDrink.Gin];
+		//	int tonicCount = typeOfDrinkInside[TypeOfDrink.Tonic];
 
-			if (ginCount >= 25 && tonicCount >= 25 && drinkState == DrinkState.Idle)
-			{
-				typeOfCocktail = TypeOfCocktail.GinTonic;
-			}
-		}
-		else if (typeOfDrinkInside.ContainsKey(TypeOfDrink.Rum) && typeOfDrinkInside.ContainsKey(TypeOfDrink.Cola))
-		{
-			int rumCount = typeOfDrinkInside[TypeOfDrink.Rum];
-			int colaCount = typeOfDrinkInside[TypeOfDrink.Cola];
+		//	if (ginCount >= 25 && tonicCount >= 25 && drinkState == DrinkState.Idle)
+		//	{
+		//		typeOfCocktail = TypeOfCocktail.GinTonic;
+		//	}
+		//}
+		//else if (typeOfDrinkInside.ContainsKey(TypeOfDrink.Rum) && typeOfDrinkInside.ContainsKey(TypeOfDrink.Cola))
+		//{
+		//	int rumCount = typeOfDrinkInside[TypeOfDrink.Rum];
+		//	int colaCount = typeOfDrinkInside[TypeOfDrink.Cola];
 
-			if (rumCount >= 25 && colaCount >= 25 && drinkState == DrinkState.Shaked)
-			{
-				typeOfCocktail = TypeOfCocktail.RumCola;
-			}
-		}
-		else 
-		{
-			typeOfCocktail = TypeOfCocktail.Mierdon;
-		}
+		//	if (rumCount >= 25 && colaCount >= 25 && drinkState == DrinkState.Shaked)
+		//	{
+		//		typeOfCocktail = TypeOfCocktail.RumCola;
+		//	}
+		//}
+		//else 
+		//{
+		//	typeOfCocktail = TypeOfCocktail.Mierdon;
+		//}
 	}
 	// Temporal, use later
 	public Dictionary<TypeOfDrink, int> TraspassDrinks()
