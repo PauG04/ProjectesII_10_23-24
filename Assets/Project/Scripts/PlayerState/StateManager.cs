@@ -4,22 +4,39 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
+    public static StateManager instance { get; private set; }
+
+    private Dictionary<string, float> states;
 
     private void Awake()
     {
-        gameManager.GetStates().Add("health", 10);
-        gameManager.GetStates().Add("stress", 1);
-        gameManager.GetStates().Add("fatigue", 1);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        states = new Dictionary<string, float>();
+        states.Add("Health", 100);
+        states.Add("Stress", 0);
+        states.Add("Fatigue", 0);
     }
 
     public void AddToState(string name, float value)
     {
-        gameManager.GetStates()[name] += value;
+        states[name] += value;
 
-	    if (gameManager.GetStates()[name] > 10)
-		    gameManager.GetStates()[name] = 10;
-        else if (gameManager.GetStates()[name] < 0)
-            gameManager.GetStates()[name] = 0;
+	    if (states[name] > 100)
+            states[name] = 100;
+        else if (states[name] < 0)
+            states[name] = 0;
+    }
+
+    public Dictionary<string, float> GetStates()
+    {
+        return states;
     }
 }

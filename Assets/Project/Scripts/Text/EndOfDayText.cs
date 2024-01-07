@@ -13,22 +13,19 @@ public class EndOfDayText : MonoBehaviour
     {
         titleText = GameObject.Find("TitleText").GetComponent<TextMeshProUGUI>();
         moneyText = GameObject.Find("MoneyText").GetComponent<TextMeshProUGUI>();
-        Debug.Log(titleText.text);
 
         SetText();
     }
 
     public void SetText()
     {
-        titleText.text = "Day " + 10 + " Finished!!";
-        Debug.Log(titleText.text);
+        titleText.text = "Day " + TimeManager.instance.GetDays() + " Finished!!";
 
-        //Falta hacer un MoneyManager
         moneyText.text =
-            "Your Money: " + 1000 +
-            "\nToday's Earnings: " + 1000 +
-            "\nToday's Debt: " + 1000 +
-            "\nTotal Money: " + 1000;
+            "Your Money: " + MoneyManager.instance.GetPlayerMoney() +
+            "\nToday's Earnings: " + MoneyManager.instance.GetDayEarnings() +
+            "\nToday's Debt: " + MoneyManager.instance.GetDayDebts() +
+            "\nTotal Money: " + MoneyManager.instance.CalculateEndOfDayMoney();
 
     }
 
