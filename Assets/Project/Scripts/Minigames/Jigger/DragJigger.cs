@@ -7,7 +7,7 @@ public class DragJigger : MonoBehaviour
 {
     #region Bottle Variables
     [Header("BottleVariables")]
-    [SerializeField] private LiquidManager.TypeOfDrink drinksType;
+    [SerializeField] private TypeOfDrinks.TypeOfDrink drinksType;
     [SerializeField] private Transform parentObject;
     #endregion
     #region Rotation Variables

@@ -8,7 +8,7 @@ public class BottleController : MonoBehaviour
 {
     #region Bottle Variables
     [Header("BottleVariables")]
-    [SerializeField] private LiquidManager.TypeOfDrink drinksType;
+    [SerializeField] private TypeOfDrinks.TypeOfDrink drinksType;
     [SerializeField] private Transform parentObject;
 
     private TargetJoint2D targetJoint2D;

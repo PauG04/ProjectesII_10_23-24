@@ -5,59 +5,12 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class LiquidManager : MonoBehaviour
 {
-    #region ENUMS
-    public enum TypeOfCocktail
-	{
-		Mierdon,
-        Sekiro,
-        Morgana,
-        Thresh,
-        PipiStrate,
-        MoszkowskiFlip,
-        LobsterCrami,
-        PinkLeibel,
-        Tiefti,
-        Razz,
-        Invade,
-        DiscoN
-    }
-    public enum TypeOfDrink
-    {
-        //Alcoholic Drinks
-        GlacierSpirit,
-        RusticGold,
-        DesertRose,
-        HerbHaven,
-        Moszkowski,
-        //Juices
-        OrangeJuice,
-        LemonJuice,
-        //Soft Drinks
-        Cola,
-        Soda,
-        Tonic
-    }
-    
-    public enum DrinkState
-    {
-        Idle,
-        Shaked,
-        Mixed
-    }
-
-    public enum DrinkCategory
-    {
-        Alcohol,
-        Soda
-    }
-    #endregion
-
     [Header("Renderer Variables")]
-    private DrinkState drinkState;
+	private TypeOfCocktails.StateOfCocktail drinkState;
     [SerializeField] private Renderer fluidRenderer;
     [SerializeField] private int maxCapacity;
     
-    private Dictionary<TypeOfDrink, int> typeOfDrinkInside;  
+	private Dictionary<TypeOfDrinks.TypeOfDrink, int> typeOfDrinkInside;  
 
     private float fill;
     private int currentLayer;
@@ -72,21 +25,23 @@ public class LiquidManager : MonoBehaviour
     [SerializeField] private float minColliderPos = -0.23f;
 
 	[Header("Cocktail")]
-	public TypeOfCocktail typeOfCocktail;
+	public TypeOfCocktails.TypeOfCocktail typeOfCocktail;
 
     [Header("Slider")]
     [SerializeField] private float maxBar;
     private GameObject currentSlider;
     [SerializeField] private CreateSlider slider;
     private Color currentColor;
-    private float nextSliderPositon;
-
+	private float nextSliderPositon;
+    
+	[Space(20)]
+	[SerializeField] private bool isShakerEmptied;
 
     private void Awake()
     {
-        typeOfDrinkInside = new Dictionary<LiquidManager.TypeOfDrink, int>();
+        typeOfDrinkInside = new Dictionary<TypeOfDrinks.TypeOfDrink, int>();
         currentLayer = gameObject.layer;
-        drinkState = DrinkState.Idle;
+	    drinkState = TypeOfCocktails.StateOfCocktail.Idle;
         currentColor = Color.clear;
         nextSliderPositon = 0;
     }
@@ -94,12 +49,20 @@ public class LiquidManager : MonoBehaviour
     {
         if (isShaker)
         {
-            FillShaker();
+	        FillShaker();
+	        isShakerEmptied = false;
         }
         else
         {
             FillDrink();
         }
+        
+	    if (isShakerEmptied)
+	    {
+	    	ResetDrink();
+	    	isShakerEmptied = false;
+	    	Debug.Log("Shaker Reseted");
+	    }
 	    CreateCocktail();
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -161,7 +124,7 @@ public class LiquidManager : MonoBehaviour
 	    currentSlider = null;
 	    nextSliderPositon = 0;
 	    currentColor = Color.magenta;
-	    drinkState = DrinkState.Idle;
+	    drinkState = TypeOfCocktails.StateOfCocktail.Idle;
     }
     public static Color CombineColors(params Color[] aColors)
     {
@@ -173,39 +136,13 @@ public class LiquidManager : MonoBehaviour
         result /= aColors.Length;
         return result;
     }
-	public void CreateCocktail()
-	{
-		//if (typeOfDrinkInside.ContainsKey(TypeOfDrink.Gin) && typeOfDrinkInside.ContainsKey(TypeOfDrink.Tonic))
-		//{
-		//	int ginCount = typeOfDrinkInside[TypeOfDrink.Gin];
-		//	int tonicCount = typeOfDrinkInside[TypeOfDrink.Tonic];
-
-		//	if (ginCount >= 25 && tonicCount >= 25 && drinkState == DrinkState.Idle)
-		//	{
-		//		typeOfCocktail = TypeOfCocktail.GinTonic;
-		//	}
-		//}
-		//else if (typeOfDrinkInside.ContainsKey(TypeOfDrink.Rum) && typeOfDrinkInside.ContainsKey(TypeOfDrink.Cola))
-		//{
-		//	int rumCount = typeOfDrinkInside[TypeOfDrink.Rum];
-		//	int colaCount = typeOfDrinkInside[TypeOfDrink.Cola];
-
-		//	if (rumCount >= 25 && colaCount >= 25 && drinkState == DrinkState.Shaked)
-		//	{
-		//		typeOfCocktail = TypeOfCocktail.RumCola;
-		//	}
-		//}
-		//else 
-		//{
-		//	typeOfCocktail = TypeOfCocktail.Mierdon;
-		//}
-	}
+	
 	// Temporal, use later
-	public Dictionary<TypeOfDrink, int> TraspassDrinks()
+	public Dictionary<TypeOfDrinks.TypeOfDrink, int> TraspassDrinks()
 	{
-		Dictionary<TypeOfDrink, int> newDictionary = new Dictionary<TypeOfDrink, int>(typeOfDrinkInside);
+		Dictionary<TypeOfDrinks.TypeOfDrink, int> newDictionary = new Dictionary<TypeOfDrinks.TypeOfDrink, int>(typeOfDrinkInside);
 		
-		foreach (TypeOfDrink drinkType in typeOfDrinkInside.Keys)
+		foreach (TypeOfDrinks.TypeOfDrink drinkType in typeOfDrinkInside.Keys)
 		{
 			if (typeOfDrinkInside[drinkType] > 0)
 			{
@@ -218,7 +155,7 @@ public class LiquidManager : MonoBehaviour
 	}
 	
 	
-    public Dictionary<TypeOfDrink, int> GetTypeOfDrinkInside()
+    public Dictionary<TypeOfDrinks.TypeOfDrink, int> GetTypeOfDrinkInside()
     {
         return typeOfDrinkInside;
     }
@@ -232,9 +169,13 @@ public class LiquidManager : MonoBehaviour
     }
     public void DecreaseLiquid()
     {
-        numberOfParticles--;
+	    numberOfParticles--;
+	    if (numberOfParticles <= 2)
+	    {
+	    	isShakerEmptied = true;
+	    }
     }
-    public void SetDrinkState(DrinkState _drinkState)
+	public void SetDrinkState(TypeOfCocktails.StateOfCocktail _drinkState)
     {
         drinkState = _drinkState;
     }
@@ -243,6 +184,202 @@ public class LiquidManager : MonoBehaviour
 		foreach (Transform item in root)
 		{
 			Destroy(item.gameObject);
+		}
+	}
+	
+	public void CreateCocktail()
+	{
+		if (
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.GlacierSpirit) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Moszkowski) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.LemonJuice)
+		)
+		{
+			int glacierSpirit = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.GlacierSpirit];
+			int moszkowski = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Moszkowski];
+			int lemonJuice = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.LemonJuice];
+
+			if (glacierSpirit >= 15 && moszkowski >= 15 && lemonJuice >= 55 && drinkState == TypeOfCocktails.StateOfCocktail.Shaked)
+			{
+				typeOfCocktail = TypeOfCocktails.TypeOfCocktail.PinkLeibel;
+			}
+		}
+		else if (
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.HerbHaven) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.GlacierSpirit) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Tonic)
+		)
+		{
+			int herbHaven = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.HerbHaven];
+			int glacierSpirit = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.GlacierSpirit];
+			int tonic = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Tonic];
+
+			if (herbHaven >= 55 && glacierSpirit >= 5 && tonic >= 25 && drinkState == TypeOfCocktails.StateOfCocktail.Idle)
+			{
+				typeOfCocktail = TypeOfCocktails.TypeOfCocktail.DiscoN;
+			}
+		}
+		else if (
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.HerbHaven) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Soda) 
+		)
+		{
+			int herbHaven = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.HerbHaven];
+			int soda = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Soda];
+
+			if (herbHaven >= 45 && soda >= 45 && drinkState == TypeOfCocktails.StateOfCocktail.Mixed)
+			{
+				typeOfCocktail = TypeOfCocktails.TypeOfCocktail.Invade;
+			}
+		}
+		else if (
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.HerbHaven) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.OrangeJuice) 
+		)
+		{
+			int herbHaven = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.HerbHaven];
+			int orangeJuice = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.OrangeJuice];
+			
+			if (herbHaven >= 55 && orangeJuice >= 35 && drinkState == TypeOfCocktails.StateOfCocktail.Mixed)
+			{
+				typeOfCocktail = TypeOfCocktails.TypeOfCocktail.Thresh;
+			}
+		}
+		else if (
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.DesertRose) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.GlacierSpirit) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.LemonJuice) &&
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Soda)
+		)
+		{
+			int desertRose = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.DesertRose];
+			int glacierSpirit = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.GlacierSpirit];
+			int lemonJuice = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.LemonJuice];
+			int soda = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Soda];
+
+			if (desertRose >= 15 && glacierSpirit >= 25 && lemonJuice >= 15 && soda >= 25 && drinkState == TypeOfCocktails.StateOfCocktail.Shaked)
+			{
+				typeOfCocktail = TypeOfCocktails.TypeOfCocktail.LobsterCrami;
+			}
+		}
+		else if (
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.RusticGold) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.GlacierSpirit) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.OrangeJuice) &&
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Soda) &&
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Moszkowski)
+		)
+		{
+			int rusticGold = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.RusticGold];
+			int glacierSpirit = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.GlacierSpirit];
+			int orangeJuice = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.OrangeJuice];
+			int soda = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Soda];
+			int moszkowski = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Moszkowski];
+
+			if (rusticGold >= 5 && glacierSpirit >= 15 && orangeJuice >= 25 && soda >= 5 && moszkowski >= 15 && drinkState == TypeOfCocktails.StateOfCocktail.Shaked)
+			{
+				typeOfCocktail = TypeOfCocktails.TypeOfCocktail.Razz;
+			}
+		}
+		else if (
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.DesertRose) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Tonic)
+		)
+		{
+			int desertRose = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.DesertRose];
+			int tonic = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Tonic];
+
+			if (desertRose >= 35 && tonic >= 55 && drinkState == TypeOfCocktails.StateOfCocktail.Mixed)
+			{
+				typeOfCocktail = TypeOfCocktails.TypeOfCocktail.Morgana;
+			}
+		}
+		else if (
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.RusticGold) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.LemonJuice) &&
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Soda)
+		)
+		{
+			int rusticGold = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.RusticGold];
+			int lemonJuice = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.LemonJuice];
+			int soda = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Soda];
+			
+			if (rusticGold >= 55 && lemonJuice >= 15 && soda >= 15 && drinkState == TypeOfCocktails.StateOfCocktail.Shaked)
+			{
+				typeOfCocktail = TypeOfCocktails.TypeOfCocktail.MoszkowskiFlip;
+			}
+		}
+		else if (
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.RusticGold) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.DesertRose) &&
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Moszkowski) &&
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Cola) &&
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Tonic)
+		)
+		{
+			int rusticGold = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.RusticGold];
+			int desertRose = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.DesertRose];
+			int moszkowski = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Moszkowski];
+			int cola = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Cola];
+			int tonic = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Tonic];
+			
+			if (rusticGold >= 15 && desertRose >= 15 && moszkowski >= 15 && cola >= 15 && tonic >= 15 && drinkState == TypeOfCocktails.StateOfCocktail.Idle)
+			{
+				typeOfCocktail = TypeOfCocktails.TypeOfCocktail.PipiStrate;
+			}
+		}
+		else if (
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.RusticGold) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.DesertRose) &&
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Moszkowski) &&
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Cola) &&
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Tonic)
+		)
+		{
+			int rusticGold = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.RusticGold];
+			int desertRose = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.DesertRose];
+			int moszkowski = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Moszkowski];
+			int cola = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Cola];
+			int tonic = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Tonic];
+			
+			if (rusticGold >= 15 && desertRose >= 15 && moszkowski >= 15 && cola >= 15 && tonic >= 15 && drinkState == TypeOfCocktails.StateOfCocktail.Shaked)
+			{
+				typeOfCocktail = TypeOfCocktails.TypeOfCocktail.PipiStrate;
+			}
+		}
+		else if (
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.RusticGold) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.DesertRose) &&
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.LemonJuice) 
+		)
+		{
+			int rusticGold = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.RusticGold];
+			int desertRose = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.DesertRose];
+			int lemonJuice = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.LemonJuice];
+			
+			if (rusticGold >= 35 && desertRose >= 25 && lemonJuice >= 25 && drinkState == TypeOfCocktails.StateOfCocktail.Idle)
+			{
+				typeOfCocktail = TypeOfCocktails.TypeOfCocktail.Sekiro;
+			}
+		}
+		else if (
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.RusticGold) && 
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.Tonic) &&
+			typeOfDrinkInside.ContainsKey(TypeOfDrinks.TypeOfDrink.LemonJuice) 
+		)
+		{
+			int rusticGold = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.RusticGold];
+			int tonic = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.Tonic];
+			int lemonJuice = typeOfDrinkInside[TypeOfDrinks.TypeOfDrink.LemonJuice];
+			
+			if (rusticGold >= 45 && tonic >= 25 && lemonJuice >= 15 && drinkState == TypeOfCocktails.StateOfCocktail.Shaked)
+			{
+				typeOfCocktail = TypeOfCocktails.TypeOfCocktail.Tiefti;
+			}
+		}
+		else 
+		{
+			typeOfCocktail = TypeOfCocktails.TypeOfCocktail.Mierdon;
 		}
 	}
 }

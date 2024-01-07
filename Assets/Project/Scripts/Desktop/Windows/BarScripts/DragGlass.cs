@@ -17,6 +17,7 @@ public class DragGlass : MonoBehaviour
     private Transform position;
     private IsEmpty isEmpty;
 	
+	[SerializeField] private ResultManager result;
 	[SerializeField] private GameObject decorationCollider;
 
 
@@ -94,5 +95,10 @@ public class DragGlass : MonoBehaviour
 	        //this.enabled = false;        
         }
 
-    }
+	}
+    
+	public ResultManager GetResultManager()
+	{
+		return result;
+	}
 }
