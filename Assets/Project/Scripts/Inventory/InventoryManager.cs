@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
+    [SerializeField] private Item bagOfLemons;
+    [SerializeField] private Item bagOfIce;
+    [SerializeField] private Item springMint;
     public static InventoryManager instance { get; private set; }
     private Dictionary<Item, int> items;
     private bool listItems;
@@ -19,9 +22,16 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        
         items = new Dictionary<Item, int>();
         listItems = false;
+
+        for(int i = 0; i<30; i++)
+        {
+            AddItem(bagOfLemons);
+            AddItem(bagOfIce);
+            AddItem(springMint);
+        }
     }
 
     public Dictionary<Item, int> GetItems()
