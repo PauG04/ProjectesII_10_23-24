@@ -5,6 +5,8 @@ using UnityEngine;
 public class DestroyObjects : MonoBehaviour
 {
     [SerializeField] private GameObject desktop;
+    [SerializeField] private Item ice;
+    [SerializeField] private Item lemon;
 
     private bool isCreated = false;
 
@@ -20,13 +22,15 @@ public class DestroyObjects : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Decoration")) 
+        Debug.Log("si");
+        if (collision.CompareTag("Decoration")) 
         {
             Destroy(collision.gameObject);
         }
 
         if (collision.CompareTag("IceBroken"))
         {
+            InventoryManager.instance.AddItem(ice);
             Destroy(collision.gameObject);
         }
 
@@ -37,6 +41,7 @@ public class DestroyObjects : MonoBehaviour
 
         if (collision.CompareTag("LemonSlide"))
         {
+            InventoryManager.instance.AddItem(lemon);
             Destroy(collision.gameObject);
         }
 

@@ -7,10 +7,15 @@ public class ActiveSquare : MonoBehaviour
     [SerializeField] private Vector3 scale;
     [SerializeField] private GameObject square;
     [SerializeField] private GameObject[] childs;
+    [SerializeField] private Item mintSpring;
 
     private float time = 0;
     private float maxTime = 0.5f;
 
+    private void Start()
+    {
+        InventoryManager.instance.UseItem(mintSpring);
+    }
     private void Update()
     {
         if(transform.localScale == scale)

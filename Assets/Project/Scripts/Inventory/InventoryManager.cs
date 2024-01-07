@@ -76,4 +76,9 @@ public class InventoryManager : MonoBehaviour
     {
         listItems = value;
     }
+
+    public bool DoesKeyExist(Item item)
+    {
+        return items.ContainsKey(item);
+    }
 }
