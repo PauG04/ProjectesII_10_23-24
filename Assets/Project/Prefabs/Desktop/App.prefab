@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c5fd81bc9e4d7e74390886c1e231d59c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -93,10 +93,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowsGroupManager: {fileID: 0}
   windowsPrefab: {fileID: 5528909468779342571, guid: bfb664cfa5ba1ad4f885910e3c9f39db, type: 3}
-  node: {fileID: 0}
+  node: {fileID: 11400000, guid: aa3df97313e418f42b59aaee504f5341, type: 2}
   windowsPrefabCanvas: {fileID: 556483258877798900, guid: 67fc96266104d1c4d877f52ad20645cf, type: 3}
-  isCanvas: 0
-  scaleSpeed: 3
+  isCanvas: 1
+  scaleSpeed: 5
   miniIconsPanel: {fileID: 0}
 --- !u!1 &6235747106438607328
 GameObject:
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Trash
+  m_text: MyFit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
