@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,12 +23,13 @@ public class MoneyManager : MonoBehaviour
 
         playerMoney = 0.0f;
         dayEarnings = 0.0f;
-        dayDebts = 0.0f;
+	    dayDebts = 30.0f;
     }
 
     public float CalculateEndOfDayMoney()
-    {
-        return playerMoney + dayEarnings - dayDebts;
+	{
+		playerMoney += dayEarnings - dayDebts;
+	    return playerMoney;
     }
 
     public float GetPlayerMoney()

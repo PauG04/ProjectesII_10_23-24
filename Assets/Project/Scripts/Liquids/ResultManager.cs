@@ -83,4 +83,10 @@ public class ResultManager : MonoBehaviour
 			transform.localPosition = new Vector3(transform.localPosition.x, colliderPosition, transform.localPosition.z);
 		}
 	}
+	
+	public void ResetResult()
+	{
+		textMeshPro.text = "";
+		textMeshPro = null;
+	}
 }

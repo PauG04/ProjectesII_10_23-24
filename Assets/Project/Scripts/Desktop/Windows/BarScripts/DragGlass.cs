@@ -15,7 +15,7 @@ public class DragGlass : MonoBehaviour
     private bool isDragging;
     private Vector3 startScale;
     private Transform position;
-    private IsEmpty isEmpty;
+	[SerializeField] private IsEmpty isEmpty;
 	
 	[SerializeField] private ResultManager result;
 	[SerializeField] private GameObject decorationCollider;
@@ -42,8 +42,11 @@ public class DragGlass : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-	    isEmpty = collision.GetComponent<IsEmpty>();
+	{
+		if (isEmpty == null)
+		{
+			isEmpty = collision.GetComponent<IsEmpty>();
+		}
         
         if (collision.CompareTag("Glass") && isDragging == true && isEmpty.GetIsEmpty())
         {
@@ -55,6 +58,10 @@ public class DragGlass : MonoBehaviour
 	    if (collision.CompareTag("Client") && isDragging == true)
 	    {
 	    	collision.GetComponent<Client>().drinkDropped = result.GetMostPopularCocktail();
+	    	result.ResetResult();
+	    	isEmpty.SetIsEmpty(true);
+	    	isEmpty.SetGlass(null);
+	    	isLocated = false;
 	    	Destroy(this.gameObject);
 	    }
     }
@@ -88,8 +95,11 @@ public class DragGlass : MonoBehaviour
         if(isLocated) 
         {
             transform.SetParent(position);
-            transform.position = position.transform.position;
-            isEmpty = GetComponentInParent<IsEmpty>();
+	        transform.position = position.transform.position;
+	        if (isEmpty == null)
+	        {
+		        isEmpty = GetComponentInParent<IsEmpty>();
+	        }
             isDragging = false;
 	        //isEmpty.SetIsEmpty(false);
             isEmpty.SetGlass(this.gameObject);

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +15,7 @@ public class DesktopLerp : MonoBehaviour
     {
         if(canDoLerp)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector2(1.05f, 1.05f), 4 * Time.deltaTime);
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector2(1f, 1f), 4 * Time.deltaTime);
             if (transform.localScale.y > 1-0.001)
                 canDoLerp = false;
         }

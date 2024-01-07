@@ -38,7 +38,7 @@ namespace UI
 		    playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
 			playerConversant.onConversationUpdated += UpdateChat;
 		    
-			//nextButton.onClick.AddListener(() => playerConversant.Next());
+			nextButton.onClick.AddListener(() => playerConversant.Next());
 		    quitButton.onClick.AddListener(() => playerConversant.Quit());
 		    
 		    AIText = prefabAibubble.GetComponentInChildren<TextMeshProUGUI>();
@@ -92,7 +92,7 @@ namespace UI
 		private void BuildChoiceList()
 		{
 			DestroyChildrens(choiceRoot);
-			
+			nextButton.gameObject.SetActive(false);
 			foreach (DialogueNode choice in playerConversant.GetChoices())
 			{
 				GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);

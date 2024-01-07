@@ -12,18 +12,19 @@ public class IsEmpty : MonoBehaviour
         isEmpty = true;
         glass = null;
     }
-
+    
     public void SetIsEmpty(bool isEmpty)
-    {
+	{
+		gameObject.GetComponent<BoxCollider2D>().enabled = isEmpty;
         this.isEmpty = isEmpty;
     }
-	
 	
     public bool GetIsEmpty()
 	{
 		if (transform.childCount <= 0)
 		{
 			gameObject.GetComponent<BoxCollider2D>().enabled = false;
+			isEmpty = false;
 			return true;
 		}
 		gameObject.GetComponent<BoxCollider2D>().enabled = true;
