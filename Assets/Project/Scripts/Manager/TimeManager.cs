@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
+    public static TimeManager instance { get; private set; }
+
     [SerializeField] GameObject endDayWindow;
 
+    private int days;
     private float seconds;
     private int minutes;
     private int hours;
@@ -17,15 +21,16 @@ public class TimeManager : MonoBehaviour
 
     private void Awake()
     {
-        seconds = 0.0f;
-        minutes = 0;
-        hours = 0;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-        timerStopped = true;
-
-        timerText = GetComponentInChildren<TextMeshProUGUI>();
-
-        StartDay();
+        InitTimeManager();
     }
 
     private void Update()
@@ -38,12 +43,29 @@ public class TimeManager : MonoBehaviour
 
     }
 
+    private void InitTimeManager()
+    {
+        days = 0;
+
+        seconds = 0.0f;
+        minutes = 0;
+        hours = 0;
+
+        timerStopped = true;
+
+        timerText = GetComponentInChildren<TextMeshProUGUI>();
+
+        StartDay();
+    }
+
     public void StartDay()
     {
         timerStopped = false;
         hours = 10;
         minutes = 0;
         seconds = 0.0f;
+
+        days++;
     }
 
     public void EndDay()
@@ -89,6 +111,11 @@ public class TimeManager : MonoBehaviour
     private void UpdateText()
     {
         timerText.text = hours.ToString("00") + ":" + minutes.ToString("00");
+    }
+
+    public int GetDays()
+    {
+        return days;
     }
 
 }
