@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,10 +17,17 @@ public class IsEmpty : MonoBehaviour
     {
         this.isEmpty = isEmpty;
     }
-
+	
+	
     public bool GetIsEmpty()
-    {
-        return isEmpty;
+	{
+		if (transform.childCount <= 0)
+		{
+			gameObject.GetComponent<BoxCollider2D>().enabled = false;
+			return true;
+		}
+		gameObject.GetComponent<BoxCollider2D>().enabled = true;
+		return false;
     }
 
     public void SetGlass(GameObject glass)

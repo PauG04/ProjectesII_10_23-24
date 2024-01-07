@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 6687796142999737246}
   - component: {fileID: 48340021351125146}
   - component: {fileID: 8521909466069664933}
+  - component: {fileID: 1368161936647401561}
   m_Layer: 0
   m_Name: glass1
   m_TagString: Untagged
@@ -366,6 +367,7 @@ MonoBehaviour:
   - {fileID: 112302223541148087}
   shader: {fileID: 8985833317107453550}
   startFloat: 0.24
+  decorationCollider: {fileID: 112302223541148087}
 --- !u!61 &48340021351125146
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -398,7 +400,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.006177768, y: -0.0036036968}
+  m_Offset: {x: 0.0029934049, y: -0.003603682}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -409,7 +411,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31668857, y: 0.5882331}
+  m_Size: {x: 0.56825376, y: 0.69240105}
   m_EdgeRadius: 0
 --- !u!50 &8521909466069664933
 Rigidbody2D:
@@ -438,6 +440,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!210 &1368161936647401561
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4514509151029930034}
+  m_Enabled: 1
+  m_SortingLayerID: -889591459
+  m_SortingLayer: 3
+  m_SortingOrder: 5
+  m_SortAtRoot: 0
 --- !u!1 &6248013341665299662
 GameObject:
   m_ObjectHideFlags: 0
