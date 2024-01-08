@@ -67,7 +67,6 @@ namespace UI
 			{
 				return;
 			}
-						
 			if(playerConversant.IsNewConversant())
 			{
 				conversantName.text = playerConversant.GetCurrentConversantName();
@@ -78,10 +77,14 @@ namespace UI
 
 			if (playerConversant.IsChoosing())
 			{
+				
+				nextButton.gameObject.SetActive(false);
 				BuildChoiceList();
 			}
 			else 
 			{
+				
+				nextButton.gameObject.SetActive(true);
 				AIText.text = playerConversant.GetText();
 				
 				GameObject conversantBubble = Instantiate(prefabAibubble, bubbleRoot);
@@ -92,7 +95,6 @@ namespace UI
 		private void BuildChoiceList()
 		{
 			DestroyChildrens(choiceRoot);
-			nextButton.gameObject.SetActive(false);
 			foreach (DialogueNode choice in playerConversant.GetChoices())
 			{
 				GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);

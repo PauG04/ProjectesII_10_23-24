@@ -13,7 +13,10 @@ namespace Dialogue
         [SerializeField] private Vector2 newNodeOffset = new Vector2(250, 0);
 
         Dictionary<string, DialogueNode> nodeLookUp = new Dictionary<string, DialogueNode>();
-
+	    protected void Awake()
+	    {
+	    	OnValidate();
+	    }
         // Called when a value is changed on inspector, or when scripteableobject is loaded
         private void OnValidate()
         {
@@ -34,16 +37,20 @@ namespace Dialogue
         public DialogueNode GetRootNode()
 	    {
             return nodes[0];
-        }
+	    }
+
         public IEnumerable<DialogueNode> GetAllChildren(DialogueNode parentNode)
-        {
-            foreach (string childID in parentNode.GetChildren())
-            {
-                if (nodeLookUp.ContainsKey(childID))
-                {
-                    yield return nodeLookUp[childID];
-                }
-            }
+	    {
+		    if(parentNode != null)
+		    {
+		    	foreach (string childID in parentNode.GetChildren())
+		    	{
+			    	if (nodeLookUp.ContainsKey(childID))
+			    	{
+				    	yield return nodeLookUp[childID];
+			    	}
+		    	}
+		    }
         }
         
 	    public IEnumerable<DialogueNode> GetPlayerChildren(DialogueNode currentNode)
@@ -67,7 +74,7 @@ namespace Dialogue
 	    		}
 	    	}
 	    }
-#if UNITY_EDITOR
+	    #if UNITY_EDITOR
         public void CreateNode(DialogueNode parent)
         {
             DialogueNode newNode = MakeNode(parent);
@@ -110,11 +117,11 @@ namespace Dialogue
                 node.RemoveChild(nodeToDelete.name);
             }
         }
-#endif
+	    #endif
 
         public void OnBeforeSerialize()
         {
-#if UNITY_EDITOR
+	        #if UNITY_EDITOR
             if(nodes.Count == 0)
             {
                 DialogueNode newNode = MakeNode(null);
@@ -131,7 +138,7 @@ namespace Dialogue
                     }
                 }
             }
-#endif
+	        #endif
         }
 
         public void OnAfterDeserialize()
