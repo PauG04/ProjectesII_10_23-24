@@ -212,7 +212,7 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 			rectTransform.sizeDelta.y + _offsetHeightCanvas
 		);
 
-		_collider.offset = new Vector2(newWindowsSizeCanvas.x / 2f, _collider.offset.y);
+		_collider.offset = new Vector2(0, (newWindowsSizeCanvas.y / 2) - 12.25f);
 		_collider.size = new Vector2(newWindowsSizeCanvas.x, _collider.size.y);
 
         _backgroundCollider.size = rectTransform.sizeDelta;
