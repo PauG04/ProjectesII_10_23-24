@@ -21,11 +21,10 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
 	[SerializeField] private GameObject _minimize;
 	[SerializeField] private BoxCollider2D _backgroundCollider;
 
-
 	[Header("UI Objects")]
-	[SerializeField] private GameObject _miniIcon;
-	[SerializeField] private DesktopApp _app;
-    [SerializeField] private List<DesktopApp> _childApps = new List<DesktopApp>();
+	private GameObject _miniIcon;
+	private DesktopApp _app;
+    private List<DesktopApp> _childApps = new List<DesktopApp>();
 
     [Header("Testing Variables")]
     [SerializeField] private bool isTesting = false;
@@ -74,6 +73,7 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
     {
         return CurrentState.StateKey;
     }
+
     public void SetNode(WindowNode node)
     {
         _node = node; 
@@ -97,7 +97,8 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
 	public void SetChildApps(List<DesktopApp> childApps)
 	{
 		_childApps = childApps;
-	}	  
+	} 
+
 	public List<DesktopApp> GetChildApps()
 	{
 		return _childApps;

@@ -201,14 +201,6 @@ public class DesktopApp : MonoBehaviour
 		isCreated = false;
 		isOpen = false;
 	}
-	public void SetIsCreated(bool isCreated)
-	{
-		this.isCreated = isCreated;
-	}
-	public void SetIsOpen(bool isOpen)
-	{
-		this.isOpen = isOpen;
-	}
 	public GameObject GetApp() 
 	{ 
 		return app; 

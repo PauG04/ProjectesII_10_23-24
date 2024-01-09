@@ -6,7 +6,9 @@ using Windows;
 
 public class WindowsResize : BaseState<WindowsStateMachine.WindowState>
 {
+    
     private WindowsStateMachine.WindowState _state;
+    /*
     private WindowsStateMachine _windowsStateMachine;
     private DesktopApp _app;
     private bool _isCanvas;
@@ -23,17 +25,19 @@ public class WindowsResize : BaseState<WindowsStateMachine.WindowState>
     private float _offsetHeightCanvas = 29f;
     private float _moveHeightCanvas = -9f;
     #endregion
-
+    */
     public WindowsResize(
         WindowsStateMachine windowsStateMachine,
         DesktopApp app,
         bool isCanvas
     ) : base(WindowsStateMachine.WindowState.Resize)
     {
+        /*
         _windowsStateMachine = windowsStateMachine;
         _isCanvas = isCanvas;
         _app = app;
         _isCanvas = isCanvas;
+        */
     }
 
     public override void EnterState()
@@ -73,12 +77,13 @@ public class WindowsResize : BaseState<WindowsStateMachine.WindowState>
     private void ResizeWindowToAdjust()
     {
         // Get childapp and resize the windows
-
+        /*
         Vector2 newWindowSize = new Vector2(
             0, 
             0
         );
 
         _spriteRenderer.size = newWindowSize;
+        */
     }
 }
