@@ -68,7 +68,6 @@ public class DragHammer : MonoBehaviour
     {
         if (collision.CompareTag("IceWindows") && !pressing)
         {
-            Debug.Log("salimos");
             isOut = true;
         }
     }
@@ -76,7 +75,6 @@ public class DragHammer : MonoBehaviour
     {
         if (collision.CompareTag("IceWindows") && !pressing)
         {
-            Debug.Log("entramos");
             isOut = false;
         }
     }

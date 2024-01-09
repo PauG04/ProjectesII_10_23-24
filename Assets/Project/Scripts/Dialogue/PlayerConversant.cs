@@ -102,8 +102,6 @@ namespace Dialogue
 				onConversationUpdated();
 				return;
 			}
-
-			Debug.Log(currentChildNumber);
 			
 			DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
 			currentChildNumber = UnityEngine.Random.Range(0, children.Count());

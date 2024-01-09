@@ -52,9 +52,7 @@ public class Client : MonoBehaviour
     }
     
 	public void ChoseDrink()
-	{
-		Debug.Log(playerConversant.GetChildNumber());
-		
+	{	
 		switch (playerConversant.GetChildNumber())
 		{
 		case 0:
