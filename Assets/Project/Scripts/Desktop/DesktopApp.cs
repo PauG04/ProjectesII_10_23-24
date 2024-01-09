@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -27,7 +28,7 @@ public class DesktopApp : MonoBehaviour
     private bool isOpen = false;
 	private bool isCreated = false;
     
-	private GameObject newMiniIcon;
+	private GameObject miniIcon;
     
 	private Vector3 correctSize;
     
@@ -69,7 +70,7 @@ public class DesktopApp : MonoBehaviour
 		windows.SetIsCanvas(isCanvas);
         windows.SetNode(node);
         windows.SetListOfWindows(listOfWindows);
-	    windows.SetMiniIcon(newMiniIcon);
+	    windows.SetMiniIcon(miniIcon);
 	    windows.SetApp(this);
 
 		if (isCanvas)
@@ -95,12 +96,12 @@ public class DesktopApp : MonoBehaviour
     }
     private void CreateMiniIcons()
     {
-        newMiniIcon = new GameObject();
+        miniIcon = new GameObject();
 
-        newMiniIcon.name = gameObject.name + "_miniIcon";
+        miniIcon.name = gameObject.name + "_miniIcon";
 
-        Image imageMiniIcon = newMiniIcon.AddComponent<Image>();
-        RectTransform rectTransformMiniIcon = newMiniIcon.GetComponent<RectTransform>();
+        Image imageMiniIcon = miniIcon.AddComponent<Image>();
+        RectTransform rectTransformMiniIcon = miniIcon.GetComponent<RectTransform>();
 
         if (gameObject.GetComponent<SpriteRenderer>() != null)
         {
@@ -114,10 +115,10 @@ public class DesktopApp : MonoBehaviour
         rectTransformMiniIcon.sizeDelta = new Vector2(50, 50);
         
 
-        CreateButtonMiniIcon(newMiniIcon);
+        CreateButtonMiniIcon(miniIcon);
 
-	    newMiniIcon.transform.SetParent(miniIconsPanel.transform);
-        newMiniIcon.transform.localScale = Vector3.one;
+	    miniIcon.transform.SetParent(miniIconsPanel.transform);
+        miniIcon.transform.localScale = Vector3.one;
     }
 
     private void CreateButtonMiniIcon(GameObject parent)
@@ -195,7 +196,7 @@ public class DesktopApp : MonoBehaviour
 	{
 		app = null;
 		listOfWindows = null;
-		newMiniIcon = null;
+		miniIcon = null;
 		
 		isCreated = false;
 		isOpen = false;
@@ -208,7 +209,14 @@ public class DesktopApp : MonoBehaviour
 	{
 		this.isOpen = isOpen;
 	}
-
+	public GameObject GetApp() 
+	{ 
+		return app; 
+	}
+	public GameObject GetMiniIcon()
+	{
+		return miniIcon;
+	}
 	public bool GetIsCreated()
 	{
 		return isCreated;

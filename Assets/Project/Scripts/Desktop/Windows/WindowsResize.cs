@@ -32,6 +32,8 @@ public class WindowsResize : BaseState<WindowsStateMachine.WindowState>
     {
         _windowsStateMachine = windowsStateMachine;
         _isCanvas = isCanvas;
+        _app = app;
+        _isCanvas = isCanvas;
     }
 
     public override void EnterState()

@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WindowsClose : BaseState<WindowsStateMachine.WindowState>
@@ -6,11 +7,12 @@ public class WindowsClose : BaseState<WindowsStateMachine.WindowState>
 	private WindowsStateMachine.WindowState _state;
 	private WindowsStateMachine _windowsStateMachine;
 	private ListOfWindows _listOfWindows;
+	private List<DesktopApp> _childApps;
 
-	private GameObject _miniIcon;
+    private GameObject _miniIcon;
 	private DesktopApp _app;
 	
-	public WindowsClose(WindowsStateMachine windowsStateMachine, ListOfWindows listOfWindows, GameObject gameObject, GameObject miniIcon, DesktopApp app) : base(WindowsStateMachine.WindowState.Closing)
+	public WindowsClose(WindowsStateMachine windowsStateMachine, ListOfWindows listOfWindows, GameObject miniIcon, DesktopApp app) : base(WindowsStateMachine.WindowState.Closing)
 	{
 		_windowsStateMachine = windowsStateMachine;
 		_listOfWindows = listOfWindows;
@@ -21,7 +23,10 @@ public class WindowsClose : BaseState<WindowsStateMachine.WindowState>
 	public override void EnterState()
 	{
 		_state = WindowsStateMachine.WindowState.Closing;
-	}
+
+		_childApps = _windowsStateMachine.GetChildApps();
+
+    }
 	public override void ExitState()
 	{
 
@@ -43,10 +48,21 @@ public class WindowsClose : BaseState<WindowsStateMachine.WindowState>
 		
 	}
 	public override void UpdateState()
-	{
-		_listOfWindows.RemoveWindowInList(_windowsStateMachine.gameObject);
-		_app.ResetApp();
-		GameObject.Destroy(_windowsStateMachine.gameObject);
-		GameObject.Destroy(_miniIcon);
+    {
+        foreach (DesktopApp childApp in _childApps)
+        {
+			if (childApp.GetApp() != null)
+			{
+                _listOfWindows.RemoveWindowInList(childApp.GetApp());
+                GameObject.Destroy(childApp.GetApp());
+                GameObject.Destroy(childApp.GetMiniIcon());
+                childApp.ResetApp();
+            }
+        }
+
+        _listOfWindows.RemoveWindowInList(_windowsStateMachine.gameObject);
+        _app.ResetApp();
+        GameObject.Destroy(_windowsStateMachine.gameObject);
+        GameObject.Destroy(_miniIcon);    
 	}
 }
