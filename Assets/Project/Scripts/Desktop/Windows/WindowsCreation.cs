@@ -12,8 +12,8 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 	
 	private GameObject _close;
 	private GameObject _minimize;
+    private BoxCollider2D _backgroundCollider;
 
-	private float _scaleSpeed = 3f;
 	private bool _isCreated;
 
 	private bool _isCanvas;
@@ -37,13 +37,13 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 
     private SpriteRenderer _spriteRenderer;
 	private BoxCollider2D _collider;
-	private Image _imageRenderer;
 
 	public WindowsCreation(
-		WindowsStateMachine windowsStateMachine, 
-		ListOfWindows listOfWindows, 
-		WindowNode node, 
-		bool isCanvas, 
+		WindowsStateMachine windowsStateMachine,
+		ListOfWindows listOfWindows,
+		WindowNode node,
+		BoxCollider2D backgroundCollider,
+        bool isCanvas, 
 		GameObject close, 
 		GameObject minimize
 	) : base(WindowsStateMachine.WindowState.Creating)
@@ -51,7 +51,8 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 	    _windowsStateMachine = windowsStateMachine;
 	    _listOfWindows = listOfWindows;
 	    _node = node;
-	    _isCanvas = isCanvas;
+		_backgroundCollider = backgroundCollider;
+        _isCanvas = isCanvas;
 	    _close = close;
 	    _minimize = minimize;
     }
@@ -156,8 +157,10 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 			_node.GetPrefabChild().transform.localScale.x + _offsetWidth,
 			_node.GetPrefabChild().transform.localScale.y + _offsetHeight
 		);
-		
-		_spriteRenderer.size = newWindowSize;
+
+		_backgroundCollider.size = _node.GetPrefabChild().transform.localScale;
+
+        _spriteRenderer.size = newWindowSize;
     }
 	private void AdjustChildPositions()
 	{
@@ -193,7 +196,6 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 		prefabRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
 		prefabRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
 		
-		RectTransform parentRectTransform = _windowsStateMachine.GetComponent<RectTransform>();
 		Vector2 previousScale = prefabRectTransform.localScale;
 
 		prefabInstance.transform.SetParent(_windowsStateMachine.transform, false);
@@ -212,8 +214,10 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 
 		_collider.offset = new Vector2(newWindowsSizeCanvas.x / 2f, _collider.offset.y);
 		_collider.size = new Vector2(newWindowsSizeCanvas.x, _collider.size.y);
-		
-		_windowsStateMachine.GetComponent<RectTransform>().sizeDelta = newWindowsSizeCanvas;
+
+        _backgroundCollider.size = rectTransform.sizeDelta;
+
+        _windowsStateMachine.GetComponent<RectTransform>().sizeDelta = newWindowsSizeCanvas;
 	}
 	
 	private void MoveWindowToAdjust(RectTransform rectTransform)
@@ -225,19 +229,5 @@ public class WindowsCreation : BaseState<WindowsStateMachine.WindowState>
 		);
 
 		rectTransform.localPosition = newPosition;
-	}
-	private IEnumerator ScaleWindows()
-	{
-		Vector3 initialScale = _windowsStateMachine.transform.localScale;
-		float elapsedTime = 0f;
-
-		while (elapsedTime < 1f)
-		{
-			_windowsStateMachine.transform.localScale = Vector3.Lerp(initialScale, Vector3.one, elapsedTime);
-			elapsedTime += Time.deltaTime * _scaleSpeed;
-			yield return null;
-		}
-
-		_windowsStateMachine.transform.localScale = Vector3.one;
 	}
 }

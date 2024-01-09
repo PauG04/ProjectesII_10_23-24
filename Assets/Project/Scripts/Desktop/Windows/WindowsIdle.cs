@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 public class WindowsIdle : BaseState<WindowsStateMachine.WindowState>
 {
@@ -9,22 +10,29 @@ public class WindowsIdle : BaseState<WindowsStateMachine.WindowState>
 
 	private bool _isCanvas;
 
-	private BoxCollider2D _closeCollider;
-	private BoxCollider2D _minimizeCollider;
+	private BoxCollider2D _backgroundCollider;
 
-	public WindowsIdle(GameObject close, GameObject minimize, bool isCanvas) : base(WindowsStateMachine.WindowState.Idle)
+	private IsColliderPressed _closeIsPressed;
+	private IsColliderPressed _minimizeIsPressed;
+    private IsColliderPressed _backgroundIsPressed;
+
+
+    public WindowsIdle(GameObject close, GameObject minimize, BoxCollider2D backgroundCollider, bool isCanvas) : base(WindowsStateMachine.WindowState.Idle)
     {
 	    _close = close;
 	    _minimize = minimize;
+		_backgroundCollider = backgroundCollider;
+
 	    _isCanvas = isCanvas;
     }
     public override void EnterState()
 	{
    
 	    _state = WindowsStateMachine.WindowState.Idle;
-        
-	    _closeCollider = _close.GetComponent<BoxCollider2D>();
-    	_minimizeCollider = _minimize.GetComponent<BoxCollider2D>();
+
+        _closeIsPressed = _close.GetComponent<IsColliderPressed>();
+        _minimizeIsPressed = _minimize.GetComponent<IsColliderPressed>();
+        _backgroundIsPressed = _backgroundCollider.GetComponent<IsColliderPressed>();
     }
     public override void ExitState()
 	{
@@ -36,12 +44,6 @@ public class WindowsIdle : BaseState<WindowsStateMachine.WindowState>
     }
     public override void OnMouseDown()
 	{
-		/*
-		if (!_isCanvas)
-		{
-			_state = WindowsStateMachine.WindowState.Dragging;
-		}
-		*/
 		_state = WindowsStateMachine.WindowState.Dragging;
     }
     public override void OnMouseDrag()
@@ -54,19 +56,23 @@ public class WindowsIdle : BaseState<WindowsStateMachine.WindowState>
     }
     public override void UpdateState()
 	{
-		
-		if (Input.GetMouseButtonDown(0) && !_isCanvas)   
-	    {
-	    	Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-	    	
-	    	if (_closeCollider.OverlapPoint(position))
-	    	{
-	    		_state = WindowsStateMachine.WindowState.Closing;
-	    	}
-	    	if (_minimizeCollider.OverlapPoint(position))
-	    	{
-	    		_state = WindowsStateMachine.WindowState.Minimize;
-	    	}
-	    }
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (_backgroundIsPressed.GetIsPressed())
+            {
+                _state = WindowsStateMachine.WindowState.Order;
+            }
+            if (!_isCanvas)
+            {
+                if (_closeIsPressed.GetIsPressed())
+                {
+                    _state = WindowsStateMachine.WindowState.Closing;
+                }
+                else if (_minimizeIsPressed.GetIsPressed())
+                {
+                    _state = WindowsStateMachine.WindowState.Minimize;
+                }
+            }
+        }
     }
 }
