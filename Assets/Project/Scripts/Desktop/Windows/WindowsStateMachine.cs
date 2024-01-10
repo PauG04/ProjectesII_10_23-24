@@ -22,9 +22,9 @@ public class WindowsStateMachine : StateMachineManager<WindowsStateMachine.Windo
 	[SerializeField] private BoxCollider2D _backgroundCollider;
 
 	[Header("UI Objects")]
-	private GameObject _miniIcon;
-	private DesktopApp _app;
-    private List<DesktopApp> _childApps = new List<DesktopApp>();
+	[SerializeField] private GameObject _miniIcon;
+	[SerializeField] private DesktopApp _app;
+    [SerializeField] private List<DesktopApp> _childApps = new List<DesktopApp>();
 
     [Header("Testing Variables")]
     [SerializeField] private bool isTesting = false;
