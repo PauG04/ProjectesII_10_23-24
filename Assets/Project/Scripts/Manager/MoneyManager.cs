@@ -47,15 +47,15 @@ public class MoneyManager : MonoBehaviour
 
     public void AddPlayerMoney(float money)
     {
-        playerMoney = money;
+        playerMoney += money;
     }
     public void AddDayEarnings(float money)
     {
-        dayEarnings = money;
+        dayEarnings += money;
     }
     public void SetDayDebts(float money)
     {
-        dayDebts = money;
+        dayDebts += money;
     }
 
 }

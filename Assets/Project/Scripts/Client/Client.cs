@@ -157,7 +157,7 @@ public class Client : MonoBehaviour
 
 	private void AddPositiveStates()
 	{
-		MoneyManager.instance.AddDayEarnings(10);
+		MoneyManager.instance.AddPlayerMoney(19.99f);
 		StateManager.instance.AddToState("Fatigue", 1);
 		StateManager.instance.AddToState("Stress", -1);
 	}
