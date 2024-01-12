@@ -5,11 +5,11 @@ using UnityEngine;
 public class DragBucketObject : MonoBehaviour
 {
     private bool isDragging;
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rb;
     private void Start()
     {
         isDragging = true;
-        rigidbody = GetComponent<Rigidbody2D>();    
+        rb = GetComponent<Rigidbody2D>();    
     }
 
     private void Update()
@@ -21,10 +21,10 @@ public class DragBucketObject : MonoBehaviour
         }
         if(Input.GetMouseButtonUp(0))
         {
-            rigidbody.gravityScale = 0.5f;
-            rigidbody.mass = 0.5f;
+            rb.gravityScale = 0.5f;
+            rb.mass = 0.5f;
             isDragging = false;
-            rigidbody.isKinematic = false;
+            rb.isKinematic = false;
             
         }
         if(Input.GetMouseButtonDown(1))
@@ -36,9 +36,9 @@ public class DragBucketObject : MonoBehaviour
     private void OnMouseDown()
     {
         isDragging = true;
-        rigidbody.isKinematic = true;
-        rigidbody.gravityScale = 0.5f;
-        rigidbody.mass = 0.5f;
+        rb.isKinematic = true;
+        rb.gravityScale = 0.5f;
+        rb.mass = 0.5f;
     }
 
 }

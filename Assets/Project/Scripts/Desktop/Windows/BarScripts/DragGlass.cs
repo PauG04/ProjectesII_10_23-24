@@ -11,7 +11,7 @@ public class DragGlass : MonoBehaviour
 
     private CreateGlass createGlass;
     private bool isLocated;
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rb2d;
     private bool isDragging;
     private Vector3 startScale;
     private Transform position;
@@ -23,7 +23,7 @@ public class DragGlass : MonoBehaviour
 
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
         createGlass = gameObject.GetComponentInParent<CreateGlass>();
         startScale = transform.localScale;
         isLocated = false;
@@ -90,7 +90,7 @@ public class DragGlass : MonoBehaviour
         if(!isLocated)
         {
             isDragging = false;
-            rigidbody.isKinematic = false;
+            rb2d.isKinematic = false;
         }      
         if(isLocated) 
         {

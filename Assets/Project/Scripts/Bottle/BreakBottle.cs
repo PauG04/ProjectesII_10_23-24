@@ -17,7 +17,7 @@ public class BreakBottle : MonoBehaviour
     private float currentHit;
     private float HP;
     private BottleController bottle;
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rb2d;
     private BottleController bottleController;
     private bool canDestroy;
 
@@ -26,7 +26,7 @@ public class BreakBottle : MonoBehaviour
         HP = 100;
         currentHit = 0;
         bottle = GetComponent<BottleController>();
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
         filterRenderer = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<Renderer>();
         bottleController = GetComponent<BottleController>();
     }
@@ -39,15 +39,15 @@ public class BreakBottle : MonoBehaviour
             Destroy(gameObject);
         }
 	    
-        if(rigidbody2D.velocity.y > max)
+        if(rb2d.velocity.y > max)
         {       
-            HP -= rigidbody2D.velocity.y / difference;
+            HP -= rb2d.velocity.y / difference;
         }
-        //if(rigidbody2D.velocity.y < min && bottleController.IsDragging() && transform.rotation.z == 0)
+        //if(rb2d.velocity.y < min && bottleController.IsDragging() && transform.rotation.z == 0)
         //{
         //    Debug.Log(bottleController.transform.localRotation.z);
         //    Debug.Log("no");
-        //    HP += rigidbody2D.velocity.y / difference;
+        //    HP += rb2d.velocity.y / difference;
         //}
 	   
     }

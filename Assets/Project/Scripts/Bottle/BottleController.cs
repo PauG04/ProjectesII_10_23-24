@@ -12,7 +12,7 @@ public class BottleController : MonoBehaviour
     [SerializeField] private Transform parentObject;
 
     private TargetJoint2D targetJoint2D;
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rb2d;
     #endregion
     #region Rotation Variables
     [Header("Rotation Variables")]
@@ -68,8 +68,8 @@ public class BottleController : MonoBehaviour
         filterRenderer = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<Renderer>();
         simulation = GameObject.Find("Simulation");
         targetJoint2D = GetComponent<TargetJoint2D>();
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        rigidbody2D.isKinematic = true;
+        rb2d = GetComponent<Rigidbody2D>();
+        rb2d.isKinematic = true;
         targetJoint2D.enabled = false;
         initPosition = transform.localPosition;
     }
@@ -102,7 +102,7 @@ public class BottleController : MonoBehaviour
     {
         oldScale = transform.localScale;
         //oldRotation = transform.localRotation;
-        rigidbody2D.isKinematic = false;
+        rb2d.isKinematic = false;
 
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.SetParent(null);
@@ -112,9 +112,9 @@ public class BottleController : MonoBehaviour
     private void OnMouseUp()
     {
         transform.SetParent(parentObject);
-        //rigidbody2D.velocity = new Vector2(0, 0);
+        //rb2d.velocity = new Vector2(0, 0);
         transform.eulerAngles = new Vector3(0, 0, 0);
-        rigidbody2D.isKinematic = true;
+        rb2d.isKinematic = true;
 
         transform.localScale = oldScale;
         //transform.localRotation = oldRotation;
@@ -137,7 +137,7 @@ public class BottleController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1) && shaker != null)
         {
-            rigidbody2D.isKinematic = true;
+            rb2d.isKinematic = true;
             targetJoint2D.enabled = false;
             isShakerSpawned = true;
             
@@ -149,7 +149,7 @@ public class BottleController : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
             targetJoint2D.enabled = false;
-            rigidbody2D.isKinematic = false;
+            rb2d.isKinematic = false;
             isShakerSpawned = false;
             
             shakerPosition = Vector2.zero;
