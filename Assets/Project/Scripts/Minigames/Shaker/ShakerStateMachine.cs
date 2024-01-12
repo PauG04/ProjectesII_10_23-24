@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShakerStateMachine : MonoBehaviour
+public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerState>
 {
 	/*
 	[Header("Shaker General Variables")]
@@ -67,16 +67,14 @@ public class ShakerStateMachine : MonoBehaviour
 	
 	private void Awake()
 	{
-		/*
 		States.Add(ShakerState.IdleOpen, new ShakerIdleOpen());
-		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this));
+		States.Add(ShakerState.IdleClosed, new ShakerIdleClose());
 		States.Add(ShakerState.OpenShaker, new ShakerOpenAnimation());
 		States.Add(ShakerState.CloseShaker, new ShakerCloseAnimation());
-		States.Add(ShakerState.DraggingOpen, new ShakerDraggingOpen());
-		States.Add(ShakerState.DraggingClosed, new ShakerDraggingClose());
+		States.Add(ShakerState.DraggingOpen, new ShakerDraggingOpen(this));
+		States.Add(ShakerState.DraggingClosed, new ShakerDraggingClose(this));
 		States.Add(ShakerState.ResetDrink, new ShakerResetDrink());
 		States.Add(ShakerState.ResetPositions, new ShakerResetPosition());
-		*/
 	}
 	
 	public void SetProgress(float progress)
