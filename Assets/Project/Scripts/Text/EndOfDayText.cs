@@ -6,14 +6,11 @@ using UnityEngine;
 
 public class EndOfDayText : MonoBehaviour
 {
-    private TextMeshProUGUI titleText;
-    private TextMeshProUGUI moneyText;
+    [SerializeField] private TextMeshProUGUI titleText;
+    [SerializeField] private TextMeshProUGUI moneyText;
 
     private void Awake()
     {
-        titleText = GameObject.Find("TitleText").GetComponent<TextMeshProUGUI>();
-        moneyText = GameObject.Find("MoneyText").GetComponent<TextMeshProUGUI>();
-
         SetText();
     }
 
@@ -26,7 +23,6 @@ public class EndOfDayText : MonoBehaviour
             "\nToday's Earnings: " + MoneyManager.instance.GetDayEarnings() +
             "\nToday's Debt: " + MoneyManager.instance.GetDayDebts() +
             "\nTotal Money: " + MoneyManager.instance.CalculateEndOfDayMoney();
-
     }
 
 

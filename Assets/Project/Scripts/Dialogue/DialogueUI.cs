@@ -30,7 +30,6 @@ namespace UI
 		[SerializeField] private GameObject choicePrefab;
 	
 		[Header("Buttons")]
-		[SerializeField] private Button nextButton;
 		[SerializeField] private Button quitButton;
 	
 		private void Start()
@@ -38,7 +37,6 @@ namespace UI
 		    playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
 			playerConversant.onConversationUpdated += UpdateChat;
 		    
-			nextButton.onClick.AddListener(() => playerConversant.Next());
 		    quitButton.onClick.AddListener(() => playerConversant.Quit());
 		    
 		    AIText = prefabAibubble.GetComponentInChildren<TextMeshProUGUI>();
@@ -47,7 +45,6 @@ namespace UI
 		    
 			DestroyChildrens(bubbleRoot);
 			DestroyChildrens(choiceRoot);
-			nextButton.gameObject.SetActive(false);
 		}
 		
 		private void Update()
@@ -67,7 +64,6 @@ namespace UI
 			{
 				return;
 			}
-						
 			if(playerConversant.IsNewConversant())
 			{
 				conversantName.text = playerConversant.GetCurrentConversantName();
@@ -92,7 +88,6 @@ namespace UI
 		private void BuildChoiceList()
 		{
 			DestroyChildrens(choiceRoot);
-			nextButton.gameObject.SetActive(false);
 			foreach (DialogueNode choice in playerConversant.GetChoices())
 			{
 				GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);

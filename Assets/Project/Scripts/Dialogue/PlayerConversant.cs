@@ -22,7 +22,7 @@ namespace Dialogue
 
 		/// TODO:
 		/// 	find a better way to give the child to other objects instead of a numeric one
-		private int currentChildNumber;
+		private int currentChildNumber = 0;
 		
 		public event Action onConversationUpdated;
 				
@@ -41,10 +41,12 @@ namespace Dialogue
 
 			TriggerEnterAction();
 			isStartingNewConversant = true;
+			
 			if (onConversationUpdated != null)
 			{
 				onConversationUpdated();
 			}
+			
 			isStartingNewConversant = false;
 		}
 		public void Quit()

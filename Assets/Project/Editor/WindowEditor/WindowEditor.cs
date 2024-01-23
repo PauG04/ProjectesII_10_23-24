@@ -7,6 +7,7 @@ namespace Windows.Editor
 {
     public class WindowEditor : EditorWindow
     {
+        /*
         private Window selectedWindow = null;
 
         #region Nodes
@@ -65,5 +66,6 @@ namespace Windows.Editor
                 Repaint();
             }
         }
+        */
     }
 }
