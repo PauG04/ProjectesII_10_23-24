@@ -335,7 +335,7 @@ TargetJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_Anchor: {x: 0, y: 0}
-  m_Target: {x: -1.537, y: -0.446}
+  m_Target: {x: 2.523, y: 2.924}
   m_AutoConfigureTarget: 1
   m_MaxForce: 10000
   m_DampingRatio: 1
@@ -426,8 +426,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increaseScale: 2
   parent: {fileID: 415838}
-  hasToBeDestroy: 1
-  velocity: 3
+  hasToBeDestroy: 0
+  velocityX: 4
+  velocityY: 5
 --- !u!212 &307233441
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -488,7 +489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307233436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.537, y: -0.446, z: 0}
+  m_LocalPosition: {x: 2.523, y: 2.924, z: 0}
   m_LocalScale: {x: 0.4491, y: 0.4182, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
