@@ -37,6 +37,11 @@ public class DragItem : MonoBehaviour
     {
         CalculatePosition();
         MoveObjectToParent();
+        if(Input.GetMouseButtonUp(0) && dragging)
+        {
+            dragging = false;
+            firstLerp = true;
+        }
     }
 
     private void CalculatePosition()
@@ -98,6 +103,15 @@ public class DragItem : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("WorkSpace") && transform.localScale.magnitude <= initScale.magnitude*increaseScale-1)
+        {
+            isInWorkSpace = true;
+            transform.localScale *= increaseScale;
+        }
+    }
+
     private void OnMouseDown()
     {
         dragging = true;
@@ -109,6 +123,21 @@ public class DragItem : MonoBehaviour
     {
         dragging = false;
         firstLerp = true;
+    }
+
+    public void SetIsDragging(bool state)
+    {
+        dragging = state;
+    }
+
+    public bool GetIsDraggin()
+    {
+        return dragging;
+    }
+
+    public bool GetIsInWorkSpace()
+    {
+        return isInWorkSpace;
     }
 }
 
