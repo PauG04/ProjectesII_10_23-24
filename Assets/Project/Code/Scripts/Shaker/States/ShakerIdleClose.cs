@@ -1,10 +1,17 @@
-﻿public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
+﻿using UnityEngine;
+
+public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
 {
     private ShakerStateMachine.ShakerState _state;
 
-    public ShakerIdleClose() : base(ShakerStateMachine.ShakerState.IdleClosed)
+    private ShakerStateMachine _shakerStateMachine;
+    private SetTopShaker _shakerClosed;
+
+    private float lerpSpeed = 1.0f;
+    public ShakerIdleClose(ShakerStateMachine shakerStateMachine, SetTopShaker shakerClosed) : base(ShakerStateMachine.ShakerState.IdleClosed)
     {
-        
+        _shakerStateMachine = shakerStateMachine;
+        _shakerClosed = shakerClosed;
     }
 
     public override void EnterState()
@@ -39,6 +46,20 @@
 
     public override void UpdateState()
     {
-        
+        if (!_shakerClosed.GetIsShakerClosed())
+        {
+            _state = ShakerStateMachine.ShakerState.IdleOpen;
+        }
+
+        if (_shakerStateMachine.transform.rotation != Quaternion.identity)
+        {
+            ResetObjectPosition();
+        }
+    }
+
+
+    private void ResetObjectPosition()
+    {
+        _shakerStateMachine.transform.rotation = Quaternion.Lerp(_shakerStateMachine.transform.rotation, Quaternion.identity, lerpSpeed * Time.deltaTime);
     }
 }

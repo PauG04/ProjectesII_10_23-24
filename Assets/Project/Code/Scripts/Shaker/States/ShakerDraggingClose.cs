@@ -11,17 +11,18 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
     private Vector2 _newPosition;
 
-    private float _maxAngle = 0.5f;
+    private float _maxAngle;
     private float _progress;
     private float _maxProgress;
 
     private bool _canShake;
     private bool _isDown;
-    public ShakerDraggingClose(ShakerStateMachine shakerStateMachine, float maxAngle, float progress) : base(ShakerStateMachine.ShakerState.DraggingClosed)
+    public ShakerDraggingClose(ShakerStateMachine shakerStateMachine, float maxAngle, float progress, float maxProgress) : base(ShakerStateMachine.ShakerState.DraggingClosed)
     {
         _shakerStateMachine = shakerStateMachine;
         _maxAngle = maxAngle;
         _progress = progress;
+        _maxProgress = maxProgress;
     }
     public override void EnterState()
     {
@@ -31,11 +32,14 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _rb = _shakerStateMachine.GetComponent<Rigidbody2D>();
 
         _newPosition = _shakerStateMachine.transform.position;
+
+        _rb.constraints = RigidbodyConstraints2D.None;
+        _rb.bodyType = RigidbodyType2D.Dynamic;
     }
     public override void ExitState()
     {
-        _rb.constraints = RigidbodyConstraints2D.None;
-        _rb.bodyType = RigidbodyType2D.Dynamic;
+        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        _rb.bodyType = RigidbodyType2D.Kinematic;
     }
     public override ShakerStateMachine.ShakerState GetNextState()
     {
@@ -56,6 +60,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void UpdateState()
     {
+        Shaking();
         _targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _shakerStateMachine.transform.SetParent(null);
 
@@ -98,6 +103,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     {
         if ((_rb.velocity.y >= 0.00001f || _rb.velocity.y <= -0.00001f))
         {
+            Debug.Log("Shaking");
             _canShake = true;
         }
     }
