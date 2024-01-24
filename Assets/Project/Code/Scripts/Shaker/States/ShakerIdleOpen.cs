@@ -34,7 +34,7 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
 
     public override void OnMouseDown()
     {
-        _state = ShakerStateMachine.ShakerState.DraggingOpen;
+
     }
 
     public override void OnMouseDrag()
@@ -57,6 +57,22 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
         if (_shakerStateMachine.transform.rotation != Quaternion.identity)
         {
             ResetObjectPosition();
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                Rigidbody2D rigidbody2D = hit.collider.GetComponent<Rigidbody2D>();
+                if (rigidbody2D != null)
+                {
+                    _state = ShakerStateMachine.ShakerState.DraggingOpen;
+                }
+            }
         }
     }
 

@@ -40,4 +40,5 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     {
         
     }
+
 }

@@ -103,7 +103,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     {
         if ((_rb.velocity.y >= 0.00001f || _rb.velocity.y <= -0.00001f))
         {
-            Debug.Log("Shaking");
             _canShake = true;
         }
     }

@@ -7,6 +7,10 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 
     [Header("General Shaker Variables")]
     [SerializeField] private SetTopShaker topShaker;
+    [SerializeField] private GameObject bottomShaker;
+    [SerializeField] private LayerMask shakerLayerMask;
+
+    [Header("Progres Variables")]
     [SerializeField] private float maxProgress;
 	private bool isPressing;
 	private float progress;
@@ -26,7 +30,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	private void Awake()
 	{
 		States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker));
-		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker));
+		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask));
 		States.Add(ShakerState.DraggingOpen, new ShakerDraggingOpen(this));
 		States.Add(ShakerState.DraggingClosed, new ShakerDraggingClose(this, maxAngle, progress, maxProgress));
 		States.Add(ShakerState.ResetDrink, new ShakerResetDrink());

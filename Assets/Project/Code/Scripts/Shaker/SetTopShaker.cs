@@ -1,25 +1,30 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SetTopShaker : MonoBehaviour
 {
     [SerializeField] private DragPhysicObject target;
     [SerializeField] private float lerpSpeed = 2;
-    private bool isTargetInside;
-    private bool isShakerClosed;
 
-    private bool isRepositioning = false;
-
+    [SerializeField] private bool isTargetInside;
+    [SerializeField] private bool isRepositioning = false;
+    [SerializeField] private bool isAnimationDone = false;
 
     private void Update()
     {
-        if (!target.GetMouseDown() && isTargetInside && !isShakerClosed && !isRepositioning)
+        if (!target.GetMouseDown() && isTargetInside && !isRepositioning && !isAnimationDone)
         {
-            target.transform.SetParent(transform.parent);
+            //target.transform.SetParent(transform.parent);
             StartCoroutine(RepositionCoroutine());
         }
+        if(isTargetInside && isAnimationDone && !isRepositioning)
+        {
+            target.transform.position = transform.position;
+            target.transform.rotation = transform.parent.rotation;
+            Debug.Log("Setting Top");
+        }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == target.gameObject)
@@ -29,14 +34,12 @@ public class SetTopShaker : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject == target.gameObject)
+        if (collision.gameObject == target.gameObject && target.GetMouseDown())
         {
             isTargetInside = false;
-            isShakerClosed = false;
+            isAnimationDone = false;
         }
-
     }
-
     private IEnumerator RepositionCoroutine()
     {
         isRepositioning = true;
@@ -53,14 +56,13 @@ public class SetTopShaker : MonoBehaviour
             yield return null;
         }
 
-        target.transform.position = transform.position;
+        target.transform.position = new Vector2(transform.position.x, transform.position.y);
 
-        isShakerClosed = true;
         isRepositioning = false;
+        isAnimationDone = true;
     }
-
     public bool GetIsShakerClosed()
     {
-        return isShakerClosed;
+        return isTargetInside;
     }
 }
