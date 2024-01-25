@@ -5,9 +5,11 @@ using UnityEngine;
 public class DragPhysicObject : MonoBehaviour
 {
     [SerializeField] private LayerMask dragLayers;
-    [Range(0.0f, 10.0f)] [SerializeField] private float damping = 1.0f;
-    [Range(0.0f, 10.0f)] [SerializeField] private float frequency = 5.0f;
     [SerializeField] private float rotationSpeed = 5.0f;
+
+    [Header("Joint Configuration")]
+    [Range(0.0f, 10.0f)][SerializeField] private float damping = 1.0f;
+    [Range(0.0f, 10.0f)][SerializeField] private float frequency = 5.0f;
 
     private Rigidbody2D rb;
     private TargetJoint2D targetJoint;
@@ -46,8 +48,6 @@ public class DragPhysicObject : MonoBehaviour
         {
             return;
         }
-
-        //transform.SetParent(null);
 
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.constraints = RigidbodyConstraints2D.None;

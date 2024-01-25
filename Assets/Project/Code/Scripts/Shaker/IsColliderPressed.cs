@@ -9,7 +9,6 @@ public class IsColliderPressed : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("ColliderPressed");
         isPressed = true;
     }
     private void OnMouseUp()

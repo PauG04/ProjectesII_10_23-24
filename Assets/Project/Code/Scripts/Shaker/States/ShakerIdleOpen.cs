@@ -9,7 +9,7 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
     private ShakerStateMachine _shakerStateMachine;
     private SetTopShaker _shakerClosed;
 
-    private float lerpSpeed = 1.0f;
+    private float _lerpSpeed = 10f;
 
     public ShakerIdleOpen(ShakerStateMachine shakerStateMachine, SetTopShaker shakerClosed) : base(ShakerStateMachine.ShakerState.IdleOpen)
     {
@@ -34,7 +34,7 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
 
     public override void OnMouseDown()
     {
-
+        _state = ShakerStateMachine.ShakerState.DraggingOpen;
     }
 
     public override void OnMouseDrag()
@@ -58,26 +58,10 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
         {
             ResetObjectPosition();
         }
-
-        if(Input.GetMouseButtonDown(0))
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
-
-            if (hit.collider != null)
-            {
-                Rigidbody2D rigidbody2D = hit.collider.GetComponent<Rigidbody2D>();
-                if (rigidbody2D != null)
-                {
-                    _state = ShakerStateMachine.ShakerState.DraggingOpen;
-                }
-            }
-        }
     }
 
     private void ResetObjectPosition()
     {
-        _shakerStateMachine.transform.rotation = Quaternion.Lerp(_shakerStateMachine.transform.rotation, Quaternion.identity, lerpSpeed * Time.deltaTime);
+        _shakerStateMachine.transform.rotation = Quaternion.Lerp(_shakerStateMachine.transform.rotation, Quaternion.identity, _lerpSpeed * Time.deltaTime);
     }
 }
