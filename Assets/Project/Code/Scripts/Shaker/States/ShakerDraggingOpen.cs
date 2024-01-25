@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 {
@@ -10,11 +9,19 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
     #region Rotation Variables
     private float _rotationSpeed = 10f;
-    private float maxRotation = 180f;
+    private float _maxRotation = 180f;
 
     private bool _isRotating = false;
     private float _targetRotation = 0f;
     private float _currentRotation = 0f;
+    #endregion
+
+    #region Liquid Variables
+    private GameObject _liquidPrefab;
+    private Transform _spawnPoint;
+
+    private float _spawnRate = 5.0f;
+    private float _spawnWidth = 1.0f;
     #endregion
 
     public ShakerDraggingOpen(ShakerStateMachine shakerStateMachine, float rotationSpeed) : base(ShakerStateMachine.ShakerState.DraggingOpen)
@@ -97,7 +104,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         float mouseY = Input.GetAxis("Mouse Y");
         
         _targetRotation += mouseY * _rotationSpeed;
-        _targetRotation = Mathf.Clamp(_targetRotation, 0, maxRotation);
+        _targetRotation = Mathf.Clamp(_targetRotation, 0, _maxRotation);
 
         _currentRotation = Mathf.Lerp(_currentRotation, -_targetRotation, Time.deltaTime * _rotationSpeed);
         _shakerStateMachine.transform.rotation = Quaternion.Euler(Vector3.forward * _currentRotation);
@@ -107,5 +114,20 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         _targetRotation = 0f;
         _currentRotation = 0f;
         _shakerStateMachine.transform.rotation = Quaternion.Lerp(_shakerStateMachine.transform.rotation, Quaternion.identity, _rotationSpeed * Time.deltaTime);
+    }
+
+    private void DropLiquid(float currentFillLevel, float inclination)
+    {
+        /// TODO
+        /// ----------
+        /// Drop liquid depending on the current liquid inside the shaker, if it is almost empty, higher inclination is needed.
+        /// The liquid spawns depending on the inclination, if it is aiming to the right, the liquid spawns from the right spot of the shaker.
+        /// If the current liquid is high, and the inclination is too much, the liquid spawner is wider and faster.
+
+        Vector3 spawnPosition = _spawnPoint.position + Quaternion.Euler(0f, 0f, inclination) * Vector3.right * _spawnWidth;
+        GameObject liquid = GameObject.Instantiate(_liquidPrefab, spawnPosition, Quaternion.identity);
+
+
+        GameObject.Destroy(liquid, 2.0f);
     }
 }
