@@ -37,9 +37,6 @@ public class BreakIce : MonoBehaviour
         GameObject newItem = Instantiate(createGameObject, transform);
         newItem.transform.position = transform.position;
 
-        //Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(-120, 120));
-        //newItem.transform.localRotation = rotation;
-
         Vector3 dir = transform.position - pos;
         newItem.GetComponent<Rigidbody2D>().AddForceAtPosition(new Vector3(Random.Range(forceX,-forceX), Random.Range(forceY, -forceY), Random.Range(forceZ, -forceZ)), pos, ForceMode2D.Impulse);
 
