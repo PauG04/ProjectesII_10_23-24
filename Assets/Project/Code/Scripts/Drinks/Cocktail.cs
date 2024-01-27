@@ -44,5 +44,6 @@ public class Cocktail : ScriptableObject
     private void Awake()
     {
         ingredients = SerializableIngredients.ToDictionary();
+
     }
 }
