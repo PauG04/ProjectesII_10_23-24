@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
@@ -19,15 +20,25 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     #region Liquid Variables
     private GameObject _liquidPrefab;
     private Transform _spawnPoint;
+    private LiquidManager _liquidManager;
+    private float _spawnerPositionX = 0.19f;
 
-    private float _spawnRate = 5.0f;
-    private float _spawnWidth = 1.0f;
+    private float _minRotationToPourLiquid = 10f;
+    private float _maxRotationToPourLiquid = 140f;
+
+    private float _minRotationToMoveSpawner = 90f;
+    private float _maxRotationToMoveSpawner = 180f;
+
+    private float _timeSinceLastPour = 0f;
     #endregion
 
-    public ShakerDraggingOpen(ShakerStateMachine shakerStateMachine, float rotationSpeed) : base(ShakerStateMachine.ShakerState.DraggingOpen)
+    public ShakerDraggingOpen(ShakerStateMachine shakerStateMachine, float rotationSpeed, GameObject liquidPrefab, Transform spawnPoint, LiquidManager liquidManager) : base(ShakerStateMachine.ShakerState.DraggingOpen)
     {
         _shakerStateMachine = shakerStateMachine;
         _rotationSpeed = rotationSpeed;
+        _liquidPrefab = liquidPrefab;
+        _spawnPoint = spawnPoint;
+        _liquidManager = liquidManager;
     }
 
     public override void EnterState()
@@ -80,6 +91,14 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         if (_isRotating)
         {
             RotateObject();
+
+            _timeSinceLastPour += Time.deltaTime;
+
+            if (_currentRotation <= -_minRotationToPourLiquid)
+            {
+                CalculateSpawnerPosition();
+                PourLiquid();
+            }
         } 
         else
         {
@@ -115,19 +134,47 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         _currentRotation = 0f;
         _shakerStateMachine.transform.rotation = Quaternion.Lerp(_shakerStateMachine.transform.rotation, Quaternion.identity, _rotationSpeed * Time.deltaTime);
     }
-
-    private void DropLiquid(float currentFillLevel, float inclination)
+    private void CalculateSpawnerPosition()
     {
-        /// TODO
-        /// ----------
-        /// Drop liquid depending on the current liquid inside the shaker, if it is almost empty, higher inclination is needed.
-        /// The liquid spawns depending on the inclination, if it is aiming to the right, the liquid spawns from the right spot of the shaker.
-        /// If the current liquid is high, and the inclination is too much, the liquid spawner is wider and faster.
+        if (_currentRotation < -90f)
+        {
+            float spawnerMovement = _spawnerPositionX + (_currentRotation + _minRotationToMoveSpawner) * (0 - _spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
+            _spawnPoint.localPosition = new Vector2(spawnerMovement, _spawnPoint.localPosition.y);
+        }
+        else
+        {
+            _spawnPoint.localPosition = new Vector2(_spawnerPositionX, _spawnPoint.localPosition.y);
+        }
+    }
 
-        Vector3 spawnPosition = _spawnPoint.position + Quaternion.Euler(0f, 0f, inclination) * Vector3.right * _spawnWidth;
-        GameObject liquid = GameObject.Instantiate(_liquidPrefab, spawnPosition, Quaternion.identity);
+    private void PourLiquid()
+    {
+        float currentLiquid = (_liquidManager.GetCurrentLiquid() * 100) / _liquidManager.GetMaxLiquid();
+        float currentRotation = 100 - ((-_currentRotation * 100) / _maxRotationToPourLiquid);
 
+        //Debug.Log("Current Liquid: " + currentLiquid + "%");
+        //Debug.Log("Current Rot: " + currentRotation + "%");
 
-        GameObject.Destroy(liquid, 2.0f);
+        float difference = Mathf.Abs(currentLiquid - currentRotation);
+        float spawnSpeed = 0.5f;
+
+        if (currentRotation <= currentLiquid)
+        {
+            if (difference > 0)
+            {
+                spawnSpeed = 0.5f / difference;
+            }
+
+            float pouringInterval = Mathf.Lerp(0f, 1f, spawnSpeed);
+
+            if (_timeSinceLastPour >= pouringInterval)
+            {
+                GameObject liquid = GameObject.Instantiate(_liquidPrefab, _spawnPoint.position, Quaternion.identity);
+
+                _liquidManager.DeacreaseCurrentLiquid();
+
+                _timeSinceLastPour = 0;
+            }
+        }
     }
 }

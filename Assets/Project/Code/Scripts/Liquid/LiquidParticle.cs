@@ -9,6 +9,7 @@ public class LiquidParticle : MonoBehaviour
 
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = color;
     }
 }

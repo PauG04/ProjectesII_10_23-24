@@ -21,6 +21,11 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	[Header("Open Shaker Rotation")]
 	[SerializeField] private float rotationSpeed;
 
+	[Header("Liquid Variables")]
+	[SerializeField] private GameObject _liquidPref;
+    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private LiquidManager _liquidManager;
+
     public enum ShakerState
 	{
 		IdleOpen,
@@ -33,7 +38,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	{
 		States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker));
 		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask));
-		States.Add(ShakerState.DraggingOpen, new ShakerDraggingOpen(this, rotationSpeed));
+		States.Add(ShakerState.DraggingOpen, new ShakerDraggingOpen(this, rotationSpeed, _liquidPref, _spawnPoint, _liquidManager));
 		States.Add(ShakerState.DraggingClosed, new ShakerDraggingClose(this, maxAngle, progress, maxProgress));
 		States.Add(ShakerState.ResetDrink, new ShakerResetDrink());
 
