@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class SetCutPosition : MonoBehaviour
 {
+    private DragItem dragItem;
+
     [Header("Childs and Cut")]
     [SerializeField] private GameObject cutPosition;
     [SerializeField] private List<GameObject> childLemon;
@@ -15,10 +17,19 @@ public class SetCutPosition : MonoBehaviour
 
     private void Start()
     {
+        dragItem= GetComponent<DragItem>();
+
         cutPosition.transform.position = new Vector2(childLemon[0].transform.position.x - 0.1f, childLemon[0].transform.position.y);
+        cutPosition.SetActive(false);
     }
 
     private void Update()
+    {
+        CutPosition();
+        ActivceCut();
+    }
+
+    private void CutPosition()
     {
         if (childLemon.Count() > 0)
         {
@@ -27,6 +38,18 @@ public class SetCutPosition : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void ActivceCut()
+    {
+        if (dragItem.GetIsInWorkSpace())
+        {
+            cutPosition.SetActive(true);
+        }
+        else
+        {
+            cutPosition.SetActive(false);
         }
     }
 
