@@ -51,7 +51,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	public float GetProgress()
 	{
 		return progress;
-	}
+    }
 	public float GetMaxProgress()
 	{
 		return maxProgress;
