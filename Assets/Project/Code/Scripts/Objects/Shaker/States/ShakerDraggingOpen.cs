@@ -76,6 +76,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
     public override void UpdateState()
     {
+        
         CalculatePosition();
 
         if (Input.GetMouseButtonDown(1))
