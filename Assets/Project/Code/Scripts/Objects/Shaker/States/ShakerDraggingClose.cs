@@ -73,18 +73,21 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
     private void Shaking()
     {
-        StartShaking();
-        EndClicking();
-        if (_canShake && _progress <= _maxProgress)
+        if(_shakerStateMachine.GetIsInWorkSpace())
         {
-            DirectionShaker();
-            IncreaseBar();
-        }
-        else
-        {
-            //cameraShake.SetTransforPosition();
-        }
-        SetDrinkState();
+            StartShaking();
+            EndClicking();
+            if (_canShake && _progress <= _maxProgress)
+            {
+                DirectionShaker();
+                IncreaseBar();
+            }
+            else
+            {
+                //cameraShake.SetTransforPosition();
+            }
+            SetDrinkState();
+        }    
     }
     private void IncreaseBar()
     {

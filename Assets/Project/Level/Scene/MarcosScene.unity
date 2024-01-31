@@ -667,6 +667,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   velocityX: 6
   velocityY: 10
+  workSpaceSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!212 &307233441
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1033,6 +1034,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   velocityX: 6
   velocityY: 10
+  workSpaceSprite: {fileID: 0}
 --- !u!1 &391824659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,10 +1354,9 @@ MonoBehaviour:
   divideProgress: 25
   maxAngle: 0.1
   rotationSpeed: 10
-  _liquidPref: {fileID: 0}
-  _spawnPoint: {fileID: 0}
-  _liquidManager: {fileID: 0}
-  increaseScale: 1.5
+  liquidPref: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  liquidManager: {fileID: 0}
 --- !u!1 &626998858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,6 +1693,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   velocityX: 6
   velocityY: 10
+  workSpaceSprite: {fileID: 0}
 --- !u!212 &946562639
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2492,6 +2494,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   velocityX: 6
   velocityY: 10
+  workSpaceSprite: {fileID: 0}
 --- !u!212 &1136311800
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3618,6 +3621,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   velocityX: 6
   velocityY: 10
+  workSpaceSprite: {fileID: 0}
 --- !u!212 &1548675633
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3911,6 +3915,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   velocityX: 6
   velocityY: 10
+  workSpaceSprite: {fileID: 0}
 --- !u!212 &1780620681
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -24,6 +24,10 @@ public class DragItem : MonoBehaviour
     [SerializeField] private float velocityX;
     [SerializeField] private float velocityY;
 
+    [Header("2nd Sprite")]
+    [SerializeField] private Sprite workSpaceSprite;
+    private Sprite normalSprite;
+
     private void Start()
     {
         targetJoint = GetComponent<TargetJoint2D>();
@@ -31,6 +35,7 @@ public class DragItem : MonoBehaviour
         initScale = transform.localScale;
         firstLerp = false;
         secondLerp = false;
+        normalSprite = GetComponent<SpriteRenderer>().sprite;
     }
 
     private void Update()
@@ -90,6 +95,10 @@ public class DragItem : MonoBehaviour
     {
         if (collision.CompareTag("WorkSpace") && dragging)
         {
+            if (workSpaceSprite != null)
+            {
+                GetComponent<SpriteRenderer>().sprite = normalSprite;
+            }
             isInWorkSpace = false;
             transform.localScale = initScale;
         }
@@ -98,6 +107,10 @@ public class DragItem : MonoBehaviour
     {
         if (collision.CompareTag("WorkSpace") && dragging)
         {
+            if(workSpaceSprite != null)
+            {
+                GetComponent<SpriteRenderer>().sprite = workSpaceSprite;
+            }
             isInWorkSpace = true;
             transform.localScale *= increaseScale;
         }
@@ -107,6 +120,10 @@ public class DragItem : MonoBehaviour
     {
         if (collision.CompareTag("WorkSpace") && transform.localScale.magnitude <= initScale.magnitude*increaseScale-1)
         {
+            if (workSpaceSprite != null)
+            {
+                GetComponent<SpriteRenderer>().sprite = normalSprite;
+            }
             isInWorkSpace = true;
             transform.localScale *= increaseScale;
         }
