@@ -1213,7 +1213,7 @@ GameObject:
   - component: {fileID: 544133588}
   - component: {fileID: 544133587}
   - component: {fileID: 544133586}
-  - component: {fileID: 544133585}
+  - component: {fileID: 544133590}
   m_Layer: 15
   m_Name: Shaker
   m_TagString: Untagged
@@ -1221,29 +1221,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &544133585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544133584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ccccfb112a852847938921f776c1595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  topShaker: {fileID: 958205956}
-  bottomShaker: {fileID: 1925285522}
-  shakerLayerMask:
-    serializedVersion: 2
-    m_Bits: 32768
-  maxProgress: 2
-  maxAngle: 0.1
-  rotationSpeed: 10
-  _liquidPref: {fileID: 0}
-  _spawnPoint: {fileID: 0}
-  _liquidManager: {fileID: 0}
 --- !u!257 &544133586
 TargetJoint2D:
   m_ObjectHideFlags: 0
@@ -1354,6 +1331,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &544133590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544133584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139417623bae38d43bc1011813908ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topShaker: {fileID: 958205956}
+  bottomShaker: {fileID: 1925285522}
+  shakerLayerMask:
+    serializedVersion: 2
+    m_Bits: 32768
+  maxProgress: 2
+  divideProgress: 25
+  maxAngle: 0.1
+  rotationSpeed: 10
+  _liquidPref: {fileID: 0}
+  _spawnPoint: {fileID: 0}
+  _liquidManager: {fileID: 0}
 --- !u!1 &626998858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca96fb31e9fa0e144999d79f206b7378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shaker: {fileID: 544133585}
+  shaker: {fileID: 544133590}
   slider:
   - {fileID: 344085943}
   - {fileID: 1429299295}
@@ -1421,8 +1422,8 @@ MonoBehaviour:
   - {fileID: 1501313971}
   - {fileID: 1667047322}
   - {fileID: 959160714}
-  r: 255
-  g: 255
+  r: 1
+  g: 1
   b: 0
 --- !u!212 &626998861
 SpriteRenderer:
