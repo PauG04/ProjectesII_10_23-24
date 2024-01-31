@@ -14,15 +14,17 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private float _maxAngle;
     private float _progress;
     private float _maxProgress;
+    private float _divideProgress;
 
     private bool _canShake;
     private bool _isDown;
-    public ShakerDraggingClose(ShakerStateMachine shakerStateMachine, float maxAngle, float progress, float maxProgress) : base(ShakerStateMachine.ShakerState.DraggingClosed)
+    public ShakerDraggingClose(ShakerStateMachine shakerStateMachine, float maxAngle, float progress, float maxProgress, float divideProgress) : base(ShakerStateMachine.ShakerState.DraggingClosed)
     {
         _shakerStateMachine = shakerStateMachine;
         _maxAngle = maxAngle;
         _maxProgress = maxProgress;
         _progress = progress;
+        _divideProgress = divideProgress;
     }
     public override void EnterState()
     {
@@ -86,11 +88,11 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     {
         if (_isDown)
         {
-            _progress += (_newPosition.y - _shakerStateMachine.transform.position.y) / 5;
+            _progress += (_newPosition.y - _shakerStateMachine.transform.position.y) / _divideProgress;
         }
         else
         {
-            _progress += (_shakerStateMachine.transform.position.y - _newPosition.y) / 5;
+            _progress += (_shakerStateMachine.transform.position.y - _newPosition.y) / _divideProgress;
         }
         //cameraShake.ShakeCamera((transform.position.y - _newPosition.y) * intensityShaking);
         Debug.Log(_progress);
@@ -131,6 +133,5 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         }
         */
     }
-
     public float GetProgress() => _progress;
 }
