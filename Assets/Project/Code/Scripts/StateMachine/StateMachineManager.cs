@@ -29,7 +29,6 @@ public abstract class StateMachineManager<EState> : MonoBehaviour where EState :
             }
         }
     }
-
     public void TransitionToState(EState stateKey)
     {
         IsTranistioningState = true;
@@ -57,5 +56,4 @@ public abstract class StateMachineManager<EState> : MonoBehaviour where EState :
     {
         CurrentState.OnTriggerExit2D(collision);
     }
-
 }

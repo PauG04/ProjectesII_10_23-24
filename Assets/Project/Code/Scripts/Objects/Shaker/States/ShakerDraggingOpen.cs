@@ -32,20 +32,16 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private float _timeSinceLastPour = 0f;
     #endregion
 
-    private float _increaseScale;
-    private bool _isInWorkSpace;
-    private Vector2 _initScale;
+    private Vector2 _initScale = Vector2.one;
+    private float _increaseScale = 1.5f;
 
-    public ShakerDraggingOpen(ShakerStateMachine shakerStateMachine, float rotationSpeed, GameObject liquidPrefab, Transform spawnPoint, LiquidManager liquidManager, float increaseScale, bool isInWorkSpace, Vector2 initScale) : base(ShakerStateMachine.ShakerState.DraggingOpen)
+    public ShakerDraggingOpen(ShakerStateMachine shakerStateMachine, float rotationSpeed, GameObject liquidPrefab, Transform spawnPoint, LiquidManager liquidManager) : base(ShakerStateMachine.ShakerState.DraggingOpen)
     {
         _shakerStateMachine = shakerStateMachine;
         _rotationSpeed = rotationSpeed;
         _liquidPrefab = liquidPrefab;
         _spawnPoint = spawnPoint;
         _liquidManager = liquidManager;
-        _increaseScale = increaseScale;
-        _isInWorkSpace = isInWorkSpace;
-        _initScale = initScale;
     }
 
     public override void EnterState()
@@ -183,17 +179,17 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     public override void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.CompareTag("WorkSpace") && !_isInWorkSpace)
+        if (collision.CompareTag("WorkSpace") && !_shakerStateMachine.GetIsInWorkSpace())
         {
-            _isInWorkSpace = true;
+            _shakerStateMachine.SetGetInWorkSpace(true);
             _shakerStateMachine.transform.localScale *= _increaseScale;
         }
     }
     public override void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("WorkSpace") && _isInWorkSpace)
+        if (collision.CompareTag("WorkSpace") && _shakerStateMachine.GetIsInWorkSpace())
         {
-            _isInWorkSpace = false;
+            _shakerStateMachine.SetGetInWorkSpace(false);
             _shakerStateMachine.transform.localScale = _initScale;
         }
     }

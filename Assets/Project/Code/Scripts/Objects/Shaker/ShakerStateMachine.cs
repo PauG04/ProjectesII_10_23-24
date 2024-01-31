@@ -23,16 +23,14 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	[SerializeField] private float rotationSpeed;
 
 	[Header("Liquid Variables")]
-	[SerializeField] private GameObject _liquidPref;
-    [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private LiquidManager _liquidManager;
+	[SerializeField] private GameObject liquidPref;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private LiquidManager liquidManager;
 
 	private ShakerDraggingClose shakerDraggingClose;
 	private ShakerDraggingOpen shakerDraggingOpen;
 
 	[Header("WorkSpace Variables")]
-	[SerializeField] private float increaseScale;
-	private Vector2 initScale;
 	private bool isInWorkSpace;
 
     public enum ShakerState
@@ -46,10 +44,9 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	private void Awake()
 	{
 		isInWorkSpace = false;
-		initScale = transform.localScale;
 
-        shakerDraggingClose = new ShakerDraggingClose(this, maxAngle, progress, maxProgress, divideProgress, increaseScale, isInWorkSpace, initScale);
-		shakerDraggingOpen = new ShakerDraggingOpen(this, rotationSpeed, _liquidPref, _spawnPoint, _liquidManager, increaseScale, isInWorkSpace, initScale);
+        shakerDraggingClose = new ShakerDraggingClose(this, maxAngle, progress, maxProgress, divideProgress);
+		shakerDraggingOpen = new ShakerDraggingOpen(this, rotationSpeed, liquidPref, spawnPoint, liquidManager);
 
         States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker));
 		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask));
@@ -59,11 +56,26 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 
 		CurrentState = States[ShakerState.IdleOpen];
 	}
+	public void ChangingState()
+	{
+		Debug.Log(IsTranistioningState);
+	}
     public void SetProgress(float progress)
 	{
 		this.progress = progress;
 	}
-	public float GetProgress()
+
+	public void SetGetInWorkSpace(bool isInWorkSpace)
+	{
+		this.isInWorkSpace = isInWorkSpace;
+	}
+
+	public bool GetIsInWorkSpace()
+	{
+		return isInWorkSpace;
+	}
+
+    public float GetProgress()
 	{
 		return shakerDraggingClose.GetProgress();
 	}

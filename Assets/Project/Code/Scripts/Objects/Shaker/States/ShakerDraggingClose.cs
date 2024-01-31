@@ -19,19 +19,16 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private bool _canShake;
     private bool _isDown;
 
-    private float _increaseScale;
-    private bool _isInWorkSpace;
-    private Vector2 _initScale;
-    public ShakerDraggingClose(ShakerStateMachine shakerStateMachine, float maxAngle, float progress, float maxProgress, float divideProgress, float increaseScale, bool isInWorkSpace, Vector2 initScale) : base(ShakerStateMachine.ShakerState.DraggingClosed)
+    private Vector2 _initScale = Vector2.one;
+    private float _increaseScale = 1.5f;
+
+    public ShakerDraggingClose(ShakerStateMachine shakerStateMachine, float maxAngle, float progress, float maxProgress, float divideProgress) : base(ShakerStateMachine.ShakerState.DraggingClosed)
     {
         _shakerStateMachine = shakerStateMachine;
         _maxAngle = maxAngle;
         _maxProgress = maxProgress;
         _progress = progress;
         _divideProgress = divideProgress;
-        _increaseScale = increaseScale;
-        _isInWorkSpace = isInWorkSpace;
-        _initScale = initScale;
     }
     public override void EnterState()
     {
@@ -142,20 +139,20 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     public override void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("WorkSpace") && !_isInWorkSpace)
+        if (collision.CompareTag("WorkSpace") && !_shakerStateMachine.GetIsInWorkSpace())
         {
-            _isInWorkSpace = true;
+
+            _shakerStateMachine.SetGetInWorkSpace(true);
             _shakerStateMachine.transform.localScale *= _increaseScale;
         }
     }
     public override void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("WorkSpace") && _isInWorkSpace)
+        if (collision.CompareTag("WorkSpace") && _shakerStateMachine.GetIsInWorkSpace())
         {
-            _isInWorkSpace = false;
+            _shakerStateMachine.SetGetInWorkSpace(false);
             _shakerStateMachine.transform.localScale = _initScale;
         }
     }
     public float GetProgress() => _progress;
-    public bool GetIsInWorkSpace() => _isInWorkSpace;
 }
