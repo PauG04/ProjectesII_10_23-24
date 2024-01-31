@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6263ee30f8a1dfb429b79f9b6bcf4ff4
+guid: a2d63f329e4e00e408a69b59bfc2f90a
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638422751946754689
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: MiniWorkTable
+  - name: Knife
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5272727, y: -0.21276595}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 107
-      height: 81
-    spriteID: f9568488c98b82e4ba98d34c17f3cb36
+      width: 55
+      height: 47
+    spriteID: d1d7d2efada6c9d42bbf4efbeb0dc222
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,59 +142,23 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1521495652
-    name: MiniWorkTable
+    guid: 1103828807
+    name: Knife
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: MiniWorkTable
+    - name: Knife
       frameIndex: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 107
-        height: 81
-      spriteId: f9568488c98b82e4ba98d34c17f3cb36
+        x: 3
+        y: 10
+        width: 55
+        height: 47
+      spriteId: d1d7d2efada6c9d42bbf4efbeb0dc222
     linkedCells: []
     parentIndex: -1
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Server
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 107, y: 105}
+  canvasSize: {x: 64, y: 64}
