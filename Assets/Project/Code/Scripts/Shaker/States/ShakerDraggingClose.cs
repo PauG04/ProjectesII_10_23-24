@@ -21,8 +21,8 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     {
         _shakerStateMachine = shakerStateMachine;
         _maxAngle = maxAngle;
-        _progress = progress;
         _maxProgress = maxProgress;
+        _progress = progress;
     }
     public override void EnterState()
     {
@@ -93,6 +93,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
             _progress += (_shakerStateMachine.transform.position.y - _newPosition.y) / 5;
         }
         //cameraShake.ShakeCamera((transform.position.y - _newPosition.y) * intensityShaking);
+        Debug.Log(_progress);
         _newPosition = _shakerStateMachine.transform.position;
     }
     private void DirectionShaker()
@@ -130,4 +131,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         }
         */
     }
+
+    public float GetProgress() => _progress;
 }

@@ -12,8 +12,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 
     [Header("Progress Variables")]
     [SerializeField] private float maxProgress;
-	private bool isPressing;
-	private float progress;
+    private float progress;
 
 	[Header("Drag Shaker")]
 	[SerializeField] private float maxAngle;
@@ -26,7 +25,13 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private LiquidManager _liquidManager;
 
-    public enum ShakerState
+    #region Classes
+    private ShakerDraggingClose shakerCloseDragging;
+
+	#endregion
+
+
+	public enum ShakerState
 	{
 		IdleOpen,
 		IdleClosed,
@@ -38,8 +43,11 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	{
 		States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker));
 		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask));
-		States.Add(ShakerState.DraggingOpen, new ShakerDraggingOpen(this, rotationSpeed, _liquidPref, _spawnPoint, _liquidManager));
-		States.Add(ShakerState.DraggingClosed, new ShakerDraggingClose(this, maxAngle, progress, maxProgress));
+
+		shakerCloseDragging = new ShakerDraggingClose(this, maxAngle, progress, maxProgress);
+        States.Add(ShakerState.DraggingClosed, shakerCloseDragging);
+
+        States.Add(ShakerState.DraggingOpen, new ShakerDraggingOpen(this, rotationSpeed, _liquidPref, _spawnPoint, _liquidManager));
 		States.Add(ShakerState.ResetDrink, new ShakerResetDrink());
 
 		CurrentState = States[ShakerState.IdleOpen];
@@ -50,14 +58,11 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	}
 	public float GetProgress()
 	{
-		return progress;
+        progress = shakerCloseDragging.GetProgress();
+        return progress;
 	}
 	public float GetMaxProgress()
 	{
 		return maxProgress;
-	}
-	public bool GetIsMousePressed()
-	{
-		return isPressing;
 	}
 }
