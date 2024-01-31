@@ -16,6 +16,18 @@ public class DragPhysicObject : MonoBehaviour
     private Vector3 worldPos;
     [SerializeField] private bool isMouseDown;
 
+    private bool isInWorkSpace;
+    private Vector2 initScale;
+
+    [Header("WorkSpace Scale")]
+    [SerializeField] private float increaseScale;
+
+    private void Awake()
+    {
+        initScale= transform.localScale;
+        isInWorkSpace = false;
+    }
+
     void Update()
     {
         worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -67,8 +79,28 @@ public class DragPhysicObject : MonoBehaviour
         rb = null;
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("WorkSpace") && isInWorkSpace)
+        {
+            
+            isInWorkSpace = false;
+            transform.localScale = initScale;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("WorkSpace") && !isInWorkSpace)
+        {
+            isInWorkSpace = true;
+            transform.localScale *= increaseScale;
+        }
+    }
+
     public bool GetMouseDown()
     {
         return isMouseDown;
     }
+
+
 }

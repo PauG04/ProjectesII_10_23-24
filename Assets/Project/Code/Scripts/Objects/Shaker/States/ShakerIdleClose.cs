@@ -36,11 +36,6 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
 
     }
 
-    public override void OnMouseDrag()
-    {
-        
-    }
-
     public override void OnMouseUp()
     {
         
@@ -77,7 +72,14 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         }
     }
 
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
 
+    }
+    public override void OnTriggerExit2D(Collider2D collision)
+    {
+
+    }
     private void ResetObjectPosition()
     {
         _shakerStateMachine.transform.rotation = Quaternion.Lerp(_shakerStateMachine.transform.rotation, Quaternion.identity, lerpSpeed * Time.deltaTime);

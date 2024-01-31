@@ -32,13 +32,20 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private float _timeSinceLastPour = 0f;
     #endregion
 
-    public ShakerDraggingOpen(ShakerStateMachine shakerStateMachine, float rotationSpeed, GameObject liquidPrefab, Transform spawnPoint, LiquidManager liquidManager) : base(ShakerStateMachine.ShakerState.DraggingOpen)
+    private float _increaseScale;
+    private bool _isInWorkSpace;
+    private Vector2 _initScale;
+
+    public ShakerDraggingOpen(ShakerStateMachine shakerStateMachine, float rotationSpeed, GameObject liquidPrefab, Transform spawnPoint, LiquidManager liquidManager, float increaseScale, bool isInWorkSpace, Vector2 initScale) : base(ShakerStateMachine.ShakerState.DraggingOpen)
     {
         _shakerStateMachine = shakerStateMachine;
         _rotationSpeed = rotationSpeed;
         _liquidPrefab = liquidPrefab;
         _spawnPoint = spawnPoint;
         _liquidManager = liquidManager;
+        _increaseScale = increaseScale;
+        _isInWorkSpace = isInWorkSpace;
+        _initScale = initScale;
     }
 
     public override void EnterState()
@@ -60,11 +67,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     }
 
     public override void OnMouseDown()
-    {
-        
-    }
-
-    public override void OnMouseDrag()
     {
         
     }
@@ -176,6 +178,23 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
                 _timeSinceLastPour = 0;
             }
+        }
+    }
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.CompareTag("WorkSpace") && !_isInWorkSpace)
+        {
+            _isInWorkSpace = true;
+            _shakerStateMachine.transform.localScale *= _increaseScale;
+        }
+    }
+    public override void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("WorkSpace") && _isInWorkSpace)
+        {
+            _isInWorkSpace = false;
+            _shakerStateMachine.transform.localScale = _initScale;
         }
     }
 }

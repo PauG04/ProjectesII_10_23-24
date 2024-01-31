@@ -28,6 +28,12 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
     [SerializeField] private LiquidManager _liquidManager;
 
 	private ShakerDraggingClose shakerDraggingClose;
+	private ShakerDraggingOpen shakerDraggingOpen;
+
+	[Header("WorkSpace Variables")]
+	[SerializeField] private float increaseScale;
+	private Vector2 initScale;
+	private bool isInWorkSpace;
 
     public enum ShakerState
 	{
@@ -39,11 +45,15 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	}
 	private void Awake()
 	{
-		shakerDraggingClose = new ShakerDraggingClose(this, maxAngle, progress, maxProgress, divideProgress);
+		isInWorkSpace = false;
+		initScale = transform.localScale;
+
+        shakerDraggingClose = new ShakerDraggingClose(this, maxAngle, progress, maxProgress, divideProgress, increaseScale, isInWorkSpace, initScale);
+		shakerDraggingOpen = new ShakerDraggingOpen(this, rotationSpeed, _liquidPref, _spawnPoint, _liquidManager, increaseScale, isInWorkSpace, initScale);
 
         States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker));
 		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask));
-		States.Add(ShakerState.DraggingOpen, new ShakerDraggingOpen(this, rotationSpeed, _liquidPref, _spawnPoint, _liquidManager));
+		States.Add(ShakerState.DraggingOpen, shakerDraggingOpen);
 		States.Add(ShakerState.DraggingClosed, shakerDraggingClose);
 		States.Add(ShakerState.ResetDrink, new ShakerResetDrink());
 
@@ -65,4 +75,5 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	{
 		return isPressing;
 	}
+
 }

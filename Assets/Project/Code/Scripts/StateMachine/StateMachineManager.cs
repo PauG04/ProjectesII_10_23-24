@@ -42,13 +42,20 @@ public abstract class StateMachineManager<EState> : MonoBehaviour where EState :
     {
         CurrentState.OnMouseDown();
     }
-    private void OnMouseDrag()
-    {
-        CurrentState.OnMouseDrag();
-    }
+
     private void OnMouseUp()
     {
         CurrentState.OnMouseUp();
     }
-   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        CurrentState.OnTriggerEnter2D(collision);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        CurrentState.OnTriggerExit2D(collision);
+    }
+
 }

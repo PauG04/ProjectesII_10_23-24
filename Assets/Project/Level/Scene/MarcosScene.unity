@@ -1355,6 +1355,7 @@ MonoBehaviour:
   _liquidPref: {fileID: 0}
   _spawnPoint: {fileID: 0}
   _liquidManager: {fileID: 0}
+  increaseScale: 1.5
 --- !u!1 &626998858
 GameObject:
   m_ObjectHideFlags: 0
@@ -4016,6 +4017,7 @@ MonoBehaviour:
   damping: 1
   frequency: 5
   isMouseDown: 0
+  increaseScale: 1.5
 --- !u!61 &1783082953
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4101,7 +4103,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 10d5f6f4b4e5cb64a830dbfdfeece493, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4359,7 +4361,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 891e654e6d4e6364c816d2c6d4ccd167, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

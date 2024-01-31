@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
@@ -37,11 +36,6 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
         _state = ShakerStateMachine.ShakerState.DraggingOpen;
     }
 
-    public override void OnMouseDrag()
-    {
-        
-    }
-
     public override void OnMouseUp()
     {
         
@@ -63,5 +57,14 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
     private void ResetObjectPosition()
     {
         _shakerStateMachine.transform.rotation = Quaternion.Lerp(_shakerStateMachine.transform.rotation, Quaternion.identity, _lerpSpeed * Time.deltaTime);
+    }
+
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+
+    }
+    public override void OnTriggerExit2D(Collider2D collision)
+    {
+
     }
 }
