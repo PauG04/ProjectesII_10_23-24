@@ -9,16 +9,33 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     private LayerMask _layerMask;
 
     private float lerpSpeed = 1.0f;
-    public ShakerIdleClose(ShakerStateMachine shakerStateMachine, SetTopShaker shakerClosed, LayerMask layerMask) : base(ShakerStateMachine.ShakerState.IdleClosed)
+
+    private bool firstLerp;
+    private bool secondLerp;
+
+    private float velocityX = 6.0f;
+    private float velocityY = 10.0f;
+
+    private GameObject _parent;
+    private DragPhysicObject _drag;
+    public ShakerIdleClose(ShakerStateMachine shakerStateMachine, SetTopShaker shakerClosed, LayerMask layerMask, GameObject parent, DragPhysicObject drag) : base(ShakerStateMachine.ShakerState.IdleClosed)
     {
         _shakerStateMachine = shakerStateMachine;
         _shakerClosed = shakerClosed;
         _layerMask = layerMask;
+        _parent = parent;
+        _drag = drag;
     }
 
     public override void EnterState()
     {
         _state = ShakerStateMachine.ShakerState.IdleClosed;
+        if(!_shakerStateMachine.GetIsInWorkSpace()) 
+        {
+            firstLerp = true;
+            secondLerp = false;
+        }
+        
     }
 
     public override void ExitState()
@@ -32,8 +49,9 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     }
 
     public override void OnMouseDown()
-    {
-
+    {   
+        firstLerp = false;
+        secondLerp = false;
     }
 
     public override void OnMouseUp()
@@ -43,6 +61,11 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
 
     public override void UpdateState()
     {
+        MoveObjectToParent();
+
+        if (!_shakerStateMachine.GetIsInWorkSpace())
+            _drag.SetIsLerp(true);
+
         if (!_shakerClosed.GetIsShakerClosed())
         {
             _state = ShakerStateMachine.ShakerState.IdleOpen;
@@ -68,6 +91,38 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
                 {
                     _state = ShakerStateMachine.ShakerState.DraggingClosed;
                 }
+            }
+        }
+    }
+
+    private void MoveObjectToParent()
+    {
+        if (!_shakerStateMachine.GetIsInWorkSpace())
+        {
+            if (firstLerp)
+            {
+                Vector3 newPosition = _shakerStateMachine.transform.localPosition;
+                newPosition.x = Mathf.Lerp(_shakerStateMachine.transform.position.x, _parent.transform.position.x, Time.deltaTime * velocityX);
+
+                _shakerStateMachine.transform.position = newPosition;
+            }
+            if (_shakerStateMachine.transform.position.x > _parent.transform.position.x - 0.02 && _shakerStateMachine.transform.position.x < _parent.transform.position.x + 0.02)
+            {
+                firstLerp = false;
+                secondLerp = true;
+            }
+
+            if (secondLerp)
+            {
+                Vector3 newPosition = _shakerStateMachine.transform.localPosition;
+                newPosition.y = Mathf.Lerp(_shakerStateMachine.transform.position.y, _parent.transform.position.y, Time.deltaTime * velocityY);
+
+                _shakerStateMachine.transform.position = newPosition;
+            }
+            if (_shakerStateMachine.transform.position.y > _parent.transform.position.y - 0.02 && _shakerStateMachine.transform.position.y < _parent.transform.position.y + 0.02)
+            {
+                secondLerp = false;
+                _state = ShakerStateMachine.ShakerState.IdleOpen;
             }
         }
     }

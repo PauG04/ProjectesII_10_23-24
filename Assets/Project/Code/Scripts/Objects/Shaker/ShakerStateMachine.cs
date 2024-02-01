@@ -33,6 +33,12 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	[Header("WorkSpace Variables")]
 	private bool isInWorkSpace;
 
+	[Header("Parent")]
+    [SerializeField] private GameObject parent;
+
+	[Header("Shaker Top")]
+	[SerializeField] private DragPhysicObject dragPhysicObject;
+
     public enum ShakerState
 	{
 		IdleOpen,
@@ -48,15 +54,15 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
         shakerDraggingClose = new ShakerDraggingClose(this, maxAngle, progress, maxProgress, divideProgress);
 		shakerDraggingOpen = new ShakerDraggingOpen(this, rotationSpeed, liquidPref, spawnPoint, liquidManager);
 
-        States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker));
-		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask));
+        States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker, parent));
+		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask, parent, dragPhysicObject));
 		States.Add(ShakerState.DraggingOpen, shakerDraggingOpen);
 		States.Add(ShakerState.DraggingClosed, shakerDraggingClose);
 		States.Add(ShakerState.ResetDrink, new ShakerResetDrink());
 
 		CurrentState = States[ShakerState.IdleOpen];
 	}
-	public void ChangingState()
+    public void ChangingState()
 	{
 		Debug.Log(IsTranistioningState);
 	}

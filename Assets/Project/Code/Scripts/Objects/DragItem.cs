@@ -138,7 +138,7 @@ public class DragItem : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("WorkSpace") && dragging)
+        if (collision.CompareTag("WorkSpace") && isInWorkSpace)
         {
             if (workSpaceSprite != null)
             {
@@ -150,24 +150,11 @@ public class DragItem : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("WorkSpace") && dragging)
+        if (collision.CompareTag("WorkSpace") && !isInWorkSpace)
         {
             if(workSpaceSprite != null)
             {
                 GetComponent<SpriteRenderer>().sprite = workSpaceSprite;
-            }
-            isInWorkSpace = true;
-            transform.localScale *= increaseScale;
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("WorkSpace") && transform.localScale.magnitude <= initScale.magnitude*increaseScale-1)
-        {
-            if (workSpaceSprite != null)
-            {
-                GetComponent<SpriteRenderer>().sprite = normalSprite;
             }
             isInWorkSpace = true;
             transform.localScale *= increaseScale;

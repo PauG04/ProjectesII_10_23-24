@@ -32,7 +32,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
-
         _state = ShakerStateMachine.ShakerState.DraggingClosed;
 
         _targetJoint = _shakerStateMachine.GetComponent<TargetJoint2D>();
@@ -55,7 +54,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void OnMouseDown()
     {
-        
+
     }
     public override void OnMouseUp()
     {
@@ -63,12 +62,12 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _state = ShakerStateMachine.ShakerState.IdleClosed;
     }
     public override void UpdateState()
-    {
-        Shaking();
+    {       
         _targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _shakerStateMachine.transform.SetParent(null);
 
         _rb.SetRotation(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
+        Shaking();
     }
 
     private void Shaking()
@@ -100,7 +99,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
             _progress += (_shakerStateMachine.transform.position.y - _newPosition.y) / _divideProgress;
         }
         //cameraShake.ShakeCamera((transform.position.y - _newPosition.y) * intensityShaking);
-        Debug.Log(_progress);
         _newPosition = _shakerStateMachine.transform.position;
     }
     private void DirectionShaker()
