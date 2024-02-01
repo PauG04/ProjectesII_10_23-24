@@ -20,11 +20,12 @@ public class DragItem : MonoBehaviour
 
     private bool detectCollision;
 
+    private Vector3 initPosition;
+
     [Header("Tranform Vairables")]
     [SerializeField] private float increaseScale;
 
-    [Header("Parent Position")]
-    [SerializeField] private GameObject parent;
+    [Header("Parent Position")] 
     [SerializeField] private bool hasToBeDestroy;
 
     [Header("Lerp Variables")]
@@ -41,6 +42,7 @@ public class DragItem : MonoBehaviour
         targetJoint = GetComponent<TargetJoint2D>();
         
         initScale = transform.localScale;
+        initPosition = transform.localPosition;
 
         isInWorkSpace = false;
         firstLerp = false;
@@ -54,7 +56,7 @@ public class DragItem : MonoBehaviour
 
         normalSprite = GetComponent<SpriteRenderer>().sprite;
 
-        if(transform.rotation.z != 0)
+        if(transform.localRotation.z != 0)
         {
             isRotate = true;
         }
@@ -87,9 +89,9 @@ public class DragItem : MonoBehaviour
     {
         if (firstRotateLerp && !secondRotateLerp)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(0, 0, 0, 1), Time.deltaTime * velocityZ);
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, new Quaternion(0, 0, 0, 1), Time.deltaTime * velocityZ);
         }
-        if(transform.rotation.z < 0.0001 && !secondRotateLerp)
+        if(transform.localRotation.z < 0.0001 && !secondRotateLerp)
         {
             firstRotateLerp= false;
         }
@@ -103,22 +105,24 @@ public class DragItem : MonoBehaviour
             {
                 if (secondRotateLerp)
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, initRotation, Time.deltaTime * velocityZ);
+                    transform.localRotation = Quaternion.Lerp(transform.localRotation, initRotation, Time.deltaTime * velocityZ);
                 }
-                if (transform.rotation.z == initRotation.z && secondRotateLerp)
+                if (transform.localRotation.z >= initRotation.z - 0.01 && secondRotateLerp)
                 {
+                    transform.localRotation = initRotation;
                     secondRotateLerp = false;
                     firstLerp = true;
                 }
             }
             if (firstLerp)
             {
-                Vector3 newPosition = transform.localPosition;
-                newPosition.x = Mathf.Lerp(transform.position.x, parent.transform.position.x, Time.deltaTime * velocityX);
 
-                transform.position = newPosition;
+                Vector3 newPosition = transform.localPosition;
+                newPosition.x = Mathf.Lerp(transform.localPosition.x, initPosition.x, Time.deltaTime * velocityX);
+
+                transform.localPosition = newPosition;
             }
-            if (transform.position.x > parent.transform.position.x - 0.02 && transform.position.x < parent.transform.position.x + 0.02)
+            if (transform.localPosition.x > initPosition.x - 0.002 && transform.localPosition.x < initPosition.x + 0.002)
             {
                 firstLerp = false;
                 secondLerp = true;
@@ -127,11 +131,11 @@ public class DragItem : MonoBehaviour
             if(secondLerp)
             {
                 Vector3 newPosition = transform.localPosition;
-                newPosition.y = Mathf.Lerp(transform.position.y, parent.transform.position.y, Time.deltaTime * velocityY);
+                newPosition.y = Mathf.Lerp(transform.localPosition.y, initPosition.y, Time.deltaTime * velocityY);
 
-                transform.position = newPosition;
+                transform.localPosition = newPosition;
             }
-            if (transform.position.y > parent.transform.position.y - 0.02 && transform.position.y < parent.transform.position.y + 0.02)
+            if (transform.localPosition.y > initPosition.y - 0.002 && transform.localPosition.y < initPosition.y + 0.002)
             {
                 secondLerp = false;
                 if(hasToBeDestroy)

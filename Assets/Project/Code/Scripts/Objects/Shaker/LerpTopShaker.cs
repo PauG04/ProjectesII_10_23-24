@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class LerpTopShaker : MonoBehaviour
 {
-    [Header("Parent Position")]
-    [SerializeField] private GameObject parent;
+    private Vector3 initPosition;
 
     private bool firstLerp;
     private bool secondLerp;
@@ -33,6 +32,9 @@ public class LerpTopShaker : MonoBehaviour
         secondLerp = false;
 
         initRotation = transform.rotation;
+        initPosition = transform.localPosition;
+
+        dragPhysicObject.SetRotation(0.0f);
     }
 
     private void Update()
@@ -56,11 +58,11 @@ public class LerpTopShaker : MonoBehaviour
             if (firstLerp)
             {
                 Vector3 newPosition = transform.localPosition;
-                newPosition.x = Mathf.Lerp(transform.position.x, parent.transform.position.x, Time.deltaTime * velocityX);
+                newPosition.x = Mathf.Lerp(transform.localPosition.x, initPosition.x, Time.deltaTime * velocityX);
 
-                transform.position = newPosition;
+                transform.localPosition = newPosition;
             }
-            if (transform.position.x > parent.transform.position.x - 0.02 && transform.position.x < parent.transform.position.x + 0.02)
+            if (transform.localPosition.x > initPosition.x - 0.02 && transform.localPosition.x < initPosition.x + 0.02)
             {
                 firstLerp = false;
                 secondLerp = true;
@@ -69,11 +71,11 @@ public class LerpTopShaker : MonoBehaviour
             if (secondLerp)
             {
                 Vector3 newPosition = transform.localPosition;
-                newPosition.y = Mathf.Lerp(transform.position.y, parent.transform.position.y, Time.deltaTime * velocityY);
+                newPosition.y = Mathf.Lerp(transform.localPosition.y, initPosition.y, Time.deltaTime * velocityY);
 
-                transform.position = newPosition;
+                transform.localPosition = newPosition;
             }
-            if (transform.position.y > parent.transform.position.y - 0.02 && transform.position.y < parent.transform.position.y + 0.02)
+            if (transform.localPosition.y > initPosition.y - 0.02 && transform.localPosition.y < initPosition.y + 0.02)
             {
                 secondLerp = false;
                 dragPhysicObject.SetIsLerp(false);

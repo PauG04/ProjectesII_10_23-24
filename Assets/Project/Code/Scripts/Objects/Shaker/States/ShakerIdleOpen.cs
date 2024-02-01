@@ -17,13 +17,13 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
     private float velocityX = 6.0f;
     private float velocityY = 10.0f;
 
-    private GameObject _parent;
+    private Vector3 _initPosition;
 
-    public ShakerIdleOpen(ShakerStateMachine shakerStateMachine, SetTopShaker shakerClosed, GameObject parent) : base(ShakerStateMachine.ShakerState.IdleOpen)
+    public ShakerIdleOpen(ShakerStateMachine shakerStateMachine, SetTopShaker shakerClosed, Vector3 initPosition) : base(ShakerStateMachine.ShakerState.IdleOpen)
     {
         _shakerStateMachine = shakerStateMachine;
         _shakerClosed = shakerClosed;
-        _parent = parent;
+        _initPosition = initPosition;
     }
 
     public override void EnterState()
@@ -78,11 +78,11 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
             if (firstLerp)
             {
                 Vector3 newPosition = _shakerStateMachine.transform.localPosition;
-                newPosition.x = Mathf.Lerp(_shakerStateMachine.transform.position.x, _parent.transform.position.x, Time.deltaTime * velocityX);
+                newPosition.x = Mathf.Lerp(_shakerStateMachine.transform.localPosition.x, _initPosition.x, Time.deltaTime * velocityX);
 
-                _shakerStateMachine.transform.position = newPosition;
+                _shakerStateMachine.transform.localPosition = newPosition;
             }
-            if (_shakerStateMachine.transform.position.x > _parent.transform.position.x - 0.02 && _shakerStateMachine.transform.position.x < _parent.transform.position.x + 0.02)
+            if (_shakerStateMachine.transform.localPosition.x > _initPosition.x - 0.002 && _shakerStateMachine.transform.localPosition.x < _initPosition.x + 0.002)
             {
                 firstLerp = false;
                 secondLerp = true;
@@ -91,11 +91,11 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
             if (secondLerp)
             {
                 Vector3 newPosition = _shakerStateMachine.transform.localPosition;
-                newPosition.y = Mathf.Lerp(_shakerStateMachine.transform.position.y, _parent.transform.position.y, Time.deltaTime * velocityY);
+                newPosition.y = Mathf.Lerp(_shakerStateMachine.transform.localPosition.y, _initPosition.y, Time.deltaTime * velocityY);
 
-                _shakerStateMachine.transform.position = newPosition;
+                _shakerStateMachine.transform.localPosition = newPosition;
             }
-            if (_shakerStateMachine.transform.position.y > _parent.transform.position.y - 0.02 && _shakerStateMachine.transform.position.y < _parent.transform.position.y + 0.02)
+            if (_shakerStateMachine.transform.localPosition.y > _initPosition.y - 0.002 && _shakerStateMachine.transform.localPosition.y < _initPosition.y + 0.002)
             {
                 secondLerp = false;
                 _state = ShakerStateMachine.ShakerState.IdleOpen;

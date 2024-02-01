@@ -32,7 +32,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
-        Debug.Log("Dragging Close");
         _state = ShakerStateMachine.ShakerState.DraggingClosed;
 
         _targetJoint = _shakerStateMachine.GetComponent<TargetJoint2D>();
@@ -47,7 +46,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     {
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
         _rb.bodyType = RigidbodyType2D.Kinematic;
-        Debug.Log("Idle Close");
     }
     public override ShakerStateMachine.ShakerState GetNextState()
     {
@@ -59,14 +57,12 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void OnMouseUp()
     {
-        Debug.Log("OnMouseUp");
         _shakerStateMachine.transform.localEulerAngles = Vector3.zero;
         _state = ShakerStateMachine.ShakerState.IdleClosed;
     }
     public override void UpdateState()
     {       
         _targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _shakerStateMachine.transform.SetParent(null);
 
         _rb.SetRotation(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
         Shaking();

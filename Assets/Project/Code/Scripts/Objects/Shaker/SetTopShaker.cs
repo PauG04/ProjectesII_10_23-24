@@ -7,15 +7,13 @@ public class SetTopShaker : MonoBehaviour
     [SerializeField] private DragPhysicObject target;
     [SerializeField] private float lerpSpeed = 2;
 
-    [SerializeField] private DragPhysicObject dragPhysicObject;
-
     private bool isTargetInside;
     private bool isRepositioning = false;
     private bool isAnimationDone = false;
 
     private void Update()
     {
-        if (dragPhysicObject.GetIsLerp())
+        if (target.GetIsLerp())
         {
             isTargetInside = false;
             isRepositioning = false;
