@@ -45,9 +45,9 @@ public class DragPhysicObject : MonoBehaviour
         initScale= transform.localScale;
         isInWorkSpace = false;
 
-        rotateLerp= false;
-        firstLerp= false;
-        secondLerp= false;
+        rotateLerp = false;
+        firstLerp = false;
+        secondLerp = false;
         isLerping = false;
 
         initRotation = transform.localRotation;
@@ -126,8 +126,6 @@ public class DragPhysicObject : MonoBehaviour
         firstLerp = false;
         secondLerp = false;
 
-        
-
         Collider2D collider = Physics2D.OverlapPoint(worldPos, dragLayers);
         if (!collider)
         {
@@ -163,8 +161,6 @@ public class DragPhysicObject : MonoBehaviour
             rotateLerp = true;
             isLerping = true;
         }
-        
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -187,7 +183,6 @@ public class DragPhysicObject : MonoBehaviour
             isLerping = false;
         }
     }
-
     public bool GetMouseDown()
     {
         return isMouseDown;
