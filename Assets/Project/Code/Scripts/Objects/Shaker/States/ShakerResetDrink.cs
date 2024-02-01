@@ -1,3 +1,4 @@
+using UnityEngine;
 public class ShakerResetDrink : BaseState<ShakerStateMachine.ShakerState>
 {
     private ShakerStateMachine.ShakerState _state;
@@ -26,11 +27,6 @@ public class ShakerResetDrink : BaseState<ShakerStateMachine.ShakerState>
         
     }
 
-    public override void OnMouseDrag()
-    {
-        
-    }
-
     public override void OnMouseUp()
     {
         
@@ -39,5 +35,14 @@ public class ShakerResetDrink : BaseState<ShakerStateMachine.ShakerState>
     public override void UpdateState()
     {
         
+    }
+
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+
+    }
+    public override void OnTriggerExit2D(Collider2D collision)
+    {
+
     }
 }

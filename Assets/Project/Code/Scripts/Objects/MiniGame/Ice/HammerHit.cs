@@ -30,25 +30,25 @@ public class HammerHit : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(1) && hammer.GetIsDraggin()) 
         {
+            hammer.SetDetectCollision(false);
             m_BoxCollider.enabled = true;
             _camera.ShakeCamera(IntensityShaking);
             //hammer.Animation(true);
         }
-        else if(Input.GetMouseButtonUp(1)||!hammer.GetIsDraggin())
-        {
-            m_BoxCollider.enabled = false;
-        }
     }
 
     private void StartTimer()
-    {
+    {      
         time += Time.deltaTime;
         if(time >= 0.05)
         {
+            
             m_BoxCollider.enabled = false;
             time = 0;
             _camera.SetTransforPosition();
             //hammer.Animation(false);
+
+            hammer.SetDetectCollision(true);
         }
     }
 

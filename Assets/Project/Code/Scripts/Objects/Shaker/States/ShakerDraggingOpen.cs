@@ -32,6 +32,9 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private float _timeSinceLastPour = 0f;
     #endregion
 
+    private Vector2 _initScale = Vector2.one;
+    private float _increaseScale = 1.5f;
+
     public ShakerDraggingOpen(ShakerStateMachine shakerStateMachine, float rotationSpeed, GameObject liquidPrefab, Transform spawnPoint, LiquidManager liquidManager) : base(ShakerStateMachine.ShakerState.DraggingOpen)
     {
         _shakerStateMachine = shakerStateMachine;
@@ -60,11 +63,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     }
 
     public override void OnMouseDown()
-    {
-        
-    }
-
-    public override void OnMouseDrag()
     {
         
     }
@@ -176,6 +174,23 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
                 _timeSinceLastPour = 0;
             }
+        }
+    }
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.CompareTag("WorkSpace") && !_shakerStateMachine.GetIsInWorkSpace())
+        {
+            _shakerStateMachine.SetGetInWorkSpace(true);
+            _shakerStateMachine.transform.localScale *= _increaseScale;
+        }
+    }
+    public override void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("WorkSpace") && _shakerStateMachine.GetIsInWorkSpace())
+        {
+            _shakerStateMachine.SetGetInWorkSpace(false);
+            _shakerStateMachine.transform.localScale = _initScale;
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class TakeItemToBucket : MonoBehaviour
 {
     private Vector2 initPosition;
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rb2d;
     private Vector3 startPosition;
     private Vector3 initScale;
 
@@ -23,7 +23,7 @@ public class TakeItemToBucket : MonoBehaviour
 
     private void Start()
     {
-        rigidbody2D= GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
         initPosition = transform.localPosition;
         startPosition = transform.position;
         initScale = transform.localScale;
@@ -47,13 +47,13 @@ public class TakeItemToBucket : MonoBehaviour
     {
         if (transform.position.x > startPosition.x + Random.Range(maxMagnitude/2, maxMagnitude) || transform.position.x < startPosition.x - Random.Range(maxMagnitude / 2, maxMagnitude))
         {
-            rigidbody2D.bodyType = RigidbodyType2D.Static;
-            rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+            rb2d.bodyType = RigidbodyType2D.Static;
+            rb2d.bodyType = RigidbodyType2D.Kinematic;
         }
         if (transform.position.y > startPosition.y + Random.Range(maxMagnitude / 2, maxMagnitude) || transform.position.y < startPosition.y - Random.Range(maxMagnitude / 2, maxMagnitude))
         {
-            rigidbody2D.bodyType = RigidbodyType2D.Static;
-            rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+            rb2d.bodyType = RigidbodyType2D.Static;
+            rb2d.bodyType = RigidbodyType2D.Kinematic;
         }
     }
 

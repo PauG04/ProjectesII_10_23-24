@@ -18,6 +18,10 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
     private bool _canShake;
     private bool _isDown;
+
+    private Vector2 _initScale = Vector2.one;
+    private float _increaseScale = 1.5f;
+
     public ShakerDraggingClose(ShakerStateMachine shakerStateMachine, float maxAngle, float progress, float maxProgress, float divideProgress) : base(ShakerStateMachine.ShakerState.DraggingClosed)
     {
         _shakerStateMachine = shakerStateMachine;
@@ -28,6 +32,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
+        Debug.Log("Dragging Close");
         _state = ShakerStateMachine.ShakerState.DraggingClosed;
 
         _targetJoint = _shakerStateMachine.GetComponent<TargetJoint2D>();
@@ -42,6 +47,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     {
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
         _rb.bodyType = RigidbodyType2D.Kinematic;
+        Debug.Log("Idle Close");
     }
     public override ShakerStateMachine.ShakerState GetNextState()
     {
@@ -49,40 +55,40 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void OnMouseDown()
     {
-        
-    }
-    public override void OnMouseDrag()
-    {
-        
+
     }
     public override void OnMouseUp()
     {
+        Debug.Log("OnMouseUp");
         _shakerStateMachine.transform.localEulerAngles = Vector3.zero;
         _state = ShakerStateMachine.ShakerState.IdleClosed;
     }
     public override void UpdateState()
-    {
-        Shaking();
+    {       
         _targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _shakerStateMachine.transform.SetParent(null);
 
         _rb.SetRotation(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
+        Shaking();
     }
 
     private void Shaking()
     {
-        StartShaking();
-        EndClicking();
-        if (_canShake && _progress <= _maxProgress)
+        if(_shakerStateMachine.GetIsInWorkSpace())
         {
-            DirectionShaker();
-            IncreaseBar();
-        }
-        else
-        {
-            //cameraShake.SetTransforPosition();
-        }
-        SetDrinkState();
+            StartShaking();
+            EndClicking();
+            if (_canShake && _progress <= _maxProgress)
+            {
+                DirectionShaker();
+                IncreaseBar();
+            }
+            else
+            {
+                //cameraShake.SetTransforPosition();
+            }
+            SetDrinkState();
+        }    
     }
     private void IncreaseBar()
     {
@@ -95,7 +101,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
             _progress += (_shakerStateMachine.transform.position.y - _newPosition.y) / _divideProgress;
         }
         //cameraShake.ShakeCamera((transform.position.y - _newPosition.y) * intensityShaking);
-        Debug.Log(_progress);
         _newPosition = _shakerStateMachine.transform.position;
     }
     private void DirectionShaker()
@@ -132,6 +137,25 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
             liquidManager.SetDrinkState(TypeOfCocktails.StateOfCocktail.Shaked);
         }
         */
+    }
+
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("WorkSpace") && !_shakerStateMachine.GetIsInWorkSpace())
+        {
+
+            _shakerStateMachine.SetGetInWorkSpace(true);
+            _shakerStateMachine.transform.localScale *= _increaseScale;
+        }
+    }
+    public override void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("WorkSpace") && _shakerStateMachine.GetIsInWorkSpace())
+        {
+            _shakerStateMachine.SetGetInWorkSpace(false);
+            _shakerStateMachine.transform.localScale = _initScale;
+        }
     }
     public float GetProgress() => _progress;
 }
