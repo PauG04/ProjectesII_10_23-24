@@ -22,6 +22,8 @@ public class DragItem : MonoBehaviour
 
     private Vector3 initPosition;
 
+    private bool isLerping;
+
     [Header("Tranform Vairables")]
     [SerializeField] private float increaseScale;
 
@@ -49,6 +51,7 @@ public class DragItem : MonoBehaviour
         secondLerp = false;
         secondRotateLerp = false;
         firstRotateLerp = false;
+        isLerping = false;
 
         detectCollision = true;
 
@@ -89,11 +92,13 @@ public class DragItem : MonoBehaviour
     {
         if (firstRotateLerp && !secondRotateLerp)
         {
+            isLerping = false;
             transform.localRotation = Quaternion.Lerp(transform.localRotation, new Quaternion(0, 0, 0, 1), Time.deltaTime * velocityZ);
         }
         if(transform.localRotation.z < 0.0001 && !secondRotateLerp)
         {
-            firstRotateLerp= false;
+            isLerping = true;
+            firstRotateLerp = false;
         }
     }
 
@@ -138,7 +143,8 @@ public class DragItem : MonoBehaviour
             if (transform.localPosition.y > initPosition.y - 0.002 && transform.localPosition.y < initPosition.y + 0.002)
             {
                 secondLerp = false;
-                if(hasToBeDestroy)
+                isLerping = false;
+                if (hasToBeDestroy)
                 {
                     Destroy(gameObject);
                 }
@@ -148,7 +154,7 @@ public class DragItem : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("WorkSpace") && isInWorkSpace && detectCollision)
+        if (collision.CompareTag("WorkSpace") && isInWorkSpace && detectCollision && !isLerping)
         {
             if (workSpaceSprite != null)
             {
@@ -160,7 +166,7 @@ public class DragItem : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("WorkSpace") && !isInWorkSpace && detectCollision)
+        if (collision.CompareTag("WorkSpace") && !isInWorkSpace && detectCollision && !isLerping)
         {
             if(workSpaceSprite != null)
             {
@@ -183,7 +189,8 @@ public class DragItem : MonoBehaviour
     private void OnMouseUp()
     {
         dragging = false;
-        if(isRotate)
+        isLerping = true;
+        if (isRotate)
         {
             secondRotateLerp = true;
         }
