@@ -92,11 +92,13 @@ public class DragItem : MonoBehaviour
     {
         if (firstRotateLerp && !secondRotateLerp)
         {
+            isLerping = false;
             transform.localRotation = Quaternion.Lerp(transform.localRotation, new Quaternion(0, 0, 0, 1), Time.deltaTime * velocityZ);
         }
         if(transform.localRotation.z < 0.0001 && !secondRotateLerp)
         {
-            firstRotateLerp= false;
+            isLerping = true;
+            firstRotateLerp = false;
         }
     }
 
