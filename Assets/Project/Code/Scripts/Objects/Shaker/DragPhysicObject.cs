@@ -22,44 +22,20 @@ public class DragPhysicObject : MonoBehaviour
     [Header("WorkSpace Scale")]
     [SerializeField] private float increaseScale;
 
-    [Header("Parent Position")]
-    [SerializeField] private GameObject parent;
-
-    private bool firstLerp;
-    private bool secondLerp;
-    private bool rotateLerp;
     private bool isLerping;
 
-    private Quaternion initRotation;
-
-    [Header("Velocity Lerp")]
-    [SerializeField] private float velocityX;
-    [SerializeField] private float velocityY;
-    [SerializeField] private float velocityZ;
-
-    [Header("Shaker Top")]
-    [SerializeField] private SetTopShaker setTopShaker;
 
     private void Awake()
     {
         initScale= transform.localScale;
         isInWorkSpace = false;
 
-        rotateLerp = false;
-        firstLerp = false;
-        secondLerp = false;
         isLerping = false;
-
-        initRotation = transform.localRotation;
-
-        rotationSpeed = 0.0f;
     }
 
     void Update()
     {
         worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        MoveObjectToParent();
 
         if (targetJoint != null)
         {
@@ -75,56 +51,9 @@ public class DragPhysicObject : MonoBehaviour
         }
     }
 
-    private void MoveObjectToParent()
-    {
-        if (!isMouseDown && !isInWorkSpace && !setTopShaker.GetIsShakerClosed())
-        {
-            if (rotateLerp)
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, initRotation, Time.deltaTime * velocityZ);
-            }
-            if ((transform.rotation.z == initRotation.z || transform.rotation.z == -initRotation.z) && rotateLerp)
-            {
-                rotateLerp = false;
-                firstLerp = true;
-            }
-
-            if (firstLerp)
-            {
-                Vector3 newPosition = transform.localPosition;
-                newPosition.x = Mathf.Lerp(transform.position.x, parent.transform.position.x, Time.deltaTime * velocityX);
-
-                transform.position = newPosition;
-            }
-            if (transform.position.x > parent.transform.position.x - 0.02 && transform.position.x < parent.transform.position.x + 0.02)
-            {
-                firstLerp = false;
-                secondLerp = true;
-            }
-
-            if (secondLerp)
-            {
-                Vector3 newPosition = transform.localPosition;
-                newPosition.y = Mathf.Lerp(transform.position.y, parent.transform.position.y, Time.deltaTime * velocityY);
-
-                transform.position = newPosition;
-            }
-            if (transform.position.y > parent.transform.position.y - 0.02 && transform.position.y < parent.transform.position.y + 0.02)
-            {
-                secondLerp = false;
-                isLerping = false;
-            }
-        }
-    }
-
     private void OnMouseDown()
     {
         isMouseDown = true;
-
-        rotationSpeed = 5.0f;
-        rotateLerp = false;
-        firstLerp = false;
-        secondLerp = false;
 
         Collider2D collider = Physics2D.OverlapPoint(worldPos, dragLayers);
         if (!collider)
@@ -149,7 +78,6 @@ public class DragPhysicObject : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        rotationSpeed = 0.0f;
         isMouseDown = false;
         Destroy(targetJoint);
         targetJoint = null;
@@ -158,7 +86,6 @@ public class DragPhysicObject : MonoBehaviour
         
         if(!isInWorkSpace)
         {
-            rotateLerp = true;
             isLerping = true;
         }
     }
@@ -177,15 +104,17 @@ public class DragPhysicObject : MonoBehaviour
         {
             isInWorkSpace = true;
             transform.localScale *= increaseScale;
-            rotateLerp = false;
-            firstLerp = false;
-            secondLerp = false;
             isLerping = false;
         }
     }
     public bool GetMouseDown()
     {
         return isMouseDown;
+    }
+
+    public bool GetIsInWorkSpace()
+    {
+        return isInWorkSpace;
     }
 
     public bool GetIsLerp()
@@ -196,6 +125,10 @@ public class DragPhysicObject : MonoBehaviour
     public void SetIsLerp(bool state)
     {
         isLerping = state;
-        rotateLerp = state;
+    }
+
+    public void SetRotation(float rotation)
+    {
+       rotationSpeed = rotation;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateBottle : MonoBehaviour
 {
-    private float _rotationSpeed = 10f;
+    private float _rotationSpeed = 50f;
     private float _maxRotation = 180f;
 
     private bool _isRotating = false;

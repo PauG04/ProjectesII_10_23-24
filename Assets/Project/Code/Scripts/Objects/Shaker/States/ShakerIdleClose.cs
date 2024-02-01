@@ -17,14 +17,14 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     private float velocityY = 10.0f;
 
     private GameObject _parent;
-    private DragPhysicObject _drag;
-    public ShakerIdleClose(ShakerStateMachine shakerStateMachine, SetTopShaker shakerClosed, LayerMask layerMask, GameObject parent, DragPhysicObject drag) : base(ShakerStateMachine.ShakerState.IdleClosed)
+    private LerpTopShaker _lerp;
+    public ShakerIdleClose(ShakerStateMachine shakerStateMachine, SetTopShaker shakerClosed, LayerMask layerMask, GameObject parent, LerpTopShaker lerp) : base(ShakerStateMachine.ShakerState.IdleClosed)
     {
         _shakerStateMachine = shakerStateMachine;
         _shakerClosed = shakerClosed;
         _layerMask = layerMask;
         _parent = parent;
-        _drag = drag;
+        _lerp = lerp;
     }
 
     public override void EnterState()
@@ -64,7 +64,9 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         MoveObjectToParent();
 
         if (!_shakerStateMachine.GetIsInWorkSpace())
-            _drag.SetIsLerp(true);
+        {
+            _lerp.startLerp(true);
+        }         
 
         if (!_shakerClosed.GetIsShakerClosed())
         {

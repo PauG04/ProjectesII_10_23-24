@@ -1355,12 +1355,12 @@ MonoBehaviour:
   maxProgress: 2
   divideProgress: 25
   maxAngle: 0.1
-  rotationSpeed: 10
+  rotationSpeed: 50
   liquidPref: {fileID: 0}
   spawnPoint: {fileID: 0}
   liquidManager: {fileID: 0}
   parent: {fileID: 415838}
-  dragPhysicObject: {fileID: 1783082952}
+  lerpTopShaker: {fileID: 1783082956}
 --- !u!1 &626998858
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,6 +2118,7 @@ MonoBehaviour:
   maxMagnitude: 0.4
   bucket: {fileID: 415838}
   velocity: 5
+  dragItem: {fileID: 1136311799}
 --- !u!1 &1022433752
 GameObject:
   m_ObjectHideFlags: 0
@@ -2369,6 +2370,7 @@ MonoBehaviour:
   maxMagnitude: 0.4
   bucket: {fileID: 415838}
   velocity: 5
+  dragItem: {fileID: 1136311799}
 --- !u!1 &1136311795
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,6 +3270,7 @@ MonoBehaviour:
   maxMagnitude: 0.4
   bucket: {fileID: 415838}
   velocity: 5
+  dragItem: {fileID: 1136311799}
 --- !u!1 &1497984607
 GameObject:
   m_ObjectHideFlags: 0
@@ -4088,6 +4091,7 @@ GameObject:
   - component: {fileID: 1783082955}
   - component: {fileID: 1783082954}
   - component: {fileID: 1783082953}
+  - component: {fileID: 1783082956}
   - component: {fileID: 1783082952}
   m_Layer: 14
   m_Name: ShakerTop
@@ -4116,11 +4120,6 @@ MonoBehaviour:
   frequency: 5
   isMouseDown: 0
   increaseScale: 1.5
-  parent: {fileID: 1760853259}
-  velocityX: 6
-  velocityY: 10
-  velocityZ: 20
-  setTopShaker: {fileID: 958205956}
 --- !u!61 &1783082953
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4233,6 +4232,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &1783082956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783082951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faebf97fdbf7a584b9915847b9831ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1760853259}
+  setTopShaker: {fileID: 958205956}
+  velocityX: 6
+  velocityY: 10
+  velocityZ: 20
 --- !u!1 &1801847582
 GameObject:
   m_ObjectHideFlags: 0
@@ -4407,6 +4423,7 @@ MonoBehaviour:
   maxMagnitude: 0.4
   bucket: {fileID: 415838}
   velocity: 5
+  dragItem: {fileID: 1136311799}
 --- !u!1 &1925285522
 GameObject:
   m_ObjectHideFlags: 0
@@ -4665,6 +4682,7 @@ MonoBehaviour:
   maxMagnitude: 0.4
   bucket: {fileID: 415838}
   velocity: 5
+  dragItem: {fileID: 1136311799}
 --- !u!1 &1963100286
 GameObject:
   m_ObjectHideFlags: 0
@@ -4970,7 +4988,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.3341315, b: 0.023584902, a: 1}
   m_FlipX: 0

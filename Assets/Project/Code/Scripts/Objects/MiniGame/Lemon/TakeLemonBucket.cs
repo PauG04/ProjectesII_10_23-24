@@ -17,6 +17,9 @@ public class TakeLemonBucket : MonoBehaviour
     [SerializeField] private GameObject bucket;
     [SerializeField] private float velocity;
 
+    [Header("Drag")]
+    [SerializeField] private DragItem dragItem;
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -49,7 +52,14 @@ public class TakeLemonBucket : MonoBehaviour
     private void OnMouseDown()
     {
         if(cut)
+        {
             startLerp = true;
+        }
+        else
+        {
+            dragItem.SetIsDragging(true);
+        }
+            
     }
 
     public void SetStartPostion()

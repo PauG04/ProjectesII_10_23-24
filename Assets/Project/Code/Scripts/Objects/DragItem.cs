@@ -18,6 +18,8 @@ public class DragItem : MonoBehaviour
     private bool secondRotateLerp;
     private Quaternion initRotation;
 
+    private bool detectCollision;
+
     [Header("Tranform Vairables")]
     [SerializeField] private float increaseScale;
 
@@ -37,12 +39,16 @@ public class DragItem : MonoBehaviour
     private void Start()
     {
         targetJoint = GetComponent<TargetJoint2D>();
-        isInWorkSpace = false;
+        
         initScale = transform.localScale;
+
+        isInWorkSpace = false;
         firstLerp = false;
         secondLerp = false;
         secondRotateLerp = false;
         firstRotateLerp = false;
+
+        detectCollision = true;
 
         initRotation = transform.localRotation;
 
@@ -138,7 +144,7 @@ public class DragItem : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("WorkSpace") && isInWorkSpace)
+        if (collision.CompareTag("WorkSpace") && isInWorkSpace && detectCollision)
         {
             if (workSpaceSprite != null)
             {
@@ -150,7 +156,7 @@ public class DragItem : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("WorkSpace") && !isInWorkSpace)
+        if (collision.CompareTag("WorkSpace") && !isInWorkSpace && detectCollision)
         {
             if(workSpaceSprite != null)
             {
@@ -166,7 +172,7 @@ public class DragItem : MonoBehaviour
         dragging = true;
         firstLerp = false;
         secondLerp = false;
-        secondRotateLerp= false;
+        secondRotateLerp = false;
         firstRotateLerp = true;
     }
 
@@ -196,6 +202,11 @@ public class DragItem : MonoBehaviour
     public bool GetIsInWorkSpace()
     {
         return isInWorkSpace;
+    }
+
+    public void SetDetectCollision(bool state)
+    {
+        detectCollision = state;
     }
 }
 
