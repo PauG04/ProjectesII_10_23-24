@@ -667,6 +667,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   velocityX: 6
   velocityY: 10
+  velocityZ: 0
   workSpaceSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!212 &307233441
 SpriteRenderer:
@@ -1034,6 +1035,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   velocityX: 6
   velocityY: 10
+  velocityZ: 0
   workSpaceSprite: {fileID: 0}
 --- !u!1 &391824659
 GameObject:
@@ -1693,6 +1695,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   velocityX: 6
   velocityY: 10
+  velocityZ: 0
   workSpaceSprite: {fileID: 0}
 --- !u!212 &946562639
 SpriteRenderer:
@@ -2494,6 +2497,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   velocityX: 6
   velocityY: 10
+  velocityZ: 0
   workSpaceSprite: {fileID: 0}
 --- !u!212 &1136311800
 SpriteRenderer:
@@ -3621,6 +3625,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   velocityX: 6
   velocityY: 10
+  velocityZ: 0
   workSpaceSprite: {fileID: 0}
 --- !u!212 &1548675633
 SpriteRenderer:
@@ -3838,7 +3843,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.30301738}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3849,7 +3854,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.6060348}
   m_EdgeRadius: 0
 --- !u!257 &1780620678
 TargetJoint2D:
@@ -3915,6 +3920,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   velocityX: 6
   velocityY: 10
+  velocityZ: 20
   workSpaceSprite: {fileID: 0}
 --- !u!212 &1780620681
 SpriteRenderer:
@@ -3975,7 +3981,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780620676}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -3.172, y: -3.4774, z: 0}
   m_LocalScale: {x: 0.427, y: 1.1348581, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3983,7 +3989,7 @@ Transform:
   - {fileID: 1497984608}
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &1783082951
 GameObject:
   m_ObjectHideFlags: 0

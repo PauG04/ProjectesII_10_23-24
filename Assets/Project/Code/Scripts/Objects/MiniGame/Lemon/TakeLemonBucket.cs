@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TakeLemonBucket : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rb2d;
     private Vector3 startPosition;
 
     private bool startLerp;
@@ -19,7 +19,7 @@ public class TakeLemonBucket : MonoBehaviour
 
     private void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
         startLerp = false;
         cut = false;
     }
@@ -41,8 +41,8 @@ public class TakeLemonBucket : MonoBehaviour
     {
         if (transform.position.x > startPosition.x + maxMagnitude) 
         {
-            rigidbody2D.bodyType = RigidbodyType2D.Static;
-            rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+            rb2d.bodyType = RigidbodyType2D.Static;
+            rb2d.bodyType = RigidbodyType2D.Kinematic;
         }
     }
 
