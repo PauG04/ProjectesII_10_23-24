@@ -16,6 +16,23 @@ public class DragPhysicObject : MonoBehaviour
     private Vector3 worldPos;
     [SerializeField] private bool isMouseDown;
 
+    private bool isInWorkSpace;
+    private Vector2 initScale;
+
+    [Header("WorkSpace Scale")]
+    [SerializeField] private float increaseScale;
+
+    private bool isLerping;
+
+
+    private void Awake()
+    {
+        initScale= transform.localScale;
+        isInWorkSpace = false;
+
+        isLerping = false;
+    }
+
     void Update()
     {
         worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -33,6 +50,7 @@ public class DragPhysicObject : MonoBehaviour
             }
         }
     }
+
     private void OnMouseDown()
     {
         isMouseDown = true;
@@ -65,10 +83,52 @@ public class DragPhysicObject : MonoBehaviour
         targetJoint = null;
         Destroy(rb);
         rb = null;
+        
+        if(!isInWorkSpace)
+        {
+            isLerping = true;
+        }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("WorkSpace") && isInWorkSpace)
+        {       
+            isInWorkSpace = false;
+            transform.localScale = initScale;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("WorkSpace") && !isInWorkSpace)
+        {
+            isInWorkSpace = true;
+            transform.localScale *= increaseScale;
+            isLerping = false;
+        }
+    }
     public bool GetMouseDown()
     {
         return isMouseDown;
+    }
+
+    public bool GetIsInWorkSpace()
+    {
+        return isInWorkSpace;
+    }
+
+    public bool GetIsLerp()
+    {
+        return isLerping;
+    }
+
+    public void SetIsLerp(bool state)
+    {
+        isLerping = state;
+    }
+
+    public void SetRotation(float rotation)
+    {
+       rotationSpeed = rotation;
     }
 }

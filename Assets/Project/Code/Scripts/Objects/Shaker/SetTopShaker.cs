@@ -7,12 +7,19 @@ public class SetTopShaker : MonoBehaviour
     [SerializeField] private DragPhysicObject target;
     [SerializeField] private float lerpSpeed = 2;
 
+    [SerializeField] private DragPhysicObject dragPhysicObject;
+
     private bool isTargetInside;
     private bool isRepositioning = false;
     private bool isAnimationDone = false;
 
     private void Update()
     {
+        if (dragPhysicObject.GetIsLerp())
+        {
+            isTargetInside = false;
+            isRepositioning = false;
+        }
         if (!target.GetMouseDown() && isTargetInside && !isRepositioning && !isAnimationDone)
         {
             StartCoroutine(RepositionCoroutine());
@@ -22,6 +29,7 @@ public class SetTopShaker : MonoBehaviour
             target.transform.position = transform.position;
             target.transform.rotation = transform.parent.rotation;
         }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

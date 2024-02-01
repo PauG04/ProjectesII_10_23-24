@@ -13,6 +13,7 @@ public abstract class BaseState<EState> where EState : Enum
     public abstract void UpdateState();
     public abstract EState GetNextState();
     public abstract void OnMouseDown();
-    public abstract void OnMouseDrag();
     public abstract void OnMouseUp();
+    public abstract void OnTriggerEnter2D(Collider2D collision);
+    public abstract void OnTriggerExit2D(Collider2D collision);
 }
