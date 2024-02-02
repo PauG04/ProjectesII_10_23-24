@@ -5,18 +5,18 @@ using UnityEngine;
 public class OpenFridge : MonoBehaviour
 {
     [Header("Velocities")]
-    [SerializeField] private float velocityRotation;
     [SerializeField] private float velocityPosition;
 
     [Header("DragItems")]
-    [SerializeField] private DragItem[] items;    
+    [SerializeField] private DragItem[] items;
 
-    private Quaternion initRotation;
+    [Header("Widht Different")]
+    [SerializeField] private float widthDifferent;
+
     private Vector3 initPosition;
 
     private bool isOpen;
 
-    private bool isRotationLerp;
     private bool isPositionLerp;
 
     private float width;
@@ -25,21 +25,15 @@ public class OpenFridge : MonoBehaviour
     {
         isOpen = false;
 
-        initRotation = transform.localRotation;
         initPosition = transform.localPosition;
 
-        isRotationLerp = false;
         isPositionLerp = false;
 
-        width = GetComponent<SpriteRenderer>().bounds.size.x - 0.1f;
+        width = GetComponent<SpriteRenderer>().bounds.size.x - widthDifferent;
     }
 
     private void Update()
     {
-        if (isRotationLerp)
-        {
-           RotationLerp();
-        }
         if(isPositionLerp) 
         {
             PositionLerp();
@@ -58,28 +52,6 @@ public class OpenFridge : MonoBehaviour
             {
                 items[i].SetCanBeCatch(true);
             }
-        }
-
-    }
-
-    private void RotationLerp()
-    {      
-        if(isOpen)
-        {
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, new Quaternion(0,1,0,0), Time.deltaTime * velocityRotation);
-        }
-        if(isOpen && transform.localRotation.y >= 0.999)
-        {
-            isRotationLerp = false;
-        }
-
-        if (!isOpen)
-        {
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, initRotation, Time.deltaTime * velocityRotation);
-        }
-        if (!isOpen && transform.localRotation.y <= initRotation.y + 0.001f)
-        {
-            isRotationLerp = false;
         }
 
     }
@@ -116,10 +88,9 @@ public class OpenFridge : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!isRotationLerp && !isPositionLerp)
+        if ( !isPositionLerp)
         {
             isOpen = !isOpen;
-            isRotationLerp = true;
             isPositionLerp = true;
         }  
     }

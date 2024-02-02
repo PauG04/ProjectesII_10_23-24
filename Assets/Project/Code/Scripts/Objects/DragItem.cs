@@ -60,7 +60,8 @@ public class DragItem : MonoBehaviour
 
         initRotation = transform.localRotation;
 
-        normalSprite = GetComponent<SpriteRenderer>().sprite;
+        if(GetComponent<SpriteRenderer>() != null )
+            normalSprite = GetComponent<SpriteRenderer>().sprite;
 
         if(transform.localRotation.z != 0)
         {
