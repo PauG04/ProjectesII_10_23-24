@@ -61,4 +61,12 @@ public class SetCutPosition : MonoBehaviour
         childLemon[0].transform.SetParent(null);       
         childLemon.Remove(childLemon[0]);
     }
+
+    public void SetBucket(GameObject bucket)
+    {
+        for(int i = 0; i<childLemon.Count(); i++)
+        {
+            childLemon[i].GetComponent<TakeLemonBucket>().SetBucket(bucket);
+        }
+    }
 }

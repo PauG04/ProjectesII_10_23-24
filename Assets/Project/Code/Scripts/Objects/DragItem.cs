@@ -23,6 +23,7 @@ public class DragItem : MonoBehaviour
     private Vector3 initPosition;
 
     private bool isLerping;
+    private bool canBeCatch;
 
     [Header("Tranform Vairables")]
     [SerializeField] private float increaseScale;
@@ -55,9 +56,12 @@ public class DragItem : MonoBehaviour
 
         detectCollision = true;
 
+        canBeCatch = true;
+
         initRotation = transform.localRotation;
 
-        normalSprite = GetComponent<SpriteRenderer>().sprite;
+        if(GetComponent<SpriteRenderer>() != null )
+            normalSprite = GetComponent<SpriteRenderer>().sprite;
 
         if(transform.localRotation.z != 0)
         {
@@ -92,12 +96,12 @@ public class DragItem : MonoBehaviour
     {
         if (firstRotateLerp && !secondRotateLerp)
         {
-            isLerping = false;
+            isLerping = true;
             transform.localRotation = Quaternion.Lerp(transform.localRotation, new Quaternion(0, 0, 0, 1), Time.deltaTime * velocityZ);
         }
         if(transform.localRotation.z < 0.0001 && !secondRotateLerp)
         {
-            isLerping = true;
+            isLerping = false;
             firstRotateLerp = false;
         }
     }
@@ -179,17 +183,23 @@ public class DragItem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        dragging = true;
-        firstLerp = false;
-        secondLerp = false;
-        secondRotateLerp = false;
-        firstRotateLerp = true;
+        if(canBeCatch)
+        {
+            dragging = true;
+
+            firstLerp = false;
+            secondLerp = false;
+            secondRotateLerp = false;
+            firstRotateLerp = true;
+
+            isLerping = false;
+        }
+        
     }
 
     private void OnMouseUp()
     {
-        dragging = false;
-        isLerping = true;
+        dragging = false;      
         if (isRotate)
         {
             secondRotateLerp = true;
@@ -197,7 +207,12 @@ public class DragItem : MonoBehaviour
         else
         {
             firstLerp = true;
-        }     
+        } 
+        
+        if(!isInWorkSpace)
+        {
+            isLerping = true;
+        }
     }
 
     public void SetIsDragging(bool state)
@@ -218,6 +233,11 @@ public class DragItem : MonoBehaviour
     public void SetDetectCollision(bool state)
     {
         detectCollision = state;
+    }
+
+    public void SetCanBeCatch(bool state)
+    {
+       canBeCatch = state;
     }
 }
 

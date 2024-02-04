@@ -10,11 +10,12 @@ public class TakeLemonBucket : MonoBehaviour
     private bool startLerp;
     private bool cut;
 
+    private GameObject bucket;
+
     [Header("Magnitude")]
     [SerializeField] private float maxMagnitude;
 
-    [Header("Bucket Object")]
-    [SerializeField] private GameObject bucket;
+    [Header("Velocity")]
     [SerializeField] private float velocity;
 
     [Header("Drag")]
@@ -66,5 +67,10 @@ public class TakeLemonBucket : MonoBehaviour
     {
         cut = true;
         startPosition = transform.position;
+    }
+
+    public void SetBucket(GameObject bucket)
+    {
+        this.bucket = bucket;
     }
 }
