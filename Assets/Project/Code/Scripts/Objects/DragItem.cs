@@ -13,7 +13,7 @@ public class DragItem : MonoBehaviour
     private bool firstLerp;
     private bool secondLerp;
 
-    private bool isRotate;
+    private bool isRotating;
     private bool firstRotateLerp;
     private bool secondRotateLerp;
     private Quaternion initRotation;
@@ -61,7 +61,7 @@ public class DragItem : MonoBehaviour
 
         if(transform.localRotation.z != 0)
         {
-            isRotate = true;
+            isRotating = true;
         }
     }
 
@@ -69,7 +69,7 @@ public class DragItem : MonoBehaviour
     {
         CalculatePosition();
         MoveObjectToParent();
-        if(isRotate)
+        if(isRotating)
         {
             RotateObject();
         }    
@@ -84,7 +84,7 @@ public class DragItem : MonoBehaviour
     {
         if (dragging)
         {
-           targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 
@@ -106,7 +106,7 @@ public class DragItem : MonoBehaviour
     {
         if (!dragging && !isInWorkSpace)
         {
-            if(isRotate)
+            if(isRotating)
             {
                 if (secondRotateLerp)
                 {
@@ -191,7 +191,7 @@ public class DragItem : MonoBehaviour
     {
         dragging = false;
         isLerping = true;
-        if (isRotate)
+        if (isRotating)
         {
             secondRotateLerp = true;
         }
