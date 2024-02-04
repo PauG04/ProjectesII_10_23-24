@@ -200,7 +200,7 @@ public class DragItem : MonoBehaviour
     private void OnMouseUp()
     {
         dragging = false;      
-        if (isRotate)
+        if (isRotating)
         {
             secondRotateLerp = true;
         }
