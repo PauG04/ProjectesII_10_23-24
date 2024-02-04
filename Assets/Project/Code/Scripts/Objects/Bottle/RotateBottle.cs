@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RotateBottle : MonoBehaviour
 {
-    private float _rotationSpeed = 50f;
     private float _maxRotation = 180f;
 
     private bool _isRotating = false;
@@ -12,6 +11,10 @@ public class RotateBottle : MonoBehaviour
     private float _currentRotation = 0f;
 
     private DragItem dragItem;
+
+    [Header("Rotation")]
+    [SerializeField]
+    private float _rotationSpeed;
 
     private void Start()
     {
@@ -25,7 +28,7 @@ public class RotateBottle : MonoBehaviour
             _isRotating = true;
         }
 
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) || !dragItem.GetIsDraggin())
         {
             _isRotating = false;
         }
@@ -36,7 +39,7 @@ public class RotateBottle : MonoBehaviour
         }
         else
         {
-            if (transform.rotation != Quaternion.identity)
+            if (transform.localRotation != Quaternion.identity)
             {
                 ResetObjectPosition();
             }
@@ -59,6 +62,6 @@ public class RotateBottle : MonoBehaviour
     {
         _targetRotation = 0f;
         _currentRotation = 0f;
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, _rotationSpeed * Time.deltaTime);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.identity, _rotationSpeed * Time.deltaTime);
     }
 }

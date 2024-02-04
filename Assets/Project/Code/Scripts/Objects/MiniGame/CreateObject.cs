@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
 
-public class CreateOnject : MonoBehaviour
+public class CreateObject : MonoBehaviour
 {
     [Header("GameObject")]
     [SerializeField] private GameObject createdObject;
+
+    [Header("Bucket")]
+    [SerializeField] private GameObject bucket;
     private void OnMouseDown()
     {
         GameObject item = Instantiate(createdObject, transform);
@@ -14,6 +17,12 @@ public class CreateOnject : MonoBehaviour
         item.transform.localScale = createdObject.transform.localScale;
         item.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
         item.GetComponent<DragItem>().SetIsDragging(true);
+        
+        if(bucket!= null )
+        {
+            item.GetComponent<SetCutPosition>().SetBucket(bucket);
+        }
+        
         
     }
 }
