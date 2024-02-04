@@ -13,7 +13,7 @@ public class DragItem : MonoBehaviour
     private bool firstLerp;
     private bool secondLerp;
 
-    private bool isRotate;
+    private bool isRotating;
     private bool firstRotateLerp;
     private bool secondRotateLerp;
     private Quaternion initRotation;
@@ -61,7 +61,7 @@ public class DragItem : MonoBehaviour
 
         if(transform.localRotation.z != 0)
         {
-            isRotate = true;
+            isRotating = true;
         }
     }
 
@@ -69,7 +69,7 @@ public class DragItem : MonoBehaviour
     {
         CalculatePosition();
         MoveObjectToParent();
-        if(isRotate)
+        if(isRotating)
         {
             RotateObject();
         }    
@@ -84,7 +84,7 @@ public class DragItem : MonoBehaviour
     {
         if (dragging)
         {
-           targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 
@@ -92,12 +92,12 @@ public class DragItem : MonoBehaviour
     {
         if (firstRotateLerp && !secondRotateLerp)
         {
-            isLerping = false;
+            isLerping = true;
             transform.localRotation = Quaternion.Lerp(transform.localRotation, new Quaternion(0, 0, 0, 1), Time.deltaTime * velocityZ);
         }
         if(transform.localRotation.z < 0.0001 && !secondRotateLerp)
         {
-            isLerping = true;
+            isLerping = false;
             firstRotateLerp = false;
         }
     }
@@ -106,7 +106,7 @@ public class DragItem : MonoBehaviour
     {
         if (!dragging && !isInWorkSpace)
         {
-            if(isRotate)
+            if(isRotating)
             {
                 if (secondRotateLerp)
                 {
@@ -161,7 +161,7 @@ public class DragItem : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = normalSprite;
             }
             isInWorkSpace = false;
-            transform.localScale = initScale;
+            //transform.localScale = initScale;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -173,7 +173,7 @@ public class DragItem : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = workSpaceSprite;
             }
             isInWorkSpace = true;
-            transform.localScale *= increaseScale;
+            //transform.localScale *= increaseScale;
         }
     }
 
@@ -184,13 +184,14 @@ public class DragItem : MonoBehaviour
         secondLerp = false;
         secondRotateLerp = false;
         firstRotateLerp = true;
+        isLerping = false;
     }
 
     private void OnMouseUp()
     {
         dragging = false;
         isLerping = true;
-        if (isRotate)
+        if (isRotating)
         {
             secondRotateLerp = true;
         }
