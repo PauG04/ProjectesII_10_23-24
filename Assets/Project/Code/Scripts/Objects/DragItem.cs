@@ -6,23 +6,23 @@ public class DragItem : MonoBehaviour
 {
     private bool dragging = false;
     private TargetJoint2D targetJoint;
-    private bool isInWorkSpace;
+    private bool isInWorkSpace = false;
 
     private Vector3 initScale;
 
-    private bool firstLerp;
-    private bool secondLerp;
+    private bool firstLerp = false;
+    private bool secondLerp = false;
 
     private bool isRotating;
-    private bool firstRotateLerp;
-    private bool secondRotateLerp;
+    private bool firstRotateLerp = false;
+    private bool secondRotateLerp = false;
     private Quaternion initRotation;
 
     private bool detectCollision;
 
     private Vector3 initPosition;
 
-    private bool isLerping;
+    private bool isLerping = false;
     private bool canBeCatch;
 
     [Header("Tranform Vairables")]
@@ -46,13 +46,6 @@ public class DragItem : MonoBehaviour
         
         initScale = transform.localScale;
         initPosition = transform.localPosition;
-
-        isInWorkSpace = false;
-        firstLerp = false;
-        secondLerp = false;
-        secondRotateLerp = false;
-        firstRotateLerp = false;
-        isLerping = false;
 
         detectCollision = true;
 
