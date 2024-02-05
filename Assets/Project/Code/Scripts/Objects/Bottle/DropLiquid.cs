@@ -16,7 +16,6 @@ public class DropLiquid : MonoBehaviour
     
     private float timeSinceLastPour = 0f;
     private float spawnerPositionX = 0.19f;
-    private float currentRotation;
 
     private RotateBottle rotateBottle;
 
@@ -31,7 +30,7 @@ public class DropLiquid : MonoBehaviour
         {
             timeSinceLastPour += Time.deltaTime;
 
-            if (currentRotation <= -minRotationToPourLiquid)
+            if (rotateBottle.GetRotation() <= -minRotationToPourLiquid)
             {
                 CalculateSpawnerPosition();
                 PourLiquid();
