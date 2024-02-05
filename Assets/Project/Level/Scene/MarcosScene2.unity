@@ -1474,6 +1474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 940770370}
   - component: {fileID: 940770376}
+  - component: {fileID: 940770377}
   - component: {fileID: 940770375}
   - component: {fileID: 940770374}
   - component: {fileID: 940770373}
@@ -1676,6 +1677,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &940770377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940770369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1198e05a12b0144aec2f046a08a4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidPref: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  liquidManager: {fileID: 0}
 --- !u!1 &998669813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,6 +1702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 998669814}
   - component: {fileID: 998669820}
+  - component: {fileID: 998669821}
   - component: {fileID: 998669819}
   - component: {fileID: 998669818}
   - component: {fileID: 998669817}
@@ -1888,6 +1905,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &998669821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998669813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1198e05a12b0144aec2f046a08a4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidPref: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  liquidManager: {fileID: 0}
 --- !u!1 &1122881182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,6 +1930,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1122881183}
   - component: {fileID: 1122881189}
+  - component: {fileID: 1122881190}
   - component: {fileID: 1122881188}
   - component: {fileID: 1122881187}
   - component: {fileID: 1122881186}
@@ -2100,6 +2133,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1122881190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122881182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1198e05a12b0144aec2f046a08a4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidPref: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  liquidManager: {fileID: 0}
 --- !u!1 &1161191000
 GameObject:
   m_ObjectHideFlags: 0
