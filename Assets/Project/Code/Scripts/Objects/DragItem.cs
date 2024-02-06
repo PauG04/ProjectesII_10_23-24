@@ -40,6 +40,8 @@ public class DragItem : MonoBehaviour
     [SerializeField] private Sprite workSpaceSprite;
     private Sprite normalSprite;
 
+    [SerializeField] private bool hasToBeKinemastic;
+
     private void Start()
     {
         targetJoint = GetComponent<TargetJoint2D>();
@@ -196,6 +198,10 @@ public class DragItem : MonoBehaviour
 
             isLerping = false;
         }
+        if(hasToBeKinemastic)
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        }
         
     }
 
@@ -214,6 +220,11 @@ public class DragItem : MonoBehaviour
         if(!isInWorkSpace)
         {
             isLerping = true;
+        }
+
+        if (hasToBeKinemastic)
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
     }
 

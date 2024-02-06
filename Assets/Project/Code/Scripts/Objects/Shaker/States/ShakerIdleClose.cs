@@ -18,13 +18,16 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
 
     private Vector3 _initPosition;
     private LerpTopShaker _lerp;
-    public ShakerIdleClose(ShakerStateMachine shakerStateMachine, SetTopShaker shakerClosed, LayerMask layerMask, LerpTopShaker lerp, Vector3 initPosition) : base(ShakerStateMachine.ShakerState.IdleClosed)
+
+    private ProgressSlider _slider;
+    public ShakerIdleClose(ShakerStateMachine shakerStateMachine, SetTopShaker shakerClosed, LayerMask layerMask, LerpTopShaker lerp, Vector3 initPosition, ProgressSlider slider) : base(ShakerStateMachine.ShakerState.IdleClosed)
     {
         _shakerStateMachine = shakerStateMachine;
         _shakerClosed = shakerClosed;
         _layerMask = layerMask;
         _initPosition = initPosition;
         _lerp = lerp;
+        _slider = slider;
     }
 
     public override void EnterState()
@@ -62,6 +65,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     public override void UpdateState()
     {
         MoveObjectToParent();
+        _slider.SetIsLerp(false);
 
         if (!_shakerStateMachine.GetIsInWorkSpace())
         {
