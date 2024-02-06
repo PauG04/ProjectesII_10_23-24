@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Client : MonoBehaviour
@@ -7,21 +8,26 @@ public class Client : MonoBehaviour
     private Cocktail.Type order;
     private float payment;
 
+    private BoxCollider2D boxCollider;
+
     private void Awake()
     {
+        boxCollider = GetComponent<BoxCollider2D>();
         InitClient();
     }
 
     #region INIT
     private void InitOrder()
     {
-        int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
-        order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
+        //int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
+        //order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
+        order = Cocktail.Type.DiscoN;
+
     }
 
     private void InitPayment()
     {
-        payment = (float)Random.Range(0, 100);
+        payment = (float)Random.Range(10, 100);
     }
 
     private void InitClient()
@@ -37,12 +43,22 @@ public class Client : MonoBehaviour
             return true;
         return false;
     }
-
-    //Llamar a esta funcion cuando dejes una bebida encima del cliente
-    public float ReceiveOrder(Cocktail.Type cocktail)
+     
+    public float ReceiveCoctel(Cocktail.Type cocktail)
     {
-        if(CompareCocktails(cocktail))
+        if (CompareCocktails(cocktail))
             return payment;
         return 0;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Debug.Log("Se estan tocando");
+        if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp())
+        {
+            float dollars = ReceiveCoctel(collision.gameObject.GetComponent<InitCocktail>().GetCocktail().type);
+            Debug.Log(dollars);
+            Destroy(collision.gameObject);
+        }
     }
 }
