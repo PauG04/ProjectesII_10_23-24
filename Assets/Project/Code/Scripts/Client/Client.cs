@@ -5,29 +5,44 @@ using UnityEngine;
 public class Client : MonoBehaviour
 {
     private Cocktail.Type order;
-    private float payout;
+    private float payment;
 
     private void Awake()
     {
-        ChooseDrink();
+        InitClient();
     }
 
-    private void ChooseDrink()
+    #region INIT
+    private void InitOrder()
     {
-        order = (Cocktail.Type)Random.Range(0, (int)Cocktail.Type.Total - 1);
+        int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
+        order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
     }
 
-    public bool CompareCocktails(Cocktail.Type cocktail)
+    private void InitPayment()
+    {
+        payment = (float)Random.Range(0, 100);
+    }
+
+    private void InitClient()
+    {
+        InitOrder();
+        InitPayment();
+    }
+    #endregion
+
+    private bool CompareCocktails(Cocktail.Type cocktail)
     {
         if (cocktail == order)
             return true;
         return false;
     }
 
+    //Llamar a esta funcion cuando dejes una bebida encima del cliente
     public float ReceiveOrder(Cocktail.Type cocktail)
     {
         if(CompareCocktails(cocktail))
-            return payout;
+            return payment;
         return 0;
     }
 }

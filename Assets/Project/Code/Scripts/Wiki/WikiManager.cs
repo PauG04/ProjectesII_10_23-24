@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class WikiManager : MonoBehaviour
 {
+    public static WikiManager instance { get; private set; }
+
     [SerializeField] private List<Cocktail> cocktails;
 
     [SerializeField] private WikiPage firstPage;
@@ -14,6 +16,15 @@ public class WikiManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         pageNumber = 0;
         UpdatePages(pageNumber);
     }
@@ -49,5 +60,10 @@ public class WikiManager : MonoBehaviour
             secondPage.UpdatePage(cocktails[page + 1]);
         else
             secondPage.ClearPage();
+    }
+
+    public List<Cocktail> GetAvailableCocktails()
+    { 
+        return cocktails; 
     }
 }
