@@ -83,6 +83,7 @@ public class DragItem : MonoBehaviour
         {
             dragging = false;
             firstLerp = true;
+            isLerping = true;
         }
     }
 

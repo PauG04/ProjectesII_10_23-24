@@ -15,12 +15,20 @@ public class SetCutPosition : MonoBehaviour
     [Header("Force")]
     [SerializeField] private float force;
 
+    private GameObject bucket;
+
     private void Start()
     {
         dragItem= GetComponent<DragItem>();
 
         cutPosition.transform.position = new Vector2(childLemon[0].transform.position.x - 0.1f, childLemon[0].transform.position.y);
         cutPosition.SetActive(false);
+
+        bucket = GetComponent<GetBucket>().GetBuckets();
+        for (int i = 0; i < childLemon.Count(); i++)
+        {
+            childLemon[i].GetComponent<TakeLemonBucket>().SetBucket(bucket);
+        }
     }
 
     private void Update()
@@ -60,13 +68,5 @@ public class SetCutPosition : MonoBehaviour
         childLemon[0].GetComponent<Rigidbody2D>().AddForce(new Vector2(force, 0), ForceMode2D.Force);
         childLemon[0].transform.SetParent(null);       
         childLemon.Remove(childLemon[0]);
-    }
-
-    public void SetBucket(GameObject bucket)
-    {
-        for(int i = 0; i<childLemon.Count(); i++)
-        {
-            childLemon[i].GetComponent<TakeLemonBucket>().SetBucket(bucket);
-        }
     }
 }

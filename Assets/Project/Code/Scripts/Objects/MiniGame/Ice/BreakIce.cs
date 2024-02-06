@@ -14,9 +14,12 @@ public class BreakIce : MonoBehaviour
     [SerializeField] private float forceY;
     [SerializeField] private float forceZ;
 
+    private GameObject bucket;
+
     private void Start()
     {
         hits = 5;
+        bucket = GetComponent<GetBucket>().GetBuckets();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +31,10 @@ public class BreakIce : MonoBehaviour
             {
                 Slice(collision.transform.position, itemTotallyBroekn, true);
             }
-            Slice(collision.transform.position, item, false);
+            else
+            {
+                Slice(collision.transform.position, item, false);
+            }          
         }
     }
 
@@ -39,6 +45,8 @@ public class BreakIce : MonoBehaviour
 
         Vector3 dir = transform.position - pos;
         newItem.GetComponent<Rigidbody2D>().AddForceAtPosition(new Vector3(Random.Range(forceX,-forceX), Random.Range(forceY, -forceY), Random.Range(forceZ, -forceZ)), pos, ForceMode2D.Impulse);
+
+        newItem.GetComponent<TakeItemToBucket>().SetBucket(bucket);
 
         //foreach (Transform slice in newItem.transform)
         //{
