@@ -18,9 +18,9 @@ public class CreateObject : MonoBehaviour
         item.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
         item.GetComponent<DragItem>().SetIsDragging(true);
         
-        if(bucket!= null )
+        if(bucket != null)
         {
-            item.GetComponent<SetCutPosition>().SetBucket(bucket);
+            item.GetComponent<GetBucket>().SetBucket(bucket);
         }
         
         

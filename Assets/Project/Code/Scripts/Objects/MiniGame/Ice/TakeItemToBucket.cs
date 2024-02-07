@@ -15,8 +15,8 @@ public class TakeItemToBucket : MonoBehaviour
     [SerializeField] private float maxMagnitude;
 
     [Header("Bucket Object")]
-    [SerializeField] private GameObject bucket;
     [SerializeField] private float velocity;
+    private GameObject bucket;
 
     [Header("Tranform Vairables")]
     [SerializeField] private float increaseScale;
@@ -45,12 +45,12 @@ public class TakeItemToBucket : MonoBehaviour
 
     private void stopObject()
     {
-        if (transform.position.x > startPosition.x + Random.Range(maxMagnitude/2, maxMagnitude) || transform.position.x < startPosition.x - Random.Range(maxMagnitude / 2, maxMagnitude))
+        if (transform.localPosition.x > startPosition.x + Random.Range(maxMagnitude/2, maxMagnitude) || transform.localPosition.x < startPosition.x - Random.Range(maxMagnitude / 2, maxMagnitude))
         {
             rb2d.bodyType = RigidbodyType2D.Static;
             rb2d.bodyType = RigidbodyType2D.Kinematic;
         }
-        if (transform.position.y > startPosition.y + Random.Range(maxMagnitude / 2, maxMagnitude) || transform.position.y < startPosition.y - Random.Range(maxMagnitude / 2, maxMagnitude))
+        if (transform.localPosition.y > startPosition.y + Random.Range(maxMagnitude / 2, maxMagnitude) || transform.localPosition.y < startPosition.y - Random.Range(maxMagnitude / 2, maxMagnitude))
         {
             rb2d.bodyType = RigidbodyType2D.Static;
             rb2d.bodyType = RigidbodyType2D.Kinematic;
@@ -62,19 +62,8 @@ public class TakeItemToBucket : MonoBehaviour
         startLerp = true;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    public void SetBucket(GameObject _bucket)
     {
-        if (collision.CompareTag("WorkSpace") && transform.localScale.magnitude <= initScale.magnitude * increaseScale - 1)
-        {
-            transform.localScale *= increaseScale;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("WorkSpace"))
-        {
-            transform.localScale = initScale;
-        }
+        bucket = _bucket;
     }
 }
