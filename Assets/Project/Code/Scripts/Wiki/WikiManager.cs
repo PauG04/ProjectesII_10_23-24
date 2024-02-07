@@ -26,7 +26,6 @@ public class WikiManager : MonoBehaviour
         }
 
         pageNumber = 0;
-        UpdatePages(pageNumber);
     }
 
     public void NextPage()
@@ -65,5 +64,16 @@ public class WikiManager : MonoBehaviour
     public List<Cocktail> GetAvailableCocktails()
     { 
         return cocktails; 
+    }
+
+    public void OpenWiki()
+    {
+        this.gameObject.SetActive(true);
+        UpdatePages(pageNumber);
+    }
+
+    public void CloseWiki()
+    {
+        this.gameObject.SetActive(false);
     }
 }

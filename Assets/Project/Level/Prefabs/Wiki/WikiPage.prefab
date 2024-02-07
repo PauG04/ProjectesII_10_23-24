@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 816995573094802405}
   - component: {fileID: 1981756898272339881}
   m_Layer: 5
-  m_Name: CocktailSubtitle2
+  m_Name: CocktailSubtitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 6491361951678895026}
   - component: {fileID: 4076157268685541778}
   m_Layer: 5
-  m_Name: WikiPageRight
+  m_Name: WikiPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,7 +230,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c2ab0cb524bb4b92254937f5a42df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLeft: 0
+  isLeft: 1
+  nameText: {fileID: 5692915784565125499}
+  subtitleText: {fileID: 1981756898272339881}
+  descriptionText: {fileID: 1407390952876608494}
+  image: {fileID: 8848507598308565183}
 --- !u!1 &6094111109941863085
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +247,7 @@ GameObject:
   - component: {fileID: 1621983674156500241}
   - component: {fileID: 1407390952876608494}
   m_Layer: 5
-  m_Name: CocktailDescription2
+  m_Name: CocktailDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,7 +396,7 @@ GameObject:
   - component: {fileID: 8144613925466993233}
   - component: {fileID: 8848507598308565183}
   m_Layer: 5
-  m_Name: CocktailImage2
+  m_Name: CocktailImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -468,7 +472,7 @@ GameObject:
   - component: {fileID: 6048530964649230421}
   - component: {fileID: 5692915784565125499}
   m_Layer: 5
-  m_Name: CocktailName2
+  m_Name: CocktailName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

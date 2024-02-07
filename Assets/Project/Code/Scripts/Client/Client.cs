@@ -53,12 +53,9 @@ public class Client : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Se estan tocando");
         if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp())
         {
-            float dollars = ReceiveCoctel(collision.gameObject.GetComponent<InitCocktail>().GetCocktail().type);
-            Debug.Log(dollars);
-            Destroy(collision.gameObject);
+             EconomyManager.instance.AddMoney(ReceiveCoctel(collision.gameObject.GetComponent<InitCocktail>().GetCocktail().type));
         }
     }
 }

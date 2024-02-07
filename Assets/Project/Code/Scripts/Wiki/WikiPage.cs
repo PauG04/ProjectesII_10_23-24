@@ -9,29 +9,10 @@ public class WikiPage : MonoBehaviour
 {
     [SerializeField] private bool isLeft;
 
-    private TextMeshProUGUI nameText;
-    private TextMeshProUGUI subtitleText;
-    private TextMeshProUGUI descriptionText;
-    private Image image;
-
-    private void Awake()
-    {
-        if (isLeft)
-        {
-            nameText = GameObject.Find("CocktailName1").GetComponent<TextMeshProUGUI>();
-            subtitleText = GameObject.Find("CocktailSubtitle1").GetComponent<TextMeshProUGUI>();
-            descriptionText = GameObject.Find("CocktailDescription1").GetComponent<TextMeshProUGUI>();
-            image = GameObject.Find("CocktailImage1").GetComponent<Image>();
-        }
-        else
-        {
-            nameText = GameObject.Find("CocktailName2").GetComponent<TextMeshProUGUI>();
-            subtitleText = GameObject.Find("CocktailSubtitle2").GetComponent<TextMeshProUGUI>();
-            descriptionText = GameObject.Find("CocktailDescription2").GetComponent<TextMeshProUGUI>();
-            image = GameObject.Find("CocktailImage2").GetComponent<Image>();
-        }
-        
-    }
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI subtitleText;
+    [SerializeField] private TextMeshProUGUI descriptionText;
+    [SerializeField] private Image image;
 
     public void UpdatePage(Cocktail cocktail)
     {
