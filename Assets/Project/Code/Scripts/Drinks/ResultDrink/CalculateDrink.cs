@@ -53,7 +53,7 @@ public class CalculateDrink : MonoBehaviour
         if (CheckCocktail(typesOfDrink, state, allCocktails["Razz"]))
             return Cocktail.Type.Razz;
 
-        return Cocktail.Type.Mierdon;
+        return Cocktail.Type.Error;
     }
 
     private bool CheckCocktail(Dictionary<Drink.Type, int> typesOfDrink, Cocktail.State state, Cocktail cocktail)

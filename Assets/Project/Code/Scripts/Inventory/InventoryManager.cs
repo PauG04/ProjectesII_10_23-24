@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private Item bagOfLemons;
-    [SerializeField] private Item blockOfIce;
-    [SerializeField] private Item springMint;
-
     public static InventoryManager instance { get; private set; }
     private Dictionary<Item, int> items;
 
@@ -24,13 +20,6 @@ public class InventoryManager : MonoBehaviour
         }
         
         items = new Dictionary<Item, int>();
-
-        for(int i = 0; i<30; i++)
-        {
-            AddItem(bagOfLemons);
-            AddItem(blockOfIce);
-            AddItem(springMint);
-        }
     }
 
     public Dictionary<Item, int> GetItems()
@@ -50,7 +39,7 @@ public class InventoryManager : MonoBehaviour
             items.Add(item, 1);
         }
 
-        ChangeItemSprite(item);
+        ChangeItemSprite((ItemGroup)item);
     }
 
     public void UseItem(Item item)
@@ -64,7 +53,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        ChangeItemSprite(item);
+        ChangeItemSprite((ItemGroup)item);
     }
 
     public bool DoesKeyExist(Item item)
@@ -72,15 +61,15 @@ public class InventoryManager : MonoBehaviour
         return items.ContainsKey(item);
     }
 
-    public void ChangeItemSprite(Item item)
+    public void ChangeItemSprite(ItemGroup item)
     {
         if (items[item] < item.maxAmount * 0.25)
-            item.currentSprite = item.sprite25;
+            item.sprite = item.sprite25;
         else if(items[item] < item.maxAmount * 0.5)
-            item.currentSprite = item.sprite50;
+            item.sprite = item.sprite50;
         else if (items[item] < item.maxAmount * 0.75)
-            item.currentSprite = item.sprite75;
+            item.sprite = item.sprite75;
         else
-            item.currentSprite = item.sprite100;
+            item.sprite = item.sprite100;
     }
 }

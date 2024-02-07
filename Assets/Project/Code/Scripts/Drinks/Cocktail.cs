@@ -15,7 +15,6 @@ public class Cocktail : ScriptableObject
 
     public enum Type
     {
-        Empty,
         DiscoN,
         Invade,
         LobsterCrami,
@@ -27,7 +26,10 @@ public class Cocktail : ScriptableObject
         Sekiro,
         Thresh,
         Tiefti,
-        Mierdon
+
+        Total,
+        Error,
+        Empty
     }
 
     public State state;
