@@ -64,4 +64,14 @@ public class RotateBottle : MonoBehaviour
         _currentRotation = 0f;
         transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.identity, _rotationSpeed * Time.deltaTime);
     }
+
+    public bool GetIsRotating()
+    {
+        return _isRotating;
+    }
+
+    public float GetRotation()
+    {
+        return _currentRotation;
+    }
 }

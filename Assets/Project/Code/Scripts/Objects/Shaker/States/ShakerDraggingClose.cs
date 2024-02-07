@@ -22,13 +22,16 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private Vector2 _initScale = Vector2.one;
     private float _increaseScale = 1.5f;
 
-    public ShakerDraggingClose(ShakerStateMachine shakerStateMachine, float maxAngle, float progress, float maxProgress, float divideProgress) : base(ShakerStateMachine.ShakerState.DraggingClosed)
+    private ProgressSlider _slider;
+
+    public ShakerDraggingClose(ShakerStateMachine shakerStateMachine, float maxAngle, float progress, float maxProgress, float divideProgress, ProgressSlider slider) : base(ShakerStateMachine.ShakerState.DraggingClosed)
     {
         _shakerStateMachine = shakerStateMachine;
         _maxAngle = maxAngle;
         _maxProgress = maxProgress;
         _progress = progress;
         _divideProgress = divideProgress;
+        _slider = slider;
     }
     public override void EnterState()
     {
@@ -74,6 +77,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         {
             StartShaking();
             EndClicking();
+            _slider.SetIsLerp(true);
             if (_canShake && _progress <= _maxProgress)
             {
                 DirectionShaker();

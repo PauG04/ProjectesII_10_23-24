@@ -40,6 +40,8 @@ public class DragItem : MonoBehaviour
     [SerializeField] private Sprite workSpaceSprite;
     private Sprite normalSprite;
 
+    [SerializeField] private bool hasToBeKinemastic;
+
     private void Start()
     {
         targetJoint = GetComponent<TargetJoint2D>();
@@ -101,7 +103,7 @@ public class DragItem : MonoBehaviour
 
     private void MoveObjectToParent()
     {
-        if (!dragging && !isInWorkSpace)
+        if (!dragging && !isInWorkSpace && isLerping)
         {
             if(isRotating)
             {
@@ -112,6 +114,7 @@ public class DragItem : MonoBehaviour
                 if (transform.localRotation.z >= initRotation.z - 0.01 && secondRotateLerp)
                 {
                     transform.localRotation = initRotation;
+
                     secondRotateLerp = false;
                     horizontalLerp = true;
                 }
@@ -122,9 +125,9 @@ public class DragItem : MonoBehaviour
                 Vector3 newPosition = transform.localPosition;
                 newPosition.x = Mathf.Lerp(transform.localPosition.x, initPosition.x, Time.deltaTime * velocityX);
 
-                transform.localPosition = newPosition;
+                transform.localPosition = newPosition;               
             }
-            if (transform.localPosition.x > initPosition.x - 0.002 && transform.localPosition.x < initPosition.x + 0.002)
+            if (transform.localPosition.x > initPosition.x - 0.005 && transform.localPosition.x < initPosition.x + 0.005)
             {
                 horizontalLerp = false;
                 verticalLerp = true;
@@ -135,9 +138,9 @@ public class DragItem : MonoBehaviour
                 Vector3 newPosition = transform.localPosition;
                 newPosition.y = Mathf.Lerp(transform.localPosition.y, initPosition.y, Time.deltaTime * velocityY);
 
-                transform.localPosition = newPosition;
+                transform.localPosition = newPosition;              
             }
-            if (transform.localPosition.y > initPosition.y - 0.002 && transform.localPosition.y < initPosition.y + 0.002)
+            if (transform.localPosition.y > initPosition.y - 0.01 && transform.localPosition.y < initPosition.y + 0.005)
             {
                 verticalLerp = false;
                 isLerping = false;
@@ -158,7 +161,7 @@ public class DragItem : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = normalSprite;
             }
             isInWorkSpace = false;
-            //transform.localScale = initScale;
+            transform.localScale = initScale;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -170,7 +173,7 @@ public class DragItem : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = workSpaceSprite;
             }
             isInWorkSpace = true;
-            //transform.localScale *= increaseScale;
+            transform.localScale *= increaseScale;
         }
     }
 
@@ -186,6 +189,10 @@ public class DragItem : MonoBehaviour
             firstRotateLerp = true;
 
             isLerping = false;
+        }
+        if(hasToBeKinemastic)
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }
         
     }
@@ -205,6 +212,11 @@ public class DragItem : MonoBehaviour
         if(!isInWorkSpace)
         {
             isLerping = true;
+        }
+
+        if (hasToBeKinemastic)
+        {
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
     }
 

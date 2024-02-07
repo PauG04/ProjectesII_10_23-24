@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -14,9 +15,16 @@ public class BreakIce : MonoBehaviour
     [SerializeField] private float forceY;
     [SerializeField] private float forceZ;
 
+    private GameObject[] brokenIceChilds;
+
+    private GameObject bucket;
+
     private void Start()
     {
         hits = 5;
+        bucket = GetComponent<GetBucket>().GetBuckets();
+
+        brokenIceChilds = new GameObject[4];
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +36,10 @@ public class BreakIce : MonoBehaviour
             {
                 Slice(collision.transform.position, itemTotallyBroekn, true);
             }
-            Slice(collision.transform.position, item, false);
+            else
+            {
+                Slice(collision.transform.position, item, false);
+            }          
         }
     }
 
@@ -37,19 +48,35 @@ public class BreakIce : MonoBehaviour
         GameObject newItem = Instantiate(createGameObject, transform);
         newItem.transform.position = transform.position;
 
-        Vector3 dir = transform.position - pos;
-        newItem.GetComponent<Rigidbody2D>().AddForceAtPosition(new Vector3(Random.Range(forceX,-forceX), Random.Range(forceY, -forceY), Random.Range(forceZ, -forceZ)), pos, ForceMode2D.Impulse);
-
-        //foreach (Transform slice in newItem.transform)
-        //{
-        //    Rigidbody2D rbLemon = slice.GetComponent<Rigidbody2D>();
-        //    Vector3 dir = slice.transform.position - pos;
-        //    rbLemon.AddForceAtPosition(dir.normalized * Random.Range(-force, force), pos, ForceMode2D.Impulse);
-        //}
-        newItem.transform.parent = null;
+        if(destroy)
+        {
+            int j = 0;
+            foreach (Transform child in newItem.transform)
+            {
+                
+                brokenIceChilds[j] = child.gameObject;
+                j++;
+            }
+            for(int i = brokenIceChilds.Length - 1; i>=0; i--)
+            {
+                brokenIceChilds[i].transform.SetParent(null);
+                Rigidbody2D rbLemon = brokenIceChilds[i].GetComponent<Rigidbody2D>();
+                rbLemon.AddForceAtPosition(new Vector3(Random.Range(forceX, -forceX), Random.Range(forceY, -forceY), Random.Range(forceZ, -forceZ)), pos, ForceMode2D.Impulse);
+                brokenIceChilds[i].GetComponent<TakeItemToBucket>().SetBucket(bucket);
+            }
+        }
+        else
+        {
+            newItem.GetComponent<Rigidbody2D>().AddForceAtPosition(new Vector3(Random.Range(forceX, -forceX), Random.Range(forceY, -forceY), Random.Range(forceZ, -forceZ)), pos, ForceMode2D.Impulse);
+            newItem.GetComponent<TakeItemToBucket>().SetBucket(bucket);
+        } 
         
+        newItem.transform.parent = null;
 
         if(destroy)
+        {
             Destroy(gameObject);
+            Destroy(newItem);
+        }           
     }
 }
