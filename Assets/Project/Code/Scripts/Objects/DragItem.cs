@@ -10,8 +10,8 @@ public class DragItem : MonoBehaviour
 
     private Vector3 initScale;
 
-    private bool firstLerp = false;
-    private bool secondLerp = false;
+    private bool horizontalLerp = false;
+    private bool verticalLerp = false;
 
     private bool isRotating;
     private bool firstRotateLerp = false;
@@ -34,7 +34,7 @@ public class DragItem : MonoBehaviour
     [Header("Lerp Variables")]
     [SerializeField] private float velocityX;
     [SerializeField] private float velocityY;
-    [SerializeField] private float velocityZ;
+    [SerializeField] private float rotationVelocityZ;
 
     [Header("2nd Sprite")]
     [SerializeField] private Sprite workSpaceSprite;
@@ -73,7 +73,7 @@ public class DragItem : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && dragging)
         {
             dragging = false;
-            firstLerp = true;
+            horizontalLerp = true;
         }
     }
 
@@ -90,7 +90,7 @@ public class DragItem : MonoBehaviour
         if (firstRotateLerp && !secondRotateLerp)
         {
             isLerping = true;
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, new Quaternion(0, 0, 0, 1), Time.deltaTime * velocityZ);
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, new Quaternion(0, 0, 0, 1), Time.deltaTime * rotationVelocityZ);
         }
         if(transform.localRotation.z < 0.0001 && !secondRotateLerp)
         {
@@ -107,16 +107,16 @@ public class DragItem : MonoBehaviour
             {
                 if (secondRotateLerp)
                 {
-                    transform.localRotation = Quaternion.Lerp(transform.localRotation, initRotation, Time.deltaTime * velocityZ);
+                    transform.localRotation = Quaternion.Lerp(transform.localRotation, initRotation, Time.deltaTime * rotationVelocityZ);
                 }
                 if (transform.localRotation.z >= initRotation.z - 0.01 && secondRotateLerp)
                 {
                     transform.localRotation = initRotation;
                     secondRotateLerp = false;
-                    firstLerp = true;
+                    horizontalLerp = true;
                 }
             }
-            if (firstLerp)
+            if (horizontalLerp)
             {
 
                 Vector3 newPosition = transform.localPosition;
@@ -126,11 +126,11 @@ public class DragItem : MonoBehaviour
             }
             if (transform.localPosition.x > initPosition.x - 0.002 && transform.localPosition.x < initPosition.x + 0.002)
             {
-                firstLerp = false;
-                secondLerp = true;
+                horizontalLerp = false;
+                verticalLerp = true;
             }
 
-            if(secondLerp)
+            if(verticalLerp)
             {
                 Vector3 newPosition = transform.localPosition;
                 newPosition.y = Mathf.Lerp(transform.localPosition.y, initPosition.y, Time.deltaTime * velocityY);
@@ -139,7 +139,7 @@ public class DragItem : MonoBehaviour
             }
             if (transform.localPosition.y > initPosition.y - 0.002 && transform.localPosition.y < initPosition.y + 0.002)
             {
-                secondLerp = false;
+                verticalLerp = false;
                 isLerping = false;
                 if (hasToBeDestroy)
                 {
@@ -180,8 +180,8 @@ public class DragItem : MonoBehaviour
         {
             dragging = true;
 
-            firstLerp = false;
-            secondLerp = false;
+            horizontalLerp = false;
+            verticalLerp = false;
             secondRotateLerp = false;
             firstRotateLerp = true;
 
@@ -199,7 +199,7 @@ public class DragItem : MonoBehaviour
         }
         else
         {
-            firstLerp = true;
+            horizontalLerp = true;
         } 
         
         if(!isInWorkSpace)
