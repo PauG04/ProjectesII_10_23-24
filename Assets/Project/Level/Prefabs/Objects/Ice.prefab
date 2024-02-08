@@ -118,7 +118,7 @@ MonoBehaviour:
   hasToBeDestroy: 1
   velocityX: 6
   velocityY: 10
-  velocityZ: 0
+  rotationVelocityZ: 0
   workSpaceSprite: {fileID: 0}
   hasToBeKinemastic: 0
 --- !u!114 &756714990437299852
@@ -135,9 +135,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 6682326790453067862, guid: 656d5c5bd17a2654cbfa2c8414ff3840, type: 3}
   itemTotallyBroekn: {fileID: 6682326790453067862, guid: b27ec246be07e964286707e15cdc06ad, type: 3}
-  forceX: 1
-  forceY: 1
-  forceZ: 1
+  forceX: 2
+  forceY: 2
+  forceZ: 2
 --- !u!50 &3085852553438928639
 Rigidbody2D:
   serializedVersion: 4
