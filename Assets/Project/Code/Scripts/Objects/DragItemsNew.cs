@@ -12,25 +12,24 @@ public class DragItemsNew : MonoBehaviour
     private PolygonCollider2D itemCollider;
     private SpriteRenderer spriteRenderer;
 
-    [Header("isDragging Variables")]
+    [Header("Dragging Variables")]
     private Rigidbody2D rb2d;
     private Collider2D workSpace;
     private Vector3 offset;
-    private bool isDragging = false;
-    private bool insideWorkspace = false;
+    private bool isDragging;
+    private bool insideWorkspace;
 
     [Header("Returning Variables")]
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float horizontalSpeed;
     [SerializeField] private float verticalSpeed;
+    [Space(5)]
     [SerializeField] private bool hasToBeDestroy;
-    private bool isRotated;
-    private bool rotationLerp;
-    private bool horizontalLerp;
-    private bool vertialLerp;
+    private bool isObjectRotated;
+    private bool isRotating;
+
     private Vector3 initPosition;
     private Quaternion initRotation;
-    private bool resetRotation;
 
     private void Awake()
     {
@@ -38,66 +37,60 @@ public class DragItemsNew : MonoBehaviour
         itemCollider = GetComponent<PolygonCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        workSpace = GameObject.FindGameObjectWithTag("WorkSpace").GetComponent<Collider2D>();
+        workSpace = GameObject.FindGameObjectWithTag("WorkSpace").GetComponent<BoxCollider2D>();
+
+        rb2d.bodyType = RigidbodyType2D.Static;
 
         if (transform.rotation != Quaternion.identity)
         {
-            isRotated = true;
+            isObjectRotated = true;
             initRotation = transform.localRotation;
+        }
+        else
+        {
+            initRotation = Quaternion.identity;
         }
 
         initPosition = transform.localPosition;
     }
     private void Update()
     {
-        LerpAnimations();
+        RepositionObject();
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (isDragging)
         {
-            if (resetRotation)
-            {
-                transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
-                resetRotation = false;
-            }
             transform.position = GetMouseWorldPosition() + offset;
-            ChangingSpritesOnWorkspace(mousePosition);
-        }
+            ChangingSprites(mousePosition);
 
-        if (insideWorkspace)
+            isRotating = true;
+        }
+        if (isRotating)
         {
-            rb2d.bodyType = RigidbodyType2D.Dynamic;
-        } 
-        else
-        {
-            rb2d.bodyType = RigidbodyType2D.Static;
+            RotateObject();
         }
     }
+
     private void OnMouseDown()
     {
+        Physics2D.IgnoreCollision(workSpace, GetComponent<PolygonCollider2D>());
+
+        rb2d.bodyType = RigidbodyType2D.Static;
+
         offset = gameObject.transform.position - GetMouseWorldPosition();
-        resetRotation = true;
         isDragging = true;
     }
     private void OnMouseUp()
     {
-        rb2d.AddForce(Vector2.right * 0.1f, ForceMode2D.Impulse);
-
-        if (!insideWorkspace)
+        if(insideWorkspace)
         {
-            if (isRotated)
-            {
-                rotationLerp = true;
-            }
-            else
-            {
-                horizontalLerp = true;
-            }
+            rb2d.bodyType = RigidbodyType2D.Dynamic;
         }
+        rb2d.AddForce(Vector2.right * 0.1f, ForceMode2D.Impulse);
 
         isDragging = false;
     }
-    private void ChangingSpritesOnWorkspace(Vector3 mousePosition)
+    private void ChangingSprites(Vector3 mousePosition)
     {
         if (workSpace.OverlapPoint(mousePosition))
         {
@@ -124,46 +117,57 @@ public class DragItemsNew : MonoBehaviour
             transform.localScale = Vector3.one;
         }
     }
-    private void LerpAnimations()
+    private void RotateObject()
     {
-        if (!isDragging)
+        if (isDragging || !isObjectRotated)
         {
-            if (rotationLerp)
+            if (transform.rotation == Quaternion.identity)
             {
-                transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.identity, Time.deltaTime * rotationSpeed);
+                isRotating = false;
             }
-            if (transform.localRotation.z >= initRotation.z - 0.01 && rotationLerp)
-            {
-                transform.localRotation = Quaternion.identity;
-                rotationLerp = false;
-                horizontalLerp = true;
-            }
-            if (horizontalLerp)
-            {
-                Vector3 newPosition = transform.localPosition;
-                newPosition.x = Mathf.Lerp(transform.localPosition.x, initPosition.x, Time.deltaTime * horizontalSpeed);
 
-                transform.localPosition = newPosition;
+            transform.rotation = Quaternion.Lerp(
+                transform.localRotation,
+                Quaternion.identity,
+                Time.deltaTime * rotationSpeed
+            );
+        }
+        if (isObjectRotated && !insideWorkspace)
+        {
+            if (transform.rotation == initRotation)
+            {
+                isRotating = false;
             }
+
+            transform.rotation = Quaternion.Lerp(
+                transform.localRotation,
+                initRotation,
+                Time.deltaTime * rotationSpeed
+            );
+        }
+    }
+    private void RepositionObject()
+    {
+        if (!isDragging && !insideWorkspace)
+        {
+            transform.localPosition = new Vector2(
+                Mathf.Lerp(transform.localPosition.x, initPosition.x, Time.deltaTime * horizontalSpeed), 
+                transform.localPosition.y
+            );
+
             if (transform.localPosition.x > initPosition.x - 0.002 && transform.localPosition.x < initPosition.x + 0.002)
             {
-                horizontalLerp = false;
-                vertialLerp = true;
-            }
+                transform.localPosition = new Vector2(
+                    transform.localPosition.x,
+                    Mathf.Lerp(transform.localPosition.y, initPosition.y, Time.deltaTime * verticalSpeed)
+                );
 
-            if (vertialLerp)
-            {
-                Vector3 newPosition = transform.localPosition;
-                newPosition.y = Mathf.Lerp(transform.localPosition.y, initPosition.y, Time.deltaTime * verticalSpeed);
-
-                transform.localPosition = newPosition;
-            }
-            if (transform.localPosition.y > initPosition.y - 0.002 && transform.localPosition.y < initPosition.y + 0.002)
-            {
-                vertialLerp = false;
-                if (hasToBeDestroy)
+                if (transform.localPosition.y > initPosition.y - 0.002 && transform.localPosition.y < initPosition.y + 0.002)
                 {
-                    Destroy(gameObject);
+                    if (hasToBeDestroy)
+                    {
+                        Destroy(gameObject);
+                    }
                 }
             }
         }
