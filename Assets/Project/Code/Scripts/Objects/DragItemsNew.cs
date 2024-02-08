@@ -61,14 +61,30 @@ public class DragItemsNew : MonoBehaviour
         if (isDragging)
         {
             transform.position = GetMouseWorldPosition() + offset;
-            ChangingSprites(mousePosition);
-
             isRotating = true;
+
+            if (workSpace.OverlapPoint(mousePosition))
+            {
+                InsideWorkspace();
+                rb2d.bodyType = RigidbodyType2D.Dynamic;
+            }
         }
+        if (!workSpace.OverlapPoint(transform.position))
+        {
+            rb2d.bodyType = RigidbodyType2D.Static;
+            OutsideWorkspace();
+
+            if (isDragging)
+            {
+                transform.position = mousePosition;
+            }
+        }
+
         if (isRotating)
         {
             RotateObject();
         }
+
     }
 
     private void OnMouseDown()
@@ -82,49 +98,39 @@ public class DragItemsNew : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        if(insideWorkspace)
-        {
-            rb2d.bodyType = RigidbodyType2D.Dynamic;
-        }
         rb2d.AddForce(Vector2.right * 0.1f, ForceMode2D.Impulse);
 
         isDragging = false;
     }
-    private void ChangingSprites(Vector3 mousePosition)
+    private void InsideWorkspace()
     {
-        if (workSpace.OverlapPoint(mousePosition))
-        {
-            insideWorkspace = true;
+        insideWorkspace = true;
 
-            spriteRenderer.sortingLayerName = "WorkSpace";
-            spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-            spriteRenderer.sprite = workspaceSprite;
+        spriteRenderer.sortingLayerName = "WorkSpace";
+        spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+        spriteRenderer.sprite = workspaceSprite;
 
-            itemCollider.TryUpdateShapeToAttachedSprite();
+        itemCollider.TryUpdateShapeToAttachedSprite();
 
-            transform.localScale = new Vector2(scaleMultiplier, scaleMultiplier);
-        }
-        else
-        {
-            insideWorkspace = false;
+        transform.localScale = new Vector2(scaleMultiplier, scaleMultiplier);
+    }
+    private void OutsideWorkspace()
+    {
+        insideWorkspace = false;
 
-            spriteRenderer.sortingLayerName = "Default";
-            spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
-            spriteRenderer.sprite = normalSprite;
+        spriteRenderer.sortingLayerName = "Default";
+        spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+        spriteRenderer.sprite = normalSprite;
 
-            itemCollider.TryUpdateShapeToAttachedSprite();
+        itemCollider.TryUpdateShapeToAttachedSprite();
 
-            transform.localScale = Vector3.one;
-        }
+        transform.localScale = Vector3.one;
     }
     private void RotateObject()
     {
         if (isDragging || !isObjectRotated)
         {
-            if (transform.rotation == Quaternion.identity)
-            {
-                isRotating = false;
-            }
+            isRotating = !(transform.rotation == Quaternion.identity);
 
             transform.rotation = Quaternion.Lerp(
                 transform.localRotation,
@@ -134,10 +140,7 @@ public class DragItemsNew : MonoBehaviour
         }
         if (isObjectRotated && !insideWorkspace)
         {
-            if (transform.rotation == initRotation)
-            {
-                isRotating = false;
-            }
+            isRotating = !(transform.rotation == initRotation);
 
             transform.rotation = Quaternion.Lerp(
                 transform.localRotation,
