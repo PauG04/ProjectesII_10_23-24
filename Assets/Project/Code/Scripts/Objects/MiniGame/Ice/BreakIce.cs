@@ -60,8 +60,8 @@ public class BreakIce : MonoBehaviour
             for(int i = brokenIceChilds.Length - 1; i>=0; i--)
             {
                 brokenIceChilds[i].transform.SetParent(null);
-                Rigidbody2D rbLemon = brokenIceChilds[i].GetComponent<Rigidbody2D>();
-                rbLemon.AddForceAtPosition(new Vector3(Random.Range(forceX, -forceX), Random.Range(forceY, -forceY), Random.Range(forceZ, -forceZ)), pos, ForceMode2D.Impulse);
+                Rigidbody2D rbIce = brokenIceChilds[i].GetComponent<Rigidbody2D>();
+                rbIce.AddForceAtPosition(new Vector3(Random.Range(forceX, -forceX), Random.Range(forceY, -forceY), Random.Range(forceZ, -forceZ)), pos, ForceMode2D.Impulse);
                 brokenIceChilds[i].GetComponent<TakeItemToBucket>().SetBucket(bucket);
             }
         }

@@ -16,12 +16,15 @@ public class SetCutPosition : MonoBehaviour
     [SerializeField] private float force;
 
     private GameObject bucket;
+    private float width;
 
     private void Start()
     {
         dragItem= GetComponent<DragItem>();
 
-        cutPosition.transform.position = new Vector2(childLemon[0].transform.position.x - 0.1f, childLemon[0].transform.position.y);
+        width = childLemon[0].GetComponent<SpriteRenderer>().bounds.size.x / 2;
+
+        cutPosition.transform.position = new Vector2(childLemon[0].transform.position.x - width, childLemon[0].transform.position.y);
         cutPosition.SetActive(false);
 
         bucket = GetComponent<GetBucket>().GetBuckets();
@@ -33,7 +36,6 @@ public class SetCutPosition : MonoBehaviour
 
     private void Update()
     {
-        CutPosition();
         ActivceCut();
     }
 
@@ -41,7 +43,8 @@ public class SetCutPosition : MonoBehaviour
     {
         if (childLemon.Count() > 0)
         {
-            cutPosition.transform.position = new Vector2(childLemon[0].transform.position.x - 0.1f, childLemon[0].transform.position.y);
+            width = childLemon[0].GetComponent<SpriteRenderer>().bounds.size.x / 2;
+            cutPosition.transform.position = new Vector2(childLemon[0].transform.position.x - width, childLemon[0].transform.position.y);
         }
         else
         {
@@ -68,5 +71,6 @@ public class SetCutPosition : MonoBehaviour
         childLemon[0].GetComponent<Rigidbody2D>().AddForce(new Vector2(force, 0), ForceMode2D.Force);
         childLemon[0].transform.SetParent(null);       
         childLemon.Remove(childLemon[0]);
+        CutPosition();
     }
 }
