@@ -175,4 +175,9 @@ public class DragItemsNew : MonoBehaviour
     {
         return insideWorkspace;
     }
+
+    public bool GetIsDraggin()
+    {
+        return isDragging;
+    }
 }
