@@ -30,6 +30,7 @@ public class DragItemsNew : MonoBehaviour
     private bool vertialLerp;
     private Vector3 initPosition;
     private Quaternion initRotation;
+    private bool resetRotation;
 
     private void Awake()
     {
@@ -54,7 +55,11 @@ public class DragItemsNew : MonoBehaviour
 
         if (isDragging)
         {
-            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+            if (resetRotation)
+            {
+                transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+                resetRotation = false;
+            }
             transform.position = GetMouseWorldPosition() + offset;
             ChangingSpritesOnWorkspace(mousePosition);
         }
@@ -71,7 +76,7 @@ public class DragItemsNew : MonoBehaviour
     private void OnMouseDown()
     {
         offset = gameObject.transform.position - GetMouseWorldPosition();
-
+        resetRotation = true;
         isDragging = true;
     }
     private void OnMouseUp()
@@ -174,5 +179,10 @@ public class DragItemsNew : MonoBehaviour
     public bool GetInsideWorkspace()
     {
         return insideWorkspace;
+    }
+
+    public bool GetIsDraggin()
+    {
+        return isDragging;
     }
 }
