@@ -29,7 +29,7 @@ public class Client : MonoBehaviour
 
     private void InitPayment()
     {
-        payment = (float)Random.Range(10, 100);
+        payment = Random.Range(10.0f, 100.0f);
     }
 
     private void InitSprite()
