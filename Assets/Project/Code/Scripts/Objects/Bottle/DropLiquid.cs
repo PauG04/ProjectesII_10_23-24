@@ -26,7 +26,6 @@ public class DropLiquid : MonoBehaviour
         if(rotateBottle.GetIsRotating()) 
         {
             timeSinceLastPour += Time.deltaTime;
-            Debug.Log(spawnPoint.localPosition);
 
             if (rotateBottle.GetRotation() <= -minRotationToPourLiquid)
             {
