@@ -7,25 +7,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ddf411de0a06ed4c9effe6c00e3dcdc, type: 3}
-  m_Name: LobsterCrami
+  m_Script: {fileID: 11500000, guid: 612416e99e325834eba562d43ecd654f, type: 3}
+  m_Name: Disco N
   m_EditorClassIdentifier: 
-  state: 1
-  type: 2
+  state: 0
+  type: 0
   price: 0
-  cocktailName: Lobster Crami
-  subtitle: Sour
+  cocktailName: Disco N
+  subtitle: Elegant
   description: A
-  sprite: {fileID: 0}
+  sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   SerializableIngredients:
     items:
-    - type: 2
-      quantity: 2
+    - type: 3
+      quantity: 3
     - type: 0
-      quantity: 2
-    - type: 6
-      quantity: 4
-    - type: 8
-      quantity: 2
+      quantity: 1
+    - type: 9
+      quantity: 6

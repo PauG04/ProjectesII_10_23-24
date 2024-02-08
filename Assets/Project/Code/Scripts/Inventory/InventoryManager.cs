@@ -6,7 +6,12 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance { get; private set; }
-    private Dictionary<Item, int> items;
+
+    private Dictionary<ItemGroupNode, int> items;
+
+    [SerializeField] private ItemGroupNode groupOfLemmons;
+    [SerializeField] private ItemGroupNode groupOfIce;
+    [SerializeField] private ItemGroupNode groupOfMint;
 
     private void Awake()
     {
@@ -19,57 +24,36 @@ public class InventoryManager : MonoBehaviour
             Destroy(gameObject);
         }
         
-        items = new Dictionary<Item, int>();
+        items = new Dictionary<ItemGroupNode, int>();
+        InitItems();
     }
 
-    public Dictionary<Item, int> GetItems()
+    private void InitItems()
+    {
+        items.Add(groupOfLemmons, 0);
+        items.Add(groupOfIce, 0);
+        items.Add(groupOfMint, 0);
+    }
+
+    public Dictionary<ItemGroupNode, int> GetItems()
     {
         return items;
     }
 
-    public void AddItem(Item item)
+    public void AddItem(ItemGroupNode item)
 	{
-        if (items.ContainsKey(item))
-        {
-            if (items[item] < item.maxAmount)
-                items[item]++;
-        }
-        else
-        {
-            items.Add(item, 1);
-        }
+        if (items[item] < item.maxAmount)
+            items[item]++;
 
-        ChangeItemSprite((ItemGroup)item);
     }
 
-    public void UseItem(Item item)
+    public void UseItem(ItemGroupNode item)
     {
-        if (items.ContainsKey(item) && items[item] > 0)
+        if (items[item] > 0)
         {
             items[item]--;
-            if (items[item] <= 0)
-            {
-                items.Remove(item);
-            }
         }
 
-        ChangeItemSprite((ItemGroup)item);
     }
 
-    public bool DoesKeyExist(Item item)
-    {
-        return items.ContainsKey(item);
-    }
-
-    public void ChangeItemSprite(ItemGroup item)
-    {
-        if (items[item] < item.maxAmount * 0.25)
-            item.sprite = item.sprite25;
-        else if(items[item] < item.maxAmount * 0.5)
-            item.sprite = item.sprite50;
-        else if (items[item] < item.maxAmount * 0.75)
-            item.sprite = item.sprite75;
-        else
-            item.sprite = item.sprite100;
-    }
 }

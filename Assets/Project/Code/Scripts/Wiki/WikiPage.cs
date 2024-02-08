@@ -14,7 +14,7 @@ public class WikiPage : MonoBehaviour
     [SerializeField] private TextMeshPro descriptionText;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    public void UpdatePage(Cocktail cocktail)
+    public void UpdatePage(CocktailNode cocktail)
     {
         nameText.text = cocktail.cocktailName;
         subtitleText.text = cocktail.subtitle;
