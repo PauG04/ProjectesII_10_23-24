@@ -9,17 +9,17 @@ public class WikiPage : MonoBehaviour
 {
     [SerializeField] private bool isLeft;
 
-    [SerializeField] private TextMeshProUGUI nameText;
-    [SerializeField] private TextMeshProUGUI subtitleText;
-    [SerializeField] private TextMeshProUGUI descriptionText;
-    [SerializeField] private Image image;
+    [SerializeField] private TextMeshPro nameText;
+    [SerializeField] private TextMeshPro subtitleText;
+    [SerializeField] private TextMeshPro descriptionText;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     public void UpdatePage(Cocktail cocktail)
     {
         nameText.text = cocktail.cocktailName;
         subtitleText.text = cocktail.subtitle;
         descriptionText.text = cocktail.description;
-        image.sprite = cocktail.sprite;
+        spriteRenderer.sprite = cocktail.sprite;
     }
 
     public void ClearPage()
@@ -27,6 +27,6 @@ public class WikiPage : MonoBehaviour
         nameText.text = "";
         subtitleText.text = "";
         descriptionText.text = "";
-        image.sprite = null;
+        spriteRenderer.sprite = null;
     }
 }

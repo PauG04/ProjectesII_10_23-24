@@ -17,7 +17,7 @@ public class DragItemsNew : MonoBehaviour
     private Collider2D workSpace;
     private Vector3 offset;
     private bool isDragging = false;
-    [SerializeField] private bool insideWorkspace = false;
+    private bool insideWorkspace = false;
 
     [Header("Returning Variables")]
     [SerializeField] private float rotationSpeed;
@@ -169,5 +169,10 @@ public class DragItemsNew : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = -Camera.main.transform.position.z;
         return Camera.main.ScreenToWorldPoint(mousePosition);
+    }
+
+    public bool GetInsideWorkspace()
+    {
+        return insideWorkspace;
     }
 }

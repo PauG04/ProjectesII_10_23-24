@@ -9,8 +9,12 @@ public class WikiManager : MonoBehaviour
 
     [SerializeField] private List<Cocktail> cocktails;
 
+    [SerializeField] private GameObject wiki;
     [SerializeField] private WikiPage firstPage;
     [SerializeField] private WikiPage secondPage;
+
+    [SerializeField] private DragItemsNew book;
+    private bool bookIsOpened;
 
     private int pageNumber;
 
@@ -25,7 +29,22 @@ public class WikiManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        bookIsOpened = false;
         pageNumber = 0;
+    }
+
+    private void Update()
+    {
+        if (book.GetInsideWorkspace() && !bookIsOpened)
+        {
+            bookIsOpened = true;
+            OpenWiki();
+        }
+        else if (!book.GetInsideWorkspace() && bookIsOpened)
+        {
+            bookIsOpened = false;
+            CloseWiki();
+        }
     }
 
     public void NextPage()
@@ -66,14 +85,14 @@ public class WikiManager : MonoBehaviour
         return cocktails; 
     }
 
-    public void OpenWiki()
+    private void OpenWiki()
     {
-        this.gameObject.SetActive(true);
+        wiki.SetActive(true);
         UpdatePages(pageNumber);
     }
 
-    public void CloseWiki()
+    private void CloseWiki()
     {
-        this.gameObject.SetActive(false);
+        wiki.SetActive(false);
     }
 }
