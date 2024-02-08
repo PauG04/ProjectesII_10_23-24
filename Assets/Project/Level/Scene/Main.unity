@@ -538,7 +538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195109243}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.05, y: 1.016, z: 0.1}
+  m_LocalPosition: {x: 1.96, y: 1, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2598,8 +2598,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335187949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 9.3, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -2.68, z: 0}
+  m_LocalScale: {x: 9.3, y: 0.34, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 195109244}
@@ -4404,7 +4404,6 @@ GameObject:
   - component: {fileID: 2026812693}
   - component: {fileID: 2026812687}
   - component: {fileID: 2026812694}
-  - component: {fileID: 2026812696}
   m_Layer: 0
   m_Name: Rum
   m_TagString: Untagged
@@ -4584,7 +4583,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4599,33 +4598,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.078125, y: 0.75}
-      - {x: -0.21875, y: 0.46875}
-      - {x: -0.21875, y: -0.75}
+    - - {x: -0.21875, y: -0.75}
+      - {x: -0.21875, y: 0.0625}
+      - {x: -0.15625, y: 0.125}
+      - {x: -0.125, y: 0.5}
+      - {x: -0.03125, y: 0.5}
+      - {x: -0.03125, y: 0.75}
+      - {x: 0.03125, y: 0.75}
+      - {x: 0.03125, y: 0.5}
+      - {x: 0.125, y: 0.5}
+      - {x: 0.15625, y: 0.125}
+      - {x: 0.21875, y: 0.0625}
       - {x: 0.21875, y: -0.75}
-      - {x: 0.21875, y: 0.578125}
-      - {x: 0.0625, y: 0.75}
   m_UseDelaunayMesh: 0
---- !u!257 &2026812696
-TargetJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026812684}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 1
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_BreakAction: 3
-  m_Anchor: {x: 0, y: 0}
-  m_Target: {x: -6.263194, y: -2.6587057}
-  m_AutoConfigureTarget: 1
-  m_MaxForce: 10000
-  m_DampingRatio: 1
-  m_Frequency: 5
 --- !u!1001 &1335686480745981372
 PrefabInstance:
   m_ObjectHideFlags: 0
