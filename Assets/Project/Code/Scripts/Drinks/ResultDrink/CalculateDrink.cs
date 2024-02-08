@@ -6,7 +6,7 @@ using UnityEngine;
 public class CalculateDrink : MonoBehaviour
 {
     [SerializeField] private TypeOfCocktailsDictionary serializableCocktails;
-    private Dictionary<string, Cocktail> allCocktails;
+    private Dictionary<string, CocktailNode> allCocktails;
 
     [SerializeField] private float errorMargin;
 
@@ -15,48 +15,48 @@ public class CalculateDrink : MonoBehaviour
         allCocktails = serializableCocktails.ToDictionary();
     }
 
-    public Cocktail.Type CalculateResultDrink(Dictionary<Drink.Type, int> typesOfDrink, Cocktail.State state)
+    public CocktailNode.Type CalculateResultDrink(Dictionary<DrinkNode.Type, int> typesOfDrink, CocktailNode.State state)
     {
         if (CheckCocktail(typesOfDrink, state, allCocktails["DiscoN"]))
-            return Cocktail.Type.DiscoN;
+            return CocktailNode.Type.DiscoN;
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["Invade"]))
-            return Cocktail.Type.Invade;
+            return CocktailNode.Type.Invade;
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["Morgana"]))
-            return Cocktail.Type.Morgana;
+            return CocktailNode.Type.Morgana;
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["Thresh"]))
-            return Cocktail.Type.Thresh;
+            return CocktailNode.Type.Thresh;
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["PinkLeibel"]))
-            return Cocktail.Type.PinkLeibel;
+            return CocktailNode.Type.PinkLeibel;
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["Morgana"]))
-            return Cocktail.Type.Morgana;
+            return CocktailNode.Type.Morgana;
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["Sekiro"]))
-            return Cocktail.Type.Sekiro;
+            return CocktailNode.Type.Sekiro;
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["LobsterCrami"]))
-            return Cocktail.Type.LobsterCrami;
+            return CocktailNode.Type.LobsterCrami;
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["Tiefti"]))
-            return Cocktail.Type.Tiefti;
+            return CocktailNode.Type.Tiefti;
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["MoszkowskiFlip"]))
-            return Cocktail.Type.MoszkowskiFlip;
+            return CocktailNode.Type.MoszkowskiFlip;
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["PipiStrate"]))
-            return Cocktail.Type.PipiStrate;
+            return CocktailNode.Type.PipiStrate;
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["Razz"]))
-            return Cocktail.Type.Razz;
+            return CocktailNode.Type.Razz;
 
-        return Cocktail.Type.Error;
+        return CocktailNode.Type.Error;
     }
 
-    private bool CheckCocktail(Dictionary<Drink.Type, int> typesOfDrink, Cocktail.State state, Cocktail cocktail)
+    private bool CheckCocktail(Dictionary<DrinkNode.Type, int> typesOfDrink, CocktailNode.State state, CocktailNode cocktail)
     {
         //Check if same amount of ingredients
         if (typesOfDrink.Count != cocktail.ingredients.Count)
@@ -66,7 +66,7 @@ public class CalculateDrink : MonoBehaviour
         if (state != cocktail.state)
             return false;
 
-        foreach (KeyValuePair<Drink.Type, int> ingredient in cocktail.ingredients)
+        foreach (KeyValuePair<DrinkNode.Type, int> ingredient in cocktail.ingredients)
         {
             //Check if same drinkTypes
             if(!typesOfDrink.ContainsKey(ingredient.Key))
