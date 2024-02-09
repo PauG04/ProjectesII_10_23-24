@@ -34,6 +34,7 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
+        _shakerStateMachine.GetComponent<TargetJoint2D>().enabled = false;
         _state = ShakerStateMachine.ShakerState.IdleOpen;
 
         if (!_shakerStateMachine.GetIsInWorkSpace())
@@ -128,7 +129,6 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
     private void OutsideWorkspace()
     {
         _shakerStateMachine.SetGetInWorkSpace(false);
-        _shakerStateMachine.gameObject.layer = LayerMask.NameToLayer("Default");
 
         OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
@@ -142,7 +142,6 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
 
             if (renderer != null)
             {
-                renderer.sortingLayerName = "Default";
                 renderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             }
 

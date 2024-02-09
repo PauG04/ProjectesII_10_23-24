@@ -32,18 +32,10 @@ public class Client : MonoBehaviour
         payment = Random.Range(10.0f, 100.0f);
     }
 
-    private void InitSprite()
-    {
-        int maxClientsSprites = ClientManager.instance.GetClientSprites().Count - 1;
-        int randomSprite = Random.Range(0, maxClientsSprites);
-        spriteRenderer.sprite = ClientManager.instance.GetClientSprites()[randomSprite]; 
-    }
-
     private void InitClient()
     {
         InitOrder();
         InitPayment();
-        InitSprite();
     }
     #endregion
 

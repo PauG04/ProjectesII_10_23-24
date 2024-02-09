@@ -203,7 +203,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private void InsideWorkspace()
     {
         _shakerStateMachine.SetGetInWorkSpace(true);
-        _shakerStateMachine.gameObject.layer = LayerMask.NameToLayer("WorkspaceObject");
 
         InsideWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
@@ -212,7 +211,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private void OutsideWorkspace()
     {
         _shakerStateMachine.SetGetInWorkSpace(false);
-        _shakerStateMachine.gameObject.layer = LayerMask.NameToLayer("Default");
 
         OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
@@ -227,7 +225,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
             if (renderer != null)
             {
-                renderer.sortingLayerName = "WorkSpace";
                 renderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
             }
 
@@ -242,7 +239,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
             if (renderer != null)
             {
-                renderer.sortingLayerName = "Default";
                 renderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             }
 

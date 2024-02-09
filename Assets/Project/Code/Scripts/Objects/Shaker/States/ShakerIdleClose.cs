@@ -43,6 +43,8 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
+        _shakerStateMachine.GetComponent<TargetJoint2D>().enabled = true;
+
         _state = ShakerStateMachine.ShakerState.IdleClosed;
         if(!_shakerStateMachine.GetIsInWorkSpace()) 
         {
@@ -110,7 +112,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
                 Rigidbody2D rigidbody2D = hit.collider.GetComponent<Rigidbody2D>();
                 if (rigidbody2D != null)
                 {
-                    Debug.Log("Hit");
+                    Debug.Log("Enter Dragging Close");
                     _state = ShakerStateMachine.ShakerState.DraggingClosed;
                 }
             }

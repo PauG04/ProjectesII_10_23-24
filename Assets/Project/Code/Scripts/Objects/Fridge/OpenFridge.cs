@@ -39,20 +39,20 @@ public class OpenFridge : MonoBehaviour
             PositionLerp();
         }
 
-        if(isOpen) 
-        { 
-            for(int i = 0; i<items.Length; i++)
-            {
-                items[i].SetCanBeCatch(false);
-            }
-        }
-        else
-        {
-            for (int i = 0; i < items.Length; i++)
-            {
-                items[i].SetCanBeCatch(true);
-            }
-        }
+        //if(isOpen) 
+        //{ 
+        //    for(int i = 0; i<items.Length; i++)
+        //    {
+        //        items[i].SetCanBeCatch(false);
+        //    }
+        //}
+        //else
+        //{
+        //    for (int i = 0; i < items.Length; i++)
+        //    {
+        //        items[i].SetCanBeCatch(true);
+        //    }
+        //}
 
     }
 

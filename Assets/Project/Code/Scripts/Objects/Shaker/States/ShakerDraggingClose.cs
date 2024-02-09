@@ -59,7 +59,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     public override void ExitState()
     {
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        _rb.bodyType = RigidbodyType2D.Kinematic;
     }
     public override ShakerStateMachine.ShakerState GetNextState()
     {
@@ -171,7 +170,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private void InsideWorkspace()
     {
         _shakerStateMachine.SetGetInWorkSpace(true);
-        _shakerStateMachine.gameObject.layer = LayerMask.NameToLayer("WorkspaceObject");
 
         InsideWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
@@ -180,7 +178,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private void OutsideWorkspace()
     {
         _shakerStateMachine.SetGetInWorkSpace(false);
-        _shakerStateMachine.gameObject.layer = LayerMask.NameToLayer("Default");
 
         OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
