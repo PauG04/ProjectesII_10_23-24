@@ -8,7 +8,7 @@ public class WikiManager : MonoBehaviour
 {
     public static WikiManager instance { get; private set; }
 
-    [SerializeField] private List<Cocktail> cocktails;
+    [SerializeField] private List<CocktailNode> cocktails;
 
     [SerializeField] private GameObject wiki;
     [SerializeField] private WikiPage firstPage;
@@ -66,7 +66,7 @@ public class WikiManager : MonoBehaviour
         }
     }
 
-    public void AddPage(Cocktail cocktail)
+    public void AddPage(CocktailNode cocktail)
     {
         cocktails.Add(cocktail);
     }
@@ -81,7 +81,7 @@ public class WikiManager : MonoBehaviour
             secondPage.ClearPage();
     }
 
-    public List<Cocktail> GetAvailableCocktails()
+    public List<CocktailNode> GetAvailableCocktails()
     { 
         return cocktails; 
     }

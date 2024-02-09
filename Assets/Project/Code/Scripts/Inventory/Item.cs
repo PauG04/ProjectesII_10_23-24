@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Item")]
-
-public class Item : ScriptableObject
+public class Item : MonoBehaviour
 {
-    public string itemName;
-    public float price;
-    public float maxAmount;
-    public Sprite sprite;
+    [SerializeField] private ItemNode item;
+
+    public ItemNode GetItem()
+    {
+        return item;
+    }    
 }
