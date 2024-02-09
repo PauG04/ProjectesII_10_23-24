@@ -33,7 +33,7 @@ public class RotateBottle : MonoBehaviour
         {
             _isRotating = false;
         }
-
+        
         if (_isRotating)
         {
             RotateObject();

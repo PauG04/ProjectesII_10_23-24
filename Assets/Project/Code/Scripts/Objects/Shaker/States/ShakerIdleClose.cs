@@ -20,7 +20,18 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     private LerpTopShaker _lerp;
 
     private ProgressSlider _slider;
-    public ShakerIdleClose(ShakerStateMachine shakerStateMachine, SetTopShaker shakerClosed, LayerMask layerMask, LerpTopShaker lerp, Vector3 initPosition, ProgressSlider slider) : base(ShakerStateMachine.ShakerState.IdleClosed)
+
+    private Collider2D _workSpace;
+
+    public ShakerIdleClose(
+        ShakerStateMachine shakerStateMachine, 
+        SetTopShaker shakerClosed, 
+        LayerMask layerMask, 
+        LerpTopShaker lerp, 
+        Vector3 initPosition, 
+        ProgressSlider slider,
+        Collider2D workSpace
+    ) : base(ShakerStateMachine.ShakerState.IdleClosed)
     {
         _shakerStateMachine = shakerStateMachine;
         _shakerClosed = shakerClosed;
@@ -28,8 +39,8 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         _initPosition = initPosition;
         _lerp = lerp;
         _slider = slider;
+        _workSpace = workSpace;
     }
-
     public override void EnterState()
     {
         _state = ShakerStateMachine.ShakerState.IdleClosed;
@@ -38,34 +49,38 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
             firstLerp = true;
             secondLerp = false;
         }
-        
     }
-
     public override void ExitState()
     {
         
     }
-
     public override ShakerStateMachine.ShakerState GetNextState()
     {
         return _state;
     }
-
     public override void OnMouseDown()
     {   
         firstLerp = false;
         secondLerp = false;
     }
-
     public override void OnMouseUp()
     {
         
     }
-
     public override void UpdateState()
     {
+        if (!_workSpace.OverlapPoint(_shakerStateMachine.transform.position))
+        {
+            _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            OutsideWorkspace();
+        }
+        else
+        {
+            _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        }
+
         MoveObjectToParent();
-        _slider.SetIsLerp(false);
+        //_slider.SetIsLerp(false);
 
         if (!_shakerStateMachine.GetIsInWorkSpace())
         {
@@ -95,12 +110,20 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
                 Rigidbody2D rigidbody2D = hit.collider.GetComponent<Rigidbody2D>();
                 if (rigidbody2D != null)
                 {
+                    Debug.Log("Hit");
                     _state = ShakerStateMachine.ShakerState.DraggingClosed;
                 }
             }
         }
     }
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
 
+    }
+    public override void OnTriggerExit2D(Collider2D collision)
+    {
+
+    }
     private void MoveObjectToParent()
     {
         if (!_shakerStateMachine.GetIsInWorkSpace())
@@ -132,17 +155,31 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
             }
         }
     }
-
-    public override void OnTriggerEnter2D(Collider2D collision)
-    {
-
-    }
-    public override void OnTriggerExit2D(Collider2D collision)
-    {
-
-    }
     private void ResetObjectPosition()
     {
         _shakerStateMachine.transform.rotation = Quaternion.Lerp(_shakerStateMachine.transform.rotation, Quaternion.identity, lerpSpeed * Time.deltaTime);
+    }
+    private void OutsideWorkspace()
+    {
+        _shakerStateMachine.SetGetInWorkSpace(false);
+
+        OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
+
+        _shakerStateMachine.transform.localScale = Vector3.one;
+    }
+    private void OutsidewWorkspaceRenderersChilds(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            SpriteRenderer renderer = child.GetComponent<SpriteRenderer>();
+
+            if (renderer != null)
+            {
+                renderer.sortingLayerName = "Default";
+                renderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+            }
+
+            OutsidewWorkspaceRenderersChilds(child);
+        }
     }
 }

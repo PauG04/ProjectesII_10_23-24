@@ -76,11 +76,18 @@ public class DragItemsNew : MonoBehaviour
         }
         if (!workSpace.OverlapPoint(transform.position) && !isDragging)
         {
+            rb2d.bodyType = RigidbodyType2D.Static;
             OutsideWorkspace();
         }
-
-        if (isRotating)
+        else if (!isDragging)
         {
+            rb2d.bodyType = RigidbodyType2D.Dynamic;
+
+        }
+
+        if (isRotating && !Input.GetMouseButton(1))
+        {
+            Debug.Log("Rotating");
             RotateObject();
         }
     }
@@ -101,8 +108,6 @@ public class DragItemsNew : MonoBehaviour
     }
     private void InsideWorkspace()
     {
-        rb2d.bodyType = RigidbodyType2D.Dynamic;
-
         insideWorkspace = true;
 
         gameObject.layer = LayerMask.NameToLayer("WorkspaceObject");
@@ -119,7 +124,6 @@ public class DragItemsNew : MonoBehaviour
     }
     private void OutsideWorkspace()
     {
-        rb2d.bodyType = RigidbodyType2D.Static;
 
         insideWorkspace = false;
 

@@ -20,9 +20,11 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private bool _isDown;
 
     private Vector2 _initScale = Vector2.one;
-    private float _increaseScale = 1.5f;
+    private float _scaleMultiplier = 1.5f;
 
     private ProgressSlider _slider;
+
+    private Collider2D _workspace;
 
     public ShakerDraggingClose(
         ShakerStateMachine shakerStateMachine, 
@@ -30,7 +32,8 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         float progress, 
         float maxProgress, 
         float divideProgress,
-        ProgressSlider slider
+        ProgressSlider slider,
+        Collider2D workspace
     ) : base(ShakerStateMachine.ShakerState.DraggingClosed)
     {
         _shakerStateMachine = shakerStateMachine;
@@ -39,6 +42,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _progress = progress;
         _divideProgress = divideProgress;
         _slider = slider;
+        _workspace = workspace;
     }
     public override void EnterState()
     {
@@ -71,8 +75,20 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _state = ShakerStateMachine.ShakerState.IdleClosed;
     }
     public override void UpdateState()
-    {       
-        _targetJoint.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        _targetJoint.target = mousePosition;
+
+        if (_workspace.OverlapPoint(mousePosition))
+        {
+            InsideWorkspace();
+        }
+        else
+        {
+            OutsideWorkspace();
+            _shakerStateMachine.transform.position = new Vector2(mousePosition.x, mousePosition.y);
+        }
 
         _rb.SetRotation(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
         Shaking();
@@ -80,20 +96,10 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     public override void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("WorkSpace") && !_shakerStateMachine.GetIsInWorkSpace())
-        {
-
-            _shakerStateMachine.SetGetInWorkSpace(true);
-            _shakerStateMachine.transform.localScale *= _increaseScale;
-        }
     }
     public override void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("WorkSpace") && _shakerStateMachine.GetIsInWorkSpace())
-        {
-            _shakerStateMachine.SetGetInWorkSpace(false);
-            _shakerStateMachine.transform.localScale = _initScale;
-        }
+
     }
     private void Shaking()
     {
@@ -162,6 +168,53 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         }
         */
     }
+    private void InsideWorkspace()
+    {
+        _shakerStateMachine.SetGetInWorkSpace(true);
+        _shakerStateMachine.gameObject.layer = LayerMask.NameToLayer("WorkspaceObject");
 
+        InsideWorkspaceRenderersChilds(_shakerStateMachine.transform);
+
+        _shakerStateMachine.transform.localScale = new Vector2(_scaleMultiplier, _scaleMultiplier);
+    }
+    private void OutsideWorkspace()
+    {
+        _shakerStateMachine.SetGetInWorkSpace(false);
+        _shakerStateMachine.gameObject.layer = LayerMask.NameToLayer("Default");
+
+        OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
+
+        _shakerStateMachine.transform.localScale = Vector3.one;
+    }
+    private void InsideWorkspaceRenderersChilds(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            SpriteRenderer renderer = child.GetComponent<SpriteRenderer>();
+
+            if (renderer != null)
+            {
+                renderer.sortingLayerName = "WorkSpace";
+                renderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            }
+
+            InsideWorkspaceRenderersChilds(child);
+        }
+    }
+    private void OutsidewWorkspaceRenderersChilds(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            SpriteRenderer renderer = child.GetComponent<SpriteRenderer>();
+
+            if (renderer != null)
+            {
+                renderer.sortingLayerName = "Default";
+                renderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+            }
+
+            OutsidewWorkspaceRenderersChilds(child);
+        }
+    }
     public float GetProgress() => _progress;
 }

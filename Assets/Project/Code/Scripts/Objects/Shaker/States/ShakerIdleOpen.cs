@@ -1,6 +1,5 @@
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
 {
@@ -19,13 +18,20 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
 
     private Vector3 _initPosition;
 
-    public ShakerIdleOpen(ShakerStateMachine shakerStateMachine, SetTopShaker shakerClosed, Vector3 initPosition) : base(ShakerStateMachine.ShakerState.IdleOpen)
+    private Collider2D _workSpace;
+
+    public ShakerIdleOpen(
+        ShakerStateMachine shakerStateMachine, 
+        SetTopShaker shakerClosed,
+        Vector3 initPosition,
+        Collider2D workSpace
+    ) : base(ShakerStateMachine.ShakerState.IdleOpen)
     {
         _shakerStateMachine = shakerStateMachine;
         _shakerClosed = shakerClosed;
         _initPosition = initPosition;
+        _workSpace = workSpace;
     }
-
     public override void EnterState()
     {
         _state = ShakerStateMachine.ShakerState.IdleOpen;
@@ -36,29 +42,34 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
             secondLerp = false;
         }
     }
-
     public override void ExitState()
     {
         
     }
-
     public override ShakerStateMachine.ShakerState GetNextState()
     {
         return _state;
     }
-
     public override void OnMouseDown()
     {    
         _state = ShakerStateMachine.ShakerState.DraggingOpen;
     }
-
     public override void OnMouseUp()
     {
         
     }
-
     public override void UpdateState()
     {
+        if (!_workSpace.OverlapPoint(_shakerStateMachine.transform.position))
+        {
+            _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            OutsideWorkspace();
+        }
+        else
+        {
+            _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        }
+
         MoveObjectToParent();
         if (_shakerClosed.GetIsShakerClosed())
         {
@@ -70,7 +81,14 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
             ResetObjectPosition();
         }
     }
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
 
+    }
+    public override void OnTriggerExit2D(Collider2D collision)
+    {
+
+    }
     private void MoveObjectToParent()
     {
         if (!_shakerStateMachine.GetIsInWorkSpace())
@@ -102,18 +120,33 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
             }
         }
     }
-
     private void ResetObjectPosition()
     {
         _shakerStateMachine.transform.rotation = Quaternion.Lerp(_shakerStateMachine.transform.rotation, Quaternion.identity, _lerpSpeed * Time.deltaTime);
     }
 
-    public override void OnTriggerEnter2D(Collider2D collision)
+    private void OutsideWorkspace()
     {
+        _shakerStateMachine.SetGetInWorkSpace(false);
+        _shakerStateMachine.gameObject.layer = LayerMask.NameToLayer("Default");
 
+        OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
+
+        _shakerStateMachine.transform.localScale = Vector3.one;
     }
-    public override void OnTriggerExit2D(Collider2D collision)
+    private void OutsidewWorkspaceRenderersChilds(Transform parent)
     {
+        foreach (Transform child in parent)
+        {
+            SpriteRenderer renderer = child.GetComponent<SpriteRenderer>();
 
+            if (renderer != null)
+            {
+                renderer.sortingLayerName = "Default";
+                renderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+            }
+
+            OutsidewWorkspaceRenderersChilds(child);
+        }
     }
 }
