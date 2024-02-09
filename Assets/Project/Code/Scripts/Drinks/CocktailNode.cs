@@ -43,9 +43,19 @@ public class CocktailNode : ScriptableObject
     public CocktailIngredientDictionary SerializableIngredients;
     public Dictionary<DrinkNode.Type, int> ingredients;
 
-    private void Awake()
+    private void OnEnable()
     {
         ingredients = SerializableIngredients.ToDictionary();
+        InitDescription();
+    }
 
+    private void InitDescription()
+    {
+        description = "";
+        foreach (KeyValuePair<DrinkNode.Type, int> ingridient in ingredients)
+        {
+            description += ingridient.Value + " " + ingridient.Key.ToString() + "\n";
+        }
+        description += "State: " + state.ToString();
     }
 }
