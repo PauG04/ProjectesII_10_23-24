@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WikiManager : MonoBehaviour
@@ -87,12 +88,16 @@ public class WikiManager : MonoBehaviour
 
     private void OpenWiki()
     {
-        wiki.SetActive(true);
+        //wiki.SetActive(true);
+        firstPage.gameObject.SetActive(true);
+        secondPage.gameObject.SetActive(true);
         UpdatePages(pageNumber);
     }
 
     private void CloseWiki()
     {
-        wiki.SetActive(false);
+        //wiki.SetActive(false);
+        firstPage.gameObject.SetActive(false);
+        secondPage.gameObject.SetActive(false);
     }
 }

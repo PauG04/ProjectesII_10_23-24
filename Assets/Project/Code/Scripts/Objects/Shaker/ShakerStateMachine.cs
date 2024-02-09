@@ -31,7 +31,10 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	private ShakerDraggingOpen shakerDraggingOpen;
 
 	[Header("WorkSpace Variables")]
-	private bool isInWorkSpace;
+	[SerializeField] private Sprite insideWorkspaceSprite;
+    [SerializeField] private Sprite outsideWorkspaceSprite;
+
+    private bool isInWorkSpace;
 
 	[Header("Shaker Top")]
 	[SerializeField] private LerpTopShaker lerpTopShaker;
@@ -49,6 +52,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 		DraggingClosed,
 		ResetDrink
 	}
+
 	private void Awake()
 	{
 		isInWorkSpace = false;

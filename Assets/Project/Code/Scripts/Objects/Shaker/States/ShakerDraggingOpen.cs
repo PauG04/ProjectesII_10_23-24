@@ -35,7 +35,13 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private Vector2 _initScale = Vector2.one;
     private float _increaseScale = 1.5f;
 
-    public ShakerDraggingOpen(ShakerStateMachine shakerStateMachine, float rotationSpeed, GameObject liquidPrefab, Transform spawnPoint, LiquidManager liquidManager) : base(ShakerStateMachine.ShakerState.DraggingOpen)
+    public ShakerDraggingOpen(
+        ShakerStateMachine shakerStateMachine, 
+        float rotationSpeed, 
+        GameObject liquidPrefab, 
+        Transform spawnPoint, 
+        LiquidManager liquidManager
+    ) : base(ShakerStateMachine.ShakerState.DraggingOpen)
     {
         _shakerStateMachine = shakerStateMachine;
         _rotationSpeed = rotationSpeed;
@@ -193,4 +199,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
             _shakerStateMachine.transform.localScale = _initScale;
         }
     }
+
+
 }

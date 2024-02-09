@@ -24,7 +24,14 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
     private ProgressSlider _slider;
 
-    public ShakerDraggingClose(ShakerStateMachine shakerStateMachine, float maxAngle, float progress, float maxProgress, float divideProgress, ProgressSlider slider) : base(ShakerStateMachine.ShakerState.DraggingClosed)
+    public ShakerDraggingClose(
+        ShakerStateMachine shakerStateMachine, 
+        float maxAngle, 
+        float progress, 
+        float maxProgress, 
+        float divideProgress,
+        ProgressSlider slider
+    ) : base(ShakerStateMachine.ShakerState.DraggingClosed)
     {
         _shakerStateMachine = shakerStateMachine;
         _maxAngle = maxAngle;
@@ -70,7 +77,24 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _rb.SetRotation(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
         Shaking();
     }
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
 
+        if (collision.CompareTag("WorkSpace") && !_shakerStateMachine.GetIsInWorkSpace())
+        {
+
+            _shakerStateMachine.SetGetInWorkSpace(true);
+            _shakerStateMachine.transform.localScale *= _increaseScale;
+        }
+    }
+    public override void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("WorkSpace") && _shakerStateMachine.GetIsInWorkSpace())
+        {
+            _shakerStateMachine.SetGetInWorkSpace(false);
+            _shakerStateMachine.transform.localScale = _initScale;
+        }
+    }
     private void Shaking()
     {
         if(_shakerStateMachine.GetIsInWorkSpace())
@@ -139,23 +163,5 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         */
     }
 
-    public override void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if (collision.CompareTag("WorkSpace") && !_shakerStateMachine.GetIsInWorkSpace())
-        {
-
-            _shakerStateMachine.SetGetInWorkSpace(true);
-            _shakerStateMachine.transform.localScale *= _increaseScale;
-        }
-    }
-    public override void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("WorkSpace") && _shakerStateMachine.GetIsInWorkSpace())
-        {
-            _shakerStateMachine.SetGetInWorkSpace(false);
-            _shakerStateMachine.transform.localScale = _initScale;
-        }
-    }
     public float GetProgress() => _progress;
 }

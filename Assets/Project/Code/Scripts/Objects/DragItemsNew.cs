@@ -9,6 +9,7 @@ public class DragItemsNew : MonoBehaviour
     [SerializeField] private Sprite workspaceSprite;
     [SerializeField] private float scaleMultiplier = 1.2f;
 
+    private List<SpriteRenderer> renderers = new List<SpriteRenderer>();
     private PolygonCollider2D itemCollider;
     private SpriteRenderer spriteRenderer;
 
@@ -66,27 +67,23 @@ public class DragItemsNew : MonoBehaviour
             if (workSpace.OverlapPoint(mousePosition))
             {
                 InsideWorkspace();
-                rb2d.bodyType = RigidbodyType2D.Dynamic;
+            } 
+            else
+            {
+                OutsideWorkspace();
+                transform.position = new Vector2(mousePosition.x, mousePosition.y);
             }
         }
-        if (!workSpace.OverlapPoint(transform.position))
+        if (!workSpace.OverlapPoint(transform.position) && !isDragging)
         {
-            rb2d.bodyType = RigidbodyType2D.Static;
             OutsideWorkspace();
-
-            if (isDragging)
-            {
-                transform.position = mousePosition;
-            }
         }
 
         if (isRotating)
         {
             RotateObject();
         }
-
     }
-
     private void OnMouseDown()
     {
         Physics2D.IgnoreCollision(workSpace, GetComponent<PolygonCollider2D>());
@@ -104,11 +101,17 @@ public class DragItemsNew : MonoBehaviour
     }
     private void InsideWorkspace()
     {
+        rb2d.bodyType = RigidbodyType2D.Dynamic;
+
         insideWorkspace = true;
 
+        gameObject.layer = LayerMask.NameToLayer("WorkspaceObject");
+        
         spriteRenderer.sortingLayerName = "WorkSpace";
         spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         spriteRenderer.sprite = workspaceSprite;
+
+        InsideWorkspaceRenderersChilds(transform);
 
         itemCollider.TryUpdateShapeToAttachedSprite();
 
@@ -116,15 +119,52 @@ public class DragItemsNew : MonoBehaviour
     }
     private void OutsideWorkspace()
     {
+        rb2d.bodyType = RigidbodyType2D.Static;
+
         insideWorkspace = false;
+
+        gameObject.layer = LayerMask.NameToLayer("Default");
 
         spriteRenderer.sortingLayerName = "Default";
         spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         spriteRenderer.sprite = normalSprite;
 
+        OutsidewWorkspaceRenderersChilds(transform);
+
         itemCollider.TryUpdateShapeToAttachedSprite();
 
         transform.localScale = Vector3.one;
+    }
+
+    private void InsideWorkspaceRenderersChilds(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            SpriteRenderer renderer = child.GetComponent<SpriteRenderer>();
+
+            if (renderer != null)
+            {
+                renderer.sortingLayerName = "WorkSpace";
+                renderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            }
+
+            InsideWorkspaceRenderersChilds(child);
+        }
+    }
+    private void OutsidewWorkspaceRenderersChilds(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            SpriteRenderer renderer = child.GetComponent<SpriteRenderer>();
+
+            if (renderer != null)
+            {
+                renderer.sortingLayerName = "Default";
+                renderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+            }
+
+            OutsidewWorkspaceRenderersChilds(child);
+        }
     }
     private void RotateObject()
     {
@@ -138,6 +178,7 @@ public class DragItemsNew : MonoBehaviour
                 Time.deltaTime * rotationSpeed
             );
         }
+
         if (isObjectRotated && !insideWorkspace)
         {
             isRotating = !(transform.rotation == initRotation);
@@ -175,7 +216,6 @@ public class DragItemsNew : MonoBehaviour
             }
         }
     }
-
     private Vector3 GetMouseWorldPosition()
     {
         Vector3 mousePosition = Input.mousePosition;
