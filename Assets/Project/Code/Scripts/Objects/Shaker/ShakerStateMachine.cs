@@ -31,7 +31,10 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	private ShakerDraggingOpen shakerDraggingOpen;
 
 	[Header("WorkSpace Variables")]
-	private bool isInWorkSpace;
+	[SerializeField] private Sprite workspaceSprite;
+    [SerializeField] private Sprite initSprite;
+	[SerializeField] private Collider2D workSpace;
+    private bool isInWorkSpace;
 
 	[Header("Shaker Top")]
 	[SerializeField] private LerpTopShaker lerpTopShaker;
@@ -49,17 +52,18 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 		DraggingClosed,
 		ResetDrink
 	}
+
 	private void Awake()
 	{
 		isInWorkSpace = false;
 
         initPosition = transform.localPosition;
 
-        shakerDraggingClose = new ShakerDraggingClose(this, maxAngle, progress, maxProgress, divideProgress, slider);
-		shakerDraggingOpen = new ShakerDraggingOpen(this, rotationSpeed, liquidPref, spawnPoint, liquidManager);
+        shakerDraggingClose = new ShakerDraggingClose(this, maxAngle, progress, maxProgress, divideProgress, slider, workSpace);
+		shakerDraggingOpen = new ShakerDraggingOpen(this, rotationSpeed, liquidPref, spawnPoint, liquidManager, workSpace);
 
-        States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker, initPosition));
-		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask, lerpTopShaker, initPosition, slider));
+        States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker, initPosition, workSpace));
+		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask, lerpTopShaker, initPosition, slider, workSpace));
 		States.Add(ShakerState.DraggingOpen, shakerDraggingOpen);
 		States.Add(ShakerState.DraggingClosed, shakerDraggingClose);
 		States.Add(ShakerState.ResetDrink, new ShakerResetDrink());

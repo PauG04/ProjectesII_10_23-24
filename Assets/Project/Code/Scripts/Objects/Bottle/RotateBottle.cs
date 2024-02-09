@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RotateBottle : MonoBehaviour
@@ -10,7 +11,7 @@ public class RotateBottle : MonoBehaviour
     private float _targetRotation = 0f;
     private float _currentRotation = 0f;
 
-    private DragItem dragItem;
+    private DragItemsNew dragItem;
 
     [Header("Rotation")]
     [SerializeField]
@@ -18,7 +19,7 @@ public class RotateBottle : MonoBehaviour
 
     private void Start()
     {
-        dragItem = GetComponent<DragItem>();
+        dragItem = GetComponent<DragItemsNew>();
     }
 
     private void Update()
@@ -32,7 +33,7 @@ public class RotateBottle : MonoBehaviour
         {
             _isRotating = false;
         }
-
+        
         if (_isRotating)
         {
             RotateObject();
@@ -46,7 +47,6 @@ public class RotateBottle : MonoBehaviour
         }
 
     }
-
     private void RotateObject()
     {
         float mouseY = Input.GetAxis("Mouse Y");

@@ -5,19 +5,22 @@ using UnityEngine;
 public class LiquidManager : MonoBehaviour
 {
     [SerializeField] private float maxLiquid;
-    private float currentLiquid;
+    [SerializeField] private float currentLiquid = 0;
 
     private void Awake()
     {
-        currentLiquid = 125;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Liquid"))
         {
-            Destroy(collision.gameObject);
-            currentLiquid++;
+            if (currentLiquid < maxLiquid)
+            {
+                Destroy(collision.gameObject);
+                currentLiquid++;
+            }
         }
     }
     public void DeacreaseCurrentLiquid()

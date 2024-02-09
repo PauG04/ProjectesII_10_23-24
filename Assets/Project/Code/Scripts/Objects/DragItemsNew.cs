@@ -9,25 +9,26 @@ public class DragItemsNew : MonoBehaviour
     [SerializeField] private Sprite workspaceSprite;
     [SerializeField] private float scaleMultiplier = 1.2f;
 
+    private List<SpriteRenderer> renderers = new List<SpriteRenderer>();
     private PolygonCollider2D itemCollider;
     private SpriteRenderer spriteRenderer;
 
-    [Header("isDragging Variables")]
+    [Header("Dragging Variables")]
     private Rigidbody2D rb2d;
     private Collider2D workSpace;
     private Vector3 offset;
-    private bool isDragging = false;
-    private bool insideWorkspace = false;
+    private bool isDragging;
+    private bool insideWorkspace;
 
     [Header("Returning Variables")]
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float horizontalSpeed;
     [SerializeField] private float verticalSpeed;
+    [Space(5)]
     [SerializeField] private bool hasToBeDestroy;
-    private bool isRotated;
-    private bool rotationLerp;
-    private bool horizontalLerp;
-    private bool vertialLerp;
+    private bool isObjectRotated;
+    private bool isRotating;
+
     private Vector3 initPosition;
     private Quaternion initRotation;
 
@@ -37,133 +38,188 @@ public class DragItemsNew : MonoBehaviour
         itemCollider = GetComponent<PolygonCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        workSpace = GameObject.FindGameObjectWithTag("WorkSpace").GetComponent<Collider2D>();
+        workSpace = GameObject.FindGameObjectWithTag("WorkSpace").GetComponent<BoxCollider2D>();
+
+        rb2d.bodyType = RigidbodyType2D.Static;
 
         if (transform.rotation != Quaternion.identity)
         {
-            isRotated = true;
+            isObjectRotated = true;
             initRotation = transform.localRotation;
+        }
+        else
+        {
+            initRotation = Quaternion.identity;
         }
 
         initPosition = transform.localPosition;
     }
     private void Update()
     {
-        LerpAnimations();
+        RepositionObject();
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (isDragging)
         {
-            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
             transform.position = GetMouseWorldPosition() + offset;
-            ChangingSpritesOnWorkspace(mousePosition);
-        }
+            isRotating = true;
 
-        if (insideWorkspace)
-        {
-            rb2d.bodyType = RigidbodyType2D.Dynamic;
-        } 
-        else
+            if (workSpace.OverlapPoint(mousePosition))
+            {
+                InsideWorkspace();
+            } 
+            else
+            {
+                OutsideWorkspace();
+                transform.position = new Vector2(mousePosition.x, mousePosition.y);
+            }
+        }
+        if (!workSpace.OverlapPoint(transform.position) && !isDragging)
         {
             rb2d.bodyType = RigidbodyType2D.Static;
+            OutsideWorkspace();
+        }
+        else if (!isDragging)
+        {
+            rb2d.bodyType = RigidbodyType2D.Dynamic;
+
+        }
+
+        if (isRotating && !Input.GetMouseButton(1))
+        {
+            Debug.Log("Rotating");
+            RotateObject();
         }
     }
     private void OnMouseDown()
     {
-        offset = gameObject.transform.position - GetMouseWorldPosition();
+        Physics2D.IgnoreCollision(workSpace, GetComponent<PolygonCollider2D>());
 
+        rb2d.bodyType = RigidbodyType2D.Static;
+
+        offset = gameObject.transform.position - GetMouseWorldPosition();
         isDragging = true;
     }
     private void OnMouseUp()
     {
         rb2d.AddForce(Vector2.right * 0.1f, ForceMode2D.Impulse);
 
-        if (!insideWorkspace)
-        {
-            if (isRotated)
-            {
-                rotationLerp = true;
-            }
-            else
-            {
-                horizontalLerp = true;
-            }
-        }
-
         isDragging = false;
     }
-    private void ChangingSpritesOnWorkspace(Vector3 mousePosition)
+    private void InsideWorkspace()
     {
-        if (workSpace.OverlapPoint(mousePosition))
+        insideWorkspace = true;
+
+        gameObject.layer = LayerMask.NameToLayer("WorkspaceObject");
+        
+        spriteRenderer.sortingLayerName = "WorkSpace";
+        spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+        spriteRenderer.sprite = workspaceSprite;
+
+        InsideWorkspaceRenderersChilds(transform);
+
+        itemCollider.TryUpdateShapeToAttachedSprite();
+
+        transform.localScale = new Vector2(scaleMultiplier, scaleMultiplier);
+    }
+    private void OutsideWorkspace()
+    {
+
+        insideWorkspace = false;
+
+        gameObject.layer = LayerMask.NameToLayer("Default");
+
+        spriteRenderer.sortingLayerName = "Default";
+        spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+        spriteRenderer.sprite = normalSprite;
+
+        OutsidewWorkspaceRenderersChilds(transform);
+
+        itemCollider.TryUpdateShapeToAttachedSprite();
+
+        transform.localScale = Vector3.one;
+    }
+
+    private void InsideWorkspaceRenderersChilds(Transform parent)
+    {
+        foreach (Transform child in parent)
         {
-            insideWorkspace = true;
+            SpriteRenderer renderer = child.GetComponent<SpriteRenderer>();
 
-            spriteRenderer.sortingLayerName = "WorkSpace";
-            spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-            spriteRenderer.sprite = workspaceSprite;
+            if (renderer != null)
+            {
+                renderer.sortingLayerName = "WorkSpace";
+                renderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            }
 
-            itemCollider.TryUpdateShapeToAttachedSprite();
-
-            transform.localScale = new Vector2(scaleMultiplier, scaleMultiplier);
-        }
-        else
-        {
-            insideWorkspace = false;
-
-            spriteRenderer.sortingLayerName = "Default";
-            spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
-            spriteRenderer.sprite = normalSprite;
-
-            itemCollider.TryUpdateShapeToAttachedSprite();
-
-            transform.localScale = Vector3.one;
+            InsideWorkspaceRenderersChilds(child);
         }
     }
-    private void LerpAnimations()
+    private void OutsidewWorkspaceRenderersChilds(Transform parent)
     {
-        if (!isDragging)
+        foreach (Transform child in parent)
         {
-            if (rotationLerp)
-            {
-                transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.identity, Time.deltaTime * rotationSpeed);
-            }
-            if (transform.localRotation.z >= initRotation.z - 0.01 && rotationLerp)
-            {
-                transform.localRotation = Quaternion.identity;
-                rotationLerp = false;
-                horizontalLerp = true;
-            }
-            if (horizontalLerp)
-            {
-                Vector3 newPosition = transform.localPosition;
-                newPosition.x = Mathf.Lerp(transform.localPosition.x, initPosition.x, Time.deltaTime * horizontalSpeed);
+            SpriteRenderer renderer = child.GetComponent<SpriteRenderer>();
 
-                transform.localPosition = newPosition;
+            if (renderer != null)
+            {
+                renderer.sortingLayerName = "Default";
+                renderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             }
+
+            OutsidewWorkspaceRenderersChilds(child);
+        }
+    }
+    private void RotateObject()
+    {
+        if (isDragging || !isObjectRotated)
+        {
+            isRotating = !(transform.rotation == Quaternion.identity);
+
+            transform.rotation = Quaternion.Lerp(
+                transform.localRotation,
+                Quaternion.identity,
+                Time.deltaTime * rotationSpeed
+            );
+        }
+
+        if (isObjectRotated && !insideWorkspace)
+        {
+            isRotating = !(transform.rotation == initRotation);
+
+            transform.rotation = Quaternion.Lerp(
+                transform.localRotation,
+                initRotation,
+                Time.deltaTime * rotationSpeed
+            );
+        }
+    }
+    private void RepositionObject()
+    {
+        if (!isDragging && !insideWorkspace)
+        {
+            transform.localPosition = new Vector2(
+                Mathf.Lerp(transform.localPosition.x, initPosition.x, Time.deltaTime * horizontalSpeed), 
+                transform.localPosition.y
+            );
+
             if (transform.localPosition.x > initPosition.x - 0.002 && transform.localPosition.x < initPosition.x + 0.002)
             {
-                horizontalLerp = false;
-                vertialLerp = true;
-            }
+                transform.localPosition = new Vector2(
+                    transform.localPosition.x,
+                    Mathf.Lerp(transform.localPosition.y, initPosition.y, Time.deltaTime * verticalSpeed)
+                );
 
-            if (vertialLerp)
-            {
-                Vector3 newPosition = transform.localPosition;
-                newPosition.y = Mathf.Lerp(transform.localPosition.y, initPosition.y, Time.deltaTime * verticalSpeed);
-
-                transform.localPosition = newPosition;
-            }
-            if (transform.localPosition.y > initPosition.y - 0.002 && transform.localPosition.y < initPosition.y + 0.002)
-            {
-                vertialLerp = false;
-                if (hasToBeDestroy)
+                if (transform.localPosition.y > initPosition.y - 0.002 && transform.localPosition.y < initPosition.y + 0.002)
                 {
-                    Destroy(gameObject);
+                    if (hasToBeDestroy)
+                    {
+                        Destroy(gameObject);
+                    }
                 }
             }
         }
     }
-
     private Vector3 GetMouseWorldPosition()
     {
         Vector3 mousePosition = Input.mousePosition;
@@ -174,5 +230,10 @@ public class DragItemsNew : MonoBehaviour
     public bool GetInsideWorkspace()
     {
         return insideWorkspace;
+    }
+
+    public bool GetIsDraggin()
+    {
+        return isDragging;
     }
 }
