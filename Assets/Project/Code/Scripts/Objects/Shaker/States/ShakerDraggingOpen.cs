@@ -23,7 +23,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private LiquidManager _liquidManager;
     private float _spawnerPositionX = 0.19f;
 
-    private float _minRotationToPourLiquid = 10f;
+    private float _minRotationToPourLiquid = 70f;
     private float _maxRotationToPourLiquid = 140f;
 
     private float _minRotationToMoveSpawner = 90f;
@@ -83,16 +83,16 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     {
         CalculatePosition();
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            _isRotating = true;
-        }
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    _isRotating = true;
+        //}
 
-        if (Input.GetMouseButtonUp(1))
-        {
-            _isRotating = false;
-        }
-
+        //if (Input.GetMouseButtonUp(1))
+        //{
+        //    _isRotating = false;
+        //}
+        _isRotating = true;
         if (_isRotating)
         {
             RotateObject();
@@ -102,16 +102,22 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
             if (_currentRotation <= -_minRotationToPourLiquid)
             {
                 CalculateSpawnerPosition();
-                PourLiquid();
+                PourLiquid(true);
+            }
+
+            if (_currentRotation >= _minRotationToPourLiquid)
+            {
+                CalculateSpawnerPosition();
+                PourLiquid(false);
             }
         } 
-        else
-        {
-            if (_shakerStateMachine.transform.rotation != Quaternion.identity)
-            {
-                ResetObjectPosition();
-            }
-        }
+        //else
+        //{
+        //    if (_shakerStateMachine.transform.rotation != Quaternion.identity)
+        //    {
+        //        ResetObjectPosition();
+        //    }
+        //}
     }
     public override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -144,10 +150,10 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     }
     private void RotateObject()
     {
-        float mouseY = Input.GetAxis("Mouse Y");
+        float mouseY = Input.mouseScrollDelta.y;
         
         _targetRotation += mouseY * _rotationSpeed;
-        _targetRotation = Mathf.Clamp(_targetRotation, 0, _maxRotation);
+        _targetRotation = Mathf.Clamp(_targetRotation, -_maxRotation, _maxRotation);
 
         _currentRotation = Mathf.Lerp(_currentRotation, -_targetRotation, Time.deltaTime * _rotationSpeed);
         _shakerStateMachine.transform.rotation = Quaternion.Euler(Vector3.forward * _currentRotation);
@@ -170,13 +176,19 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
             _spawnPoint.localPosition = new Vector2(_spawnerPositionX, _spawnPoint.localPosition.y);
         }
     }
-    private void PourLiquid()
+    private void PourLiquid(bool state)
     {
         float currentLiquid = (_liquidManager.GetCurrentLiquid() * 100) / _liquidManager.GetMaxLiquid();
-        float currentRotation = 100 - ((-_currentRotation * 100) / _maxRotationToPourLiquid);
-
-        //Debug.Log("Current Liquid: " + currentLiquid + "%");
-        //Debug.Log("Current Rot: " + currentRotation + "%");
+        float currentRotation;
+        
+        if (state)
+        {
+            currentRotation = 100 - ((-_currentRotation * 100) / _maxRotationToPourLiquid);
+        }
+        else
+        {
+            currentRotation = 100 - ((-_currentRotation * 100) / -_maxRotationToPourLiquid);
+        }
 
         float difference = Mathf.Abs(currentLiquid - currentRotation);
         float spawnSpeed = 0.5f;
@@ -190,7 +202,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
             float pouringInterval = Mathf.Lerp(0f, 1f, spawnSpeed);
 
-            if (_timeSinceLastPour >= pouringInterval)
+            if (_timeSinceLastPour >= pouringInterval && _liquidManager.GetCurrentLiquid() > 0)
             {
                 GameObject liquid = GameObject.Instantiate(_liquidPrefab, _spawnPoint.position, Quaternion.identity);
 
