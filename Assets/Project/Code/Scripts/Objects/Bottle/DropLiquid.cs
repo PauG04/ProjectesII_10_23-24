@@ -42,7 +42,7 @@ public class DropLiquid : MonoBehaviour
         float difference = Mathf.Abs(currentLiquid - currentRotation);
         float spawnSpeed = 2.8f;
 
-        if (currentRotation <= currentLiquid)
+        if (currentRotation <= currentLiquid && liquidManager.GetCurrentLiquid() > 0)
         {
             if (difference > 0)
             {
