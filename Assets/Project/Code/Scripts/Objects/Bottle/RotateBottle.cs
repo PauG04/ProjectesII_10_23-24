@@ -6,6 +6,7 @@ using UnityEngine;
 public class RotateBottle : MonoBehaviour
 {
     private float _maxRotation = 180f;
+    private float _minRotation = -180f;
 
     private bool _isRotating = false;
     private float _targetRotation = 0f;
@@ -24,16 +25,15 @@ public class RotateBottle : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && dragItem.GetIsDraggin())
+        if(dragItem.GetIsDraggin())
         {
             _isRotating = true;
         }
-
-        if (Input.GetMouseButtonUp(1) || !dragItem.GetIsDraggin())
+        else
         {
             _isRotating = false;
         }
-        
+
         if (_isRotating)
         {
             RotateObject();
@@ -49,10 +49,11 @@ public class RotateBottle : MonoBehaviour
     }
     private void RotateObject()
     {
-        float mouseY = Input.GetAxis("Mouse Y");
+        //float mouseY = Input.GetAxis("Mouse Y");
+        float mouseY = Input.mouseScrollDelta.y;
 
         _targetRotation += mouseY * _rotationSpeed;
-        _targetRotation = Mathf.Clamp(_targetRotation, 0, _maxRotation);
+        _targetRotation = Mathf.Clamp(_targetRotation, _minRotation, _maxRotation);
 
         _currentRotation = Mathf.Lerp(_currentRotation, -_targetRotation, Time.deltaTime * _rotationSpeed);
         transform.rotation = Quaternion.Euler(Vector3.forward * _currentRotation);

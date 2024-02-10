@@ -87,7 +87,6 @@ public class DragItemsNew : MonoBehaviour
 
         if (isRotating && !Input.GetMouseButton(1))
         {
-            Debug.Log("Rotating");
             RotateObject();
         }
     }

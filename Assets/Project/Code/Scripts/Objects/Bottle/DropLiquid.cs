@@ -27,22 +27,35 @@ public class DropLiquid : MonoBehaviour
         {
             timeSinceLastPour += Time.deltaTime;
 
-            if (rotateBottle.GetRotation() <= -minRotationToPourLiquid)
+            if (rotateBottle.GetRotation() <= -minRotationToPourLiquid )
             {
-                PourLiquid();
+                PourLiquid(true);
+            }
+            else if(rotateBottle.GetRotation() >= minRotationToPourLiquid)
+            {
+                PourLiquid(false);
             }
         }       
     }
 
-    private void PourLiquid()
+    private void PourLiquid(bool state)
     {        
         float currentLiquid = (liquidManager.GetCurrentLiquid() * 100) / liquidManager.GetMaxLiquid();
-        float currentRotation = 100 - ((- rotateBottle.GetRotation() * 100) / maxRotationToPourLiquid);
+        float currentRotation;
 
+        if (state)
+        {
+             currentRotation = 100 - ((-rotateBottle.GetRotation() * 100) / maxRotationToPourLiquid);
+        }
+        else
+        {
+             currentRotation = 100 - ((-rotateBottle.GetRotation() * 100) / -maxRotationToPourLiquid);
+        }
+        
         float difference = Mathf.Abs(currentLiquid - currentRotation);
         float spawnSpeed = 2.8f;
 
-        if (currentRotation <= currentLiquid)
+        if (currentRotation <= currentLiquid && liquidManager.GetCurrentLiquid() > 0)
         {
             if (difference > 0)
             {
