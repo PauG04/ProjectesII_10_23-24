@@ -9,7 +9,6 @@ public class DragItemsNew : MonoBehaviour
     [SerializeField] private Sprite workspaceSprite;
     [SerializeField] private float scaleMultiplier = 1.2f;
 
-    private List<SpriteRenderer> renderers = new List<SpriteRenderer>();
     private PolygonCollider2D itemCollider;
     private SpriteRenderer spriteRenderer;
 
@@ -32,11 +31,14 @@ public class DragItemsNew : MonoBehaviour
     private Vector3 initPosition;
     private Quaternion initRotation;
 
+    private RotateBottle rotateBottle;
+
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         itemCollider = GetComponent<PolygonCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rotateBottle = GetComponent<RotateBottle>();
 
         workSpace = GameObject.FindGameObjectWithTag("WorkSpace").GetComponent<BoxCollider2D>();
 
@@ -81,14 +83,28 @@ public class DragItemsNew : MonoBehaviour
         }
         else if (!isDragging)
         {
-            RotateObject();
             rb2d.bodyType = RigidbodyType2D.Dynamic;
+        }
 
+        if (isRotating)
+        {
+            if (rotateBottle != null)
+            {
+                if(!rotateBottle.GetIsRotating())
+                {
+                    RotateObject();
+                }
+            }
+            else
+            {
+                RotateObject();
+            }
         }
     }
     private void OnMouseDown()
     {
         Physics2D.IgnoreCollision(workSpace, GetComponent<PolygonCollider2D>());
+        RotateObject();
 
         rb2d.bodyType = RigidbodyType2D.Static;
 

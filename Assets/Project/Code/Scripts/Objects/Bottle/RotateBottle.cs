@@ -15,8 +15,7 @@ public class RotateBottle : MonoBehaviour
     private DragItemsNew dragItem;
 
     [Header("Rotation")]
-    [SerializeField]
-    private float _rotationSpeed;
+    [SerializeField] private float _rotationSpeed;
 
     private void Start()
     {
