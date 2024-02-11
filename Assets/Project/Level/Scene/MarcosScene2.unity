@@ -728,10 +728,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.5, y: 0.5}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.5, y: -0.5}
-      - {x: 0.5, y: 0.5}
+    - - {x: -0.32394648, y: 0.41784167}
+      - {x: -0.3298149, y: -0.42957878}
+      - {x: 0.32394695, y: -0.4178419}
+      - {x: 0.31807804, y: 0.4237101}
   m_UseDelaunayMesh: 0
 --- !u!50 &236798728
 Rigidbody2D:
@@ -5210,8 +5210,6 @@ MonoBehaviour:
     m_Bits: 32768
   maxProgress: 2
   divideProgress: 25
-  maxAngle: 0.1
-  rotationSpeed: 10
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
   spawnPoint: {fileID: 77988245}
   liquidManager: {fileID: 1773932485}

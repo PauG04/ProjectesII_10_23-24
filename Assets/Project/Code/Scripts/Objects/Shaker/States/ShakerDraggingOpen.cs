@@ -101,10 +101,11 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
             RotateObject();
 
             _timeSinceLastPour += Time.deltaTime;
-            
+            CalculateSpawnerPosition();
+
             if (_currentRotation <= -_minRotationToPourLiquid || _currentRotation >= _minRotationToPourLiquid)
             {
-                CalculateSpawnerPosition();
+                
                 PourLiquid();
             }
         } 
@@ -163,17 +164,17 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     }
     private void CalculateSpawnerPosition()
     {
-        float spawnerMovement = _spawnerPositionX + (_currentRotation + _minRotationToMoveSpawner) * (-_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
+        float spawnerMovement;
 
         if (_currentRotation < -90f)
         {
+            spawnerMovement = _spawnerPositionX + (_currentRotation + _minRotationToMoveSpawner) * (-_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
             SetSpawnPointPosition(spawnerMovement);
-            Debug.Log(spawnerMovement);
         }
         else if(_currentRotation > 90f)
         {
+            spawnerMovement = _spawnerPositionX + (_currentRotation - _minRotationToMoveSpawner) * (_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
             SetSpawnPointPosition(-spawnerMovement);
-            Debug.Log(spawnerMovement);
         }
         else if (_currentRotation < 0f) 
         {
