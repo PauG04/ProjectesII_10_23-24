@@ -81,13 +81,9 @@ public class DragItemsNew : MonoBehaviour
         }
         else if (!isDragging)
         {
+            RotateObject();
             rb2d.bodyType = RigidbodyType2D.Dynamic;
 
-        }
-
-        if (isRotating && !Input.GetMouseButton(1))
-        {
-            RotateObject();
         }
     }
     private void OnMouseDown()

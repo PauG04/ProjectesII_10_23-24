@@ -16,12 +16,6 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	private bool isPressing;
 	private float progress;
 
-	[Header("Drag Shaker")]
-	[SerializeField] private float maxAngle;
-
-	[Header("Open Shaker Rotation")]
-	[SerializeField] private float rotationSpeed;
-
 	[Header("Liquid Variables")]
 	[SerializeField] private GameObject liquidPref;
     [SerializeField] private Transform spawnPoint;
@@ -59,8 +53,8 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 
         initPosition = transform.localPosition;
 
-        shakerDraggingClose = new ShakerDraggingClose(this, maxAngle, progress, maxProgress, divideProgress, slider, workSpace);
-		shakerDraggingOpen = new ShakerDraggingOpen(this, rotationSpeed, liquidPref, spawnPoint, liquidManager, workSpace);
+        shakerDraggingClose = new ShakerDraggingClose(this, progress, maxProgress, divideProgress, slider, workSpace);
+		shakerDraggingOpen = new ShakerDraggingOpen(this, liquidPref, spawnPoint, liquidManager, workSpace);
 
         States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker, initPosition, workSpace));
 		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask, lerpTopShaker, initPosition, slider, workSpace));

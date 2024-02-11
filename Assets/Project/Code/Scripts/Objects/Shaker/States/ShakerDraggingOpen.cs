@@ -9,7 +9,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private Vector3 _offset;
 
     #region Rotation Variables
-    private float _rotationSpeed = 10f;
+    private float _rotationSpeed = 20f;
     private float _maxRotation = 180f;
 
     private bool _isRotating = false;
@@ -32,14 +32,12 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private float _timeSinceLastPour = 0f;
     #endregion
 
-    private Vector2 _initScale = Vector2.one;
     private float _scaleMultiplier = 1.5f;
 
     private Collider2D _workspace;
 
     public ShakerDraggingOpen(
         ShakerStateMachine shakerStateMachine, 
-        float rotationSpeed, 
         GameObject liquidPrefab, 
         Transform spawnPoint, 
         LiquidManager liquidManager,
@@ -48,7 +46,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     ) : base(ShakerStateMachine.ShakerState.DraggingOpen)
     {
         _shakerStateMachine = shakerStateMachine;
-        _rotationSpeed = rotationSpeed;
         _liquidPrefab = liquidPrefab;
         _spawnPoint = spawnPoint;
         _liquidManager = liquidManager;
@@ -57,12 +54,18 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
     public override void EnterState()
     {
-        _state = ShakerStateMachine.ShakerState.DraggingOpen;
+        _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 
+        _isRotating = true;
+        _state = ShakerStateMachine.ShakerState.DraggingOpen;
         _offset = _shakerStateMachine.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
     public override void ExitState()
     {
+        _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+
+        _isRotating = false;
+
         _targetRotation = 0f;
         _currentRotation = 0f;
     }
@@ -92,32 +95,26 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         //{
         //    _isRotating = false;
         //}
-        _isRotating = true;
+        
         if (_isRotating)
         {
             RotateObject();
 
             _timeSinceLastPour += Time.deltaTime;
-
-            if (_currentRotation <= -_minRotationToPourLiquid)
+            
+            if (_currentRotation <= -_minRotationToPourLiquid || _currentRotation >= _minRotationToPourLiquid)
             {
                 CalculateSpawnerPosition();
-                PourLiquid(true);
-            }
-
-            if (_currentRotation >= _minRotationToPourLiquid)
-            {
-                CalculateSpawnerPosition();
-                PourLiquid(false);
+                PourLiquid();
             }
         } 
-        //else
-        //{
-        //    if (_shakerStateMachine.transform.rotation != Quaternion.identity)
-        //    {
-        //        ResetObjectPosition();
-        //    }
-        //}
+        else
+        {
+            if (_shakerStateMachine.transform.rotation != Quaternion.identity)
+            {
+                ResetObjectPosition();
+            }
+        }
     }
     public override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -166,29 +163,46 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     }
     private void CalculateSpawnerPosition()
     {
+        float spawnerMovement = _spawnerPositionX + (_currentRotation + _minRotationToMoveSpawner) * (-_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
+
         if (_currentRotation < -90f)
         {
-            float spawnerMovement = _spawnerPositionX + (_currentRotation + _minRotationToMoveSpawner) * (0 - _spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
-            _spawnPoint.localPosition = new Vector2(spawnerMovement, _spawnPoint.localPosition.y);
+            SetSpawnPointPosition(spawnerMovement);
+            Debug.Log(spawnerMovement);
         }
-        else
+        else if(_currentRotation > 90f)
         {
-            _spawnPoint.localPosition = new Vector2(_spawnerPositionX, _spawnPoint.localPosition.y);
+            SetSpawnPointPosition(-spawnerMovement);
+            Debug.Log(spawnerMovement);
+        }
+        else if (_currentRotation < 0f) 
+        {
+            SetSpawnPointPosition(_spawnerPositionX);
+        }
+        else if (_currentRotation > 0f)
+        {
+            SetSpawnPointPosition(-_spawnerPositionX);
         }
     }
-    private void PourLiquid(bool state)
+    private void PourLiquid()
     {
         float currentLiquid = (_liquidManager.GetCurrentLiquid() * 100) / _liquidManager.GetMaxLiquid();
         float currentRotation;
         
-        if (state)
+        if (_currentRotation <= -_minRotationToPourLiquid)
         {
             currentRotation = 100 - ((-_currentRotation * 100) / _maxRotationToPourLiquid);
         }
+        else if (_currentRotation >= _minRotationToPourLiquid)
+        {
+            currentRotation = 100 - ((_currentRotation * 100) / _maxRotationToPourLiquid);
+        }
         else
         {
-            currentRotation = 100 - ((-_currentRotation * 100) / -_maxRotationToPourLiquid);
+            currentRotation = 0;
         }
+        //Debug.Log("Current Liquid: " + currentLiquid + "%");
+        //Debug.Log("Current Rot: " + currentRotation + "%");
 
         float difference = Mathf.Abs(currentLiquid - currentRotation);
         float spawnSpeed = 0.5f;
@@ -256,5 +270,9 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
             OutsidewWorkspaceRenderersChilds(child);
         }
+    }
+    private void SetSpawnPointPosition(float x)
+    {
+        _spawnPoint.localPosition = new Vector2(x, _spawnPoint.localPosition.y);
     }
 }

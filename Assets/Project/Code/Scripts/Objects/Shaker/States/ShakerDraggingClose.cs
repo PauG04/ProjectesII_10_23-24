@@ -11,7 +11,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
     private Vector2 _newPosition;
 
-    private float _maxAngle;
+    private float _maxAngle = 0.1f;
     private float _progress;
     private float _maxProgress;
     private float _divideProgress;
@@ -19,7 +19,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private bool _canShake;
     private bool _isDown;
 
-    private Vector2 _initScale = Vector2.one;
     private float _scaleMultiplier = 1.5f;
 
     private ProgressSlider _slider;
@@ -28,7 +27,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
     public ShakerDraggingClose(
         ShakerStateMachine shakerStateMachine, 
-        float maxAngle, 
         float progress, 
         float maxProgress, 
         float divideProgress,
@@ -37,7 +35,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     ) : base(ShakerStateMachine.ShakerState.DraggingClosed)
     {
         _shakerStateMachine = shakerStateMachine;
-        _maxAngle = maxAngle;
         _maxProgress = maxProgress;
         _progress = progress;
         _divideProgress = divideProgress;
