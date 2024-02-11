@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerState>
 {
@@ -34,7 +35,10 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	[SerializeField] private LerpTopShaker lerpTopShaker;
 
 	[Header("Progress Slider")]
-	[SerializeField] private ProgressSlider slider;
+	//[SerializeField] private ProgressSlider slider;
+    [SerializeField] private Slider progressSlider;
+	[SerializeField] private Image color;
+	[SerializeField] private Image background;
 
 	private Vector3 initPosition;
 
@@ -53,17 +57,22 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 
         initPosition = transform.localPosition;
 
-        shakerDraggingClose = new ShakerDraggingClose(this, progress, maxProgress, divideProgress, slider, workSpace);
-		shakerDraggingOpen = new ShakerDraggingOpen(this, liquidPref, spawnPoint, liquidManager, workSpace);
+        shakerDraggingClose = new ShakerDraggingClose(this, progress, maxProgress, divideProgress, workSpace, progressSlider, color, background);
+		shakerDraggingOpen = new ShakerDraggingOpen(this, liquidPref, spawnPoint, liquidManager, workSpace, color, background);
 
-        States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker, initPosition, workSpace));
-		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask, lerpTopShaker, initPosition, slider, workSpace));
+        States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker, initPosition, workSpace, color, background));
+		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask, lerpTopShaker, initPosition, workSpace, color, background));
 		States.Add(ShakerState.DraggingOpen, shakerDraggingOpen);
 		States.Add(ShakerState.DraggingClosed, shakerDraggingClose);
 		States.Add(ShakerState.ResetDrink, new ShakerResetDrink());
 
 		CurrentState = States[ShakerState.IdleOpen];
-	}
+
+		//progressSlider.value = 0;
+		color.color = new Color(1, 1, 0, 0);
+        background.color = new Color(1, 1, 1, 0);
+
+    }
     public void ChangingState()
 	{
 		Debug.Log(IsTranistioningState);

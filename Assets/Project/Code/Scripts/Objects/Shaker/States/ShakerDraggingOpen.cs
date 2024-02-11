@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 {
@@ -36,12 +37,18 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
     private Collider2D _workspace;
 
+    private Image _color;
+    private Image _background;
+    private float velocityColor = 5;
+
     public ShakerDraggingOpen(
         ShakerStateMachine shakerStateMachine, 
         GameObject liquidPrefab, 
         Transform spawnPoint, 
         LiquidManager liquidManager,
-        Collider2D workspace
+        Collider2D workspace,
+        Image color,
+        Image background
 
     ) : base(ShakerStateMachine.ShakerState.DraggingOpen)
     {
@@ -50,6 +57,8 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         _spawnPoint = spawnPoint;
         _liquidManager = liquidManager;
         _workspace = workspace;
+        _color = color;
+        _background = background;
     }
 
     public override void EnterState()
@@ -85,6 +94,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     public override void UpdateState()
     {
         CalculatePosition();
+        AlphaLerp();
 
         //if (Input.GetMouseButtonDown(1))
         //{
@@ -95,7 +105,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         //{
         //    _isRotating = false;
         //}
-        
+
         if (_isRotating)
         {
             RotateObject();
@@ -227,10 +237,16 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
             }
         }
     }
+    private void AlphaLerp()
+    {
+        Color newColor = _color.color;
+        newColor.a = Mathf.Lerp(_color.color.a, 0, Time.deltaTime * velocityColor);
+        _color.color = newColor;
+        _background.color = new Color(_background.color.r, _background.color.g, _background.color.b, newColor.a);
+    }
     private void InsideWorkspace()
     {
         _shakerStateMachine.SetGetInWorkSpace(true);
-
         InsideWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
         _shakerStateMachine.transform.localScale = new Vector2(_scaleMultiplier, _scaleMultiplier);
