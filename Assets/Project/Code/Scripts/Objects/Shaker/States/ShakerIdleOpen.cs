@@ -106,7 +106,6 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
                 firstLerp = false;
                 secondLerp = true;
             }
-
             if (secondLerp)
             {
                 Vector3 newPosition = _shakerStateMachine.transform.localPosition;
