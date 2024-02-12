@@ -11,7 +11,6 @@ public class DragPhysicObject : MonoBehaviour
     [Range(0.0f, 10.0f)][SerializeField] private float damping = 1.0f;
     [Range(0.0f, 10.0f)][SerializeField] private float frequency = 5.0f;
 
-    private Rigidbody2D rb;
     private TargetJoint2D targetJoint;
     private Vector3 worldPos;
     [SerializeField] private bool isMouseDown;
@@ -24,6 +23,7 @@ public class DragPhysicObject : MonoBehaviour
 
     private bool isLerping;
 
+    private Rigidbody2D rb;
 
     private void Awake()
     {
@@ -31,6 +31,9 @@ public class DragPhysicObject : MonoBehaviour
         isInWorkSpace = false;
 
         isLerping = false;
+
+        rb = GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Static;
     }
 
     void Update()
@@ -61,38 +64,32 @@ public class DragPhysicObject : MonoBehaviour
             return;
         }
 
-        rb = gameObject.AddComponent<Rigidbody2D>();
-        if (!rb)
-        {
-            return;
-        }
-
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.constraints = RigidbodyConstraints2D.None;
-
         targetJoint = gameObject.AddComponent<TargetJoint2D>();
         targetJoint.dampingRatio = damping;
         targetJoint.frequency = frequency;
 
         targetJoint.anchor = targetJoint.transform.InverseTransformPoint(worldPos);
+
+        isLerping = false;
+
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
     private void OnMouseUp()
     {
         isMouseDown = false;
         Destroy(targetJoint);
         targetJoint = null;
-        Destroy(rb);
-        rb = null;
         
         if(!isInWorkSpace)
         {
             isLerping = true;
-        }
+            rb.bodyType = RigidbodyType2D.Static;
+        }      
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("WorkSpace") && isInWorkSpace)
+        if (collision.CompareTag("WorkSpace") && isInWorkSpace && !isLerping)
         {       
             isInWorkSpace = false;
             transform.localScale = initScale;
@@ -100,7 +97,7 @@ public class DragPhysicObject : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("WorkSpace") && !isInWorkSpace)
+        if (collision.CompareTag("WorkSpace") && !isInWorkSpace && !isLerping)
         {
             isInWorkSpace = true;
             transform.localScale *= increaseScale;

@@ -3010,6 +3010,7 @@ GameObject:
   - component: {fileID: 1108660815}
   - component: {fileID: 1108660819}
   - component: {fileID: 1108660818}
+  - component: {fileID: 1108660820}
   - component: {fileID: 1108660817}
   - component: {fileID: 1108660816}
   m_Layer: 14
@@ -3070,6 +3071,7 @@ MonoBehaviour:
   velocityX: 6
   velocityY: 10
   velocityZ: 20
+  hasToBeDestroy: 0
 --- !u!61 &1108660818
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3167,6 +3169,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1108660820
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108660814}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1132114435
 GameObject:
   m_ObjectHideFlags: 0
@@ -5609,8 +5638,8 @@ MonoBehaviour:
   shakerLayerMask:
     serializedVersion: 2
     m_Bits: 32768
-  maxProgress: 2
-  divideProgress: 400
+  maxProgress: 10
+  divideProgress: 100
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
   spawnPoint: {fileID: 77988245}
   liquidManager: {fileID: 1773932485}
@@ -6570,9 +6599,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1361354206}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 2
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 2
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

@@ -22,6 +22,7 @@ public class LerpTopShaker : MonoBehaviour
     [Header("CreatedItem")]
     [SerializeField] private bool hasToBeDestroy;
 
+
     private void Start()
     {
         dragPhysicObject = GetComponent<DragPhysicObject>();
@@ -40,7 +41,7 @@ public class LerpTopShaker : MonoBehaviour
     {
         if (!dragPhysicObject.GetMouseDown() && !dragPhysicObject.GetIsInWorkSpace() && !setTopShaker.GetIsShakerClosed())
         {
-            transform.rotation = Quaternion.Lerp(transform.localRotation, initRotation, Time.deltaTime * velocityZ);
+            RotateObject();
 
             transform.localPosition = new Vector2(
                 Mathf.Lerp(transform.localPosition.x, initPosition.x, Time.deltaTime * velocityX),
@@ -63,6 +64,11 @@ public class LerpTopShaker : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void RotateObject()
+    {
+        transform.rotation = Quaternion.Lerp(transform.localRotation, initRotation, Time.deltaTime * velocityZ);
     }
 
     private void OnMouseDown()

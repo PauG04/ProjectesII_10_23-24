@@ -60,6 +60,8 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
         _rb.constraints = RigidbodyConstraints2D.None;
         _rb.bodyType = RigidbodyType2D.Dynamic;
+
+        _newPosition = _shakerStateMachine.transform.position;
     }
     public override void ExitState()
     {
