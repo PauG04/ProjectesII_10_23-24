@@ -23,8 +23,9 @@ public class Client : MonoBehaviour
     #region INIT
     private void InitOrder()
     {
-        int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
-        order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
+        //int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
+        //order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
+        order = CocktailNode.Type.DiscoN;
     }
 
     private void InitPayment()
