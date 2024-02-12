@@ -7,10 +7,6 @@ public class LerpTopShaker : MonoBehaviour
 {
     private Vector3 initPosition;
 
-    private bool firstLerp;
-    private bool secondLerp;
-    private bool rotateLerp;
-
     private Quaternion initRotation;
 
     [Header("Shaker Top")]
@@ -23,13 +19,12 @@ public class LerpTopShaker : MonoBehaviour
     [SerializeField] private float velocityY;
     [SerializeField] private float velocityZ;
 
+    [Header("CreatedItem")]
+    [SerializeField] private bool hasToBeDestroy;
+
     private void Start()
     {
         dragPhysicObject = GetComponent<DragPhysicObject>();
-
-        rotateLerp = false;
-        firstLerp = false;
-        secondLerp = false;
 
         initRotation = transform.rotation;
         initPosition = transform.localPosition;
@@ -45,50 +40,33 @@ public class LerpTopShaker : MonoBehaviour
     {
         if (!dragPhysicObject.GetMouseDown() && !dragPhysicObject.GetIsInWorkSpace() && !setTopShaker.GetIsShakerClosed())
         {
-            if (rotateLerp)
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, initRotation, Time.deltaTime * velocityZ);
-            }
-            if ((transform.rotation.z == initRotation.z || transform.rotation.z == -initRotation.z) && rotateLerp)
-            {
-                rotateLerp = false;
-                firstLerp = true;
-            }
+            transform.rotation = Quaternion.Lerp(transform.localRotation, initRotation, Time.deltaTime * velocityZ);
 
-            if (firstLerp)
-            {
-                Vector3 newPosition = transform.localPosition;
-                newPosition.x = Mathf.Lerp(transform.localPosition.x, initPosition.x, Time.deltaTime * velocityX);
+            transform.localPosition = new Vector2(
+                Mathf.Lerp(transform.localPosition.x, initPosition.x, Time.deltaTime * velocityX),
+                transform.localPosition.y
+            );
 
-                transform.localPosition = newPosition;
-            }
-            if (transform.localPosition.x > initPosition.x - 0.02 && transform.localPosition.x < initPosition.x + 0.02)
+            if (transform.localPosition.x > initPosition.x - 0.002 && transform.localPosition.x < initPosition.x + 0.002)
             {
-                firstLerp = false;
-                secondLerp = true;
-            }
+                transform.localPosition = new Vector2(
+                    transform.localPosition.x,
+                    Mathf.Lerp(transform.localPosition.y, initPosition.y, Time.deltaTime * velocityY)
+                );
 
-            if (secondLerp)
-            {
-                Vector3 newPosition = transform.localPosition;
-                newPosition.y = Mathf.Lerp(transform.localPosition.y, initPosition.y, Time.deltaTime * velocityY);
-
-                transform.localPosition = newPosition;
-            }
-            if (transform.localPosition.y > initPosition.y - 0.02 && transform.localPosition.y < initPosition.y + 0.02)
-            {
-                secondLerp = false;
-                dragPhysicObject.SetIsLerp(false);
+                if (transform.localPosition.y > initPosition.y - 0.002 && transform.localPosition.y < initPosition.y + 0.002)
+                {
+                    if (hasToBeDestroy)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
             }
         }
     }
 
     private void OnMouseDown()
     {
-        rotateLerp = false;
-        firstLerp = false;
-        secondLerp = false;
-
         dragPhysicObject.SetRotation(5.0f);
     }
     private void OnMouseUp()
@@ -101,7 +79,6 @@ public class LerpTopShaker : MonoBehaviour
 
     public void startLerp(bool state)
     {
-        rotateLerp = state;
         dragPhysicObject.SetIsLerp(state);
         dragPhysicObject.SetRotation(0.0f);
     }
