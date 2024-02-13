@@ -68,7 +68,8 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 
 		CurrentState = States[ShakerState.IdleOpen];
 
-		//progressSlider.value = 0;
+		progressSlider.value = 0;
+		progressSlider.maxValue = maxProgress;
 		color.color = new Color(1, 1, 0, 0);
         background.color = new Color(1, 1, 1, 0);
 

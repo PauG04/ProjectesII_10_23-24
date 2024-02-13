@@ -129,12 +129,11 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     private void IncreaseBar()
     {
-        float currentProgress = _progress;
         if (_isDown)
         {
             _progress += (_newPosition.y - _shakerStateMachine.transform.position.y) / _divideProgress;
         }
-        else
+        if(!_isDown)
         {
             _progress += (_shakerStateMachine.transform.position.y - _newPosition.y) / _divideProgress;
         }
@@ -156,25 +155,27 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     private void DirectionShaker()
     {
-        bool isDown = _isDown;
-        _isDown = !(_isDown && _rb.velocity.y >= 0 && _canShake);
-
-        if(_isDown != isDown)
+        if(_isDown && _rb.velocity.y >= 0)
         {
-            _newPosition = _shakerStateMachine.transform.position;
+            _isDown = false;
+            _newPosition.y = _shakerStateMachine.transform.position.y;
         }
-
+        if(!_isDown && _rb.velocity.y < 0)
+        {
+            _isDown = true;
+            _newPosition.y = _shakerStateMachine.transform.position.y;
+        }
     }
     private void StartShaking()
     {
-        if ((_rb.velocity.y >= 0.00001f || _rb.velocity.y <= -0.00001f))
+        if ((_rb.velocity.y >= 0.5 || _rb.velocity.y <= -0.5))
         {
             _canShake = true;
         }
     }
     private void EndClicking()
     {
-        if ((_rb.velocity.y <= 0.00001f && _rb.velocity.y >= -0.00001f) || _progress >= _maxProgress)
+        if ((_rb.velocity.y <= 0.5 && _rb.velocity.y >= -0.5) || _progress >= _maxProgress)
         {
             _canShake = false;
         }
