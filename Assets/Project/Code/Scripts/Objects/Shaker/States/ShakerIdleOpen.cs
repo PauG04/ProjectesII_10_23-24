@@ -1,5 +1,6 @@
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
 {
@@ -20,17 +21,25 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
 
     private Collider2D _workSpace;
 
+    private Image _color;
+    private Image _background;
+    private float velocityColor = 5;
+
     public ShakerIdleOpen(
         ShakerStateMachine shakerStateMachine, 
         SetTopShaker shakerClosed,
         Vector3 initPosition,
-        Collider2D workSpace
+        Collider2D workSpace,
+        Image color,
+        Image background
     ) : base(ShakerStateMachine.ShakerState.IdleOpen)
     {
         _shakerStateMachine = shakerStateMachine;
         _shakerClosed = shakerClosed;
         _initPosition = initPosition;
         _workSpace = workSpace;
+        _color = color;
+        _background = background;
     }
     public override void EnterState()
     {
@@ -61,6 +70,7 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void UpdateState()
     {
+        AlphaLerp();
         if (!_workSpace.OverlapPoint(_shakerStateMachine.transform.position))
         {
             _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -125,10 +135,16 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
         _shakerStateMachine.transform.rotation = Quaternion.Lerp(_shakerStateMachine.transform.rotation, Quaternion.identity, _lerpSpeed * Time.deltaTime);
     }
 
+    private void AlphaLerp()
+    {
+        Color newColor = _color.color;
+        newColor.a = Mathf.Lerp(_color.color.a, 0, Time.deltaTime * velocityColor);
+        _color.color = newColor;
+        _background.color = new Color(_background.color.r, _background.color.g, _background.color.b, newColor.a);
+    }
     private void OutsideWorkspace()
     {
         _shakerStateMachine.SetGetInWorkSpace(false);
-
         OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
         _shakerStateMachine.transform.localScale = Vector3.one;

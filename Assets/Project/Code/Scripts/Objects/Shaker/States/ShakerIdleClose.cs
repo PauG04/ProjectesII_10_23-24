@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
 {
@@ -19,7 +20,10 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     private Vector3 _initPosition;
     private LerpTopShaker _lerp;
 
-    private ProgressSlider _slider;
+    //private ProgressSlider _slider;
+    private Image _color;
+    private Image _background;
+    private float velocityColor = 5;
 
     private Collider2D _workSpace;
 
@@ -29,8 +33,9 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         LayerMask layerMask, 
         LerpTopShaker lerp, 
         Vector3 initPosition, 
-        ProgressSlider slider,
-        Collider2D workSpace
+        Collider2D workSpace,
+        Image color,
+        Image background
     ) : base(ShakerStateMachine.ShakerState.IdleClosed)
     {
         _shakerStateMachine = shakerStateMachine;
@@ -38,8 +43,9 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         _layerMask = layerMask;
         _initPosition = initPosition;
         _lerp = lerp;
-        _slider = slider;
         _workSpace = workSpace;
+        _color = color;
+        _background = background;
     }
     public override void EnterState()
     {
@@ -80,7 +86,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         {
             _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }
-
+        AlphaLerp();
         MoveObjectToParent();
         //_slider.SetIsLerp(false);
 
@@ -118,9 +124,16 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
             }
         }
     }
+
+    private void AlphaLerp()
+    {
+        Color newColor = _color.color;
+        newColor.a = Mathf.Lerp(_color.color.a, 0, Time.deltaTime * velocityColor);
+        _color.color = newColor;
+        _background.color = new Color(_background.color.r, _background.color.g, _background.color.b, newColor.a);
+    }
     public override void OnTriggerEnter2D(Collider2D collision)
     {
-
     }
     public override void OnTriggerExit2D(Collider2D collision)
     {

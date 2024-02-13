@@ -1,4 +1,4 @@
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
@@ -21,25 +21,33 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
     private float _scaleMultiplier = 1.5f;
 
-    private ProgressSlider _slider;
+    //private ProgressSlider _slider;
+    private Slider _progressSlider;
+    private Image _color;
+    private Image _background;
+    private float velocityColor = 2;
 
     private Collider2D _workspace;
 
     public ShakerDraggingClose(
-        ShakerStateMachine shakerStateMachine, 
-        float progress, 
-        float maxProgress, 
+        ShakerStateMachine shakerStateMachine,
+        float progress,
+        float maxProgress,
         float divideProgress,
-        ProgressSlider slider,
-        Collider2D workspace
+        Collider2D workspace,
+        Slider progressSlider,
+        Image color,
+        Image background
     ) : base(ShakerStateMachine.ShakerState.DraggingClosed)
     {
         _shakerStateMachine = shakerStateMachine;
         _maxProgress = maxProgress;
         _progress = progress;
         _divideProgress = divideProgress;
-        _slider = slider;
         _workspace = workspace;
+        _progressSlider = progressSlider;
+        _color = color;
+        _background = background;
     }
     public override void EnterState()
     {
@@ -52,6 +60,8 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
         _rb.constraints = RigidbodyConstraints2D.None;
         _rb.bodyType = RigidbodyType2D.Dynamic;
+
+        _newPosition = _shakerStateMachine.transform.position;
     }
     public override void ExitState()
     {
@@ -88,6 +98,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
         _rb.SetRotation(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
         Shaking();
+        AlphaLerp();
     }
     public override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -103,7 +114,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         {
             StartShaking();
             EndClicking();
-            _slider.SetIsLerp(true);
+            //_slider.SetIsLerp(true);
             if (_canShake && _progress <= _maxProgress)
             {
                 DirectionShaker();
@@ -122,27 +133,49 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         {
             _progress += (_newPosition.y - _shakerStateMachine.transform.position.y) / _divideProgress;
         }
-        else
+        if(!_isDown)
         {
             _progress += (_shakerStateMachine.transform.position.y - _newPosition.y) / _divideProgress;
         }
+        _progressSlider.value = _progress;
+        _color.color = new Color (1,1 - (_progress / _maxProgress),0, AlphaLerp());
+
         //cameraShake.ShakeCamera((transform.position.y - _newPosition.y) * intensityShaking);
-        _newPosition = _shakerStateMachine.transform.position;
+
+    }
+    private float AlphaLerp()
+    {
+        Color newColor = _color.color;
+        newColor.a = Mathf.Lerp(_color.color.a, 1, Time.deltaTime * velocityColor);
+
+        _color.color = newColor;
+        _background.color = new Color(_background.color.r, _background.color.g, _background.color.b, newColor.a);
+
+        return newColor.a;
     }
     private void DirectionShaker()
     {
-        _isDown = !(_isDown && _rb.velocity.y >= 0 && _canShake);
+        if(_isDown && _rb.velocity.y >= 0)
+        {
+            _isDown = false;
+            _newPosition.y = _shakerStateMachine.transform.position.y;
+        }
+        if(!_isDown && _rb.velocity.y < 0)
+        {
+            _isDown = true;
+            _newPosition.y = _shakerStateMachine.transform.position.y;
+        }
     }
     private void StartShaking()
     {
-        if ((_rb.velocity.y >= 0.00001f || _rb.velocity.y <= -0.00001f))
+        if ((_rb.velocity.y >= 0.5 || _rb.velocity.y <= -0.5))
         {
             _canShake = true;
         }
     }
     private void EndClicking()
     {
-        if ((_rb.velocity.y <= 0.00001f && _rb.velocity.y >= -0.00001f) || _progress >= _maxProgress)
+        if ((_rb.velocity.y <= 0.5 && _rb.velocity.y >= -0.5) || _progress >= _maxProgress)
         {
             _canShake = false;
         }
