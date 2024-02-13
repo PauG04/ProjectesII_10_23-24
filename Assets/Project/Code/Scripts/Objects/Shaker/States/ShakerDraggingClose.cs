@@ -93,7 +93,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         else
         {
             OutsideWorkspace();
-            _shakerStateMachine.transform.position = new Vector2(mousePosition.x, mousePosition.y);
+            //_shakerStateMachine.transform.position = new Vector2(mousePosition.x, mousePosition.y);
         }
 
         _rb.SetRotation(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
@@ -109,23 +109,21 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
     }
     private void Shaking()
-    {
-        if(_shakerStateMachine.GetIsInWorkSpace())
-        {
-            StartShaking();
-            EndClicking();
-            //_slider.SetIsLerp(true);
-            if (_canShake && _progress <= _maxProgress)
-            {
-                DirectionShaker();
-                IncreaseBar();
-            }
-            else
-            {
-                //cameraShake.SetTransforPosition();
-            }
-            SetDrinkState();
-        }    
+    {       
+         StartShaking();
+         EndClicking();
+         //_slider.SetIsLerp(true);
+         if (_canShake && _progress <= _maxProgress)
+         {
+            DirectionShaker();
+            IncreaseBar();
+         }
+         else
+         { 
+            //cameraShake.SetTransforPosition();
+         }
+         SetDrinkState();
+            
     }
     private void IncreaseBar()
     {
