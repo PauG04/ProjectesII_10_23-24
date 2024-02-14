@@ -54,6 +54,8 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _state = ShakerStateMachine.ShakerState.DraggingClosed;
 
         _targetJoint = _shakerStateMachine.GetComponent<TargetJoint2D>();
+        _targetJoint.enabled = true;
+
         _rb = _shakerStateMachine.GetComponent<Rigidbody2D>();
 
         _newPosition = _shakerStateMachine.transform.position;

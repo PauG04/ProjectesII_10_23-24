@@ -20,7 +20,6 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     private Vector3 _initPosition;
     private LerpTopShaker _lerp;
 
-    //private ProgressSlider _slider;
     private Image _color;
     private Image _background;
     private float velocityColor = 5;
@@ -49,7 +48,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
-        _shakerStateMachine.GetComponent<TargetJoint2D>().enabled = true;
+        _shakerStateMachine.GetComponent<TargetJoint2D>().enabled = false;
 
         _state = ShakerStateMachine.ShakerState.IdleClosed;
         if(!_shakerStateMachine.GetIsInWorkSpace()) 
@@ -77,6 +76,8 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void UpdateState()
     {
+
+        AlphaLerp();
         if (!_workSpace.OverlapPoint(_shakerStateMachine.transform.position))
         {
             _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -86,9 +87,8 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         {
             _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }
-        AlphaLerp();
+
         MoveObjectToParent();
-        //_slider.SetIsLerp(false);
 
         if (!_shakerStateMachine.GetIsInWorkSpace())
         {
