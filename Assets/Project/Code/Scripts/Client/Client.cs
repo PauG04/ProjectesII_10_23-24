@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,9 +11,12 @@ public class Client : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    private TextMeshPro textMP;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        textMP = GetComponentInChildren<TextMeshPro>();
     }
 
     private void Start()
@@ -23,8 +27,10 @@ public class Client : MonoBehaviour
     #region INIT
     private void InitOrder()
     {
-        int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
-        order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
+        //int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
+        //order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
+        order = CocktailNode.Type.DiscoN;
+        textMP.text = "Quiero un " + order.ToString();
     }
 
     private void InitPayment()
