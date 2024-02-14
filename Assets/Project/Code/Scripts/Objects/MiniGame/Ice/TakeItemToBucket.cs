@@ -32,7 +32,7 @@ public class TakeItemToBucket : MonoBehaviour
 
     private void Update()
     {
-        stopObject();
+        //stopObject();
         if(startLerp)
         {
             transform.position = Vector2.Lerp(transform.position, bucket.transform.position, Time.deltaTime * velocity);
@@ -60,6 +60,7 @@ public class TakeItemToBucket : MonoBehaviour
     private void OnMouseDown()
     {
         startLerp = true;
+        rb2d.bodyType = RigidbodyType2D.Static;
     }
 
     public void SetBucket(GameObject _bucket)

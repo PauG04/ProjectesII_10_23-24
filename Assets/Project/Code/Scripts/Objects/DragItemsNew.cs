@@ -19,6 +19,9 @@ public class DragItemsNew : MonoBehaviour
     private bool isDragging;
     private bool insideWorkspace;
 
+    [Header("ChanegLayer")]
+    [SerializeField] private bool hasToStayTheSameLayer;
+
     [Header("Returning Variables")]
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float horizontalSpeed;
@@ -58,6 +61,13 @@ public class DragItemsNew : MonoBehaviour
     }
     private void Update()
     {
+        if(Input.GetMouseButtonUp(0))
+        {
+            rb2d.AddForce(Vector2.right * 0.1f, ForceMode2D.Impulse);
+
+            isDragging = false;
+        }
+
         RepositionObject();
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -121,7 +131,11 @@ public class DragItemsNew : MonoBehaviour
     {
         insideWorkspace = true;
 
-        gameObject.layer = LayerMask.NameToLayer("WorkspaceObject");
+        if (!hasToStayTheSameLayer)
+        {
+            gameObject.layer = LayerMask.NameToLayer("WorkspaceObject");
+        }
+
         
         spriteRenderer.sortingLayerName = "WorkSpace";
         spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
@@ -138,8 +152,11 @@ public class DragItemsNew : MonoBehaviour
 
         insideWorkspace = false;
 
-        gameObject.layer = LayerMask.NameToLayer("Default");
-
+        if (!hasToStayTheSameLayer)
+        {
+            gameObject.layer = LayerMask.NameToLayer("Default");
+        }
+            
         spriteRenderer.sortingLayerName = "Default";
         spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
         spriteRenderer.sprite = normalSprite;
@@ -225,7 +242,7 @@ public class DragItemsNew : MonoBehaviour
                 {
                     if (hasToBeDestroy)
                     {
-                        Destroy(gameObject);
+                        Destroy(gameObject);                      
                     }
                 }
             }
@@ -247,4 +264,15 @@ public class DragItemsNew : MonoBehaviour
     {
         return isDragging;
     }
+
+    public void SetIsDragging(bool state)
+    {
+        isDragging = state;
+    }
+
+    public void SetInitPosition(Vector3 _position)
+    {
+        initPosition = _position;
+    }
+
 }

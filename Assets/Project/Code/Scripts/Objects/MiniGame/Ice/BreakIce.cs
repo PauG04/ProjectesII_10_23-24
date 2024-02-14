@@ -19,17 +19,23 @@ public class BreakIce : MonoBehaviour
 
     private GameObject bucket;
 
+    private float widht;
+    private float height;
+
     private void Start()
     {
         hits = 5;
         bucket = GetComponent<GetBucket>().GetBuckets();
 
         brokenIceChilds = new GameObject[4];
+
+        widht = GetComponent<SpriteRenderer>().bounds.size.x;
+        height = GetComponent<SpriteRenderer>().bounds.size.y;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Hammer") && gameObject.GetComponent<DragItem>().GetIsInWorkSpace())
+        if(collision.CompareTag("Hammer"))
         {
             hits--;
             if (hits == 0)
@@ -46,30 +52,44 @@ public class BreakIce : MonoBehaviour
     void Slice(Vector3 pos, GameObject createGameObject, bool destroy)
     {
         GameObject newItem = Instantiate(createGameObject, transform);
-        newItem.transform.position = transform.position;
 
-        if(destroy)
+        if(!destroy)
         {
-            int j = 0;
-            foreach (Transform child in newItem.transform)
+            float randomValue = Random.Range(0, 2);
+            if(randomValue == 0)
             {
+                newItem.transform.position = new Vector3(transform.position.x - widht , transform.position.y, 0);
+                //newItem.GetComponent<Rigidbody2D>().AddForceAtPosition(new Vector3(Random.Range(forceX, -forceX), Random.Range(forceY, -forceY), Random.Range(forceZ, -forceZ)), pos, ForceMode2D.Impulse);
                 
-                brokenIceChilds[j] = child.gameObject;
-                j++;
             }
-            for(int i = brokenIceChilds.Length - 1; i>=0; i--)
+            else
             {
-                brokenIceChilds[i].transform.SetParent(null);
-                Rigidbody2D rbIce = brokenIceChilds[i].GetComponent<Rigidbody2D>();
-                rbIce.AddForceAtPosition(new Vector3(Random.Range(forceX, -forceX), Random.Range(forceY, -forceY), Random.Range(forceZ, -forceZ)), pos, ForceMode2D.Impulse);
-                brokenIceChilds[i].GetComponent<TakeItemToBucket>().SetBucket(bucket);
+                newItem.transform.position = new Vector3(transform.position.x + widht, transform.position.y, 0);
             }
+            newItem.GetComponent<TakeItemToBucket>().SetBucket(bucket);
         }
         else
         {
-            newItem.GetComponent<Rigidbody2D>().AddForceAtPosition(new Vector3(Random.Range(forceX, -forceX), Random.Range(forceY, -forceY), Random.Range(forceZ, -forceZ)), pos, ForceMode2D.Impulse);
-            newItem.GetComponent<TakeItemToBucket>().SetBucket(bucket);
-        } 
+            newItem.transform.position = transform.position;
+        }
+
+        if(destroy)
+        {
+        //    int j = 0;
+        //    foreach (Transform child in newItem.transform)
+        //    {             
+        //        brokenIceChilds[j] = child.gameObject;
+        //        j++;
+        //    }
+        //    for(int i = brokenIceChilds.Length - 1; i>=0; i--)
+        //    {
+        //        brokenIceChilds[i].transform.SetParent(null);
+        //        Rigidbody2D rbIce = brokenIceChilds[i].GetComponent<Rigidbody2D>();
+        //        rbIce.AddForceAtPosition(new Vector3(Random.Range(forceX, -forceX), Random.Range(forceY, -forceY), Random.Range(forceZ, -forceZ)), pos, ForceMode2D.Impulse);
+        //        brokenIceChilds[i].GetComponent<TakeItemToBucket>().SetBucket(bucket);
+        //    }
+        }
+
         
         newItem.transform.parent = null;
 

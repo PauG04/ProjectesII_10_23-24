@@ -8,7 +8,7 @@ public class HammerHit : MonoBehaviour
     private CameraShake _camera;
     private float time = 0;
 
-    [SerializeField] private DragItem hammer;
+    [SerializeField] private DragItemsNew hammer;
     [SerializeField] private float IntensityShaking;
 
     private void Start()
@@ -30,7 +30,6 @@ public class HammerHit : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(1) && hammer.GetIsDraggin()) 
         {
-            hammer.SetDetectCollision(false);
             m_BoxCollider.enabled = true;
             _camera.ShakeCamera(IntensityShaking);
             //hammer.Animation(true);
@@ -47,8 +46,6 @@ public class HammerHit : MonoBehaviour
             time = 0;
             _camera.SetTransforPosition();
             //hammer.Animation(false);
-
-            hammer.SetDetectCollision(true);
         }
     }
 

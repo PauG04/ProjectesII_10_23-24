@@ -235,10 +235,7 @@ public class DragItem : MonoBehaviour
         return isInWorkSpace;
     }
 
-    public void SetDetectCollision(bool state)
-    {
-        detectCollision = state;
-    }
+    
 
     public void SetCanBeCatch(bool state)
     {
