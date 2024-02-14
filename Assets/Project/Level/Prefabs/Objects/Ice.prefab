@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 4148645677594243905}
   - component: {fileID: 5508180048720499153}
   - component: {fileID: 5411882784813569386}
-  - component: {fileID: 976327141875941580}
   - component: {fileID: 756714990437299852}
+  - component: {fileID: 3804762112633845034}
   - component: {fileID: 3085852553438928639}
-  - component: {fileID: 4612874288864746300}
-  - component: {fileID: 8586782976763205938}
-  m_Layer: 0
+  - component: {fileID: 6684348575631981811}
+  m_Layer: 9
   m_Name: Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2322266429156579395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.39, y: 2.52, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,25 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4bd9fbd7de5ce945825e2ce5555b4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &976327141875941580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2322266429156579395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff95e6c6ccd14934db9dd18c4af5afe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  increaseScale: 2
-  hasToBeDestroy: 1
-  velocityX: 6
-  velocityY: 10
-  rotationVelocityZ: 0
-  workSpaceSprite: {fileID: 0}
-  hasToBeKinemastic: 0
 --- !u!114 &756714990437299852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +118,26 @@ MonoBehaviour:
   forceX: 2
   forceY: 2
   forceZ: 2
+--- !u!114 &3804762112633845034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2322266429156579395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
+  workspaceSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
+  scaleMultiplier: 2
+  hasToStayTheSameLayer: 1
+  rotationSpeed: 6
+  horizontalSpeed: 6
+  verticalSpeed: 10
+  hasToBeDestroy: 1
 --- !u!50 &3085852553438928639
 Rigidbody2D:
   serializedVersion: 4
@@ -146,7 +146,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2322266429156579395}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -165,28 +165,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!257 &4612874288864746300
-TargetJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2322266429156579395}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 1
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_BreakAction: 3
-  m_Anchor: {x: 0, y: 0}
-  m_Target: {x: -7.39, y: 2.52}
-  m_AutoConfigureTarget: 1
-  m_MaxForce: 10000
-  m_DampingRatio: 1
-  m_Frequency: 5
---- !u!61 &8586782976763205938
-BoxCollider2D:
+--- !u!60 &6684348575631981811
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -214,10 +194,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0012845993}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -227,6 +207,10 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.13674545, y: 0.14959145}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.0625, y: 0.0625}
+      - {x: -0.0625, y: -0.0625}
+      - {x: 0.0625, y: -0.0625}
+      - {x: 0.0625, y: 0.0625}
+  m_UseDelaunayMesh: 0
