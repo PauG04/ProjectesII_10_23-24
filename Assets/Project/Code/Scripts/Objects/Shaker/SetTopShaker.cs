@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SetTopShaker : MonoBehaviour
 {
-    [SerializeField] private DragPhysicObject target;
+    [SerializeField] private DragItemsNew target;
     [SerializeField] private float lerpSpeed = 2;
 
     private bool isTargetInside;
@@ -22,6 +22,7 @@ public class SetTopShaker : MonoBehaviour
         {
             StartCoroutine(RepositionCoroutine());
         }
+        
         if(isTargetInside && isAnimationDone && !isRepositioning)
         {
             target.transform.position = transform.position;

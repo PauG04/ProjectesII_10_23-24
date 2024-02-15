@@ -30,7 +30,6 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         ShakerStateMachine shakerStateMachine, 
         SetTopShaker shakerClosed, 
         LayerMask layerMask, 
-        LerpTopShaker lerp, 
         Vector3 initPosition, 
         Collider2D workSpace,
         Image color,
@@ -41,7 +40,6 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         _shakerClosed = shakerClosed;
         _layerMask = layerMask;
         _initPosition = initPosition;
-        _lerp = lerp;
         _workSpace = workSpace;
         _color = color;
         _background = background;

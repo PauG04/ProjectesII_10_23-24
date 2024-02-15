@@ -274,5 +274,8 @@ public class DragItemsNew : MonoBehaviour
     {
         initPosition = _position;
     }
+    public void GetIsLerping()
+    {
 
+    }
 }
