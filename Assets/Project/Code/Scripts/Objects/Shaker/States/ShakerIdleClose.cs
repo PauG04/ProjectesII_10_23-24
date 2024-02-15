@@ -46,6 +46,8 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
+        Debug.Log("Enter Idle Close State");
+
         _shakerStateMachine.GetComponent<TargetJoint2D>().enabled = false;
 
         _state = ShakerStateMachine.ShakerState.IdleClosed;
@@ -88,11 +90,6 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
 
         MoveObjectToParent();
 
-        if (!_shakerStateMachine.GetIsInWorkSpace())
-        {
-            _lerp.startLerp(true);
-        }         
-
         if (!_shakerClosed.GetIsShakerClosed())
         {
             _state = ShakerStateMachine.ShakerState.IdleOpen;
@@ -116,7 +113,6 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
                 Rigidbody2D rigidbody2D = hit.collider.GetComponent<Rigidbody2D>();
                 if (rigidbody2D != null)
                 {
-                    Debug.Log("Enter Dragging Close");
                     _state = ShakerStateMachine.ShakerState.DraggingClosed;
                 }
             }

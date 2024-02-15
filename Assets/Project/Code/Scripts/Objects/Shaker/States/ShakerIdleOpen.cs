@@ -43,6 +43,8 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
+        Debug.Log("Enter Idle Open State");
+
         _shakerStateMachine.GetComponent<TargetJoint2D>().enabled = false;
         _state = ShakerStateMachine.ShakerState.IdleOpen;
 
