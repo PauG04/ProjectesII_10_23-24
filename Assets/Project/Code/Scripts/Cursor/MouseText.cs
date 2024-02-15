@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class MouseText : MonoBehaviour
+public class CursorText : MonoBehaviour
 {
     [SerializeField] private GameObject box;
     private TextMeshPro textMP;
@@ -22,6 +22,7 @@ public class MouseText : MonoBehaviour
     {
         if (collision.TryGetComponent<RotateBottle>(out RotateBottle bottle))
         {
+            Debug.Log("ENTRO");
             box.SetActive(true);
             textMP.text = collision.gameObject.name;
         }
