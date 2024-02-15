@@ -31,9 +31,6 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	[SerializeField] private Collider2D workSpace;
     private bool isInWorkSpace;
 
-	[Header("Shaker Top")]
-	[SerializeField] private LerpTopShaker lerpTopShaker;
-
 	[Header("Progress Slider")]
 	//[SerializeField] private ProgressSlider slider;
     [SerializeField] private Slider progressSlider;
@@ -61,7 +58,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 		shakerDraggingOpen = new ShakerDraggingOpen(this, liquidPref, spawnPoint, liquidManager, workSpace, color, background);
 
         States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker, initPosition, workSpace, color, background));
-		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, shakerLayerMask, lerpTopShaker, initPosition, workSpace, color, background));
+		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, initPosition, workSpace, color, background));
 		States.Add(ShakerState.DraggingOpen, shakerDraggingOpen);
 		States.Add(ShakerState.DraggingClosed, shakerDraggingClose);
 		States.Add(ShakerState.ResetDrink, new ShakerResetDrink());

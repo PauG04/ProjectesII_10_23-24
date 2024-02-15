@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DragItemsNew : MonoBehaviour
@@ -19,17 +17,19 @@ public class DragItemsNew : MonoBehaviour
     private bool isDragging;
     private bool insideWorkspace;
 
-    [Header("ChanegLayer")]
-    [SerializeField] private bool hasToStayTheSameLayer;
-
     [Header("Returning Variables")]
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float horizontalSpeed;
     [SerializeField] private float verticalSpeed;
-    [Space(5)]
+
+    [Header("Boolean Variables")]
     [SerializeField] private bool hasToBeDestroy;
+    [SerializeField] private bool hasToReturn;
+    [SerializeField] private bool hasToStayTheSameLayer;
+
     private bool isObjectRotated;
     private bool isRotating;
+    private bool isReturning;
 
     private Vector3 initPosition;
     private Quaternion initRotation;
@@ -61,14 +61,11 @@ public class DragItemsNew : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetMouseButtonUp(0))
+        if (hasToReturn)
         {
-            rb2d.AddForce(Vector2.right * 0.1f, ForceMode2D.Impulse);
-
-            isDragging = false;
+            RepositionObject();
         }
 
-        RepositionObject();
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (isDragging)
@@ -120,10 +117,16 @@ public class DragItemsNew : MonoBehaviour
 
         offset = gameObject.transform.position - GetMouseWorldPosition();
         isDragging = true;
+        isReturning = false;
     }
     private void OnMouseUp()
     {
         rb2d.AddForce(Vector2.right * 0.1f, ForceMode2D.Impulse);
+
+        if (!hasToReturn)
+        {
+            rb2d.bodyType = RigidbodyType2D.Dynamic;
+        }
 
         isDragging = false;
     }
@@ -135,7 +138,6 @@ public class DragItemsNew : MonoBehaviour
         {
             gameObject.layer = LayerMask.NameToLayer("WorkspaceObject");
         }
-
         
         spriteRenderer.sortingLayerName = "WorkSpace";
         spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
@@ -149,7 +151,6 @@ public class DragItemsNew : MonoBehaviour
     }
     private void OutsideWorkspace()
     {
-
         insideWorkspace = false;
 
         if (!hasToStayTheSameLayer)
@@ -167,7 +168,6 @@ public class DragItemsNew : MonoBehaviour
 
         transform.localScale = Vector3.one;
     }
-
     private void InsideWorkspaceRenderersChilds(Transform parent)
     {
         foreach (Transform child in parent)
@@ -200,7 +200,7 @@ public class DragItemsNew : MonoBehaviour
     }
     private void RotateObject()
     {
-        if (isDragging || !isObjectRotated)
+        if (!isObjectRotated || isDragging)
         {
             isRotating = !(transform.rotation == Quaternion.identity);
 
@@ -226,6 +226,9 @@ public class DragItemsNew : MonoBehaviour
     {
         if (!isDragging && !insideWorkspace)
         {
+            RotateObject();
+            isReturning = true;
+
             transform.localPosition = new Vector2(
                 Mathf.Lerp(transform.localPosition.x, initPosition.x, Time.deltaTime * horizontalSpeed), 
                 transform.localPosition.y
@@ -254,25 +257,32 @@ public class DragItemsNew : MonoBehaviour
         mousePosition.z = -Camera.main.transform.position.z;
         return Camera.main.ScreenToWorldPoint(mousePosition);
     }
-
     public bool GetInsideWorkspace()
     {
         return insideWorkspace;
     }
-
     public bool GetIsDraggin()
     {
         return isDragging;
     }
-
+    public bool GetIsLerping()
+    {
+        return isReturning;
+    }
     public void SetIsDragging(bool state)
     {
         isDragging = state;
     }
-
     public void SetInitPosition(Vector3 _position)
     {
         initPosition = _position;
     }
-
+    public void SetBodyGravity(float gravity)
+    {
+        rb2d.gravityScale = gravity;
+    }
+    public void SetHasToReturn(bool hasToReturn)
+    {
+        this.hasToReturn = hasToReturn;
+    }
 }
