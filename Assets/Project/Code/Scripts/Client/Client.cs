@@ -29,7 +29,7 @@ public class Client : MonoBehaviour
     {
         //int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
         //order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
-        order = CocktailNode.Type.DiscoN;
+        order = CocktailNode.Type.Invade;
         textMP.text = "Quiero un " + order.ToString();
     }
 
