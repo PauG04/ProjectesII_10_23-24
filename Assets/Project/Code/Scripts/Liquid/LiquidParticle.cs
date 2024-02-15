@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class LiquidParticle : MonoBehaviour
 {
-    public Color color;
-	public SpriteRenderer spriteRenderer;
+    private DrinkNode.Type drinkType;
 
-    private void Awake()
+    public void SetDrinkType(DrinkNode.Type drinkType)
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = color;
+        this.drinkType = drinkType;
+    }
+
+    public DrinkNode.Type GetDrinkType()
+    {
+        return drinkType;
     }
 }
