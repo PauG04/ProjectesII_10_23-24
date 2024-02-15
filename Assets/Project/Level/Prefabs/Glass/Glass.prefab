@@ -35,7 +35,7 @@ Transform:
   - {fileID: 4618004779001582745}
   - {fileID: 4793573678650220198}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1451645765080771610
 MonoBehaviour:
@@ -70,7 +70,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2095103
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 2048
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1407f6f2bc78bf42a6250184b137797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLiquid: 400
+  maxLiquid: 100
   currentLiquid: 0
   isGlass: 1
 --- !u!114 &4767741605933196516

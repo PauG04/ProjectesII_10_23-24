@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLiquid: 300
   currentLiquid: 300
+  isGlass: 0
 --- !u!1 &552682644521623691
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +107,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8671257232246213615}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.789, y: -2.018, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -267,6 +268,7 @@ MonoBehaviour:
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
   spawnPoint: {fileID: 6104178258769528242}
   liquidManager: {fileID: 6362806960958536186}
+  drinkType: 0
 --- !u!114 &4975549752326105575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,3 +301,5 @@ MonoBehaviour:
   horizontalSpeed: 6
   verticalSpeed: 10
   hasToBeDestroy: 0
+  hasToReturn: 1
+  hasToStayTheSameLayer: 0

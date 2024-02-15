@@ -86,21 +86,23 @@ public class Client : MonoBehaviour
     {
         if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp())
         {
-             ReceiveCoctel(collision.gameObject.GetComponent<Cocktail>().GetCocktail().type);
+            ReceiveCoctel(CalculateDrink.instance.CalculateResultDrink(collision.GetComponentInChildren<LiquidManager>().GetParticleTypes(), CocktailNode.State.Idle));
             leaveAnimation = true;
         }
     }
 
     private void ReactWell()
     {
+        textMP.text = "VIVA FRANCO";
         //Change Animation
         Pay();
         //Wait X Seconds
-        ClientManager.instance.CreateNewClient();
+        //ClientManager.instance.CreateNewClient();
     }
 
     private void ReactBad()
     {
+        textMP.text = "Menudo MIERDON";
         //Change Animation
         //Wait X Seconds
         ClientManager.instance.CreateNewClient();

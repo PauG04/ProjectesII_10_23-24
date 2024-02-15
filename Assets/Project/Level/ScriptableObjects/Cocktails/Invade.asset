@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612416e99e325834eba562d43ecd654f, type: 3}
   m_Name: Invade
   m_EditorClassIdentifier: 
-  state: 2
-  type: 0
+  state: 0
+  type: 1
   price: 0
   cocktailName: Invade
   subtitle: Exotic
-  description: '4 HerbHaven
+  description: '4 Rum
 
     6 Soda
 
-'
+    State: Idle'
   sprite: {fileID: -466113424, guid: eefb5d5c95242c848b730367a4df859f, type: 3}
   SerializableIngredients:
     items:
-    - type: 3
+    - type: 0
       quantity: 4
     - type: 8
       quantity: 6

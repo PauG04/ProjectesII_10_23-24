@@ -67,4 +67,9 @@ public class LiquidManager : MonoBehaviour
     {
         return maxLiquid;
     }
+
+    public Dictionary<DrinkNode.Type, int> GetParticleTypes()
+    {
+        return particleTypes;
+    }
 }

@@ -8,11 +8,11 @@ public class DrinkNode : ScriptableObject
     public enum Type
     {
         //Alcoholic Drinks
-        GlacierSpirit,
-        RusticGold,
-        DesertRose,
-        HerbHaven,
-        Moszkowski,
+        Rum,
+        Vodka,
+        Gin,
+        Whiskey,
+        Tequila,
 
         //Juices
         OrangeJuice,
