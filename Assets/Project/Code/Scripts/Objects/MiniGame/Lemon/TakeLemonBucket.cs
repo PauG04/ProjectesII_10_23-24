@@ -5,7 +5,6 @@ using UnityEngine;
 public class TakeLemonBucket : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    private Vector3 startPosition;
 
     private bool startLerp;
     private bool cut;
@@ -19,7 +18,7 @@ public class TakeLemonBucket : MonoBehaviour
     [SerializeField] private float velocity;
 
     [Header("Drag")]
-    [SerializeField] private DragItem dragItem;
+    [SerializeField] private DragItemsNew dragItem;
 
     private void Start()
     {
@@ -30,9 +29,8 @@ public class TakeLemonBucket : MonoBehaviour
 
     private void Update()
     {
-        stopObject();
         if (startLerp)
-        {
+        {        
             transform.position = Vector2.Lerp(transform.position, bucket.transform.position, Time.deltaTime * velocity);
             if (transform.position.y > bucket.transform.position.y - 0.02 && transform.position.y < bucket.transform.position.y + 0.02)
             {
@@ -41,32 +39,25 @@ public class TakeLemonBucket : MonoBehaviour
         }
     }
 
-    private void stopObject()
-    {
-        if (transform.position.x > startPosition.x + maxMagnitude) 
-        {
-            rb2d.bodyType = RigidbodyType2D.Static;
-            rb2d.bodyType = RigidbodyType2D.Kinematic;
-        }
-    }
-
     private void OnMouseDown()
     {
-        if(cut)
+        if (cut)
         {
             startLerp = true;
+            rb2d.bodyType = RigidbodyType2D.Static;
+            GetComponent<BoxCollider2D>().enabled = false;
         }
         else
         {
             dragItem.SetIsDragging(true);
-        }
             
+        }
+
     }
 
     public void SetStartPostion()
     {
         cut = true;
-        startPosition = transform.position;
     }
 
     public void SetBucket(GameObject bucket)
