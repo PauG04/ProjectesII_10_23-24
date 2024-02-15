@@ -41,10 +41,14 @@ public class SetCutPosition : MonoBehaviour
 
     private void CutPosition()
     {
-        if (childLemon.Count() > 0)
+        if (childLemon.Count() > 1)
         {
             width = childLemon[0].GetComponent<SpriteRenderer>().bounds.size.x / 2;
             cutPosition.transform.position = new Vector2(childLemon[0].transform.position.x - width, childLemon[0].transform.position.y);
+        }
+        else if(childLemon.Count() > 0)
+        {
+            FreeChild();
         }
         else
         {
