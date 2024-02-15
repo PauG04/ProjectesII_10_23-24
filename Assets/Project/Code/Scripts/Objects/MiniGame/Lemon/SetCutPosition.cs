@@ -55,23 +55,8 @@ public class SetCutPosition : MonoBehaviour
     private void ActivceCut()
     {
         if (dragItem.GetInsideWorkspace())
-        {         
-            if (dragItem.GetIsDraggin())
-            {
-                for (int i = 0; i < childLemon.Count(); i++)
-                {
-                    childLemon[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                    cutPosition.SetActive(false);
-                }
-            }
-            else
-            {
-                for (int i = 0; i < childLemon.Count(); i++)
-                {
-                    childLemon[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                    cutPosition.SetActive(true);
-                }
-            }
+        {
+            cutPosition.SetActive(true);
         }
         else
         {
@@ -81,9 +66,9 @@ public class SetCutPosition : MonoBehaviour
 
     public void FreeChild()
     {
-        childLemon[0].GetComponent<TakeLemonBucket>().SetStartPostion();
-        childLemon[0].GetComponent<Rigidbody2D>().AddForce(new Vector2(force, 0), ForceMode2D.Force);
+        childLemon[0].GetComponent<TakeLemonBucket>().SetStartPostion();       
         childLemon[0].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        childLemon[0].GetComponent<Rigidbody2D>().AddForce(new Vector2(force, 0), ForceMode2D.Force);
         childLemon[0].transform.SetParent(null);       
         childLemon.Remove(childLemon[0]);
         CutPosition();

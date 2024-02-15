@@ -257,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &21950843
 Transform:
   m_ObjectHideFlags: 0
@@ -916,6 +916,7 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: 7aa2e95a871519d47b9bdc93f83f8ab1, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 7aa2e95a871519d47b9bdc93f83f8ab1, type: 3}
   scaleMultiplier: 1.5
+  hasToStayTheSameLayer: 0
   rotationSpeed: 6
   horizontalSpeed: 6
   verticalSpeed: 10
@@ -1353,6 +1354,7 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: 1af4656c7e6c8e54b889a600be7f61f0, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 1af4656c7e6c8e54b889a600be7f61f0, type: 3}
   scaleMultiplier: 1.5
+  hasToStayTheSameLayer: 0
   rotationSpeed: 6
   horizontalSpeed: 6
   verticalSpeed: 10
@@ -1617,8 +1619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1f46cb712a40a41b8f6c36167eb914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  createdObject: {fileID: 1629942350281645190, guid: d005e45e8a7524741b3d47b404595d88, type: 3}
-  bucket: {fileID: 606750471}
+  createdObject: {fileID: 2322266429156579395, guid: 6d4a0a409aa5c35418ae9de94175c247, type: 3}
+  bucket: {fileID: 1209908123}
 --- !u!61 &606750474
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1786,6 +1788,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knife
       objectReference: {fileID: 0}
+    - target: {fileID: 4879064232359211708, guid: be8eb24509d984c46ab38001ddc15f45, type: 3}
+      propertyPath: lemon
+      value: 
+      objectReference: {fileID: 1303576715}
     - target: {fileID: 6366023010629493001, guid: be8eb24509d984c46ab38001ddc15f45, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3360,6 +3366,7 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: c0cecf0d9d9c77f42b0b6eb145ac9e63, type: 3}
   workspaceSprite: {fileID: 21300000, guid: c0cecf0d9d9c77f42b0b6eb145ac9e63, type: 3}
   scaleMultiplier: 1.2
+  hasToStayTheSameLayer: 0
   rotationSpeed: 6
   horizontalSpeed: 6
   verticalSpeed: 10
@@ -4057,6 +4064,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1303576715 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2360904324832703169, guid: be8eb24509d984c46ab38001ddc15f45, type: 3}
+  m_PrefabInstance: {fileID: 670354373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1356558180
 GameObject:
   m_ObjectHideFlags: 0
@@ -4262,7 +4280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1416765933}
   - component: {fileID: 1416765934}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: TableCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4430,6 +4448,7 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: 7aa2e95a871519d47b9bdc93f83f8ab1, type: 3}
   workspaceSprite: {fileID: 21300000, guid: b2539a74c47955f499bce1dc8579c3ac, type: 3}
   scaleMultiplier: 1.2
+  hasToStayTheSameLayer: 0
   rotationSpeed: 6
   horizontalSpeed: 6
   verticalSpeed: 10
@@ -5043,6 +5062,7 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: b0e7fcf859a71564cbec41fd47a4f370, type: 3}
   workspaceSprite: {fileID: 21300000, guid: b0e7fcf859a71564cbec41fd47a4f370, type: 3}
   scaleMultiplier: 1.2
+  hasToStayTheSameLayer: 0
   rotationSpeed: 6
   horizontalSpeed: 6
   verticalSpeed: 10
@@ -5343,6 +5363,10 @@ PrefabInstance:
     - target: {fileID: 2250566990747310829, guid: 465f5e082f2707a4abed258eaa8726ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127254431264695736, guid: 465f5e082f2707a4abed258eaa8726ac, type: 3}
+      propertyPath: m_TagString
+      value: Hammer
       objectReference: {fileID: 0}
     - target: {fileID: 6255042176476862941, guid: 465f5e082f2707a4abed258eaa8726ac, type: 3}
       propertyPath: m_Name
@@ -6332,6 +6356,7 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: bcfbc11a83df6d940a46ac274af6cee0, type: 3}
   workspaceSprite: {fileID: 21300000, guid: bcfbc11a83df6d940a46ac274af6cee0, type: 3}
   scaleMultiplier: 1.2
+  hasToStayTheSameLayer: 0
   rotationSpeed: 6
   horizontalSpeed: 6
   verticalSpeed: 10
