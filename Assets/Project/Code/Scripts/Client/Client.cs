@@ -84,23 +84,27 @@ public class Client : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp())
         {
-             ReceiveCoctel(collision.gameObject.GetComponent<Cocktail>().GetCocktail().type);
+            Debug.Log("ESTA TOCANDO");
+            ReceiveCoctel(collision.gameObject.GetComponent<Cocktail>().GetCocktail().type);
             leaveAnimation = true;
         }
     }
 
     private void ReactWell()
     {
+        textMP.text = "VIVA FRANCO";
         //Change Animation
         Pay();
         //Wait X Seconds
-        ClientManager.instance.CreateNewClient();
+        //ClientManager.instance.CreateNewClient();
     }
 
     private void ReactBad()
     {
+        textMP.text = "Menudo MIERDON";
         //Change Animation
         //Wait X Seconds
         ClientManager.instance.CreateNewClient();

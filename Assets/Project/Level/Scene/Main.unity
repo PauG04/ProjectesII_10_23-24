@@ -131,6 +131,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2080687129534558086, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: m_Size.x
+      value: 1.7365172
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080687129534558086, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5624837
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080687129534558086, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: m_Offset.x
+      value: -4.5845513
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080687129534558086, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.4369709
+      objectReference: {fileID: 0}
     - target: {fileID: 3164742363969609211, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
       propertyPath: m_Name
       value: Client
@@ -317,10 +333,6 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 720530942413858104, guid: dd811e74b555e0c46932307cedb2e20c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 720530942413858104, guid: dd811e74b555e0c46932307cedb2e20c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.89
       objectReference: {fileID: 0}
@@ -363,10 +375,6 @@ PrefabInstance:
     - target: {fileID: 1631296216517769539, guid: dd811e74b555e0c46932307cedb2e20c, type: 3}
       propertyPath: m_Name
       value: Glass
-      objectReference: {fileID: 0}
-    - target: {fileID: 5976883360111384451, guid: dd811e74b555e0c46932307cedb2e20c, type: 3}
-      propertyPath: m_SortingLayer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
