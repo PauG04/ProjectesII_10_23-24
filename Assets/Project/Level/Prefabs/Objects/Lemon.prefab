@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4936368565851700284}
   - component: {fileID: 7211075075064919394}
   - component: {fileID: 2931256009272859907}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Part2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMagnitude: 0.4
   velocity: 5
-  dragItem: {fileID: 6197440458584472347}
+  dragItem: {fileID: 752484399681490025}
 --- !u!50 &7211075075064919394
 Rigidbody2D:
   serializedVersion: 4
@@ -117,7 +117,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -158,7 +158,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0019304045, y: -0.0013088584}
@@ -185,11 +185,10 @@ GameObject:
   - component: {fileID: 7423720929408190796}
   - component: {fileID: 3307273095029409168}
   - component: {fileID: 8252524059085302010}
-  - component: {fileID: 6197440458584472347}
-  - component: {fileID: 3946675989526336624}
+  - component: {fileID: 752484399681490025}
   - component: {fileID: 2484180880691039068}
-  - component: {fileID: 7809265989692905817}
-  m_Layer: 0
+  - component: {fileID: 6062639665581201168}
+  m_Layer: 9
   m_Name: Lemon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +248,7 @@ MonoBehaviour:
   - {fileID: 4978608169006700913}
   - {fileID: 7213823227715947404}
   force: 25
---- !u!114 &6197440458584472347
+--- !u!114 &752484399681490025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,61 +257,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1629942350281645190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff95e6c6ccd14934db9dd18c4af5afe8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increaseScale: 1.5
+  normalSprite: {fileID: 0}
+  workspaceSprite: {fileID: 0}
+  scaleMultiplier: 3
+  hasToStayTheSameLayer: 1
+  rotationSpeed: 6
+  horizontalSpeed: 6
+  verticalSpeed: 10
   hasToBeDestroy: 1
-  velocityX: 6
-  velocityY: 10
-  rotationVelocityZ: 0
-  workSpaceSprite: {fileID: 0}
-  hasToBeKinemastic: 0
---- !u!61 &3946675989526336624
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629942350281645190}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0018605664, y: -0.0010978207}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.14413072, y: 0.11536986}
-  m_EdgeRadius: 0
 --- !u!50 &2484180880691039068
 Rigidbody2D:
   serializedVersion: 4
@@ -340,26 +295,58 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!257 &7809265989692905817
-TargetJoint2D:
+--- !u!60 &6062639665581201168
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629942350281645190}
   m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 1
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_BreakAction: 3
-  m_Anchor: {x: 0, y: 0}
-  m_Target: {x: 0, y: 0}
-  m_AutoConfigureTarget: 1
-  m_MaxForce: 10000
-  m_DampingRatio: 1
-  m_Frequency: 5
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.05240533, y: 0.3099965}
+      - {x: -0.25814164, y: 0.017876267}
+      - {x: -0.25588477, y: -0.23838127}
+      - {x: -0.1696343, y: -0.3031447}
+      - {x: 0.12054937, y: -0.30459946}
+      - {x: 0.26170778, y: -0.20926714}
+      - {x: 0.26396435, y: 0.3031943}
+  m_UseDelaunayMesh: 0
 --- !u!1 &4512361616802044784
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +360,7 @@ GameObject:
   - component: {fileID: 9066185863639111042}
   - component: {fileID: 2062171446881791734}
   - component: {fileID: 8065234583053891720}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childs: {fileID: 8252524059085302010}
-  lemon: {fileID: 6197440458584472347}
+  lemon: {fileID: 0}
 --- !u!212 &9066185863639111042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -546,7 +533,7 @@ GameObject:
   - component: {fileID: 7781902188524403582}
   - component: {fileID: 1344799823750698355}
   - component: {fileID: 1242618081880157405}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Part4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMagnitude: 0.4
   velocity: 5
-  dragItem: {fileID: 6197440458584472347}
+  dragItem: {fileID: 752484399681490025}
 --- !u!50 &1344799823750698355
 Rigidbody2D:
   serializedVersion: 4
@@ -650,7 +637,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -691,7 +678,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0007198192, y: -0.01665613}
@@ -720,7 +707,7 @@ GameObject:
   - component: {fileID: 1509222678761782826}
   - component: {fileID: 2617164320372113990}
   - component: {fileID: 6250045769094962818}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Part3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -808,7 +795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMagnitude: 0.4
   velocity: 5
-  dragItem: {fileID: 6197440458584472347}
+  dragItem: {fileID: 752484399681490025}
 --- !u!50 &2617164320372113990
 Rigidbody2D:
   serializedVersion: 4
@@ -824,7 +811,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -865,7 +852,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0021593831, y: -0.0015403181}
@@ -894,7 +881,7 @@ GameObject:
   - component: {fileID: 7461527242470689140}
   - component: {fileID: 792544759911798702}
   - component: {fileID: 1294303237998732428}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Part5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -982,7 +969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMagnitude: 0.4
   velocity: 5
-  dragItem: {fileID: 6197440458584472347}
+  dragItem: {fileID: 752484399681490025}
 --- !u!50 &792544759911798702
 Rigidbody2D:
   serializedVersion: 4
@@ -998,7 +985,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1039,7 +1026,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0006019771, y: -0.06607385}
@@ -1068,7 +1055,7 @@ GameObject:
   - component: {fileID: 8391526454067692963}
   - component: {fileID: 5953912627765919025}
   - component: {fileID: 7335998243354127382}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Part1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1156,7 +1143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMagnitude: 0.4
   velocity: 5
-  dragItem: {fileID: 6197440458584472347}
+  dragItem: {fileID: 752484399681490025}
 --- !u!50 &5953912627765919025
 Rigidbody2D:
   serializedVersion: 4
@@ -1172,7 +1159,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1213,7 +1200,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0033310205, y: 0.0125543475}

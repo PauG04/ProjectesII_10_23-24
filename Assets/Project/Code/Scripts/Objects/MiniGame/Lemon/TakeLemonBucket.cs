@@ -19,7 +19,7 @@ public class TakeLemonBucket : MonoBehaviour
     [SerializeField] private float velocity;
 
     [Header("Drag")]
-    [SerializeField] private DragItem dragItem;
+    [SerializeField] private DragItemsNew dragItem;
 
     private void Start()
     {
@@ -30,7 +30,6 @@ public class TakeLemonBucket : MonoBehaviour
 
     private void Update()
     {
-        stopObject();
         if (startLerp)
         {
             transform.position = Vector2.Lerp(transform.position, bucket.transform.position, Time.deltaTime * velocity);
@@ -41,26 +40,18 @@ public class TakeLemonBucket : MonoBehaviour
         }
     }
 
-    private void stopObject()
-    {
-        if (transform.position.x > startPosition.x + maxMagnitude) 
-        {
-            rb2d.bodyType = RigidbodyType2D.Static;
-            rb2d.bodyType = RigidbodyType2D.Kinematic;
-        }
-    }
-
     private void OnMouseDown()
     {
-        if(cut)
+        if (cut)
         {
             startLerp = true;
         }
         else
         {
             dragItem.SetIsDragging(true);
-        }
             
+        }
+
     }
 
     public void SetStartPostion()

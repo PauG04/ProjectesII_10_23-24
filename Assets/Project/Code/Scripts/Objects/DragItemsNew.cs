@@ -136,14 +136,18 @@ public class DragItemsNew : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("WorkspaceObject");
         }
 
+        if(spriteRenderer!= null) 
+        {
+            spriteRenderer.sortingLayerName = "WorkSpace";
+            spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            spriteRenderer.sprite = workspaceSprite;
+            itemCollider.TryUpdateShapeToAttachedSprite();
+        }
         
-        spriteRenderer.sortingLayerName = "WorkSpace";
-        spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-        spriteRenderer.sprite = workspaceSprite;
 
         InsideWorkspaceRenderersChilds(transform);
 
-        itemCollider.TryUpdateShapeToAttachedSprite();
+        
 
         transform.localScale = new Vector2(scaleMultiplier, scaleMultiplier);
     }
@@ -157,13 +161,17 @@ public class DragItemsNew : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("Default");
         }
             
-        spriteRenderer.sortingLayerName = "Default";
-        spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
-        spriteRenderer.sprite = normalSprite;
-
+        if (spriteRenderer!= null)
+        {
+            spriteRenderer.sortingLayerName = "Default";
+            spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+            spriteRenderer.sprite = normalSprite;
+            itemCollider.TryUpdateShapeToAttachedSprite();
+        }
+     
         OutsidewWorkspaceRenderersChilds(transform);
 
-        itemCollider.TryUpdateShapeToAttachedSprite();
+        
 
         transform.localScale = Vector3.one;
     }

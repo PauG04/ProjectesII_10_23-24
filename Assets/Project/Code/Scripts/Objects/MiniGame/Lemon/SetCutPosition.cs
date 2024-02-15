@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SetCutPosition : MonoBehaviour
 {
-    private DragItem dragItem;
+    private DragItemsNew dragItem;
 
     [Header("Childs and Cut")]
     [SerializeField] private GameObject cutPosition;
@@ -20,7 +20,7 @@ public class SetCutPosition : MonoBehaviour
 
     private void Start()
     {
-        dragItem= GetComponent<DragItem>();
+        dragItem= GetComponent<DragItemsNew>();
 
         width = childLemon[0].GetComponent<SpriteRenderer>().bounds.size.x / 2;
 
@@ -54,9 +54,24 @@ public class SetCutPosition : MonoBehaviour
 
     private void ActivceCut()
     {
-        if (dragItem.GetIsInWorkSpace())
-        {
-            cutPosition.SetActive(true);
+        if (dragItem.GetInsideWorkspace())
+        {         
+            if (dragItem.GetIsDraggin())
+            {
+                for (int i = 0; i < childLemon.Count(); i++)
+                {
+                    childLemon[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                    cutPosition.SetActive(false);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < childLemon.Count(); i++)
+                {
+                    childLemon[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                    cutPosition.SetActive(true);
+                }
+            }
         }
         else
         {
@@ -67,8 +82,8 @@ public class SetCutPosition : MonoBehaviour
     public void FreeChild()
     {
         childLemon[0].GetComponent<TakeLemonBucket>().SetStartPostion();
-        childLemon[0].GetComponent<Rigidbody2D>().isKinematic= false;
         childLemon[0].GetComponent<Rigidbody2D>().AddForce(new Vector2(force, 0), ForceMode2D.Force);
+        childLemon[0].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         childLemon[0].transform.SetParent(null);       
         childLemon.Remove(childLemon[0]);
         CutPosition();
