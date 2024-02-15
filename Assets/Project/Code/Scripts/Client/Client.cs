@@ -34,7 +34,7 @@ public class Client : MonoBehaviour
         arriveAnimation = false;
         leaveAnimation = false;
         isGoingUp = true;
-        minYPosition = transform.position.y;
+        minYPosition = transform.localPosition.y;
 
     }
 
@@ -124,7 +124,7 @@ public class Client : MonoBehaviour
         {
             MoveClientHorizontal(clientPosition);
             MoveClientVertical();
-            if (transform.position.x > clientPosition.transform.position.x - 0.01 && transform.position.y < minYPosition + 0.1) 
+            if (transform.localPosition.x > clientPosition.transform.localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1) 
             {
                 arriveAnimation= false;
                 InitClient();
@@ -134,7 +134,7 @@ public class Client : MonoBehaviour
         {
             MoveClientHorizontal(leavePosition);
             MoveClientVertical();
-            if (transform.position.x > leavePosition.transform.position.x - 0.01 && transform.position.y < minYPosition + 0.1)
+            if (transform.localPosition.x > leavePosition.transform.localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
             {
                 Destroy(gameObject);
             }
@@ -143,34 +143,34 @@ public class Client : MonoBehaviour
 
     private void MoveClientHorizontal(GameObject _gameObject)
     {
-        Vector3 newPosition = transform.position;
-        newPosition.x = Mathf.Lerp(transform.position.x, _gameObject.transform.position.x, Time.deltaTime * horizontalVelocity);
+        Vector3 newPosition = transform.localPosition;
+        newPosition.x = Mathf.Lerp(transform.localPosition.x, _gameObject.transform.localPosition.x, Time.deltaTime * horizontalVelocity);
 
-        transform.position = newPosition;
+        transform.localPosition = newPosition;
     }
 
     private void MoveClientVertical() 
     {
         if (isGoingUp)
         {
-            Vector3 newPosition = transform.position;
-            newPosition.y = Mathf.Lerp(transform.position.y, maxYPosition, Time.deltaTime * verticalVelocity);
+            Vector3 newPosition = transform.localPosition;
+            newPosition.y = Mathf.Lerp(transform.localPosition.y, maxYPosition, Time.deltaTime * verticalVelocity);
 
-            transform.position = newPosition;
+            transform.localPosition = newPosition;
 
-            if (transform.position.y > maxYPosition - 0.01)
+            if (transform.localPosition.y > maxYPosition - 0.01)
             {
                 isGoingUp = false;
             }
         }
         else
         {
-            Vector3 newPosition = transform.position;
-            newPosition.y = Mathf.Lerp(transform.position.y, minYPosition, Time.deltaTime * verticalVelocity);
+            Vector3 newPosition = transform.localPosition;
+            newPosition.y = Mathf.Lerp(transform.localPosition.y, minYPosition, Time.deltaTime * verticalVelocity);
 
-            transform.position = newPosition;
+            transform.localPosition = newPosition;
 
-            if (transform.position.y < minYPosition + 0.01)
+            if (transform.localPosition.y < minYPosition + 0.01)
             {
                 isGoingUp = true;
             }

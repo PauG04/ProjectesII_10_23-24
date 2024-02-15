@@ -83,14 +83,18 @@ public class DragItemsNew : MonoBehaviour
                 transform.position = new Vector2(mousePosition.x, mousePosition.y);
             }
         }
-        if (!workSpace.OverlapPoint(transform.position) && !isDragging)
+        else
         {
-            rb2d.bodyType = RigidbodyType2D.Static;
-            OutsideWorkspace();
-        }
-        else if (!isDragging)
-        {
-            rb2d.bodyType = RigidbodyType2D.Dynamic;
+            if (!workSpace.OverlapPoint(transform.position))
+            {
+                rb2d.bodyType = RigidbodyType2D.Static;
+                OutsideWorkspace();
+            }
+            else
+            {
+                rb2d.bodyType = RigidbodyType2D.Dynamic;
+                InsideWorkspace();
+            }
         }
 
         if (isRotating)
@@ -147,10 +151,7 @@ public class DragItemsNew : MonoBehaviour
             itemCollider.TryUpdateShapeToAttachedSprite();
         }
         
-
         InsideWorkspaceRenderersChilds(transform);
-
-        
 
         transform.localScale = new Vector2(scaleMultiplier, scaleMultiplier);
     }
