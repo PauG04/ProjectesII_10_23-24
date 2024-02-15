@@ -10,6 +10,7 @@ public class SetTopShaker : MonoBehaviour
     private bool isTargetInside;
     private bool isRepositioning = false;
     private bool isAnimationDone = false;
+    private bool stayClosed = false;
 
     private void Update()
     {
@@ -43,7 +44,7 @@ public class SetTopShaker : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject == target.gameObject)
+        if (collision.gameObject == target.gameObject && !stayClosed)
         {
             if (target.GetIsDraggin() || !target.GetInsideWorkspace())
             {
@@ -79,5 +80,11 @@ public class SetTopShaker : MonoBehaviour
     public bool GetIsShakerClosed()
     {
         return isTargetInside;
+    }
+
+    public void SetStayClosed(bool stayClosed)
+    {
+        this.stayClosed = stayClosed;
+        target.SetHasToReturn(!stayClosed);
     }
 }

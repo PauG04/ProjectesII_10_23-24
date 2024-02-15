@@ -7,7 +7,6 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
 
     private ShakerStateMachine _shakerStateMachine;
     private SetTopShaker _shakerClosed;
-    private LayerMask _layerMask;
 
     private float lerpSpeed = 1.0f;
 
@@ -18,7 +17,6 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     private float velocityY = 10.0f;
 
     private Vector3 _initPosition;
-    private LerpTopShaker _lerp;
 
     private Image _color;
     private Image _background;
@@ -29,7 +27,6 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     public ShakerIdleClose(
         ShakerStateMachine shakerStateMachine, 
         SetTopShaker shakerClosed, 
-        LayerMask layerMask, 
         Vector3 initPosition, 
         Collider2D workSpace,
         Image color,
@@ -38,7 +35,6 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     {
         _shakerStateMachine = shakerStateMachine;
         _shakerClosed = shakerClosed;
-        _layerMask = layerMask;
         _initPosition = initPosition;
         _workSpace = workSpace;
         _color = color;
@@ -47,6 +43,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     public override void EnterState()
     {
         Debug.Log("Enter Idle Close State");
+        _shakerClosed.SetStayClosed(false);
 
         _shakerStateMachine.GetComponent<TargetJoint2D>().enabled = false;
 
@@ -113,6 +110,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
                 Rigidbody2D rigidbody2D = hit.collider.GetComponent<Rigidbody2D>();
                 if (rigidbody2D != null)
                 {
+                    _shakerClosed.SetStayClosed(true);
                     _state = ShakerStateMachine.ShakerState.DraggingClosed;
                 }
             }

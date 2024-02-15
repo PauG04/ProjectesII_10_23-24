@@ -63,6 +63,8 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
     public override void EnterState()
     {
+        Debug.Log("Enter Dragging Open State");
+
         _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 
         _isRotating = true;

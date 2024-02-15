@@ -281,4 +281,8 @@ public class DragItemsNew : MonoBehaviour
     {
         rb2d.gravityScale = gravity;
     }
+    public void SetHasToReturn(bool hasToReturn)
+    {
+        this.hasToReturn = hasToReturn;
+    }
 }

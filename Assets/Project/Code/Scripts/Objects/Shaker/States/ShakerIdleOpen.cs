@@ -43,7 +43,7 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
-        Debug.Log("Enter Idle Open State");
+        _shakerClosed.SetStayClosed(false);
 
         _shakerStateMachine.GetComponent<TargetJoint2D>().enabled = false;
         _state = ShakerStateMachine.ShakerState.IdleOpen;
@@ -63,7 +63,7 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
         return _state;
     }
     public override void OnMouseDown()
-    {    
+    {
         _state = ShakerStateMachine.ShakerState.DraggingOpen;
     }
     public override void OnMouseUp()

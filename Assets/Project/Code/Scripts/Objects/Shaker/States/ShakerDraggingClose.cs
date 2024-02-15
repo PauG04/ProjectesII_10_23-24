@@ -51,6 +51,8 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
+        Debug.Log("Enter Dragging Close State");
+
         _state = ShakerStateMachine.ShakerState.DraggingClosed;
 
         _targetJoint = _shakerStateMachine.GetComponent<TargetJoint2D>();
@@ -64,10 +66,12 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _rb.bodyType = RigidbodyType2D.Dynamic;
 
         _newPosition = _shakerStateMachine.transform.position;
+
+        
     }
     public override void ExitState()
     {
-        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
     }
     public override ShakerStateMachine.ShakerState GetNextState()
     {
