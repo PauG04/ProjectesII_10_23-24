@@ -1293,7 +1293,7 @@ GameObject:
   - component: {fileID: 604636928}
   - component: {fileID: 604636930}
   m_Layer: 3
-  m_Name: Square
+  m_Name: Destructor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2013,6 +2013,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6366023010629493001, guid: be8eb24509d984c46ab38001ddc15f45, type: 3}
   m_PrefabInstance: {fileID: 4479819128248755687}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1146505990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1146505991}
+  - component: {fileID: 1146505992}
+  m_Layer: 0
+  m_Name: CalculateDrinkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1146505991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146505990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1775540736}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1146505992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146505990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b62506910adb594f9a78d8ca9f972a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializableCocktails:
+    items:
+    - cocktailName: DiscoN
+      cocktail: {fileID: 11400000, guid: 8b7c3c93fcb8c434fb39bace5a2e1296, type: 2}
+    - cocktailName: Invade
+      cocktail: {fileID: 11400000, guid: 85d7d99fa7c86dd458e2645a93128ee8, type: 2}
+    - cocktailName: LobsterCrami
+      cocktail: {fileID: 11400000, guid: 42bb341c3f0b35e49859a932c4b3d178, type: 2}
+  errorMargin: 20
 --- !u!224 &1230520331 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8037749646198739868, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
@@ -3546,6 +3599,7 @@ Transform:
   - {fileID: 692955020}
   - {fileID: 2905952679981925486}
   - {fileID: 1335686480745981373}
+  - {fileID: 1146505991}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4735,14 +4789,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 1691511620839165269, guid: e62aa46430d703148b74596e1625563a, type: 3}
-      propertyPath: hasToReturn
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1691511620839165269, guid: e62aa46430d703148b74596e1625563a, type: 3}
-      propertyPath: hasToBeDestroy
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4553491365589592802, guid: e62aa46430d703148b74596e1625563a, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -5030,10 +5076,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 13459176564938733, guid: da78a67f455f0b74596453ea555794e8, type: 3}
-      propertyPath: hasToReturn
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5455300107542207505, guid: da78a67f455f0b74596453ea555794e8, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -5095,10 +5137,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 790261217673330239, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
-      propertyPath: hasToReturn
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4024803064925307674, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
       propertyPath: m_RootOrder
       value: -1

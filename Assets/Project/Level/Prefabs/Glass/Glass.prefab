@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 4767741605933196516}
   m_Layer: 3
   m_Name: LiquidDestructor
-  m_TagString: Cocktail
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1407f6f2bc78bf42a6250184b137797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLiquid: 400
+  maxLiquid: 100
   currentLiquid: 0
   isGlass: 1
 --- !u!114 &4767741605933196516
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 3650372567454475400}
   m_Layer: 0
   m_Name: LiquidCollision
-  m_TagString: Cocktail
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

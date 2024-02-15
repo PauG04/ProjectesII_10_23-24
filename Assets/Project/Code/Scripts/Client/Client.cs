@@ -84,11 +84,9 @@ public class Client : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp())
         {
-            Debug.Log("ESTA TOCANDO");
-            ReceiveCoctel(collision.gameObject.GetComponent<Cocktail>().GetCocktail().type);
+            ReceiveCoctel(CalculateDrink.instance.CalculateResultDrink(collision.GetComponentInChildren<LiquidManager>().GetParticleTypes(), CocktailNode.State.Idle));
             leaveAnimation = true;
         }
     }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CalculateDrink : MonoBehaviour
 {
+    public static CalculateDrink instance { get; private set; }
+
     [SerializeField] private TypeOfCocktailsDictionary serializableCocktails;
     private Dictionary<string, CocktailNode> allCocktails;
 
@@ -12,6 +14,15 @@ public class CalculateDrink : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         allCocktails = serializableCocktails.ToDictionary();
     }
 
