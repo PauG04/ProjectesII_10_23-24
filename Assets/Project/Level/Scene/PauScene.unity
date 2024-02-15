@@ -182,7 +182,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6463872787668394783, guid: 1e98b0678c911d84189646dc8d031e34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1e98b0678c911d84189646dc8d031e34, type: 3}
 --- !u!4 &1082259 stripped
 Transform:
@@ -1368,6 +1371,7 @@ GameObject:
   - component: {fileID: 474140794}
   - component: {fileID: 474140795}
   - component: {fileID: 474140796}
+  - component: {fileID: 474140797}
   m_Layer: 3
   m_Name: LiquidDestructor
   m_TagString: Untagged
@@ -1447,8 +1451,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1407f6f2bc78bf42a6250184b137797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLiquid: 100
+  maxLiquid: 400
   currentLiquid: 0
+--- !u!114 &474140797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474140793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1669c1d0a79767145ba30abd3a3695ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidSlider: {fileID: 5548706644710090491, guid: dc42622c5e06dba4490d4c2418e446ae, type: 3}
+  arrowSlider: {fileID: 5548706644710090491, guid: 134e6a7603e96e548b58afb534c9ed79, type: 3}
+  liquidManager: {fileID: 474140796}
+  sprite: {fileID: 1722755812}
 --- !u!1 &491711157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,7 +3136,7 @@ GameObject:
   - component: {fileID: 1257395269}
   - component: {fileID: 1257395268}
   m_Layer: 0
-  m_Name: Rum
+  m_Name: Herb Haven
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3187,6 +3207,7 @@ MonoBehaviour:
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
   spawnPoint: {fileID: 1111416413}
   liquidManager: {fileID: 1285462830}
+  drinkType: 3
 --- !u!60 &1257395271
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3975,6 +3996,7 @@ MonoBehaviour:
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
   spawnPoint: {fileID: 718614951}
   liquidManager: {fileID: 121412568}
+  drinkType: 8
 --- !u!114 &1496548506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5063,7 +5085,7 @@ GameObject:
   - component: {fileID: 1722755813}
   m_Layer: 18
   m_Name: Glass
-  m_TagString: Untagged
+  m_TagString: Cocktail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5232,7 +5254,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1738686957
 GameObject:
   m_ObjectHideFlags: 0
@@ -5266,11 +5288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a309048c252acd642b7358059d47c2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeIntensity: 5
-  EarthIntensity: 0
-  shakeTime: 2
-  timer: 0
-  shakeCamera: 0
 --- !u!114 &1738686959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5619,6 +5636,7 @@ MonoBehaviour:
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
   spawnPoint: {fileID: 2128245714}
   liquidManager: {fileID: 1252167274}
+  drinkType: 5
 --- !u!114 &1918708718
 MonoBehaviour:
   m_ObjectHideFlags: 0
