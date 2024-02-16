@@ -19,9 +19,15 @@ public class Client : MonoBehaviour
     [SerializeField] private float maxYPosition;
     [SerializeField] private float horizontalVelocity;
     [SerializeField] private float verticalVelocity;
+    [SerializeField] private GameObject text;
 
-    private  float minYPosition;
+    private float minYPosition;
     private bool isGoingUp;
+
+    [Header("Time")]
+    [SerializeField] private float maxTimer;
+    private float time;
+    private bool startTimer;
 
     private bool arriveAnimation;
     private bool leaveAnimation;
@@ -33,8 +39,12 @@ public class Client : MonoBehaviour
 
         arriveAnimation = false;
         leaveAnimation = false;
+        startTimer = false;
+
         isGoingUp = true;
         minYPosition = transform.localPosition.y;
+
+        text.SetActive(false);
     }
 
     private void Start()
@@ -69,7 +79,7 @@ public class Client : MonoBehaviour
             return true;
         return false;
     }
-     
+
     public void ReceiveCoctel(CocktailNode.Type cocktail)
     {
         if (CompareCocktails(cocktail))
@@ -124,17 +134,24 @@ public class Client : MonoBehaviour
 
     private void Update()
     {
-        if(arriveAnimation)
+        if (arriveAnimation)
         {
             MoveClientHorizontal(clientPosition);
             MoveClientVertical();
-            if (transform.localPosition.x > clientPosition.transform.localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1) 
+            if (transform.localPosition.x > clientPosition.transform.localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
             {
-                arriveAnimation= false;
+                arriveAnimation = false;
                 InitClient();
+                text.SetActive(true);
             }
         }
-        if(leaveAnimation)
+
+        if (startTimer)
+        {
+            Timer();
+        }
+
+        if (leaveAnimation)
         {
             MoveClientHorizontal(leavePosition);
             MoveClientVertical();
@@ -153,7 +170,7 @@ public class Client : MonoBehaviour
         transform.localPosition = newPosition;
     }
 
-    private void MoveClientVertical() 
+    private void MoveClientVertical()
     {
         if (isGoingUp)
         {
@@ -178,6 +195,17 @@ public class Client : MonoBehaviour
             {
                 isGoingUp = true;
             }
+        }
+    }
+
+    private void Timer()
+    {
+        time += Time.deltaTime;
+        if (time > maxTimer)
+        {
+            startTimer = true;
+            leaveAnimation = true;
+            text.SetActive(false);
         }
     }
 }

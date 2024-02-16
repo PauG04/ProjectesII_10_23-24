@@ -27,7 +27,7 @@ public class DragItemsNew : MonoBehaviour
     [SerializeField] private bool hasToBeDestroy;
     [SerializeField] private bool hasToReturn;
     [SerializeField] private bool hasToStayTheSameLayer;
-    [SerializeField] private bool dynamicInNormalTable;
+    [SerializeField] private bool changeSpriteMask;
 
     private bool isObjectRotated;
     private bool isRotating;
@@ -104,10 +104,8 @@ public class DragItemsNew : MonoBehaviour
         {
             if (!workSpace.OverlapPoint(transform.position))
             {
-                if (!hasToReturn)
-                {
-                    rb2d.bodyType = RigidbodyType2D.Static;
-                }
+                rb2d.bodyType = RigidbodyType2D.Static;
+                
                 OutsideWorkspace();
             }
             else
@@ -163,7 +161,10 @@ public class DragItemsNew : MonoBehaviour
         if(spriteRenderer!= null) 
         {
             spriteRenderer.sortingLayerName = "WorkSpace";
-            spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            if (changeSpriteMask)
+            {
+                spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            }
             spriteRenderer.sprite = workspaceSprite;
             itemCollider.TryUpdateShapeToAttachedSprite();
         }
@@ -184,7 +185,10 @@ public class DragItemsNew : MonoBehaviour
         if (spriteRenderer!= null)
         {
             spriteRenderer.sortingLayerName = "Default";
-            spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+            if (changeSpriteMask)
+            {
+                spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+            }
             spriteRenderer.sprite = normalSprite;
             itemCollider.TryUpdateShapeToAttachedSprite();
         }
@@ -202,7 +206,10 @@ public class DragItemsNew : MonoBehaviour
             if (renderer != null)
             {
                 renderer.sortingLayerName = "WorkSpace";
-                renderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                if (changeSpriteMask)
+                {
+                    renderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                }
             }
 
             InsideWorkspaceRenderersChilds(child);
@@ -217,7 +224,10 @@ public class DragItemsNew : MonoBehaviour
             if (renderer != null)
             {
                 renderer.sortingLayerName = "Default";
-                renderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                if (changeSpriteMask)
+                {
+                    renderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                }
             }
 
             OutsidewWorkspaceRenderersChilds(child);
