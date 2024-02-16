@@ -11,6 +11,8 @@ public class Client : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    [Header("Dialogue")]
+    [SerializeField] private GameObject dialogue;
     private TextMeshPro textMP;
 
     [Header("Client Position")]
@@ -26,6 +28,10 @@ public class Client : MonoBehaviour
     private bool arriveAnimation;
     private bool leaveAnimation;
 
+    [SerializeField] private float maxTime;
+    private float time;
+    private bool startTimer;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -35,6 +41,9 @@ public class Client : MonoBehaviour
         leaveAnimation = false;
         isGoingUp = true;
         minYPosition = transform.localPosition.y;
+
+        dialogue.SetActive(false);
+        startTimer = false;
     }
 
     private void Start()
@@ -60,6 +69,7 @@ public class Client : MonoBehaviour
     {
         InitOrder();
         InitPayment();
+        dialogue.SetActive(true);
     }
     #endregion
 
@@ -91,7 +101,7 @@ public class Client : MonoBehaviour
                 collision.GetComponentInChildren<LiquidManager>().GetParticleTypes(),
                 collision.GetComponentInChildren<LiquidManager>().GetDrinkState()
                 ));
-            leaveAnimation = true;
+            startTimer = true;
         }
     }
 
@@ -134,6 +144,17 @@ public class Client : MonoBehaviour
                 InitClient();
             }
         }
+
+        if (startTimer)
+        {
+            time += Time.deltaTime;
+            if(time > maxTime)
+            {
+                leaveAnimation = true;
+                dialogue.SetActive(false);
+            }
+        }
+
         if(leaveAnimation)
         {
             MoveClientHorizontal(leavePosition);
