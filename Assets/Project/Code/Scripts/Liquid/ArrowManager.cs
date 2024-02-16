@@ -18,43 +18,71 @@ public class ArrowManager : MonoBehaviour
     [Header("SpriteRenderer")]
     [SerializeField] private SpriteRenderer sprite;
 
+    [Header("Boolean")]
+    [SerializeField] private bool isHorizontal;
+
 
     private void Awake()
     {
         float widht;
         float height;
         float arrowHeight;
+        float arrowWidth;
 
         SpriteRenderer spriteRenderer;
 
         if (sprite != null)
         {
-             spriteRenderer = sprite;
+            spriteRenderer = sprite;
         }
         else
         {
-             spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
-        
+
         widht = spriteRenderer.bounds.size.x;
-        height= spriteRenderer.bounds.size.y;
+        height = spriteRenderer.bounds.size.y;
 
         arrow = Instantiate(liquidSlider, transform);
         arrowObject = Instantiate(arrowSlider, transform);
-        arrow.transform.position = new Vector2(transform.position.x + widht/1.5f, transform.position.y - height/2);
+        
 
         arrowHeight = arrow.GetComponentInChildren<SpriteRenderer>().bounds.size.y;
- 
-        maxYScale = height / arrowHeight;
-        maxYPosition = arrow.transform.localPosition.y + height;   
+        arrowWidth = arrow.GetComponentInChildren<SpriteRenderer>().bounds.size.x;
+
+        if (!isHorizontal)
+        {
+            arrow.transform.position = new Vector2(transform.position.x + widht / 1.5f, transform.position.y - height / 2);
+            maxYScale = height / arrowHeight;
+            maxYPosition = arrow.transform.localPosition.y + height;
+           
+        }
+        else
+        {
+            arrow.transform.position = new Vector2(transform.position.x - widht / 1.5f, transform.position.y - height / 2);
+            maxYScale = widht / arrowWidth;
+            maxYPosition = arrow.transform.localPosition.x + height;
+            
+        }
+
     }
 
     private void Update()
     {
-        float currentYScale = (maxYScale * liquidManager.GetCurrentLiquid()) / liquidManager.GetMaxLiquid();
-        arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, currentYScale, arrow.transform.localScale.z);
-
+        float currentYScale = (maxYScale * liquidManager.GetCurrentLiquid()) / liquidManager.GetMaxLiquid();        
         float currentYPosition = (maxYPosition * liquidManager.GetCurrentLiquid() * 2) / liquidManager.GetMaxLiquid();
-        arrowObject.transform.localPosition = new Vector2(arrow.transform.localPosition.x, currentYPosition - maxYPosition);
+
+        if(!isHorizontal)
+        {
+            arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, currentYScale, arrow.transform.localScale.z);
+            arrowObject.transform.localPosition = new Vector2(arrow.transform.localPosition.x, currentYPosition - maxYPosition);
+        }
+        else
+        {
+            arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, currentYScale, arrow.transform.localScale.z);
+            arrowObject.transform.localPosition = new Vector2(-arrow.transform.localPosition.x, currentYPosition - maxYPosition);
+        }
+        
+     
     }
 }

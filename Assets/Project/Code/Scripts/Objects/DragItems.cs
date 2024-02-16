@@ -77,7 +77,6 @@ public class DragItemsNew : MonoBehaviour
             isDragging = false;
         }
 
-
         if (hasToReturn)
         {
             RepositionObject();
