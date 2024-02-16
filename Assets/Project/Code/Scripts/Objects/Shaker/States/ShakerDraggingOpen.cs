@@ -33,7 +33,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private float _timeSinceLastPour = 0f;
     #endregion
 
-    private float _scaleMultiplier = 1.5f;
+    private float _scaleMultiplier = 2f;
 
     private Collider2D _workspace;
 

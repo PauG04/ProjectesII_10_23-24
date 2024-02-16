@@ -7,9 +7,6 @@ public class OpenFridge : MonoBehaviour
     [Header("Velocities")]
     [SerializeField] private float velocityPosition;
 
-    [Header("DragItems")]
-    [SerializeField] private DragItem[] items;
-
     [Header("Widht Different")]
     [SerializeField] private float widthDifferent;
 

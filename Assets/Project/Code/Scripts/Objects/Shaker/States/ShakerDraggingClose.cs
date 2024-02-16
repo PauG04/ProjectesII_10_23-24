@@ -19,7 +19,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private bool _canShake;
     private bool _isDown;
 
-    private float _scaleMultiplier = 1.5f;
+    private float _scaleMultiplier = 2f;
     private LiquidManager _liquidManager;
 
     //private ProgressSlider _slider;
@@ -190,17 +190,14 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         if (_progress < _maxProgress * 0.33f)
         {
             _liquidManager.SetDrinkState(CocktailNode.State.Idle);
-            Debug.Log("Idle");
         }
         else if (_progress >= _maxProgress * 0.66f)
         {
             _liquidManager.SetDrinkState(CocktailNode.State.Mixed);
-            Debug.Log("Mixed");
         }
         else
         {
             _liquidManager.SetDrinkState(CocktailNode.State.Shaked);
-            Debug.Log("Shaked");
         }
     }
     private void InsideWorkspace()
