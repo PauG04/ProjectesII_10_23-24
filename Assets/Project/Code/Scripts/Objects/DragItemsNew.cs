@@ -1,14 +1,15 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class DragItemsNew : MonoBehaviour
 {
     [Header("Sprite Variables")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite normalSprite;
     [SerializeField] private Sprite workspaceSprite;
     [SerializeField] private float scaleMultiplier = 1.2f;
 
-    private PolygonCollider2D itemCollider;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private PolygonCollider2D itemCollider;
 
     [Header("Dragging Variables")]
     private Rigidbody2D rb2d;
@@ -26,6 +27,7 @@ public class DragItemsNew : MonoBehaviour
     [SerializeField] private bool hasToBeDestroy;
     [SerializeField] private bool hasToReturn;
     [SerializeField] private bool hasToStayTheSameLayer;
+    [SerializeField] private bool dynamicInNormalTable;
 
     private bool isObjectRotated;
     private bool isRotating;
@@ -39,9 +41,16 @@ public class DragItemsNew : MonoBehaviour
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        itemCollider = GetComponent<PolygonCollider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         rotateBottle = GetComponent<RotateBottle>();
+
+        if (itemCollider == null)
+        {
+            itemCollider = GetComponent<PolygonCollider2D>();
+        }
+        if (spriteRenderer == null )
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
 
         workSpace = GameObject.FindGameObjectWithTag("WorkSpace").GetComponent<BoxCollider2D>();
 
@@ -95,7 +104,10 @@ public class DragItemsNew : MonoBehaviour
         {
             if (!workSpace.OverlapPoint(transform.position))
             {
-                rb2d.bodyType = RigidbodyType2D.Static;
+                if (!hasToReturn)
+                {
+                    rb2d.bodyType = RigidbodyType2D.Static;
+                }
                 OutsideWorkspace();
             }
             else
@@ -135,10 +147,7 @@ public class DragItemsNew : MonoBehaviour
     {
         rb2d.AddForce(Vector2.right * 0.1f, ForceMode2D.Impulse);
 
-        if (!hasToReturn)
-        {
-            rb2d.bodyType = RigidbodyType2D.Dynamic;
-        }
+        rb2d.bodyType = RigidbodyType2D.Dynamic;
 
         isDragging = false;
     }
@@ -181,8 +190,6 @@ public class DragItemsNew : MonoBehaviour
         }
      
         OutsidewWorkspaceRenderersChilds(transform);
-
-        
 
         transform.localScale = Vector3.one;
     }

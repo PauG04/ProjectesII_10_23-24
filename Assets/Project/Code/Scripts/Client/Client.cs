@@ -20,8 +20,6 @@ public class Client : MonoBehaviour
     [SerializeField] private float horizontalVelocity;
     [SerializeField] private float verticalVelocity;
 
-
-
     private  float minYPosition;
     private bool isGoingUp;
 
@@ -37,7 +35,6 @@ public class Client : MonoBehaviour
         leaveAnimation = false;
         isGoingUp = true;
         minYPosition = transform.localPosition.y;
-
     }
 
     private void Start()

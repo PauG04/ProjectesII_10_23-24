@@ -5,7 +5,8 @@ using UnityEngine;
 public class LiquidParticle : MonoBehaviour
 {
     private DrinkNode.Type drinkType;
-    private CocktailNode.State cocktailType;    
+    private CocktailNode.Type cocktailType;
+    private CocktailNode.State cocktailState;    
 
     public void SetDrinkType(DrinkNode.Type drinkType)
     {
