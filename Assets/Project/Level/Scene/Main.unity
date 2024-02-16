@@ -148,6 +148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Client
       objectReference: {fileID: 0}
+    - target: {fileID: 4358601423379796865, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7054551176593455504, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -156,6 +160,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.98
       objectReference: {fileID: 0}
+    - target: {fileID: 7216905069198535887, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: maxTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216905069198535887, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 2088869109}
     - target: {fileID: 7216905069198535887, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
       propertyPath: maxYPosition
       value: 0.62
@@ -4808,6 +4820,11 @@ SpriteRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5455300107542207505, guid: da78a67f455f0b74596453ea555794e8, type: 3}
   m_PrefabInstance: {fileID: 7811330798327107563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2088869109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4358601423379796865, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+  m_PrefabInstance: {fileID: 38147676}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2116956487
 GameObject:

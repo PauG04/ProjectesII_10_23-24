@@ -140,20 +140,29 @@ public class DragItemsNew : MonoBehaviour
         rb2d.bodyType = RigidbodyType2D.Static;
 
         offset = gameObject.transform.position - GetMouseWorldPosition();
-        isDragging = true;
+
+        isDragging = true; 
         isReturning = false;
     }
     private void OnMouseUp()
     {
         rb2d.AddForce(Vector2.right * 0.1f, ForceMode2D.Impulse);
 
-        rb2d.bodyType = RigidbodyType2D.Dynamic;
+        if (insideWorkspace)
+        {
+            rb2d.bodyType = RigidbodyType2D.Dynamic;
+        }
+        else
+        {
+            rb2d.bodyType = RigidbodyType2D.Static;
+        }
 
+        isReturning = true;
         isDragging = false;
     }
     private void InsideWorkspace()
     {
-        insideWorkspace = true;
+            insideWorkspace = true;
 
         if (!hasToStayTheSameLayer)
         {
@@ -170,7 +179,7 @@ public class DragItemsNew : MonoBehaviour
         
         InsideWorkspaceRenderersChilds(transform);
 
-        transform.localScale = new Vector2(scaleMultiplier, scaleMultiplier);
+        transform.localScale = new Vector2(scaleMultiplier, scaleMultiplier);           
     }
     private void OutsideWorkspace()
     {
@@ -180,18 +189,20 @@ public class DragItemsNew : MonoBehaviour
         {
             gameObject.layer = LayerMask.NameToLayer("Default");
         }
-            
-        if (spriteRenderer!= null)
+
+        if (spriteRenderer != null)
         {
             spriteRenderer.sortingLayerName = "Default";
             spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             spriteRenderer.sprite = normalSprite;
             itemCollider.TryUpdateShapeToAttachedSprite();
         }
-     
+
         OutsidewWorkspaceRenderersChilds(transform);
 
         transform.localScale = Vector3.one;
+
+        
     }
     private void InsideWorkspaceRenderersChilds(Transform parent)
     {
