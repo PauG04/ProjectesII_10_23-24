@@ -101,7 +101,7 @@ public class Client : MonoBehaviour
                 collision.GetComponentInChildren<LiquidManager>().GetParticleTypes(),
                 collision.GetComponentInChildren<LiquidManager>().GetDrinkState()
                 ));
-            startTimer = true;
+            leaveAnimation = true;
         }
     }
 
