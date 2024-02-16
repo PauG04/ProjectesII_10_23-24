@@ -8,6 +8,8 @@ public class LiquidManager : MonoBehaviour
     [SerializeField] private float currentLiquid = 0;
     private Dictionary<DrinkNode.Type, int> particleTypes;
 
+    [SerializeField] private CocktailNode.State currentState;
+
     [SerializeField] private bool isGlass;
     private DragItemsNew dragItems;
 
@@ -71,5 +73,15 @@ public class LiquidManager : MonoBehaviour
     public Dictionary<DrinkNode.Type, int> GetParticleTypes()
     {
         return particleTypes;
+    }
+
+    public void SetDrinkState(CocktailNode.State state)
+    {
+        currentState = state;
+    }
+
+    public CocktailNode.State GetDrinkState()
+    {
+        return currentState;
     }
 }

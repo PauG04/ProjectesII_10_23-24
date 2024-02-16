@@ -54,7 +54,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 
         initPosition = transform.localPosition;
 
-        shakerDraggingClose = new ShakerDraggingClose(this, progress, maxProgress, divideProgress, workSpace, progressSlider, color, background);
+        shakerDraggingClose = new ShakerDraggingClose(this, progress, maxProgress, divideProgress, liquidManager, workSpace, progressSlider, color, background);
 		shakerDraggingOpen = new ShakerDraggingOpen(this, liquidPref, spawnPoint, liquidManager, workSpace, color, background);
 
         States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker, initPosition, workSpace, color, background));
@@ -93,6 +93,11 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
     public float GetProgress()
 	{
 		return shakerDraggingClose.GetProgress();
+	}
+
+	public void ResetProgress()
+	{
+		progress = 0;
 	}
 	public float GetMaxProgress()
 	{

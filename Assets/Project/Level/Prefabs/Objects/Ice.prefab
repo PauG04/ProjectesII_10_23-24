@@ -130,12 +130,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
-  scaleMultiplier: 10
-  hasToStayTheSameLayer: 1
+  scaleMultiplier: 5
   rotationSpeed: 6
   horizontalSpeed: 6
   verticalSpeed: 10
   hasToBeDestroy: 1
+  hasToReturn: 1
+  hasToStayTheSameLayer: 1
 --- !u!50 &3085852553438928639
 Rigidbody2D:
   serializedVersion: 4

@@ -33,7 +33,7 @@ public class CalculateDrink : MonoBehaviour
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["Invade"]))
             return CocktailNode.Type.Invade;
-
+        /*
         if (CheckCocktail(typesOfDrink, state, allCocktails["Morgana"]))
             return CocktailNode.Type.Morgana;
 
@@ -63,7 +63,7 @@ public class CalculateDrink : MonoBehaviour
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["Razz"]))
             return CocktailNode.Type.Razz;
-
+        */
         return CocktailNode.Type.Error;
     }
 

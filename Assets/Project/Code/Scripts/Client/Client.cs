@@ -20,6 +20,8 @@ public class Client : MonoBehaviour
     [SerializeField] private float horizontalVelocity;
     [SerializeField] private float verticalVelocity;
 
+
+
     private  float minYPosition;
     private bool isGoingUp;
 
@@ -86,7 +88,12 @@ public class Client : MonoBehaviour
     {
         if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp())
         {
-            ReceiveCoctel(CalculateDrink.instance.CalculateResultDrink(collision.GetComponentInChildren<LiquidManager>().GetParticleTypes(), CocktailNode.State.Idle));
+            Debug.Log(collision.GetComponentInChildren<LiquidManager>().GetDrinkState());
+
+            ReceiveCoctel(CalculateDrink.instance.CalculateResultDrink(
+                collision.GetComponentInChildren<LiquidManager>().GetParticleTypes(),
+                collision.GetComponentInChildren<LiquidManager>().GetDrinkState()
+                ));
             leaveAnimation = true;
         }
     }
@@ -105,7 +112,7 @@ public class Client : MonoBehaviour
         textMP.text = "Menudo MIERDON";
         //Change Animation
         //Wait X Seconds
-        ClientManager.instance.CreateNewClient();
+        //ClientManager.instance.CreateNewClient();
     }
 
     private void Pay()

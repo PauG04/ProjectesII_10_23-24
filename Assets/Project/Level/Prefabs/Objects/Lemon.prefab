@@ -262,12 +262,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSprite: {fileID: 0}
   workspaceSprite: {fileID: 0}
-  scaleMultiplier: 3
-  hasToStayTheSameLayer: 1
+  scaleMultiplier: 1.3
   rotationSpeed: 6
   horizontalSpeed: 6
   verticalSpeed: 10
   hasToBeDestroy: 1
+  hasToReturn: 1
+  hasToStayTheSameLayer: 1
 --- !u!50 &2484180880691039068
 Rigidbody2D:
   serializedVersion: 4

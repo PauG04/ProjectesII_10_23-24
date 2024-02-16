@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 8452877260925742426}
   - component: {fileID: 2080687129534558086}
   - component: {fileID: 7216905069198535887}
+  - component: {fileID: 8753293112615497115}
   m_Layer: 0
   m_Name: Client
   m_TagString: Client
@@ -289,7 +290,7 @@ Transform:
   - {fileID: 7406250777722010449}
   - {fileID: 7054551176593455504}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2080687129534558086
 BoxCollider2D:
@@ -323,7 +324,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -4.6234818, y: 1.0131702}
+  m_Offset: {x: -4.5845513, y: 0.4369709}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -334,7 +335,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.6553214, y: 3.026341}
+  m_Size: {x: 1.7365172, y: 1.5624837}
   m_EdgeRadius: 0
 --- !u!114 &7216905069198535887
 MonoBehaviour:
@@ -348,11 +349,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da40dc677ffb0d48a5979db7c5674c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clientPosition: {fileID: 3164742363969609211}
-  leavePosition: {fileID: 3164742363969609211}
-  maxYPosition: 0
-  horizontalVelocity: 0
-  verticalVelocity: 0
+  clientPosition: {fileID: 0}
+  leavePosition: {fileID: 0}
+  maxYPosition: -0.02
+  horizontalVelocity: 1.5
+  verticalVelocity: 5
+--- !u!50 &8753293112615497115
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3164742363969609211}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4358601423379796865
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +486,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: f436a9d194a6c9444a0197deae19612c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

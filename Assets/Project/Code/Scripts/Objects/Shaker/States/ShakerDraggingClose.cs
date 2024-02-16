@@ -20,6 +20,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private bool _isDown;
 
     private float _scaleMultiplier = 1.5f;
+    private LiquidManager _liquidManager;
 
     //private ProgressSlider _slider;
     private Slider _progressSlider;
@@ -34,6 +35,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         float progress,
         float maxProgress,
         float divideProgress,
+        LiquidManager liquidManager,
         Collider2D workspace,
         Slider progressSlider,
         Image color,
@@ -43,6 +45,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _shakerStateMachine = shakerStateMachine;
         _maxProgress = maxProgress;
         _progress = progress;
+        _liquidManager = liquidManager;
         _divideProgress = divideProgress;
         _workspace = workspace;
         _progressSlider = progressSlider;
@@ -66,8 +69,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _rb.bodyType = RigidbodyType2D.Dynamic;
 
         _newPosition = _shakerStateMachine.transform.position;
-
-        
     }
     public override void ExitState()
     {
@@ -99,7 +100,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         else
         {
             OutsideWorkspace();
-            //_shakerStateMachine.transform.position = new Vector2(mousePosition.x, mousePosition.y);
+            _shakerStateMachine.transform.position = new Vector2(mousePosition.x, mousePosition.y);
         }
 
         _rb.SetRotation(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
@@ -118,7 +119,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     {       
          StartShaking();
          EndClicking();
-         //_slider.SetIsLerp(true);
+
          if (_canShake && _progress <= _maxProgress)
          {
             DirectionShaker();
@@ -186,20 +187,21 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     private void SetDrinkState()
     {
-        /*
         if (_progress < _maxProgress * 0.33f)
         {
-            liquidManager.SetDrinkState(TypeOfCocktails.StateOfCocktail.Idle);
+            _liquidManager.SetDrinkState(CocktailNode.State.Idle);
+            Debug.Log("Idle");
         }
         else if (_progress >= _maxProgress * 0.66f)
         {
-            liquidManager.SetDrinkState(TypeOfCocktails.StateOfCocktail.Mixed);
+            _liquidManager.SetDrinkState(CocktailNode.State.Mixed);
+            Debug.Log("Mixed");
         }
         else
         {
-            liquidManager.SetDrinkState(TypeOfCocktails.StateOfCocktail.Shaked);
+            _liquidManager.SetDrinkState(CocktailNode.State.Shaked);
+            Debug.Log("Shaked");
         }
-        */
     }
     private void InsideWorkspace()
     {

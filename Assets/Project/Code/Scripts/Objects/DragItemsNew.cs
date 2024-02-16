@@ -61,6 +61,14 @@ public class DragItemsNew : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetMouseButtonUp(0))
+        {
+            rb2d.AddForce(Vector2.right * 0.1f, ForceMode2D.Impulse);
+
+            isDragging = false;
+        }
+
+
         if (hasToReturn)
         {
             RepositionObject();
