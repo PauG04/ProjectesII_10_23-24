@@ -36,7 +36,8 @@ public class CursorManager : MonoBehaviour
     {
         cursorPosition = GetMouseWorldPosition();
 
-        box.transform.position = new Vector3(cursorPosition.x, cursorPosition.y, 5);
+        box.transform.position = cursorPosition;
+        box.transform.position = new Vector3(cursorPosition.x + 0.5f, cursorPosition.y + 0.1f, cursorPosition.z);
 
         if (Input.GetMouseButtonDown(0))
             isMouseUp = false;
