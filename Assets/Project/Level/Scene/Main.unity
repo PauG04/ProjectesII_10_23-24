@@ -1338,6 +1338,12 @@ MonoBehaviour:
   arrowSlider: {fileID: 5548706644710090491, guid: 134e6a7603e96e548b58afb534c9ed79, type: 3}
   liquidManager: {fileID: 1300070002}
   sprite: {fileID: 1403560259}
+  isHorizontal: 0
+--- !u!1 &432840089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9165479731028677825, guid: 1e98b0678c911d84189646dc8d031e34, type: 3}
+  m_PrefabInstance: {fileID: 2905952679981925485}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519648755
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,6 +2254,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1043711029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6143347378808835073, guid: 1e98b0678c911d84189646dc8d031e34, type: 3}
+  m_PrefabInstance: {fileID: 2905952679981925485}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1131726862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,6 +2403,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 0
   changeSpriteMask: 1
+  isItem: 0
 --- !u!60 &1131726870
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2629,6 +2647,7 @@ MonoBehaviour:
   currentLiquid: 0
   currentState: 0
   isGlass: 0
+  dropLiquid: {fileID: 0}
 --- !u!1 &1335187949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3204,6 +3223,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 0
   changeSpriteMask: 1
+  isItem: 0
 --- !u!50 &1601387588
 Rigidbody2D:
   serializedVersion: 4
@@ -4705,6 +4725,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 1
   changeSpriteMask: 1
+  isItem: 0
 --- !u!60 &1914124171
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5311,6 +5332,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1775540736}
     m_Modifications:
+    - target: {fileID: 1776578304636787473, guid: 1e98b0678c911d84189646dc8d031e34, type: 3}
+      propertyPath: box
+      value: 
+      objectReference: {fileID: 432840089}
+    - target: {fileID: 1776578304636787473, guid: 1e98b0678c911d84189646dc8d031e34, type: 3}
+      propertyPath: itemName
+      value: 
+      objectReference: {fileID: 1043711029}
     - target: {fileID: 5953772245541387319, guid: 1e98b0678c911d84189646dc8d031e34, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -5358,6 +5387,10 @@ PrefabInstance:
     - target: {fileID: 6355391547511302576, guid: 1e98b0678c911d84189646dc8d031e34, type: 3}
       propertyPath: m_Name
       value: CursorManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165479731028677825, guid: 1e98b0678c911d84189646dc8d031e34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5745,14 +5778,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 790261217673330239, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 790261217673330239, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
-      propertyPath: changeSpriteMask
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4024803064925307674, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
       propertyPath: m_RootOrder
       value: -1

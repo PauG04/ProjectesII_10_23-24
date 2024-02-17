@@ -28,11 +28,11 @@ public class CalculateDrink : MonoBehaviour
 
     public CocktailNode.Type CalculateResultDrink(Dictionary<DrinkNode.Type, int> typesOfDrink, CocktailNode.State state)
     {
-        if (CheckCocktail(typesOfDrink, state, allCocktails["DiscoN"]))
-            return CocktailNode.Type.DiscoN;
+        if (CheckCocktail(typesOfDrink, state, allCocktails["Roncola"]))
+            return CocktailNode.Type.Roncola;
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Invade"]))
-            return CocktailNode.Type.Invade;
+        if (CheckCocktail(typesOfDrink, state, allCocktails["TequilaSunrise"]))
+            return CocktailNode.Type.TequilaSunrise;
         /*
         if (CheckCocktail(typesOfDrink, state, allCocktails["Morgana"]))
             return CocktailNode.Type.Morgana;

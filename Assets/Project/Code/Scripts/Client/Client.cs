@@ -57,7 +57,7 @@ public class Client : MonoBehaviour
     {
         //int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
         //order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
-        order = CocktailNode.Type.Invade;
+        order = CocktailNode.Type.TequilaSunrise;
         textMP.text = "Quiero un " + order.ToString();
     }
 
