@@ -139,16 +139,11 @@ public class TutorialManager : MonoBehaviour
         {
             ActiveDragItem(5, false, 6);
         }
-
-        if (activeTurotial[7])
-        {
-            ActiveFridge(7);
-        }
     }
 
     private void ActiveBooleands()
     {
-        if (!activeTurotial[6] && !activeTurotial[7] && drag[5].GetWasOnTheTable())
+        if (!activeTurotial[6] && !activeTurotial[7] && drag[5].GetWasOnTheTable() && !createObject[0].GetIsCreated())
         {
             activeTurotial[7] = true;
         }
@@ -216,7 +211,6 @@ public class TutorialManager : MonoBehaviour
             shaker.GetCurrentState().StateKey != ShakerStateMachine.ShakerState.IdleOpen && shaker.GetIsInTutorial())
         {
             panel.SetActive(false);
-            shakerSpiteRenderer.sortingOrder = initOrderingLayerShaker;
         }
 
     }
@@ -271,10 +265,12 @@ public class TutorialManager : MonoBehaviour
             if (drag[_index].gameObject.GetComponent<SpriteRenderer>() != null)
             {
                 drag[_index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerDrag[_index];
+                drag[_index].gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
             }
             else
             {
                 glass.sortingOrder = initOrderingLayerDrag[_index];
+                glass.sortingLayerName = "Default";
             }
                                
         }
@@ -302,6 +298,33 @@ public class TutorialManager : MonoBehaviour
         {
             panel.SetActive(false);
             fridge.gameObject.transform.localScale = Vector3.one;
+            fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerFridge;
+            activeTurotial[_indexTutorial] = false;
+        }
+    }
+
+    private void ActiveCreateObjectFridge(int index, int _indexTutorial)
+    {
+        Vector3 maxScale = new Vector3(2.1f, 2.1f, 2.1f);
+        Vector3 minScale = new Vector3(1.9f, 1.9f, 1.9f);
+
+        if (!createObject[index].enabled)
+        {
+            createObject[index].enabled = true;
+            isGrowing = true;
+        }
+        if (!createObject[index].GetIsCreated())
+        {
+            panel.SetActive(true);
+            LerpScaleCreate(index, maxScale, minScale);
+            createObject[index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+        }
+
+        if(createObject[index].GetIsCreated())
+        {
+            panel.SetActive(false);
+            createObject[index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerBucket[index];
+            createObject[index].gameObject.transform.localScale = new Vector3(2,2,2);
             activeTurotial[_indexTutorial] = false;
         }
     }
@@ -360,6 +383,26 @@ public class TutorialManager : MonoBehaviour
         {
             fridge.gameObject.transform.localScale = Vector3.Lerp(fridge.gameObject.transform.localScale, minScale, velocity * Time.deltaTime);
             if (fridge.gameObject.transform.localScale.x <= minScale.x + 0.01)
+            {
+                isGrowing = true;
+            }
+        }
+    }
+
+    private void LerpScaleCreate(int index, Vector3 maxScale, Vector3 minScale)
+    {
+        if (isGrowing)
+        {
+            createObject[index].gameObject.transform.localScale = Vector3.Lerp(createObject[index].gameObject.transform.localScale, maxScale, velocity * Time.deltaTime);
+            if (createObject[index].gameObject.transform.localScale.x >= maxScale.x - 0.01)
+            {
+                isGrowing = false;
+            }
+        }
+        else
+        {
+            createObject[index].gameObject.transform.localScale = Vector3.Lerp(createObject[index].gameObject.transform.localScale, minScale, velocity * Time.deltaTime);
+            if (createObject[index].gameObject.transform.localScale.x <= minScale.x + 0.01)
             {
                 isGrowing = true;
             }
