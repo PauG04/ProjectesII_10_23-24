@@ -128,15 +128,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   scaleMultiplier: 5
+  itemCollider: {fileID: 0}
   rotationSpeed: 6
   horizontalSpeed: 6
   verticalSpeed: 10
   hasToBeDestroy: 1
   hasToReturn: 1
   hasToStayTheSameLayer: 1
+  changeSpriteMask: 0
 --- !u!50 &3085852553438928639
 Rigidbody2D:
   serializedVersion: 4

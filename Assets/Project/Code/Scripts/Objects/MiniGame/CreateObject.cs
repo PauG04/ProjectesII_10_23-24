@@ -15,7 +15,7 @@ public class CreateObject : MonoBehaviour
         item.transform.SetParent(null);
         item.transform.localPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
         item.GetComponent<DragItemsNew>().SetIsDragging(true);
-        item.GetComponent<DragItemsNew>().SetInitPosition(item.transform.localPosition);
+        item.GetComponent<DragItemsNew>().SetInitPosition(transform.position);
 
         if(bucket != null)
         {
