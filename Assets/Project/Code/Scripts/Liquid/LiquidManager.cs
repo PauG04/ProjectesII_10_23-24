@@ -13,6 +13,9 @@ public class LiquidManager : MonoBehaviour
     [SerializeField] private bool isGlass;
     private DragItemsNew dragItems;
 
+    [Header("Jigger")]
+    [SerializeField] private DropJiggerLiquid dropLiquid;
+
     private void Awake()
     {
         particleTypes = new Dictionary<DrinkNode.Type, int>();
@@ -41,6 +44,10 @@ public class LiquidManager : MonoBehaviour
                 if(particleTypes.ContainsKey(collision.GetComponent<LiquidParticle>().GetDrinkType()))
                 {
                     particleTypes[collision.GetComponent<LiquidParticle>().GetDrinkType()]++;
+                    if(dropLiquid != null)
+                    {
+                        dropLiquid.SetDrinkType(collision.GetComponent<LiquidParticle>().GetDrinkType());
+                    }
                     Debug.Log(collision.GetComponent<LiquidParticle>().GetDrinkType().ToString());
                 }
                 else

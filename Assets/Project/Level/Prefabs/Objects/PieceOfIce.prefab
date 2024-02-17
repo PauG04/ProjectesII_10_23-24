@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7103202438136960463}
   - component: {fileID: 4967274586722842788}
-  - component: {fileID: 151463784837417238}
-  - component: {fileID: 458003026772373813}
+  - component: {fileID: 4560076000828353289}
   - component: {fileID: 6590715677247729559}
-  m_Layer: 18
+  - component: {fileID: 6991718364965186948}
+  m_Layer: 19
   m_Name: PieceOfIce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &151463784837417238
+--- !u!114 &4560076000828353289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,14 +96,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 6682326790453067862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 184b1b59183ef524ba436077b17493af, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMagnitude: 1.3
-  velocity: 5
-  increaseScale: 2
---- !u!61 &458003026772373813
-BoxCollider2D:
+  spriteRenderer: {fileID: 4967274586722842788}
+  normalSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
+  workspaceSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
+  scaleMultiplier: 2.5
+  itemCollider: {fileID: 6991718364965186948}
+  rotationSpeed: 6
+  horizontalSpeed: 6
+  verticalSpeed: 10
+  hasToBeDestroy: 1
+  hasToReturn: 1
+  hasToStayTheSameLayer: 1
+  changeSpriteMask: 0
+  isItem: 1
+--- !u!50 &6590715677247729559
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6682326790453067862}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &6991718364965186948
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -134,7 +171,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000011920929}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -144,33 +181,10 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.1444068, y: 0.14440656}
-  m_EdgeRadius: 0
---- !u!50 &6590715677247729559
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6682326790453067862}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.0625, y: 0.0625}
+      - {x: -0.0625, y: -0.0625}
+      - {x: 0.0625, y: -0.0625}
+      - {x: 0.0625, y: 0.0625}
+  m_UseDelaunayMesh: 0

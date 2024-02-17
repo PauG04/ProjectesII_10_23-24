@@ -28,6 +28,7 @@ public class DragItemsNew : MonoBehaviour
     [SerializeField] private bool hasToReturn;
     [SerializeField] private bool hasToStayTheSameLayer;
     [SerializeField] private bool changeSpriteMask;
+    [SerializeField] private bool isItem;
 
     private bool isObjectRotated;
     private bool isRotating;
@@ -54,7 +55,11 @@ public class DragItemsNew : MonoBehaviour
 
         workSpace = GameObject.FindGameObjectWithTag("WorkSpace").GetComponent<BoxCollider2D>();
 
-        rb2d.bodyType = RigidbodyType2D.Static;
+        if(!isItem)
+        {
+            rb2d.bodyType = RigidbodyType2D.Static;
+        }
+        
 
         if (transform.rotation != Quaternion.identity)
         {
@@ -319,4 +324,5 @@ public class DragItemsNew : MonoBehaviour
     {
         this.hasToReturn = hasToReturn;
     }
+
 }

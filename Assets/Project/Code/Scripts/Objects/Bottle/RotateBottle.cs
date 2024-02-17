@@ -61,6 +61,7 @@ public class RotateBottle : MonoBehaviour
 
         _currentRotation = Mathf.Lerp(_currentRotation, -_targetRotation, Time.deltaTime * _rotationSpeed);
         transform.rotation = Quaternion.Euler(Vector3.forward * _currentRotation);
+
     }
 
     public void ResetObjectPosition(Quaternion _rotation)
@@ -68,6 +69,7 @@ public class RotateBottle : MonoBehaviour
         _targetRotation = 0f;
         _currentRotation = 0f;
         transform.localRotation = Quaternion.Lerp(transform.localRotation, _rotation, _rotationSpeed * Time.deltaTime);
+
     }
 
     public bool GetIsRotating()
