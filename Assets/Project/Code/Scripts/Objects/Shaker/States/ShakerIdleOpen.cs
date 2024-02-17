@@ -72,6 +72,7 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void UpdateState()
     {
+       
         AlphaLerp();
         if (!_workSpace.OverlapPoint(_shakerStateMachine.transform.position))
         {

@@ -68,7 +68,7 @@ public class TutorialManager : MonoBehaviour
         fridge.enabled = false;
         initOrderingLayerFridge = fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder;
 
-        activeTurotial = new bool[3];
+        activeTurotial = new bool[15];
 
         for(int i = 0; i < activeTurotial.Length ; i++)
         {
@@ -112,11 +112,67 @@ public class TutorialManager : MonoBehaviour
         if (activeTurotial[2])
         {
             ActiveDragItem(1, false, 2);
+            jigger.enabled = true;
+        }
+
+        if (activeTurotial[3])
+        {
+            ActiveDragItem(2, false, 3);
+        }
+
+        if (activeTurotial[4])
+        {
+            ActiveDragItem(3, false, 4);
+        }
+
+        if (activeTurotial[5])
+        {
+            ActiveDragItem(4, false, 5);
+        }
+
+        if (activeTurotial[6])
+        {
+            ActiveDragItem(5, false, 6);
+        }
+
+        if (activeTurotial[6])
+        {
+            ActiveDragItem(5, false, 6);
+        }
+
+        if (activeTurotial[7])
+        {
+            ActiveFridge(7);
         }
     }
 
     private void ActiveBooleands()
     {
+        if (!activeTurotial[6] && !activeTurotial[7] && drag[5].GetWasOnTheTable())
+        {
+            activeTurotial[7] = true;
+        }
+
+        if (!activeTurotial[5] && !activeTurotial[6] && drag[4].GetWasOnTheTable())
+        {
+            activeTurotial[6] = true;
+        }
+
+        if (!activeTurotial[4] && !activeTurotial[5] && drag[3].GetWasOnTheTable())
+        {
+            activeTurotial[5] = true;
+        }
+
+        if (!activeTurotial[3] && !activeTurotial[4] && drag[2].GetWasOnTheTable())
+        {
+            activeTurotial[4] = true;
+        }
+
+        if (!activeTurotial[2] && !activeTurotial[3] && drag[1].GetWasOnTheTable())
+        {
+            activeTurotial[3] = true;
+        }
+
         if (!activeTurotial[1] && !activeTurotial[2] && shaker.GetWasInTable())
         {
             activeTurotial[2] = true;
@@ -125,9 +181,7 @@ public class TutorialManager : MonoBehaviour
         if (drag[0].GetHasToReturn() && !activeTurotial[0] && !activeTurotial[1])
         {
             activeTurotial[1] = true;
-        }
-
-        
+        }       
     }
 
     private void ActiveDragShaker()
@@ -162,7 +216,6 @@ public class TutorialManager : MonoBehaviour
             shaker.GetCurrentState().StateKey != ShakerStateMachine.ShakerState.IdleOpen && shaker.GetIsInTutorial())
         {
             panel.SetActive(false);
-            shaker.gameObject.transform.localScale = Vector3.one;
             shakerSpiteRenderer.sortingOrder = initOrderingLayerShaker;
         }
 
@@ -177,8 +230,7 @@ public class TutorialManager : MonoBehaviour
         if (!drag[_index].enabled)
         {
             drag[_index].enabled = true;
-            drag[_index].SetIsInTutorial(true);
-            
+            drag[_index].SetIsInTutorial(true);       
 
             isGrowing = true;
         }
@@ -200,7 +252,15 @@ public class TutorialManager : MonoBehaviour
         if (!drag[_index].GetIsDraggin() && drag[_index].GetIsInTutorial() && !drag[_index].GetInsideWorkspace())
         {
             panel.SetActive(true);
-            drag[_index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+            if(drag[_index].gameObject.GetComponent<SpriteRenderer>() != null)
+            {
+                drag[_index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+            }
+            else
+            {
+                glass.sortingOrder = 11;
+            }
+            
             LerpSaceleDrag(_index, maxScale, minScale);
         }
       
@@ -208,7 +268,41 @@ public class TutorialManager : MonoBehaviour
         {
             panel.SetActive(false);
             drag[_index].gameObject.transform.localScale = Vector3.one;
-            drag[_index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerDrag[_index];                    
+            if (drag[_index].gameObject.GetComponent<SpriteRenderer>() != null)
+            {
+                drag[_index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerDrag[_index];
+            }
+            else
+            {
+                glass.sortingOrder = initOrderingLayerDrag[_index];
+            }
+                               
+        }
+    }
+
+    private void ActiveFridge(int _indexTutorial)
+    {
+        Vector3 maxScale = new Vector3(1.1f, 1.1f, 1.1f);
+        Vector3 minScale = new Vector3(0.9f, 0.9f, 0.9f);
+
+        if (!fridge.enabled)
+        {
+            fridge.enabled = true;
+            isGrowing = true;
+        }
+
+        if(!fridge.GetIsOpen())
+        {
+            panel.SetActive(true);
+            LerpScaleFridge(maxScale, minScale);
+            fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+        }
+
+        if(fridge.GetIsOpen())
+        {
+            panel.SetActive(false);
+            fridge.gameObject.transform.localScale = Vector3.one;
+            activeTurotial[_indexTutorial] = false;
         }
     }
 
@@ -246,6 +340,26 @@ public class TutorialManager : MonoBehaviour
         {
             shaker.gameObject.transform.localScale = Vector3.Lerp(shaker.gameObject.transform.localScale, minScale, velocity * Time.deltaTime);
             if (shaker.gameObject.transform.localScale.x <= minScale.x + 0.01)
+            {
+                isGrowing = true;
+            }
+        }
+    }
+
+    private void LerpScaleFridge(Vector3 maxScale, Vector3 minScale)
+    {
+        if (isGrowing)
+        {
+            fridge.gameObject.transform.localScale = Vector3.Lerp(fridge.gameObject.transform.localScale, maxScale, velocity * Time.deltaTime);
+            if (fridge.gameObject.transform.localScale.x >= maxScale.x - 0.01)
+            {
+                isGrowing = false;
+            }
+        }
+        else
+        {
+            fridge.gameObject.transform.localScale = Vector3.Lerp(fridge.gameObject.transform.localScale, minScale, velocity * Time.deltaTime);
+            if (fridge.gameObject.transform.localScale.x <= minScale.x + 0.01)
             {
                 isGrowing = true;
             }
