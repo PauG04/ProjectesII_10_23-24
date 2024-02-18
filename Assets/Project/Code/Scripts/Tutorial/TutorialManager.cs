@@ -23,6 +23,7 @@ public class TutorialManager : MonoBehaviour
 
     [Header("CreateObject")]
     [SerializeField] private List<CreateObject> createObject;
+     private List<BoxCollider2D> createObjectCollider;
     private List<int> initOrderingLayerBucket;
 
     [Header("OpenFridge")]
@@ -35,7 +36,17 @@ public class TutorialManager : MonoBehaviour
     [Header("Panel")]
     [SerializeField] private GameObject panel;
 
-    private bool[] activeTurotial;
+    private bool[] activeTurotialDrag;
+    private bool[] activeTurotialCreateItem;
+
+    private enum tutorialID
+    {
+        BaseTutorial,
+        GlassTutorial,
+        MinigameTutorial
+    }
+
+    [SerializeField] private tutorialID id;
 
     bool isGrowing;
 
@@ -60,22 +71,30 @@ public class TutorialManager : MonoBehaviour
         jigger.enabled = false;
 
         initOrderingLayerBucket = new List<int>(createObject.Count);
+        createObjectCollider = new List<BoxCollider2D>(createObject.Count);
         for (int i = 0; i< createObject.Count; i++) 
         {
-            createObject[i].enabled = false;
+            createObjectCollider.Add(createObject[i].gameObject.GetComponent<BoxCollider2D>());
+            createObjectCollider[i].enabled = false;
             initOrderingLayerBucket.Add(createObject[i].gameObject.GetComponent<SpriteRenderer>().sortingOrder);
         }
         fridge.enabled = false;
         initOrderingLayerFridge = fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder;
 
-        activeTurotial = new bool[15];
+        activeTurotialDrag = new bool[7];
+        activeTurotialCreateItem = new bool[7];
 
-        for(int i = 0; i < activeTurotial.Length ; i++)
+        for (int i = 0; i < activeTurotialDrag.Length ; i++)
         {
-            activeTurotial[i] = false;
+            activeTurotialDrag[i] = false;
         }
 
-        activeTurotial[0] = true;
+        for (int i = 0; i < activeTurotialCreateItem.Length; i++)
+        {
+            activeTurotialCreateItem[i] = false;
+        }
+        activeTurotialCreateItem[0] = true;
+        activeTurotialDrag[0] = true;
         panel.SetActive(false);
     }
 
@@ -93,89 +112,147 @@ public class TutorialManager : MonoBehaviour
             shaker.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
 
-        CallActiveDrag();
-        ActiveBooleands();
+        if(id == tutorialID.BaseTutorial)
+        {
+            CallActiveDrag();
+            ActiveBooleandsTutorial1();
+        }
+        else if(id == tutorialID.MinigameTutorial)
+        {
+            CallActiveCreateObject();
+            ActiveBooleandsTutorial3();
+        }      
+    }
+
+    private void CallActiveCreateObject()
+    {
+        if (activeTurotialCreateItem[0])
+        {
+            ActiveFridge(0);
+        }
+
+        if (activeTurotialCreateItem[1])
+        {
+            ActiveCreateObjectFridge(0, 1);
+        }
+
+        if (activeTurotialCreateItem[2])
+        {
+            ActiveDragItem(6, false, 2);
+        }
+
+        if (activeTurotialCreateItem[3])
+        {
+            ActiveCreateObjectFridge(3, 3);
+        }
+
+        if (activeTurotialCreateItem[4])
+        {
+            ActiveDragItem(7, false, 4);
+        }
+    }
+
+    private void ActiveBooleandsTutorial3()
+    {
+        if (!activeTurotialCreateItem[3] && !activeTurotialCreateItem[4] && !fridge.GetIsOpen() && createObject[3].GetIsCreated())
+        {
+            activeTurotialCreateItem[4] = true;
+        }
+        if (activeTurotialCreateItem[2] && !activeTurotialCreateItem[3] && fridge.GetIsOpen() && drag[6].GetWasOnTheTable())
+        {
+            activeTurotialCreateItem[3] = true;
+            activeTurotialCreateItem[2] = false;
+        }
+        if (!activeTurotialCreateItem[1] && !activeTurotialCreateItem[2] && createObject[0].GetIsCreated() && !fridge.GetIsOpen())
+        {
+            activeTurotialCreateItem[2] = true;
+        }
+
+        if (!activeTurotialCreateItem[0] && !activeTurotialCreateItem[1] && fridge.GetIsOpen() && !createObject[0].GetIsCreated())
+        {
+            activeTurotialCreateItem[1] = true;
+        }
     }
 
     private void CallActiveDrag()
     {
-        if (activeTurotial[0])
+        if (activeTurotialDrag[0])
         {
             ActiveDragItem(0, true, 0);
         }
 
-        if (activeTurotial[1])
+        if (activeTurotialDrag[1])
         {
             ActiveDragShaker();
         }
 
-        if (activeTurotial[2])
+        if (activeTurotialDrag[2])
         {
             ActiveDragItem(1, false, 2);
             jigger.enabled = true;
         }
 
-        if (activeTurotial[3])
+        if (activeTurotialDrag[3])
         {
             ActiveDragItem(2, false, 3);
         }
 
-        if (activeTurotial[4])
+        if (activeTurotialDrag[4])
         {
             ActiveDragItem(3, false, 4);
         }
 
-        if (activeTurotial[5])
+        if (activeTurotialDrag[5])
         {
             ActiveDragItem(4, false, 5);
         }
 
-        if (activeTurotial[6])
+        if (activeTurotialDrag[6])
         {
             ActiveDragItem(5, false, 6);
         }
 
-        if (activeTurotial[6])
+        if (activeTurotialDrag[6])
         {
             ActiveDragItem(5, false, 6);
         }
     }
 
-    private void ActiveBooleands()
+    private void ActiveBooleandsTutorial1()
     {
-        if (!activeTurotial[6] && !activeTurotial[7] && drag[5].GetWasOnTheTable() && !createObject[0].GetIsCreated())
+        if (!activeTurotialDrag[6] && !activeTurotialDrag[7] && drag[5].GetWasOnTheTable() && !createObject[0].GetIsCreated())
         {
-            activeTurotial[7] = true;
+            activeTurotialDrag[7] = true;
         }
 
-        if (!activeTurotial[5] && !activeTurotial[6] && drag[4].GetWasOnTheTable())
+        if (!activeTurotialDrag[5] && !activeTurotialDrag[6] && drag[4].GetWasOnTheTable())
         {
-            activeTurotial[6] = true;
+            activeTurotialDrag[6] = true;
         }
 
-        if (!activeTurotial[4] && !activeTurotial[5] && drag[3].GetWasOnTheTable())
+        if (!activeTurotialDrag[4] && !activeTurotialDrag[5] && drag[3].GetWasOnTheTable())
         {
-            activeTurotial[5] = true;
+            activeTurotialDrag[5] = true;
         }
 
-        if (!activeTurotial[3] && !activeTurotial[4] && drag[2].GetWasOnTheTable())
+        if (!activeTurotialDrag[3] && !activeTurotialDrag[4] && drag[2].GetWasOnTheTable())
         {
-            activeTurotial[4] = true;
+            activeTurotialDrag[4] = true;
         }
 
-        if (!activeTurotial[2] && !activeTurotial[3] && drag[1].GetWasOnTheTable())
+        if (!activeTurotialDrag[2] && !activeTurotialDrag[3] && drag[1].GetWasOnTheTable())
         {
-            activeTurotial[3] = true;
+            activeTurotialDrag[3] = true;
         }
 
-        if (!activeTurotial[1] && !activeTurotial[2] && shaker.GetWasInTable())
+        if (!activeTurotialDrag[1] && !activeTurotialDrag[2] && shaker.GetWasInTable())
         {
-            activeTurotial[2] = true;
+            activeTurotialDrag[2] = true;
         }
 
-        if (drag[0].GetHasToReturn() && !activeTurotial[0] && !activeTurotial[1])
+        if (drag[0].GetHasToReturn() && !activeTurotialDrag[0] && !activeTurotialDrag[1])
         {
-            activeTurotial[1] = true;
+            activeTurotialDrag[1] = true;
         }       
     }
 
@@ -196,7 +273,7 @@ public class TutorialManager : MonoBehaviour
             !panel.activeSelf && shaker.GetWasInTable())
         {
             shaker.SetIsInTutorial(false);
-            activeTurotial[1] = false;
+            activeTurotialDrag[1] = false;
         }
 
         if (shaker.GetCurrentState().StateKey != ShakerStateMachine.ShakerState.DraggingClosed &&
@@ -234,12 +311,12 @@ public class TutorialManager : MonoBehaviour
             if(hasToReturn && !drag[_index].GetInsideWorkspace())
             {
                 drag[_index].SetIsInTutorial(false);
-                activeTurotial[_indexTutorial] = false;
+                activeTurotialDrag[_indexTutorial] = false;
             }
             else if(!hasToReturn)
             {
                 drag[_index].SetIsInTutorial(false);
-                activeTurotial[_indexTutorial] = false;
+                activeTurotialDrag[_indexTutorial] = false;
             }
         }
 
@@ -299,7 +376,7 @@ public class TutorialManager : MonoBehaviour
             panel.SetActive(false);
             fridge.gameObject.transform.localScale = Vector3.one;
             fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerFridge;
-            activeTurotial[_indexTutorial] = false;
+            activeTurotialCreateItem[_indexTutorial] = false;
         }
     }
 
@@ -308,9 +385,9 @@ public class TutorialManager : MonoBehaviour
         Vector3 maxScale = new Vector3(2.1f, 2.1f, 2.1f);
         Vector3 minScale = new Vector3(1.9f, 1.9f, 1.9f);
 
-        if (!createObject[index].enabled)
+        if (!createObjectCollider[index].enabled)
         {
-            createObject[index].enabled = true;
+            createObjectCollider[index].enabled = true;
             isGrowing = true;
         }
         if (!createObject[index].GetIsCreated())
@@ -325,7 +402,7 @@ public class TutorialManager : MonoBehaviour
             panel.SetActive(false);
             createObject[index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerBucket[index];
             createObject[index].gameObject.transform.localScale = new Vector3(2,2,2);
-            activeTurotial[_indexTutorial] = false;
+            activeTurotialCreateItem[_indexTutorial] = false;
         }
     }
 
