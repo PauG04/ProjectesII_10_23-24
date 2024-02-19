@@ -207,6 +207,11 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         InsideWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
         _shakerStateMachine.transform.localScale = new Vector2(_scaleMultiplier, _scaleMultiplier);
+
+        if(!_shakerStateMachine.GetWasInTable())
+        {
+            _shakerStateMachine.SetWasInTable(true);
+        }
     }
     private void OutsideWorkspace()
     {
@@ -214,7 +219,10 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
         OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
-        _shakerStateMachine.transform.localScale = Vector3.one;
+        if (!_shakerStateMachine.GetIsInTutorial())
+        {
+            _shakerStateMachine.transform.localScale = Vector3.one;
+        }          
     }
     private void InsideWorkspaceRenderersChilds(Transform parent)
     {

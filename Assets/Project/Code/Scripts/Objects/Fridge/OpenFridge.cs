@@ -92,4 +92,9 @@ public class OpenFridge : MonoBehaviour
         }  
     }
 
+    public bool GetIsOpen()
+    {
+        return isOpen;
+    }
+
 }

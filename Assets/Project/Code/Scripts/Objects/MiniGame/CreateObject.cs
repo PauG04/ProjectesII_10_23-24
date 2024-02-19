@@ -9,6 +9,8 @@ public class CreateObject : MonoBehaviour
 
     [Header("Bucket")]
     [SerializeField] private GameObject bucket;
+
+    private bool isCreated;
     private void OnMouseDown()
     {
         GameObject item = Instantiate(createdObject, transform);
@@ -17,11 +19,21 @@ public class CreateObject : MonoBehaviour
         item.GetComponent<DragItemsNew>().SetIsDragging(true);
         item.GetComponent<DragItemsNew>().SetInitPosition(transform.position);
 
+        if(!isCreated)
+        {
+            isCreated = true;
+        }
+
         if(bucket != null)
         {
             item.GetComponent<GetBucket>().SetBucket(bucket);
         }
         
         
+    }
+
+    public bool GetIsCreated()
+    {
+        return isCreated;
     }
 }

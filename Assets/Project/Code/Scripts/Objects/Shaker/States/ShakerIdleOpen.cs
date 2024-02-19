@@ -72,6 +72,7 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void UpdateState()
     {
+       
         AlphaLerp();
         if (!_workSpace.OverlapPoint(_shakerStateMachine.transform.position))
         {
@@ -148,8 +149,11 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
     {
         _shakerStateMachine.SetGetInWorkSpace(false);
         OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
-
-        _shakerStateMachine.transform.localScale = Vector3.one;
+        
+        if(!_shakerStateMachine.GetIsInTutorial())
+        {
+            _shakerStateMachine.transform.localScale = Vector3.one;
+        }    
     }
     private void OutsidewWorkspaceRenderersChilds(Transform parent)
     {

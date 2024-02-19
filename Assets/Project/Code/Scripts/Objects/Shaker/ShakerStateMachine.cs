@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerState>
 {
-
     [Header("General Shaker Variables")]
     [SerializeField] private SetTopShaker topShaker;
     [SerializeField] private GameObject bottomShaker;
@@ -39,6 +38,9 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 
 	private Vector3 initPosition;
 
+	private bool isInTutorial;
+	private bool wasInTable;
+
     public enum ShakerState
 	{
 		IdleOpen,
@@ -51,6 +53,8 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	private void Awake()
 	{
 		isInWorkSpace = false;
+		isInTutorial = false;
+		wasInTable = false;
 
         initPosition = transform.localPosition;
 
@@ -107,5 +111,31 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	{
 		return isPressing;
 	}
+
+	public BaseState<ShakerState> GetCurrentState()
+	{
+		return CurrentState;
+	}
+
+	public bool GetIsInTutorial()
+	{
+		return isInTutorial;
+    }
+
+	public void SetIsInTutorial(bool State)
+	{
+		isInTutorial = State;
+	}
+
+	public bool GetWasInTable()
+	{
+		return wasInTable;
+    }
+
+	public void SetWasInTable(bool State)
+	{
+        wasInTable = State;
+
+    }
 
 }
