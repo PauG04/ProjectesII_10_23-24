@@ -172,7 +172,11 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
 
         OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
-        _shakerStateMachine.transform.localScale = Vector3.one;
+        if (!_shakerStateMachine.GetIsInTutorial())
+        {
+            _shakerStateMachine.transform.localScale = Vector3.one;
+        }
+            
     }
     private void OutsidewWorkspaceRenderersChilds(Transform parent)
     {

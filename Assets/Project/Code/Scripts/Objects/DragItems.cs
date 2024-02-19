@@ -27,10 +27,14 @@ public class DragItemsNew : MonoBehaviour
     [SerializeField] private bool hasToReturn;
     [SerializeField] private bool hasToStayTheSameLayer;
     [SerializeField] private bool changeSpriteMask;
+    [SerializeField] private bool isItem;
+    
 
     private bool isObjectRotated;
     private bool isRotating;
     private bool isReturning;
+    private bool isInTutorial;
+    private bool wasOnTheTable;
 
     private Vector3 initPosition;
     private Quaternion initRotation;
@@ -53,7 +57,11 @@ public class DragItemsNew : MonoBehaviour
 
         workSpace = GameObject.FindGameObjectWithTag("WorkSpace").GetComponent<BoxCollider2D>();
 
-        rb2d.bodyType = RigidbodyType2D.Static;
+        if(!isItem)
+        {
+            rb2d.bodyType = RigidbodyType2D.Static;
+        }
+        
 
         if (transform.rotation != Quaternion.identity)
         {
@@ -66,6 +74,8 @@ public class DragItemsNew : MonoBehaviour
         }
 
         initPosition = transform.localPosition;
+        isInTutorial = false;
+        wasOnTheTable = false;
     }
     private void Update()
     {
@@ -73,7 +83,6 @@ public class DragItemsNew : MonoBehaviour
         {
             isDragging = false;
         }
-
 
         if (hasToReturn)
         {
@@ -176,6 +185,11 @@ public class DragItemsNew : MonoBehaviour
         InsideWorkspaceRenderersChilds(transform);
 
         transform.localScale = new Vector2(scaleMultiplier, scaleMultiplier);
+
+        if(!wasOnTheTable)
+        {
+            wasOnTheTable = true;
+        }
     }
     private void OutsideWorkspace()
     {
@@ -199,7 +213,11 @@ public class DragItemsNew : MonoBehaviour
      
         OutsidewWorkspaceRenderersChilds(transform);
 
-        transform.localScale = Vector3.one;
+        if(!isInTutorial)
+        {
+            transform.localScale = Vector3.one;
+        }
+        
     }
     private void InsideWorkspaceRenderersChilds(Transform parent)
     {
@@ -324,4 +342,25 @@ public class DragItemsNew : MonoBehaviour
     {
         this.hasToReturn = hasToReturn;
     }
+
+    public bool GetHasToReturn()
+    {
+        return hasToReturn;
+    }
+
+    public void SetIsInTutorial(bool state)
+    {
+        isInTutorial = state;
+    }   
+    
+    public bool GetIsInTutorial()
+    {
+        return isInTutorial;
+    }
+
+    public bool GetWasOnTheTable()
+    {
+        return wasOnTheTable;
+    }
+
 }

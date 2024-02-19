@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class TakeItemToBucket : MonoBehaviour
 {
-    private Vector2 initPosition;
     private Rigidbody2D rb2d;
-    private Vector3 startPosition;
-    private Vector3 initScale;
 
     private bool startLerp;
 
@@ -21,17 +18,21 @@ public class TakeItemToBucket : MonoBehaviour
     [Header("Tranform Vairables")]
     [SerializeField] private float increaseScale;
 
+    private bool isDragging;
+    private Vector3 offset;
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        initPosition = transform.localPosition;
-        startPosition = transform.position;
-        initScale = transform.localScale;
         startLerp = false;
     }
 
     private void Update()
     {
+        if(isDragging)
+        {
+            transform.position = GetMouseWorldPosition() + offset;
+        }
         if(startLerp)
         {
             transform.position = Vector2.Lerp(transform.position, bucket.transform.position, Time.deltaTime * velocity);
@@ -44,8 +45,22 @@ public class TakeItemToBucket : MonoBehaviour
 
     private void OnMouseDown()
     {
-        startLerp = true;
+        isDragging = true;
         rb2d.bodyType = RigidbodyType2D.Static;
+        offset = gameObject.transform.position - GetMouseWorldPosition();
+    }
+
+    private void OnMouseUp()
+    {
+        isDragging = false;
+        rb2d.bodyType = RigidbodyType2D.Dynamic;
+    }
+
+    private Vector3 GetMouseWorldPosition()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = -Camera.main.transform.position.z;
+        return Camera.main.ScreenToWorldPoint(mousePosition);
     }
 
     public void SetBucket(GameObject _bucket)

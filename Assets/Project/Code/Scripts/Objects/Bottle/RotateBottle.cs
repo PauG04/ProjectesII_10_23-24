@@ -11,6 +11,7 @@ public class RotateBottle : MonoBehaviour
     private bool _isRotating = false;
     private float _targetRotation = 0f;
     private float _currentRotation = 0f;
+    private Quaternion initRotation;
 
     private DragItemsNew dragItem;
 
@@ -20,6 +21,8 @@ public class RotateBottle : MonoBehaviour
     private void Start()
     {
         dragItem = GetComponent<DragItemsNew>();
+
+        initRotation = transform.localRotation;
     }
 
     private void Update()
@@ -32,16 +35,19 @@ public class RotateBottle : MonoBehaviour
         {
             _isRotating = false;
         }
-
         if (_isRotating)
         {
             RotateObject();
         }
-        else
+        else if(!_isRotating && dragItem.GetInsideWorkspace())
+        {
+            ResetObjectPosition(Quaternion.identity);
+        }
+        else if(!_isRotating)
         {
             if (transform.localRotation != Quaternion.identity)
             {
-                ResetObjectPosition();
+                ResetObjectPosition(initRotation); 
             }
         }
 
@@ -55,13 +61,15 @@ public class RotateBottle : MonoBehaviour
 
         _currentRotation = Mathf.Lerp(_currentRotation, -_targetRotation, Time.deltaTime * _rotationSpeed);
         transform.rotation = Quaternion.Euler(Vector3.forward * _currentRotation);
+
     }
 
-    public void ResetObjectPosition()
+    public void ResetObjectPosition(Quaternion _rotation)
     {
         _targetRotation = 0f;
         _currentRotation = 0f;
-        transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.identity, _rotationSpeed * Time.deltaTime);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, _rotation, _rotationSpeed * Time.deltaTime);
+
     }
 
     public bool GetIsRotating()
