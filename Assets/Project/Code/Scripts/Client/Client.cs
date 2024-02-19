@@ -157,6 +157,7 @@ public class Client : MonoBehaviour
             MoveClientVertical();
             if (transform.localPosition.x > leavePosition.transform.localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
             {
+                ClientManager.instance.CreateNewClient();
                 Destroy(gameObject);
             }
         }
@@ -208,4 +209,41 @@ public class Client : MonoBehaviour
             text.SetActive(false);
         }
     }
+
+    public void InitClient(Client newClient)
+    {
+        clientPosition = newClient.GetClientPosition();
+        leavePosition = newClient.GetLeavePosition();
+        maxYPosition = newClient.GetMaxYPosition();
+        horizontalVelocity = newClient.GetHorizontalVelocity();
+        verticalVelocity = newClient.GetVerticalVelocity();
+        text = newClient.GetText();
+    }
+
+    #region GETTERS
+    public GameObject GetClientPosition()
+    {
+        return clientPosition;
+    }
+    public GameObject GetLeavePosition()
+    {
+        return leavePosition;
+    }
+    public float GetMaxYPosition()
+    {
+        return maxYPosition;
+    }
+    public float GetHorizontalVelocity()
+    {
+        return horizontalVelocity;
+    }
+    public float GetVerticalVelocity()
+    {
+        return verticalVelocity;
+    }
+    public GameObject GetText()
+    {
+        return text;
+    }
+    #endregion
 }

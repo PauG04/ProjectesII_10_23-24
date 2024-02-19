@@ -6,8 +6,9 @@ public class ClientManager : MonoBehaviour
 {
     public static ClientManager instance { get; private set; }
 
-    [SerializeField] GameObject client;
     [SerializeField] Transform clientParent;
+    [SerializeField] GameObject client;
+    private GameObject currentClient;
 
     [SerializeField] private List<Sprite> clientSprites;
 
@@ -30,6 +31,9 @@ public class ClientManager : MonoBehaviour
 
     public void CreateNewClient()
     {
-        Instantiate(client, clientParent);
+        Client temp = currentClient.GetComponent<Client>();
+        currentClient = Instantiate(client, clientParent);
+        currentClient.GetComponent<Client>().InitClient(temp);
+        Destroy(temp);
     }
 }
