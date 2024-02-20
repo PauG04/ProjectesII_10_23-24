@@ -13,38 +13,23 @@ namespace UI
 		[SerializeField] private Transform bubbleRoot;
 		private PlayerConversant playerConversant;
 		
-		[Header("Conversant Name")]
-		[SerializeField] private GameObject prefabNameLabel;
-		private TextMeshProUGUI conversantName;
-		
-		[Header("AI Text")]
+		[Header("Bubbles")]
 		[SerializeField] private GameObject prefabAibubble;
-		private TextMeshProUGUI AIText;
-		
-		[Header("Player Text")]
-		[SerializeField] private GameObject prefabPlayerbubble;
-		private TextMeshProUGUI playerText;
-		
-		[Header("Choices")]
-		[SerializeField] private Transform choiceRoot;
-		[SerializeField] private GameObject choicePrefab;
-	
-		[Header("Buttons")]
-		[SerializeField] private Button quitButton;
+        [SerializeField] private GameObject prefabPlayerbubble;
+        [SerializeField] private GameObject separator;
+
+        private TextMeshProUGUI playerText;
+        private TextMeshProUGUI AIText;
 	
 		private void Start()
 		{
 		    playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
 			playerConversant.onConversationUpdated += UpdateChat;
 		    
-		    quitButton.onClick.AddListener(() => playerConversant.Quit());
-		    
 		    AIText = prefabAibubble.GetComponentInChildren<TextMeshProUGUI>();
 		    playerText = prefabPlayerbubble.GetComponentInChildren<TextMeshProUGUI>();
-			conversantName = prefabNameLabel.GetComponentInChildren<TextMeshProUGUI>();
 		    
 			DestroyChildrens(bubbleRoot);
-			DestroyChildrens(choiceRoot);
 		}
 		
 		private void Update()
@@ -53,9 +38,9 @@ namespace UI
 			{
 				if (playerConversant.HasNext() && !playerConversant.IsChoosing())
 				{
-					playerConversant.Next();
+					StartCoroutine(playerConversant.WriteTextWithDelay());
 				}
-			}
+            }
 		}
 
 		private void UpdateChat()
@@ -64,46 +49,38 @@ namespace UI
 			{
 				return;
 			}
+
 			if(playerConversant.IsNewConversant())
 			{
-				conversantName.text = playerConversant.GetCurrentConversantName();
-				GameObject nameLabel = Instantiate(prefabNameLabel, bubbleRoot);
+				// Clear current chat
 			}
 			
-			choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
+			if (!playerConversant.HasNext())
+			{
+                StartCoroutine(playerConversant.WriteTextWithDelay());
+                Instantiate(separator, bubbleRoot);
+            }
 
 			if (playerConversant.IsChoosing())
 			{
-				BuildChoiceList();
-			}
-			else 
+                PlayerChoosing();
+            }
+            else 
 			{
 				AIText.text = playerConversant.GetText();
 				
-				GameObject conversantBubble = Instantiate(prefabAibubble, bubbleRoot);
+				Instantiate(prefabAibubble, bubbleRoot);
 			}
-			
 		}
 	
-		private void BuildChoiceList()
+		private void PlayerChoosing()
 		{
-			DestroyChildrens(choiceRoot);
 			foreach (DialogueNode choice in playerConversant.GetChoices())
 			{
-				GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);
-				
-				TextMeshProUGUI textComponent =	choiceInstance.GetComponentInChildren<TextMeshProUGUI>();
-				textComponent.text = choice.GetText();
-				
-				Button button = choiceInstance.GetComponentInChildren<Button>();
-				
-				button.onClick.AddListener(() => 
-				{
-					PlayerBubble(choice.GetText());
-					playerConversant.SelectChoice(choice);
-				});
-			}
-		}
+                //Instantiate(separator, bubbleRoot);
+
+            }
+        }
 		private void PlayerBubble(string text)
 		{
 			playerText.text = text;

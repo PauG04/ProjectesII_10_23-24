@@ -1,3 +1,4 @@
+using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,6 +22,7 @@ public class Client : MonoBehaviour
     [SerializeField] private float verticalVelocity;
     [SerializeField] private GameObject text;
 
+
     private float minYPosition;
     private bool isGoingUp;
 
@@ -32,8 +34,12 @@ public class Client : MonoBehaviour
     private bool arriveAnimation;
     private bool leaveAnimation;
 
+    [Header("Client Dialogue")]
+    private AIConversant conversant;
+
     private void Awake()
     {
+        conversant = GetComponent<AIConversant>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         textMP = GetComponentInChildren<TextMeshPro>();
 
@@ -57,8 +63,11 @@ public class Client : MonoBehaviour
     {
         //int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
         //order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
-        order = CocktailNode.Type.Invade;
-        textMP.text = "Quiero un " + order.ToString();
+        //order = CocktailNode.Type.Invade;
+        //textMP.text = "Quiero un " + order.ToString();
+        //text.SetActive(true);
+
+        conversant.HandleDialogue();
     }
 
     private void InitPayment()
@@ -142,7 +151,6 @@ public class Client : MonoBehaviour
             {
                 arriveAnimation = false;
                 InitClient();
-                text.SetActive(true);
             }
         }
 

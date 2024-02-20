@@ -6,7 +6,6 @@ using UnityEngine;
 	
 namespace Dialogue
 {
-
 	public class PlayerConversant : MonoBehaviour
 	{
 		//[SerializeField] private Dialogue testDialogue;
@@ -30,8 +29,9 @@ namespace Dialogue
 		{
 			yield return new WaitForSeconds(secondsDialogueDelay);
 			Next();
-		}
-		public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
+
+        }
+        public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
 			isChoosing = false;
 			

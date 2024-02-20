@@ -18,7 +18,7 @@ namespace Dialogue
 			stopDialogue = false;
 		}	
 	
-		public void HandleDialogue(PlayerConversant playerConversant)
+		public void HandleDialogue()
 		{
 			if(dialogue == null)
 			{
@@ -30,7 +30,7 @@ namespace Dialogue
 		}
 		private void OnMouseDown()
 		{
-			HandleDialogue(playerConversant);
+			//HandleDialogue();
 		}
 		
 		public void StopDialogue()
