@@ -42,8 +42,8 @@ namespace Dialogue
 		{
 			stopDialogue = false;
 		}
-		
-		public string GetName()
+
+        public string GetName()
 		{
 			return conversantName;
 		}

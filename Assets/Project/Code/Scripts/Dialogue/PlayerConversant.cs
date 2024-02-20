@@ -24,12 +24,14 @@ namespace Dialogue
 		private int currentChildNumber = 0;
 		
 		public event Action onConversationUpdated;
-				
+
+		public bool isTextRunning;
 		public IEnumerator WriteTextWithDelay()
 		{
-			yield return new WaitForSeconds(secondsDialogueDelay);
+            isTextRunning = true;
+            yield return new WaitForSeconds(secondsDialogueDelay);
 			Next();
-
+            isTextRunning = false;
         }
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{

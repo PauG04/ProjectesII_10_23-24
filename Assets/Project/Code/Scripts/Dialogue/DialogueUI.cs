@@ -20,8 +20,11 @@ namespace UI
 
         private TextMeshProUGUI playerText;
         private TextMeshProUGUI AIText;
-	
-		private void Start()
+
+		private bool isSeparatorRunning;
+
+
+        private void Start()
 		{
 		    playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
 			playerConversant.onConversationUpdated += UpdateChat;
@@ -36,12 +39,23 @@ namespace UI
 		{
 			if (playerConversant.IsActive())
 			{
-				if (playerConversant.HasNext() && !playerConversant.IsChoosing())
+				if (playerConversant.HasNext() && !playerConversant.IsChoosing() && !playerConversant.isTextRunning)
 				{
 					StartCoroutine(playerConversant.WriteTextWithDelay());
-				}
+				} 
+				else if ((playerConversant.IsChoosing() || !playerConversant.HasNext()) && !isSeparatorRunning)
+				{
+                    StartCoroutine(SeparatorDelay());
+                }
+            } 
+			else
+			{
+				if (!isSeparatorRunning)
+				{
+                    StartCoroutine(SeparatorDelay());
+                }
             }
-		}
+        }
 
 		private void UpdateChat()
 		{
@@ -54,30 +68,23 @@ namespace UI
 			{
 				// Clear current chat
 			}
-			
-			if (!playerConversant.HasNext())
-			{
-                StartCoroutine(playerConversant.WriteTextWithDelay());
-                Instantiate(separator, bubbleRoot);
-            }
 
-			if (playerConversant.IsChoosing())
+            if (playerConversant.IsChoosing())
 			{
+                Instantiate(separator, bubbleRoot);
+
                 PlayerChoosing();
             }
             else 
 			{
 				AIText.text = playerConversant.GetText();
-				
 				Instantiate(prefabAibubble, bubbleRoot);
 			}
-		}
-	
+        }
 		private void PlayerChoosing()
 		{
 			foreach (DialogueNode choice in playerConversant.GetChoices())
 			{
-                //Instantiate(separator, bubbleRoot);
 
             }
         }
@@ -86,7 +93,6 @@ namespace UI
 			playerText.text = text;
 			GameObject playerBubble = Instantiate(prefabPlayerbubble, bubbleRoot);
 		}
-		
 		private void DestroyChildrens(Transform root)
 		{
 			foreach (Transform item in root)
@@ -94,8 +100,14 @@ namespace UI
 				Destroy(item.gameObject);
 			}
 		}
-
-		protected void OnDestroy()
+        public IEnumerator SeparatorDelay()
+        {
+            isSeparatorRunning = true;
+            yield return new WaitForSeconds(1f);
+            Instantiate(separator, bubbleRoot);
+            isSeparatorRunning = false;
+        }
+        protected void OnDestroy()
 		{
 			playerConversant.onConversationUpdated -= UpdateChat;
 		}
