@@ -10,26 +10,24 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 612416e99e325834eba562d43ecd654f, type: 3}
-  m_Name: Disco N
+  m_Name: Sangria
   m_EditorClassIdentifier: 
-  state: 0
-  type: 0
-  price: 0
-  cocktailName: Disco N
-  subtitle: Elegant
-  description: '3 HerbHaven
+  state: 1
+  type: 6
+  price: 10
+  cocktailName: Sangria
+  subtitle: Clasico
+  description: '4 Whiskey Onzas
 
-    1 GlacierSpirit
+    6 LemonJuice Onzas
 
-    6 Tonic
-
-'
+    State: Mixed'
   sprite: {fileID: -466113424, guid: eefb5d5c95242c848b730367a4df859f, type: 3}
   SerializableIngredients:
     items:
-    - type: 3
-      quantity: 3
-    - type: 0
-      quantity: 1
-    - type: 9
+    - type: {fileID: 11400000, guid: df8602bd8649c724da27a6fc9b51edde, type: 2}
       quantity: 6
+    - type: {fileID: 11400000, guid: 8e4de90f0eb64a646838e305f5ded7c1, type: 2}
+      quantity: 2
+    - type: {fileID: 11400000, guid: 3d506f12de8675b428a3107948c85215, type: 2}
+      quantity: 2

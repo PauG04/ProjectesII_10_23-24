@@ -8,7 +8,7 @@ public class DropLiquid : MonoBehaviour
     [SerializeField] private GameObject liquidPref;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private LiquidManager liquidManager;
-    [SerializeField] private DrinkNode.Type drinkType;
+    [SerializeField] private DrinkNode drink;
 
     private float minRotationToPourLiquid = 70f;
     private float maxRotationToPourLiquid = 140f;
@@ -68,7 +68,7 @@ public class DropLiquid : MonoBehaviour
             if (timeSinceLastPour >= pouringInterval)
             {
                 GameObject liquid = GameObject.Instantiate(liquidPref, spawnPoint.position, Quaternion.identity);
-                liquid.GetComponent<LiquidParticle>().SetDrinkType(drinkType);
+                liquid.GetComponent<LiquidParticle>().SetDrink(drink);
 
                 liquidManager.DeacreaseCurrentLiquid();
 
