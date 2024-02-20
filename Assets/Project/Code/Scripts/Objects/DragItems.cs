@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class DragItemsNew : MonoBehaviour
@@ -82,8 +81,6 @@ public class DragItemsNew : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            rb2d.AddForce(Vector2.right * 0.1f, ForceMode2D.Impulse);
-
             isDragging = false;
         }
 
@@ -114,13 +111,22 @@ public class DragItemsNew : MonoBehaviour
             if (!workSpace.OverlapPoint(transform.position))
             {
                 rb2d.bodyType = RigidbodyType2D.Static;
-                
                 OutsideWorkspace();
             }
             else
             {
-                rb2d.bodyType = RigidbodyType2D.Dynamic;
-                InsideWorkspace();
+                if (!isReturning)
+                {
+                    rb2d.bodyType = RigidbodyType2D.Dynamic;
+                    InsideWorkspace();
+                }
+                else
+                {
+                    if (spriteRenderer != null)
+                    {
+                        spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
+                    }
+                }
             }
         }
 
@@ -152,8 +158,6 @@ public class DragItemsNew : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        rb2d.AddForce(Vector2.right * 0.1f, ForceMode2D.Impulse);
-
         rb2d.bodyType = RigidbodyType2D.Dynamic;
 
         isDragging = false;
@@ -167,7 +171,7 @@ public class DragItemsNew : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("WorkspaceObject");
         }
 
-        if(spriteRenderer!= null) 
+        if(spriteRenderer != null) 
         {
             spriteRenderer.sortingLayerName = "WorkSpace";
             if (changeSpriteMask)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ProBuilder.AutoUnwrapSettings;
 
 public class LiquidManager : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class LiquidManager : MonoBehaviour
 
     [SerializeField] private bool isGlass;
     private DragItemsNew dragItems;
+    private BoxCollider2D boxCollider;
+
+    [Header("Liquid Fill Variables")]
+    [SerializeField] private float maxColliderPos = 0.1475f;
+    [SerializeField] private float minColliderPos = -0.23f;
 
     [Header("Jigger")]
     [SerializeField] private DropJiggerLiquid dropLiquid;
@@ -19,20 +25,29 @@ public class LiquidManager : MonoBehaviour
     private void Awake()
     {
         particleTypes = new Dictionary<DrinkNode.Type, int>();
+        boxCollider = GetComponent<BoxCollider2D>();
 
         if (isGlass)
+        {
             dragItems = GetComponentInParent<DragItemsNew>();
+        }
     }
 
     private void Update()
     {
+        ColliderController();
         if (isGlass)
         {
             if (particleTypes.Count > 0)
+            {
                 dragItems.SetHasToReturn(false);
+            }
             else
+            {
                 dragItems.SetHasToReturn(true);
+            }
         }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,7 +74,27 @@ public class LiquidManager : MonoBehaviour
             }
         }
     }
+    private void ColliderController()
+    {
+        if (currentLiquid < maxLiquid)
+        {
+            float fill = currentLiquid / maxLiquid;
+            float colliderPosition = minColliderPos + (fill * (maxColliderPos - minColliderPos)) / 1;
+            transform.localPosition = new Vector3(transform.localPosition.x, colliderPosition, transform.localPosition.z);
+        }
 
+        if (boxCollider != null)
+        {
+            if (currentLiquid >= maxLiquid)
+            {
+                GetComponent<BoxCollider2D>().isTrigger = false;
+            }
+            else
+            {
+                GetComponent<BoxCollider2D>().isTrigger = true;
+            }
+        }
+    }
     public void DeacreaseCurrentLiquid()
     {
         currentLiquid--;
