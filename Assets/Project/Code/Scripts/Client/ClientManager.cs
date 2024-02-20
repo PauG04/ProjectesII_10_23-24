@@ -20,6 +20,8 @@ public class ClientManager : MonoBehaviour
 
     [SerializeField] private List<Sprite> clientSprites;
 
+    private bool test;
+
     private void Awake()
     {
         if (instance == null)

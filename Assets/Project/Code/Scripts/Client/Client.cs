@@ -40,7 +40,7 @@ public class Client : MonoBehaviour
         //order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
         //payment = WikiManager.instance.GetAvailableCocktails()[randomOrder].price;
 
-        order = CocktailNode.Type.TequilaSunrise;
+        order = CocktailNode.Type.Mojito;
         payment = 10.0f;
     }
 

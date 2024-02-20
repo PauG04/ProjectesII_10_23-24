@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3168490819451694620
+--- !u!1 &9071389106930928307
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4072160693398134178}
-  - component: {fileID: 1583649372198497632}
+  - component: {fileID: 8422938162780285518}
+  - component: {fileID: 8657942796167165326}
   m_Layer: 0
   m_Name: ClientManager
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4072160693398134178
+--- !u!4 &8422938162780285518
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3168490819451694620}
+  m_GameObject: {fileID: 9071389106930928307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,38 +32,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1583649372198497632
+--- !u!114 &8657942796167165326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3168490819451694620}
+  m_GameObject: {fileID: 9071389106930928307}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42115859f764caf45b2eca1d7f06e280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  client: {fileID: 8136425335581941605, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
   clientParent: {fileID: 0}
-  clientSprites:
-  - {fileID: 21300000, guid: 1c9114caca1be304290f27c87889ac2c, type: 3}
-  - {fileID: 21300000, guid: a59c29858f1aaa7449ccd952054587db, type: 3}
-  - {fileID: 21300000, guid: a34fff9999bcf53478f74ac3e0663b68, type: 3}
-  - {fileID: 21300000, guid: eca64b6b4838ac14d8499ce2e0c1fd51, type: 3}
-  - {fileID: 21300000, guid: 4d163dd135a2120429a6dcd87986e638, type: 3}
-  - {fileID: 21300000, guid: 045167c41f39cb047b5a35dcd9dffb5e, type: 3}
-  - {fileID: 21300000, guid: 750d13a758b60a24ba21beae2a004c03, type: 3}
-  - {fileID: 21300000, guid: 6602edef89fdb4e45ba3835721322927, type: 3}
-  - {fileID: 21300000, guid: c371e1c8baab32a40abff5764a14e6d2, type: 3}
-  - {fileID: 21300000, guid: 58688391d396a7f438daa78b24c86234, type: 3}
-  - {fileID: 21300000, guid: 474edd52259ec1f4aa20d8cf8bef2d02, type: 3}
-  - {fileID: 21300000, guid: 461d236b7e1eefe418223a8184c9f9c9, type: 3}
-  - {fileID: 21300000, guid: 0f8f92b56e9ea7d499f7537d509607a9, type: 3}
-  - {fileID: 21300000, guid: d99140b97c6cb0d44a94986cfd585106, type: 3}
-  - {fileID: 21300000, guid: 3887ac5d3c120244cab81f4299f0fb8e, type: 3}
-  - {fileID: 21300000, guid: c1f6134ce5370864cbaadbf349a73567, type: 3}
-  - {fileID: 21300000, guid: 24a38cc202d9ad54884c2967dad32de0, type: 3}
-  - {fileID: 21300000, guid: 4622e02b7c65e414e9c57e11f054a40b, type: 3}
-  - {fileID: 21300000, guid: 1c7c79070d3fd2148b0875f54b9acbe6, type: 3}
-  - {fileID: 21300000, guid: 4e2c9d982a9b8814683906c604596bf6, type: 3}
+  client: {fileID: 3164742363969609211, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+  spawnPosition: {fileID: 0}
+  clientPosition: {fileID: 0}
+  DestroyPosition: {fileID: 0}
+  maxYPosition: -1
+  horizontalVelocity: 3
+  verticalVelocity: 10
+  clientSprites: []

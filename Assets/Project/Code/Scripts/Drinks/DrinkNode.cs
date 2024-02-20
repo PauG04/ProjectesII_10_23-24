@@ -12,7 +12,7 @@ public class DrinkNode : ScriptableObject
         Vodka,
         Gin,
         Whiskey,
-        Tequila,
+        Wine,
 
         //Juices
         OrangeJuice,

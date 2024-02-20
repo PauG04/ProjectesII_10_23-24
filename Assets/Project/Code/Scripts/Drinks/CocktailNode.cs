@@ -16,13 +16,13 @@ public class CocktailNode : ScriptableObject
     public enum Type
     {
         Roncola,
-        TequilaSunrise,
-        Ginlemmon,
+        Mojito,
+        PomadaMenorquina,
         Gintonic,
-        Cocktail05,
-        Cocktail06,
-        Cocktail07,
-        Cocktail08,
+        AguaDePalencia,
+        WhiskeySour,
+        Sangria,
+        Kalimotxo,
         Cocktail09,
         Cocktail10,
         Cocktail11,
@@ -57,9 +57,9 @@ public class CocktailNode : ScriptableObject
             description += ingridient.Value + " " + ingridient.Key.ToString();
 
             if (ingridient.Value > 1)
-                description += " Ounces" + "\n";
+                description += " Onzas" + "\n";
             else
-                description += " Ounce" + "\n";
+                description += " Onza" + "\n";
         }
         description += "State: " + state.ToString();
     }

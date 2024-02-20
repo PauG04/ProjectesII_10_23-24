@@ -31,27 +31,27 @@ public class CalculateDrink : MonoBehaviour
         if (CheckCocktail(typesOfDrink, state, allCocktails["Roncola"]))
             return CocktailNode.Type.Roncola;
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["TequilaSunrise"]))
-            return CocktailNode.Type.TequilaSunrise;
+        if (CheckCocktail(typesOfDrink, state, allCocktails["Mojito"]))
+            return CocktailNode.Type.Mojito;
+        
+        if (CheckCocktail(typesOfDrink, state, allCocktails["PomadaMenorquina"]))
+            return CocktailNode.Type.PomadaMenorquina;
+
+        if (CheckCocktail(typesOfDrink, state, allCocktails["Gintonic"]))
+            return CocktailNode.Type.Gintonic;
+
+        if (CheckCocktail(typesOfDrink, state, allCocktails["AguaDePalencia"]))
+            return CocktailNode.Type.AguaDePalencia;
+
+        if (CheckCocktail(typesOfDrink, state, allCocktails["WhiskeySour"]))
+            return CocktailNode.Type.WhiskeySour;
+
+        if (CheckCocktail(typesOfDrink, state, allCocktails["Sangria"]))
+            return CocktailNode.Type.Sangria;
+
+        if (CheckCocktail(typesOfDrink, state, allCocktails["Kalimotxo"]))
+            return CocktailNode.Type.Kalimotxo;
         /*
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Morgana"]))
-            return CocktailNode.Type.Morgana;
-
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Thresh"]))
-            return CocktailNode.Type.Thresh;
-
-        if (CheckCocktail(typesOfDrink, state, allCocktails["PinkLeibel"]))
-            return CocktailNode.Type.PinkLeibel;
-
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Morgana"]))
-            return CocktailNode.Type.Morgana;
-
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Sekiro"]))
-            return CocktailNode.Type.Sekiro;
-
-        if (CheckCocktail(typesOfDrink, state, allCocktails["LobsterCrami"]))
-            return CocktailNode.Type.LobsterCrami;
-
         if (CheckCocktail(typesOfDrink, state, allCocktails["Tiefti"]))
             return CocktailNode.Type.Tiefti;
 

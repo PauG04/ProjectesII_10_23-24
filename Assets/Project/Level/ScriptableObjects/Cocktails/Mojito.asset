@@ -10,30 +10,24 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 612416e99e325834eba562d43ecd654f, type: 3}
-  m_Name: Tequila Sunrise
+  m_Name: Mojito
   m_EditorClassIdentifier: 
   state: 2
-  type: 2
-  price: 0
-  cocktailName: Lobster Crami
-  subtitle: Sour
-  description: '2 DesertRose
+  type: 1
+  price: 10
+  cocktailName: Mojito
+  subtitle: Clasico
+  description: '3 Rum Onzas
 
-    2 GlacierSpirit
+    7 Cola Onzas
 
-    4 LemonJuice
-
-    2 Soda
-
-'
+    State: Mixed'
   sprite: {fileID: -466113424, guid: eefb5d5c95242c848b730367a4df859f, type: 3}
   SerializableIngredients:
     items:
-    - type: 2
-      quantity: 2
     - type: 0
-      quantity: 2
+      quantity: 3
     - type: 6
-      quantity: 4
+      quantity: 5
     - type: 8
       quantity: 2
