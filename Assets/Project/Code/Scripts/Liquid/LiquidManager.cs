@@ -7,7 +7,7 @@ public class LiquidManager : MonoBehaviour
 {
     [SerializeField] private float maxLiquid;
     [SerializeField] private float currentLiquid = 0;
-    private Dictionary<DrinkNode.Type, int> particleTypes;
+    private Dictionary<DrinkNode, int> particleTypes;
 
     [SerializeField] private CocktailNode.State currentState;
 
@@ -24,7 +24,7 @@ public class LiquidManager : MonoBehaviour
 
     private void Awake()
     {
-        particleTypes = new Dictionary<DrinkNode.Type, int>();
+        particleTypes = new Dictionary<DrinkNode, int>();
         boxCollider = GetComponent<BoxCollider2D>();
 
         if (isGlass)
@@ -56,18 +56,18 @@ public class LiquidManager : MonoBehaviour
         {
             if (currentLiquid < maxLiquid)
             {
-                if(particleTypes.ContainsKey(collision.GetComponent<LiquidParticle>().GetDrinkType()))
+                if(particleTypes.ContainsKey(collision.GetComponent<LiquidParticle>().GetDrink()))
                 {
-                    particleTypes[collision.GetComponent<LiquidParticle>().GetDrinkType()]++;
+                    particleTypes[collision.GetComponent<LiquidParticle>().GetDrink()]++;
                     if(dropLiquid != null)
                     {
-                        dropLiquid.SetDrinkType(collision.GetComponent<LiquidParticle>().GetDrinkType());
+                        dropLiquid.SetDrinkType(collision.GetComponent<LiquidParticle>().GetDrink());
                     }
-                    Debug.Log(collision.GetComponent<LiquidParticle>().GetDrinkType().ToString());
+                    Debug.Log(collision.GetComponent<LiquidParticle>().GetDrink().ToString());
                 }
                 else
                 {
-                    particleTypes.Add(collision.GetComponent<LiquidParticle>().GetDrinkType(), 1);
+                    particleTypes.Add(collision.GetComponent<LiquidParticle>().GetDrink(), 1);
                 }
                 Destroy(collision.gameObject);
                 currentLiquid++;
@@ -112,7 +112,7 @@ public class LiquidManager : MonoBehaviour
         return maxLiquid;
     }
 
-    public Dictionary<DrinkNode.Type, int> GetParticleTypes()
+    public Dictionary<DrinkNode, int> GetParticleTypes()
     {
         return particleTypes;
     }

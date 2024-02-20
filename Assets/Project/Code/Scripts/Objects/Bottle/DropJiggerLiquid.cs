@@ -8,7 +8,7 @@ public class DropJiggerLiquid : MonoBehaviour
     [SerializeField] private GameObject liquidPref;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private LiquidManager liquidManager;
-    [SerializeField] private DrinkNode.Type drinkType;
+    [SerializeField] private DrinkNode drink;
 
     private float timeSinceLastPour = 0f;
     private float minRotationToPourLiquid = 70f;
@@ -44,7 +44,7 @@ public class DropJiggerLiquid : MonoBehaviour
             if (timeSinceLastPour >= pouringInterval)
             {
                 GameObject liquid = GameObject.Instantiate(liquidPref, spawnPoint.position, Quaternion.identity);
-                liquid.GetComponent<LiquidParticle>().SetDrinkType(drinkType);
+                liquid.GetComponent<LiquidParticle>().SetDrink(drink);
 
                 liquidManager.DeacreaseCurrentLiquid();
 
@@ -53,8 +53,8 @@ public class DropJiggerLiquid : MonoBehaviour
         }
     }
 
-    public void SetDrinkType(DrinkNode.Type _drinkType)
+    public void SetDrinkType(DrinkNode _drink)
     {
-        drinkType = _drinkType;
+        drink = _drink;
     }
 }

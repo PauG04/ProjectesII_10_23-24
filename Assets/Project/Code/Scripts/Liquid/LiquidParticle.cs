@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class LiquidParticle : MonoBehaviour
 {
-    private DrinkNode.Type drinkType;
-    private CocktailNode.Type cocktailType;
-    private CocktailNode.State cocktailState;
+    private DrinkNode drink;
 
     private float destroyTime = 2.0f;
 
@@ -15,13 +13,13 @@ public class LiquidParticle : MonoBehaviour
         Destroy(gameObject, destroyTime);
     }
 
-    public void SetDrinkType(DrinkNode.Type drinkType)
+    public void SetDrink(DrinkNode drink)
     {
-        this.drinkType = drinkType;
+        this.drink = drink;
     }
 
-    public DrinkNode.Type GetDrinkType()
+    public DrinkNode GetDrink()
     {
-        return drinkType;
+        return drink;
     }
 }

@@ -29,4 +29,15 @@ public class WikiPage : MonoBehaviour
         descriptionText.text = "";
         spriteRenderer.sprite = null;
     }
+
+    private void OnMouseDown()
+    {
+        if (isLeft) 
+        { 
+            WikiManager.instance.PrevPage();
+        }
+        else
+            WikiManager.instance.NextPage();
+
+    }
 }

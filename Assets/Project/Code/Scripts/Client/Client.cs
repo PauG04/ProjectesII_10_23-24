@@ -164,4 +164,9 @@ public class Client : MonoBehaviour
         }
     }
 
+    public CocktailNode.Type GetOrder()
+    {
+        return order;
+    }
+    
 }
