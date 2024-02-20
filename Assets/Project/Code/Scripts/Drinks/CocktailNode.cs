@@ -15,17 +15,17 @@ public class CocktailNode : ScriptableObject
 
     public enum Type
     {
-        DiscoN,
-        Invade,
-        LobsterCrami,
-        Morgana,
-        MoszkowskiFlip,
-        PinkLeibel,
-        PipiStrate,
-        Razz,
-        Sekiro,
-        Thresh,
-        Tiefti,
+        Roncola,
+        Mojito,
+        PomadaMenorquina,
+        Gintonic,
+        AguaDePalencia,
+        WhiskeySour,
+        Sangria,
+        Kalimotxo,
+        Cocktail09,
+        Cocktail10,
+        Cocktail11,
 
         Total,
         Error,
@@ -54,7 +54,12 @@ public class CocktailNode : ScriptableObject
         description = "";
         foreach (KeyValuePair<DrinkNode.Type, int> ingridient in ingredients)
         {
-            description += ingridient.Value + " " + ingridient.Key.ToString() + "\n";
+            description += ingridient.Value + " " + ingridient.Key.ToString();
+
+            if (ingridient.Value > 1)
+                description += " Onzas" + "\n";
+            else
+                description += " Onza" + "\n";
         }
         description += "State: " + state.ToString();
     }

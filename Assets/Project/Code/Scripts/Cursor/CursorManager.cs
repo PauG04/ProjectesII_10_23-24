@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CursorManager : MonoBehaviour
@@ -13,6 +14,8 @@ public class CursorManager : MonoBehaviour
     private bool isMouseUp;
     private Vector3 cursorPosition;
 
+    [SerializeField] private TextMeshPro itemName;
+    [SerializeField] private GameObject box;
 
     private void Awake()
     {
@@ -32,6 +35,9 @@ public class CursorManager : MonoBehaviour
     private void Update()
     {
         cursorPosition = GetMouseWorldPosition();
+
+        box.transform.position = cursorPosition;
+        box.transform.position = new Vector3(cursorPosition.x + 0.5f, cursorPosition.y + 0.1f, cursorPosition.z);
 
         if (Input.GetMouseButtonDown(0))
             isMouseUp = false;
@@ -53,5 +59,15 @@ public class CursorManager : MonoBehaviour
     public Vector3 GetCursorPosition()
     {
         return cursorPosition;
+    }
+
+    public GameObject GetBox()
+    {
+        return box;
+    }
+
+    public TextMeshPro GetItemName()
+    {
+        return itemName;
     }
 }

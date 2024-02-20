@@ -11,23 +11,8 @@ public class Client : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private TextMeshPro textMP;
-
-    [Header("Client Position")]
-    [SerializeField] private GameObject clientPosition;
-    [SerializeField] private GameObject leavePosition;
-    [SerializeField] private float maxYPosition;
-    [SerializeField] private float horizontalVelocity;
-    [SerializeField] private float verticalVelocity;
-    [SerializeField] private GameObject text;
-
     private float minYPosition;
     private bool isGoingUp;
-
-    [Header("Time")]
-    [SerializeField] private float maxTimer;
-    private float time;
-    private bool startTimer;
 
     private bool arriveAnimation;
     private bool leaveAnimation;
@@ -35,43 +20,29 @@ public class Client : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        textMP = GetComponentInChildren<TextMeshPro>();
 
         arriveAnimation = false;
         leaveAnimation = false;
-        startTimer = false;
 
         isGoingUp = true;
         minYPosition = transform.localPosition.y;
-
-        text.SetActive(false);
     }
 
     private void Start()
     {
+        transform.localPosition = ClientManager.instance.GetSpawnPosition().localPosition;
         ArriveAnimation();
-    }
-
-    #region INIT
-    private void InitOrder()
-    {
-        //int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
-        //order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
-        order = CocktailNode.Type.Invade;
-        textMP.text = "Quiero un " + order.ToString();
-    }
-
-    private void InitPayment()
-    {
-        payment = Random.Range(10.0f, 100.0f);
     }
 
     private void InitClient()
     {
-        InitOrder();
-        InitPayment();
+        //int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
+        //order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
+        //payment = WikiManager.instance.GetAvailableCocktails()[randomOrder].price;
+
+        order = CocktailNode.Type.Mojito;
+        payment = 10.0f;
     }
-    #endregion
 
     private bool CompareCocktails(CocktailNode.Type cocktail)
     {
@@ -107,7 +78,7 @@ public class Client : MonoBehaviour
 
     private void ReactWell()
     {
-        textMP.text = "VIVA FRANCO";
+        //textMP.text = "VIVA FRANCO";
         //Change Animation
         Pay();
         //Wait X Seconds
@@ -116,7 +87,7 @@ public class Client : MonoBehaviour
 
     private void ReactBad()
     {
-        textMP.text = "Menudo MIERDON";
+        //textMP.text = "Menudo MIERDON";
         //Change Animation
         //Wait X Seconds
         //ClientManager.instance.CreateNewClient();
@@ -136,36 +107,31 @@ public class Client : MonoBehaviour
     {
         if (arriveAnimation)
         {
-            MoveClientHorizontal(clientPosition);
+            MoveClientHorizontal(ClientManager.instance.GetClientPosition());
             MoveClientVertical();
-            if (transform.localPosition.x > clientPosition.transform.localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
+            if (transform.localPosition.x > ClientManager.instance.GetClientPosition().localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
             {
                 arriveAnimation = false;
                 InitClient();
-                text.SetActive(true);
             }
-        }
-
-        if (startTimer)
-        {
-            Timer();
         }
 
         if (leaveAnimation)
         {
-            MoveClientHorizontal(leavePosition);
+            MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
             MoveClientVertical();
-            if (transform.localPosition.x > leavePosition.transform.localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
+            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
             {
+                ClientManager.instance.CreateNewClient();
                 Destroy(gameObject);
             }
         }
     }
 
-    private void MoveClientHorizontal(GameObject _gameObject)
+    private void MoveClientHorizontal(Transform _transform)
     {
         Vector3 newPosition = transform.localPosition;
-        newPosition.x = Mathf.Lerp(transform.localPosition.x, _gameObject.transform.localPosition.x, Time.deltaTime * horizontalVelocity);
+        newPosition.x = Mathf.Lerp(transform.localPosition.x, _transform.localPosition.x, Time.deltaTime * ClientManager.instance.GetHorizontalVelocity());
 
         transform.localPosition = newPosition;
     }
@@ -175,11 +141,11 @@ public class Client : MonoBehaviour
         if (isGoingUp)
         {
             Vector3 newPosition = transform.localPosition;
-            newPosition.y = Mathf.Lerp(transform.localPosition.y, maxYPosition, Time.deltaTime * verticalVelocity);
+            newPosition.y = Mathf.Lerp(transform.localPosition.y, ClientManager.instance.GetMaxYPosition(), Time.deltaTime * ClientManager.instance.GetVerticalVelocity());
 
             transform.localPosition = newPosition;
 
-            if (transform.localPosition.y > maxYPosition - 0.01)
+            if (transform.localPosition.y > ClientManager.instance.GetMaxYPosition() - 0.01)
             {
                 isGoingUp = false;
             }
@@ -187,7 +153,7 @@ public class Client : MonoBehaviour
         else
         {
             Vector3 newPosition = transform.localPosition;
-            newPosition.y = Mathf.Lerp(transform.localPosition.y, minYPosition, Time.deltaTime * verticalVelocity);
+            newPosition.y = Mathf.Lerp(transform.localPosition.y, minYPosition, Time.deltaTime * ClientManager.instance.GetVerticalVelocity());
 
             transform.localPosition = newPosition;
 
@@ -198,14 +164,4 @@ public class Client : MonoBehaviour
         }
     }
 
-    private void Timer()
-    {
-        time += Time.deltaTime;
-        if (time > maxTimer)
-        {
-            startTimer = true;
-            leaveAnimation = true;
-            text.SetActive(false);
-        }
-    }
 }
