@@ -11,7 +11,7 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField] private ItemGroupNode groupOfLemmons;
     [SerializeField] private ItemGroupNode groupOfIce;
-    [SerializeField] private ItemGroupNode groupOfMint;
+    //[SerializeField] private ItemGroupNode groupOfMint;
 
     private void Awake()
     {
@@ -30,9 +30,9 @@ public class InventoryManager : MonoBehaviour
 
     private void InitItems()
     {
-        items.Add(groupOfLemmons, 0);
-        items.Add(groupOfIce, 0);
-        items.Add(groupOfMint, 0);
+        items.Add(groupOfLemmons, 10);
+        items.Add(groupOfIce, 10);
+        //items.Add(groupOfMint, 0);
     }
 
     public Dictionary<ItemGroupNode, int> GetItems()
@@ -47,13 +47,14 @@ public class InventoryManager : MonoBehaviour
 
     }
 
-    public void UseItem(ItemGroupNode item)
+    public bool UseItem(ItemGroupNode item)
     {
         if (items[item] > 0)
         {
             items[item]--;
+            return true;
         }
-
+        return false;
     }
 
 }

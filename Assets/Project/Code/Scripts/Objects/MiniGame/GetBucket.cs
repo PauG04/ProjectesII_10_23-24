@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GetBucket : MonoBehaviour
+public class GetItemInformation : MonoBehaviour
 {
+    [SerializeField] private ItemGroupNode itemGroupNode;
     private GameObject bucket;
+
+    public ItemGroupNode GetItemGroupNode()
+    {
+        return itemGroupNode;
+    }
 
     public void SetBucket(GameObject _bucket)
     {

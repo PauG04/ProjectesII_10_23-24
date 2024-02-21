@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4bd9fbd7de5ce945825e2ce5555b4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemGroupNode: {fileID: 11400000, guid: 21cfc3fbe46aa4f42a67ae39279836dd, type: 2}
 --- !u!114 &756714990437299852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +141,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
+  isItem: 0
 --- !u!50 &3085852553438928639
 Rigidbody2D:
   serializedVersion: 4

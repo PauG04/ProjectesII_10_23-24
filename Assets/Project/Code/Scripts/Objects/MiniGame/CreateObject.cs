@@ -13,23 +13,24 @@ public class CreateObject : MonoBehaviour
     private bool isCreated;
     private void OnMouseDown()
     {
-        GameObject item = Instantiate(createdObject, transform);
-        item.transform.SetParent(null);
-        item.transform.localPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
-        item.GetComponent<DragItemsNew>().SetIsDragging(true);
-        item.GetComponent<DragItemsNew>().SetInitPosition(transform.position);
-
-        if(!isCreated)
+        if(InventoryManager.instance.UseItem(createdObject.GetComponent<GetItemInformation>().GetItemGroupNode()))
         {
-            isCreated = true;
-        }
+            GameObject item = Instantiate(createdObject, transform);
+            item.transform.SetParent(null);
+            item.transform.localPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
+            item.GetComponent<DragItemsNew>().SetIsDragging(true);
+            item.GetComponent<DragItemsNew>().SetInitPosition(transform.position);
 
-        if(bucket != null)
-        {
-            item.GetComponent<GetBucket>().SetBucket(bucket);
+            if (!isCreated)
+            {
+                isCreated = true;
+            }
+
+            if (bucket != null)
+            {
+                item.GetComponent<GetItemInformation>().SetBucket(bucket);
+            }
         }
-        
-        
     }
 
     public bool GetIsCreated()

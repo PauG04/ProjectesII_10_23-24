@@ -13,7 +13,11 @@ public class TimeManager : MonoBehaviour
 
     private bool isStopped;
 
-    [SerializeField] int timeMultiplier;
+    [SerializeField] private int realMinutesPerDay;
+    [SerializeField] private int firstHour;
+    [SerializeField] private int lastHour;
+    private int hoursPerDay;
+    private int timeMultiplier;
 
     private void Awake()
     {
@@ -27,15 +31,24 @@ public class TimeManager : MonoBehaviour
         }
 
         day = 1;
-        hour = 20;
+        hour = firstHour;
         minute = 0;
         second = 0;
+
+        hoursPerDay = 24 - firstHour + lastHour;
+        timeMultiplier = InitTimeMultiplier();
     }
 
     private void Update()
     {
         if (!isStopped)
             UpdateTime();
+    }
+
+    private int InitTimeMultiplier()
+    {
+        int realSecondsPerDay = realMinutesPerDay * 60;
+        return hoursPerDay * 3600 / realSecondsPerDay;
     }
 
     private void UpdateTime()
@@ -54,7 +67,7 @@ public class TimeManager : MonoBehaviour
                     hour = 0;
                     day++;
                 }
-                else if (hour == 5)
+                else if (hour == lastHour)
                 {
                     StopTime();
                 }
