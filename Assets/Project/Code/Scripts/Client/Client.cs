@@ -1,9 +1,9 @@
+using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-
 public class Client : MonoBehaviour
 {
     private CocktailNode.Type order;
@@ -11,14 +11,29 @@ public class Client : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    private TextMeshPro textMP;
+
+    [Header("Client Position")]
+    [SerializeField] private GameObject clientPosition;
+    [SerializeField] private GameObject leavePosition;
+    [SerializeField] private float maxYPosition;
+    [SerializeField] private float horizontalVelocity;
+    [SerializeField] private float verticalVelocity;
+    [SerializeField] private GameObject text;
+
+
     private float minYPosition;
     private bool isGoingUp;
 
     private bool arriveAnimation;
     private bool leaveAnimation;
 
+    [Header("Client Dialogue")]
+    private AIConversant conversant;
+
     private void Awake()
     {
+        conversant = GetComponent<AIConversant>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         arriveAnimation = false;
@@ -38,7 +53,11 @@ public class Client : MonoBehaviour
     {
         //int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
         //order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
-        //payment = WikiManager.instance.GetAvailableCocktails()[randomOrder].price;
+        //order = CocktailNode.Type.Invade;
+        //textMP.text = "Quiero un " + order.ToString();
+        //text.SetActive(true);
+
+        conversant.HandleDialogue();
 
         order = CocktailNode.Type.Mojito;
         payment = 10.0f;
