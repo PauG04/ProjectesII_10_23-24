@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Dialogue;
 using TMPro;
+using System.Runtime.CompilerServices;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace UI
 {
@@ -17,12 +19,13 @@ namespace UI
 		[SerializeField] private GameObject prefabAibubble;
         [SerializeField] private GameObject prefabPlayerbubble;
         [SerializeField] private GameObject separator;
+		[Space(10)]
+		[SerializeField] private float timerDelay = 2.0f;
 
         private TextMeshProUGUI playerText;
         private TextMeshProUGUI AIText;
 
 		private bool isSeparatorRunning;
-
 
         private void Start()
 		{
@@ -39,7 +42,7 @@ namespace UI
 		{
 			if (playerConversant.IsActive())
 			{
-				if (playerConversant.HasNext() && !playerConversant.IsChoosing() && !playerConversant.isTextRunning)
+				if (playerConversant.HasNext() && !playerConversant.IsChoosing() && !playerConversant.GetTextIsRunning())
 				{
 					StartCoroutine(playerConversant.WriteTextWithDelay());
 				} 
@@ -56,7 +59,6 @@ namespace UI
                 }
             }
         }
-
 		private void UpdateChat()
 		{
 			if (!playerConversant.IsActive())
@@ -64,34 +66,36 @@ namespace UI
 				return;
 			}
 
-			if(playerConversant.IsNewConversant())
-			{
-				// Clear current chat
-			}
-
             if (playerConversant.IsChoosing())
 			{
-                Instantiate(separator, bubbleRoot);
-
                 PlayerChoosing();
             }
             else 
 			{
-				AIText.text = playerConversant.GetText();
-				Instantiate(prefabAibubble, bubbleRoot);
-			}
+				AIBubble(playerConversant.GetText());
+            }
         }
 		private void PlayerChoosing()
 		{
-			foreach (DialogueNode choice in playerConversant.GetChoices())
+            foreach (DialogueNode choice in playerConversant.GetChoices())
 			{
-
+				if (playerConversant.GetCanContinue())
+				{
+					StopAllCoroutines();
+                    PlayerBubble(choice.GetText());
+                    playerConversant.SelectChoice(choice);
+                }
             }
+        }
+		private void AIBubble(string text)
+		{
+            AIText.text = text;
+            Instantiate(prefabAibubble, bubbleRoot);
         }
 		private void PlayerBubble(string text)
 		{
 			playerText.text = text;
-			GameObject playerBubble = Instantiate(prefabPlayerbubble, bubbleRoot);
+			Instantiate(prefabPlayerbubble, bubbleRoot);
 		}
 		private void DestroyChildrens(Transform root)
 		{
@@ -100,10 +104,10 @@ namespace UI
 				Destroy(item.gameObject);
 			}
 		}
-        public IEnumerator SeparatorDelay()
+        private IEnumerator SeparatorDelay()
         {
             isSeparatorRunning = true;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(timerDelay);
             Instantiate(separator, bubbleRoot);
             isSeparatorRunning = false;
         }

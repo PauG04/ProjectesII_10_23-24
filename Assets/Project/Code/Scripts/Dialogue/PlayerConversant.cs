@@ -3,7 +3,8 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-	
+using JetBrains.Annotations;
+
 namespace Dialogue
 {
 	public class PlayerConversant : MonoBehaviour
@@ -25,7 +26,8 @@ namespace Dialogue
 		
 		public event Action onConversationUpdated;
 
-		public bool isTextRunning;
+		private bool isTextRunning;
+		private bool canContinue;
 		public IEnumerator WriteTextWithDelay()
 		{
             isTextRunning = true;
@@ -36,15 +38,16 @@ namespace Dialogue
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
 			isChoosing = false;
-			
-			currentConversant = newConversant;
+			canContinue = true;
+
+            currentConversant = newConversant;
 			currentDialogue = newDialogue;
 			currentNode = currentDialogue.GetRootNode();
 
 			TriggerEnterAction();
 			isStartingNewConversant = true;
-			
-			if (onConversationUpdated != null)
+
+            if (onConversationUpdated != null)
 			{
 				onConversationUpdated();
 			}
@@ -58,7 +61,8 @@ namespace Dialogue
 			currentNode = null;
 			isChoosing = false;
 			currentConversant = null;
-			onConversationUpdated();
+			canContinue = false;
+            onConversationUpdated();
 		}
 		public bool IsActive()
 		{
@@ -91,30 +95,34 @@ namespace Dialogue
 			currentNode = choseNode;
 			TriggerEnterAction();
 			isChoosing = false;
-			
-		}
-		public void Next()
+        }
+        public void Next()
 		{
-			int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
-			
-			if(numPlayerResponses > 0)
-			{
-				isChoosing = true;
-				TriggerExitAction();
-				onConversationUpdated();
-				return;
-			}
-			
-			DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
-			currentChildNumber = UnityEngine.Random.Range(0, children.Count());
-			TriggerExitAction();
-			currentNode = children[currentChildNumber];
-			TriggerEnterAction();
-			onConversationUpdated();
+
+            int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
+
+            if (numPlayerResponses > 0)
+            {
+                if (!isChoosing)
+                {
+                    canContinue = false;
+                }
+                isChoosing = true;
+                TriggerExitAction();
+                onConversationUpdated();
+                return;
+            }
+
+            DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
+            currentChildNumber = UnityEngine.Random.Range(0, children.Count());
+            TriggerExitAction();
+            currentNode = children[currentChildNumber];
+            TriggerEnterAction();
+            onConversationUpdated();
 		}
 		public bool HasNext()
 		{
-			return currentDialogue.GetAllChildren(currentNode).Count() > 0 && !currentConversant.stopDialogue;
+			return currentDialogue.GetAllChildren(currentNode).Count() > 0;
 		}
 		public bool IsNewConversant()
 		{
@@ -145,10 +153,21 @@ namespace Dialogue
 				triggers.Trigger(action);
 			}
 		}
-		
-		public int GetChildNumber()
+        public void SetCanContinue(bool canContinue)
+        {
+            this.canContinue = canContinue;
+        }
+        public int GetChildNumber()
 		{
 			return currentChildNumber;
+		}
+		public bool GetTextIsRunning()
+		{
+			return isTextRunning;
+        }
+		public bool GetCanContinue()
+		{
+			return canContinue;
 		}
 	}
 

@@ -9,14 +9,15 @@ namespace Dialogue
 		[SerializeField] private Dialogue dialogue = null;
 		[SerializeField] private string conversantName;
 		[SerializeField] private PlayerConversant playerConversant;
-		
-		[HideInInspector] public bool stopDialogue;
+
+		private bool hasExecuted;
 		
 		protected void Awake()
 		{
 			playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
-			stopDialogue = false;
-		}	
+			hasExecuted = false;
+
+        }	
 	
 		public void HandleDialogue()
 		{
@@ -25,24 +26,22 @@ namespace Dialogue
 				return;
 			}
 			
-			stopDialogue = false;
 			playerConversant.StartDialogue(this, dialogue);
 		}
 		private void OnMouseDown()
 		{
-			//HandleDialogue();
+			Debug.Log("PlayerPressed");
+			if (!playerConversant.GetCanContinue() && !hasExecuted)
+			{
+				playerConversant.SetCanContinue(true);
+				playerConversant.Next();
+                hasExecuted = true;
+			}
 		}
-		
-		public void StopDialogue()
-		{
-			stopDialogue = true;
-		}
-		
-		public void ContinueDialogue()
-		{
-			stopDialogue = false;
-		}
-
+        private void OnMouseUp()
+        {
+             hasExecuted = false;
+        }
         public string GetName()
 		{
 			return conversantName;
