@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Dialogue
 {
@@ -9,6 +10,7 @@ namespace Dialogue
 		[SerializeField] private Dialogue dialogue = null;
 		[SerializeField] private string conversantName;
 		[SerializeField] private PlayerConversant playerConversant;
+		private bool hasToContinue;
 
 		private bool hasExecuted;
 		
@@ -16,10 +18,11 @@ namespace Dialogue
 		{
 			playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
 			hasExecuted = false;
+			hasToContinue = true;
 
-        }	
-	
-		public void HandleDialogue()
+        }
+
+        public void HandleDialogue()
 		{
 			if(dialogue == null)
 			{
@@ -33,8 +36,8 @@ namespace Dialogue
 			Debug.Log("PlayerPressed");
 			if (!playerConversant.GetCanContinue() && !hasExecuted)
 			{
-				playerConversant.SetCanContinue(true);
-				playerConversant.Next();
+                playerConversant.SetCanContinue(true);
+                playerConversant.Next();
                 hasExecuted = true;
 			}
 		}

@@ -103,11 +103,11 @@ namespace Dialogue
 
             if (numPlayerResponses > 0)
             {
-                if (!isChoosing)
-                {
-                    canContinue = false;
-                }
-                isChoosing = true;
+				if (!isChoosing)
+				{
+					canContinue = false;
+				}
+				isChoosing = true;
                 TriggerExitAction();
                 onConversationUpdated();
                 return;
