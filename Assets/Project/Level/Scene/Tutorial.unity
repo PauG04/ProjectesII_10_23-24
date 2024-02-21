@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &10719398
 Transform:
   m_ObjectHideFlags: 0
@@ -188,7 +188,8 @@ MonoBehaviour:
   fridge: {fileID: 1173545816}
   velocity: 3
   panel: {fileID: 1375908691}
-  id: 0
+  playerConversant: {fileID: 678652038}
+  id: 1
 --- !u!1001 &13662618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2562,7 +2563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Player
-  secondsDialogueDelay: 1
+  secondsDialogueDelay: 0.1
 --- !u!4 &678652039
 Transform:
   m_ObjectHideFlags: 0
@@ -2761,11 +2762,15 @@ PrefabInstance:
     - target: {fileID: 6811001021699471402, guid: 8aca1bbb7ad094d448b7a0323333cb51, type: 3}
       propertyPath: dialogue
       value: 
-      objectReference: {fileID: 11400000, guid: 450ed5f826264604abf9fe2e994c623f, type: 2}
+      objectReference: {fileID: 11400000, guid: 39bdd8f80a910fb43bfb5729f8c063e4, type: 2}
     - target: {fileID: 6811001021699471402, guid: 8aca1bbb7ad094d448b7a0323333cb51, type: 3}
       propertyPath: playerConversant
       value: 
       objectReference: {fileID: 678652038}
+    - target: {fileID: 7216905069198535887, guid: 8aca1bbb7ad094d448b7a0323333cb51, type: 3}
+      propertyPath: notNeedTakeDrink
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8452877260925742426, guid: 8aca1bbb7ad094d448b7a0323333cb51, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5346,14 +5351,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 317562163}
     m_Modifications:
-    - target: {fileID: 13459176564938733, guid: da78a67f455f0b74596453ea555794e8, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 13459176564938733, guid: da78a67f455f0b74596453ea555794e8, type: 3}
-      propertyPath: changeSpriteMask
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5455300107542207505, guid: da78a67f455f0b74596453ea555794e8, type: 3}
       propertyPath: m_RootOrder
       value: -1

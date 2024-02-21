@@ -10,7 +10,8 @@ namespace Dialogue
 		[SerializeField] private Dialogue dialogue = null;
 		[SerializeField] private string conversantName;
 		[SerializeField] private PlayerConversant playerConversant;
-		private bool hasToContinue;
+
+		private Client client;
 
 		private bool hasExecuted;
 		
@@ -18,8 +19,7 @@ namespace Dialogue
 		{
 			playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
 			hasExecuted = false;
-			hasToContinue = true;
-
+            client = GetComponent<Client>();
         }
 
         public void HandleDialogue()
@@ -31,7 +31,18 @@ namespace Dialogue
 			
 			playerConversant.StartDialogue(this, dialogue);
 		}
-		private void OnMouseDown()
+
+        private void Update()
+        {
+			if(playerConversant.IsActive())
+			{
+                if (!playerConversant.HasNext())
+                {
+                    client.SetCanLeave(true);
+                }
+            }           
+        }
+        private void OnMouseDown()
 		{
 			Debug.Log("PlayerPressed");
 			if (!playerConversant.GetCanContinue() && !hasExecuted)

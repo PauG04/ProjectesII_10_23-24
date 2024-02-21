@@ -20,6 +20,10 @@ public class Client : MonoBehaviour
     [SerializeField] private float horizontalVelocity;
     [SerializeField] private float verticalVelocity;
 
+    [Header("booleans")]
+    [SerializeField] private bool notNeedTakeDrink;
+    private bool canLeave;
+
 
     private float minYPosition;
     private bool isGoingUp;
@@ -40,6 +44,8 @@ public class Client : MonoBehaviour
 
         isGoingUp = true;
         minYPosition = transform.localPosition.y;
+
+        canLeave = false;
     }
 
     private void Start()
@@ -144,6 +150,11 @@ public class Client : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if(notNeedTakeDrink && canLeave)
+        {
+            leaveAnimation = true;
+        }
     }
 
     private void MoveClientHorizontal(Transform _transform)
@@ -186,5 +197,11 @@ public class Client : MonoBehaviour
     {
         return order;
     }
-    
+
+    public void SetCanLeave(bool state)
+    {
+        canLeave = state;
+    }
+
+
 }
