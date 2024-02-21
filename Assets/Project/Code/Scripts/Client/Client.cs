@@ -19,7 +19,6 @@ public class Client : MonoBehaviour
     [SerializeField] private float maxYPosition;
     [SerializeField] private float horizontalVelocity;
     [SerializeField] private float verticalVelocity;
-    [SerializeField] private GameObject text;
 
 
     private float minYPosition;

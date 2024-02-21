@@ -75,7 +75,7 @@ public class ArrowManager : MonoBehaviour
         if(!isHorizontal)
         {
             arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, currentYScale, arrow.transform.localScale.z);
-            arrowObject.transform.localPosition = new Vector2(arrow.transform.localPosition.x, currentYPosition - maxYPosition);
+            arrowObject.transform.localPosition = new Vector2(arrow.transform.localPosition.x, currentYPosition - maxYPosition); 
         }
         else
         {
