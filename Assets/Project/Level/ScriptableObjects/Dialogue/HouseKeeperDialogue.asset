@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3225460256002337781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a8c6eb52-ca2d-4919-98fb-bc795c88d87b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: soy el casero de este bar
+  children:
+  - 26ef8d00-f7b8-4cae-a90c-db0ebc8be99a
+  rect:
+    serializedVersion: 2
+    x: 47
+    y: 194
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,5 +37,29 @@ MonoBehaviour:
   m_Name: HouseKeeperDialogue
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: -8174207445989602283}
+  - {fileID: -3225460256002337781}
+  - {fileID: 2451684762277143729}
   newNodeOffset: {x: 250, y: 0}
+--- !u!114 &2451684762277143729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 26ef8d00-f7b8-4cae-a90c-db0ebc8be99a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Mira voy a ser directo, me da igual lo que hagas con este bar
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 341
+    y: 195
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
