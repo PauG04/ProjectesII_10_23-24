@@ -73,12 +73,15 @@ public class WikiManager : MonoBehaviour
 
     private void UpdatePages(int page)
     {
-        firstPage.UpdatePage(cocktails[page]);
+        if (page < cocktails.Count)
+        {
+            firstPage.UpdatePage(cocktails[page]);
 
-        if (page + 1 < cocktails.Count)
-            secondPage.UpdatePage(cocktails[page + 1]);
-        else
-            secondPage.ClearPage();
+            if (page + 1 < cocktails.Count)
+                secondPage.UpdatePage(cocktails[page + 1]);
+            else
+                secondPage.ClearPage();
+        }
     }
 
     public List<CocktailNode> GetAvailableCocktails()
