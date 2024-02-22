@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 3164742363969609211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7406250777722010449}
   m_Father: {fileID: 0}
@@ -172,7 +172,7 @@ MonoBehaviour:
   horizontalVelocity: 1.5
   verticalVelocity: 5
   notNeedTakeDrink: 0
-  minYPosition: 0.4
+  minYPosition: 0.7
   maxTime: 1
 --- !u!114 &6811001021699471402
 MonoBehaviour:

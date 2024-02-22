@@ -44,16 +44,16 @@ namespace Dialogue
         }
         private void OnMouseDown()
 		{
-			Debug.Log("PlayerPressed");
-			if (!playerConversant.GetCanContinue() && !hasExecuted)
-			{
-				playerConversant.SetCanContinue(true);
-				if (playerConversant.HasNext())
-				{
-                    playerConversant.Next();
-                }
-                hasExecuted = true;
-			}
+			//Debug.Log("PlayerPressed");
+			//if (!playerConversant.GetCanContinue() && !hasExecuted)
+			//{
+			//	playerConversant.SetCanContinue(true);
+			//	if (playerConversant.HasNext())
+			//	{
+   //                 playerConversant.Next();
+   //             }
+   //             hasExecuted = true;
+			//}
 		}
         private void OnMouseUp()
         {

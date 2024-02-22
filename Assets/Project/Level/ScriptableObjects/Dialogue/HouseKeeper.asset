@@ -1,0 +1,197 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6534838673644582264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 3094e96c-ff57-4303-a3c9-5048905e9a6c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Mira voy a ser directo, me da igual lo que hagas con este bar
+  children:
+  - 53f7280b-ed5f-4387-9ff7-a131ad26182c
+  rect:
+    serializedVersion: 2
+    x: 269
+    y: 99
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-5199809728095298728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 0c7033a5-f86f-4aa9-8cb0-87d49e59ce59
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Y necesito dinero para irme al bingo con los amigos
+  children:
+  - 2524bdbc-9866-4b4c-9c70-c1fe00e3d26b
+  rect:
+    serializedVersion: 2
+    x: 771
+    y: 101
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: HouseKeeper
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 949535776070005028}
+  - {fileID: -6534838673644582264}
+  - {fileID: 7551636265615894126}
+  - {fileID: -5199809728095298728}
+  - {fileID: 8435463813031902345}
+  - {fileID: 1554974924984120885}
+  - {fileID: 504162138692903529}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &504162138692903529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6c253735-a78b-45b8-9e14-b7ab123a3001
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Me voy ya que he quedado con la se\xF1ora para ir a ver a los nietos"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1521
+    y: 101
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &949535776070005028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: c48d1dc8-4b8a-42bf-8769-ed2256aa5cfe
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Soy el casero de este bar
+  children:
+  - 3094e96c-ff57-4303-a3c9-5048905e9a6c
+  rect:
+    serializedVersion: 2
+    x: 18
+    y: 99
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &1554974924984120885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: bd057421-66d2-4456-a076-8ee08737feed
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Pero vete despidi\xE9ndote de este local como no me pagues."
+  children:
+  - 6c253735-a78b-45b8-9e14-b7ab123a3001
+  rect:
+    serializedVersion: 2
+    x: 1271
+    y: 101
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7551636265615894126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 53f7280b-ed5f-4387-9ff7-a131ad26182c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Pedro S\xE1nchez me ha bajado la pensi\xF3n de jubilado"
+  children:
+  - 0c7033a5-f86f-4aa9-8cb0-87d49e59ce59
+  rect:
+    serializedVersion: 2
+    x: 519
+    y: 99
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8435463813031902345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 2524bdbc-9866-4b4c-9c70-c1fe00e3d26b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "As\xED que procura pagar la deuda semanal sin problemas"
+  children:
+  - bd057421-66d2-4456-a076-8ee08737feed
+  rect:
+    serializedVersion: 2
+    x: 1021
+    y: 101
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

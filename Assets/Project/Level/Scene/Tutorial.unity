@@ -2922,6 +2922,10 @@ PrefabInstance:
       value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 7216905069198535887, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: minYPosition
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216905069198535887, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
       propertyPath: leavePosition
       value: 
       objectReference: {fileID: 0}
@@ -4506,12 +4510,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3164742363969609211, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: tutorial
+      value: 
+      objectReference: {fileID: 10719399}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: clientParent
       value: 
       objectReference: {fileID: 1382117364}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: maxYPosition
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: spawnPosition

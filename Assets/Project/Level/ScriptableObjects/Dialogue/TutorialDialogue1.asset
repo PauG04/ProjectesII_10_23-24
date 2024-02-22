@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 5b8be5bb-71b1-48c5-843e-4b185eec069c
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Ahora empiza a mezclar hasta el nivel que pone  el libro
   children:
   - e5eb8a5a-ba11-468f-b526-00404a8d4caa
@@ -37,6 +38,7 @@ MonoBehaviour:
   m_Name: b6069bfb-bea4-4a0e-87b4-06bad3f0cf77
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Empieza a verte el l\xEDquido en el Jigger"
   children:
   - f8b9d9cd-b035-4141-bd37-e976130812a0
@@ -61,6 +63,7 @@ MonoBehaviour:
   m_Name: f9de3169-aedb-4750-88bb-49de3379d5ce
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Con el shaker podr\xE1s mezclar las bebidas para hacer un c\xF3ctel"
   children:
   - 52ed2ad7-70b9-4607-92e5-d9b2db6b65dc
@@ -85,6 +88,7 @@ MonoBehaviour:
   m_Name: e75c6433-de39-417a-8ca5-ff00da6cd456
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Primero vamos a ver como esta distribuido tu espacio de trabajo
   children:
   - ab98753e-921a-4ac5-a0a4-0e1039cecc5c
@@ -109,6 +113,7 @@ MonoBehaviour:
   m_Name: 816e7d56-1989-421d-9fe5-bad94883aeae
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
+  isTextPaused: 0
   text: 
   children:
   - ade65633-1f66-4788-9d11-3a9693492bfa
@@ -133,6 +138,7 @@ MonoBehaviour:
   m_Name: a391ab78-5b61-4092-95b8-8cf1b2f1a453
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Dependiendo de la cantidad de shake la bebida estar\xE1, idle, shaked o
     mixed"
   children:
@@ -158,6 +164,7 @@ MonoBehaviour:
   m_Name: 38139469-ee0e-44bd-86b2-32ea7514fa17
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Ahora con esta informaci\xF3n podemos empezar a colocar las bebidas"
   children:
   - 66191105-dffb-41b5-89e3-688b5dcc75b1
@@ -182,6 +189,7 @@ MonoBehaviour:
   m_Name: 3eba8cfc-9eb7-4f66-bd17-de2618853887
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "La flecha azul del costado te muestra por donde se encuentra el l\xEDquido"
   children:
   - 569d3ea3-168f-4537-959e-bc0e708b9ff7
@@ -206,6 +214,7 @@ MonoBehaviour:
   m_Name: 6bbad603-37e6-4cc1-89d0-c2c7d6c5eeed
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
+  isTextPaused: 0
   text: 
   children:
   - 827da3e7-3824-44f1-8f57-c271e98dfbc1
@@ -230,6 +239,7 @@ MonoBehaviour:
   m_Name: 66191105-dffb-41b5-89e3-688b5dcc75b1
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Coge el Ron
   children:
   - 6bbad603-37e6-4cc1-89d0-c2c7d6c5eeed
@@ -254,13 +264,14 @@ MonoBehaviour:
   m_Name: 11368cbe-3535-46c7-ba31-4b0c1905b2d5
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Al empezar a shakear a la derecha aparezera una barra de shake
   children:
   - a391ab78-5b61-4092-95b8-8cf1b2f1a453
   rect:
     serializedVersion: 2
-    x: 2761
-    y: 452
+    x: 2817
+    y: 454
     width: 200
     height: 100
   onEnterAction: 
@@ -278,6 +289,7 @@ MonoBehaviour:
   m_Name: e2b396df-f005-4fd5-86a3-50ba4b15ad14
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Ya se colocar\xE1 en su sitio solo cuando esta fuera de la zona de trabajo"
   children:
   - 74486c88-a5d1-4e1f-b6a0-466a71240353
@@ -302,6 +314,7 @@ MonoBehaviour:
   m_Name: 7480fad1-a772-4301-a4ad-3a9789d1d03d
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Y a partir del 66% la bebida se encuentra mixed
   children:
   - 5b8be5bb-71b1-48c5-843e-4b185eec069c
@@ -311,6 +324,56 @@ MonoBehaviour:
     y: 452
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4173550985257706926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: de620f86-3038-476d-9ca6-d6db37ecd6ed
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  isTextPaused: 0
+  text: 
+  children:
+  - a480a8e0-4ccc-466b-88b3-5ea1704365aa
+  rect:
+    serializedVersion: 2
+    x: 2429
+    y: 436
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-3104213357474458544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 8ce5aad8-c101-4c9b-b27b-9b91bff6e592
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Coge la tapa del shaker
+  children:
+  - de620f86-3038-476d-9ca6-d6db37ecd6ed
+  rect:
+    serializedVersion: 2
+    x: 2216
+    y: 444
+    width: 200
+    height: 120
   onEnterAction: 
   onExitAction: 
 --- !u!114 &-2192615642049335788
@@ -326,6 +389,7 @@ MonoBehaviour:
   m_Name: aa398f98-298f-44f3-9b6e-6b766c8c3d0b
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Y traerme ese c\xF3ctel"
   children:
   - 35c71c0b-1498-4b43-9314-24d1dd669b6a
@@ -350,6 +414,7 @@ MonoBehaviour:
   m_Name: 74486c88-a5d1-4e1f-b6a0-466a71240353
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
+  isTextPaused: 0
   text: 
   children:
   - 0ae422e3-e357-4734-bc7a-3ee92d9f7488
@@ -374,6 +439,7 @@ MonoBehaviour:
   m_Name: e5eb8a5a-ba11-468f-b526-00404a8d4caa
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
+  isTextPaused: 0
   text: 
   children:
   - 325cbed9-c2aa-4c2c-8f4a-e5be26172212
@@ -398,6 +464,7 @@ MonoBehaviour:
   m_Name: 11b7e462-083f-445c-9f81-c37ee5cccea4
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
+  isTextPaused: 0
   text: 
   children:
   - f9de3169-aedb-4750-88bb-49de3379d5ce
@@ -422,6 +489,7 @@ MonoBehaviour:
   m_Name: 07641d87-b7a8-445e-8fb7-b1895c55a2d3
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Dentro de \xE9l tendr\xEDa que haber la informaci\xF3n de cada bebida"
   children:
   - 30c3e639-d503-4993-b4f9-7e540156c6c0
@@ -446,6 +514,7 @@ MonoBehaviour:
   m_Name: 3ab874f1-6161-40eb-a808-f7c5712da40e
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
+  isTextPaused: 0
   text: 
   children:
   - 7d13fb79-3748-4cf9-aaa7-f08a5e086399
@@ -470,13 +539,14 @@ MonoBehaviour:
   m_Name: a480a8e0-4ccc-466b-88b3-5ea1704365aa
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Ahora tapa el shaker acercando la tapa cerca del shaker
   children:
   - 11368cbe-3535-46c7-ba31-4b0c1905b2d5
   rect:
     serializedVersion: 2
-    x: 2511
-    y: 452
+    x: 2625
+    y: 436
     width: 200
     height: 100
   onEnterAction: 
@@ -494,6 +564,7 @@ MonoBehaviour:
   m_Name: 30c3e639-d503-4993-b4f9-7e540156c6c0
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "C\xF3gelo y mu\xE9velo a la zona de trabajo"
   children:
   - 4ee13028-1e33-49a7-8eaf-6d5c33d7b798
@@ -518,6 +589,7 @@ MonoBehaviour:
   m_Name: 2b82e8ce-caf6-42ea-9d7e-7b63b0a140bb
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Coge el vaso y ponlo en la mesa de trabajo
   children:
   - 9e3c621b-1e3a-49c3-8a37-e9764b571980
@@ -542,6 +614,7 @@ MonoBehaviour:
   m_Name: 569d3ea3-168f-4537-959e-bc0e708b9ff7
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Ahora coge la Cola
   children:
   - 89e2962b-7124-4335-9250-0126b74faf04
@@ -566,6 +639,7 @@ MonoBehaviour:
   m_Name: 3a3a24b3-8ee2-49af-b20d-e4d38c69350c
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: 'A partir del 33% la bebida se encuentra shaked '
   children:
   - 7480fad1-a772-4301-a4ad-3a9789d1d03d
@@ -590,13 +664,14 @@ MonoBehaviour:
   m_Name: 3bcded29-26d2-4716-8fe6-ce9fcb4113e9
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Coloca las onzas necesarias en el shaker hasta que este lleno
   children:
   - 8e5068f5-df97-4d30-ba4b-665ed79ff370
   rect:
     serializedVersion: 2
-    x: 1510
-    y: 452
+    x: 1503
+    y: 449
     width: 200
     height: 100
   onEnterAction: 
@@ -653,7 +728,6 @@ MonoBehaviour:
   - {fileID: -170549638558107265}
   - {fileID: 934326058868605750}
   - {fileID: 7395573101993709830}
-  - {fileID: 5842883429037583775}
   - {fileID: -1140993732928561304}
   - {fileID: -5552622439098230243}
   - {fileID: -8162644998956111711}
@@ -667,6 +741,8 @@ MonoBehaviour:
   - {fileID: 3710672706274785506}
   - {fileID: -2192615642049335788}
   - {fileID: 2826678322194876278}
+  - {fileID: -3104213357474458544}
+  - {fileID: -4173550985257706926}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &252208311261528196
 MonoBehaviour:
@@ -681,6 +757,7 @@ MonoBehaviour:
   m_Name: f9f48f61-3e95-46b2-8714-cb12c4db6e40
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Mientras que el shaker contiene 10 onzas
   children:
   - 38139469-ee0e-44bd-86b2-32ea7514fa17
@@ -705,6 +782,7 @@ MonoBehaviour:
   m_Name: 0bd780d1-3c83-47b3-90f2-aabe87ce6091
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Intenta memorizarla y deja la wiki en su sitio que ocupa mucho espacio
   children:
   - e2b396df-f005-4fd5-86a3-50ba4b15ad14
@@ -729,6 +807,7 @@ MonoBehaviour:
   m_Name: 8c9d9a4c-9efb-4519-b780-c867dce2a8ad
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Abajo m\xEDo se encuentra la barra inferior del bar "
   children:
   - 96b1c16b-320c-4da0-a3e4-310e7227f2ac
@@ -753,6 +832,7 @@ MonoBehaviour:
   m_Name: 8e5068f5-df97-4d30-ba4b-665ed79ff370
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
+  isTextPaused: 0
   text: 
   children:
   - 4562f273-921d-4955-94cb-73400443c311
@@ -777,6 +857,7 @@ MonoBehaviour:
   m_Name: ade65633-1f66-4788-9d11-3a9693492bfa
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Ah\xED esta la informaci\xF3n sobre el c\xF3ctel "
   children:
   - 0bd780d1-3c83-47b3-90f2-aabe87ce6091
@@ -801,6 +882,7 @@ MonoBehaviour:
   m_Name: 4ee13028-1e33-49a7-8eaf-6d5c33d7b798
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Para coger un objeto mant\xE9n el click izquierdo \xE9l"
   children:
   - 816e7d56-1989-421d-9fe5-bad94883aeae
@@ -825,6 +907,7 @@ MonoBehaviour:
   m_Name: 52ed2ad7-70b9-4607-92e5-d9b2db6b65dc
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Pero antes de empezar a colocar bebida dentro de \xE9l"
   children:
   - b97a0533-fe74-41b3-ab6e-fa760488426b
@@ -849,6 +932,7 @@ MonoBehaviour:
   m_Name: 35c71c0b-1498-4b43-9314-24d1dd669b6a
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
+  isTextPaused: 0
   text: 
   children: []
   rect:
@@ -872,6 +956,7 @@ MonoBehaviour:
   m_Name: 80547e63-cf51-4050-90cd-a7a917c28b42
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Y para acabar encima de todo se encuentran las botellas
   children:
   - be4c0ea1-2816-4a37-ae55-a70db010ac51
@@ -896,6 +981,7 @@ MonoBehaviour:
   m_Name: 9e3c621b-1e3a-49c3-8a37-e9764b571980
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
+  isTextPaused: 0
   text: 
   children:
   - 04910adc-3bf7-40ef-ab16-b00461e80fbb
@@ -920,6 +1006,7 @@ MonoBehaviour:
   m_Name: 04910adc-3bf7-40ef-ab16-b00461e80fbb
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Ahora solo tienes que verter el c\xF3ctel del shaker al vaso"
   children:
   - aa398f98-298f-44f3-9b6e-6b766c8c3d0b
@@ -944,6 +1031,7 @@ MonoBehaviour:
   m_Name: 43d125b4-48f7-4706-a6fd-613fe5c35538
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Al lado de la barra hay la zona m\xE1s importante, la zona de trabajo"
   children:
   - f506422b-f282-428e-b480-7c7f0b6c8d6b
@@ -968,6 +1056,7 @@ MonoBehaviour:
   m_Name: f506422b-f282-428e-b480-7c7f0b6c8d6b
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "La zona donde trabajar\xE1s para hacer las bebidas"
   children:
   - 80547e63-cf51-4050-90cd-a7a917c28b42
@@ -992,6 +1081,7 @@ MonoBehaviour:
   m_Name: b97a0533-fe74-41b3-ab6e-fa760488426b
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Coge el Jigger
   children:
   - 3ab874f1-6161-40eb-a808-f7c5712da40e
@@ -1016,6 +1106,7 @@ MonoBehaviour:
   m_Name: 98a38f0c-3e08-4c71-8d79-dd7938bbb2ef
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Llenar el jigger equivale a 1 onzas
   children:
   - f9f48f61-3e95-46b2-8714-cb12c4db6e40
@@ -1040,6 +1131,7 @@ MonoBehaviour:
   m_Name: 827da3e7-3824-44f1-8f57-c271e98dfbc1
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Has de saber que las botellas no tiene l\xEDqudo ilimitado"
   children:
   - 3eba8cfc-9eb7-4f66-bd17-de2618853887
@@ -1064,6 +1156,7 @@ MonoBehaviour:
   m_Name: 6da28cfe-293c-44f1-a15b-d8ce601e1e55
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Vamos ha hacer un RonCola
   children:
   - e75c6433-de39-417a-8ca5-ff00da6cd456
@@ -1088,6 +1181,7 @@ MonoBehaviour:
   m_Name: f8b9d9cd-b035-4141-bd37-e976130812a0
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Para rotar las botellas usa la rueda del rat\xF3n"
   children:
   - 3bcded29-26d2-4716-8fe6-ce9fcb4113e9
@@ -1095,30 +1189,6 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1260
     y: 453
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &5842883429037583775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: d8436af6-8444-47ef-be81-3f4fb8ed9618
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: 
-  children:
-  - a480a8e0-4ccc-466b-88b3-5ea1704365aa
-  rect:
-    serializedVersion: 2
-    x: 2260
-    y: 452
     width: 200
     height: 100
   onEnterAction: 
@@ -1136,6 +1206,7 @@ MonoBehaviour:
   m_Name: 96b1c16b-320c-4da0-a3e4-310e7227f2ac
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Donde encontrar\xE1s todos los utensilios"
   children:
   - 43d125b4-48f7-4706-a6fd-613fe5c35538
@@ -1160,6 +1231,7 @@ MonoBehaviour:
   m_Name: 325cbed9-c2aa-4c2c-8f4a-e5be26172212
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Perfecto, ahora solo queda poner el c\xF3ctel en el vaso"
   children:
   - 2b82e8ce-caf6-42ea-9d7e-7b63b0a140bb
@@ -1184,6 +1256,7 @@ MonoBehaviour:
   m_Name: ab98753e-921a-4ac5-a0a4-0e1039cecc5c
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Donde estoy yo es la barra del bar y donde vendr\xE1n los clientes"
   children:
   - 8c9d9a4c-9efb-4519-b780-c867dce2a8ad
@@ -1208,9 +1281,10 @@ MonoBehaviour:
   m_Name: 4562f273-921d-4955-94cb-73400443c311
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Ahora tienes que tapar el shaker para empezar a mezclar
   children:
-  - d8436af6-8444-47ef-be81-3f4fb8ed9618
+  - 8ce5aad8-c101-4c9b-b27b-9b91bff6e592
   rect:
     serializedVersion: 2
     x: 2010
@@ -1232,6 +1306,7 @@ MonoBehaviour:
   m_Name: 7d13fb79-3748-4cf9-aaa7-f08a5e086399
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Debido a que a\xFAn eres un principiante mejor usa el jigger"
   children:
   - 98a38f0c-3e08-4c71-8d79-dd7938bbb2ef
@@ -1256,6 +1331,7 @@ MonoBehaviour:
   m_Name: 0ae422e3-e357-4734-bc7a-3ee92d9f7488
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: Ahora coge el shaker
   children:
   - 11b7e462-083f-445c-9f81-c37ee5cccea4
@@ -1280,6 +1356,7 @@ MonoBehaviour:
   m_Name: 79ad98f8-294d-4b2a-b82c-168f363f2ade
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "Anda te voy a ense\xF1ar ha hacer un c\xF3ctel"
   children:
   - 6da28cfe-293c-44f1-a15b-d8ce601e1e55
@@ -1304,6 +1381,7 @@ MonoBehaviour:
   m_Name: 89e2962b-7124-4335-9250-0126b74faf04
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
+  isTextPaused: 0
   text: 
   children:
   - b6069bfb-bea4-4a0e-87b4-06bad3f0cf77
@@ -1328,6 +1406,7 @@ MonoBehaviour:
   m_Name: be4c0ea1-2816-4a37-ae55-a70db010ac51
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: "En la barra inferior tendr\xEDa que haber un libro o wiki"
   children:
   - 07641d87-b7a8-445e-8fb7-b1895c55a2d3

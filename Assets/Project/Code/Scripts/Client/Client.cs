@@ -37,6 +37,8 @@ public class Client : MonoBehaviour
     [SerializeField] private float maxTime;
     private float time;
 
+    private bool isTutorial;
+
     private void Awake()
     {
         conversant = GetComponent<AIConversant>();
@@ -52,6 +54,8 @@ public class Client : MonoBehaviour
         canLeave = false;
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        isTutorial = false;
     }
 
     private void Start()
@@ -73,7 +77,15 @@ public class Client : MonoBehaviour
         /// </summary>
         conversant.HandleDialogue();
 
-        order = CocktailNode.Type.Mojito;
+        if(isTutorial)
+        {
+            order = CocktailNode.Type.Roncola;
+        }
+        else
+        {
+            order = CocktailNode.Type.Mojito;
+        }
+        
         payment = 10.0f;
     }
 
@@ -146,6 +158,7 @@ public class Client : MonoBehaviour
             {
                 arriveAnimation = false;
                 InitClient();
+                Debug.Log(order);
             }
         }
 
@@ -240,5 +253,10 @@ public class Client : MonoBehaviour
     public AIConversant GetConversant()
     {
         return conversant;
+    }
+
+    public void SetIsTutorial(bool state)
+    {
+        isTutorial = state;
     }
 }

@@ -26,6 +26,7 @@ public class ClientManager : MonoBehaviour
     [SerializeField] private float verticalVelocity;
 
     [SerializeField] private List<Sprite> clientSprites;
+    [SerializeField] private TutorialManager tutorial;
 
     private void Awake()
     {
@@ -61,6 +62,12 @@ public class ClientManager : MonoBehaviour
         currentClientScript = currentClient.GetComponent<Client>();
         currentClientScript.SetNotNeedTakeDrink(node.notNeedTakeDrink);
         currentClientScript.GetConversant().SetDialogue(node.currentDialogue);
+        currentClientScript.SetSprite(node.sprite);
+        if(node.currentDialogue.name == "TutorialDialogue1" && tutorial != null)
+        {
+            tutorial.SetIsFriend(true);
+            currentClientScript.SetIsTutorial(true);
+        }
     }
 
     #region GETTERS
