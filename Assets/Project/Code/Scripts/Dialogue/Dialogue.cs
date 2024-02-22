@@ -84,7 +84,11 @@ namespace Dialogue
             currentNode.SetPlayerSpeaking(!currentNode.IsPlayerSpeaking());
             Undo.RecordObject(currentNode, "Changed Speaker Dialogue Node");
         }
-
+        public void ChangePauseText(DialogueNode currentNode)
+        {
+            currentNode.SetPauseText(!currentNode.IsTextPaused());
+            Undo.RecordObject(currentNode, "Changed Text Paused");
+        }
         public void DeleteNode(DialogueNode nodeToDelete)
         {
             Undo.RecordObject(this, "Deleted Dialogue Node");

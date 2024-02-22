@@ -10,9 +10,10 @@ namespace Dialogue
     public class DialogueNode : ScriptableObject
     {
         [SerializeField] private bool isPlayerSpeaking = false;
+        [SerializeField] private bool isTextPaused = false;
         [SerializeField] private string text;
         [SerializeField] private List<string> children = new List<string>();
-	    [SerializeField] private Rect rect = new Rect(0, 0, 200, 100);
+	    [SerializeField] private Rect rect = new Rect(0, 0, 200, 120);
 	    
 	    [SerializeField] private string onEnterAction;
 	    [SerializeField] private string onExitAction;
@@ -32,6 +33,10 @@ namespace Dialogue
         public bool IsPlayerSpeaking()
         {
             return isPlayerSpeaking;
+        }
+        public bool IsTextPaused()
+        {
+            return isTextPaused;
         }
 	    public string GetOnEnterAction()
 	    {
@@ -75,6 +80,12 @@ namespace Dialogue
         {
             Undo.RecordObject(this, "Change Dialogue Speaker");
             isPlayerSpeaking = newIsPlayerSpeaking;
+            EditorUtility.SetDirty(this);
+        }
+        public void SetPauseText(bool pause)
+        {
+            Undo.RecordObject(this, "Pause Dialogue");
+            isTextPaused = pause;
             EditorUtility.SetDirty(this);
         }
 #endif

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
@@ -20,6 +20,7 @@ namespace Dialogue.Editor
         #region Buttons
         [NonSerialized] private DialogueNode creatingNode = null;
         [NonSerialized] private DialogueNode playerNode = null;
+        [NonSerialized] private DialogueNode pauseNode = null;
         [NonSerialized] private DialogueNode deletingNode = null;
         [NonSerialized] private DialogueNode linkParentNode = null;
         #endregion
@@ -30,7 +31,7 @@ namespace Dialogue.Editor
         [NonSerialized] private Vector2 draggingCanvasOffset;
         #endregion
 
-        const float canvasSize = 4000;
+        const float canvasSize = 10000;
         const float backgroundSize = 50;
 
         [MenuItem("Editor/Dialogue Editor")]
@@ -116,6 +117,11 @@ namespace Dialogue.Editor
                     selectedDialogue.ChangePlayerSpeaking(playerNode);
                     playerNode = null;
                 }
+                if (pauseNode != null)
+                {
+                    selectedDialogue.ChangePauseText(pauseNode);
+                    pauseNode = null;
+                }
                 if (deletingNode != null)
                 {
                     selectedDialogue.DeleteNode(deletingNode);
@@ -183,10 +189,9 @@ namespace Dialogue.Editor
             {
                 deletingNode = node;
             }
-            if (GUILayout.Button("P")) 
-            {
-                playerNode = node;
-            }
+
+            DrawPauseButton(node);
+
             if (GUILayout.Button("+"))
             {
                 creatingNode = node;
@@ -194,7 +199,43 @@ namespace Dialogue.Editor
 
             GUILayout.EndHorizontal();
 
+            DrawPlayerButton(node);
+
             GUILayout.EndArea();
+        }
+        private void DrawPlayerButton(DialogueNode node)
+        {
+            if (node.IsPlayerSpeaking())
+            {
+                if (GUILayout.Button("PLAYER"))
+                {
+                    playerNode = node;
+                }
+            }
+            else
+            {
+                if (GUILayout.Button("AI"))
+                {
+                    playerNode = node;
+                }
+            }
+        }
+        private void DrawPauseButton(DialogueNode node)
+        {
+            if (node.IsTextPaused())
+            {
+                if (GUILayout.Button("PAUSED"))
+                {
+                    pauseNode = node;
+                }
+            }
+            else
+            {
+                if (GUILayout.Button("RESUME"))
+                {
+                    pauseNode = node;
+                }
+            }
         }
         private void DrawLinkButton(DialogueNode node)
         {
