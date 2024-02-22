@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 4451eddb-f3d4-41ee-b594-a030b86974d0
   m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueNode
-  isPlayerSpeaking: 0
+  isPlayerSpeaking: 1
+  isTextPaused: 0
   text: a
   children:
   - e6c814e7-c4d5-4b99-bcdd-6916fc1b84ed
   rect:
     serializedVersion: 2
-    x: 201
-    y: 11
+    x: 203
+    y: 9
     width: 200
-    height: 100
+    height: 120
   onEnterAction: 
   onExitAction: 
 --- !u!114 &-1110185708099388802
@@ -37,6 +38,7 @@ MonoBehaviour:
   m_Name: ba2cd7d7-651c-4a6d-8be1-549dec2cb17d
   m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueNode
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: a
   children: []
   rect:
@@ -44,7 +46,7 @@ MonoBehaviour:
     x: 998
     y: 11
     width: 200
-    height: 100
+    height: 120
   onEnterAction: 
   onExitAction: 
 --- !u!114 &-882803196481987545
@@ -60,6 +62,7 @@ MonoBehaviour:
   m_Name: e99eb102-15a5-461d-908b-f392202e0f88
   m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueNode
   isPlayerSpeaking: 1
+  isTextPaused: 0
   text: a
   children:
   - ba2cd7d7-651c-4a6d-8be1-549dec2cb17d
@@ -68,7 +71,7 @@ MonoBehaviour:
     x: 798
     y: 10
     width: 200
-    height: 100
+    height: 120
   onEnterAction: 
   onExitAction: 
 --- !u!114 &-800807698645430304
@@ -84,6 +87,7 @@ MonoBehaviour:
   m_Name: d03a0b2d-1e5b-4fc5-95c4-9422504d1387
   m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueNode
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: a
   children:
   - e99eb102-15a5-461d-908b-f392202e0f88
@@ -92,7 +96,7 @@ MonoBehaviour:
     x: 595
     y: 9
     width: 200
-    height: 100
+    height: 120
   onEnterAction: 
   onExitAction: 
 --- !u!114 &11400000
@@ -128,6 +132,7 @@ MonoBehaviour:
   m_Name: e6c814e7-c4d5-4b99-bcdd-6916fc1b84ed
   m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueNode
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: a
   children:
   - d03a0b2d-1e5b-4fc5-95c4-9422504d1387
@@ -136,7 +141,7 @@ MonoBehaviour:
     x: 398
     y: 10
     width: 200
-    height: 100
+    height: 120
   onEnterAction: 
   onExitAction: 
 --- !u!114 &8493536615200392316
@@ -152,14 +157,15 @@ MonoBehaviour:
   m_Name: 79687ddf-9a6a-4d99-9b71-f5080f6b459a
   m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueNode
   isPlayerSpeaking: 0
+  isTextPaused: 0
   text: a
   children:
   - 4451eddb-f3d4-41ee-b594-a030b86974d0
   rect:
     serializedVersion: 2
-    x: 0
-    y: 8
+    x: -1
+    y: 10
     width: 200
-    height: 100
+    height: 120
   onEnterAction: 
   onExitAction: 
