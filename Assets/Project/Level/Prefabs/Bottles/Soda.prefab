@@ -79,6 +79,8 @@ MonoBehaviour:
   currentLiquid: 300
   currentState: 0
   isGlass: 0
+  maxColliderPos: 0
+  minColliderPos: 0
   dropLiquid: {fileID: 0}
 --- !u!1 &6918459718600216018
 GameObject:
@@ -96,6 +98,7 @@ GameObject:
   - component: {fileID: 8819774920043758160}
   - component: {fileID: 201958644826711689}
   - component: {fileID: 5507417628516245743}
+  - component: {fileID: 5261533223795006991}
   m_Layer: 0
   m_Name: Soda
   m_TagString: Untagged
@@ -160,7 +163,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c0cecf0d9d9c77f42b0b6eb145ac9e63, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -284,6 +287,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 0
   changeSpriteMask: 1
+  moveParent: 0
   isItem: 0
 --- !u!114 &8819774920043758160
 MonoBehaviour:
@@ -313,7 +317,7 @@ MonoBehaviour:
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
   spawnPoint: {fileID: 4174260560249075128}
   liquidManager: {fileID: 4632203015347343070}
-  drinkType: 8
+  drink: {fileID: 11400000, guid: 3d506f12de8675b428a3107948c85215, type: 2}
 --- !u!114 &5507417628516245743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,3 +330,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf68816ca352e244b5f9bcbb950870c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5261533223795006991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918459718600216018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1669c1d0a79767145ba30abd3a3695ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidSlider: {fileID: 5548706644710090491, guid: dc42622c5e06dba4490d4c2418e446ae, type: 3}
+  arrowSlider: {fileID: 5548706644710090491, guid: 134e6a7603e96e548b58afb534c9ed79, type: 3}
+  liquidManager: {fileID: 4632203015347343070}
+  sprite: {fileID: 0}
+  isHorizontal: 0

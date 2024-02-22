@@ -28,6 +28,8 @@ public class ClientManager : MonoBehaviour
     [SerializeField] private List<Sprite> clientSprites;
     [SerializeField] private TutorialManager tutorial;
 
+    [SerializeField] private bool isNormalDay;
+
     private void Awake()
     {
         if (instance == null)
@@ -40,6 +42,10 @@ public class ClientManager : MonoBehaviour
         }
 
         nextClientIsImportant = false;
+        if(isNormalDay)
+        {
+            CreateNewClient();
+        }
     }
 
     public void CreateNewClient()

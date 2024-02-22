@@ -144,6 +144,37 @@ PolygonCollider2D:
       - {x: -0.21875, y: 0.21875}
       - {x: -0.21875, y: -0.125}
   m_UseDelaunayMesh: 0
+--- !u!1 &1405183377825978886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6524071643692336444}
+  m_Layer: 15
+  m_Name: 'SpawnPoint '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6524071643692336444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405183377825978886}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.306, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 720530942413858104}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1631296216517769539
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +185,8 @@ GameObject:
   m_Component:
   - component: {fileID: 720530942413858104}
   - component: {fileID: 1451645765080771610}
+  - component: {fileID: 4471090056557097739}
+  - component: {fileID: 5110034788011679347}
   - component: {fileID: 3637063651106925966}
   - component: {fileID: 583735982947840328}
   m_Layer: 18
@@ -178,6 +211,7 @@ Transform:
   - {fileID: 6084655702186551155}
   - {fileID: 4618004779001582745}
   - {fileID: 4333289117420390358}
+  - {fileID: 6524071643692336444}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -197,7 +231,7 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: 7cd9121659fb7e34ca670b554e21e682, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 7cd9121659fb7e34ca670b554e21e682, type: 3}
   scaleMultiplier: 1.5
-  itemCollider: {fileID: 0}
+  itemCollider: {fileID: 6205750208036711373}
   rotationSpeed: 6
   horizontalSpeed: 6
   verticalSpeed: 10
@@ -205,7 +239,36 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
+  moveParent: 0
   isItem: 0
+--- !u!114 &4471090056557097739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631296216517769539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5751e223e14a82a4eab0d934fd8a1cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
+  spawnPoint: {fileID: 6524071643692336444}
+  liquidManager: {fileID: 4557714834367202862}
+--- !u!114 &5110034788011679347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631296216517769539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb9c009ca1913142afd51dbdec621f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 20
 --- !u!60 &3637063651106925966
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -494,4 +557,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f0c6e7a6b205f44898113d863b75a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  glass: {fileID: 0}
   liquidManager: {fileID: 4557714834367202862}
