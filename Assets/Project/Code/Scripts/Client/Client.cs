@@ -25,14 +25,19 @@ public class Client : MonoBehaviour
     private bool canLeave;
 
 
-    private float minYPosition;
+    [SerializeField] private float minYPosition;
     private bool isGoingUp;
 
     private bool arriveAnimation;
     private bool leaveAnimation;
+    private bool startTimer;
 
     [Header("Client Dialogue")]
     private AIConversant conversant;
+
+    [Header("Timer")]
+    [SerializeField] private float maxTime;
+    private float time;
 
     private void Awake()
     {
@@ -41,9 +46,10 @@ public class Client : MonoBehaviour
 
         arriveAnimation = false;
         leaveAnimation = false;
+        startTimer = false;
+        time = 0;
 
         isGoingUp = true;
-        minYPosition = transform.localPosition.y;
 
         canLeave = false;
     }
@@ -96,7 +102,7 @@ public class Client : MonoBehaviour
                 collision.GetComponentInChildren<LiquidManager>().GetParticleTypes(),
                 collision.GetComponentInChildren<LiquidManager>().GetDrinkState()
                 ));
-            leaveAnimation = true;
+            startTimer = true;
         }
     }
 
@@ -151,9 +157,14 @@ public class Client : MonoBehaviour
             }
         }
 
+        if(startTimer)
+        {
+            Timer();
+        }
+
         if(notNeedTakeDrink && canLeave)
         {
-            leaveAnimation = true;
+            startTimer = true;
         }
     }
 
@@ -190,6 +201,16 @@ public class Client : MonoBehaviour
             {
                 isGoingUp = true;
             }
+        }
+    }
+
+    public void Timer()
+    {
+        time += Time.deltaTime;
+        if(time > maxTime)
+        {
+            startTimer = false;
+            leaveAnimation = true;
         }
     }
 

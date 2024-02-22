@@ -30,6 +30,7 @@ public class ClientManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        CreateNewClient();
     }
 
     public List<Sprite> GetClientSprites()
