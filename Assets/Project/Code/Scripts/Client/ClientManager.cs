@@ -1,3 +1,4 @@
+using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class ClientManager : MonoBehaviour
     [SerializeField] Transform clientParent;
     [SerializeField] GameObject client;
     private GameObject currentClient;
+
+    [SerializeField] private List<Dialogue.Dialogue> regularClientDialogues;
 
     [Header("Client Position")]
     [SerializeField] private Transform spawnPosition;
@@ -49,6 +52,10 @@ public class ClientManager : MonoBehaviour
     }
 
     #region GETTERS
+    public List<Dialogue.Dialogue> GetRegularClientDialogues()
+    {
+        return regularClientDialogues;
+    }
     public Transform GetSpawnPosition()
     {
         return spawnPosition;

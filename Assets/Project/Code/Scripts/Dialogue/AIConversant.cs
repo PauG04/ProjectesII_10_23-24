@@ -59,6 +59,11 @@ namespace Dialogue
         {
              hasExecuted = false;
         }
+
+		public void SetDialogue(Dialogue dialogue)
+		{
+			this.dialogue = dialogue;
+		}
         public string GetName()
 		{
 			return conversantName;
