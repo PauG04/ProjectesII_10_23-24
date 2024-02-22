@@ -19,6 +19,7 @@ namespace Dialogue.Editor
 
         #region Buttons
         [NonSerialized] private DialogueNode creatingNode = null;
+        [NonSerialized] private DialogueNode playerNode = null;
         [NonSerialized] private DialogueNode deletingNode = null;
         [NonSerialized] private DialogueNode linkParentNode = null;
         #endregion
@@ -81,7 +82,6 @@ namespace Dialogue.Editor
             if (selectedDialogue == null)
             {
                 EditorGUILayout.LabelField("NO DIALOGUE SELECTED");
-                return;
             } 
             else 
             { 
@@ -111,6 +111,11 @@ namespace Dialogue.Editor
                     selectedDialogue.CreateNode(creatingNode);
                     creatingNode = null;
                 }
+                if (playerNode != null)
+                {
+                    selectedDialogue.ChangePlayerSpeaking(playerNode);
+                    playerNode = null;
+                }
                 if (deletingNode != null)
                 {
                     selectedDialogue.DeleteNode(deletingNode);
@@ -137,7 +142,6 @@ namespace Dialogue.Editor
             }
             else if (Event.current.type == EventType.MouseDrag && draggingNode != null)
             {
-                Undo.RecordObject(selectedDialogue, "Move Dialogue Node");
                 draggingNode.SetPosition(Event.current.mousePosition + draggingOffset);
 
                 GUI.changed = true;
@@ -178,6 +182,10 @@ namespace Dialogue.Editor
             if (GUILayout.Button("-"))
             {
                 deletingNode = node;
+            }
+            if (GUILayout.Button("P")) 
+            {
+                playerNode = node;
             }
             if (GUILayout.Button("+"))
             {
@@ -228,6 +236,7 @@ namespace Dialogue.Editor
 
             foreach (DialogueNode childNode in selectedDialogue.GetAllChildren(node))
             {
+                //if (childNode != null) continue;
                 Vector3 endPosition = new Vector2(childNode.GetRect().xMin, childNode.GetRect().center.y);
                 Vector3 controlPointOffset = endPosition - startPosition;
                 controlPointOffset.y = 0;
