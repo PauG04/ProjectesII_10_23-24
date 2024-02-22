@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Dialogue
 {
@@ -10,16 +11,18 @@ namespace Dialogue
 		[SerializeField] private string conversantName;
 		[SerializeField] private PlayerConversant playerConversant;
 
+		private Client client;
+
 		private bool hasExecuted;
 		
 		protected void Awake()
 		{
 			playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
 			hasExecuted = false;
+            client = GetComponent<Client>();
+        }
 
-        }	
-	
-		public void HandleDialogue()
+        public void HandleDialogue()
 		{
 			if(dialogue == null)
 			{
@@ -28,13 +31,24 @@ namespace Dialogue
 			
 			playerConversant.StartDialogue(this, dialogue);
 		}
-		private void OnMouseDown()
+
+        private void Update()
+        {
+			if(playerConversant.IsActive())
+			{
+                if (!playerConversant.HasNext())
+                {
+                    client.SetCanLeave(true);
+                }
+            }           
+        }
+        private void OnMouseDown()
 		{
 			Debug.Log("PlayerPressed");
 			if (!playerConversant.GetCanContinue() && !hasExecuted)
 			{
-				playerConversant.SetCanContinue(true);
-				playerConversant.Next();
+                playerConversant.SetCanContinue(true);
+                playerConversant.Next();
                 hasExecuted = true;
 			}
 		}

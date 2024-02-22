@@ -1,3 +1,4 @@
+using Dialogue;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,8 +35,12 @@ public class TutorialManager : MonoBehaviour
     [Header("Panel")]
     [SerializeField] private GameObject panel;
 
+    [SerializeField] private PlayerConversant playerConversant;
+    private bool startTutorial;
+
     private enum tutorialID
     {
+        NotTutorial,
         BaseTutorial,
         GlassTutorial,
         MinigameTutorial
@@ -75,6 +80,7 @@ public class TutorialManager : MonoBehaviour
         fridge.enabled = false;
       
         panel.SetActive(false);
+        startTutorial = false;
     }
 
     private void Update()
@@ -96,7 +102,14 @@ public class TutorialManager : MonoBehaviour
             shaker.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
 
-        if (id == tutorialID.BaseTutorial)
+        if(playerConversant.GetCanContinue())
+        {
+            startTutorial = true;
+        }
+
+        Debug.Log(playerConversant.GetCanContinue());
+
+        if (id == tutorialID.BaseTutorial && !playerConversant.GetCanContinue() && startTutorial)
         {
             CallActiveDrag();
         }
@@ -163,7 +176,7 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-            ActiveDragItem(0, true);
+            ActiveDragItem(0, false);
         } 
     }
 
@@ -219,10 +232,12 @@ public class TutorialManager : MonoBehaviour
             if(hasToReturn && !drag[_index].GetInsideWorkspace())
             {
                 drag[_index].SetIsInTutorial(false);
+                ContinueConversation();
             }
             else if(!hasToReturn)
             {
                 drag[_index].SetIsInTutorial(false);
+                ContinueConversation();
             }
         }
         if (!drag[_index].GetIsDraggin() && drag[_index].GetIsInTutorial() && !drag[_index].GetInsideWorkspace())
@@ -327,4 +342,23 @@ public class TutorialManager : MonoBehaviour
             }
         }             
     }
+
+    private void ContinueConversation()
+    {
+        if (!playerConversant.GetCanContinue())
+        {
+            playerConversant.SetCanContinue(true);
+            if (playerConversant.HasNext())
+            {
+                playerConversant.Next();
+            }
+        }
+    }
+
+    public void SetActiveTutorial(bool state)
+    {
+        startTutorial = state;
+    }
+
+
 }
