@@ -34,7 +34,10 @@ namespace Dialogue
 			if (!playerConversant.GetCanContinue() && !hasExecuted)
 			{
 				playerConversant.SetCanContinue(true);
-				playerConversant.Next();
+				if (playerConversant.HasNext())
+				{
+                    playerConversant.Next();
+                }
                 hasExecuted = true;
 			}
 		}
