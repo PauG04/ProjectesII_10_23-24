@@ -11,8 +11,6 @@ public class Client : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private TextMeshPro textMP;
-
     [Header("Client Position")]
     [SerializeField] private GameObject clientPosition;
     [SerializeField] private GameObject leavePosition;
@@ -52,6 +50,8 @@ public class Client : MonoBehaviour
         isGoingUp = true;
 
         canLeave = false;
+
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
@@ -62,12 +62,15 @@ public class Client : MonoBehaviour
 
     private void InitClient()
     {
-        //int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
-        //order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
-        //order = CocktailNode.Type.Invade;
-        //textMP.text = "Quiero un " + order.ToString();
-        //text.SetActive(true);
+        int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
+        order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
 
+        //int randomDialogue = Random.Range(0, ClientManager.instance.GetRegularClientDialogues().Count);
+        //conversant.SetDialogue(ClientManager.instance.GetRegularClientDialogues()[randomDialogue]);
+        /// <summary>
+        /// TODO: Dani
+        ///     Hacer que el dialogo reciba la señal dependiendo del tipo de randomOrder, haciendo que escoja el dialogo dependiendo de la bebida
+        /// </summary>
         conversant.HandleDialogue();
 
         order = CocktailNode.Type.Mojito;
@@ -224,5 +227,18 @@ public class Client : MonoBehaviour
         canLeave = state;
     }
 
+    public void SetNotNeedTakeDrink(bool value)
+    {
+        notNeedTakeDrink = value;
+    }
 
+    public void SetSprite(Sprite sprite)
+    {
+        spriteRenderer.sprite = sprite;
+    }
+
+    public AIConversant GetConversant()
+    {
+        return conversant;
+    }
 }
