@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -47,8 +47,11 @@ namespace Dialogue
 			Debug.Log("PlayerPressed");
 			if (!playerConversant.GetCanContinue() && !hasExecuted)
 			{
-                playerConversant.SetCanContinue(true);
-                playerConversant.Next();
+				playerConversant.SetCanContinue(true);
+				if (playerConversant.HasNext())
+				{
+                    playerConversant.Next();
+                }
                 hasExecuted = true;
 			}
 		}

@@ -47,7 +47,6 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 		IdleClosed,
 		DraggingOpen,
 		DraggingClosed,
-		ResetDrink
 	}
 
 	private void Awake()
@@ -65,7 +64,6 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, initPosition, workSpace, color, background));
 		States.Add(ShakerState.DraggingOpen, shakerDraggingOpen);
 		States.Add(ShakerState.DraggingClosed, shakerDraggingClose);
-		States.Add(ShakerState.ResetDrink, new ShakerResetDrink());
 
 		CurrentState = States[ShakerState.IdleOpen];
 
