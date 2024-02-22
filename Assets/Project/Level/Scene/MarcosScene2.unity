@@ -318,7 +318,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5095920331122162474, guid: 1e98b0678c911d84189646dc8d031e34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1e98b0678c911d84189646dc8d031e34, type: 3}
 --- !u!1 &63711870
 GameObject:
@@ -1226,67 +1229,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxYScale: 105
   velocity: 5
---- !u!1001 &244891244
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 596320338}
-    m_Modifications:
-    - target: {fileID: 2658581217570969930, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658581217570969930, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.453709
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658581217570969930, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.42288208
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658581217570969930, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.51208615
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658581217570969930, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658581217570969930, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658581217570969930, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658581217570969930, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658581217570969930, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658581217570969930, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658581217570969930, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4303609316120479025, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-      propertyPath: m_Name
-      value: Glass2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
 --- !u!4 &256670592 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9142374672580930498, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
@@ -2173,7 +2115,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1207537802}
-  - {fileID: 1915558895}
   - {fileID: 810756405}
   - {fileID: 855404490}
   - {fileID: 1281665639}
@@ -2257,6 +2198,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 0
   changeSpriteMask: 1
+  moveParent: 0
   isItem: 0
 --- !u!60 &598954953
 PolygonCollider2D:
@@ -2418,7 +2360,7 @@ MonoBehaviour:
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
   spawnPoint: {fileID: 1774471918}
   liquidManager: {fileID: 1751672834}
-  drinkType: 0
+  drink: {fileID: 0}
 --- !u!224 &600367400 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8037749646198739868, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
@@ -3700,6 +3642,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 1
   changeSpriteMask: 1
+  moveParent: 0
   isItem: 0
 --- !u!60 &810263147
 PolygonCollider2D:
@@ -4627,6 +4570,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 0
   changeSpriteMask: 1
+  moveParent: 0
   isItem: 0
 --- !u!60 &1034932673
 PolygonCollider2D:
@@ -6913,11 +6857,6 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 6205750208036711373, guid: dd811e74b555e0c46932307cedb2e20c, type: 3}
   m_PrefabInstance: {fileID: 388901081}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1555071132 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4358601423379796865, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
-  m_PrefabInstance: {fileID: 1753286020}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1561399795
 GameObject:
   m_ObjectHideFlags: 0
@@ -7627,6 +7566,8 @@ MonoBehaviour:
   currentLiquid: 0
   currentState: 0
   isGlass: 0
+  maxColliderPos: 0
+  minColliderPos: 0
   dropLiquid: {fileID: 598954957}
 --- !u!61 &1751672835
 BoxCollider2D:
@@ -7704,7 +7645,7 @@ PrefabInstance:
     - target: {fileID: 7216905069198535887, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
       propertyPath: text
       value: 
-      objectReference: {fileID: 1555071132}
+      objectReference: {fileID: 0}
     - target: {fileID: 7216905069198535887, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
       propertyPath: maxTimer
       value: 1
@@ -7776,10 +7717,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2636613016234127278, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
 --- !u!1 &1764013541
 GameObject:
@@ -8730,11 +8668,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1915558895 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2658581217570969930, guid: b94d00a01fb80254db14a5a0e11db87f, type: 3}
-  m_PrefabInstance: {fileID: 244891244}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1922077297
 GameObject:
   m_ObjectHideFlags: 0
@@ -9492,6 +9425,8 @@ MonoBehaviour:
   currentLiquid: 0
   currentState: 0
   isGlass: 0
+  maxColliderPos: 0
+  minColliderPos: 0
   dropLiquid: {fileID: 0}
 --- !u!61 &2082256595
 BoxCollider2D:
