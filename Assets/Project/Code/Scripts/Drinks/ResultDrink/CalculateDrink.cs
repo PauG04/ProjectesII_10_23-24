@@ -35,7 +35,7 @@ public class CalculateDrink : MonoBehaviour
             return CocktailNode.Type.Mojito;
         
         if (CheckCocktail(typesOfDrink, state, allCocktails["PomadaMenorquina"]))
-            return CocktailNode.Type.PomadaMenorquina;
+            return CocktailNode.Type.Ginlemmon;
 
         if (CheckCocktail(typesOfDrink, state, allCocktails["Gintonic"]))
             return CocktailNode.Type.Gintonic;
