@@ -2277,11 +2277,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.328125, y: 4.4165573}
   m_EdgeRadius: 0
---- !u!1 &605771388 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3164742363969609211, guid: 8aca1bbb7ad094d448b7a0323333cb51, type: 3}
-  m_PrefabInstance: {fileID: 716878752}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &616007281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5953772245541387319, guid: 1e98b0678c911d84189646dc8d031e34, type: 3}
@@ -2604,7 +2599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3164742363969609211, guid: 8aca1bbb7ad094d448b7a0323333cb51, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6811001021699471402, guid: 8aca1bbb7ad094d448b7a0323333cb51, type: 3}
       propertyPath: dialogue
@@ -4509,14 +4504,14 @@ PrefabInstance:
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: client
       value: 
-      objectReference: {fileID: 605771388}
+      objectReference: {fileID: 3164742363969609211, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: clientParent
       value: 
       objectReference: {fileID: 1382117364}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: maxYPosition
-      value: 0.47
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: spawnPosition

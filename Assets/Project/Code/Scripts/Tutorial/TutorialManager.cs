@@ -38,6 +38,7 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField] private PlayerConversant playerConversant;
     private bool startTutorial;
+    private bool isFriend;
 
     private bool[] continuConversation;
 
@@ -89,6 +90,8 @@ public class TutorialManager : MonoBehaviour
         {
             continuConversation[i] = true;
         }
+
+        isFriend = false;
     }
 
     private void Update()
@@ -110,7 +113,7 @@ public class TutorialManager : MonoBehaviour
             shaker.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
 
-        if(playerConversant.GetCanContinue())
+        if (playerConversant.GetCanContinue() && isFriend)
         {
             startTutorial = true;
         }
@@ -414,9 +417,9 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    public void SetActiveTutorial(bool state)
+    public void SetIsFriend(bool state)
     {
-        startTutorial = state;
+        isFriend = state;
     }
 
 

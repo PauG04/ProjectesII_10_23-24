@@ -37,6 +37,8 @@ public class ClientManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        nextClientIsImportant = false;
     }
 
     public void CreateNewClient()
