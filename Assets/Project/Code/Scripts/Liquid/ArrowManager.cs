@@ -69,8 +69,8 @@ public class ArrowManager : MonoBehaviour
 
     private void Update()
     {
-        float currentYScale = (maxYScale * liquidManager.GetCurrentLiquid()) / liquidManager.GetMaxLiquid();        
-        float currentYPosition = (maxYPosition * liquidManager.GetCurrentLiquid() * 2) / liquidManager.GetMaxLiquid();
+        float currentYScale = (maxYScale * (float)liquidManager.GetCurrentLiquid()) / (float)liquidManager.GetMaxLiquid();        
+        float currentYPosition = (maxYPosition * (float)liquidManager.GetCurrentLiquid() * 2) / (float)liquidManager.GetMaxLiquid();
 
         if(!isHorizontal)
         {

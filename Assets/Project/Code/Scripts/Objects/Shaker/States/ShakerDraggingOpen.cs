@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -231,6 +232,12 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
             if (_timeSinceLastPour >= pouringInterval && _liquidManager.GetCurrentLiquid() > 0)
             {
                 GameObject liquid = GameObject.Instantiate(_liquidPrefab, _spawnPoint.position, Quaternion.identity);
+
+                LiquidParticle liquidParticle = liquid.GetComponent<LiquidParticle>();
+                liquidParticle.SetCocktailState(_liquidManager.GetDrinkState());
+                Debug.Log(_liquidManager.GetParticleTypes().Keys.Last());
+
+                liquidParticle.SetDrink(_liquidManager.GetParticleTypes().Keys.Last());
 
                 _liquidManager.DeacreaseCurrentLiquid();
 

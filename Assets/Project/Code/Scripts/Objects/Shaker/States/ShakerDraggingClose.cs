@@ -54,8 +54,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
-        Debug.Log("Enter Dragging Close State");
-
         _state = ShakerStateMachine.ShakerState.DraggingClosed;
 
         _targetJoint = _shakerStateMachine.GetComponent<TargetJoint2D>();

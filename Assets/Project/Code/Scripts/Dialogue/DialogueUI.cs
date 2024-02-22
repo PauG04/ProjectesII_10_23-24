@@ -51,13 +51,7 @@ namespace UI
                     StartCoroutine(SeparatorDelay());
                 }
             } 
-			else
-			{
-				if (!isSeparatorRunning)
-				{
-                    StartCoroutine(SeparatorDelay());
-                }
-            }
+
         }
 		private void UpdateChat()
 		{

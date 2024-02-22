@@ -42,7 +42,6 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
-        Debug.Log("Enter Idle Close State");
         _shakerClosed.SetStayClosed(false);
 
         _shakerStateMachine.GetComponent<TargetJoint2D>().enabled = false;

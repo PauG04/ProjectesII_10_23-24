@@ -19,8 +19,8 @@ public class LiquidInside : MonoBehaviour
     }
     private void Update()
     {
-        material.SetFloat("_Rotation", glass.rotation.eulerAngles.z);
-        material.SetFloat("_FillAmount", CurrentLiquid(liquidManager.GetCurrentLiquid()));
+        material.SetFloat("_Rotation", -glass.rotation.eulerAngles.z);
+        material.SetFloat("_FillAmount", CurrentLiquid((float)liquidManager.GetCurrentLiquid()));
     }
 
     private float CurrentLiquid(float value)
