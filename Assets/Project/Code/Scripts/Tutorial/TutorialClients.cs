@@ -8,6 +8,8 @@ public class TutorialClients : MonoBehaviour
     [SerializeField] private ImportantClientNode houseKeeper;
     [SerializeField] private ImportantClientNode friend;
 
+    private TutorialManager tutorial;
+
     private void Awake()
     {
         InitHouseKeeper();
@@ -18,5 +20,7 @@ public class TutorialClients : MonoBehaviour
         ClientManager.instance.SetNextImportantClient(houseKeeper);
         ClientManager.instance.SetNextClientIsImportant(true);
         ClientManager.instance.CreateNewClient();
+        ClientManager.instance.SetNextClientIsImportant(true);
+        ClientManager.instance.SetNextImportantClient(friend);
     }
 }
