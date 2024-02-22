@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class LiquidInside : MonoBehaviour
 {
+    [SerializeField] private Transform glass;
     [SerializeField] private LiquidManager liquidManager;
     private Material material;
 
     private void Awake()
     {
+        if (glass == null)
+        {
+            glass = transform.parent;
+        }
         material = GetComponent<SpriteRenderer>().material;
         InitState();
     }
     private void Update()
     {
-        material.SetFloat("_FillAmount", CurrentLiquid(liquidManager.GetCurrentLiquid()));
+        material.SetFloat("_Rotation", -glass.rotation.eulerAngles.z);
+        material.SetFloat("_FillAmount", CurrentLiquid((float)liquidManager.GetCurrentLiquid()));
     }
 
     private float CurrentLiquid(float value)

@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8030575537619845595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 4451eddb-f3d4-41ee-b594-a030b86974d0
+  m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueNode
+  isPlayerSpeaking: 0
+  text: a
+  children:
+  - e6c814e7-c4d5-4b99-bcdd-6916fc1b84ed
+  rect:
+    serializedVersion: 2
+    x: 201
+    y: 11
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1110185708099388802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: ba2cd7d7-651c-4a6d-8be1-549dec2cb17d
+  m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueNode
+  isPlayerSpeaking: 0
+  text: a
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 998
+    y: 11
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-882803196481987545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: e99eb102-15a5-461d-908b-f392202e0f88
+  m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueNode
+  isPlayerSpeaking: 1
+  text: a
+  children:
+  - ba2cd7d7-651c-4a6d-8be1-549dec2cb17d
+  rect:
+    serializedVersion: 2
+    x: 798
+    y: 10
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-800807698645430304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: d03a0b2d-1e5b-4fc5-95c4-9422504d1387
+  m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueNode
+  isPlayerSpeaking: 0
+  text: a
+  children:
+  - e99eb102-15a5-461d-908b-f392202e0f88
+  rect:
+    serializedVersion: 2
+    x: 595
+    y: 9
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 8493536615200392316}
+  - {fileID: -8030575537619845595}
+  - {fileID: 1276626820286529351}
+  - {fileID: -800807698645430304}
+  - {fileID: -882803196481987545}
+  - {fileID: -1110185708099388802}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1276626820286529351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: e6c814e7-c4d5-4b99-bcdd-6916fc1b84ed
+  m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueNode
+  isPlayerSpeaking: 0
+  text: a
+  children:
+  - d03a0b2d-1e5b-4fc5-95c4-9422504d1387
+  rect:
+    serializedVersion: 2
+    x: 398
+    y: 10
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8493536615200392316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 79687ddf-9a6a-4d99-9b71-f5080f6b459a
+  m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueNode
+  isPlayerSpeaking: 0
+  text: a
+  children:
+  - 4451eddb-f3d4-41ee-b594-a030b86974d0
+  rect:
+    serializedVersion: 2
+    x: 0
+    y: 8
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 

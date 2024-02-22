@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Drink", menuName = "Drink", order = 2)]
@@ -24,7 +25,7 @@ public class DrinkNode : ScriptableObject
         Tonic
     }
 
-    //public string drinkName;
+    public string spanishName;
     public string description;
     public Type type;
     public Color color;

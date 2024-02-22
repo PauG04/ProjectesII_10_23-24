@@ -111,6 +111,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
+  moveParent: 0
   isItem: 1
 --- !u!50 &7211075075064919394
 Rigidbody2D:
@@ -242,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4bd9fbd7de5ce945825e2ce5555b4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemGroupNode: {fileID: 11400000, guid: 8704ad40f1181a441a22caf919c53da8, type: 2}
 --- !u!114 &8252524059085302010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +288,8 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
-  isItem: 0
+  moveParent: 0
+  isItem: 1
 --- !u!50 &2484180880691039068
 Rigidbody2D:
   serializedVersion: 4
@@ -650,6 +653,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
+  moveParent: 0
   isItem: 1
 --- !u!50 &1344799823750698355
 Rigidbody2D:
@@ -839,6 +843,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
+  moveParent: 0
   isItem: 1
 --- !u!50 &2617164320372113990
 Rigidbody2D:
@@ -1027,6 +1032,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
+  moveParent: 0
   isItem: 1
 --- !u!50 &792544759911798702
 Rigidbody2D:
@@ -1217,6 +1223,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
+  moveParent: 0
   isItem: 1
 --- !u!50 &5953912627765919025
 Rigidbody2D:

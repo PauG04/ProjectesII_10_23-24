@@ -11,6 +11,7 @@ public class DragItemsNew : MonoBehaviour
     [SerializeField] private PolygonCollider2D itemCollider;
 
     [Header("Dragging Variables")]
+    private Transform target;
     private Rigidbody2D rb2d;
     private Collider2D workSpace;
     private Vector3 offset;
@@ -27,9 +28,9 @@ public class DragItemsNew : MonoBehaviour
     [SerializeField] private bool hasToReturn;
     [SerializeField] private bool hasToStayTheSameLayer;
     [SerializeField] private bool changeSpriteMask;
+    [SerializeField] private bool moveParent;
     [SerializeField] private bool isItem;
     
-
     private bool isObjectRotated;
     private bool isRotating;
     private bool isReturning;
@@ -43,8 +44,11 @@ public class DragItemsNew : MonoBehaviour
 
     private void Awake()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        target = moveParent ? transform.parent : transform;
+
+        rb2d = target.GetComponent<Rigidbody2D>();
         rotateBottle = GetComponent<RotateBottle>();
+        workSpace = GameObject.FindGameObjectWithTag("WorkSpace").GetComponent<BoxCollider2D>();
 
         if (itemCollider == null)
         {
@@ -55,60 +59,84 @@ public class DragItemsNew : MonoBehaviour
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        workSpace = GameObject.FindGameObjectWithTag("WorkSpace").GetComponent<BoxCollider2D>();
-
-        if(!isItem)
+        if (!isItem)
         {
             rb2d.bodyType = RigidbodyType2D.Static;
         }
-        
 
-        if (transform.rotation != Quaternion.identity)
+        if (target.rotation != Quaternion.identity)
         {
             isObjectRotated = true;
-            initRotation = transform.localRotation;
+            initRotation = target.localRotation;
         }
         else
         {
             initRotation = Quaternion.identity;
         }
+        initPosition = target.localPosition;
 
-        initPosition = transform.localPosition;
         isInTutorial = false;
         wasOnTheTable = false;
     }
     private void Update()
     {
+        
         if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
         }
-
         if (hasToReturn)
         {
             RepositionObject();
         }
+        DraggingParent();
+        Dragging();
+        if (isRotating)
+        {
+            if (rotateBottle != null)
+            {
+                if(!rotateBottle.GetIsRotating())
+                {
+                    RotateObject();
+                }
+            }
+            else
+            {
+                RotateObject();
+            }
+        }
+        
+    }
+    private void OnMouseDown()
+    {
+        ObjectPressed();
+    }
+    private void OnMouseUp()
+    {
+        rb2d.bodyType = RigidbodyType2D.Dynamic;
 
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+        isDragging = false;
+    }
+    private void Dragging()
+    {
         if (isDragging)
         {
-            transform.position = GetMouseWorldPosition() + offset;
+            target.position = GetMouseWorldPosition() + offset;
             isRotating = true;
 
-            if (workSpace.OverlapPoint(mousePosition))
+            if (workSpace.OverlapPoint(GetMouseWorldPosition()))
             {
                 InsideWorkspace();
-            } 
+            }
             else
             {
                 OutsideWorkspace();
-                transform.position = new Vector2(mousePosition.x, mousePosition.y);
+                target.position = new Vector2(GetMouseWorldPosition().x, GetMouseWorldPosition().y);
             }
         }
         else
         {
-            if (!workSpace.OverlapPoint(transform.position))
+            if (!workSpace.OverlapPoint(target.position))
             {
                 rb2d.bodyType = RigidbodyType2D.Static;
                 OutsideWorkspace();
@@ -129,38 +157,41 @@ public class DragItemsNew : MonoBehaviour
                 }
             }
         }
-
-        if (isRotating)
+    }
+    private void DraggingParent()
+    {
+        if (moveParent)
         {
-            if (rotateBottle != null)
+            if (Input.GetMouseButtonDown(0))
             {
-                if(!rotateBottle.GetIsRotating())
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+
+                if (hit.collider != null)
                 {
-                    RotateObject();
+                    if (hit.collider.transform.IsChildOf(transform))
+                    {
+                        Debug.Log("Child object clicked!");
+
+                        if (rb2d != null)
+                        {
+                            ObjectPressed();
+                        }
+                    }
                 }
-            }
-            else
-            {
-                RotateObject();
             }
         }
     }
-    private void OnMouseDown()
+    private void ObjectPressed()
     {
         Physics2D.IgnoreCollision(workSpace, GetComponent<PolygonCollider2D>());
         RotateObject();
 
         rb2d.bodyType = RigidbodyType2D.Static;
 
-        offset = gameObject.transform.position - GetMouseWorldPosition();
+        offset = target.position - GetMouseWorldPosition();
         isDragging = true;
         isReturning = false;
-    }
-    private void OnMouseUp()
-    {
-        rb2d.bodyType = RigidbodyType2D.Dynamic;
-
-        isDragging = false;
     }
     private void InsideWorkspace()
     {
@@ -182,9 +213,9 @@ public class DragItemsNew : MonoBehaviour
             itemCollider.TryUpdateShapeToAttachedSprite();
         }
         
-        InsideWorkspaceRenderersChilds(transform);
+        InsideWorkspaceRenderersChilds(target);
 
-        transform.localScale = new Vector2(scaleMultiplier, scaleMultiplier);
+        target.localScale = new Vector2(scaleMultiplier, scaleMultiplier);
 
         if(!wasOnTheTable)
         {
@@ -211,11 +242,11 @@ public class DragItemsNew : MonoBehaviour
             itemCollider.TryUpdateShapeToAttachedSprite();
         }
      
-        OutsidewWorkspaceRenderersChilds(transform);
+        OutsidewWorkspaceRenderersChilds(target);
 
         if(!isInTutorial)
         {
-            transform.localScale = Vector3.one;
+            target.localScale = Vector3.one;
         }
         
     }
@@ -259,10 +290,10 @@ public class DragItemsNew : MonoBehaviour
     {
         if (!isObjectRotated || isDragging)
         {
-            isRotating = !(transform.rotation == Quaternion.identity);
+            isRotating = !(target.rotation == Quaternion.identity);
 
-            transform.rotation = Quaternion.Lerp(
-                transform.localRotation,
+            target.rotation = Quaternion.Lerp(
+                target.localRotation,
                 Quaternion.identity,
                 Time.deltaTime * rotationSpeed
             );
@@ -270,10 +301,10 @@ public class DragItemsNew : MonoBehaviour
 
         if (isObjectRotated && !insideWorkspace)
         {
-            isRotating = !(transform.rotation == initRotation);
+            isRotating = !(target.rotation == initRotation);
 
-            transform.rotation = Quaternion.Lerp(
-                transform.localRotation,
+            target.rotation = Quaternion.Lerp(
+                target.localRotation,
                 initRotation,
                 Time.deltaTime * rotationSpeed
             );
@@ -286,19 +317,19 @@ public class DragItemsNew : MonoBehaviour
             RotateObject();
             isReturning = true;
 
-            transform.localPosition = new Vector2(
-                Mathf.Lerp(transform.localPosition.x, initPosition.x, Time.deltaTime * horizontalSpeed), 
-                transform.localPosition.y
+            target.localPosition = new Vector2(
+                Mathf.Lerp(target.localPosition.x, initPosition.x, Time.deltaTime * horizontalSpeed),
+                target.localPosition.y
             );
 
-            if (transform.localPosition.x > initPosition.x - 0.002 && transform.localPosition.x < initPosition.x + 0.002)
+            if (target.localPosition.x > initPosition.x - 0.002 && target.localPosition.x < initPosition.x + 0.002)
             {
-                transform.localPosition = new Vector2(
-                    transform.localPosition.x,
-                    Mathf.Lerp(transform.localPosition.y, initPosition.y, Time.deltaTime * verticalSpeed)
+                target.localPosition = new Vector2(
+                    target.localPosition.x,
+                    Mathf.Lerp(target.localPosition.y, initPosition.y, Time.deltaTime * verticalSpeed)
                 );
 
-                if (transform.localPosition.y > initPosition.y - 0.002 && transform.localPosition.y < initPosition.y + 0.002)
+                if (target.localPosition.y > initPosition.y - 0.002 && target.localPosition.y < initPosition.y + 0.002)
                 {
                     if (hasToBeDestroy)
                     {

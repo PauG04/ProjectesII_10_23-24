@@ -46,7 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLiquid: 300
   currentLiquid: 300
+  currentState: 0
   isGlass: 0
+  maxColliderPos: 0.1475
+  minColliderPos: -0.23
+  dropLiquid: {fileID: 0}
 --- !u!1 &552682644521623691
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +97,7 @@ GameObject:
   - component: {fileID: 3133584301595090251}
   - component: {fileID: 4975549752326105575}
   - component: {fileID: 13459176564938733}
+  - component: {fileID: 2747163640536209175}
   m_Layer: 0
   m_Name: Rum
   m_TagString: Untagged
@@ -268,7 +273,7 @@ MonoBehaviour:
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
   spawnPoint: {fileID: 6104178258769528242}
   liquidManager: {fileID: 6362806960958536186}
-  drinkType: 0
+  drink: {fileID: 0}
 --- !u!114 &4975549752326105575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,12 +299,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: b0e7fcf859a71564cbec41fd47a4f370, type: 3}
   workspaceSprite: {fileID: 21300000, guid: b0e7fcf859a71564cbec41fd47a4f370, type: 3}
   scaleMultiplier: 1.2
+  itemCollider: {fileID: 0}
   rotationSpeed: 6
   horizontalSpeed: 6
   verticalSpeed: 10
   hasToBeDestroy: 0
   hasToReturn: 1
   hasToStayTheSameLayer: 0
+  changeSpriteMask: 1
+  isItem: 0
+--- !u!114 &2747163640536209175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671257232246213615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf68816ca352e244b5f9bcbb950870c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

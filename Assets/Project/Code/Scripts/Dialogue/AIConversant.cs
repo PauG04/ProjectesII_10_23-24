@@ -1,6 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Dialogue
 {
@@ -9,41 +10,56 @@ namespace Dialogue
 		[SerializeField] private Dialogue dialogue = null;
 		[SerializeField] private string conversantName;
 		[SerializeField] private PlayerConversant playerConversant;
-		
-		[HideInInspector] public bool stopDialogue;
+
+		private Client client;
+
+		private bool hasExecuted;
 		
 		protected void Awake()
 		{
 			playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
-			stopDialogue = false;
-		}	
-	
-		public void HandleDialogue(PlayerConversant playerConversant)
+			hasExecuted = false;
+            client = GetComponent<Client>();
+        }
+
+        public void HandleDialogue()
 		{
 			if(dialogue == null)
 			{
 				return;
 			}
 			
-			stopDialogue = false;
 			playerConversant.StartDialogue(this, dialogue);
 		}
-		private void OnMouseDown()
+
+        private void Update()
+        {
+			if(playerConversant.IsActive())
+			{
+                if (!playerConversant.HasNext())
+                {
+                    client.SetCanLeave(true);
+                }
+            }           
+        }
+        private void OnMouseDown()
 		{
-			HandleDialogue(playerConversant);
+			Debug.Log("PlayerPressed");
+			if (!playerConversant.GetCanContinue() && !hasExecuted)
+			{
+				playerConversant.SetCanContinue(true);
+				if (playerConversant.HasNext())
+				{
+                    playerConversant.Next();
+                }
+                hasExecuted = true;
+			}
 		}
-		
-		public void StopDialogue()
-		{
-			stopDialogue = true;
-		}
-		
-		public void ContinueDialogue()
-		{
-			stopDialogue = false;
-		}
-		
-		public string GetName()
+        private void OnMouseUp()
+        {
+             hasExecuted = false;
+        }
+        public string GetName()
 		{
 			return conversantName;
 		}

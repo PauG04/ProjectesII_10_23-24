@@ -20,7 +20,7 @@ namespace Dialogue
         // Called when a value is changed on inspector, or when scripteableobject is loaded
         private void OnValidate()
         {
-            nodeLookUp.Clear();
+            if (nodeLookUp != null) nodeLookUp.Clear();
 
             foreach (DialogueNode node in GetAllNodes())
             {
@@ -41,15 +41,12 @@ namespace Dialogue
 
         public IEnumerable<DialogueNode> GetAllChildren(DialogueNode parentNode)
 	    {
-		    if(parentNode != null)
+		    foreach (string childID in parentNode.GetChildren())
 		    {
-		    	foreach (string childID in parentNode.GetChildren())
-		    	{
-			    	if (nodeLookUp.ContainsKey(childID))
-			    	{
-				    	yield return nodeLookUp[childID];
-			    	}
-		    	}
+			    if (nodeLookUp.ContainsKey(childID))
+			    {
+				    yield return nodeLookUp[childID];
+			    }
 		    }
         }
         
@@ -81,6 +78,11 @@ namespace Dialogue
             Undo.RegisterCreatedObjectUndo(newNode, "Created Dialogue Node");
             Undo.RecordObject(this, "Added Dialogue Node");
             AddNode(newNode);
+        }
+        public void ChangePlayerSpeaking(DialogueNode currentNode)
+        {
+            currentNode.SetPlayerSpeaking(!currentNode.IsPlayerSpeaking());
+            Undo.RecordObject(currentNode, "Changed Speaker Dialogue Node");
         }
 
         public void DeleteNode(DialogueNode nodeToDelete)

@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static UnityEngine.ProBuilder.AutoUnwrapSettings;
 
 public class LiquidManager : MonoBehaviour
 {
-    [SerializeField] private float maxLiquid;
-    [SerializeField] private float currentLiquid = 0;
-    private Dictionary<DrinkNode.Type, int> particleTypes;
+    [SerializeField] private int maxLiquid;
+    [SerializeField] private int currentLiquid = 0;
+    private Dictionary<DrinkNode, int> particleTypes;
 
     [SerializeField] private CocktailNode.State currentState;
 
@@ -16,15 +17,15 @@ public class LiquidManager : MonoBehaviour
     private BoxCollider2D boxCollider;
 
     [Header("Liquid Fill Variables")]
-    [SerializeField] private float maxColliderPos = 0.1475f;
-    [SerializeField] private float minColliderPos = -0.23f;
+    [SerializeField] private float maxColliderPos = 0;
+    [SerializeField] private float minColliderPos = 0;
 
     [Header("Jigger")]
     [SerializeField] private DropJiggerLiquid dropLiquid;
 
     private void Awake()
     {
-        particleTypes = new Dictionary<DrinkNode.Type, int>();
+        particleTypes = new Dictionary<DrinkNode, int>();
         boxCollider = GetComponent<BoxCollider2D>();
 
         if (isGlass)
@@ -56,18 +57,18 @@ public class LiquidManager : MonoBehaviour
         {
             if (currentLiquid < maxLiquid)
             {
-                if(particleTypes.ContainsKey(collision.GetComponent<LiquidParticle>().GetDrinkType()))
+                if (particleTypes.ContainsKey(collision.GetComponent<LiquidParticle>().GetDrink()))
                 {
-                    particleTypes[collision.GetComponent<LiquidParticle>().GetDrinkType()]++;
-                    if(dropLiquid != null)
+                    particleTypes[collision.GetComponent<LiquidParticle>().GetDrink()]++;
+                    if (dropLiquid != null)
                     {
-                        dropLiquid.SetDrinkType(collision.GetComponent<LiquidParticle>().GetDrinkType());
+                        dropLiquid.SetDrinkType(collision.GetComponent<LiquidParticle>().GetDrink());
                     }
-                    Debug.Log(collision.GetComponent<LiquidParticle>().GetDrinkType().ToString());
+                    Debug.Log(collision.GetComponent<LiquidParticle>().GetDrink().ToString());
                 }
                 else
                 {
-                    particleTypes.Add(collision.GetComponent<LiquidParticle>().GetDrinkType(), 1);
+                    particleTypes.Add(collision.GetComponent<LiquidParticle>().GetDrink(), 1);
                 }
                 Destroy(collision.gameObject);
                 currentLiquid++;
@@ -95,8 +96,23 @@ public class LiquidManager : MonoBehaviour
             }
         }
     }
+    private void RemoveFirstMatchingInstance(Dictionary<DrinkNode, int> dictionary, int targetValue)
+    {
+        if (particleTypes.Count > 0)
+        {
+            foreach (KeyValuePair<DrinkNode, int> pair in dictionary)
+            {
+                if (pair.Value == targetValue)
+                {
+                    dictionary.Remove(pair.Key);
+                    break;
+                }
+            }
+        }
+    }
     public void DeacreaseCurrentLiquid()
     {
+        RemoveFirstMatchingInstance(particleTypes, currentLiquid - 1);
         currentLiquid--;
     }
     public void IncreaseCurrentLiquid()
@@ -112,7 +128,7 @@ public class LiquidManager : MonoBehaviour
         return maxLiquid;
     }
 
-    public Dictionary<DrinkNode.Type, int> GetParticleTypes()
+    public Dictionary<DrinkNode, int> GetParticleTypes()
     {
         return particleTypes;
     }

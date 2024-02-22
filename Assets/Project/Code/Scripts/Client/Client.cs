@@ -1,9 +1,9 @@
+using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-
 public class Client : MonoBehaviour
 {
     private CocktailNode.Type order;
@@ -11,21 +11,47 @@ public class Client : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private float minYPosition;
+    private TextMeshPro textMP;
+
+    [Header("Client Position")]
+    [SerializeField] private GameObject clientPosition;
+    [SerializeField] private GameObject leavePosition;
+    [SerializeField] private float maxYPosition;
+    [SerializeField] private float horizontalVelocity;
+    [SerializeField] private float verticalVelocity;
+
+    [Header("booleans")]
+    [SerializeField] private bool notNeedTakeDrink;
+    private bool canLeave;
+
+
+    [SerializeField] private float minYPosition;
     private bool isGoingUp;
 
     private bool arriveAnimation;
     private bool leaveAnimation;
+    private bool startTimer;
+
+    [Header("Client Dialogue")]
+    private AIConversant conversant;
+
+    [Header("Timer")]
+    [SerializeField] private float maxTime;
+    private float time;
 
     private void Awake()
     {
+        conversant = GetComponent<AIConversant>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         arriveAnimation = false;
         leaveAnimation = false;
+        startTimer = false;
+        time = 0;
 
         isGoingUp = true;
-        minYPosition = transform.localPosition.y;
+
+        canLeave = false;
     }
 
     private void Start()
@@ -38,7 +64,11 @@ public class Client : MonoBehaviour
     {
         //int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
         //order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
-        //payment = WikiManager.instance.GetAvailableCocktails()[randomOrder].price;
+        //order = CocktailNode.Type.Invade;
+        //textMP.text = "Quiero un " + order.ToString();
+        //text.SetActive(true);
+
+        conversant.HandleDialogue();
 
         order = CocktailNode.Type.Mojito;
         payment = 10.0f;
@@ -72,7 +102,7 @@ public class Client : MonoBehaviour
                 collision.GetComponentInChildren<LiquidManager>().GetParticleTypes(),
                 collision.GetComponentInChildren<LiquidManager>().GetDrinkState()
                 ));
-            leaveAnimation = true;
+            startTimer = true;
         }
     }
 
@@ -126,6 +156,16 @@ public class Client : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if(startTimer)
+        {
+            Timer();
+        }
+
+        if(notNeedTakeDrink && canLeave)
+        {
+            startTimer = true;
+        }
     }
 
     private void MoveClientHorizontal(Transform _transform)
@@ -163,5 +203,26 @@ public class Client : MonoBehaviour
             }
         }
     }
+
+    public void Timer()
+    {
+        time += Time.deltaTime;
+        if(time > maxTime)
+        {
+            startTimer = false;
+            leaveAnimation = true;
+        }
+    }
+
+    public CocktailNode.Type GetOrder()
+    {
+        return order;
+    }
+
+    public void SetCanLeave(bool state)
+    {
+        canLeave = state;
+    }
+
 
 }

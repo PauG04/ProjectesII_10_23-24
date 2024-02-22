@@ -8,9 +8,9 @@ public class CocktailIngredientDictionary
 {
     [SerializeField] NewDrinkTypeIntItem[] items;
 
-    public Dictionary<DrinkNode.Type, int> ToDictionary()
+    public Dictionary<DrinkNode, int> ToDictionary()
     {
-        Dictionary<DrinkNode.Type, int> newDict = new Dictionary<DrinkNode.Type, int>();
+        Dictionary<DrinkNode, int> newDict = new Dictionary<DrinkNode, int>();
 
         foreach (NewDrinkTypeIntItem item in items)
         {
@@ -24,7 +24,7 @@ public class CocktailIngredientDictionary
 [Serializable]
 public class NewDrinkTypeIntItem
 {
-    [SerializeField] public DrinkNode.Type type;
+    [SerializeField] public DrinkNode type;
     [SerializeField] public int quantity;
 }
 

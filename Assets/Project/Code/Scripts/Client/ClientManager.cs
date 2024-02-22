@@ -20,8 +20,6 @@ public class ClientManager : MonoBehaviour
 
     [SerializeField] private List<Sprite> clientSprites;
 
-    private bool test;
-
     private void Awake()
     {
         if (instance == null)
@@ -32,6 +30,7 @@ public class ClientManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        CreateNewClient();
     }
 
     public List<Sprite> GetClientSprites()
@@ -40,6 +39,11 @@ public class ClientManager : MonoBehaviour
     }
 
     public void CreateNewClient()
+    {
+        currentClient = Instantiate(client, clientParent);
+    }
+
+    public void CreateNewImportantClient(ImportantClientNode node)
     {
         currentClient = Instantiate(client, clientParent);
     }

@@ -69,13 +69,13 @@ public class ArrowManager : MonoBehaviour
 
     private void Update()
     {
-        float currentYScale = (maxYScale * liquidManager.GetCurrentLiquid()) / liquidManager.GetMaxLiquid();        
-        float currentYPosition = (maxYPosition * liquidManager.GetCurrentLiquid() * 2) / liquidManager.GetMaxLiquid();
+        float currentYScale = (maxYScale * (float)liquidManager.GetCurrentLiquid()) / (float)liquidManager.GetMaxLiquid();        
+        float currentYPosition = (maxYPosition * (float)liquidManager.GetCurrentLiquid() * 2) / (float)liquidManager.GetMaxLiquid();
 
         if(!isHorizontal)
         {
             arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, currentYScale, arrow.transform.localScale.z);
-            arrowObject.transform.localPosition = new Vector2(arrow.transform.localPosition.x, currentYPosition - maxYPosition);
+            arrowObject.transform.localPosition = new Vector2(arrow.transform.localPosition.x, currentYPosition - maxYPosition); 
         }
         else
         {

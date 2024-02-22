@@ -27,7 +27,7 @@ public class SetCutPosition : MonoBehaviour
         cutPosition.transform.position = new Vector2(childLemon[0].transform.position.x - width, childLemon[0].transform.position.y);
         cutPosition.SetActive(false);
 
-        bucket = GetComponent<GetBucket>().GetBuckets();
+        bucket = GetComponent<GetItemInformation>().GetBuckets();
         for (int i = 0; i < childLemon.Count(); i++)
         {
             childLemon[i].GetComponent<DragItemsNew>().SetInitPosition(bucket.transform.position);

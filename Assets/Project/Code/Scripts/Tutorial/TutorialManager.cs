@@ -1,3 +1,4 @@
+using Dialogue;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,11 +20,10 @@ public class TutorialManager : MonoBehaviour
     [Header("Shaker")]
     [SerializeField] private ShakerStateMachine shaker;
     [SerializeField] private SpriteRenderer shakerSpiteRenderer;
-    private int initOrderingLayerShaker;
+    [SerializeField] private LiquidManager shakerLiquid; 
 
     [Header("CreateObject")]
-    [SerializeField] private List<CreateObject> createObject;
-     private List<BoxCollider2D> createObjectCollider;
+    [SerializeField] private List<BoxCollider2D> createObjectCollider;
     private List<int> initOrderingLayerBucket;
 
     [Header("OpenFridge")]
@@ -36,11 +36,14 @@ public class TutorialManager : MonoBehaviour
     [Header("Panel")]
     [SerializeField] private GameObject panel;
 
-    private bool[] activeTurotialDrag;
-    private bool[] activeTurotialCreateItem;
+    [SerializeField] private PlayerConversant playerConversant;
+    private bool startTutorial;
+
+    private bool[] continuConversation;
 
     private enum tutorialID
     {
+        NotTutorial,
         BaseTutorial,
         GlassTutorial,
         MinigameTutorial
@@ -53,9 +56,12 @@ public class TutorialManager : MonoBehaviour
     private void Awake()
     {
         initOrderingLayerDrag = new List<int>(drag.Count);
+        initOrderingLayerBucket = new List<int>(createObjectCollider.Count);
+
         for (int i = 0; i < drag.Count; i++)
         {
             drag[i].enabled = false;
+
             if (drag[i].gameObject.GetComponent<SpriteRenderer>() != null)
             {
                 initOrderingLayerDrag.Add(drag[i].gameObject.GetComponent<SpriteRenderer>().sortingOrder);
@@ -65,44 +71,36 @@ public class TutorialManager : MonoBehaviour
                 initOrderingLayerDrag.Add(glass.sortingOrder);
             }
         }
-        shaker.enabled = false;
-        initOrderingLayerShaker = shakerSpiteRenderer.sortingOrder;
-
-        jigger.enabled = false;
-
-        initOrderingLayerBucket = new List<int>(createObject.Count);
-        createObjectCollider = new List<BoxCollider2D>(createObject.Count);
-        for (int i = 0; i< createObject.Count; i++) 
+        for (int i = 0; i < createObjectCollider.Count; i++)
         {
-            createObjectCollider.Add(createObject[i].gameObject.GetComponent<BoxCollider2D>());
             createObjectCollider[i].enabled = false;
-            initOrderingLayerBucket.Add(createObject[i].gameObject.GetComponent<SpriteRenderer>().sortingOrder);
+            initOrderingLayerBucket.Add(createObjectCollider[i].gameObject.GetComponent<SpriteRenderer>().sortingOrder);
         }
-        fridge.enabled = false;
         initOrderingLayerFridge = fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder;
 
-        activeTurotialDrag = new bool[7];
-        activeTurotialCreateItem = new bool[7];
-
-        for (int i = 0; i < activeTurotialDrag.Length ; i++)
-        {
-            activeTurotialDrag[i] = false;
-        }
-
-        for (int i = 0; i < activeTurotialCreateItem.Length; i++)
-        {
-            activeTurotialCreateItem[i] = false;
-        }
-        activeTurotialCreateItem[0] = true;
-        activeTurotialDrag[0] = true;
+        shaker.enabled = false;
+        jigger.enabled = false;            
+        fridge.enabled = false;
+      
         panel.SetActive(false);
+        startTutorial = false;
+        continuConversation = new bool[10];
+        for(int i = 0; i<continuConversation.Length; i++)
+        {
+            continuConversation[i] = true;
+        }
     }
 
     private void Update()
     {
+        ActivateTutorial();
+    }
+
+    private void ActivateTutorial()
+    {
         for (int i = 0; i < drag.Count; i++)
         {
-            if(!drag[i].enabled)
+            if (!drag[i].enabled)
             {
                 drag[i].gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             }
@@ -112,148 +110,135 @@ public class TutorialManager : MonoBehaviour
             shaker.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
 
-        if(id == tutorialID.BaseTutorial)
+        if(playerConversant.GetCanContinue())
+        {
+            startTutorial = true;
+        }
+
+        if (id == tutorialID.BaseTutorial && !playerConversant.GetCanContinue() && startTutorial)
         {
             CallActiveDrag();
-            ActiveBooleandsTutorial1();
         }
-        else if(id == tutorialID.MinigameTutorial)
+        else if (id == tutorialID.MinigameTutorial)
         {
             CallActiveCreateObject();
-            ActiveBooleandsTutorial3();
-        }      
+        }
     }
 
     private void CallActiveCreateObject()
     {
-        if (activeTurotialCreateItem[0])
+        if (!fridge.GetIsOpen() && createObjectCollider[1].gameObject.GetComponent<CreateObject>().GetIsCreated())
         {
-            ActiveFridge(0);
+            ActiveDragItem(7, false);
         }
-
-        if (activeTurotialCreateItem[1])
+        else if (fridge.GetIsOpen() && drag[6].GetWasOnTheTable())
         {
-            ActiveCreateObjectFridge(0, 1);
+            ActiveCreateObjectFridge(1);
         }
-
-        if (activeTurotialCreateItem[2])
+        else if (createObjectCollider[0].gameObject.GetComponent<CreateObject>().GetIsCreated() && !fridge.GetIsOpen())
         {
-            ActiveDragItem(6, false, 2);
+            ActiveDragItem(6, false);
         }
-
-        if (activeTurotialCreateItem[3])
+        else if (fridge.GetIsOpen())
         {
-            ActiveCreateObjectFridge(3, 3);
+            ActiveCreateObjectFridge(0);
         }
-
-        if (activeTurotialCreateItem[4])
+        else
         {
-            ActiveDragItem(7, false, 4);
-        }
-    }
-
-    private void ActiveBooleandsTutorial3()
-    {
-        if (!activeTurotialCreateItem[3] && !activeTurotialCreateItem[4] && !fridge.GetIsOpen() && createObject[3].GetIsCreated())
-        {
-            activeTurotialCreateItem[4] = true;
-        }
-        if (activeTurotialCreateItem[2] && !activeTurotialCreateItem[3] && fridge.GetIsOpen() && drag[6].GetWasOnTheTable())
-        {
-            activeTurotialCreateItem[3] = true;
-            activeTurotialCreateItem[2] = false;
-        }
-        if (!activeTurotialCreateItem[1] && !activeTurotialCreateItem[2] && createObject[0].GetIsCreated() && !fridge.GetIsOpen())
-        {
-            activeTurotialCreateItem[2] = true;
-        }
-
-        if (!activeTurotialCreateItem[0] && !activeTurotialCreateItem[1] && fridge.GetIsOpen() && !createObject[0].GetIsCreated())
-        {
-            activeTurotialCreateItem[1] = true;
+            ActiveFridge();
         }
     }
 
     private void CallActiveDrag()
     {
-        if (activeTurotialDrag[0])
+        if (drag[4].GetWasOnTheTable() && !continuConversation[8])
         {
-            ActiveDragItem(0, true, 0);
+            ActiveDragItem(5, false);
+            if (drag[5].GetWasOnTheTable() && continuConversation[9])
+            {
+                ContinueConversation();
+                continuConversation[9] = false;
+            }
         }
-
-        if (activeTurotialDrag[1])
-        {
-            ActiveDragShaker();
+        else if (drag[3].GetWasOnTheTable() && !continuConversation[6])
+        {           
+            if(drag[4].GetWasOnTheTable() && continuConversation[7])
+            {
+                ContinueConversation();
+                continuConversation[7] = false;
+            }
+            else if(shaker.GetProgress() > 0 && continuConversation[8])
+            {
+                ContinueConversation();
+                continuConversation[8] = false;
+            }
+            else 
+            {
+                ActiveDragItem(4, false);
+            }
         }
-
-        if (activeTurotialDrag[2])
+        else if (drag[2].GetWasOnTheTable() && !continuConversation[4])
         {
-            ActiveDragItem(1, false, 2);
+            ActiveDragItem(3, false);
+            if (drag[3].GetWasOnTheTable() && !drag[3].GetIsDraggin() && continuConversation[5])
+            {
+                ContinueConversation();
+                continuConversation[5] = false;
+            }
+
+            if(shakerLiquid.GetCurrentLiquid() >= shakerLiquid.GetMaxLiquid() && continuConversation[6])
+            {
+                ContinueConversation();
+                continuConversation[6] = false;
+            }
+        }
+        else if (drag[1].GetWasOnTheTable() && !continuConversation[3])
+        {
+            ActiveDragItem(2, false);
+            if (drag[2].GetWasOnTheTable() && !drag[2].GetIsDraggin() && continuConversation[4])
+            {
+                ContinueConversation();
+                continuConversation[4] = false;
+            }
+        }
+        else if (shaker.GetWasInTable() && !continuConversation[2])
+        {
+            ActiveDragItem(1, false);
             jigger.enabled = true;
+            if (drag[1].GetWasOnTheTable() && !drag[1].GetIsDraggin() && continuConversation[3])
+            {
+                ContinueConversation();
+                continuConversation[3] = false;
+            }
         }
-
-        if (activeTurotialDrag[3])
+        else if (!drag[0].GetIsDraggin() && drag[0].GetWasOnTheTable() && !drag[0].GetInsideWorkspace())
         {
-            ActiveDragItem(2, false, 3);
+            if (!shaker.GetWasInTable() && continuConversation[1])
+            {
+                ContinueConversation();
+                continuConversation[1] = false;
+            }
+            else if(shaker.GetWasInTable() && (shaker.GetCurrentState().StateKey == ShakerStateMachine.ShakerState.IdleClosed ||
+            shaker.GetCurrentState().StateKey == ShakerStateMachine.ShakerState.IdleOpen) && continuConversation[2])
+            {
+                ContinueConversation();
+                continuConversation[2] = false;
+            }
+            else
+            {
+                ActiveDragShaker();
+            }
+            
         }
-
-        if (activeTurotialDrag[4])
+        else
         {
-            ActiveDragItem(3, false, 4);
-        }
-
-        if (activeTurotialDrag[5])
-        {
-            ActiveDragItem(4, false, 5);
-        }
-
-        if (activeTurotialDrag[6])
-        {
-            ActiveDragItem(5, false, 6);
-        }
-
-        if (activeTurotialDrag[6])
-        {
-            ActiveDragItem(5, false, 6);
-        }
-    }
-
-    private void ActiveBooleandsTutorial1()
-    {
-        if (!activeTurotialDrag[6] && !activeTurotialDrag[7] && drag[5].GetWasOnTheTable() && !createObject[0].GetIsCreated())
-        {
-            activeTurotialDrag[7] = true;
-        }
-
-        if (!activeTurotialDrag[5] && !activeTurotialDrag[6] && drag[4].GetWasOnTheTable())
-        {
-            activeTurotialDrag[6] = true;
-        }
-
-        if (!activeTurotialDrag[4] && !activeTurotialDrag[5] && drag[3].GetWasOnTheTable())
-        {
-            activeTurotialDrag[5] = true;
-        }
-
-        if (!activeTurotialDrag[3] && !activeTurotialDrag[4] && drag[2].GetWasOnTheTable())
-        {
-            activeTurotialDrag[4] = true;
-        }
-
-        if (!activeTurotialDrag[2] && !activeTurotialDrag[3] && drag[1].GetWasOnTheTable())
-        {
-            activeTurotialDrag[3] = true;
-        }
-
-        if (!activeTurotialDrag[1] && !activeTurotialDrag[2] && shaker.GetWasInTable())
-        {
-            activeTurotialDrag[2] = true;
-        }
-
-        if (drag[0].GetHasToReturn() && !activeTurotialDrag[0] && !activeTurotialDrag[1])
-        {
-            activeTurotialDrag[1] = true;
-        }       
+            ActiveDragItem(0, false);
+            if (drag[0].GetWasOnTheTable() && continuConversation[0])
+            {
+                ContinueConversation();
+                continuConversation[0] = false;
+            }
+        } 
     }
 
     private void ActiveDragShaker()
@@ -273,7 +258,6 @@ public class TutorialManager : MonoBehaviour
             !panel.activeSelf && shaker.GetWasInTable())
         {
             shaker.SetIsInTutorial(false);
-            activeTurotialDrag[1] = false;
         }
 
         if (shaker.GetCurrentState().StateKey != ShakerStateMachine.ShakerState.DraggingClosed &&
@@ -281,7 +265,7 @@ public class TutorialManager : MonoBehaviour
         {
             panel.SetActive(true);
             shakerSpiteRenderer.sortingOrder = 11;
-            LerpSacelShaker(maxScale, minScale);
+            LerpSacele(maxScale, minScale, shaker.gameObject);
         }
 
         if(shaker.GetCurrentState().StateKey != ShakerStateMachine.ShakerState.IdleClosed &&
@@ -292,11 +276,10 @@ public class TutorialManager : MonoBehaviour
 
     }
 
-    private void ActiveDragItem(int _index, bool hasToReturn, int _indexTutorial)
+    private void ActiveDragItem(int _index, bool hasToReturn)
     {
         Vector3 maxScale = new Vector3(1.1f, 1.1f, 1.1f);
         Vector3 minScale = new Vector3(0.9f, 0.9f, 0.9f);
-
 
         if (!drag[_index].enabled)
         {
@@ -305,21 +288,17 @@ public class TutorialManager : MonoBehaviour
 
             isGrowing = true;
         }
-
         if (!drag[_index].GetIsDraggin() && !panel.activeSelf && drag[_index].GetWasOnTheTable())
-        {
+        {       
             if(hasToReturn && !drag[_index].GetInsideWorkspace())
             {
                 drag[_index].SetIsInTutorial(false);
-                activeTurotialDrag[_indexTutorial] = false;
             }
             else if(!hasToReturn)
             {
                 drag[_index].SetIsInTutorial(false);
-                activeTurotialDrag[_indexTutorial] = false;
             }
         }
-
         if (!drag[_index].GetIsDraggin() && drag[_index].GetIsInTutorial() && !drag[_index].GetInsideWorkspace())
         {
             panel.SetActive(true);
@@ -332,7 +311,7 @@ public class TutorialManager : MonoBehaviour
                 glass.sortingOrder = 11;
             }
             
-            LerpSaceleDrag(_index, maxScale, minScale);
+            LerpSacele(maxScale, minScale, drag[_index].gameObject);
         }
       
         if (drag[_index].GetIsDraggin() && drag[_index].GetIsInTutorial())
@@ -353,7 +332,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void ActiveFridge(int _indexTutorial)
+    private void ActiveFridge()
     {
         Vector3 maxScale = new Vector3(1.1f, 1.1f, 1.1f);
         Vector3 minScale = new Vector3(0.9f, 0.9f, 0.9f);
@@ -367,7 +346,7 @@ public class TutorialManager : MonoBehaviour
         if(!fridge.GetIsOpen())
         {
             panel.SetActive(true);
-            LerpScaleFridge(maxScale, minScale);
+            LerpSacele(maxScale, minScale, fridge.gameObject);
             fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
         }
 
@@ -376,11 +355,10 @@ public class TutorialManager : MonoBehaviour
             panel.SetActive(false);
             fridge.gameObject.transform.localScale = Vector3.one;
             fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerFridge;
-            activeTurotialCreateItem[_indexTutorial] = false;
         }
     }
 
-    private void ActiveCreateObjectFridge(int index, int _indexTutorial)
+    private void ActiveCreateObjectFridge(int index)
     {
         Vector3 maxScale = new Vector3(2.1f, 2.1f, 2.1f);
         Vector3 minScale = new Vector3(1.9f, 1.9f, 1.9f);
@@ -390,99 +368,56 @@ public class TutorialManager : MonoBehaviour
             createObjectCollider[index].enabled = true;
             isGrowing = true;
         }
-        if (!createObject[index].GetIsCreated())
+        if (!createObjectCollider[index].gameObject.GetComponent<CreateObject>().GetIsCreated())
         {
             panel.SetActive(true);
-            LerpScaleCreate(index, maxScale, minScale);
-            createObject[index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+            LerpSacele(maxScale, minScale, createObjectCollider[index].gameObject);
+            createObjectCollider[index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
         }
-
-        if(createObject[index].GetIsCreated())
+        if(createObjectCollider[index].gameObject.GetComponent<CreateObject>().GetIsCreated())
         {
             panel.SetActive(false);
-            createObject[index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerBucket[index];
-            createObject[index].gameObject.transform.localScale = new Vector3(2,2,2);
-            activeTurotialCreateItem[_indexTutorial] = false;
+            createObjectCollider[index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerBucket[index];
+            createObjectCollider[index].gameObject.transform.localScale = new Vector3(2,2,2);
         }
     }
 
-    private void LerpSaceleDrag(int _index, Vector3 maxScale, Vector3 minScale)
+    private void LerpSacele(Vector3 maxScale, Vector3 minScale, GameObject _object)
     {
         if(isGrowing)
         {
-            drag[_index].gameObject.transform.localScale = Vector3.Lerp(drag[_index].gameObject.transform.localScale, maxScale, velocity * Time.deltaTime);
-            if (drag[_index].gameObject.transform.localScale.x >= maxScale.x - 0.01) 
+            _object.transform.localScale = Vector3.Lerp(_object.transform.localScale, maxScale, velocity * Time.deltaTime);
+            if (_object.transform.localScale.x >= maxScale.x - 0.01) 
             {        
                 isGrowing = false;
             }
         }
         else
         {
-            drag[_index].gameObject.transform.localScale = Vector3.Lerp(drag[_index].gameObject.transform.localScale, minScale, velocity * Time.deltaTime);
-            if (drag[_index].gameObject.transform.localScale.x <= minScale.x + 0.01) 
+            _object.transform.localScale = Vector3.Lerp(_object.transform.localScale, minScale, velocity * Time.deltaTime);
+            if (_object.transform.localScale.x <= minScale.x + 0.01) 
             {    
                 isGrowing = true;
             }
         }             
     }
 
-    private void LerpSacelShaker(Vector3 maxScale, Vector3 minScale)
+    private void ContinueConversation()
     {
-        if (isGrowing)
+        if (!playerConversant.GetCanContinue())
         {
-           shaker.gameObject.transform.localScale = Vector3.Lerp(shaker.gameObject.transform.localScale, maxScale, velocity * Time.deltaTime);
-            if (shaker.gameObject.transform.localScale.x >= maxScale.x - 0.01)
+            playerConversant.SetCanContinue(true);
+            if (playerConversant.HasNext())
             {
-                isGrowing = false;
-            }
-        }
-        else
-        {
-            shaker.gameObject.transform.localScale = Vector3.Lerp(shaker.gameObject.transform.localScale, minScale, velocity * Time.deltaTime);
-            if (shaker.gameObject.transform.localScale.x <= minScale.x + 0.01)
-            {
-                isGrowing = true;
+                playerConversant.Next();
             }
         }
     }
 
-    private void LerpScaleFridge(Vector3 maxScale, Vector3 minScale)
+    public void SetActiveTutorial(bool state)
     {
-        if (isGrowing)
-        {
-            fridge.gameObject.transform.localScale = Vector3.Lerp(fridge.gameObject.transform.localScale, maxScale, velocity * Time.deltaTime);
-            if (fridge.gameObject.transform.localScale.x >= maxScale.x - 0.01)
-            {
-                isGrowing = false;
-            }
-        }
-        else
-        {
-            fridge.gameObject.transform.localScale = Vector3.Lerp(fridge.gameObject.transform.localScale, minScale, velocity * Time.deltaTime);
-            if (fridge.gameObject.transform.localScale.x <= minScale.x + 0.01)
-            {
-                isGrowing = true;
-            }
-        }
+        startTutorial = state;
     }
 
-    private void LerpScaleCreate(int index, Vector3 maxScale, Vector3 minScale)
-    {
-        if (isGrowing)
-        {
-            createObject[index].gameObject.transform.localScale = Vector3.Lerp(createObject[index].gameObject.transform.localScale, maxScale, velocity * Time.deltaTime);
-            if (createObject[index].gameObject.transform.localScale.x >= maxScale.x - 0.01)
-            {
-                isGrowing = false;
-            }
-        }
-        else
-        {
-            createObject[index].gameObject.transform.localScale = Vector3.Lerp(createObject[index].gameObject.transform.localScale, minScale, velocity * Time.deltaTime);
-            if (createObject[index].gameObject.transform.localScale.x <= minScale.x + 0.01)
-            {
-                isGrowing = true;
-            }
-        }
-    }
+
 }

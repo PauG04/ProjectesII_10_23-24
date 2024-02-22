@@ -26,7 +26,7 @@ public class CalculateDrink : MonoBehaviour
         allCocktails = serializableCocktails.ToDictionary();
     }
 
-    public CocktailNode.Type CalculateResultDrink(Dictionary<DrinkNode.Type, int> typesOfDrink, CocktailNode.State state)
+    public CocktailNode.Type CalculateResultDrink(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state)
     {
         if (CheckCocktail(typesOfDrink, state, allCocktails["Roncola"]))
             return CocktailNode.Type.Roncola;
@@ -67,7 +67,7 @@ public class CalculateDrink : MonoBehaviour
         return CocktailNode.Type.Error;
     }
 
-    private bool CheckCocktail(Dictionary<DrinkNode.Type, int> typesOfDrink, CocktailNode.State state, CocktailNode cocktail)
+    private bool CheckCocktail(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state, CocktailNode cocktail)
     {
         //Check if same amount of ingredients
         if (typesOfDrink.Count != cocktail.ingredients.Count)
@@ -77,7 +77,7 @@ public class CalculateDrink : MonoBehaviour
         if (state != cocktail.state)
             return false;
 
-        foreach (KeyValuePair<DrinkNode.Type, int> ingredient in cocktail.ingredients)
+        foreach (KeyValuePair<DrinkNode, int> ingredient in cocktail.ingredients)
         {
             //Check if same drinkTypes
             if(!typesOfDrink.ContainsKey(ingredient.Key))
@@ -91,4 +91,8 @@ public class CalculateDrink : MonoBehaviour
         return true;
     }
 
+    public Dictionary<string, CocktailNode> GetAllCocktails()
+    {
+        return allCocktails;
+    }
 }
