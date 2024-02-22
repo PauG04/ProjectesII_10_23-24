@@ -42,6 +42,11 @@ public class ClientManager : MonoBehaviour
         currentClient = Instantiate(client, clientParent);
     }
 
+    public void CreateNewImportantClient(ImportantClientNode node)
+    {
+        currentClient = Instantiate(client, clientParent);
+    }
+
     #region GETTERS
     public Transform GetSpawnPosition()
     {

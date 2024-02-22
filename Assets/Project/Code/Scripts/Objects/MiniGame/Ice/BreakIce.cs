@@ -23,7 +23,7 @@ public class BreakIce : MonoBehaviour
     private void Start()
     {
         hits = 5;
-        bucket = GetComponent<GetBucket>().GetBuckets();
+        bucket = GetComponent<GetItemInformation>().GetBuckets();
 
         brokenIceChilds = new GameObject[4];
 
