@@ -20,6 +20,7 @@ public class TutorialManager : MonoBehaviour
     [Header("Shaker")]
     [SerializeField] private ShakerStateMachine shaker;
     [SerializeField] private SpriteRenderer shakerSpiteRenderer;
+    [SerializeField] private LiquidManager shakerLiquid; 
 
     [Header("CreateObject")]
     [SerializeField] private List<BoxCollider2D> createObjectCollider;
@@ -37,6 +38,8 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField] private PlayerConversant playerConversant;
     private bool startTutorial;
+
+    private bool[] continuConversation;
 
     private enum tutorialID
     {
@@ -81,6 +84,11 @@ public class TutorialManager : MonoBehaviour
       
         panel.SetActive(false);
         startTutorial = false;
+        continuConversation = new bool[10];
+        for(int i = 0; i<continuConversation.Length; i++)
+        {
+            continuConversation[i] = true;
+        }
     }
 
     private void Update()
@@ -106,8 +114,6 @@ public class TutorialManager : MonoBehaviour
         {
             startTutorial = true;
         }
-
-        Debug.Log(playerConversant.GetCanContinue());
 
         if (id == tutorialID.BaseTutorial && !playerConversant.GetCanContinue() && startTutorial)
         {
@@ -145,38 +151,93 @@ public class TutorialManager : MonoBehaviour
 
     private void CallActiveDrag()
     {
-        if (drag[5].GetWasOnTheTable())
+        if (drag[4].GetWasOnTheTable() && !continuConversation[8])
         {
             ActiveDragItem(5, false);
+            if (drag[5].GetWasOnTheTable() && continuConversation[9])
+            {
+                ContinueConversation();
+                continuConversation[9] = false;
+            }
         }
-        else if (drag[4].GetWasOnTheTable())
-        {
-            ActiveDragItem(5, false);
+        else if (drag[3].GetWasOnTheTable() && !continuConversation[6])
+        {           
+            if(drag[4].GetWasOnTheTable() && continuConversation[7])
+            {
+                ContinueConversation();
+                continuConversation[7] = false;
+            }
+            else if(shaker.GetProgress() > 0 && continuConversation[8])
+            {
+                ContinueConversation();
+                continuConversation[8] = false;
+            }
+            else 
+            {
+                ActiveDragItem(4, false);
+            }
         }
-        else if (drag[3].GetWasOnTheTable())
-        {
-            ActiveDragItem(4, false);
-        }
-        else if (drag[2].GetWasOnTheTable())
+        else if (drag[2].GetWasOnTheTable() && !continuConversation[4])
         {
             ActiveDragItem(3, false);
+            if (drag[3].GetWasOnTheTable() && !drag[3].GetIsDraggin() && continuConversation[5])
+            {
+                ContinueConversation();
+                continuConversation[5] = false;
+            }
+
+            if(shakerLiquid.GetCurrentLiquid() >= shakerLiquid.GetMaxLiquid() && continuConversation[6])
+            {
+                ContinueConversation();
+                continuConversation[6] = false;
+            }
         }
-        else if(drag[1].GetWasOnTheTable())
+        else if (drag[1].GetWasOnTheTable() && !continuConversation[3])
         {
             ActiveDragItem(2, false);
+            if (drag[2].GetWasOnTheTable() && !drag[2].GetIsDraggin() && continuConversation[4])
+            {
+                ContinueConversation();
+                continuConversation[4] = false;
+            }
         }
-        else if (shaker.GetWasInTable())
+        else if (shaker.GetWasInTable() && !continuConversation[2])
         {
             ActiveDragItem(1, false);
             jigger.enabled = true;
+            if (drag[1].GetWasOnTheTable() && !drag[1].GetIsDraggin() && continuConversation[3])
+            {
+                ContinueConversation();
+                continuConversation[3] = false;
+            }
         }
         else if (!drag[0].GetIsDraggin() && drag[0].GetWasOnTheTable() && !drag[0].GetInsideWorkspace())
         {
-            ActiveDragShaker();
+            if (!shaker.GetWasInTable() && continuConversation[1])
+            {
+                ContinueConversation();
+                continuConversation[1] = false;
+            }
+            else if(shaker.GetWasInTable() && (shaker.GetCurrentState().StateKey == ShakerStateMachine.ShakerState.IdleClosed ||
+            shaker.GetCurrentState().StateKey == ShakerStateMachine.ShakerState.IdleOpen) && continuConversation[2])
+            {
+                ContinueConversation();
+                continuConversation[2] = false;
+            }
+            else
+            {
+                ActiveDragShaker();
+            }
+            
         }
         else
         {
             ActiveDragItem(0, false);
+            if (drag[0].GetWasOnTheTable() && continuConversation[0])
+            {
+                ContinueConversation();
+                continuConversation[0] = false;
+            }
         } 
     }
 
@@ -232,12 +293,10 @@ public class TutorialManager : MonoBehaviour
             if(hasToReturn && !drag[_index].GetInsideWorkspace())
             {
                 drag[_index].SetIsInTutorial(false);
-                ContinueConversation();
             }
             else if(!hasToReturn)
             {
                 drag[_index].SetIsInTutorial(false);
-                ContinueConversation();
             }
         }
         if (!drag[_index].GetIsDraggin() && drag[_index].GetIsInTutorial() && !drag[_index].GetInsideWorkspace())

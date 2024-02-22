@@ -1,0 +1,1341 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9083735823424447224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 5b8be5bb-71b1-48c5-843e-4b185eec069c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Ahora empiza a mezclar hasta el nivel que pone  el libro
+  children:
+  - e5eb8a5a-ba11-468f-b526-00404a8d4caa
+  rect:
+    serializedVersion: 2
+    x: 3516
+    y: 589
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-8531705308256948113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: b6069bfb-bea4-4a0e-87b4-06bad3f0cf77
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Empieza a verte el l\xEDquido en el Jigger"
+  children:
+  - f8b9d9cd-b035-4141-bd37-e976130812a0
+  rect:
+    serializedVersion: 2
+    x: 1011
+    y: 453
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-8503673637689671649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f9de3169-aedb-4750-88bb-49de3379d5ce
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Con el shaker podr\xE1s mezclar las bebidas para hacer un c\xF3ctel"
+  children:
+  - 52ed2ad7-70b9-4607-92e5-d9b2db6b65dc
+  rect:
+    serializedVersion: 2
+    x: 2274
+    y: 300
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-8425314293033294871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: e75c6433-de39-417a-8ca5-ff00da6cd456
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Primero vamos a ver como esta distribuido tu espacio de trabajo
+  children:
+  - ab98753e-921a-4ac5-a0a4-0e1039cecc5c
+  rect:
+    serializedVersion: 2
+    x: 512
+    y: 134
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-8405066962206687486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 816e7d56-1989-421d-9fe5-bad94883aeae
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children:
+  - ade65633-1f66-4788-9d11-3a9693492bfa
+  rect:
+    serializedVersion: 2
+    x: 3260
+    y: 134
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-8162644998956111711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a391ab78-5b61-4092-95b8-8cf1b2f1a453
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Dependiendo de la cantidad de shake la bebida estar\xE1, idle, shaked o
+    mixed"
+  children:
+  - 3a3a24b3-8ee2-49af-b20d-e4d38c69350c
+  rect:
+    serializedVersion: 2
+    x: 3011
+    y: 452
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-8160050750686569677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 38139469-ee0e-44bd-86b2-32ea7514fa17
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Ahora con esta informaci\xF3n podemos empezar a colocar las bebidas"
+  children:
+  - 66191105-dffb-41b5-89e3-688b5dcc75b1
+  rect:
+    serializedVersion: 2
+    x: 511
+    y: 282
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-7555059360372930113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 3eba8cfc-9eb7-4f66-bd17-de2618853887
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "La flecha azul del costado te muestra por donde se encuentra el l\xEDquido"
+  children:
+  - 569d3ea3-168f-4537-959e-bc0e708b9ff7
+  rect:
+    serializedVersion: 2
+    x: 261
+    y: 453
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-6045461307189841046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6bbad603-37e6-4cc1-89d0-c2c7d6c5eeed
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children:
+  - 827da3e7-3824-44f1-8f57-c271e98dfbc1
+  rect:
+    serializedVersion: 2
+    x: 15
+    y: 281
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-5791577597754963152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 66191105-dffb-41b5-89e3-688b5dcc75b1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Coge el Ron
+  children:
+  - 6bbad603-37e6-4cc1-89d0-c2c7d6c5eeed
+  rect:
+    serializedVersion: 2
+    x: 258
+    y: 284
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-5552622439098230243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 11368cbe-3535-46c7-ba31-4b0c1905b2d5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Al empezar a shakear a la derecha aparezera una barra de shake
+  children:
+  - a391ab78-5b61-4092-95b8-8cf1b2f1a453
+  rect:
+    serializedVersion: 2
+    x: 2761
+    y: 452
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-5539684807684654001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: e2b396df-f005-4fd5-86a3-50ba4b15ad14
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Ya se colocar\xE1 en su sitio solo cuando esta fuera de la zona de trabajo"
+  children:
+  - 74486c88-a5d1-4e1f-b6a0-466a71240353
+  rect:
+    serializedVersion: 2
+    x: 3238
+    y: 299
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-5390291049916987817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 7480fad1-a772-4301-a4ad-3a9789d1d03d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Y a partir del 66% la bebida se encuentra mixed
+  children:
+  - 5b8be5bb-71b1-48c5-843e-4b185eec069c
+  rect:
+    serializedVersion: 2
+    x: 3511
+    y: 452
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2192615642049335788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: aa398f98-298f-44f3-9b6e-6b766c8c3d0b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Y traerme ese c\xF3ctel"
+  children:
+  - 35c71c0b-1498-4b43-9314-24d1dd669b6a
+  rect:
+    serializedVersion: 2
+    x: 2006
+    y: 595
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2154324532006911144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 74486c88-a5d1-4e1f-b6a0-466a71240353
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children:
+  - 0ae422e3-e357-4734-bc7a-3ee92d9f7488
+  rect:
+    serializedVersion: 2
+    x: 3006
+    y: 301
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2133554581170036248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: e5eb8a5a-ba11-468f-b526-00404a8d4caa
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children:
+  - 325cbed9-c2aa-4c2c-8f4a-e5be26172212
+  rect:
+    serializedVersion: 2
+    x: 3265
+    y: 587
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2097088044223953296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 11b7e462-083f-445c-9f81-c37ee5cccea4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children:
+  - f9de3169-aedb-4750-88bb-49de3379d5ce
+  rect:
+    serializedVersion: 2
+    x: 2507
+    y: 304
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1454837124643262105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 07641d87-b7a8-445e-8fb7-b1895c55a2d3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Dentro de \xE9l tendr\xEDa que haber la informaci\xF3n de cada bebida"
+  children:
+  - 30c3e639-d503-4993-b4f9-7e540156c6c0
+  rect:
+    serializedVersion: 2
+    x: 2510
+    y: 134
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1335134155143053879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 3ab874f1-6161-40eb-a808-f7c5712da40e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children:
+  - 7d13fb79-3748-4cf9-aaa7-f08a5e086399
+  rect:
+    serializedVersion: 2
+    x: 1505
+    y: 291
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1140993732928561304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a480a8e0-4ccc-466b-88b3-5ea1704365aa
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Ahora tapa el shaker acercando la tapa cerca del shaker
+  children:
+  - 11368cbe-3535-46c7-ba31-4b0c1905b2d5
+  rect:
+    serializedVersion: 2
+    x: 2511
+    y: 452
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-482514366543766771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 30c3e639-d503-4993-b4f9-7e540156c6c0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "C\xF3gelo y mu\xE9velo a la zona de trabajo"
+  children:
+  - 4ee13028-1e33-49a7-8eaf-6d5c33d7b798
+  rect:
+    serializedVersion: 2
+    x: 2760
+    y: 134
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-464717646637266805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 2b82e8ce-caf6-42ea-9d7e-7b63b0a140bb
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Coge el vaso y ponlo en la mesa de trabajo
+  children:
+  - 9e3c621b-1e3a-49c3-8a37-e9764b571980
+  rect:
+    serializedVersion: 2
+    x: 2750
+    y: 593
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-349786910930501982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 569d3ea3-168f-4537-959e-bc0e708b9ff7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Ahora coge la Cola
+  children:
+  - 89e2962b-7124-4335-9250-0126b74faf04
+  rect:
+    serializedVersion: 2
+    x: 511
+    y: 453
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-342969559724651221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 3a3a24b3-8ee2-49af-b20d-e4d38c69350c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: 'A partir del 33% la bebida se encuentra shaked '
+  children:
+  - 7480fad1-a772-4301-a4ad-3a9789d1d03d
+  rect:
+    serializedVersion: 2
+    x: 3261
+    y: 452
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-170549638558107265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 3bcded29-26d2-4716-8fe6-ce9fcb4113e9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Coloca las onzas necesarias en el shaker hasta que este lleno
+  children:
+  - 8e5068f5-df97-4d30-ba4b-665ed79ff370
+  rect:
+    serializedVersion: 2
+    x: 1510
+    y: 452
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: TutorialDialogue1
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 7991480030057045421}
+  - {fileID: 4778350440305100577}
+  - {fileID: -8425314293033294871}
+  - {fileID: 6409394130039657367}
+  - {fileID: 887431940252220019}
+  - {fileID: 6097337915907135626}
+  - {fileID: 3874626683784078212}
+  - {fileID: 4461965127952239296}
+  - {fileID: 3021412527022812708}
+  - {fileID: 8939048703995900627}
+  - {fileID: -1454837124643262105}
+  - {fileID: -482514366543766771}
+  - {fileID: 1690257092292701391}
+  - {fileID: -8405066962206687486}
+  - {fileID: 1412730418774339028}
+  - {fileID: 740477178963956158}
+  - {fileID: -5539684807684654001}
+  - {fileID: -2154324532006911144}
+  - {fileID: 7650522463850829602}
+  - {fileID: -2097088044223953296}
+  - {fileID: -8503673637689671649}
+  - {fileID: 2812175376172269015}
+  - {fileID: 4622392167204615011}
+  - {fileID: -1335134155143053879}
+  - {fileID: 7496963856254472594}
+  - {fileID: 4684004123485252369}
+  - {fileID: 252208311261528196}
+  - {fileID: -8160050750686569677}
+  - {fileID: -5791577597754963152}
+  - {fileID: -6045461307189841046}
+  - {fileID: 4712064913144855417}
+  - {fileID: -7555059360372930113}
+  - {fileID: -349786910930501982}
+  - {fileID: 8614654779622988271}
+  - {fileID: -8531705308256948113}
+  - {fileID: 5234055586081565796}
+  - {fileID: -170549638558107265}
+  - {fileID: 934326058868605750}
+  - {fileID: 7395573101993709830}
+  - {fileID: 5842883429037583775}
+  - {fileID: -1140993732928561304}
+  - {fileID: -5552622439098230243}
+  - {fileID: -8162644998956111711}
+  - {fileID: -342969559724651221}
+  - {fileID: -5390291049916987817}
+  - {fileID: -9083735823424447224}
+  - {fileID: -2133554581170036248}
+  - {fileID: 6273779221685690649}
+  - {fileID: -464717646637266805}
+  - {fileID: 3577652686898693186}
+  - {fileID: 3710672706274785506}
+  - {fileID: -2192615642049335788}
+  - {fileID: 2826678322194876278}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &252208311261528196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f9f48f61-3e95-46b2-8714-cb12c4db6e40
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Mientras que el shaker contiene 10 onzas
+  children:
+  - 38139469-ee0e-44bd-86b2-32ea7514fa17
+  rect:
+    serializedVersion: 2
+    x: 751
+    y: 287
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &740477178963956158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 0bd780d1-3c83-47b3-90f2-aabe87ce6091
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Intenta memorizarla y deja la wiki en su sitio que ocupa mucho espacio
+  children:
+  - e2b396df-f005-4fd5-86a3-50ba4b15ad14
+  rect:
+    serializedVersion: 2
+    x: 3521
+    y: 294
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &887431940252220019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 8c9d9a4c-9efb-4519-b780-c867dce2a8ad
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Abajo m\xEDo se encuentra la barra inferior del bar "
+  children:
+  - 96b1c16b-320c-4da0-a3e4-310e7227f2ac
+  rect:
+    serializedVersion: 2
+    x: 1011
+    y: 133
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &934326058868605750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 8e5068f5-df97-4d30-ba4b-665ed79ff370
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children:
+  - 4562f273-921d-4955-94cb-73400443c311
+  rect:
+    serializedVersion: 2
+    x: 1760
+    y: 452
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &1412730418774339028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ade65633-1f66-4788-9d11-3a9693492bfa
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Ah\xED esta la informaci\xF3n sobre el c\xF3ctel "
+  children:
+  - 0bd780d1-3c83-47b3-90f2-aabe87ce6091
+  rect:
+    serializedVersion: 2
+    x: 3510
+    y: 134
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &1690257092292701391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 4ee13028-1e33-49a7-8eaf-6d5c33d7b798
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Para coger un objeto mant\xE9n el click izquierdo \xE9l"
+  children:
+  - 816e7d56-1989-421d-9fe5-bad94883aeae
+  rect:
+    serializedVersion: 2
+    x: 3010
+    y: 134
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &2812175376172269015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 52ed2ad7-70b9-4607-92e5-d9b2db6b65dc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Pero antes de empezar a colocar bebida dentro de \xE9l"
+  children:
+  - b97a0533-fe74-41b3-ab6e-fa760488426b
+  rect:
+    serializedVersion: 2
+    x: 2059
+    y: 299
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &2826678322194876278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 35c71c0b-1498-4b43-9314-24d1dd669b6a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1776
+    y: 589
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3021412527022812708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 80547e63-cf51-4050-90cd-a7a917c28b42
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Y para acabar encima de todo se encuentran las botellas
+  children:
+  - be4c0ea1-2816-4a37-ae55-a70db010ac51
+  rect:
+    serializedVersion: 2
+    x: 2010
+    y: 133
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3577652686898693186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 9e3c621b-1e3a-49c3-8a37-e9764b571980
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children:
+  - 04910adc-3bf7-40ef-ab16-b00461e80fbb
+  rect:
+    serializedVersion: 2
+    x: 2514
+    y: 595
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3710672706274785506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 04910adc-3bf7-40ef-ab16-b00461e80fbb
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Ahora solo tienes que verter el c\xF3ctel del shaker al vaso"
+  children:
+  - aa398f98-298f-44f3-9b6e-6b766c8c3d0b
+  rect:
+    serializedVersion: 2
+    x: 2246
+    y: 596
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3874626683784078212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 43d125b4-48f7-4706-a6fd-613fe5c35538
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Al lado de la barra hay la zona m\xE1s importante, la zona de trabajo"
+  children:
+  - f506422b-f282-428e-b480-7c7f0b6c8d6b
+  rect:
+    serializedVersion: 2
+    x: 1511
+    y: 133
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4461965127952239296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f506422b-f282-428e-b480-7c7f0b6c8d6b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "La zona donde trabajar\xE1s para hacer las bebidas"
+  children:
+  - 80547e63-cf51-4050-90cd-a7a917c28b42
+  rect:
+    serializedVersion: 2
+    x: 1760
+    y: 133
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4622392167204615011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: b97a0533-fe74-41b3-ab6e-fa760488426b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Coge el Jigger
+  children:
+  - 3ab874f1-6161-40eb-a808-f7c5712da40e
+  rect:
+    serializedVersion: 2
+    x: 1781
+    y: 296
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4684004123485252369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 98a38f0c-3e08-4c71-8d79-dd7938bbb2ef
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Llenar el jigger equivale a 1 onzas
+  children:
+  - f9f48f61-3e95-46b2-8714-cb12c4db6e40
+  rect:
+    serializedVersion: 2
+    x: 1035
+    y: 279
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4712064913144855417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 827da3e7-3824-44f1-8f57-c271e98dfbc1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Has de saber que las botellas no tiene l\xEDqudo ilimitado"
+  children:
+  - 3eba8cfc-9eb7-4f66-bd17-de2618853887
+  rect:
+    serializedVersion: 2
+    x: 11
+    y: 453
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4778350440305100577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6da28cfe-293c-44f1-a15b-d8ce601e1e55
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Vamos ha hacer un RonCola
+  children:
+  - e75c6433-de39-417a-8ca5-ff00da6cd456
+  rect:
+    serializedVersion: 2
+    x: 262
+    y: 134
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &5234055586081565796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f8b9d9cd-b035-4141-bd37-e976130812a0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Para rotar las botellas usa la rueda del rat\xF3n"
+  children:
+  - 3bcded29-26d2-4716-8fe6-ce9fcb4113e9
+  rect:
+    serializedVersion: 2
+    x: 1260
+    y: 453
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &5842883429037583775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d8436af6-8444-47ef-be81-3f4fb8ed9618
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children:
+  - a480a8e0-4ccc-466b-88b3-5ea1704365aa
+  rect:
+    serializedVersion: 2
+    x: 2260
+    y: 452
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6097337915907135626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 96b1c16b-320c-4da0-a3e4-310e7227f2ac
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Donde encontrar\xE1s todos los utensilios"
+  children:
+  - 43d125b4-48f7-4706-a6fd-613fe5c35538
+  rect:
+    serializedVersion: 2
+    x: 1261
+    y: 133
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6273779221685690649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 325cbed9-c2aa-4c2c-8f4a-e5be26172212
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Perfecto, ahora solo queda poner el c\xF3ctel en el vaso"
+  children:
+  - 2b82e8ce-caf6-42ea-9d7e-7b63b0a140bb
+  rect:
+    serializedVersion: 2
+    x: 3012
+    y: 592
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6409394130039657367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ab98753e-921a-4ac5-a0a4-0e1039cecc5c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Donde estoy yo es la barra del bar y donde vendr\xE1n los clientes"
+  children:
+  - 8c9d9a4c-9efb-4519-b780-c867dce2a8ad
+  rect:
+    serializedVersion: 2
+    x: 761
+    y: 133
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7395573101993709830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 4562f273-921d-4955-94cb-73400443c311
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Ahora tienes que tapar el shaker para empezar a mezclar
+  children:
+  - d8436af6-8444-47ef-be81-3f4fb8ed9618
+  rect:
+    serializedVersion: 2
+    x: 2010
+    y: 452
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7496963856254472594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 7d13fb79-3748-4cf9-aaa7-f08a5e086399
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Debido a que a\xFAn eres un principiante mejor usa el jigger"
+  children:
+  - 98a38f0c-3e08-4c71-8d79-dd7938bbb2ef
+  rect:
+    serializedVersion: 2
+    x: 1269
+    y: 288
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7650522463850829602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 0ae422e3-e357-4734-bc7a-3ee92d9f7488
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Ahora coge el shaker
+  children:
+  - 11b7e462-083f-445c-9f81-c37ee5cccea4
+  rect:
+    serializedVersion: 2
+    x: 2749
+    y: 305
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7991480030057045421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 79ad98f8-294d-4b2a-b82c-168f363f2ade
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Anda te voy a ense\xF1ar ha hacer un c\xF3ctel"
+  children:
+  - 6da28cfe-293c-44f1-a15b-d8ce601e1e55
+  rect:
+    serializedVersion: 2
+    x: 12
+    y: 134
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8614654779622988271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 89e2962b-7124-4335-9250-0126b74faf04
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children:
+  - b6069bfb-bea4-4a0e-87b4-06bad3f0cf77
+  rect:
+    serializedVersion: 2
+    x: 761
+    y: 453
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8939048703995900627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: be4c0ea1-2816-4a37-ae55-a70db010ac51
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "En la barra inferior tendr\xEDa que haber un libro o wiki"
+  children:
+  - 07641d87-b7a8-445e-8fb7-b1895c55a2d3
+  rect:
+    serializedVersion: 2
+    x: 2260
+    y: 134
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
