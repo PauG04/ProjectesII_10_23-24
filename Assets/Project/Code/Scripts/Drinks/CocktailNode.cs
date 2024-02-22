@@ -17,7 +17,7 @@ public class CocktailNode : ScriptableObject
     {
         Roncola,
         Mojito,
-        PomadaMenorquina,
+        Ginlemmon,
         Gintonic,
         AguaDePalencia,
         WhiskeySour,
@@ -52,6 +52,7 @@ public class CocktailNode : ScriptableObject
     private void InitDescription()
     {
         description = "";
+        //Ingridients
         foreach (KeyValuePair<DrinkNode, int> ingridient in ingredients)
         {
             description += ingridient.Value;
@@ -63,6 +64,15 @@ public class CocktailNode : ScriptableObject
 
             description += " " + ingridient.Key.spanishName + "\n";
         }
-        description += "State: " + state.ToString();
+        //Shaker State
+        description += "Serivir ";
+        if (state == State.Idle)
+            description += "directamente en vaso";
+        else if (state == State.Shaked)
+            description += "agitado";
+        else
+            description += "mezclado perfectamente";
+        //Decorations
+        //Needs implementation
     }
 }
