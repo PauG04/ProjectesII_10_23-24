@@ -167,7 +167,7 @@ public class TutorialManager : MonoBehaviour
                 ContinueConversation();
                 continuConversation[7] = false;
             }
-            else if(shaker.GetProgress() > 0 && continuConversation[8])
+            else if(shakerLiquid.GetDrinkState() == CocktailNode.State.Mixed && continuConversation[8])
             {
                 ContinueConversation();
                 continuConversation[8] = false;
