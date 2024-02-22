@@ -8,9 +8,10 @@ using UnityEngine;
 public class ImportantClientNode : ScriptableObject
 {
     public string clientName;
+    public bool notNeedTakeDrink;
     public Sprite sprite;
-    public List<DialogueNode> dialogues;
-    public DialogueNode currentDialogue;
+    public List<Dialogue.Dialogue> dialogues;
+    public Dialogue.Dialogue currentDialogue;
     private int counter;
 
     private void Awake()

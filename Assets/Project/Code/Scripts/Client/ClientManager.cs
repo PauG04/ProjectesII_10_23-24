@@ -1,6 +1,7 @@
 using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ClientManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class ClientManager : MonoBehaviour
     [SerializeField] Transform clientParent;
     [SerializeField] GameObject client;
     private GameObject currentClient;
+    private Client currentClientScript;
+    private bool nextClientIsImportant;
+    private ImportantClientNode nextImportantClient;
 
     [SerializeField] private List<Dialogue.Dialogue> regularClientDialogues;
 
@@ -33,25 +37,39 @@ public class ClientManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        CreateNewClient();
-    }
-
-    public List<Sprite> GetClientSprites()
-    {
-        return clientSprites;
     }
 
     public void CreateNewClient()
     {
-        currentClient = Instantiate(client, clientParent);
+        if(nextClientIsImportant)
+            CreateImportantClient(nextImportantClient);
+        else
+            CreateRegularClient();
+        nextClientIsImportant = false;
     }
 
-    public void CreateNewImportantClient(ImportantClientNode node)
+    private void CreateRegularClient()
     {
         currentClient = Instantiate(client, clientParent);
+        currentClientScript = currentClient.GetComponent<Client>();
+    }
+    private void CreateImportantClient(ImportantClientNode node)
+    {
+        currentClient = Instantiate(client, clientParent);
+        currentClientScript = currentClient.GetComponent<Client>();
+        currentClientScript.SetNotNeedTakeDrink(node.notNeedTakeDrink);
+        currentClientScript.GetConversant().SetDialogue(node.currentDialogue);
     }
 
     #region GETTERS
+    public List<Sprite> GetClientSprites()
+    {
+        return clientSprites;
+    }
+    public Client GetCurrentClientScript()
+    {
+        return currentClientScript;
+    }
     public List<Dialogue.Dialogue> GetRegularClientDialogues()
     {
         return regularClientDialogues;
@@ -79,6 +97,17 @@ public class ClientManager : MonoBehaviour
     public float GetVerticalVelocity()
     {
         return verticalVelocity;
+    }
+    #endregion
+
+    #region
+    public void SetNextClientIsImportant(bool value)
+    {
+        nextClientIsImportant = value;
+    }
+    public void SetNextImportantClient(ImportantClientNode node)
+    {
+        nextImportantClient = node;
     }
     #endregion
 }
