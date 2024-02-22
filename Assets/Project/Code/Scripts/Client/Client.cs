@@ -11,8 +11,6 @@ public class Client : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private TextMeshPro textMP;
-
     [Header("Client Position")]
     [SerializeField] private GameObject clientPosition;
     [SerializeField] private GameObject leavePosition;
@@ -52,6 +50,8 @@ public class Client : MonoBehaviour
         isGoingUp = true;
 
         canLeave = false;
+
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
@@ -227,5 +227,18 @@ public class Client : MonoBehaviour
         canLeave = state;
     }
 
+    public void SetNotNeedTakeDrink(bool value)
+    {
+        notNeedTakeDrink = value;
+    }
 
+    public void SetSprite(Sprite sprite)
+    {
+        spriteRenderer.sprite = sprite;
+    }
+
+    public AIConversant GetConversant()
+    {
+        return conversant;
+    }
 }
