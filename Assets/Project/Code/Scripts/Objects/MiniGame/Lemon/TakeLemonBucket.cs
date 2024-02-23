@@ -18,7 +18,7 @@ public class TakeLemonBucket : MonoBehaviour
     [SerializeField] private float velocity;
 
     [Header("Drag")]
-    [SerializeField] private DragItemsNew dragItem;
+    [SerializeField] private DragItems dragItem;
 
     private void Start()
     {

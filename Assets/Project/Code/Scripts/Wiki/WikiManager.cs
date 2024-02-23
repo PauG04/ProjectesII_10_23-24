@@ -14,7 +14,7 @@ public class WikiManager : MonoBehaviour
     [SerializeField] private WikiPage firstPage;
     [SerializeField] private WikiPage secondPage;
 
-    [SerializeField] private DragItemsNew book;
+    [SerializeField] private DragItems book;
     private bool bookIsOpened;
 
     private int pageNumber;

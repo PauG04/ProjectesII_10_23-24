@@ -13,14 +13,14 @@ public class RotateBottle : MonoBehaviour
     private float _currentRotation = 0f;
     private Quaternion initRotation;
 
-    private DragItemsNew dragItem;
+    private DragItems dragItem;
 
     [Header("Rotation")]
     [SerializeField] private float _rotationSpeed;
 
     private void Start()
     {
-        dragItem = GetComponent<DragItemsNew>();
+        dragItem = GetComponent<DragItems>();
 
         initRotation = transform.localRotation;
     }

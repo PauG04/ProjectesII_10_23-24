@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8687512651684032362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a9664400-4033-4d1f-b73f-ad72fa7bc3e8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Buenas noches jefe!
+  children:
+  - ea8233a3-7461-4a81-bdcd-5ff894b98ebc
+  rect:
+    serializedVersion: 2
+    x: 24
+    y: 171
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-194514751203165331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ea8233a3-7461-4a81-bdcd-5ff894b98ebc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Me podrias poner un Wiskey Sour
+  children:
+  - c709c2b9-e55a-45fd-9210-8d295e34d551
+  rect:
+    serializedVersion: 2
+    x: 244
+    y: 172
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: WhiskeySour
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -8687512651684032362}
+  - {fileID: -194514751203165331}
+  - {fileID: 8475405260759495423}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &8475405260759495423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: c709c2b9-e55a-45fd-9210-8d295e34d551
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  isTextPaused: 0
+  text: Claro aqui tienes
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 464
+    y: 171
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

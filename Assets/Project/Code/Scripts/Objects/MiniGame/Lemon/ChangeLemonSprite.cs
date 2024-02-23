@@ -38,7 +38,7 @@ public class ChangeLemonSprite : MonoBehaviour
         {
             rb2D.bodyType = RigidbodyType2D.Static;
             rb2D.bodyType = RigidbodyType2D.Dynamic;
-            GetComponent<DragItemsNew>().enabled = true;
+            GetComponent<DragItems>().enabled = true;
             startYLerp = false;
         }
     }

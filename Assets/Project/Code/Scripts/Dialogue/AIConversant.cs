@@ -13,12 +13,10 @@ namespace Dialogue
 
 		private Client client;
 
-		private bool hasExecuted;
 		
 		protected void Awake()
 		{
 			playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
-			hasExecuted = false;
             client = GetComponent<Client>();
         }
 
@@ -47,17 +45,17 @@ namespace Dialogue
 			//Debug.Log("PlayerPressed");
 			//if (!playerConversant.GetCanContinue() && !hasExecuted)
 			//{
-			//	playerConversant.SetCanContinue(true);
-			//	if (playerConversant.HasNext())
-			//	{
-   //                 playerConversant.Next();
-   //             }
-   //             hasExecuted = true;
+			//	  playerConversant.SetCanContinue(true);
+			//	  if (playerConversant.HasNext())
+			//	  {
+			//		  playerConversant.Next();
+			//    }
+			//    hasExecuted = true;
 			//}
 		}
         private void OnMouseUp()
         {
-             hasExecuted = false;
+
         }
 
 		public void SetDialogue(Dialogue dialogue)

@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 public class Client : MonoBehaviour
 {
-    private CocktailNode.Type order;
+    private CocktailNode.Type drink;
     private float payment;
 
     private SpriteRenderer spriteRenderer;
@@ -66,8 +66,9 @@ public class Client : MonoBehaviour
 
     private void InitClient()
     {
-        int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
-        order = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
+
+        // Hard coded, change later
+
 
         //int randomDialogue = Random.Range(0, ClientManager.instance.GetRegularClientDialogues().Count);
         //conversant.SetDialogue(ClientManager.instance.GetRegularClientDialogues()[randomDialogue]);
@@ -75,15 +76,20 @@ public class Client : MonoBehaviour
         /// TODO: Dani
         ///     Hacer que el dialogo reciba la señal dependiendo del tipo de randomOrder, haciendo que escoja el dialogo dependiendo de la bebida
         /// </summary>
-        conversant.HandleDialogue();
 
-        if(isTutorial)
+
+        if (isTutorial)
         {
-            order = CocktailNode.Type.Roncola;
+            drink = CocktailNode.Type.Roncola;
+            conversant.HandleDialogue();
         }
         else
         {
-            order = CocktailNode.Type.Mojito;
+            int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
+            drink = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
+            Dialogue.Dialogue currentDialogue = ClientManager.instance.GetRegularClientDialogues()[randomOrder];
+            conversant.SetDialogue(currentDialogue);
+            conversant.HandleDialogue();
         }
         
         payment = 10.0f;
@@ -91,7 +97,7 @@ public class Client : MonoBehaviour
 
     private bool CompareCocktails(CocktailNode.Type cocktail)
     {
-        if (cocktail == order)
+        if (cocktail == drink)
             return true;
         return false;
     }
@@ -118,6 +124,8 @@ public class Client : MonoBehaviour
                 collision.GetComponentInChildren<LiquidManager>().GetDrinkState()
                 ));
             startTimer = true;
+
+            Destroy(collision.gameObject);
         }
     }
 
@@ -125,6 +133,8 @@ public class Client : MonoBehaviour
     {
         //textMP.text = "VIVA FRANCO";
         //Change Animation
+        conversant.SetDialogue(ClientManager.instance.GetGoodReactionDialogue());
+        conversant.HandleDialogue();
         Pay();
         //Wait X Seconds
         //ClientManager.instance.CreateNewClient();
@@ -134,6 +144,8 @@ public class Client : MonoBehaviour
     {
         //textMP.text = "Menudo MIERDON";
         //Change Animation
+        conversant.SetDialogue(ClientManager.instance.GetBadReactionDialogue());
+        conversant.HandleDialogue();
         //Wait X Seconds
         //ClientManager.instance.CreateNewClient();
     }
@@ -158,7 +170,6 @@ public class Client : MonoBehaviour
             {
                 arriveAnimation = false;
                 InitClient();
-                Debug.Log(order);
             }
         }
 
@@ -232,9 +243,12 @@ public class Client : MonoBehaviour
 
     public CocktailNode.Type GetOrder()
     {
-        return order;
+        return drink;
     }
-
+    public void SetOrder(CocktailNode.Type drink)
+    {
+        this.drink = drink;
+    }
     public void SetCanLeave(bool state)
     {
         canLeave = state;

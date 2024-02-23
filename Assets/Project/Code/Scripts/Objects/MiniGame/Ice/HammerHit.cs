@@ -8,7 +8,7 @@ public class HammerHit : MonoBehaviour
     private CameraShake _camera;
     private float time = 0;
 
-    [SerializeField] private DragItemsNew hammer;
+    [SerializeField] private DragItems hammer;
     [SerializeField] private float IntensityShaking;
 
     private void Start()
