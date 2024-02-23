@@ -103,7 +103,7 @@ public class TutorialManager : MonoBehaviour
     {
         for (int i = 0; i < drag.Count; i++)
         {
-            if (!drag[i].enabled)
+            if (!drag[i].enabled && drag[i] != null)
             {
                 drag[i].gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             }

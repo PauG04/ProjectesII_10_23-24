@@ -8,9 +8,7 @@ public class TutorialClients : MonoBehaviour
     [SerializeField] private ImportantClientNode houseKeeper;
     [SerializeField] private ImportantClientNode friend;
 
-    private TutorialManager tutorial;
-
-    private void Awake()
+    private void Start()
     {
         InitHouseKeeper();
     }

@@ -75,31 +75,6 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
---- !u!114 &-8425314293033294871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: e75c6433-de39-417a-8ca5-ff00da6cd456
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: Primero vamos a ver como esta distribuido tu espacio de trabajo
-  children:
-  - ab98753e-921a-4ac5-a0a4-0e1039cecc5c
-  rect:
-    serializedVersion: 2
-    x: 512
-    y: 134
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
 --- !u!114 &-8405066962206687486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,8 +119,8 @@ MonoBehaviour:
   - 66191105-dffb-41b5-89e3-688b5dcc75b1
   rect:
     serializedVersion: 2
-    x: 511
-    y: 282
+    x: 638
+    y: 283
     width: 200
     height: 100
   onEnterAction: 
@@ -194,8 +169,8 @@ MonoBehaviour:
   - 827da3e7-3824-44f1-8f57-c271e98dfbc1
   rect:
     serializedVersion: 2
-    x: 15
-    y: 281
+    x: 33
+    y: 284
     width: 200
     height: 100
   onEnterAction: 
@@ -219,8 +194,8 @@ MonoBehaviour:
   - 6bbad603-37e6-4cc1-89d0-c2c7d6c5eeed
   rect:
     serializedVersion: 2
-    x: 258
-    y: 284
+    x: 343
+    y: 264
     width: 200
     height: 100
   onEnterAction: 
@@ -339,13 +314,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: "Y traerme ese c\xF3ctel"
+  text: Y traerme esa bebida
   children:
   - 35c71c0b-1498-4b43-9314-24d1dd669b6a
   rect:
     serializedVersion: 2
-    x: 2006
-    y: 595
+    x: 2015
+    y: 593
     width: 200
     height: 100
   onEnterAction: 
@@ -615,7 +590,6 @@ MonoBehaviour:
   nodes:
   - {fileID: 7991480030057045421}
   - {fileID: 4778350440305100577}
-  - {fileID: -8425314293033294871}
   - {fileID: 6409394130039657367}
   - {fileID: 887431940252220019}
   - {fileID: 6097337915907135626}
@@ -639,7 +613,6 @@ MonoBehaviour:
   - {fileID: -1335134155143053879}
   - {fileID: 7496963856254472594}
   - {fileID: 4684004123485252369}
-  - {fileID: 252208311261528196}
   - {fileID: -8160050750686569677}
   - {fileID: -5791577597754963152}
   - {fileID: -6045461307189841046}
@@ -665,31 +638,6 @@ MonoBehaviour:
   - {fileID: -3104213357474458544}
   - {fileID: -4173550985257706926}
   newNodeOffset: {x: 250, y: 0}
---- !u!114 &252208311261528196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: f9f48f61-3e95-46b2-8714-cb12c4db6e40
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: Mientras que el shaker contiene 10 onzas
-  children:
-  - 38139469-ee0e-44bd-86b2-32ea7514fa17
-  rect:
-    serializedVersion: 2
-    x: 751
-    y: 287
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
 --- !u!114 &740477178963956158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,7 +810,7 @@ MonoBehaviour:
     y: 589
     width: 200
     height: 100
-  onEnterAction: 
+  onEnterAction: ChangeScene
   onExitAction: 
 --- !u!114 &3021412527022812708
 MonoBehaviour:
@@ -1028,13 +976,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Llenar el jigger equivale a 1 onzas
+  text: Llenar el jigger equivale a 1 onza
   children:
-  - f9f48f61-3e95-46b2-8714-cb12c4db6e40
+  - 38139469-ee0e-44bd-86b2-32ea7514fa17
   rect:
     serializedVersion: 2
-    x: 1035
-    y: 279
+    x: 999
+    y: 266
     width: 200
     height: 100
   onEnterAction: 
@@ -1080,7 +1028,7 @@ MonoBehaviour:
   isTextPaused: 0
   text: Vamos ha hacer un RonCola
   children:
-  - e75c6433-de39-417a-8ca5-ff00da6cd456
+  - ab98753e-921a-4ac5-a0a4-0e1039cecc5c
   rect:
     serializedVersion: 2
     x: 262
@@ -1278,7 +1226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: "Anda te voy a ense\xF1ar ha hacer un c\xF3ctel"
+  text: "Anto\xF1ito, te voy a ense\xF1ar ha hacer un c\xF3ctel"
   children:
   - 6da28cfe-293c-44f1-a15b-d8ce601e1e55
   rect:
@@ -1287,7 +1235,7 @@ MonoBehaviour:
     y: 134
     width: 200
     height: 100
-  onEnterAction: 
+  onEnterAction: ChooseDrink
   onExitAction: 
 --- !u!114 &8614654779622988271
 MonoBehaviour:

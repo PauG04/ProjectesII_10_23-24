@@ -8,7 +8,7 @@ public class ActivateCursorText : MonoBehaviour
     private void OnMouseOver()
     {
         CursorManager.instance.GetBox().SetActive(true);
-        CursorManager.instance.GetItemName().text = gameObject.name;
+        CursorManager.instance.GetItemName().text = gameObject.GetComponent<DropLiquid>().GetDrink().spanishName;
     }
 
     private void OnMouseExit()

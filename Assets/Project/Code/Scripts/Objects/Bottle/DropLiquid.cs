@@ -77,5 +77,10 @@ public class DropLiquid : MonoBehaviour
         }
     }
 
+    public DrinkNode GetDrink()
+    {
+        return drink;
+    }
+
 
 }

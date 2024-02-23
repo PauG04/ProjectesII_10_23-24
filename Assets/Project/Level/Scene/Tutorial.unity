@@ -1484,6 +1484,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &221469958 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 259586209982771432, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+  m_PrefabInstance: {fileID: 2060802592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &238260075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,59 +1970,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &401381612
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 401381613}
-  - component: {fileID: 401381614}
-  m_Layer: 0
-  m_Name: CalculateDrinkManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &401381613
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401381612}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 813719649}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &401381614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401381612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b62506910adb594f9a78d8ca9f972a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializableCocktails:
-    items:
-    - cocktailName: DiscoN
-      cocktail: {fileID: 11400000, guid: 8b7c3c93fcb8c434fb39bace5a2e1296, type: 2}
-    - cocktailName: Invade
-      cocktail: {fileID: 11400000, guid: 85d7d99fa7c86dd458e2645a93128ee8, type: 2}
-    - cocktailName: LobsterCrami
-      cocktail: {fileID: 11400000, guid: 42bb341c3f0b35e49859a932c4b3d178, type: 2}
-  errorMargin: 20
 --- !u!1 &450585108
 GameObject:
   m_ObjectHideFlags: 0
@@ -3519,6 +3471,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1382117364}
     m_Modifications:
+    - target: {fileID: 480384532915106000, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: action
+      value: ChooseDrink
+      objectReference: {fileID: 0}
+    - target: {fileID: 480384532915106000, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 480384532915106000, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 480384532915106000, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChooseDrink, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 480384532915106000, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2080687129534558086, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
       propertyPath: m_Offset.x
       value: 0
@@ -3809,7 +3781,7 @@ Transform:
   m_Children:
   - {fileID: 1770542919}
   - {fileID: 31400112}
-  - {fileID: 401381613}
+  - {fileID: 221469958}
   - {fileID: 10719398}
   - {fileID: 616007281}
   - {fileID: 536318150}
@@ -4176,6 +4148,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 317562163}
     m_Modifications:
+    - target: {fileID: 2797714722857405090, guid: da78a67f455f0b74596453ea555794e8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5455300107542207505, guid: da78a67f455f0b74596453ea555794e8, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -8390,7 +8366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1407f6f2bc78bf42a6250184b137797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLiquid: 150
+  maxLiquid: 50
   currentLiquid: 0
   currentState: 0
   isGlass: 0
@@ -8458,6 +8434,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2060802592
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 813719649}
+    m_Modifications:
+    - target: {fileID: 259586209982771432, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 259586209982771432, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259586209982771432, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259586209982771432, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259586209982771432, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 259586209982771432, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259586209982771432, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259586209982771432, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259586209982771432, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259586209982771432, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259586209982771432, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293614153335483693, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: m_Name
+      value: CalculateDrinkManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
 --- !u!1 &2077054512
 GameObject:
   m_ObjectHideFlags: 0

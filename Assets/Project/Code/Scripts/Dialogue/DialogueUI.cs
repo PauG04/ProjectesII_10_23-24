@@ -89,7 +89,8 @@ namespace UI
 		private void PlayerBubble(string text)
 		{
 			playerText.text = text;
-			Instantiate(prefabPlayerbubble, bubbleRoot);
+			// Change to player when can talk
+			Instantiate(separator, bubbleRoot);
 		}
 		private void DestroyChildrens(Transform root)
 		{

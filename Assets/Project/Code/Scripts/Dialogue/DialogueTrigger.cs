@@ -11,8 +11,8 @@ namespace Dialogue
 		
 		public void Trigger(string actionToTrigger)
 		{
-			if(actionToTrigger == action)
-			{ 
+            if (actionToTrigger == action)
+			{
 				onTrigger.Invoke();
 			}
 		}
