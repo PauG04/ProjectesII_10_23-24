@@ -66,14 +66,9 @@ public class Client : MonoBehaviour
 
     private void InitClient()
     {
-        int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
-        drink = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
-        Debug.Log(drink);
 
         // Hard coded, change later
-        Dialogue.Dialogue currentDialogue = ClientManager.instance.GetRegularClientDialogues()[randomOrder];
-        conversant.SetDialogue(currentDialogue);
-        conversant.HandleDialogue();
+
 
         //int randomDialogue = Random.Range(0, ClientManager.instance.GetRegularClientDialogues().Count);
         //conversant.SetDialogue(ClientManager.instance.GetRegularClientDialogues()[randomDialogue]);
@@ -86,10 +81,15 @@ public class Client : MonoBehaviour
         if (isTutorial)
         {
             drink = CocktailNode.Type.Roncola;
+            conversant.HandleDialogue();
         }
         else
         {
-            drink = CocktailNode.Type.Mojito;
+            int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
+            drink = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
+            Dialogue.Dialogue currentDialogue = ClientManager.instance.GetRegularClientDialogues()[randomOrder];
+            conversant.SetDialogue(currentDialogue);
+            conversant.HandleDialogue();
         }
         
         payment = 10.0f;

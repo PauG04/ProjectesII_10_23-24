@@ -12,5 +12,6 @@ public class SpawnGlass : MonoBehaviour
 
         Instantiate(glass, mousePosition, Quaternion.identity);
         glass.GetComponent<DragItems>().ObjectPressed();
+        glass.GetComponent<DragItems>().SetIsDragging(true);
     }
 }

@@ -71,7 +71,7 @@ public class ClientManager : MonoBehaviour
         currentClientScript.SetNotNeedTakeDrink(node.notNeedTakeDrink);
         currentClientScript.GetConversant().SetDialogue(node.currentDialogue);
         currentClientScript.SetSprite(node.sprite);
-        if(node.currentDialogue.name == "TutorialDialogue1" && tutorial != null)
+        if((node.currentDialogue.name == "HouseKeeper" || node.currentDialogue.name == "TutorialDialogue1") && tutorial != null)
         {
             tutorial.SetIsFriend(true);
             currentClientScript.SetIsTutorial(true);
