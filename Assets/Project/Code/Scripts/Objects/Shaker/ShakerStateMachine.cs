@@ -136,4 +136,11 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 
     }
 
+	public void ResetShaker()
+	{
+        shakerDraggingClose.SetProgress(0);
+        shakerDraggingClose.SetSlider(0);
+        liquidManager.SetDrinkState(CocktailNode.State.Idle);
+    }
+
 }
