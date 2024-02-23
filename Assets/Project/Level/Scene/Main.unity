@@ -810,6 +810,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e641f3e2be8d0449a5c5340c6fd5aa7, type: 3}
+--- !u!1 &296910462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9071389106930928307, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+  m_PrefabInstance: {fileID: 1119733625}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &309671714 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7064262024695019023, guid: 0ab81da6b3485684d933d5501276cc9a, type: 3}
@@ -2751,13 +2756,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9071389106930928307, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1119733628}
   m_SourcePrefab: {fileID: 100100000, guid: 9800209f159faa848b82fe811fc10922, type: 3}
 --- !u!4 &1119733626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8422938162780285518, guid: 9800209f159faa848b82fe811fc10922, type: 3}
   m_PrefabInstance: {fileID: 1119733625}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1119733628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296910462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4fe7987a9a636408967aea1932ee71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: ChooseDrink
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1122275067
 PrefabInstance:
   m_ObjectHideFlags: 0

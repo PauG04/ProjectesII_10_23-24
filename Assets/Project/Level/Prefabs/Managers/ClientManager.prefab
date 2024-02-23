@@ -46,6 +46,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clientParent: {fileID: 0}
   client: {fileID: 3164742363969609211, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+  regularClientDialogues:
+  - {fileID: 11400000, guid: 037583db416862647ac9171ffc0681cf, type: 2}
+  - {fileID: 11400000, guid: 3999a6891f83717419ffa4bdff72ea38, type: 2}
+  - {fileID: 11400000, guid: f0c4ce0464aec7447bac7ff09ad6c3ce, type: 2}
+  - {fileID: 11400000, guid: 9c917377c464b424aa6bb39858a31cf9, type: 2}
+  - {fileID: 11400000, guid: d0a0c3488ed84da47831f69ceeb8428c, type: 2}
+  - {fileID: 11400000, guid: 368704b3e6160604397c9f53e11ce337, type: 2}
+  - {fileID: 11400000, guid: fc32a544e4d454b47849b695a268c135, type: 2}
+  - {fileID: 11400000, guid: f02531ba8e868724d905c6e39e66183c, type: 2}
+  badReactionDialogue: {fileID: 11400000, guid: 1ca0906f43ed51c47b9d00e6bcb0cb86, type: 2}
+  goodReactionDialogue: {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
   spawnPosition: {fileID: 0}
   clientPosition: {fileID: 0}
   DestroyPosition: {fileID: 0}
@@ -53,3 +64,5 @@ MonoBehaviour:
   horizontalVelocity: 3
   verticalVelocity: 10
   clientSprites: []
+  tutorial: {fileID: 0}
+  isNormalDay: 0

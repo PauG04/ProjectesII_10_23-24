@@ -16,6 +16,8 @@ public class ClientManager : MonoBehaviour
     private ImportantClientNode nextImportantClient;
 
     [SerializeField] private List<Dialogue.Dialogue> regularClientDialogues;
+    [SerializeField] private Dialogue.Dialogue badReactionDialogue;
+    [SerializeField] private Dialogue.Dialogue goodReactionDialogue;
 
     [Header("Client Position")]
     [SerializeField] private Transform spawnPosition;
@@ -88,6 +90,14 @@ public class ClientManager : MonoBehaviour
     public List<Dialogue.Dialogue> GetRegularClientDialogues()
     {
         return regularClientDialogues;
+    }
+    public Dialogue.Dialogue GetBadReactionDialogue()
+    {
+        return badReactionDialogue;
+    }
+    public Dialogue.Dialogue GetGoodReactionDialogue()
+    {
+        return goodReactionDialogue;
     }
     public Transform GetSpawnPosition()
     {
