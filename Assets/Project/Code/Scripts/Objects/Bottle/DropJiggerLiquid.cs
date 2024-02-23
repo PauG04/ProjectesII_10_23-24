@@ -25,7 +25,7 @@ public class DropJiggerLiquid : MonoBehaviour
         if (rotateBottle.GetIsRotating())
         {
             timeSinceLastPour += Time.deltaTime;
-            if (rotateBottle.GetRotation() >= minRotationToPourLiquid)
+            if (rotateBottle.GetRotation() >= minRotationToPourLiquid || rotateBottle.GetRotation() <= -minRotationToPourLiquid)
             {
                 PourLiquid();
             }

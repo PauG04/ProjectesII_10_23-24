@@ -64,6 +64,7 @@ public class CalculateDrink : MonoBehaviour
         if (CheckCocktail(typesOfDrink, state, allCocktails["Razz"]))
             return CocktailNode.Type.Razz;
         */
+        Debug.Log("MIERDON");
         return CocktailNode.Type.Error;
     }
 
@@ -87,7 +88,7 @@ public class CalculateDrink : MonoBehaviour
             if (typesOfDrink[ingredient.Key] < ingredient.Value * 10 * (errorMargin / 100))
                 return false;
         }
-
+        Debug.Log(cocktail);
         return true;
     }
 

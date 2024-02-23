@@ -185,11 +185,11 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     private void SetDrinkState()
     {
-        if (_progress < _maxProgress * 0.33f)
+        if (_progress < _maxProgress * 0.05f)
         {
             _liquidManager.SetDrinkState(CocktailNode.State.Idle);
         }
-        else if (_progress >= _maxProgress * 0.66f)
+        else if (_progress >= _maxProgress * 0.95f)
         {
             _liquidManager.SetDrinkState(CocktailNode.State.Mixed);
         }

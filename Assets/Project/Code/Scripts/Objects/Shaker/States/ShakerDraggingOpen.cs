@@ -73,6 +73,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void ExitState()
     {
+        _liquidManager.GetComponent<BoxCollider2D>().enabled = true;
         _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
         _isRotating = false;
@@ -117,7 +118,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
             if (_currentRotation <= -_minRotationToPourLiquid || _currentRotation >= _minRotationToPourLiquid)
             {
-                
                 PourLiquid();
             }
         } 
@@ -199,6 +199,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     }
     private void PourLiquid()
     {
+        _liquidManager.GetComponent<BoxCollider2D>().enabled = false;
         float currentLiquid = (_liquidManager.GetCurrentLiquid() * 100) / _liquidManager.GetMaxLiquid();
         float currentRotation;
         

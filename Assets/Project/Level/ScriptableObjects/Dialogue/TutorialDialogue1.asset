@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Ahora empiza a mezclar hasta el nivel que pone  el libro
+  text: Ahora empiza a agitar hasta el nivel que ponga el libro
   children:
   - e5eb8a5a-ba11-468f-b526-00404a8d4caa
   rect:
     serializedVersion: 2
-    x: 3516
-    y: 589
+    x: 3525
+    y: 590
     width: 200
     height: 100
   onEnterAction: 
@@ -121,32 +121,6 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3260
     y: 134
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-8162644998956111711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: a391ab78-5b61-4092-95b8-8cf1b2f1a453
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: "Dependiendo de la cantidad de shake la bebida estar\xE1, idle, shaked o
-    mixed"
-  children:
-  - 3a3a24b3-8ee2-49af-b20d-e4d38c69350c
-  rect:
-    serializedVersion: 2
-    x: 3011
-    y: 452
     width: 200
     height: 100
   onEnterAction: 
@@ -265,13 +239,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Al empezar a shakear a la derecha aparezera una barra de shake
+  text: Al empezar a agitar a la derecha aparezera una barra de nivel de agitado
   children:
-  - a391ab78-5b61-4092-95b8-8cf1b2f1a453
+  - 5b8be5bb-71b1-48c5-843e-4b185eec069c
   rect:
     serializedVersion: 2
-    x: 2817
-    y: 454
+    x: 3514
+    y: 429
     width: 200
     height: 100
   onEnterAction: 
@@ -297,31 +271,6 @@ MonoBehaviour:
     serializedVersion: 2
     x: 3238
     y: 299
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-5390291049916987817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 7480fad1-a772-4301-a4ad-3a9789d1d03d
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: Y a partir del 66% la bebida se encuentra mixed
-  children:
-  - 5b8be5bb-71b1-48c5-843e-4b185eec069c
-  rect:
-    serializedVersion: 2
-    x: 3511
-    y: 452
     width: 200
     height: 100
   onEnterAction: 
@@ -626,31 +575,6 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
---- !u!114 &-342969559724651221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 3a3a24b3-8ee2-49af-b20d-e4d38c69350c
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: 'A partir del 33% la bebida se encuentra shaked '
-  children:
-  - 7480fad1-a772-4301-a4ad-3a9789d1d03d
-  rect:
-    serializedVersion: 2
-    x: 3261
-    y: 452
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
 --- !u!114 &-170549638558107265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,9 +654,6 @@ MonoBehaviour:
   - {fileID: 7395573101993709830}
   - {fileID: -1140993732928561304}
   - {fileID: -5552622439098230243}
-  - {fileID: -8162644998956111711}
-  - {fileID: -342969559724651221}
-  - {fileID: -5390291049916987817}
   - {fileID: -9083735823424447224}
   - {fileID: -2133554581170036248}
   - {fileID: 6273779221685690649}

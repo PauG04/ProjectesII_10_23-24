@@ -36,6 +36,10 @@ public class LiquidManager : MonoBehaviour
 
     private void Update()
     {
+        foreach (KeyValuePair<DrinkNode, int> drink in particleTypes)
+        {
+            Debug.Log(drink.Key);
+        }
         ColliderController();
         if (isGlass)
         {
@@ -47,8 +51,7 @@ public class LiquidManager : MonoBehaviour
             {
                 dragItems.SetHasToReturn(true);
             }
-        }
-        
+        }        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -72,6 +75,7 @@ public class LiquidManager : MonoBehaviour
                 }
                 Destroy(collision.gameObject);
                 currentLiquid++;
+                currentState = collision.GetComponent<LiquidParticle>().GetState();
             }
         }
     }
@@ -105,14 +109,27 @@ public class LiquidManager : MonoBehaviour
                 if (pair.Value == targetValue)
                 {
                     dictionary.Remove(pair.Key);
+                    Debug.Log("Removing: " + pair.Key);
                     break;
                 }
             }
         }
     }
+    private void RemoveLiquidFromDictionary(Dictionary<DrinkNode, int> drinks)
+    {
+        if (particleTypes.Count > 0)
+        {
+            drinks[drinks.Last().Key]--;
+
+            if (drinks[drinks.Last().Key] == 0)
+            {
+                drinks.Remove(drinks.Last().Key);
+            }
+        }
+    }
     public void DeacreaseCurrentLiquid()
     {
-        RemoveFirstMatchingInstance(particleTypes, currentLiquid - 1);
+        RemoveLiquidFromDictionary(particleTypes);
         currentLiquid--;
     }
     public void IncreaseCurrentLiquid()

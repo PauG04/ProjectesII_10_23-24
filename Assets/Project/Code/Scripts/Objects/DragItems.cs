@@ -289,7 +289,6 @@ public class DragItems : MonoBehaviour
     {
         if (!isObjectRotated || isDragging && target != null)
         {
-            Debug.Log(target);
             isRotating = !(target.rotation == Quaternion.identity);
 
             target.rotation = Quaternion.Lerp(

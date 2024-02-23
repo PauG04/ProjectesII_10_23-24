@@ -17,11 +17,11 @@ public class Client : MonoBehaviour
     [SerializeField] private float maxYPosition;
     [SerializeField] private float horizontalVelocity;
     [SerializeField] private float verticalVelocity;
+    private BoxCollider2D boxCollider;
 
-    [Header("booleans")]
+    [Header("Booleans")]
     [SerializeField] private bool notNeedTakeDrink;
     private bool canLeave;
-
 
     [SerializeField] private float minYPosition;
     private bool isGoingUp;
@@ -43,7 +43,9 @@ public class Client : MonoBehaviour
     {
         conversant = GetComponent<AIConversant>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
 
+        boxCollider.enabled = false;
         arriveAnimation = false;
         leaveAnimation = false;
         startTimer = false;
@@ -66,7 +68,7 @@ public class Client : MonoBehaviour
 
     private void InitClient()
     {
-
+        boxCollider.enabled = true;
         // Hard coded, change later
 
 
@@ -90,6 +92,7 @@ public class Client : MonoBehaviour
             Dialogue.Dialogue currentDialogue = ClientManager.instance.GetRegularClientDialogues()[randomOrder];
             conversant.SetDialogue(currentDialogue);
             conversant.HandleDialogue();
+            Debug.Log(drink);
         }
         
         payment = 10.0f;
@@ -175,6 +178,8 @@ public class Client : MonoBehaviour
 
         if (leaveAnimation)
         {
+            boxCollider.enabled = false;
+             
             MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
             MoveClientVertical();
             if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
