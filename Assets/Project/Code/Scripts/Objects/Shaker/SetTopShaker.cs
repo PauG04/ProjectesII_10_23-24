@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SetTopShaker : MonoBehaviour
 {
-    [SerializeField] private DragItemsNew target;
+    [SerializeField] private DragItems target;
     [SerializeField] private float lerpSpeed = 0.5f;
 
     private bool isTargetInside;

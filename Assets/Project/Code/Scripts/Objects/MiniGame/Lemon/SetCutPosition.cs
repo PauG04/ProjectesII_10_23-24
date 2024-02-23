@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SetCutPosition : MonoBehaviour
 {
-    private DragItemsNew dragItem;
+    private DragItems dragItem;
 
     [Header("Childs and Cut")]
     [SerializeField] private GameObject cutPosition;
@@ -20,7 +20,7 @@ public class SetCutPosition : MonoBehaviour
 
     private void Start()
     {
-        dragItem= GetComponent<DragItemsNew>();
+        dragItem= GetComponent<DragItems>();
 
         width = childLemon[0].GetComponent<SpriteRenderer>().bounds.size.x / 2;
 
@@ -30,7 +30,7 @@ public class SetCutPosition : MonoBehaviour
         bucket = GetComponent<GetItemInformation>().GetBuckets();
         for (int i = 0; i < childLemon.Count(); i++)
         {
-            childLemon[i].GetComponent<DragItemsNew>().SetInitPosition(bucket.transform.position);
+            childLemon[i].GetComponent<DragItems>().SetInitPosition(bucket.transform.position);
         }
     }
 
@@ -70,7 +70,7 @@ public class SetCutPosition : MonoBehaviour
 
     public void FreeChild()
     {
-        childLemon[0].GetComponent<DragItemsNew>().enabled = true;
+        childLemon[0].GetComponent<DragItems>().enabled = true;
         childLemon[0].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         childLemon[0].GetComponent<Rigidbody2D>().AddForce(new Vector2(force, 0), ForceMode2D.Force);
         childLemon[0].transform.SetParent(null);       

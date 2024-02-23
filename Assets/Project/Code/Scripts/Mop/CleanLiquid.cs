@@ -10,7 +10,7 @@ public class CleanLiquid : MonoBehaviour
     [SerializeField] private float maxSaturation;
     [SerializeField] private float cleanMopDifference;
 
-    private DragItemsNew dragItemsNew;
+    private DragItems dragItems;
     private bool cleanMop;
 
     [Header("Clean Time")]
@@ -23,7 +23,7 @@ public class CleanLiquid : MonoBehaviour
     {
         _color = GetComponent<SpriteRenderer>().color;
 
-        dragItemsNew = GetComponent<DragItemsNew>();
+        dragItems = GetComponent<DragItems>();
     }
 
     private void Update()
@@ -33,7 +33,7 @@ public class CleanLiquid : MonoBehaviour
 
     private void CleanMop()
     {
-        if (Input.GetMouseButtonDown(1) && dragItemsNew.GetIsDraggin() && !cleanMop)
+        if (Input.GetMouseButtonDown(1) && dragItems.GetIsDraggin() && !cleanMop)
         {
             cleanMop = true;
             

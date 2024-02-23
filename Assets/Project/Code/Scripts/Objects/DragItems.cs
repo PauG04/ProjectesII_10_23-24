@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DragItemsNew : MonoBehaviour
+public class DragItems : MonoBehaviour
 {
     [Header("Sprite Variables")]
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -182,9 +182,8 @@ public class DragItemsNew : MonoBehaviour
             }
         }
     }
-    private void ObjectPressed()
+    public void ObjectPressed()
     {
-        Physics2D.IgnoreCollision(workSpace, GetComponent<PolygonCollider2D>());
         RotateObject();
 
         rb2d.bodyType = RigidbodyType2D.Static;

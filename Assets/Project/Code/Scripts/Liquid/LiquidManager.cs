@@ -13,7 +13,7 @@ public class LiquidManager : MonoBehaviour
     [SerializeField] private CocktailNode.State currentState;
 
     [SerializeField] private bool isGlass;
-    private DragItemsNew dragItems;
+    private DragItems dragItems;
     private BoxCollider2D boxCollider;
 
     [Header("Liquid Fill Variables")]
@@ -30,7 +30,7 @@ public class LiquidManager : MonoBehaviour
 
         if (isGlass)
         {
-            dragItems = GetComponentInParent<DragItemsNew>();
+            dragItems = GetComponentInParent<DragItems>();
         }
     }
 

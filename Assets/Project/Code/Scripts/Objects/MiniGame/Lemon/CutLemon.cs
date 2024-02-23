@@ -6,7 +6,7 @@ public class CutLemon : MonoBehaviour
 {
     [Header("Father")]
     [SerializeField] private SetCutPosition childs;
-    [SerializeField] private DragItemsNew lemon;
+    [SerializeField] private DragItems lemon;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

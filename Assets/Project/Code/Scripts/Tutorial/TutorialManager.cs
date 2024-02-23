@@ -10,7 +10,7 @@ using static UnityEngine.Rendering.DebugUI;
 public class TutorialManager : MonoBehaviour
 {
     [Header("DragScripts")]
-    [SerializeField] private List<DragItemsNew> drag;
+    [SerializeField] private List<DragItems> drag;
     private List<int> initOrderingLayerDrag;
     [SerializeField] private SpriteRenderer glass;
 
