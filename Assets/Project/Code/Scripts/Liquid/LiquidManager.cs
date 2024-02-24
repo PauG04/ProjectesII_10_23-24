@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static ShakerStateMachine;
 using static UnityEngine.ProBuilder.AutoUnwrapSettings;
 
 public class LiquidManager : MonoBehaviour
@@ -22,6 +23,9 @@ public class LiquidManager : MonoBehaviour
 
     [Header("Jigger")]
     [SerializeField] private DropJiggerLiquid dropLiquid;
+
+    [Header("Shaker")]
+    [SerializeField] private ShakerStateMachine shaker;
 
     private void Awake()
     {
@@ -76,6 +80,14 @@ public class LiquidManager : MonoBehaviour
                 Destroy(collision.gameObject);
                 currentLiquid++;
                 currentState = collision.GetComponent<LiquidParticle>().GetState();
+
+                if(shaker != null)
+                {
+                    if (shaker.GetProgress() > 0  && collision.GetComponent<LiquidParticle>().GetState() == CocktailNode.State.Idle)
+                    {
+                        shaker.SetReset(true);
+                    }
+                }               
             }
         }
     }

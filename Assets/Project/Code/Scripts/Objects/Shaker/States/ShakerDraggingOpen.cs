@@ -41,6 +41,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private Image _color;
     private Image _background;
     private float velocityColor = 5;
+    private float velocityColorPositive = 25;
 
     public ShakerDraggingOpen(
         ShakerStateMachine shakerStateMachine, 
@@ -97,7 +98,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     public override void UpdateState()
     {
         CalculatePosition();
-        AlphaLerp();
+        
 
         //if (Input.GetMouseButtonDown(1))
         //{
@@ -129,9 +130,14 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
             }
         }
 
-        if (_liquidManager.GetCurrentLiquid() == 0)
+        if (_liquidManager.GetCurrentLiquid() == 0 && _shakerStateMachine.GetProgress() > 0)
         {
-            _shakerStateMachine.ResetShaker();
+            _shakerStateMachine.ResetShaker(_shakerStateMachine.GetProgress() - 0.05f) ;
+            AlphaLerpPositive();
+        }
+        else
+        {
+            AlphaLerp();
         }
     }
     public override void OnTriggerEnter2D(Collider2D collision)
@@ -258,6 +264,17 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         newColor.a = Mathf.Lerp(_color.color.a, 0, Time.deltaTime * velocityColor);
         _color.color = newColor;
         _background.color = new Color(_background.color.r, _background.color.g, _background.color.b, newColor.a);
+    }
+
+    private float AlphaLerpPositive()
+    {
+        Color newColor = _color.color;
+        newColor.a = Mathf.Lerp(_color.color.a, 1, Time.deltaTime * velocityColorPositive);
+
+        _color.color = newColor;
+        _background.color = new Color(_background.color.r, _background.color.g, _background.color.b, newColor.a);
+
+        return newColor.a;
     }
     private void InsideWorkspace()
     {
