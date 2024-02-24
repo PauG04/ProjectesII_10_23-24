@@ -40,6 +40,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 
 	private bool isInTutorial;
 	private bool wasInTable;
+	private bool reset;
 
     public enum ShakerState
 	{
@@ -60,7 +61,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
         shakerDraggingClose = new ShakerDraggingClose(this, progress, maxProgress, divideProgress, liquidManager, workSpace, progressSlider, color, background);
 		shakerDraggingOpen = new ShakerDraggingOpen(this, liquidPref, spawnPoint, liquidManager, workSpace, color, background);
 
-        States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker, initPosition, workSpace, color, background));
+        States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker, initPosition, workSpace, color, background, liquidManager));
 		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, initPosition, workSpace, color, background));
 		States.Add(ShakerState.DraggingOpen, shakerDraggingOpen);
 		States.Add(ShakerState.DraggingClosed, shakerDraggingClose);
@@ -135,11 +136,25 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
         wasInTable = State;
 
     }
-
-	public void ResetShaker()
+	public void SetReset(bool state)
 	{
-        shakerDraggingClose.SetProgress(0);
-        shakerDraggingClose.SetSlider(0);
+		reset = state;
+	}
+
+	public bool GetReset()
+	{
+		return reset;
+	}
+
+	public void ResetShaker(float _progress)
+	{
+		if(_progress < 0)
+		{
+			_progress = 0;
+			reset = false;
+        }
+        shakerDraggingClose.SetProgress(_progress);
+        shakerDraggingClose.SetSlider(shakerDraggingClose.GetProgress());
         liquidManager.SetDrinkState(CocktailNode.State.Idle);
     }
 
