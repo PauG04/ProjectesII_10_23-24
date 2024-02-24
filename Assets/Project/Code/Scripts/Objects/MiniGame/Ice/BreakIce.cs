@@ -67,6 +67,7 @@ public class BreakIce : MonoBehaviour
                 newItem.GetComponent<Rigidbody2D>().AddForceAtPosition(new Vector3(Random.Range(-forceX, -forceX / 2), 0, -0), pos, ForceMode2D.Force);
             }
             newItem.GetComponent<DragItems>().SetInitPosition(bucket.transform.position);
+            newItem.GetComponent<DragItems>().SetIsInWorkSpace(true);
         }
         else
         {
@@ -84,6 +85,7 @@ public class BreakIce : MonoBehaviour
                 Rigidbody2D rbIce = brokenIceChilds[i].GetComponent<Rigidbody2D>();
                 rbIce.AddForceAtPosition(new Vector3(Random.Range(forceX * 15, -forceX * 15), 0,0), pos, ForceMode2D.Force);
                 brokenIceChilds[i].GetComponent<DragItems>().SetInitPosition(bucket.transform.position);
+                brokenIceChilds[i].GetComponent<DragItems>().SetIsInWorkSpace(true);
             }
 
             Destroy(gameObject);

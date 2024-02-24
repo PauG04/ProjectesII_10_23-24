@@ -6,6 +6,13 @@ public class SetItemInGlass : MonoBehaviour
 {
     [SerializeField] private bool isInGlass;
 
+    private DragItems drag;
+
+    private void Start()
+    {
+        drag = GetComponent<DragItems>();
+    }
+
     private void Update()
     {
         if (!isInGlass)
@@ -17,7 +24,7 @@ public class SetItemInGlass : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Decoration"))
+        if (collision.CompareTag("Decoration") && drag.GetInsideWorkspace())
         {
             transform.SetParent(collision.transform);
             GetComponent<DragItems>().enabled = false;

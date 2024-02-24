@@ -7,15 +7,16 @@ public class ActivateCursorText : MonoBehaviour
 {
     [SerializeField] private bool isShop;
     private void OnMouseOver()
-    {
-        CursorManager.instance.GetBox().SetActive(true);
+    {       
         if(isShop)
         {
             CursorManager.instance.GetItemName().text = gameObject.GetComponent<BuyLiquid>().GetPrice().ToString() + " $";
+            CursorManager.instance.GetBox().SetActive(true);
         }
-        else
+        else if(!GetComponent<DragItems>().GetInsideWorkspace())
         {
             CursorManager.instance.GetItemName().text = gameObject.GetComponent<DropLiquid>().GetDrink().spanishName;
+            CursorManager.instance.GetBox().SetActive(true);
         }
         
     }

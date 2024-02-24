@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3481459396580257368}
   - component: {fileID: 587274514760470680}
   - component: {fileID: 79638409583875068}
+  - component: {fileID: 3565634400149393294}
   - component: {fileID: 2723008301960515221}
   - component: {fileID: 5217099365322840740}
   m_Layer: 19
@@ -102,7 +103,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 587274514760470680}
   normalSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
-  scaleMultiplier: 2.5
+  scaleMultiplier: 1.5
   itemCollider: {fileID: 5217099365322840740}
   rotationSpeed: 6
   horizontalSpeed: 6
@@ -113,6 +114,19 @@ MonoBehaviour:
   changeSpriteMask: 0
   moveParent: 0
   isItem: 1
+--- !u!114 &3565634400149393294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443020706090611058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2483309b2598b44ada82cdcff5a7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInGlass: 0
 --- !u!50 &2723008301960515221
 Rigidbody2D:
   serializedVersion: 4
@@ -200,6 +214,7 @@ GameObject:
   - component: {fileID: 5993589190917720329}
   - component: {fileID: 5505292791025408926}
   - component: {fileID: 7748020498598717352}
+  - component: {fileID: 1829786497786978738}
   - component: {fileID: 3522008199524342785}
   - component: {fileID: 4616495976968398756}
   m_Layer: 19
@@ -291,7 +306,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5505292791025408926}
   normalSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
-  scaleMultiplier: 2.5
+  scaleMultiplier: 1.5
   itemCollider: {fileID: 4616495976968398756}
   rotationSpeed: 6
   horizontalSpeed: 6
@@ -302,6 +317,19 @@ MonoBehaviour:
   changeSpriteMask: 0
   moveParent: 0
   isItem: 1
+--- !u!114 &1829786497786978738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3818139477085844927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2483309b2598b44ada82cdcff5a7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInGlass: 0
 --- !u!50 &3522008199524342785
 Rigidbody2D:
   serializedVersion: 4
@@ -389,6 +417,7 @@ GameObject:
   - component: {fileID: 7756324444522748231}
   - component: {fileID: 3277694391009530896}
   - component: {fileID: 2224614667767880084}
+  - component: {fileID: 5576610873058384293}
   - component: {fileID: 3333304074860946618}
   - component: {fileID: 3462639541955018867}
   m_Layer: 19
@@ -480,7 +509,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3277694391009530896}
   normalSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
-  scaleMultiplier: 2.5
+  scaleMultiplier: 1.5
   itemCollider: {fileID: 3462639541955018867}
   rotationSpeed: 6
   horizontalSpeed: 6
@@ -491,6 +520,19 @@ MonoBehaviour:
   changeSpriteMask: 0
   moveParent: 0
   isItem: 1
+--- !u!114 &5576610873058384293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446294475339658783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2483309b2598b44ada82cdcff5a7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInGlass: 0
 --- !u!50 &3333304074860946618
 Rigidbody2D:
   serializedVersion: 4
@@ -578,6 +620,7 @@ GameObject:
   - component: {fileID: 6052976397009066078}
   - component: {fileID: 7662824394042980751}
   - component: {fileID: 1939991558623190735}
+  - component: {fileID: 5139076913005161661}
   - component: {fileID: 2830787853921677453}
   - component: {fileID: 8849339234887229922}
   m_Layer: 19
@@ -669,7 +712,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 7662824394042980751}
   normalSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
-  scaleMultiplier: 2.5
+  scaleMultiplier: 1.5
   itemCollider: {fileID: 8849339234887229922}
   rotationSpeed: 6
   horizontalSpeed: 6
@@ -680,6 +723,19 @@ MonoBehaviour:
   changeSpriteMask: 0
   moveParent: 0
   isItem: 1
+--- !u!114 &5139076913005161661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5505082799161953631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2483309b2598b44ada82cdcff5a7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInGlass: 0
 --- !u!50 &2830787853921677453
 Rigidbody2D:
   serializedVersion: 4
