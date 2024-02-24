@@ -12,7 +12,7 @@ public class CursorManager : MonoBehaviour
     private Vector2 cursorHotspot;
 
     private bool isMouseUp;
-    private Vector3 cursorPosition;
+    private Vector2 cursorPosition;
 
     [SerializeField] private TextMeshPro itemName;
     [SerializeField] private GameObject box;
@@ -37,7 +37,7 @@ public class CursorManager : MonoBehaviour
         cursorPosition = GetMouseWorldPosition();
 
         box.transform.position = cursorPosition;
-        box.transform.position = new Vector3(cursorPosition.x + 0.5f, cursorPosition.y + 0.1f, cursorPosition.z);
+        box.transform.position = new Vector2(cursorPosition.x + 0.5f, cursorPosition.y + 0.1f);
 
         if (Input.GetMouseButtonDown(0))
             isMouseUp = false;
@@ -49,10 +49,9 @@ public class CursorManager : MonoBehaviour
     {
         return isMouseUp;
     }
-    private Vector3 GetMouseWorldPosition()
+    private Vector2 GetMouseWorldPosition()
     {
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = -Camera.main.transform.position.z;
         return Camera.main.ScreenToWorldPoint(mousePosition);
     }
 

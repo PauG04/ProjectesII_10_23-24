@@ -4,9 +4,9 @@ using UnityEngine;
 
 public static class Collider2DExtensions
 {
-    public static void TryUpdateShapeToAttachedSprite(this PolygonCollider2D collider)
+    public static void TryUpdateShapeToAttachedSprite(this PolygonCollider2D collider, SpriteRenderer renderer)
     {
-        collider.UpdateShapeToSprite(collider.GetComponent<SpriteRenderer>().sprite);
+        collider.UpdateShapeToSprite(renderer.sprite);
     }
 
     public static void UpdateShapeToSprite(this PolygonCollider2D collider, Sprite sprite)

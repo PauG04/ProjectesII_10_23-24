@@ -128,6 +128,11 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
                 ResetObjectPosition();
             }
         }
+
+        if (_liquidManager.GetCurrentLiquid() == 0)
+        {
+            _shakerStateMachine.ResetShaker();
+        }
     }
     public override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -245,6 +250,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
                 _timeSinceLastPour = 0;
             }
         }
+        
     }
     private void AlphaLerp()
     {

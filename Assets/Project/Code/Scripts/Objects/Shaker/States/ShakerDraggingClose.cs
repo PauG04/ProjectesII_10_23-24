@@ -253,4 +253,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         }
     }
     public float GetProgress() => _progress;
+    public void SetProgress(float progress) => _progress = progress;
+    public void SetSlider(float progress) => _progressSlider.value = progress;
 }

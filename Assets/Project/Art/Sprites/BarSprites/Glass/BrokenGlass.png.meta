@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bcfbc11a83df6d940a46ac274af6cee0
+guid: 2b149db5c97322040a11ba7a78d390f3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
@@ -70,7 +70,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -110,13 +110,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Drink3_0
+      name: BrokenGlass_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 75
+        x: 0
+        y: 12
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a98decaab96994d887240999c0e376
+      internalID: 1262436491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrokenGlass_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 16
         width: 25
-        height: 20
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 928f29b30136a9448b5adecba4a4851b
-      internalID: 1358047087
+      spriteID: 10aea2e0ab44f544b82c3f0cfa73157d
+      internalID: -339106705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drink3_1
+      name: BrokenGlass_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 38
-        width: 20
-        height: 36
+        x: 11
+        y: 8
+        width: 25
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,62 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80845fe613f8b5b4ba33260b4302fee0
-      internalID: -1580146718
+      spriteID: caeaa49cc12c84f43b98eca48e0a2fd5
+      internalID: 1867629087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drink3_2
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 30
-        width: 17
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2865d1c3758bd9a498dd8276361895a1
-      internalID: -1119863677
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drink3_3
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 15
-        width: 33
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 211f5c8d9f005764496f3ee74b897c41
-      internalID: -1296695373
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drink3_4
+      name: BrokenGlass_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 42
-        height: 14
+        width: 36
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,34 +187,28 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 203512185fd27d947a27c0044eb2404a
-      internalID: 1456177872
+      spriteID: 4788344841733914a8071fdbf95d0a37
+      internalID: 64271853
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
     physicsShape:
-    - - {x: -21, y: -47.5}
-      - {x: -21, y: -38.5}
-      - {x: -15, y: -29.5}
-      - {x: -15, y: -20.5}
-      - {x: -18, y: 9.5}
-      - {x: -12, y: 20.5}
-      - {x: -3, y: 24.5}
-      - {x: -8, y: 34.5}
-      - {x: -2, y: 34.5}
-      - {x: -2, y: 47.5}
-      - {x: 2, y: 47.5}
-      - {x: 2, y: 34.5}
-      - {x: 8, y: 34.5}
-      - {x: 3, y: 24.5}
-      - {x: 14, y: 18.5}
-      - {x: 18, y: 9.5}
-      - {x: 15, y: -20.5}
-      - {x: 15, y: -29.5}
-      - {x: 21, y: -38.5}
-      - {x: 21, y: -47.5}
+    - - {x: -10, y: -8}
+      - {x: -10, y: -10}
+      - {x: 10, y: -10}
+      - {x: 10, y: -8}
+      - {x: 14, y: -8}
+      - {x: 14, y: 14}
+      - {x: 18, y: 14}
+      - {x: 18, y: -10}
+      - {x: 12, y: -14}
+      - {x: -12, y: -14}
+      - {x: -18, y: -10}
+      - {x: -18, y: 14}
+      - {x: -14, y: 14}
+      - {x: -14, y: -8}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 1537655665
@@ -245,11 +218,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Drink3_0: 2047218942
-      Drink3_1: -1219560374
-      Drink3_2: 812547131
-      Drink3_3: 1358047087
-      Drink3_4: -1580146718
+      BrokenGlass_0: 1262436491
+      BrokenGlass_1: -339106705
+      BrokenGlass_2: 1867629087
+      BrokenGlass_3: 64271853
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
