@@ -201,7 +201,14 @@ public class Client : MonoBehaviour
             startTimer = true;
         }
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Hammer"))
+        {
+            startTimer = true;
+        }
+            
+    }
     private void MoveClientHorizontal(Transform _transform)
     {
         Vector3 newPosition = transform.localPosition;

@@ -1,14 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.Sockets;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
 
-public class BreakBottle : MonoBehaviour
+public class BreakGlass : MonoBehaviour
 {
-    [Header("Broken Bottle")]
-    [SerializeField] private GameObject brokenBottle;
+    [Header("Broken Glass")]
+    [SerializeField] private GameObject brokenGlass;
     [SerializeField] private GameObject particles;
     private GameObject[] brokenChilds;
 
@@ -21,7 +18,7 @@ public class BreakBottle : MonoBehaviour
     private void Start()
     {
         hits = 3;
-        brokenChilds = new GameObject[6];
+        brokenChilds = new GameObject[4];
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,7 +28,7 @@ public class BreakBottle : MonoBehaviour
             hits--;
             if (hits == 0)
             {
-                Slice(transform.localPosition, brokenBottle);
+                Slice(transform.localPosition, brokenGlass);
             }
         }
     }
@@ -54,12 +51,12 @@ public class BreakBottle : MonoBehaviour
             Rigidbody2D rbIce = brokenChilds[i].GetComponent<Rigidbody2D>();
             rbIce.AddForceAtPosition(new Vector3(Random.Range(forceX * 15, -forceX * 15), 0, 0), pos, ForceMode2D.Force);
         }
-        for(int i = 0; i< gameObject.GetComponentInChildren<LiquidManager>().GetCurrentLiquid() / 7; i++)
+        for (int i = 0; i < gameObject.GetComponentInChildren<LiquidManager>().GetCurrentLiquid() / 2; i++)
         {
             GameObject _particles = Instantiate(particles, transform);
             _particles.transform.SetParent(null);
         }
-       
+
         Destroy(gameObject);
         Destroy(newItem);
     }

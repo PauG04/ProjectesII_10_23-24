@@ -141,6 +141,7 @@ MonoBehaviour:
   hasToReturn: 1
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
+  moveParent: 0
   isItem: 0
 --- !u!50 &3085852553438928639
 Rigidbody2D:
@@ -184,7 +185,7 @@ PolygonCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 262144
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
