@@ -62,7 +62,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 		shakerDraggingOpen = new ShakerDraggingOpen(this, liquidPref, spawnPoint, liquidManager, workSpace, color, background);
 
         States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker, initPosition, workSpace, color, background, liquidManager));
-		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, initPosition, workSpace, color, background));
+		States.Add(ShakerState.IdleClosed, new ShakerIdleClose(this, topShaker, initPosition, workSpace, color, background, liquidManager));
 		States.Add(ShakerState.DraggingOpen, shakerDraggingOpen);
 		States.Add(ShakerState.DraggingClosed, shakerDraggingClose);
 
@@ -155,6 +155,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
         }
         shakerDraggingClose.SetProgress(_progress);
         shakerDraggingClose.SetSlider(shakerDraggingClose.GetProgress());
+        color.color = new Color(1, 1 - (GetProgress() / GetMaxProgress()), 0, 1);
         liquidManager.SetDrinkState(CocktailNode.State.Idle);
     }
 

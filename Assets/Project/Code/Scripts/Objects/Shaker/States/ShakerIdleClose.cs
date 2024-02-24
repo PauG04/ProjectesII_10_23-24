@@ -7,6 +7,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
 
     private ShakerStateMachine _shakerStateMachine;
     private SetTopShaker _shakerClosed;
+    private LiquidManager _liquidManager;
 
     private float lerpSpeed = 1.0f;
 
@@ -21,6 +22,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     private Image _color;
     private Image _background;
     private float velocityColor = 5;
+    private float velocityColorPositive = 25;
 
     private Collider2D _workSpace;
 
@@ -30,7 +32,8 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         Vector3 initPosition, 
         Collider2D workSpace,
         Image color,
-        Image background
+        Image background,
+        LiquidManager liquidManager
     ) : base(ShakerStateMachine.ShakerState.IdleClosed)
     {
         _shakerStateMachine = shakerStateMachine;
@@ -39,6 +42,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         _workSpace = workSpace;
         _color = color;
         _background = background;
+        _liquidManager = liquidManager;
     }
     public override void EnterState()
     {
@@ -73,7 +77,6 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     public override void UpdateState()
     {
 
-        AlphaLerp();
         if (!_workSpace.OverlapPoint(_shakerStateMachine.transform.position))
         {
             _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -114,6 +117,16 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
                 }
             }
         }
+
+        if ((_liquidManager.GetCurrentLiquid() == 0 && _shakerStateMachine.GetProgress() > 0) || _shakerStateMachine.GetReset())
+        {
+            _shakerStateMachine.ResetShaker(_shakerStateMachine.GetProgress() - 0.05f);
+            AlphaLerpPositive();
+        }
+        else
+        {
+            AlphaLerp();
+        }
     }
 
     private void AlphaLerp()
@@ -122,6 +135,16 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         newColor.a = Mathf.Lerp(_color.color.a, 0, Time.deltaTime * velocityColor);
         _color.color = newColor;
         _background.color = new Color(_background.color.r, _background.color.g, _background.color.b, newColor.a);
+    }
+    private float AlphaLerpPositive()
+    {
+        Color newColor = _color.color;
+        newColor.a = Mathf.Lerp(_color.color.a, 1, Time.deltaTime * velocityColorPositive);
+
+        _color.color = newColor;
+        _background.color = new Color(_background.color.r, _background.color.g, _background.color.b, newColor.a);
+
+        return newColor.a;
     }
     public override void OnTriggerEnter2D(Collider2D collision)
     {

@@ -27,6 +27,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private Image _color;
     private Image _background;
     private float velocityColor = 2;
+    private float velocityColorPositive = 25;
 
     private Collider2D _workspace;
 
@@ -103,7 +104,15 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
         _rb.SetRotation(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
         Shaking();
-        AlphaLerp();
+        if (_shakerStateMachine.GetReset())
+        {
+            _shakerStateMachine.ResetShaker(_shakerStateMachine.GetProgress() - 0.05f);
+            AlphaLerpPositive();
+        }
+        else
+        {
+            AlphaLerp();
+        }
     }
     public override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -150,6 +159,16 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     {
         Color newColor = _color.color;
         newColor.a = Mathf.Lerp(_color.color.a, 1, Time.deltaTime * velocityColor);
+
+        _color.color = newColor;
+        _background.color = new Color(_background.color.r, _background.color.g, _background.color.b, newColor.a);
+
+        return newColor.a;
+    }
+    private float AlphaLerpPositive()
+    {
+        Color newColor = _color.color;
+        newColor.a = Mathf.Lerp(_color.color.a, 1, Time.deltaTime * velocityColorPositive);
 
         _color.color = newColor;
         _background.color = new Color(_background.color.r, _background.color.g, _background.color.b, newColor.a);
