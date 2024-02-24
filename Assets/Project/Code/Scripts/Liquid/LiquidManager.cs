@@ -13,7 +13,7 @@ public class LiquidManager : MonoBehaviour
     [SerializeField] private CocktailNode.State currentState;
 
     [SerializeField] private bool isGlass;
-    private DragItems dragItems;
+    [SerializeField] private DragItems dragItems;
     private BoxCollider2D boxCollider;
 
     [Header("Liquid Fill Variables")]
@@ -28,7 +28,7 @@ public class LiquidManager : MonoBehaviour
         particleTypes = new Dictionary<DrinkNode, int>();
         boxCollider = GetComponent<BoxCollider2D>();
 
-        if (isGlass)
+        if (isGlass && dragItems == null)
         {
             dragItems = GetComponentInParent<DragItems>();
         }
