@@ -159,4 +159,9 @@ public class LiquidManager : MonoBehaviour
     {
         return currentState;
     }
+
+    public void SetCurrentLiquid()
+    {
+        currentLiquid = maxLiquid;
+    }
 }

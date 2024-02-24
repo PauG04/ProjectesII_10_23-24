@@ -5,10 +5,19 @@ using UnityEngine;
 
 public class ActivateCursorText : MonoBehaviour
 {
+    [SerializeField] private bool isShop;
     private void OnMouseOver()
     {
         CursorManager.instance.GetBox().SetActive(true);
-        CursorManager.instance.GetItemName().text = gameObject.GetComponent<DropLiquid>().GetDrink().spanishName;
+        if(isShop)
+        {
+            CursorManager.instance.GetItemName().text = gameObject.GetComponent<BuyLiquid>().GetPrice().ToString() + " $";
+        }
+        else
+        {
+            CursorManager.instance.GetItemName().text = gameObject.GetComponent<DropLiquid>().GetDrink().spanishName;
+        }
+        
     }
 
     private void OnMouseExit()
