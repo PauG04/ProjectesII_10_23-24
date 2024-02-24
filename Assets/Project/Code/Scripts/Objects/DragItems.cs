@@ -370,6 +370,10 @@ public class DragItems : MonoBehaviour
     {
         this.hasToReturn = hasToReturn;
     }
+    public void SetIsInWorkSpace(bool state)
+    {
+        insideWorkspace = state;
+    }
 
     public bool GetHasToReturn()
     {
