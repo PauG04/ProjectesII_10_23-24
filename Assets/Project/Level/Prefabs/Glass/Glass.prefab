@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 20
+  dragItem: {fileID: 0}
 --- !u!60 &3637063651106925966
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -298,7 +299,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 2095103
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 2048
@@ -561,6 +562,7 @@ MonoBehaviour:
   currentLiquid: 0
   currentState: 0
   isGlass: 1
+  dragItems: {fileID: 0}
   maxColliderPos: 0.356
   minColliderPos: 0.065
   dropLiquid: {fileID: 0}

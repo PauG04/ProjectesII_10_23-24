@@ -109,6 +109,7 @@ public class DragItems : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        Debug.Log("Object Pressed");
         ObjectPressed();
     }
     private void OnMouseUp()
@@ -131,7 +132,7 @@ public class DragItems : MonoBehaviour
             else
             {
                 OutsideWorkspace();
-                target.position = new Vector2(GetMouseWorldPosition().x, GetMouseWorldPosition().y);
+                target.position = GetMouseWorldPosition();
             }
         }
         else
@@ -212,7 +213,7 @@ public class DragItems : MonoBehaviour
         
         InsideWorkspaceRenderersChilds(target);
 
-        target.localScale = new Vector2(scaleMultiplier, scaleMultiplier);
+        target.localScale = new Vector3(scaleMultiplier, scaleMultiplier, target.localScale.z);
 
         if(!wasOnTheTable)
         {
