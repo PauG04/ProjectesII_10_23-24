@@ -6425,7 +6425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1118259859}
   - component: {fileID: 1118259861}
-  - component: {fileID: 1118259860}
+  - component: {fileID: 1118259862}
   m_Layer: 18
   m_Name: CollisionMovement
   m_TagString: Untagged
@@ -6441,15 +6441,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118259858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 720530943255580791}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &1118259860
-PolygonCollider2D:
+--- !u!114 &1118259861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118259858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2334060629469523068}
+  normalSprite: {fileID: 21300000, guid: 7cd9121659fb7e34ca670b554e21e682, type: 3}
+  workspaceSprite: {fileID: 21300000, guid: 7cd9121659fb7e34ca670b554e21e682, type: 3}
+  scaleMultiplier: 1.2
+  itemCollider: {fileID: 6205750207200222850}
+  rotationSpeed: 6
+  horizontalSpeed: 6
+  verticalSpeed: 10
+  hasToBeDestroy: 0
+  hasToReturn: 1
+  hasToStayTheSameLayer: 1
+  changeSpriteMask: 0
+  moveParent: 1
+  isItem: 0
+--- !u!61 &1118259862
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6480,50 +6506,19 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.001512289, y: 0.0030245483}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
-  m_UseDelaunayMesh: 0
---- !u!114 &1118259861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118259858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 2334060629469523068}
-  normalSprite: {fileID: 21300000, guid: 7cd9121659fb7e34ca670b554e21e682, type: 3}
-  workspaceSprite: {fileID: 21300000, guid: 7cd9121659fb7e34ca670b554e21e682, type: 3}
-  scaleMultiplier: 1.2
-  itemCollider: {fileID: 1118259860}
-  rotationSpeed: 6
-  horizontalSpeed: 6
-  verticalSpeed: 10
-  hasToBeDestroy: 0
-  hasToReturn: 1
-  hasToStayTheSameLayer: 1
-  changeSpriteMask: 0
-  moveParent: 1
-  isItem: 0
+  serializedVersion: 2
+  m_Size: {x: 0.57959414, y: 0.44349152}
+  m_EdgeRadius: 0
 --- !u!1001 &1119733625
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class DragItems : MonoBehaviour
     private Transform target;
     private Rigidbody2D rb2d;
     private Collider2D workSpace;
-    private Vector3 offset;
+    private Vector2 offset;
     private bool isDragging;
     private bool insideWorkspace;
 
@@ -37,7 +37,7 @@ public class DragItems : MonoBehaviour
     private bool isInTutorial;
     private bool wasOnTheTable;
 
-    private Vector3 initPosition;
+    private Vector2 initPosition;
     private Quaternion initRotation;
 
     private RotateBottle rotateBottle;
@@ -121,7 +121,7 @@ public class DragItems : MonoBehaviour
     {
         if (isDragging)
         {
-            target.position = GetMouseWorldPosition() + offset;
+            target.position = new Vector2(GetMouseWorldPosition().x + offset.x, GetMouseWorldPosition().y + offset.y);
             isRotating = true;
 
             if (workSpace.OverlapPoint(GetMouseWorldPosition()))
@@ -171,8 +171,6 @@ public class DragItems : MonoBehaviour
                 {
                     if (hit.collider.transform.IsChildOf(transform))
                     {
-                        Debug.Log("Child object clicked!");
-
                         if (rb2d != null)
                         {
                             ObjectPressed();
@@ -188,7 +186,7 @@ public class DragItems : MonoBehaviour
 
         rb2d.bodyType = RigidbodyType2D.Static;
 
-        offset = target.position - GetMouseWorldPosition();
+        offset = (Vector2)target.position - GetMouseWorldPosition();
         isDragging = true;
         isReturning = false;
     }
@@ -209,7 +207,7 @@ public class DragItems : MonoBehaviour
                 spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
             }
             spriteRenderer.sprite = workspaceSprite;
-            itemCollider.TryUpdateShapeToAttachedSprite();
+            itemCollider.TryUpdateShapeToAttachedSprite(spriteRenderer);
         }
         
         InsideWorkspaceRenderersChilds(target);
@@ -238,7 +236,7 @@ public class DragItems : MonoBehaviour
                 spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             }
             spriteRenderer.sprite = normalSprite;
-            itemCollider.TryUpdateShapeToAttachedSprite();
+            itemCollider.TryUpdateShapeToAttachedSprite(spriteRenderer);
         }
      
         OutsidewWorkspaceRenderersChilds(target);
@@ -338,10 +336,9 @@ public class DragItems : MonoBehaviour
             }
         }
     }
-    private Vector3 GetMouseWorldPosition()
+    private Vector2 GetMouseWorldPosition()
     {
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = -Camera.main.transform.position.z;
+        Vector2 mousePosition = Input.mousePosition;
         return Camera.main.ScreenToWorldPoint(mousePosition);
     }
     public bool GetInsideWorkspace()
