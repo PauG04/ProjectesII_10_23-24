@@ -94,12 +94,13 @@ GameObject:
   - component: {fileID: 2797714722857405090}
   - component: {fileID: 8845182875393123673}
   - component: {fileID: 6516138472836699229}
+  - component: {fileID: 6052094515254851330}
   - component: {fileID: 3133584301595090251}
   - component: {fileID: 4975549752326105575}
   - component: {fileID: 13459176564938733}
   - component: {fileID: 2747163640536209175}
   - component: {fileID: 8970300446100669743}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Rum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +164,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b0e7fcf859a71564cbec41fd47a4f370, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -259,6 +260,21 @@ PolygonCollider2D:
       - {x: 0.21875, y: 0.0625}
       - {x: 0.21875, y: -0.75}
   m_UseDelaunayMesh: 0
+--- !u!114 &6052094515254851330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671257232246213615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369faa39793b32c43acd63d959a791d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenBottle: {fileID: 0}
+  particles: {fileID: 0}
+  forceX: 5
 --- !u!114 &3133584301595090251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +326,7 @@ MonoBehaviour:
   verticalSpeed: 10
   hasToBeDestroy: 0
   hasToReturn: 1
-  hasToStayTheSameLayer: 0
+  hasToStayTheSameLayer: 1
   changeSpriteMask: 0
   moveParent: 0
   isItem: 0
@@ -326,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf68816ca352e244b5f9bcbb950870c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShop: 0
 --- !u!114 &8970300446100669743
 MonoBehaviour:
   m_ObjectHideFlags: 0
