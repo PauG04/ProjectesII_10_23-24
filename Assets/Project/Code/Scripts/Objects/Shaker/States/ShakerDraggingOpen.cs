@@ -285,6 +285,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
         if (!_shakerStateMachine.GetWasInTable())
         {
+            Debug.Log("entramos");
             _shakerStateMachine.SetWasInTable(true);
         }
     }
@@ -294,6 +295,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
         OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
+        Debug.Log(_shakerStateMachine.GetIsInTutorial());
         if (!_shakerStateMachine.GetIsInTutorial())
         {
             _shakerStateMachine.transform.localScale = Vector3.one;

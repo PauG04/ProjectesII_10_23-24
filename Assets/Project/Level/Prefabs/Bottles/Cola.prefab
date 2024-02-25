@@ -79,9 +79,11 @@ MonoBehaviour:
   currentLiquid: 300
   currentState: 0
   isGlass: 0
+  dragItems: {fileID: 0}
   maxColliderPos: 0
   minColliderPos: 0
   dropLiquid: {fileID: 0}
+  shaker: {fileID: 0}
 --- !u!1 &6918459718600216018
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,6 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 10
+  dragItem: {fileID: 0}
 --- !u!114 &201958644826711689
 MonoBehaviour:
   m_ObjectHideFlags: 0

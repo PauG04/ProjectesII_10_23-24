@@ -109,7 +109,6 @@ public class DragItems : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Debug.Log("Object Pressed");
         ObjectPressed();
     }
     private void OnMouseUp()

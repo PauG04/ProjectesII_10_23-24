@@ -6,6 +6,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.Rendering.DebugUI;
+using static UnityEngine.Rendering.VolumeComponent;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -14,8 +15,9 @@ public class TutorialManager : MonoBehaviour
     private List<int> initOrderingLayerDrag;
     [SerializeField] private SpriteRenderer glass;
 
-    [Header("Rotate")]
+    [Header("Jigger")]
     [SerializeField] private RotateBottle jigger;
+    [SerializeField] private LiquidManager jiggerLiquid;
 
     [Header("Shaker")]
     [SerializeField] private ShakerStateMachine shaker;
@@ -41,6 +43,7 @@ public class TutorialManager : MonoBehaviour
     private bool isFriend;
 
     private bool[] continuConversation;
+    private int clicks;
 
     private enum tutorialID
     {
@@ -82,7 +85,10 @@ public class TutorialManager : MonoBehaviour
         shaker.enabled = false;
         jigger.enabled = false;            
         fridge.enabled = false;
-      
+        shakerLiquid.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        fridge.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+
         panel.SetActive(false);
         startTutorial = false;
         continuConversation = new bool[10];
@@ -92,15 +98,13 @@ public class TutorialManager : MonoBehaviour
         }
 
         isFriend = false;
+        clicks = 0;
     }
 
     private void Update()
-    {
+    {    
         ActivateTutorial();
-    }
 
-    private void ActivateTutorial()
-    {
         for (int i = 0; i < drag.Count; i++)
         {
             if (!drag[i].enabled && drag[i] != null)
@@ -112,7 +116,14 @@ public class TutorialManager : MonoBehaviour
         {
             shaker.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
+        if(!drag[2].GetWasOnTheTable())
+        {
+            shakerLiquid.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
 
+    private void ActivateTutorial()
+    {
         if (playerConversant.GetCanContinue() && isFriend)
         {
             startTutorial = true;
@@ -122,83 +133,77 @@ public class TutorialManager : MonoBehaviour
         {
             CallActiveDrag();
         }
-        else if (id == tutorialID.MinigameTutorial)
-        {
-            CallActiveCreateObject();
-        }
-    }
-
-    private void CallActiveCreateObject()
-    {
-        if (!fridge.GetIsOpen() && createObjectCollider[1].gameObject.GetComponent<CreateObject>().GetIsCreated())
-        {
-            ActiveDragItem(7, false);
-        }
-        else if (fridge.GetIsOpen() && drag[6].GetWasOnTheTable())
-        {
-            ActiveCreateObjectFridge(1);
-        }
-        else if (createObjectCollider[0].gameObject.GetComponent<CreateObject>().GetIsCreated() && !fridge.GetIsOpen())
-        {
-            ActiveDragItem(6, false);
-        }
-        else if (fridge.GetIsOpen())
-        {
-            ActiveCreateObjectFridge(0);
-        }
-        else
-        {
-            ActiveFridge();
-        }
     }
 
     private void CallActiveDrag()
     {
-        if (drag[4].GetWasOnTheTable() && !continuConversation[8])
+        if(createObjectCollider[0].gameObject.GetComponent<CreateObject>().GetIsCreated() && !fridge.GetIsOpen())
+        { 
+            createObjectCollider[0].gameObject.transform.localScale = new Vector3(2, 2, 2);
+            ActiveDragItem(6);
+        }
+        else if(fridge.GetIsOpen() && continuConversation[9])
         {
-            ActiveDragItem(5, false);
-            if (drag[5].GetWasOnTheTable() && continuConversation[9])
+            continuConversation[8] = true;
+            fridge.gameObject.transform.localScale = Vector3.one;
+            ActiveCreateObjectFridge(0);
+            if(createObjectCollider[0].gameObject.GetComponent<CreateObject>().GetIsCreated())
             {
-                ContinueConversation();
                 continuConversation[9] = false;
             }
         }
-        else if (drag[3].GetWasOnTheTable() && !continuConversation[6])
-        {           
-            if(drag[4].GetWasOnTheTable() && continuConversation[7])
+        else if (!fridge.GetIsOpen() && !continuConversation[8])
+        {
+            ActiveFridge();
+        }
+        else if(shakerLiquid.GetDrinkState() == CocktailNode.State.Mixed && !continuConversation[7])
+        {
+            ActiveDragItem(5);
+            if (drag[5].gameObject.transform.GetChild(1).GetComponent<LiquidManager>().GetCurrentLiquid() >= drag[5].gameObject.transform.GetChild(1).GetComponent<LiquidManager>().GetMaxLiquid() * 0.7)
             {
                 ContinueConversation();
-                continuConversation[7] = false;
-            }
-            else if(shakerLiquid.GetDrinkState() == CocktailNode.State.Mixed && continuConversation[8])
-            {
-                ContinueConversation();
+                continuConversation[7] = true;
                 continuConversation[8] = false;
             }
-            else 
+
+        }
+        else if(shakerLiquid.GetCurrentLiquid() >= shakerLiquid.GetMaxLiquid() && !continuConversation[6])
+        {
+            ActiveDragItem(4);
+            if(shakerLiquid.GetDrinkState() == CocktailNode.State.Mixed)
             {
-                ActiveDragItem(4, false);
+                ContinueConversation();
+                continuConversation[6] = true;
+                continuConversation[7] = false;
+            }
+        }
+        else if(shakerLiquid.GetCurrentLiquid() >= jiggerLiquid.GetMaxLiquid() * 0.7 && !continuConversation[5])
+        {
+            ActiveDragItem(3);
+            if (shakerLiquid.GetCurrentLiquid() >= shakerLiquid.GetMaxLiquid())
+            {
+                ContinueConversation();
+                continuConversation[5] = true;
+                continuConversation[6] = false;
             }
         }
         else if (drag[2].GetWasOnTheTable() && !continuConversation[4])
         {
-            ActiveDragItem(3, false);
-            if (drag[3].GetWasOnTheTable() && !drag[3].GetIsDraggin() && continuConversation[5])
+            if(jiggerLiquid.GetCurrentLiquid() >= jiggerLiquid.GetMaxLiquid())
+            {
+                shakerLiquid.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            }
+            if(shakerLiquid.GetCurrentLiquid() >= jiggerLiquid.GetMaxLiquid() * 0.7)
             {
                 ContinueConversation();
                 continuConversation[5] = false;
             }
-
-            if(shakerLiquid.GetCurrentLiquid() >= shakerLiquid.GetMaxLiquid() && continuConversation[6])
-            {
-                ContinueConversation();
-                continuConversation[6] = false;
-            }
         }
         else if (drag[1].GetWasOnTheTable() && !continuConversation[3])
         {
-            ActiveDragItem(2, false);
-            if (drag[2].GetWasOnTheTable() && !drag[2].GetIsDraggin() && continuConversation[4])
+            
+            ActiveDragItem(2);
+            if (drag[2].GetWasOnTheTable() && continuConversation[4])
             {
                 ContinueConversation();
                 continuConversation[4] = false;
@@ -206,26 +211,22 @@ public class TutorialManager : MonoBehaviour
         }
         else if (shaker.GetWasInTable() && !continuConversation[2])
         {
-            ActiveDragItem(1, false);
+            ActiveDragItem(1);
             jigger.enabled = true;
-            if (drag[1].GetWasOnTheTable() && !drag[1].GetIsDraggin() && continuConversation[3])
+            if (drag[1].GetWasOnTheTable() && continuConversation[3])
             {
                 ContinueConversation();
                 continuConversation[3] = false;
             }
         }
-        else if (!drag[0].GetIsDraggin() && drag[0].GetWasOnTheTable() && !drag[0].GetInsideWorkspace())
+        else if (drag[0].GetWasOnTheTable() && !continuConversation[0])
         {
-            if (!shaker.GetWasInTable() && continuConversation[1])
+            if (shaker.GetWasInTable() && continuConversation[1])
             {
                 ContinueConversation();
                 continuConversation[1] = false;
-            }
-            else if(shaker.GetWasInTable() && (shaker.GetCurrentState().StateKey == ShakerStateMachine.ShakerState.IdleClosed ||
-            shaker.GetCurrentState().StateKey == ShakerStateMachine.ShakerState.IdleOpen) && continuConversation[2])
-            {
-                ContinueConversation();
                 continuConversation[2] = false;
+                shaker.SetIsInTutorial(false);
             }
             else
             {
@@ -235,7 +236,7 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-            ActiveDragItem(0, false);
+            ActiveDragItem(0);
             if (drag[0].GetWasOnTheTable() && continuConversation[0])
             {
                 ContinueConversation();
@@ -256,12 +257,6 @@ public class TutorialManager : MonoBehaviour
 
             isGrowing = true;
         }
-        if ((shaker.GetCurrentState().StateKey == ShakerStateMachine.ShakerState.IdleClosed ||
-            shaker.GetCurrentState().StateKey == ShakerStateMachine.ShakerState.IdleOpen) &&
-            !panel.activeSelf && shaker.GetWasInTable())
-        {
-            shaker.SetIsInTutorial(false);
-        }
 
         if (shaker.GetCurrentState().StateKey != ShakerStateMachine.ShakerState.DraggingClosed &&
             shaker.GetCurrentState().StateKey != ShakerStateMachine.ShakerState.DraggingOpen && shaker.GetIsInTutorial() && !shaker.GetIsInWorkSpace()) 
@@ -279,7 +274,7 @@ public class TutorialManager : MonoBehaviour
 
     }
 
-    private void ActiveDragItem(int _index, bool hasToReturn)
+    private void ActiveDragItem(int _index)
     {
         Vector3 maxScale = new Vector3(1.1f, 1.1f, 1.1f);
         Vector3 minScale = new Vector3(0.9f, 0.9f, 0.9f);
@@ -291,16 +286,10 @@ public class TutorialManager : MonoBehaviour
 
             isGrowing = true;
         }
-        if (!drag[_index].GetIsDraggin() && !panel.activeSelf && drag[_index].GetWasOnTheTable())
-        {       
-            if(hasToReturn && !drag[_index].GetInsideWorkspace())
-            {
-                drag[_index].SetIsInTutorial(false);
-            }
-            else if(!hasToReturn)
-            {
-                drag[_index].SetIsInTutorial(false);
-            }
+
+        if (drag[_index].GetWasOnTheTable())
+        {
+            drag[_index].SetIsInTutorial(false);
         }
         if (!drag[_index].GetIsDraggin() && drag[_index].GetIsInTutorial() && !drag[_index].GetInsideWorkspace())
         {
@@ -343,6 +332,7 @@ public class TutorialManager : MonoBehaviour
         if (!fridge.enabled)
         {
             fridge.enabled = true;
+            fridge.gameObject.GetComponent<BoxCollider2D>().enabled = true;
             isGrowing = true;
         }
 
