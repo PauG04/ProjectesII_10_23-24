@@ -20,9 +20,12 @@ public class BreakIce : MonoBehaviour
     private float widht;
     private float height;
 
+    private int iceDropped;
+
     private void Start()
     {
         hits = 5;
+        iceDropped = 0;
         bucket = GetComponent<GetItemInformation>().GetBuckets();
 
         brokenIceChilds = new GameObject[4];
@@ -51,6 +54,7 @@ public class BreakIce : MonoBehaviour
     {
         GameObject newItem = Instantiate(createGameObject, transform);
         newItem.transform.parent = null;
+        iceDropped++;
 
         if (!destroy)
         {
@@ -92,5 +96,10 @@ public class BreakIce : MonoBehaviour
             Destroy(newItem);
         }
         
+    }
+
+    public int GetIceDropped()
+    {
+        return iceDropped;
     }
 }

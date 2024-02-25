@@ -2066,7 +2066,7 @@ GameObject:
   - component: {fileID: 324541798}
   - component: {fileID: 324541799}
   - component: {fileID: 324541800}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2211,7 +2211,7 @@ MonoBehaviour:
   verticalSpeed: 10
   hasToBeDestroy: 0
   hasToReturn: 1
-  hasToStayTheSameLayer: 0
+  hasToStayTheSameLayer: 1
   changeSpriteMask: 1
   moveParent: 1
   isItem: 0
@@ -3777,7 +3777,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 8386559
+    m_Bits: 25163775
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -8394,7 +8394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1601387585}
   - component: {fileID: 1601387586}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: WikiBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12922,6 +12922,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1601387585}
     m_Modifications:
+    - target: {fileID: 521202805131289818, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 1177748894622859090, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -12943,6 +12947,10 @@ PrefabInstance:
       value: RightPage
       objectReference: {fileID: 0}
     - target: {fileID: 2165754787126392904, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165754787126392904, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -12962,6 +12970,14 @@ PrefabInstance:
       propertyPath: m_MaskInteraction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2571455161748782244, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278858412965004606, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 3915392412361275025, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -12985,6 +13001,14 @@ PrefabInstance:
     - target: {fileID: 4138278331930630237, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
       propertyPath: m_SortingLayerID
       value: -2113523995
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537911522481387347, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831700486338376923, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
+      propertyPath: m_Layer
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 8037749646198739868, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
       propertyPath: m_Pivot.x
@@ -13919,6 +13943,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1601387585}
     m_Modifications:
+    - target: {fileID: 521202805131289818, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 1177748894622859090, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -13940,6 +13968,10 @@ PrefabInstance:
       value: LeftPage
       objectReference: {fileID: 0}
     - target: {fileID: 2165754787126392904, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165754787126392904, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -13959,6 +13991,14 @@ PrefabInstance:
       propertyPath: m_MaskInteraction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2571455161748782244, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278858412965004606, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 3915392412361275025, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -13982,6 +14022,14 @@ PrefabInstance:
     - target: {fileID: 4138278331930630237, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
       propertyPath: m_SortingLayerID
       value: -2113523995
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537911522481387347, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831700486338376923, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
+      propertyPath: m_Layer
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 8037749646198739868, guid: 7586cab73226a7541ba79dc653b893e2, type: 3}
       propertyPath: m_Pivot.x
