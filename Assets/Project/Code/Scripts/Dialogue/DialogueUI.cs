@@ -12,9 +12,10 @@ namespace UI
 	public class DialogueUI : MonoBehaviour
 	{
 		[Header("General Configuration")]
-		[SerializeField] private Transform bubbleRoot;
 		private PlayerConversant playerConversant;
-		
+		[SerializeField] private Transform bubbleRoot;
+		[SerializeField] private int maxNumberOfChilds = 7;
+
 		[Header("Bubbles")]
 		[SerializeField] private GameObject prefabAibubble;
         [SerializeField] private GameObject prefabPlayerbubble;
@@ -25,6 +26,8 @@ namespace UI
         private TextMeshProUGUI playerText;
         private TextMeshProUGUI AIText;
 
+		private Coroutine coroutineRunning;
+
 		private bool isSeparatorRunning;
 
         private void Start()
@@ -34,30 +37,43 @@ namespace UI
 		    
 		    AIText = prefabAibubble.GetComponentInChildren<TextMeshProUGUI>();
 		    playerText = prefabPlayerbubble.GetComponentInChildren<TextMeshProUGUI>();
-		    
-			DestroyChildrens(bubbleRoot);
-		}
-		
-		private void Update()
+
+            DestroyChildrens(bubbleRoot);
+        }
+
+        private void Update()
 		{
 			if (playerConversant.IsActive())
 			{
 				if (playerConversant.HasNext() && !playerConversant.IsChoosing() && !playerConversant.GetTextIsRunning())
 				{
-					StartCoroutine(playerConversant.WriteTextWithDelay());
+					if (coroutineRunning != null)
+					{
+                        StopCoroutine(SeparatorDelay());
+                    }
+
+                    coroutineRunning = StartCoroutine(playerConversant.WriteTextWithDelay());
 				} 
 				else if ((playerConversant.IsChoosing() || !playerConversant.HasNext()) && !isSeparatorRunning)
 				{
-                    StartCoroutine(SeparatorDelay());
+                    coroutineRunning = StartCoroutine(SeparatorDelay());
                 }
-            } 
+            }
 
+			if (bubbleRoot.childCount > maxNumberOfChilds && bubbleRoot.childCount > 0)
+			{
+				Destroy(bubbleRoot.GetChild(0).gameObject);
+			}
         }
 		private void UpdateChat()
 		{
 			if (!playerConversant.IsActive())
 			{
 				return;
+			}
+			if(playerConversant.IsNewConversant())
+			{
+				StopAllCoroutines();
 			}
 
             if (playerConversant.IsChoosing())
@@ -73,12 +89,16 @@ namespace UI
 		{
             foreach (DialogueNode choice in playerConversant.GetChoices())
 			{
+				/*
 				if (playerConversant.GetCanContinue())
 				{
 					StopAllCoroutines();
+				*/
                     PlayerBubble(choice.GetText());
+                /*  
                     playerConversant.SelectChoice(choice);
                 }
+				*/
             }
         }
 		private void AIBubble(string text)

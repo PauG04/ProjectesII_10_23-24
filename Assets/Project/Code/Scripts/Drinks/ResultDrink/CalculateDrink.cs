@@ -64,7 +64,6 @@ public class CalculateDrink : MonoBehaviour
         if (CheckCocktail(typesOfDrink, state, allCocktails["Razz"]))
             return CocktailNode.Type.Razz;
         */
-        Debug.Log("MIERDON");
         return CocktailNode.Type.Error;
     }
 

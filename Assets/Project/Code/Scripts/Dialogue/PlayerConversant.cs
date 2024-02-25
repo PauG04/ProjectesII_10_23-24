@@ -27,18 +27,19 @@ namespace Dialogue
 		public event Action onConversationUpdated;
 
 		private bool isTextRunning;
-		private bool canContinue;
 		public IEnumerator WriteTextWithDelay()
 		{
-            isTextRunning = true;
-            yield return new WaitForSeconds(secondsDialogueDelay);
-			Next();
-            isTextRunning = false;
+			if (!currentNode.IsTextPaused())
+			{
+                isTextRunning = true;
+                yield return new WaitForSeconds(secondsDialogueDelay);
+                Next();
+                isTextRunning = false;
+            }
         }
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
 			isChoosing = false;
-			canContinue = true;
 
             currentConversant = newConversant;
 			currentDialogue = newDialogue;
@@ -53,6 +54,7 @@ namespace Dialogue
 			}
 			
 			isStartingNewConversant = false;
+			StopAllCoroutines();
 		}
 		public void Quit()
 		{
@@ -61,7 +63,6 @@ namespace Dialogue
 			currentNode = null;
 			isChoosing = false;
 			currentConversant = null;
-			canContinue = false;
             onConversationUpdated();
 		}
 		public bool IsActive()
@@ -103,10 +104,6 @@ namespace Dialogue
 
             if (numPlayerResponses > 0)
             {
-				if (!isChoosing)
-				{
-					canContinue = false;
-				}
 				isChoosing = true;
                 TriggerExitAction();
                 onConversationUpdated();
@@ -153,10 +150,6 @@ namespace Dialogue
 				triggers.Trigger(action);
 			}
 		}
-        public void SetCanContinue(bool canContinue)
-        {
-            this.canContinue = canContinue;
-        }
         public int GetChildNumber()
 		{
 			return currentChildNumber;
@@ -167,8 +160,8 @@ namespace Dialogue
         }
 		public bool GetCanContinue()
 		{
-			return canContinue;
+			return currentNode.IsTextPaused();
 		}
-	}
 
+	}
 }
