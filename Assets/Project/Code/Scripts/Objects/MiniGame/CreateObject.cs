@@ -10,6 +10,9 @@ public class CreateObject : MonoBehaviour
     [Header("Bucket")]
     [SerializeField] private GameObject bucket;
 
+    [Header("Tutorial")]
+    [SerializeField] private TutorialManager tutorial;
+
     private bool isCreated;
     private void OnMouseDown()
     {
@@ -29,6 +32,11 @@ public class CreateObject : MonoBehaviour
             if (bucket != null)
             {
                 item.GetComponent<GetItemInformation>().SetBucket(bucket);
+            }
+
+            if(tutorial != null)
+            {
+                tutorial.SetIce(item);
             }
         }
     }
