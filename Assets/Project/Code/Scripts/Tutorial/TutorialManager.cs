@@ -409,7 +409,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (!playerConversant.GetCanContinue())
         {
-            playerConversant.SetCanContinue(true);
+            //playerConversant.SetCanContinue(true);
             if (playerConversant.HasNext())
             {
                 playerConversant.Next();

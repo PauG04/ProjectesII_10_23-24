@@ -15,6 +15,7 @@ public class ClientManager : MonoBehaviour
     private bool nextClientIsImportant;
     private ImportantClientNode nextImportantClient;
 
+    [Header("Dialogue")]
     [SerializeField] private List<Dialogue.Dialogue> regularClientDialogues;
     [SerializeField] private Dialogue.Dialogue badReactionDialogue;
     [SerializeField] private Dialogue.Dialogue goodReactionDialogue;

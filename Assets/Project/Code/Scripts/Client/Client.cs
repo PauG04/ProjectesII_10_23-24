@@ -71,8 +71,8 @@ public class Client : MonoBehaviour
     private void InitClient()
     {
         boxCollider.enabled = true;
-        // Hard coded, change later
 
+        // Hard coded, change later
 
         //int randomDialogue = Random.Range(0, ClientManager.instance.GetRegularClientDialogues().Count);
         //conversant.SetDialogue(ClientManager.instance.GetRegularClientDialogues()[randomDialogue]);
@@ -122,8 +122,6 @@ public class Client : MonoBehaviour
     {
         if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp())
         {
-            Debug.Log(collision.GetComponentInChildren<LiquidManager>().GetDrinkState());
-
             ReceiveCoctel(CalculateDrink.instance.CalculateResultDrink(
                 collision.GetComponentInChildren<LiquidManager>().GetParticleTypes(),
                 collision.GetComponentInChildren<LiquidManager>().GetDrinkState()
