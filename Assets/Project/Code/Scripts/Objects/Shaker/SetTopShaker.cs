@@ -46,7 +46,6 @@ public class SetTopShaker : MonoBehaviour
             target.SetChangeSpriteMask(false);
             target.SetHasToChangeSize(false);
 
-            Debug.Log(target.transform.localScale.x);
             target.SetScaleMultiplier(target.transform.localScale.x);
     
         }
