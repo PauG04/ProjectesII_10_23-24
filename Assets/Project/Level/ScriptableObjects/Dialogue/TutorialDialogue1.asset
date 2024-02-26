@@ -13,40 +13,15 @@ MonoBehaviour:
   m_Name: f9de3169-aedb-4750-88bb-49de3379d5ce
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Con el shaker podr\xE1s mezclar las bebidas para hacer un c\xF3ctel, pero
     antes de empezar a colocar bebida dentro de \xE9l, coge el jigger"
   children:
-  - 3ab874f1-6161-40eb-a808-f7c5712da40e
+  - 7d13fb79-3748-4cf9-aaa7-f08a5e086399
   rect:
     serializedVersion: 2
     x: 2274
     y: 300
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-8405066962206687486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 816e7d56-1989-421d-9fe5-bad94883aeae
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  isTextPaused: 0
-  text: 
-  children:
-  - ade65633-1f66-4788-9d11-3a9693492bfa
-  rect:
-    serializedVersion: 2
-    x: 2982
-    y: 131
     width: 200
     height: 100
   onEnterAction: 
@@ -64,7 +39,7 @@ MonoBehaviour:
   m_Name: ded05167-5cda-4bc2-840b-20faa2f9dfa0
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Empieza a verte el ron en el jigger y luego al shaker dependiendo de la
     cantidad de onzas que te pide el c\xF3ctel"
   children:
@@ -73,31 +48,6 @@ MonoBehaviour:
     serializedVersion: 2
     x: 881
     y: 277
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-7934445035703035518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: fc1a0f57-3701-48a1-8675-c1b35e1237a1
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  isTextPaused: 0
-  text: 
-  children:
-  - 78560418-1539-40f0-ad10-fac12a0bf9ab
-  rect:
-    serializedVersion: 2
-    x: 2870
-    y: 457
     width: 200
     height: 120
   onEnterAction: 
@@ -115,15 +65,15 @@ MonoBehaviour:
   m_Name: 11368cbe-3535-46c7-ba31-4b0c1905b2d5
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: Al empezar a agitar arriba aparezera una barra de nivel de agitado, agita
     hasta el nivel que ponga el libro
   children:
-  - ac24881a-afef-45f7-8200-ae0879785921
+  - c29011e3-2bf4-4cfa-aebe-18bb8f9e0737
   rect:
     serializedVersion: 2
-    x: 1611
-    y: 469
+    x: 1475
+    y: 453
     width: 200
     height: 100
   onEnterAction: 
@@ -141,67 +91,17 @@ MonoBehaviour:
   m_Name: 8fe20f22-4d06-4042-88ba-abfec40bd1a2
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: Para empezar a decorar abre la nevera y coge un trozo de hielo que vamos
     a preparar
   children:
-  - fc1a0f57-3701-48a1-8675-c1b35e1237a1
+  - 78560418-1539-40f0-ad10-fac12a0bf9ab
   rect:
     serializedVersion: 2
-    x: 2622
+    x: 2621
     y: 458
     width: 200
     height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-4308682854646946837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 9446ef22-3eeb-4b74-9ad9-98f5dc6a67d7
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  isTextPaused: 0
-  text: 
-  children:
-  - 569d3ea3-168f-4537-959e-bc0e708b9ff7
-  rect:
-    serializedVersion: 2
-    x: 405
-    y: 271
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-2097088044223953296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 11b7e462-083f-445c-9f81-c37ee5cccea4
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  isTextPaused: 0
-  text: 
-  children:
-  - f9de3169-aedb-4750-88bb-49de3379d5ce
-  rect:
-    serializedVersion: 2
-    x: 2625
-    y: 287
-    width: 200
-    height: 100
   onEnterAction: 
   onExitAction: 
 --- !u!114 &-1698041672771518934
@@ -217,11 +117,11 @@ MonoBehaviour:
   m_Name: c29011e3-2bf4-4cfa-aebe-18bb8f9e0737
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Perfecto, ahora solo queda poner el c\xF3ctel en el vaso y decorarlo, coge
     el vaso y vierte el c\xF3ctel en \xE9l"
   children:
-  - bc8669b4-6729-4e63-a469-3b971cb5d523
+  - 8fe20f22-4d06-4042-88ba-abfec40bd1a2
   rect:
     serializedVersion: 2
     x: 2122
@@ -243,15 +143,15 @@ MonoBehaviour:
   m_Name: 78560418-1539-40f0-ad10-fac12a0bf9ab
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: Al dejarlo sobre la mesa cierra la nevera y coje el martillo que hay al lado
     de esta para machacar el hielo
   children:
   - ae3c6641-a733-477a-a45d-a8a006e6c683
   rect:
     serializedVersion: 2
-    x: 3120
-    y: 457
+    x: 3055
+    y: 464
     width: 200
     height: 120
   onEnterAction: 
@@ -269,41 +169,16 @@ MonoBehaviour:
   m_Name: ae3c6641-a733-477a-a45d-a8a006e6c683
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: Golpea con el click derecho para romper el hielo
   children:
-  - 7270a0a5-64d0-4b89-89a9-4c6740fa54c8
+  - cff4d45c-8ad9-466c-973d-3a7d0c415890
   rect:
     serializedVersion: 2
     x: 3370
     y: 457
     width: 200
     height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-1335134155143053879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 3ab874f1-6161-40eb-a808-f7c5712da40e
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  isTextPaused: 0
-  text: 
-  children:
-  - 7d13fb79-3748-4cf9-aaa7-f08a5e086399
-  rect:
-    serializedVersion: 2
-    x: 1993
-    y: 305
-    width: 200
-    height: 100
   onEnterAction: 
   onExitAction: 
 --- !u!114 &-724467874089874116
@@ -319,11 +194,10 @@ MonoBehaviour:
   m_Name: cff4d45c-8ad9-466c-973d-3a7d0c415890
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: Ahora solo tienes que meter los trozos de hielo necesarios dentro de la copa
     y darmelo a ver que tal te ha quedado
-  children:
-  - 9b8a11ec-f693-4f49-b562-4183c2e75b71
+  children: []
   rect:
     serializedVersion: 2
     x: 3115
@@ -345,15 +219,15 @@ MonoBehaviour:
   m_Name: 30c3e639-d503-4993-b4f9-7e540156c6c0
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "C\xF3gelo y mu\xE9velo a la zona de trabajo, para coger un objeto mant\xE9n
     el click izquierdo en \xE9l"
   children:
-  - 816e7d56-1989-421d-9fe5-bad94883aeae
+  - ade65633-1f66-4788-9d11-3a9693492bfa
   rect:
     serializedVersion: 2
-    x: 2759
-    y: 134
+    x: 2661
+    y: 129
     width: 200
     height: 100
   onEnterAction: 
@@ -371,14 +245,14 @@ MonoBehaviour:
   m_Name: 569d3ea3-168f-4537-959e-bc0e708b9ff7
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: Ahora coge la Cola y acaba de poner la bebida necesaria en el shaker
   children:
-  - 89e2962b-7124-4335-9250-0126b74faf04
+  - 4562f273-921d-4955-94cb-73400443c311
   rect:
     serializedVersion: 2
-    x: 393
-    y: 467
+    x: 496
+    y: 490
     width: 200
     height: 100
   onEnterAction: 
@@ -399,32 +273,21 @@ MonoBehaviour:
   - {fileID: 7991480030057045421}
   - {fileID: 8939048703995900627}
   - {fileID: -482514366543766771}
-  - {fileID: -8405066962206687486}
   - {fileID: 1412730418774339028}
   - {fileID: 7650522463850829602}
-  - {fileID: -2097088044223953296}
   - {fileID: -8503673637689671649}
-  - {fileID: -1335134155143053879}
   - {fileID: 7496963856254472594}
   - {fileID: -349786910930501982}
-  - {fileID: 8614654779622988271}
   - {fileID: 7395573101993709830}
   - {fileID: -5552622439098230243}
-  - {fileID: 8446162471914462860}
   - {fileID: 163300833641635626}
   - {fileID: -8087968081369057818}
   - {fileID: 6812718103192784535}
-  - {fileID: -4308682854646946837}
-  - {fileID: 3151365267646939558}
   - {fileID: -1698041672771518934}
-  - {fileID: 3598953599526724536}
   - {fileID: -5218055009825467210}
-  - {fileID: -7934445035703035518}
   - {fileID: -1513701400575951670}
   - {fileID: -1443092769288315772}
-  - {fileID: 6183292771929657364}
   - {fileID: -724467874089874116}
-  - {fileID: 4379389129975972292}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &163300833641635626
 MonoBehaviour:
@@ -439,7 +302,7 @@ MonoBehaviour:
   m_Name: 95815243-3c45-4ae4-93e4-e43c4a32beca
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Has de saber que las botellas no tiene l\xEDqudo ilimitado, la flecha azul
     del costado te muestra por donde se encuentra el l\xEDquido"
   children:
@@ -447,7 +310,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1170
-    y: 282
+    y: 281
     width: 200
     height: 120
   onEnterAction: 
@@ -465,115 +328,16 @@ MonoBehaviour:
   m_Name: ade65633-1f66-4788-9d11-3a9693492bfa
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Ah\xED esta la informaci\xF3n sobre el RonCola"
   children:
   - 0ae422e3-e357-4734-bc7a-3ee92d9f7488
   rect:
     serializedVersion: 2
-    x: 3206
-    y: 135
+    x: 3212
+    y: 123
     width: 200
     height: 100
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &3151365267646939558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: ac24881a-afef-45f7-8200-ae0879785921
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  isTextPaused: 0
-  text: 
-  children:
-  - c29011e3-2bf4-4cfa-aebe-18bb8f9e0737
-  rect:
-    serializedVersion: 2
-    x: 1890
-    y: 466
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &3598953599526724536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: bc8669b4-6729-4e63-a469-3b971cb5d523
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  isTextPaused: 0
-  text: 
-  children:
-  - 8fe20f22-4d06-4042-88ba-abfec40bd1a2
-  rect:
-    serializedVersion: 2
-    x: 2372
-    y: 458
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &4379389129975972292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 9b8a11ec-f693-4f49-b562-4183c2e75b71
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  isTextPaused: 0
-  text: 
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 2859
-    y: 636
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &6183292771929657364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 7270a0a5-64d0-4b89-89a9-4c6740fa54c8
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  isTextPaused: 0
-  text: 
-  children:
-  - cff4d45c-8ad9-466c-973d-3a7d0c415890
-  rect:
-    serializedVersion: 2
-    x: 3347
-    y: 641
-    width: 200
-    height: 120
   onEnterAction: 
   onExitAction: 
 --- !u!114 &6812718103192784535
@@ -589,10 +353,10 @@ MonoBehaviour:
   m_Name: b7a76a87-9528-4cab-b87e-9fe02a4a263c
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Para rotar la botella usa la rueda del rat\xF3n"
   children:
-  - 9446ef22-3eeb-4b74-9ad9-98f5dc6a67d7
+  - 569d3ea3-168f-4537-959e-bc0e708b9ff7
   rect:
     serializedVersion: 2
     x: 646
@@ -614,7 +378,7 @@ MonoBehaviour:
   m_Name: 4562f273-921d-4955-94cb-73400443c311
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: Ahora tienes que tapar el shaker para empezar a mezclar, coge la tapa y al
     acercala al shaker para taparlo
   children:
@@ -622,7 +386,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1137
-    y: 456
+    y: 455
     width: 200
     height: 100
   onEnterAction: 
@@ -640,11 +404,11 @@ MonoBehaviour:
   m_Name: 7d13fb79-3748-4cf9-aaa7-f08a5e086399
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Debido a que a\xFAn eres un principiante mejor usa el jigger, llenarlo equivale
     a 1 onza, coge el ron para empezar ha hacer el c\xF3ctel"
   children:
-  - cf9b12b7-8e2d-4de4-b876-0cd4fe332746
+  - 95815243-3c45-4ae4-93e4-e43c4a32beca
   rect:
     serializedVersion: 2
     x: 1715
@@ -666,14 +430,14 @@ MonoBehaviour:
   m_Name: 0ae422e3-e357-4734-bc7a-3ee92d9f7488
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Ahora coge el shaker para hacer el c\xF3ctel"
   children:
-  - 11b7e462-083f-445c-9f81-c37ee5cccea4
+  - f9de3169-aedb-4750-88bb-49de3379d5ce
   rect:
     serializedVersion: 2
-    x: 3212
-    y: 274
+    x: 3193
+    y: 303
     width: 200
     height: 100
   onEnterAction: 
@@ -691,7 +455,7 @@ MonoBehaviour:
   m_Name: 79ad98f8-294d-4b2a-b82c-168f363f2ade
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Anto\xF1ito, te voy a ense\xF1ar ha hacer un c\xF3ctel, vamos a empezar
     haciendo un RonCola"
   children:
@@ -703,56 +467,6 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: ChooseDrink
-  onExitAction: 
---- !u!114 &8446162471914462860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: cf9b12b7-8e2d-4de4-b876-0cd4fe332746
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  isTextPaused: 0
-  text: 
-  children:
-  - 95815243-3c45-4ae4-93e4-e43c4a32beca
-  rect:
-    serializedVersion: 2
-    x: 1421
-    y: 287
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &8614654779622988271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 89e2962b-7124-4335-9250-0126b74faf04
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  isTextPaused: 0
-  text: 
-  children:
-  - 4562f273-921d-4955-94cb-73400443c311
-  rect:
-    serializedVersion: 2
-    x: 770
-    y: 472
-    width: 200
-    height: 100
-  onEnterAction: 
   onExitAction: 
 --- !u!114 &8939048703995900627
 MonoBehaviour:
@@ -767,7 +481,7 @@ MonoBehaviour:
   m_Name: be4c0ea1-2816-4a37-ae55-a70db010ac51
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Abajo mio tendr\xEDas que encontrar todos los utensilios necesarios, ah\xED
     deber\xEDa haber un libro que contenga la informaci\xF3n del c\xF3ctel"
   children:

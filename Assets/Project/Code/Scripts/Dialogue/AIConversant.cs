@@ -42,7 +42,7 @@ namespace Dialogue
         }
         private void OnMouseDown()
 		{
-			playerConversant.Next();
+			//playerConversant.Next();
 			//Debug.Log("PlayerPressed");
 			//if (!playerConversant.GetCanContinue() && !hasExecuted)
 			//{
