@@ -5,12 +5,20 @@ using UnityEngine;
 public class SetTopShaker : MonoBehaviour
 {
     [SerializeField] private DragItems target;
+    [SerializeField] private ShakerStateMachine shaker;
     [SerializeField] private float lerpSpeed = 0.5f;
 
     private bool isTargetInside;
     private bool isRepositioning = false;
     private bool isAnimationDone = false;
     private bool stayClosed = false;
+
+    private float scaleMultiplierTopShaker;
+
+    private void Awake()
+    {
+        scaleMultiplierTopShaker = target.GetScaleMultiplier();
+    }
 
     private void Update()
     {
@@ -19,7 +27,6 @@ public class SetTopShaker : MonoBehaviour
             isTargetInside = false;
             isRepositioning = false;
         }
-
 
         if (!target.GetIsDraggin() && isTargetInside && !isRepositioning)
         {
@@ -32,6 +39,23 @@ public class SetTopShaker : MonoBehaviour
                 target.transform.position = transform.position;
                 target.transform.rotation = transform.parent.rotation;
             }
+        }
+
+        if (shaker.GetCurrentState().StateKey == ShakerStateMachine.ShakerState.DraggingClosed)
+        {
+            target.SetChangeSpriteMask(false);
+            target.SetHasToChangeSize(false);
+
+            Debug.Log(target.transform.localScale.x);
+            target.SetScaleMultiplier(target.transform.localScale.x);
+    
+        }
+        else
+        {
+            target.SetChangeSpriteMask(true);
+            target.SetHasToChangeSize(true);
+
+            target.SetScaleMultiplier(scaleMultiplierTopShaker);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
