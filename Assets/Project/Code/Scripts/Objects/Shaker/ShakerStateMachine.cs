@@ -8,6 +8,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
     [Header("General Shaker Variables")]
     [SerializeField] private SetTopShaker topShaker;
     [SerializeField] private GameObject bottomShaker;
+	[SerializeField] private SpriteRenderer shakerRenderer;
     [SerializeField] private LayerMask shakerLayerMask;
 
     [Header("Progress Variables")]
@@ -58,7 +59,7 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 
         initPosition = transform.localPosition;
 
-        shakerDraggingClose = new ShakerDraggingClose(this, progress, maxProgress, divideProgress, liquidManager, workSpace, progressSlider, color, background);
+        shakerDraggingClose = new ShakerDraggingClose(this, progress, maxProgress, divideProgress, liquidManager, progressSlider, color, background, shakerRenderer);
 		shakerDraggingOpen = new ShakerDraggingOpen(this, liquidPref, spawnPoint, liquidManager, workSpace, color, background);
 
         States.Add(ShakerState.IdleOpen, new ShakerIdleOpen(this, topShaker, initPosition, workSpace, color, background, liquidManager));

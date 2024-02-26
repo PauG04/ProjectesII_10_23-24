@@ -27,6 +27,7 @@ public class LiquidManager : MonoBehaviour
     [Header("Shaker")]
     [SerializeField] private ShakerStateMachine shaker;
 
+
     private void Awake()
     {
         particleTypes = new Dictionary<DrinkNode, int>();
@@ -88,9 +89,9 @@ public class LiquidManager : MonoBehaviour
     }
     private void ColliderController()
     {
-        if (currentLiquid < maxLiquid)
-        {
-            float fill = currentLiquid / maxLiquid;
+        if (currentLiquid < maxLiquid && isGlass)
+        { 
+            float fill = (float)currentLiquid / (float)maxLiquid;
             float colliderPosition = (minColliderPos + (fill * (maxColliderPos - minColliderPos)) / 1);
             transform.localPosition = new Vector3(transform.localPosition.x, colliderPosition, transform.localPosition.z);
         }

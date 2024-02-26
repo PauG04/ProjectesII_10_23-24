@@ -30,12 +30,13 @@ public class DragItems : MonoBehaviour
     [SerializeField] private bool changeSpriteMask;
     [SerializeField] private bool moveParent;
     [SerializeField] private bool isItem;
-    
+
     private bool isObjectRotated;
     private bool isRotating;
     private bool isReturning;
     private bool isInTutorial;
     private bool wasOnTheTable;
+    private bool hasToChangeSize;
 
     private Vector2 initPosition;
     private Quaternion initRotation;
@@ -55,7 +56,7 @@ public class DragItems : MonoBehaviour
         {
             itemCollider = GetComponent<PolygonCollider2D>();
         }
-        if (spriteRenderer == null )
+        if (spriteRenderer == null)
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
@@ -79,10 +80,11 @@ public class DragItems : MonoBehaviour
 
         isInTutorial = false;
         wasOnTheTable = false;
+        hasToChangeSize = true;
     }
     private void Update()
     {
-        
+
         if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
@@ -97,7 +99,7 @@ public class DragItems : MonoBehaviour
         {
             if (rotateBottle != null)
             {
-                if(!rotateBottle.GetIsRotating())
+                if (!rotateBottle.GetIsRotating())
                 {
                     RotateObject();
                 }
@@ -107,7 +109,7 @@ public class DragItems : MonoBehaviour
                 RotateObject();
             }
         }
-        
+
     }
     private void OnMouseDown()
     {
@@ -144,6 +146,7 @@ public class DragItems : MonoBehaviour
                 {
                     rb2d.bodyType = RigidbodyType2D.Static;
                 }
+
                 OutsideWorkspace();
             }
             else
@@ -204,21 +207,23 @@ public class DragItems : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("WorkspaceObject");
         }
 
-        if(spriteRenderer != null) 
+        if (spriteRenderer != null)
         {
             spriteRenderer.sortingLayerName = "WorkSpace";
             if (changeSpriteMask)
             {
                 spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
             }
+
             spriteRenderer.sprite = workspaceSprite;
             itemCollider.TryUpdateShapeToAttachedSprite(spriteRenderer);
         }
-        
+
         InsideWorkspaceRenderersChilds(target);
-
-        target.localScale = new Vector3(scaleMultiplier, scaleMultiplier, target.localScale.z);
-
+        if (hasToChangeSize)
+        {
+            target.localScale = new Vector3(scaleMultiplier, scaleMultiplier, target.localScale.z);
+        }
         if(!wasOnTheTable)
         {
             wasOnTheTable = true;
@@ -246,7 +251,7 @@ public class DragItems : MonoBehaviour
      
         OutsidewWorkspaceRenderersChilds(target);
 
-        if(!isInTutorial)
+        if(!isInTutorial && hasToChangeSize)
         {
             target.localScale = initScale;
         }
@@ -358,6 +363,27 @@ public class DragItems : MonoBehaviour
     {
         return isReturning;
     }
+    public bool GetHasToReturn()
+    {
+        return hasToReturn;
+    }
+
+    public bool GetIsInTutorial()
+    {
+        return isInTutorial;
+    }
+    public bool GetWasOnTheTable()
+    {
+        return wasOnTheTable;
+    }
+    public float GetScaleMultiplier()
+    {
+        return scaleMultiplier;
+    }
+    public Vector3 GetInitScale()
+    {
+        return initScale;
+    }
     public void SetIsDragging(bool state)
     {
         isDragging = state;
@@ -378,25 +404,25 @@ public class DragItems : MonoBehaviour
     {
         insideWorkspace = state;
     }
-
-    public bool GetHasToReturn()
+    public void SetHasToChangeSize(bool hasToChangeSize)
     {
-        return hasToReturn;
+        this.hasToChangeSize = hasToChangeSize;
     }
-
+    public void SetChangeSpriteMask(bool changeSpriteMask)
+    {
+        if (!changeSpriteMask)
+        {
+            spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
+        }
+        this.changeSpriteMask = changeSpriteMask;
+    }
+    public void SetScaleMultiplier(float scaleMultiplier)
+    {
+        this.scaleMultiplier = scaleMultiplier;
+    }
     public void SetIsInTutorial(bool state)
     {
         isInTutorial = state;
     }   
-    
-    public bool GetIsInTutorial()
-    {
-        return isInTutorial;
-    }
-
-    public bool GetWasOnTheTable()
-    {
-        return wasOnTheTable;
-    }
 
 }
