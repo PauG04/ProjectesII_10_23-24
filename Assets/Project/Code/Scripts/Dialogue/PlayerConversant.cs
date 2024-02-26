@@ -27,6 +27,7 @@ namespace Dialogue
 		public event Action onConversationUpdated;
 
 		private bool isTextRunning;
+		private bool isPaused;
 		public IEnumerator WriteTextWithDelay()
 		{
 			if (!currentNode.IsTextPaused())
@@ -160,7 +161,11 @@ namespace Dialogue
         }
 		public bool GetCanContinue()
 		{
-			return currentNode.IsTextPaused();
+			if (currentNode != null)
+			{
+                return isPaused = currentNode.IsTextPaused();
+            }
+			return true;
 		}
 
 	}
