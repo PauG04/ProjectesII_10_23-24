@@ -40,10 +40,6 @@ public class LiquidManager : MonoBehaviour
 
     private void Update()
     {
-        foreach (KeyValuePair<DrinkNode, int> drink in particleTypes)
-        {
-            Debug.Log(drink.Key);
-        }
         ColliderController();
         if (isGlass)
         {
@@ -71,7 +67,6 @@ public class LiquidManager : MonoBehaviour
                     {
                         dropLiquid.SetDrinkType(collision.GetComponent<LiquidParticle>().GetDrink());
                     }
-                    Debug.Log(collision.GetComponent<LiquidParticle>().GetDrink().ToString());
                 }
                 else
                 {
@@ -96,7 +91,7 @@ public class LiquidManager : MonoBehaviour
         if (currentLiquid < maxLiquid)
         {
             float fill = currentLiquid / maxLiquid;
-            float colliderPosition = minColliderPos + (fill * (maxColliderPos - minColliderPos)) / 1;
+            float colliderPosition = (minColliderPos + (fill * (maxColliderPos - minColliderPos)) / 1);
             transform.localPosition = new Vector3(transform.localPosition.x, colliderPosition, transform.localPosition.z);
         }
 

@@ -39,6 +39,7 @@ public class DragItems : MonoBehaviour
 
     private Vector2 initPosition;
     private Quaternion initRotation;
+    private Vector3 initScale;
 
     private RotateBottle rotateBottle;
 
@@ -59,7 +60,7 @@ public class DragItems : MonoBehaviour
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        if (!isItem)
+        if (!isItem || hasToReturn)
         {
             rb2d.bodyType = RigidbodyType2D.Static;
         }
@@ -73,6 +74,7 @@ public class DragItems : MonoBehaviour
         {
             initRotation = Quaternion.identity;
         }
+        initScale = transform.localScale;
         initPosition = target.localPosition;
 
         isInTutorial = false;
@@ -138,7 +140,10 @@ public class DragItems : MonoBehaviour
         {
             if (!workSpace.OverlapPoint(target.position))
             {
-                rb2d.bodyType = RigidbodyType2D.Static;
+                if (hasToReturn)
+                {
+                    rb2d.bodyType = RigidbodyType2D.Static;
+                }
                 OutsideWorkspace();
             }
             else
@@ -243,7 +248,7 @@ public class DragItems : MonoBehaviour
 
         if(!isInTutorial)
         {
-            target.localScale = Vector3.one;
+            target.localScale = initScale;
         }
         
     }
@@ -296,7 +301,7 @@ public class DragItems : MonoBehaviour
             );
         }
 
-        if (isObjectRotated && !insideWorkspace)
+        if (isObjectRotated && !insideWorkspace && hasToReturn)
         {
             isRotating = !(target.rotation == initRotation);
 
