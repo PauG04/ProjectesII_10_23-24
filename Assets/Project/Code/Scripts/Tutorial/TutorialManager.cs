@@ -146,6 +146,9 @@ public class TutorialManager : MonoBehaviour
 
     private void ActivateTutorial()
     {
+        Debug.Log(playerConversant.name);
+        Debug.Log(startTutorial);
+        Debug.Log(isFriend);
         if (playerConversant.GetCanContinue() && isFriend && !startTutorial)
         {
             startTutorial = true;
