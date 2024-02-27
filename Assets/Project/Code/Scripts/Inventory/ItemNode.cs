@@ -7,6 +7,7 @@ using UnityEngine;
 public class ItemNode : ScriptableObject
 {
     public string itemName;
+    public string pluralName;
     public float price;
     public float maxAmount;
     public Sprite sprite;

@@ -71,12 +71,27 @@ public class CocktailNode : ScriptableObject
         //Shaker State
         description += "Serivir ";
         if (state == State.Idle)
-            description += "directamente en vaso";
+            description += "directamente en vaso ";
         else if (state == State.Shaked)
-            description += "agitado";
+            description += "agitado ";
         else
-            description += "mezclado perfectamente";
+            description += "mezclado perfectamente ";
         //Decorations
-        //Needs implementation
+        int i = 0;
+        foreach (KeyValuePair<ItemNode, int> decoration in decorations)
+        {
+            if (i == 0)
+                description += "con ";
+            else
+                description += "y ";
+
+            description += decoration.Value + " ";
+            if (decoration.Value > 1)
+                description += decoration.Key.pluralName;
+            else
+                description += decoration.Key.itemName;
+
+            i++;
+        }
     }
 }
