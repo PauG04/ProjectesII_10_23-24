@@ -61,16 +61,16 @@ public class CalculateDrink : MonoBehaviour
         if (sprite != cocktail.sprite)
             return false;
 
-        //foreach (KeyValuePair<ItemNode, int> decoration in cocktail.decorations)
-        //{
-        //    //Check if same decorations
-        //    if (!decorations.ContainsKey(decoration.Key))
-        //        return false;
+        foreach (KeyValuePair<ItemNode, int> decoration in cocktail.decorations)
+        {
+            //Check if same decorations
+            if (!decorations.ContainsKey(decoration.Key))
+                return false;
 
-        //    //Check if same quantity
-        //    if (decorations[decoration.Key] != decoration.Value)
-        //        return false;
-        //}
+            //Check if same quantity
+            if (decorations[decoration.Key] != decoration.Value)
+                return false;
+        }
 
         //Check if same amount of ingredients
         if (typesOfDrink.Count != cocktail.ingredients.Count)
