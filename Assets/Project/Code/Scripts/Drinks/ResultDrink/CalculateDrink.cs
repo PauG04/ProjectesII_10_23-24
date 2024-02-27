@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using static UnityEditor.PlayerSettings.WSA;
 
 public class CalculateDrink : MonoBehaviour
 {
@@ -26,40 +27,50 @@ public class CalculateDrink : MonoBehaviour
         allCocktails = serializableCocktails.ToDictionary();
     }
 
-    public CocktailNode.Type CalculateResultDrink(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state, Sprite sprite)
+    public CocktailNode.Type CalculateResultDrink(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state, Sprite sprite, Dictionary<ItemNode, int> decorations)
     {
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Roncola"], sprite))
+        if (CheckCocktail(typesOfDrink, state, allCocktails["Roncola"], sprite, decorations))
             return CocktailNode.Type.Roncola;
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Mojito"], sprite))
+        if (CheckCocktail(typesOfDrink, state, allCocktails["Mojito"], sprite, decorations))
             return CocktailNode.Type.Mojito;
         
-        if (CheckCocktail(typesOfDrink, state, allCocktails["PomadaMenorquina"], sprite))
+        if (CheckCocktail(typesOfDrink, state, allCocktails["PomadaMenorquina"], sprite, decorations))
             return CocktailNode.Type.Ginlemmon;
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Gintonic"], sprite))
+        if (CheckCocktail(typesOfDrink, state, allCocktails["Gintonic"], sprite, decorations))
             return CocktailNode.Type.Gintonic;
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["AguaDePalencia"], sprite))
+        if (CheckCocktail(typesOfDrink, state, allCocktails["AguaDePalencia"], sprite, decorations))
             return CocktailNode.Type.AguaDePalencia;
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["WhiskeySour"], sprite))
+        if (CheckCocktail(typesOfDrink, state, allCocktails["WhiskeySour"], sprite, decorations))
             return CocktailNode.Type.WhiskeySour;
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Sangria"], sprite))
+        if (CheckCocktail(typesOfDrink, state, allCocktails["Sangria"], sprite, decorations))
             return CocktailNode.Type.Sangria;
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Kalimotxo"], sprite))
+        if (CheckCocktail(typesOfDrink, state, allCocktails["Kalimotxo"], sprite, decorations))
             return CocktailNode.Type.Kalimotxo;
-
         return CocktailNode.Type.Error;
     }
 
-    private bool CheckCocktail(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state, CocktailNode cocktail, Sprite sprite)
+    private bool CheckCocktail(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state, CocktailNode cocktail, Sprite sprite, Dictionary<ItemNode, int> decorations)
     {
         //Check if same sprite
         if (sprite != cocktail.sprite)
             return false;
+
+        foreach (KeyValuePair<ItemNode, int> decoration in cocktail.decorations)
+        {
+            //Check if same decorations
+            if (!decorations.ContainsKey(decoration.Key))
+                return false;
+
+            //Check if same quantity
+            if (decorations[decoration.Key] != decoration.Value)
+                return false;
+        }
 
         //Check if same amount of ingredients
         if (typesOfDrink.Count != cocktail.ingredients.Count)

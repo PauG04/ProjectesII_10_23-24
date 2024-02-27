@@ -40,12 +40,16 @@ public class CocktailNode : ScriptableObject
     public string description;
     public Sprite sprite;
 
-    public CocktailIngredientDictionary SerializableIngredients;
+    public CocktailIngredientDictionary serializableIngredients;
     public Dictionary<DrinkNode, int> ingredients;
+
+    public CocktailDecorationsDictionary serializableDecorations;
+    public Dictionary<ItemNode, int> decorations;
 
     private void OnEnable()
     {
-        ingredients = SerializableIngredients.ToDictionary();
+        ingredients = serializableIngredients.ToDictionary();
+        decorations = serializableDecorations.ToDictionary();
         InitDescription();
     }
 
@@ -58,9 +62,9 @@ public class CocktailNode : ScriptableObject
             description += ingridient.Value;
 
             if (ingridient.Value > 1)
-                description += " Onzas";
+                description += " Onzas de";
             else
-                description += " Onza";
+                description += " Onza de";
 
             description += " " + ingridient.Key.spanishName + "\n";
         }
