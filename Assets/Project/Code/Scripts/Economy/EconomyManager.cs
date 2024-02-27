@@ -25,4 +25,9 @@ public class EconomyManager : MonoBehaviour
         money += earnings;
     }
 
+    public float GetMoney()
+    {
+        return money;
+    }
+
 }
