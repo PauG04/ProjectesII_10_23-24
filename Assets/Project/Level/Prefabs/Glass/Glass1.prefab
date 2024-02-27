@@ -227,13 +227,13 @@ Transform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4333289117420390358}
   - {fileID: 6084655702186551155}
   - {fileID: 4618004779001582745}
-  - {fileID: 4333289117420390358}
   - {fileID: 6524071643692336444}
   - {fileID: 2637689340145828413}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1451645765080771610
 MonoBehaviour:
@@ -579,7 +579,6 @@ MonoBehaviour:
   dragItems: {fileID: 0}
   maxColliderPos: 0.35
   minColliderPos: -0.069
-  colliderPosition: 0
   dropLiquid: {fileID: 0}
   shaker: {fileID: 0}
 --- !u!1 &8185613716113067876
