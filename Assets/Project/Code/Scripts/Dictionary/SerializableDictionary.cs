@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -54,3 +55,27 @@ public class NewStringCocktailItem
     [SerializeField] public CocktailNode cocktail;
 }
 
+[Serializable]
+public class CocktailDecorationsDictionary
+{
+    [SerializeField] NewItemNodeIntItem[] items;
+
+    public Dictionary<ItemNode, int> ToDictionary()
+    {
+        Dictionary<ItemNode, int> newDict = new Dictionary<ItemNode, int>();
+
+        foreach (NewItemNodeIntItem item in items)
+        {
+            newDict.Add(item.itemNode, item.quantity);
+        }
+
+        return newDict;
+    }
+}
+
+[Serializable]
+public class NewItemNodeIntItem
+{
+    [SerializeField] public ItemNode itemNode;
+    [SerializeField] public int quantity;
+}
