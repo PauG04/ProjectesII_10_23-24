@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3944193617400660267}
   - component: {fileID: 4138278331930630237}
   - component: {fileID: 8594563728778200068}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: CocktailName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2247489743795713859, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,9 +76,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2113523995
+  m_SortingLayer: 1
+  m_SortingOrder: 5
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &8594563728778200068
 MonoBehaviour:
@@ -100,10 +100,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Moszkowski Flip
+  m_text: Agua de Palencia
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
+  m_sharedMaterial: {fileID: 2247489743795713859, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.6
-  m_fontSizeBase: 1.6
+  m_fontSize: 1.7
+  m_fontSizeBase: 1.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -183,13 +183,13 @@ GameObject:
   - component: {fileID: 8037749646198739868}
   - component: {fileID: 8616855056323009507}
   - component: {fileID: 2060686802149457118}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: WikiPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8037749646198739868
 RectTransform:
   m_ObjectHideFlags: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c2ab0cb524bb4b92254937f5a42df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLeft: 1
+  isLeft: 0
   nameText: {fileID: 8594563728778200068}
   subtitleText: {fileID: 8833967485973211885}
   descriptionText: {fileID: 8590666433591738389}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 6244700293686830607}
   - component: {fileID: 3915392412361275025}
   - component: {fileID: 8590666433591738389}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: CocktailDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2247489743795713859, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -351,9 +351,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2113523995
+  m_SortingLayer: 1
+  m_SortingOrder: 5
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &8590666433591738389
 MonoBehaviour:
@@ -378,8 +378,8 @@ MonoBehaviour:
   m_text: "1 ounce          2 ounce\n3 ounce          4 ounce\n5 ounce          6
     ounce\n\nState: \nMixed"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
+  m_sharedMaterial: {fileID: 2247489743795713859, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -403,8 +403,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.8
-  m_fontSizeBase: 0.8
+  m_fontSize: 0.9
+  m_fontSizeBase: 0.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 8914874399813095064}
   - component: {fileID: 1177748894622859090}
   - component: {fileID: 8833967485973211885}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: CocktailSubtitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2247489743795713859, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -524,9 +524,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2113523995
+  m_SortingLayer: 1
+  m_SortingOrder: 5
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &8833967485973211885
 MonoBehaviour:
@@ -550,8 +550,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Elegant & Elegant
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
+  m_sharedMaterial: {fileID: 2247489743795713859, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -575,8 +575,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 1.3
+  m_fontSizeBase: 1.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 2766838340111834122}
   - component: {fileID: 7840249776491735621}
   - component: {fileID: 698137370958269157}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: TurnPageButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4537911522481387347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 0.2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -806,7 +806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4678269150654351330}
   - component: {fileID: 2243370352848615636}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: CocktailSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,9 +871,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2113523995
+  m_SortingLayer: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: -466113424, guid: eefb5d5c95242c848b730367a4df859f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -883,5 +883,5 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0

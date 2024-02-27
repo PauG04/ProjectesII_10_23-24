@@ -47,4 +47,9 @@ public class EconomyManager : MonoBehaviour
     {
         dailyEarnings = 0.0f;
     }
+    public float GetMoney()
+    {
+        return money;
+    }
+
 }
