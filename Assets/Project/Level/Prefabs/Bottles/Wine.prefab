@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4024803064925307674}
   - component: {fileID: 4559980660687427612}
   - component: {fileID: 8963226189741860814}
-  - component: {fileID: 389131843606856977}
+  - component: {fileID: 4550252364877990874}
   - component: {fileID: 1712364000999750610}
   - component: {fileID: 790261217673330239}
   - component: {fileID: 8819774920043758160}
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: c0cecf0d9d9c77f42b0b6eb145ac9e63, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca00df4e0fe84e84fb289f15c765d9d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -205,7 +205,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &389131843606856977
+--- !u!60 &4550252364877990874
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,7 +241,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.03125, y: 1.453125}
+    oldSize: {x: 0.453125, y: 1.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -249,22 +249,23 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.28125, y: -0.7265625}
-      - {x: -0.515625, y: -0.3515625}
-      - {x: -0.515625, y: -0.0078125}
-      - {x: -0.328125, y: 0.2265625}
-      - {x: -0.09375, y: 0.2734375}
-      - {x: -0.125, y: 0.4765625}
-      - {x: -0.03125, y: 0.4765625}
-      - {x: -0.03125, y: 0.7265625}
-      - {x: 0.03125, y: 0.7265625}
-      - {x: 0.03125, y: 0.4765625}
-      - {x: 0.125, y: 0.4765625}
-      - {x: 0.09375, y: 0.2734375}
-      - {x: 0.328125, y: 0.2265625}
-      - {x: 0.515625, y: -0.0078125}
-      - {x: 0.515625, y: -0.3515625}
-      - {x: 0.28125, y: -0.7265625}
+    - - {x: -0.2109375, y: -0.75}
+      - {x: -0.2265625, y: -0.703125}
+      - {x: -0.2265625, y: 0.140625}
+      - {x: -0.1796875, y: 0.28125}
+      - {x: -0.1015625, y: 0.375}
+      - {x: -0.0859375, y: 0.609375}
+      - {x: -0.0859375, y: 0.671875}
+      - {x: -0.0703125, y: 0.71875}
+      - {x: -0.0546875, y: 0.734375}
+      - {x: 0.0546875, y: 0.734375}
+      - {x: 0.0703125, y: 0.71875}
+      - {x: 0.0859375, y: 0.609375}
+      - {x: 0.1015625, y: 0.375}
+      - {x: 0.1796875, y: 0.28125}
+      - {x: 0.2265625, y: 0.140625}
+      - {x: 0.2265625, y: -0.703125}
+      - {x: 0.2109375, y: -0.75}
   m_UseDelaunayMesh: 0
 --- !u!114 &1712364000999750610
 MonoBehaviour:
@@ -294,8 +295,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
-  normalSprite: {fileID: 21300000, guid: c0cecf0d9d9c77f42b0b6eb145ac9e63, type: 3}
-  workspaceSprite: {fileID: 21300000, guid: c0cecf0d9d9c77f42b0b6eb145ac9e63, type: 3}
+  normalSprite: {fileID: 21300000, guid: ca00df4e0fe84e84fb289f15c765d9d0, type: 3}
+  workspaceSprite: {fileID: 21300000, guid: ca00df4e0fe84e84fb289f15c765d9d0, type: 3}
   scaleMultiplier: 1.2
   itemCollider: {fileID: 0}
   rotationSpeed: 6

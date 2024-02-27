@@ -195,7 +195,6 @@ public class TutorialManager : MonoBehaviour
                 continuConversation[7] = true;
                 continuConversation[8] = false;
             }
-
         }
         else if (shakerLiquid.GetCurrentLiquid() >= shakerLiquid.GetMaxLiquid() && !continuConversation[6])
         {
