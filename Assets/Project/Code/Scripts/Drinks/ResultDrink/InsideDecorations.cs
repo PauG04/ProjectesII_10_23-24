@@ -12,6 +12,11 @@ public class InsideDecorations : MonoBehaviour
         insideDecorations = new Dictionary<ItemNode, int>();
     }
 
+    public Dictionary<ItemNode, int> GetDecorations()
+    {
+        return insideDecorations;
+    }
+
     public void AddItem(ItemNode item)
     {
         if(insideDecorations.ContainsKey(item))
