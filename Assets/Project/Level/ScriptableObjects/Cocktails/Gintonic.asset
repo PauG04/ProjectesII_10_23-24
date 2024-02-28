@@ -24,9 +24,15 @@ MonoBehaviour:
     Serivir agitado con
     1 Cubo de Hielo'
   sprite: {fileID: 21300000, guid: d476bcd29dd472d4186c504e540af94a, type: 3}
-  SerializableIngredients:
+  serializableIngredients:
     items:
     - type: {fileID: 11400000, guid: bc2533701c895954aa30b3a4a1222440, type: 2}
       quantity: 1
     - type: {fileID: 11400000, guid: e138a3b4ac3a244419097103e927ed0d, type: 2}
       quantity: 4
+  serializableDecorations:
+    items:
+    - itemNode: {fileID: 11400000, guid: 30381eed8dac9b8469c6e5684c2609b6, type: 2}
+      quantity: 3
+    - itemNode: {fileID: 11400000, guid: 5327b0cbfcc0de54f8e85e96d8b05a86, type: 2}
+      quantity: 1

@@ -190,7 +190,17 @@ public class DragItems : MonoBehaviour
     }
     public void ObjectPressed()
     {
+        if (target == null)
+        {
+            target = transform;
+        }
+
         RotateObject();
+
+        if (rb2d == null)
+        {
+            rb2d = gameObject.GetComponent<Rigidbody2D>();
+        }
 
         rb2d.bodyType = RigidbodyType2D.Static;
 

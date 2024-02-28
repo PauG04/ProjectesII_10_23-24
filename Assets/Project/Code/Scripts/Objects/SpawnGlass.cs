@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class SpawnGlass : MonoBehaviour
 {
-    [SerializeField] private GameObject glass;
+    [SerializeField] private GameObject objectToSpawn;
+    private DragItems dragObject;
 
     private void OnMouseDown()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Instantiate(glass, mousePosition, Quaternion.identity);
-        glass.GetComponent<DragItems>().ObjectPressed();
-        glass.GetComponent<DragItems>().SetIsDragging(true);
+        GameObject newGlass = Instantiate(objectToSpawn, mousePosition, Quaternion.identity);
+        dragObject = newGlass.GetComponent<DragItems>();
+        dragObject.SetIsDragging(true);
+        dragObject.ObjectPressed();
     }
 }
