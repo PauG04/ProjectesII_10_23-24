@@ -47,6 +47,7 @@ public class BuyLiquid : MonoBehaviour
                 item = _item;
                 _item.transform.SetParent(_parent.transform, true);
             }
+            EconomyManager.instance.AddMoney(-price);
         }      
     }
 

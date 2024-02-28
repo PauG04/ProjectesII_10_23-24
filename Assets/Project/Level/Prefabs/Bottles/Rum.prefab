@@ -53,6 +53,7 @@ MonoBehaviour:
   minColliderPos: 0
   dropLiquid: {fileID: 0}
   shaker: {fileID: 0}
+  isTutorial: 0
 --- !u!1 &552682644521623691
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +295,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 6104178258769528242}
   liquidManager: {fileID: 6362806960958536186}
   drink: {fileID: 11400000, guid: 8e4de90f0eb64a646838e305f5ded7c1, type: 2}
+  liquidColor: {r: 0.8018868, g: 0.46456003, b: 0.374466, a: 1}
 --- !u!114 &4975549752326105575
 MonoBehaviour:
   m_ObjectHideFlags: 0

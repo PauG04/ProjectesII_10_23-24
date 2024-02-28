@@ -16,6 +16,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private int realMinutesPerDay;
     [SerializeField] private int firstHour;
     [SerializeField] private int lastHour;
+    [SerializeField] private float rent;
     private int hoursPerDay;
     private int timeMultiplier;
 
@@ -82,7 +83,9 @@ public class TimeManager : MonoBehaviour
     {
         isStopped = true;
         endOfDayObject.SetActive(true);
+        EconomyManager.instance.AddMoney(-rent);
         EconomyManager.instance.SetMoneyText();
+        
     }
 
     public void ResumeTime()
@@ -94,6 +97,7 @@ public class TimeManager : MonoBehaviour
         second = 0.0f;
 
         EconomyManager.instance.ResetDailyEarnings();
+        EconomyManager.instance.ResetDailyExpense();
     }
 
     public int GetDay()

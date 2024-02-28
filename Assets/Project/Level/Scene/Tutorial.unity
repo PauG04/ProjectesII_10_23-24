@@ -2785,6 +2785,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4632203015347343070, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6918459718600216018, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
       propertyPath: m_Name
       value: Cola
@@ -3494,6 +3498,10 @@ PrefabInstance:
     - target: {fileID: 6052094515254851330, guid: da78a67f455f0b74596453ea555794e8, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362806960958536186, guid: da78a67f455f0b74596453ea555794e8, type: 3}
+      propertyPath: isTutorial
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8671257232246213615, guid: da78a67f455f0b74596453ea555794e8, type: 3}
       propertyPath: m_Name
@@ -4298,6 +4306,14 @@ PrefabInstance:
       propertyPath: DestroyPosition
       value: 
       objectReference: {fileID: 1479342486}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: badReactionDialogueTutorial
+      value: 
+      objectReference: {fileID: 11400000, guid: 763d2e10a30367c4d9132370b2608d21, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: goodReactionDialogueTutorial
+      value: 
+      objectReference: {fileID: 11400000, guid: 197b3fdbc9c6d7946bd57c8f1b30f527, type: 2}
     - target: {fileID: 9071389106930928307, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: m_Name
       value: ClientManager
@@ -6769,7 +6785,7 @@ GameObject:
   - component: {fileID: 1913635694}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: FluidTextureCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7160,7 +7176,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

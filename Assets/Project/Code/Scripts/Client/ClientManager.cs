@@ -19,6 +19,9 @@ public class ClientManager : MonoBehaviour
     [SerializeField] private List<Dialogue.Dialogue> regularClientDialogues;
     [SerializeField] private Dialogue.Dialogue badReactionDialogue;
     [SerializeField] private Dialogue.Dialogue goodReactionDialogue;
+    [SerializeField] private Dialogue.Dialogue badReactionDialogueTutorial;
+    [SerializeField] private Dialogue.Dialogue goodReactionDialogueTutorial;
+    [SerializeField] private Dialogue.Dialogue clientHitDialogue;
 
     [Header("Client Position")]
     [SerializeField] private Transform spawnPosition;
@@ -77,8 +80,11 @@ public class ClientManager : MonoBehaviour
             if(node.currentDialogue.name == "TutorialDialogue1")
             {
                 tutorial.SetIsFriend(true);
-            }           
+                currentClientScript.SetIsFriend(true);
+
+            }
             currentClientScript.SetIsTutorial(true);
+
         }
     }
 
@@ -102,6 +108,19 @@ public class ClientManager : MonoBehaviour
     public Dialogue.Dialogue GetGoodReactionDialogue()
     {
         return goodReactionDialogue;
+    }
+    public Dialogue.Dialogue GetBadReactionDialogueTutorial()
+    {
+        return badReactionDialogueTutorial;
+    }
+    public Dialogue.Dialogue GetGoodReactionDialogueTutorial()
+    {
+        return goodReactionDialogueTutorial;
+    }
+
+    public Dialogue.Dialogue GetClientHit()
+    {
+        return clientHitDialogue;
     }
     public Transform GetSpawnPosition()
     {
