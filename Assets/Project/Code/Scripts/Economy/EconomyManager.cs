@@ -27,7 +27,7 @@ public class EconomyManager : MonoBehaviour
         }
         dailyEarnings = 0.0f;
         dailyExpenses = 0.0f;
-        money = 100.0f;
+        money = 0.0f;
     }
 
     public void AddMoney(float earnings)
