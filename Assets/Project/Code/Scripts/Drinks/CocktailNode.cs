@@ -39,6 +39,7 @@ public class CocktailNode : ScriptableObject
     public string subtitle;
     public string description;
     public Sprite sprite;
+    public Color color;
 
     public CocktailIngredientDictionary serializableIngredients;
     public Dictionary<DrinkNode, int> ingredients;

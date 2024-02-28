@@ -13,7 +13,6 @@ public class LiquidParticle : MonoBehaviour
     {
         Destroy(gameObject, destroyTime);
     }
-
     public void SetCocktailState(CocktailNode.State cocktail)
     {
         this.state = cocktail;

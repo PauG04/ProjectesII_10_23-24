@@ -186,7 +186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405183377825978886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.306, z: 0}
+  m_LocalPosition: {x: 0, y: 0.393, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -202,12 +202,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 720530942413858104}
+  - component: {fileID: 2478678765260425453}
+  - component: {fileID: 583735982947840328}
   - component: {fileID: 1451645765080771610}
   - component: {fileID: 5544503391691205695}
-  - component: {fileID: 4471090056557097739}
   - component: {fileID: 5110034788011679347}
-  - component: {fileID: 583735982947840328}
-  - component: {fileID: 2478678765260425453}
+  - component: {fileID: 1653898397746008679}
   m_Layer: 18
   m_Name: Glass1
   m_TagString: Cocktail
@@ -235,104 +235,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1451645765080771610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631296216517769539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 2334060630781008179}
-  normalSprite: {fileID: 21300000, guid: de7efc85f7afc4d40b141df48083d7fb, type: 3}
-  workspaceSprite: {fileID: 21300000, guid: de7efc85f7afc4d40b141df48083d7fb, type: 3}
-  scaleMultiplier: 1.5
-  itemCollider: {fileID: 5297983563522928620}
-  rotationSpeed: 6
-  horizontalSpeed: 6
-  verticalSpeed: 10
-  hasToBeDestroy: 1
-  hasToReturn: 1
-  hasToStayTheSameLayer: 1
-  changeSpriteMask: 0
-  moveParent: 0
-  isItem: 0
---- !u!114 &5544503391691205695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631296216517769539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1217dff082d0f2042804ff73e40059ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brokenGlass: {fileID: 1631296216517769539, guid: c41fe6904768e77419a17df44ff90c4e, type: 3}
-  particles: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  forceX: 3
-  forceY: 1
---- !u!114 &4471090056557097739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631296216517769539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5751e223e14a82a4eab0d934fd8a1cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  spawnPoint: {fileID: 6524071643692336444}
-  liquidManager: {fileID: 4557714834367202862}
---- !u!114 &5110034788011679347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631296216517769539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfb9c009ca1913142afd51dbdec621f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotationSpeed: 20
-  dragItem: {fileID: 0}
---- !u!50 &583735982947840328
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631296216517769539}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &2478678765260425453
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -378,6 +280,107 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4081912, y: 0.7810652}
   m_EdgeRadius: 0
+--- !u!50 &583735982947840328
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631296216517769539}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1451645765080771610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631296216517769539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2334060630781008179}
+  normalSprite: {fileID: 21300000, guid: de7efc85f7afc4d40b141df48083d7fb, type: 3}
+  workspaceSprite: {fileID: 21300000, guid: de7efc85f7afc4d40b141df48083d7fb, type: 3}
+  scaleMultiplier: 1.5
+  itemCollider: {fileID: 5297983563522928620}
+  rotationSpeed: 6
+  horizontalSpeed: 6
+  verticalSpeed: 10
+  hasToBeDestroy: 1
+  hasToReturn: 1
+  hasToStayTheSameLayer: 1
+  changeSpriteMask: 0
+  moveParent: 0
+  isItem: 0
+--- !u!114 &5544503391691205695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631296216517769539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1217dff082d0f2042804ff73e40059ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenGlass: {fileID: 1631296216517769539, guid: c41fe6904768e77419a17df44ff90c4e, type: 3}
+  particles: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
+  forceX: 3
+  forceY: 1
+--- !u!114 &5110034788011679347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631296216517769539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb9c009ca1913142afd51dbdec621f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 20
+  dragItem: {fileID: 0}
+--- !u!114 &1653898397746008679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631296216517769539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1198e05a12b0144aec2f046a08a4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
+  spawnPoint: {fileID: 6524071643692336444}
+  liquidManager: {fileID: 4557714834367202862}
+  drink: {fileID: 0}
+  isGlass: 1
+  spawnerPositionX: 0.15
 --- !u!1 &3962444385833227320
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,12 +592,14 @@ MonoBehaviour:
   maxLiquid: 50
   currentLiquid: 0
   currentState: 0
+  glassLiquidRenderer: {fileID: 3846524632110708514}
   isGlass: 1
   dragItems: {fileID: 0}
   maxColliderPos: 0.35
   minColliderPos: -0.069
   dropLiquid: {fileID: 0}
   shaker: {fileID: 0}
+  isTutorial: 0
 --- !u!1 &8185613716113067876
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +612,7 @@ GameObject:
   - component: {fileID: 3846524632110708514}
   - component: {fileID: 3477475284075534812}
   m_Layer: 18
-  m_Name: Glass3Liquid
+  m_Name: Liquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -670,7 +675,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 396a977a55ee24943a9f0a04365d0a38, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.8763335, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
