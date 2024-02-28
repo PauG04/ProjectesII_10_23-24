@@ -11,6 +11,7 @@ public class BreakGlass : MonoBehaviour
 
     [Header("Force")]
     [SerializeField] private float forceX;
+    [SerializeField] private float forceY;
 
 
     private float hits;
@@ -49,7 +50,7 @@ public class BreakGlass : MonoBehaviour
         {
             brokenChilds[i].transform.SetParent(null);
             Rigidbody2D rbIce = brokenChilds[i].GetComponent<Rigidbody2D>();
-            rbIce.AddForceAtPosition(new Vector3(Random.Range(forceX * 15, -forceX * 15), 0, 0), pos, ForceMode2D.Force);
+            rbIce.AddForceAtPosition(new Vector3(Random.Range(forceX * 15, -forceX * 15), forceY, 0), pos, ForceMode2D.Force);
         }
         for (int i = 0; i < gameObject.GetComponentInChildren<LiquidManager>().GetCurrentLiquid() / 2; i++)
         {

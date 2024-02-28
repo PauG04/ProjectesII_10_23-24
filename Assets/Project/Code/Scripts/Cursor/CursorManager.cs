@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CursorManager : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class CursorManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
             isMouseUp = false;
-        else if(Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))
             isMouseUp = true;
     }
 
@@ -68,5 +69,10 @@ public class CursorManager : MonoBehaviour
     public TextMeshPro GetItemName()
     {
         return itemName;
+    }
+
+    public void SetColor(Color _color)
+    {
+        itemName.color = _color;
     }
 }

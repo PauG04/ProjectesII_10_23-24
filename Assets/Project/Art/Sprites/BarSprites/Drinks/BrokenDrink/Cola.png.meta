@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 992fc47d978dc074681e1ce3e2ea5388
+guid: 3f15f875dd5ff5c4ab64a6a36c6b4c71
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,6 +106,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -134,8 +160,8 @@ TextureImporter:
       name: Drink3_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 38
+        x: 0
+        y: 39
         width: 20
         height: 36
       alignment: 0
@@ -155,7 +181,7 @@ TextureImporter:
       name: Drink3_2
       rect:
         serializedVersion: 2
-        x: 20
+        x: 22
         y: 30
         width: 17
         height: 45
@@ -176,7 +202,7 @@ TextureImporter:
       name: Drink3_3
       rect:
         serializedVersion: 2
-        x: 5
+        x: 6
         y: 15
         width: 33
         height: 14
@@ -215,12 +241,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BrokenDrink3_0
+      name: Cola_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1
         y: 29
-        width: 18
+        width: 20
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -229,8 +255,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea8c0fea6f649a141bda0bb1e02abe5d
-      internalID: -1524967085
+      spriteID: 55b9a34730eb7834a9e9d170666bbe9a
+      internalID: 715053846
       vertices: []
       indices: 
       edges: []
@@ -266,7 +292,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BrokenDrink3_0: -1524967085
+      Cola_0: 715053846
       Drink3_0: 2047218942
       Drink3_1: -1219560374
       Drink3_2: 812547131

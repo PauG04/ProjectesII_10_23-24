@@ -971,7 +971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &129253369
 Transform:
   m_ObjectHideFlags: 0
@@ -1776,14 +1776,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 790261217673330239, guid: 2e641f3e2be8d0449a5c5340c6fd5aa7, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 790261217673330239, guid: 2e641f3e2be8d0449a5c5340c6fd5aa7, type: 3}
-      propertyPath: changeSpriteMask
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4024803064925307674, guid: 2e641f3e2be8d0449a5c5340c6fd5aa7, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2608,22 +2600,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 790261217673330239, guid: 75fa7ffa080dadb429f0663d1eded128, type: 3}
-      propertyPath: normalSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9461c9767a2acf947b962d689d484471, type: 3}
-    - target: {fileID: 790261217673330239, guid: 75fa7ffa080dadb429f0663d1eded128, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 790261217673330239, guid: 75fa7ffa080dadb429f0663d1eded128, type: 3}
-      propertyPath: workspaceSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9461c9767a2acf947b962d689d484471, type: 3}
-    - target: {fileID: 790261217673330239, guid: 75fa7ffa080dadb429f0663d1eded128, type: 3}
-      propertyPath: changeSpriteMask
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4024803064925307674, guid: 75fa7ffa080dadb429f0663d1eded128, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3163,14 +3139,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 790261217673330239, guid: 047ca54583087fe40abc80f5a76e04c4, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 790261217673330239, guid: 047ca54583087fe40abc80f5a76e04c4, type: 3}
-      propertyPath: changeSpriteMask
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4024803064925307674, guid: 047ca54583087fe40abc80f5a76e04c4, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4674,7 +4642,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3cb3e7d6bf77c424bbe9c0f5fb846705, type: 2}
   m_sharedMaterial: {fileID: 5103645570388107742, guid: 3cb3e7d6bf77c424bbe9c0f5fb846705, type: 2}
@@ -6039,7 +6007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 1229303314}
   price: 3.5
-  recreateObject: {fileID: 1229303314}
+  recreateObject: {fileID: 6918459718600216018, guid: 75fa7ffa080dadb429f0663d1eded128, type: 3}
   _parent: {fileID: 374408267}
   isItem: 0
 --- !u!114 &901594077
@@ -6791,14 +6759,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 790261217673330239, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 790261217673330239, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
-      propertyPath: changeSpriteMask
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4024803064925307674, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -7061,14 +7021,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 790261217673330239, guid: a9fd505246f7f424395ac980cefb79d7, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 790261217673330239, guid: a9fd505246f7f424395ac980cefb79d7, type: 3}
-      propertyPath: changeSpriteMask
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4024803064925307674, guid: a9fd505246f7f424395ac980cefb79d7, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -9238,14 +9190,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 790261217673330239, guid: 5a9df1a44eb5b7c47af9c4042238b7e7, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 790261217673330239, guid: 5a9df1a44eb5b7c47af9c4042238b7e7, type: 3}
-      propertyPath: changeSpriteMask
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4024803064925307674, guid: 5a9df1a44eb5b7c47af9c4042238b7e7, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -12432,7 +12376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027430227}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.42999983, y: 0, z: 0}
+  m_LocalPosition: {x: -0.42999983, y: 0, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -13985,10 +13929,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 1691511620839165269, guid: e62aa46430d703148b74596e1625563a, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4553491365589592802, guid: e62aa46430d703148b74596e1625563a, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -14310,14 +14250,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 790261217673330239, guid: dc23a707e3f11fd48815094dd7c992c6, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 790261217673330239, guid: dc23a707e3f11fd48815094dd7c992c6, type: 3}
-      propertyPath: changeSpriteMask
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4024803064925307674, guid: dc23a707e3f11fd48815094dd7c992c6, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -14865,10 +14797,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 13459176564938733, guid: da78a67f455f0b74596453ea555794e8, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5455300107542207505, guid: da78a67f455f0b74596453ea555794e8, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -15055,14 +14983,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
-    - target: {fileID: 790261217673330239, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
-      propertyPath: scaleMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 790261217673330239, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
-      propertyPath: changeSpriteMask
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4024803064925307674, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
       propertyPath: m_RootOrder
       value: -1

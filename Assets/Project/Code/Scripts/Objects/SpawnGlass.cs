@@ -7,6 +7,9 @@ public class SpawnGlass : MonoBehaviour
     [SerializeField] private GameObject objectToSpawn;
     private DragItems dragObject;
 
+    [SerializeField] private TutorialManager tutorial;
+    private bool isCreated;
+
     private void OnMouseDown()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -15,5 +18,16 @@ public class SpawnGlass : MonoBehaviour
         dragObject = newGlass.GetComponent<DragItems>();
         dragObject.SetIsDragging(true);
         dragObject.ObjectPressed();
+        isCreated = true;
+
+        if(tutorial != null)
+        {
+            tutorial.SetGlass(newGlass);
+        }
+    }
+
+    public bool GetIsCreated()
+    {
+        return isCreated;
     }
 }
