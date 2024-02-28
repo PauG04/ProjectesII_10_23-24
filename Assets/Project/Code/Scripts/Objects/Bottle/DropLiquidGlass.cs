@@ -11,7 +11,7 @@ public class DropLiquidGlass : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private LiquidManager liquidManager;
     [SerializeField] private Color liquidColor;
-    
+
     private Material texture;
 
     private float minRotationToPourLiquid = 70f;
@@ -69,27 +69,7 @@ public class DropLiquidGlass : MonoBehaviour
             currentRotation = 100 - ((-rotateBottle.GetRotation() * 100) / -maxRotationToPourLiquid);
         }
 
-        float spawnerMovement;
-
-        if (rotateBottle.GetRotation() < -90f)
-        {        
-            spawnerMovement = _spawnerPositionX + (rotateBottle.GetRotation() + _minRotationToMoveSpawner) * (-_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
-            spawnPoint.transform.localPosition = new Vector2(spawnerMovement, spawnPoint.transform.localPosition.y);
-        }
-        else if (rotateBottle.GetRotation() > 90f)
-        {
-            spawnerMovement = _spawnerPositionX + (rotateBottle.GetRotation() - _minRotationToMoveSpawner) * (_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
-            spawnPoint.transform.localPosition = new Vector2(-spawnerMovement, spawnPoint.transform.localPosition.y);
-        }
-        else if (rotateBottle.GetRotation() < 0f)
-        {
-            spawnPoint.transform.localPosition = new Vector2(_spawnerPositionX, spawnPoint.transform.localPosition.y);
-        }
-        else if (rotateBottle.GetRotation() > 0f)
-        {
-            spawnPoint.transform.localPosition = new Vector2(-_spawnerPositionX, spawnPoint.transform.localPosition.y);
-        }
-
+        MoveSpawnerPosition();
 
         float difference = Mathf.Abs(currentLiquid - currentRotation);
         float spawnSpeed = 2.8f;
@@ -112,5 +92,30 @@ public class DropLiquidGlass : MonoBehaviour
                 timeSinceLastPour = 0;
             }
         }
+    }
+    public void MoveSpawnerPosition()
+    {
+        float spawnerMovement;
+
+        if (rotateBottle.GetRotation() < -90f)
+        {
+            spawnerMovement = _spawnerPositionX + (rotateBottle.GetRotation() + _minRotationToMoveSpawner) * (-_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
+            spawnPoint.transform.localPosition = new Vector2(spawnerMovement, spawnPoint.transform.localPosition.y);
+        }
+        else if (rotateBottle.GetRotation() > 90f)
+        {
+            spawnerMovement = _spawnerPositionX + (rotateBottle.GetRotation() - _minRotationToMoveSpawner) * (_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
+            spawnPoint.transform.localPosition = new Vector2(-spawnerMovement, spawnPoint.transform.localPosition.y);
+        }
+        else if (rotateBottle.GetRotation() < 0f)
+        {
+            spawnPoint.transform.localPosition = new Vector2(_spawnerPositionX, spawnPoint.transform.localPosition.y);
+        }
+        else if (rotateBottle.GetRotation() > 0f)
+        {
+            spawnPoint.transform.localPosition = new Vector2(-_spawnerPositionX, spawnPoint.transform.localPosition.y);
+        }
+
+
     }
 }

@@ -12,18 +12,24 @@ public class DropLiquid : MonoBehaviour
     [SerializeField] private Color liquidColor;
 
     private Material texture;
+    private RotateBottle rotateBottle;
 
     private float minRotationToPourLiquid = 70f;
     private float maxRotationToPourLiquid = 140f;
-    
+
     private float timeSinceLastPour = 0f;
 
-    private RotateBottle rotateBottle;
+    [Header("Glass Variables")]
+    [SerializeField] private bool isGlass;
+    [SerializeField] private float spawnerPositionX;
+
+    private float minRotationToMoveSpawner = 90f;
+    private float maxRotationToMoveSpawner = 180f;
+
 
     private void Awake()
     {
         texture = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<MeshRenderer>().material;
-        Debug.Log(texture);
     }
 
     private void Start()
@@ -63,7 +69,12 @@ public class DropLiquid : MonoBehaviour
         {
              currentRotation = 100 - ((-rotateBottle.GetRotation() * 100) / -maxRotationToPourLiquid);
         }
-        
+
+        if (isGlass)
+        {
+            MoveSpawnerPosition();
+        }
+
         float difference = Mathf.Abs(currentLiquid - currentRotation);
         float spawnSpeed = 2.8f;
 
@@ -79,13 +90,41 @@ public class DropLiquid : MonoBehaviour
             if (timeSinceLastPour >= pouringInterval)
             {
                 GameObject liquid = GameObject.Instantiate(liquidPref, spawnPoint.position, Quaternion.identity);
-                liquid.GetComponent<LiquidParticle>().SetDrink(drink);
+                if (!isGlass)
+                {
+                    liquid.GetComponent<LiquidParticle>().SetDrink(drink);
+                }
 
                 liquidManager.DeacreaseCurrentLiquid();
 
                 timeSinceLastPour = 0;
             }
         }
+    }
+
+    public void MoveSpawnerPosition()
+    {
+        float spawnerMovement;
+
+        if (rotateBottle.GetRotation() < -90f)
+        {
+            spawnerMovement = spawnerPositionX + (rotateBottle.GetRotation() + minRotationToMoveSpawner) * (-spawnerPositionX / (-maxRotationToMoveSpawner + minRotationToMoveSpawner));
+            spawnPoint.transform.localPosition = new Vector2(spawnerMovement, spawnPoint.transform.localPosition.y);
+        }
+        else if (rotateBottle.GetRotation() > 90f)
+        {
+            spawnerMovement = spawnerPositionX + (rotateBottle.GetRotation() - minRotationToMoveSpawner) * (spawnerPositionX / (-maxRotationToMoveSpawner + minRotationToMoveSpawner));
+            spawnPoint.transform.localPosition = new Vector2(-spawnerMovement, spawnPoint.transform.localPosition.y);
+        }
+        else if (rotateBottle.GetRotation() < 0f)
+        {
+            spawnPoint.transform.localPosition = new Vector2(spawnerPositionX, spawnPoint.transform.localPosition.y);
+        }
+        else if (rotateBottle.GetRotation() > 0f)
+        {
+            spawnPoint.transform.localPosition = new Vector2(-spawnerPositionX, spawnPoint.transform.localPosition.y);
+        }
+
     }
 
     public DrinkNode GetDrink()
