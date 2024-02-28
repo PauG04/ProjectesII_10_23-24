@@ -35,9 +35,9 @@ public class LiquidInside : MonoBehaviour
 
     private void InitState()
     {
-        material.SetFloat("_WaveHeight", 0.1f);
-        material.SetFloat("_WaveSpeed", 0.1f);
-        material.SetFloat("_WaveFrequency", 0.1f);
+        material.SetFloat("_WaveHeight", 0.0f);
+        material.SetFloat("_WaveSpeed", 0.0f);
+        material.SetFloat("_WaveFrequency", 0.0f);
         material.SetFloat("_FillAmount", 0.0f);
     }
 }

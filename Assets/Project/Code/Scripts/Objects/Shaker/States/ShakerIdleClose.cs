@@ -8,6 +8,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     private ShakerStateMachine _shakerStateMachine;
     private SetTopShaker _shakerClosed;
     private LiquidManager _liquidManager;
+    private Rigidbody2D _rb;
 
     private float lerpSpeed = 1.0f;
 
@@ -46,6 +47,9 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void EnterState()
     {
+        _rb = _shakerStateMachine.GetComponent<Rigidbody2D>();
+        _rb.bodyType = RigidbodyType2D.Static;
+
         _shakerClosed.SetStayClosed(false);
 
         _shakerStateMachine.GetComponent<TargetJoint2D>().enabled = false;
@@ -56,6 +60,8 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
             firstLerp = true;
             secondLerp = false;
         }
+
+        _rb.bodyType = RigidbodyType2D.Dynamic;
     }
     public override void ExitState()
     {
@@ -79,12 +85,12 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
 
         if (!_workSpace.OverlapPoint(_shakerStateMachine.transform.position))
         {
-            _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            _rb.bodyType = RigidbodyType2D.Static;
             OutsideWorkspace();
         }
         else
         {
-            _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            _rb.bodyType = RigidbodyType2D.Dynamic;
         }
 
         MoveObjectToParent();
