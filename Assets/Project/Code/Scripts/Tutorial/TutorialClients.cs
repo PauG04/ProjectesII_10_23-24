@@ -18,6 +18,6 @@ public class TutorialClients : MonoBehaviour
         ClientManager.instance.SetNextClientIsImportant(true);
         ClientManager.instance.CreateNewClient();
         ClientManager.instance.SetNextClientIsImportant(true);
-        ClientManager.instance.SetNextImportantClient(friend); 
+        ClientManager.instance.SetNextImportantClient(friend);
     }
 }

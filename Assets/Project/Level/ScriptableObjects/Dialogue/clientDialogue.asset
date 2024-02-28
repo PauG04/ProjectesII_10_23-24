@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5467377042152500853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 615ec42a-6e0e-4ae2-8ae3-b2f82d2709da
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Me cago en tus muertos, que co\xF1o haces, te voy a denunciar"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 45
+    y: 102
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: clientDialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -5467377042152500853}
+  newNodeOffset: {x: 250, y: 0}

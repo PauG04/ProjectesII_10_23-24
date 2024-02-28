@@ -26,15 +26,24 @@ public class EconomyManager : MonoBehaviour
             Destroy(gameObject);
         }
         dailyEarnings = 0.0f;
-        dailyEarnings = 0.0f;
+        dailyExpenses = 0.0f;
         money = 0.0f;
     }
 
     public void AddMoney(float earnings)
     {
-        dailyEarnings += earnings;
+        if(earnings > 0.0f)
+        {
+            dailyEarnings += earnings;         
+        }
+        else
+        {
+            dailyExpenses += earnings;
+        }
         money += earnings;
     }
+
+
 
     public void SetMoneyText()
     {
@@ -46,6 +55,10 @@ public class EconomyManager : MonoBehaviour
     public void ResetDailyEarnings()
     {
         dailyEarnings = 0.0f;
+    }
+    public void ResetDailyExpense()
+    {
+        dailyExpenses = 0.0f;
     }
     public float GetMoney()
     {

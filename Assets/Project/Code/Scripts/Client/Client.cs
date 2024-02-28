@@ -40,6 +40,7 @@ public class Client : MonoBehaviour
     private float time;
 
     private bool isTutorial;
+    private bool isFriend;
     private bool isLocated;
 
     private void Awake()
@@ -62,6 +63,7 @@ public class Client : MonoBehaviour
 
         isTutorial = false;
         isLocated = false;
+        isFriend = false;
     }
 
     private void Start()
@@ -130,7 +132,11 @@ public class Client : MonoBehaviour
                 collision.GetComponentInChildren<SpriteRenderer>().sprite,
                 collision.GetComponentInChildren<InsideDecorations>().GetDecorations()
                 ));
-            startTimer = true;
+            if(!isFriend)
+            {
+                startTimer = true;
+            }
+            
 
             Destroy(collision.gameObject);
         }
@@ -140,9 +146,20 @@ public class Client : MonoBehaviour
     {
         //textMP.text = "VIVA FRANCO";
         //Change Animation
-        conversant.SetDialogue(ClientManager.instance.GetGoodReactionDialogue());
-        conversant.HandleDialogue();
-        Pay();
+        if(!isFriend)
+        {
+            conversant.SetDialogue(ClientManager.instance.GetGoodReactionDialogue());
+            conversant.HandleDialogue();
+            Pay();
+        }
+        else
+        {
+            Debug.Log("bien");
+            conversant.SetDialogue(ClientManager.instance.GetGoodReactionDialogueTutorial());
+            conversant.HandleDialogue();
+            startTimer = true;
+        }
+        
         //Wait X Seconds
         //ClientManager.instance.CreateNewClient();
     }
@@ -151,8 +168,17 @@ public class Client : MonoBehaviour
     {
         //textMP.text = "Menudo MIERDON";
         //Change Animation
-        conversant.SetDialogue(ClientManager.instance.GetBadReactionDialogue());
-        conversant.HandleDialogue();
+        if(!isFriend)
+        {
+            conversant.SetDialogue(ClientManager.instance.GetBadReactionDialogue());
+            conversant.HandleDialogue();
+        }
+        else
+        {
+            Debug.Log("mal");
+            conversant.SetDialogue(ClientManager.instance.GetBadReactionDialogueTutorial());
+            conversant.HandleDialogue();
+        }        
         //Wait X Seconds
         //ClientManager.instance.CreateNewClient();
     }
@@ -191,6 +217,10 @@ public class Client : MonoBehaviour
             {
                 ClientManager.instance.CreateNewClient();
                 Destroy(gameObject);
+                if(isFriend)
+                {
+                    SceneManager.LoadScene("Main");
+                }
             }
         }
 
@@ -206,8 +236,10 @@ public class Client : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Hammer"))
+        if (collision.CompareTag("Hammer") && !isTutorial && !startTimer)
         {
+            conversant.SetDialogue(ClientManager.instance.GetClientHit());
+            conversant.HandleDialogue();
             startTimer = true;
         }
             
@@ -289,6 +321,11 @@ public class Client : MonoBehaviour
     public void SetIsTutorial(bool state)
     {
         isTutorial = state;
+    }
+
+    public void SetIsFriend(bool state)
+    {
+        isFriend = state;
     }
 
     public bool GetIsLocated()
