@@ -379,7 +379,6 @@ MonoBehaviour:
   spawnPoint: {fileID: 6524071643692336444}
   liquidManager: {fileID: 4557714834367202862}
   drink: {fileID: 0}
-  liquidColor: {r: 0, g: 0, b: 0, a: 1}
   isGlass: 1
   spawnerPositionX: 0.15
 --- !u!1 &3962444385833227320
@@ -593,6 +592,7 @@ MonoBehaviour:
   maxLiquid: 50
   currentLiquid: 0
   currentState: 0
+  glassLiquidRenderer: {fileID: 3846524632110708514}
   isGlass: 1
   dragItems: {fileID: 0}
   maxColliderPos: 0.35
@@ -612,7 +612,7 @@ GameObject:
   - component: {fileID: 3846524632110708514}
   - component: {fileID: 3477475284075534812}
   m_Layer: 18
-  m_Name: Glass3Liquid
+  m_Name: Liquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -675,7 +675,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 396a977a55ee24943a9f0a04365d0a38, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.8763335, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
