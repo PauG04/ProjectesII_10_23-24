@@ -135,7 +135,10 @@ public class DragItems : MonoBehaviour
             else
             {
                 OutsideWorkspace();
-                target.position = GetMouseWorldPosition();
+                if (changeSpriteMask)
+                {
+                    target.position = GetMouseWorldPosition();
+                }
             }
         }
         else
@@ -190,6 +193,15 @@ public class DragItems : MonoBehaviour
     }
     public void ObjectPressed()
     {
+        if (target == null)
+        {
+            target = transform;
+        }
+        if (rb2d == null)
+        {
+            rb2d = gameObject.GetComponent<Rigidbody2D>();
+        }
+
         RotateObject();
 
         rb2d.bodyType = RigidbodyType2D.Static;

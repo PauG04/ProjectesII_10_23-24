@@ -14,7 +14,7 @@ public class InsideDecorations : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(insideDecorations.Count);
+        //Debug.Log(insideDecorations.Count);
     }
 
     public Dictionary<ItemNode, int> GetDecorations()
