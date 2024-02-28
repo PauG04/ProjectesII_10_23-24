@@ -10,7 +10,7 @@ public class ActivateCursorText : MonoBehaviour
     {       
         if(isShop)
         {
-            CursorManager.instance.GetItemName().text = gameObject.GetComponent<BuyLiquid>().GetPrice().ToString() + " $";
+            CursorManager.instance.GetItemName().text = gameObject.GetComponent<BuyLiquid>().GetPrice().ToString() + "€";
             CursorManager.instance.GetBox().SetActive(true);
         }
         else if(!GetComponent<DragItems>().GetInsideWorkspace())

@@ -8,6 +8,8 @@ public class SetItemInGlass : MonoBehaviour
 
     private DragItems drag;
 
+    [SerializeField] private ItemNode itemNode;
+
     private void Start()
     {
         drag = GetComponent<DragItems>();
@@ -29,6 +31,7 @@ public class SetItemInGlass : MonoBehaviour
             transform.SetParent(collision.transform);
             GetComponent<DragItems>().enabled = false;
             isInGlass = true;
+            collision.GetComponent<InsideDecorations>().AddItem(itemNode);
         }
     }
 
@@ -39,6 +42,12 @@ public class SetItemInGlass : MonoBehaviour
             GetComponent<DragItems>().enabled = true;
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             isInGlass = false;
+            collision.GetComponent<InsideDecorations>().SubstractItem(itemNode);
         }
+    }
+
+    public ItemNode GetItemGroupNode()
+    {
+        return itemNode;
     }
 }

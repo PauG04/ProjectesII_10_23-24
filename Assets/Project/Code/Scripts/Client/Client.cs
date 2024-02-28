@@ -124,7 +124,9 @@ public class Client : MonoBehaviour
         {
             ReceiveCoctel(CalculateDrink.instance.CalculateResultDrink(
                 collision.GetComponentInChildren<LiquidManager>().GetParticleTypes(),
-                collision.GetComponentInChildren<LiquidManager>().GetDrinkState()
+                collision.GetComponentInChildren<LiquidManager>().GetDrinkState(),
+                collision.GetComponentInChildren<SpriteRenderer>().sprite,
+                collision.GetComponentInChildren<InsideDecorations>().GetDecorations()
                 ));
             startTimer = true;
 

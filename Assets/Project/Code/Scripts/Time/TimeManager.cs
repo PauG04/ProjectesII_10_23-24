@@ -19,6 +19,8 @@ public class TimeManager : MonoBehaviour
     private int hoursPerDay;
     private int timeMultiplier;
 
+    [SerializeField] private GameObject endOfDayObject;
+
     private void Awake()
     {
         if (instance == null)
@@ -62,6 +64,7 @@ public class TimeManager : MonoBehaviour
             {
                 minute = 0;
                 hour++;
+                Debug.Log(hour);
                 if (hour >= 24)
                 {
                     hour = 0;
@@ -78,11 +81,19 @@ public class TimeManager : MonoBehaviour
     private void StopTime()
     {
         isStopped = true;
+        endOfDayObject.SetActive(true);
+        EconomyManager.instance.SetMoneyText();
     }
 
-    private void ResumeTime()
+    public void ResumeTime()
     {
         isStopped = false;
+        endOfDayObject.SetActive(false);
+        hour = firstHour;
+        minute = 0;
+        second = 0.0f;
+
+        EconomyManager.instance.ResetDailyEarnings();
     }
 
     public int GetDay()

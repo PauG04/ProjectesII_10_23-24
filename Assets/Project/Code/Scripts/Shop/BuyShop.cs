@@ -13,12 +13,16 @@ public class BuyLiquid : MonoBehaviour
     [Header("Boolean")]
     [SerializeField] private bool isItem;
 
+    private SpriteRenderer childSprite;
+
 
     private Vector3 _position;
 
     private void Start()
     {
         _position = item.transform.localPosition;
+        childSprite = gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        childSprite.sprite = item.GetComponent<SpriteRenderer>().sprite;
     }
 
 

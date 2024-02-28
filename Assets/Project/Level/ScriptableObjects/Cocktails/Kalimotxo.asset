@@ -17,15 +17,20 @@ MonoBehaviour:
   price: 10
   cocktailName: Kalimotxo
   subtitle: Clasico
-  description: '5 Onzas Vino
+  description: '2 Onzas de Vino
 
-    5 Onzas Cola
+    3 Onzas de Cola
 
-    Serivir agitado'
-  sprite: {fileID: -466113424, guid: eefb5d5c95242c848b730367a4df859f, type: 3}
-  SerializableIngredients:
+    Serivir agitado con 1 Cubo
+    de Hielo'
+  sprite: {fileID: 21300000, guid: cd52eb03e47222b4d96aa6ba00c15453, type: 3}
+  serializableIngredients:
     items:
     - type: {fileID: 11400000, guid: df8602bd8649c724da27a6fc9b51edde, type: 2}
       quantity: 2
     - type: {fileID: 11400000, guid: 5fa335cd3f50bbb4cb07f3f23f6c208c, type: 2}
       quantity: 3
+  serializableDecorations:
+    items:
+    - itemNode: {fileID: 11400000, guid: 30381eed8dac9b8469c6e5684c2609b6, type: 2}
+      quantity: 2

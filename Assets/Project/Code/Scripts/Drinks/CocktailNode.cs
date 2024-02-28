@@ -40,12 +40,16 @@ public class CocktailNode : ScriptableObject
     public string description;
     public Sprite sprite;
 
-    public CocktailIngredientDictionary SerializableIngredients;
+    public CocktailIngredientDictionary serializableIngredients;
     public Dictionary<DrinkNode, int> ingredients;
+
+    public CocktailDecorationsDictionary serializableDecorations;
+    public Dictionary<ItemNode, int> decorations;
 
     private void OnEnable()
     {
-        ingredients = SerializableIngredients.ToDictionary();
+        ingredients = serializableIngredients.ToDictionary();
+        decorations = serializableDecorations.ToDictionary();
         InitDescription();
     }
 
@@ -58,21 +62,36 @@ public class CocktailNode : ScriptableObject
             description += ingridient.Value;
 
             if (ingridient.Value > 1)
-                description += " Onzas";
+                description += " Onzas de";
             else
-                description += " Onza";
+                description += " Onza de";
 
             description += " " + ingridient.Key.spanishName + "\n";
         }
         //Shaker State
         description += "Serivir ";
         if (state == State.Idle)
-            description += "directamente en vaso";
+            description += "directamente en vaso ";
         else if (state == State.Shaked)
-            description += "agitado";
+            description += "agitado ";
         else
-            description += "mezclado perfectamente";
+            description += "mezclado perfectamente ";
         //Decorations
-        //Needs implementation
+        int i = 0;
+        foreach (KeyValuePair<ItemNode, int> decoration in decorations)
+        {
+            if (i == 0)
+                description += "con ";
+            else
+                description += "y ";
+
+            description += decoration.Value + " ";
+            if (decoration.Value > 1)
+                description += decoration.Key.pluralName;
+            else
+                description += decoration.Key.itemName;
+
+            i++;
+        }
     }
 }

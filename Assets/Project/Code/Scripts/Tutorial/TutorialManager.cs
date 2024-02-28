@@ -53,8 +53,9 @@ public class TutorialManager : MonoBehaviour
     private bool isRight;
 
     private bool[] continuConversation;
-    private int clicks;
     private float[] time;
+
+    [SerializeField] private GameObject nextButton;
 
     private enum tutorialID
     {
@@ -111,7 +112,6 @@ public class TutorialManager : MonoBehaviour
         }
 
         isFriend = false;
-        clicks = 0;
 
         initArrowPosition = arrow.transform.position;
         isRight = true;
@@ -146,14 +146,14 @@ public class TutorialManager : MonoBehaviour
 
     private void ActivateTutorial()
     {
-        if (playerConversant.GetCanContinue() && isFriend && !startTutorial)
+        if (isFriend && !startTutorial)
         {
             startTutorial = true;
             client = clientIndex.transform.GetChild(3).gameObject;
             client.GetComponent<BoxCollider2D>().enabled = false;
         }
 
-        if (id == tutorialID.BaseTutorial && !playerConversant.GetCanContinue() && startTutorial)
+        if (id == tutorialID.BaseTutorial && !nextButton.GetComponent<SpriteRenderer>().enabled && startTutorial)
         {
             CallActiveDrag();
         }
@@ -194,6 +194,7 @@ public class TutorialManager : MonoBehaviour
                 ContinueConversation();
                 continuConversation[7] = true;
                 continuConversation[8] = false;
+                nextButton.GetComponent<NextButton>().Active();
             }
         }
         else if (shakerLiquid.GetCurrentLiquid() >= shakerLiquid.GetMaxLiquid() && !continuConversation[6])
@@ -214,6 +215,7 @@ public class TutorialManager : MonoBehaviour
                 ContinueConversation();
                 continuConversation[5] = true;
                 continuConversation[6] = false;
+                nextButton.GetComponent<NextButton>().Active();
             }
         }
         else if (drag[2].GetWasOnTheTable() && !continuConversation[4])
@@ -236,6 +238,7 @@ public class TutorialManager : MonoBehaviour
             {
                 ContinueConversation();
                 continuConversation[4] = false;
+                nextButton.GetComponent<NextButton>().Active();
             }
         }
         else if (shaker.GetWasInTable() && !continuConversation[2])
@@ -265,11 +268,12 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-            ActiveDragItem(0,0, 0);
+            ActiveDragItem(0,2.5f, 0);
             if (drag[0].GetWasOnTheTable() && continuConversation[0])
             {
                 ContinueConversation();
                 continuConversation[0] = false;
+                nextButton.GetComponent<NextButton>().Active();
             }
         }
     }
@@ -434,7 +438,7 @@ public class TutorialManager : MonoBehaviour
 
     private void ContinueConversation()
     {
-        if (!playerConversant.GetCanContinue())
+        if (playerConversant.GetCanContinue())
         {
             //playerConversant.SetCanContinue(true);
             if (playerConversant.HasNext())
