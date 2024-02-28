@@ -9,6 +9,9 @@ public class DropLiquid : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private LiquidManager liquidManager;
     [SerializeField] private DrinkNode drink;
+    [SerializeField] private Color liquidColor;
+
+    private Material texture;
 
     private float minRotationToPourLiquid = 70f;
     private float maxRotationToPourLiquid = 140f;
@@ -16,6 +19,12 @@ public class DropLiquid : MonoBehaviour
     private float timeSinceLastPour = 0f;
 
     private RotateBottle rotateBottle;
+
+    private void Awake()
+    {
+        texture = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<MeshRenderer>().material;
+        Debug.Log(texture);
+    }
 
     private void Start()
     {
@@ -40,7 +49,9 @@ public class DropLiquid : MonoBehaviour
     }
 
     private void PourLiquid(bool state)
-    {        
+    {
+        texture.SetColor("_Color", liquidColor);
+
         float currentLiquid = (liquidManager.GetCurrentLiquid() * 100) / liquidManager.GetMaxLiquid();
         float currentRotation;
 
