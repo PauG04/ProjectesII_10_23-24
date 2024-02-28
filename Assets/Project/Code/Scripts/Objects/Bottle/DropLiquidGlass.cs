@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class DropLiquidGlass : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class DropLiquidGlass : MonoBehaviour
     [SerializeField] private GameObject liquidPref;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private LiquidManager liquidManager;
+    [SerializeField] private Color liquidColor;
+    
+    private Material texture;
 
     private float minRotationToPourLiquid = 70f;
     private float maxRotationToPourLiquid = 140f;
@@ -21,6 +25,11 @@ public class DropLiquidGlass : MonoBehaviour
     private float timeSinceLastPour = 0f;
 
     private RotateBottle rotateBottle;
+
+    private void Awake()
+    {
+        texture = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<MeshRenderer>().material;
+    }
 
     private void Start()
     {
@@ -46,6 +55,8 @@ public class DropLiquidGlass : MonoBehaviour
 
     private void PourLiquid(bool state)
     {
+        texture.SetColor("_Color", liquidColor);
+
         float currentLiquid = (liquidManager.GetCurrentLiquid() * 100) / liquidManager.GetMaxLiquid();
         float currentRotation;
 
