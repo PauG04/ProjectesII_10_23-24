@@ -40,6 +40,7 @@ public class Client : MonoBehaviour
     private float time;
 
     private bool isTutorial;
+    private bool isLocated;
 
     private void Awake()
     {
@@ -60,6 +61,7 @@ public class Client : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         isTutorial = false;
+        isLocated = false;
     }
 
     private void Start()
@@ -175,6 +177,7 @@ public class Client : MonoBehaviour
             {
                 arriveAnimation = false;
                 InitClient();
+                isLocated = true;
             }
         }
 
@@ -286,5 +289,10 @@ public class Client : MonoBehaviour
     public void SetIsTutorial(bool state)
     {
         isTutorial = state;
+    }
+
+    public bool GetIsLocated()
+    {
+        return isLocated;
     }
 }

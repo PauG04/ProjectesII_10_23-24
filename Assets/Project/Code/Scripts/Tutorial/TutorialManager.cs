@@ -15,7 +15,7 @@ public class TutorialManager : MonoBehaviour
     [Header("DragScripts")]
     [SerializeField] private List<DragItems> drag;
     private List<int> initOrderingLayerDrag;
-    [SerializeField] private SpriteRenderer glass;
+    //[SerializeField] private SpriteRenderer glass;
 
     [Header("Jigger")]
     [SerializeField] private RotateBottle jigger;
@@ -28,6 +28,7 @@ public class TutorialManager : MonoBehaviour
 
     [Header("CreateObject")]
     [SerializeField] private List<BoxCollider2D> createObjectCollider;
+    [SerializeField] private GameObject createGlass;
     private List<int> initOrderingLayerBucket;
 
     [Header("OpenFridge")]
@@ -54,6 +55,10 @@ public class TutorialManager : MonoBehaviour
 
     private bool[] continuConversation;
     private float[] time;
+
+    private GameObject glass;
+
+    private bool isButtonActive;
 
     [SerializeField] private GameObject nextButton;
 
@@ -84,7 +89,7 @@ public class TutorialManager : MonoBehaviour
             }
             else
             {
-                initOrderingLayerDrag.Add(glass.sortingOrder);
+                //initOrderingLayerDrag.Add(glass.sortingOrder);
             }
         }
         for (int i = 0; i < createObjectCollider.Count; i++)
@@ -99,6 +104,7 @@ public class TutorialManager : MonoBehaviour
         fridge.enabled = false;
         shakerLiquid.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         fridge.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        createGlass.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
 
         panel.SetActive(false);
@@ -116,6 +122,8 @@ public class TutorialManager : MonoBehaviour
         initArrowPosition = arrow.transform.position;
         isRight = true;
         arrow.SetActive(false);
+
+        isButtonActive = false;
     }
 
     private void Update()
@@ -151,6 +159,13 @@ public class TutorialManager : MonoBehaviour
             startTutorial = true;
             client = clientIndex.transform.GetChild(3).gameObject;
             client.GetComponent<BoxCollider2D>().enabled = false;
+
+        }
+
+        if(isFriend && client.GetComponent<Client>().GetIsLocated() && !isButtonActive)
+        {
+            nextButton.GetComponent<NextButton>().Active();
+            isButtonActive = true;
         }
 
         if (id == tutorialID.BaseTutorial && !nextButton.GetComponent<SpriteRenderer>().enabled && startTutorial)
@@ -169,7 +184,7 @@ public class TutorialManager : MonoBehaviour
         else if (createObjectCollider[0].gameObject.GetComponent<CreateObject>().GetIsCreated() && !fridge.GetIsOpen())
         {
             createObjectCollider[0].gameObject.transform.localScale = new Vector3(2, 2, 2);
-            ActiveDragItem(6, 5, 9);
+            ActiveDragItem(5, 5, 9);
         }
         else if (fridge.GetIsOpen() && continuConversation[9])
         {
@@ -188,14 +203,18 @@ public class TutorialManager : MonoBehaviour
         }
         else if (shakerLiquid.GetDrinkState() == CocktailNode.State.Mixed && !continuConversation[7])
         {
-            ActiveDragItem(5, 5, 6);
-            if (drag[5].gameObject.transform.GetChild(1).GetComponent<LiquidManager>().GetCurrentLiquid() >= drag[5].gameObject.transform.GetChild(1).GetComponent<LiquidManager>().GetMaxLiquid() * 0.7)
+            ActiveCreateGlass(5, 6);
+            if(glass != null)
             {
-                ContinueConversation();
-                continuConversation[7] = true;
-                continuConversation[8] = false;
-                nextButton.GetComponent<NextButton>().Active();
+                if (glass.gameObject.transform.GetChild(2).GetComponent<LiquidManager>().GetCurrentLiquid() >= glass.gameObject.transform.GetChild(2).GetComponent<LiquidManager>().GetMaxLiquid() * 0.7)
+                {
+                    ContinueConversation();
+                    continuConversation[7] = true;
+                    continuConversation[8] = false;
+                    nextButton.GetComponent<NextButton>().Active();
+                }
             }
+            
         }
         else if (shakerLiquid.GetCurrentLiquid() >= shakerLiquid.GetMaxLiquid() && !continuConversation[6])
         {
@@ -335,7 +354,7 @@ public class TutorialManager : MonoBehaviour
             }
             else
             {
-                glass.sortingOrder = 11;
+                //glass.sortingOrder = 11;
             }
 
             LerpSacele(maxScale, minScale, drag[_index].gameObject);
@@ -352,8 +371,8 @@ public class TutorialManager : MonoBehaviour
             }
             else
             {
-                glass.sortingOrder = initOrderingLayerDrag[_index];
-                glass.sortingLayerName = "Default";
+                //glass.sortingOrder = initOrderingLayerDrag[_index];
+                //glass.sortingLayerName = "Default";
             }
 
         }
@@ -413,6 +432,33 @@ public class TutorialManager : MonoBehaviour
             panel.SetActive(false);
             createObjectCollider[index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerBucket[index];
             createObjectCollider[index].gameObject.transform.localScale = new Vector3(2, 2, 2);
+        }
+    }
+
+    private void ActiveCreateGlass(float _maxTime, int timeIndex)
+    {
+        Vector3 maxScale = new Vector3(0.95f, 0.95f, 1.2f);
+        Vector3 minScale = new Vector3(0.55f, 0.55f, 0.8f);
+
+        time[timeIndex] += Time.deltaTime;
+
+
+        if (!createGlass.GetComponent<BoxCollider2D>().enabled)
+        {
+            createGlass.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            isGrowing = true;
+        }
+        if (!createGlass.gameObject.GetComponent<SpawnGlass>().GetIsCreated() && time[timeIndex] > _maxTime)
+        {
+            panel.SetActive(true);
+            LerpSacele(maxScale, minScale, createGlass.gameObject);
+            createGlass.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+        }
+        if (createGlass.gameObject.GetComponent<SpawnGlass>().GetIsCreated())
+        {
+            panel.SetActive(false);
+            createGlass.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+            createGlass.gameObject.transform.localScale = new Vector3(0.75f, 0.75f, 1);
         }
     }
 
@@ -490,5 +536,9 @@ public class TutorialManager : MonoBehaviour
         ice = item;
     }
 
+    public void SetGlass(GameObject _glass)
+    {
+        glass = _glass;
+    }
 
 }

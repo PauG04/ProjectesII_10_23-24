@@ -74,7 +74,10 @@ public class ClientManager : MonoBehaviour
         currentClientScript.SetSprite(node.sprite);
         if((node.currentDialogue.name == "HouseKeeper" || node.currentDialogue.name == "TutorialDialogue1") && tutorial != null)
         {
-            tutorial.SetIsFriend(true);
+            if(node.currentDialogue.name == "TutorialDialogue1")
+            {
+                tutorial.SetIsFriend(true);
+            }           
             currentClientScript.SetIsTutorial(true);
         }
     }

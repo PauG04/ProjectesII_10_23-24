@@ -27,6 +27,8 @@ public class LiquidManager : MonoBehaviour
     [Header("Shaker")]
     [SerializeField] private ShakerStateMachine shaker;
 
+    [SerializeField] private bool isTutorial;
+
 
     private void Awake()
     {
@@ -53,6 +55,11 @@ public class LiquidManager : MonoBehaviour
                 dragItems.SetHasToReturn(true);
             }
         }        
+
+        if(isTutorial && currentLiquid == 0)
+        {
+            currentLiquid = maxLiquid;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

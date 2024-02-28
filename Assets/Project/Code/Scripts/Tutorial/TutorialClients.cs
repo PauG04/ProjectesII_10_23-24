@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TutorialClients : MonoBehaviour
 {
-
-    //[SerializeField] private ImportantClientNode houseKeeper;
+    [SerializeField] private ImportantClientNode houseKeeper;
     [SerializeField] private ImportantClientNode friend;
 
     private void Start()
@@ -15,11 +14,10 @@ public class TutorialClients : MonoBehaviour
 
     private void InitHouseKeeper()
     {
-        //ClientManager.instance.SetNextImportantClient(houseKeeper);
-        //ClientManager.instance.SetNextClientIsImportant(true);
-        //ClientManager.instance.CreateNewClient();
+        ClientManager.instance.SetNextImportantClient(houseKeeper);
+        ClientManager.instance.SetNextClientIsImportant(true);
+        ClientManager.instance.CreateNewClient();
         ClientManager.instance.SetNextClientIsImportant(true);
         ClientManager.instance.SetNextImportantClient(friend); 
-        ClientManager.instance.CreateNewClient();
     }
 }

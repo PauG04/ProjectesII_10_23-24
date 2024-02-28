@@ -278,9 +278,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369faa39793b32c43acd63d959a791d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brokenBottle: {fileID: 0}
-  particles: {fileID: 0}
-  forceX: 5
+  brokenBottle: {fileID: 6918459718600216018, guid: ed0bee5b3dc1df849821ec1155c9f9e3, type: 3}
+  particles: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
+  forceX: 3
+  forceY: 1
 --- !u!114 &790261217673330239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +297,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 3fca708cc091d1243af026d5e3c198b8, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 3fca708cc091d1243af026d5e3c198b8, type: 3}
-  scaleMultiplier: 1.2
+  scaleMultiplier: 1
   itemCollider: {fileID: 0}
   rotationSpeed: 6
   horizontalSpeed: 6
@@ -304,7 +305,7 @@ MonoBehaviour:
   hasToBeDestroy: 0
   hasToReturn: 1
   hasToStayTheSameLayer: 1
-  changeSpriteMask: 1
+  changeSpriteMask: 0
   moveParent: 0
   isItem: 0
 --- !u!114 &8819774920043758160

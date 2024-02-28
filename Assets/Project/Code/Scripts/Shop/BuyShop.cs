@@ -28,24 +28,26 @@ public class BuyLiquid : MonoBehaviour
 
     private void OnMouseDown()
     {
-
-        if (item != null)
+        if(EconomyManager.instance.GetMoney() > price)
         {
-            if(isItem) 
-            { 
-                //llamar al inventory manager
+            if (item != null)
+            {
+                if (isItem)
+                {
+                    //llamar al inventory manager
+                }
+                else
+                {
+                    item.GetComponentInChildren<LiquidManager>().SetCurrentLiquid();
+                }
             }
             else
             {
-                item.GetComponentInChildren<LiquidManager>().SetCurrentLiquid();
-            }        
-        }
-        else
-        {
-            GameObject _item = Instantiate(recreateObject, _position, Quaternion.identity);
-            item = _item;
-            _item.transform.SetParent(_parent.transform, true);
-        }
+                GameObject _item = Instantiate(recreateObject, _position, Quaternion.identity);
+                item = _item;
+                _item.transform.SetParent(_parent.transform, true);
+            }
+        }      
     }
 
     public float GetPrice()

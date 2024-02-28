@@ -37,6 +37,14 @@ public class NextButton : MonoBehaviour
             }
         }
     }
+    private void Desactive()
+    {
+        if (currentDialogue == 3 || currentDialogue == 5 || currentDialogue == 8 || currentDialogue == 10 || currentDialogue == 12)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
 
     public void Active()
     {
@@ -45,12 +53,5 @@ public class NextButton : MonoBehaviour
         currentDialogue++;
     }
 
-    public void Desactive()
-    {
-        if (currentDialogue == 2 || currentDialogue == 4 || currentDialogue == 7 || currentDialogue == 9 || currentDialogue == 11)
-        {
-            GetComponent<SpriteRenderer>().enabled = false;
-            GetComponent<BoxCollider2D>().enabled = false;
-        }
-    }
+    
 }
