@@ -34,16 +34,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void Play(string name, string mixerName)
+    public void Play(string name, string mixerName, bool loop = false)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = Array.Find(sounds, sound => sound.soundName == name);
         s.source.outputAudioMixerGroup = mixer.FindMatchingGroups(mixerName)[0];
+        s.source.loop = loop;
         s.source.Play();
     }
 
     public void StopPlaying(string sound)
     {
-        Sound s = Array.Find(sounds, item => item.name == sound);
+        Sound s = Array.Find(sounds, item => item.soundName == sound);
         if (s != null)
             return;
         s.source.Stop();

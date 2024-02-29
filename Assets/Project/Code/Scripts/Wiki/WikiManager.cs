@@ -92,7 +92,7 @@ public class WikiManager : MonoBehaviour
 
     private void OpenWiki()
     {
-        AudioManager.instance.Play("OpenWiki", "SFX");
+        AudioManager.instance.Play("OpenBook", "SFX");
         firstPage.gameObject.SetActive(true);
         secondPage.gameObject.SetActive(true);
         UpdatePages(pageNumber);
