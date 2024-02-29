@@ -30,6 +30,7 @@ public class HammerHit : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(1) && hammer.GetIsDraggin()) 
         {
+            AudioManager.instance.Play("HammerHit", "SFX");
             m_BoxCollider.enabled = true;
             _camera.ShakeCamera(IntensityShaking);
             //hammer.Animation(true);

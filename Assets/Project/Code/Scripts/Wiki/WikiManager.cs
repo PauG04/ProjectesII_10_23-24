@@ -51,6 +51,7 @@ public class WikiManager : MonoBehaviour
     {
         if (pageNumber + 2 <= cocktails.Count)
         {
+            AudioManager.instance.Play("TurnPage", "SFX");
             pageNumber += 2;
             UpdatePages(pageNumber);
         }
@@ -60,6 +61,7 @@ public class WikiManager : MonoBehaviour
     {
         if (pageNumber >= 2)
         {
+            AudioManager.instance.Play("TurnPage", "SFX");
             pageNumber -= 2;
             UpdatePages(pageNumber);
         }
@@ -90,7 +92,7 @@ public class WikiManager : MonoBehaviour
 
     private void OpenWiki()
     {
-        //wiki.SetActive(true);
+        AudioManager.instance.Play("OpenBook", "SFX");
         firstPage.gameObject.SetActive(true);
         secondPage.gameObject.SetActive(true);
         UpdatePages(pageNumber);
@@ -98,7 +100,6 @@ public class WikiManager : MonoBehaviour
 
     private void CloseWiki()
     {
-        //wiki.SetActive(false);
         firstPage.gameObject.SetActive(false);
         secondPage.gameObject.SetActive(false);
     }

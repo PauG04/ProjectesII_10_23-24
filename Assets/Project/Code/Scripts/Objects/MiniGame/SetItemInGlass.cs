@@ -21,15 +21,19 @@ public class SetItemInGlass : MonoBehaviour
         {
             transform.SetParent(null);
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Decoration") && drag.GetInsideWorkspace())
         {
+            if (itemNode.itemName == "Cubo de Hielo")
+            {
+                AudioManager.instance.Play("IceCollision", "SFX");
+            }
+
             transform.SetParent(collision.transform);
-            GetComponent<DragItems>().enabled = false;
+            drag.enabled = false;
             isInGlass = true;
             collision.GetComponent<InsideDecorations>().AddItem(itemNode);
         }
