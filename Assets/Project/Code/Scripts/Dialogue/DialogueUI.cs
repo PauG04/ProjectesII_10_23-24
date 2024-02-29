@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Dialogue;
 using TMPro;
-using System.Runtime.CompilerServices;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace UI
 {
@@ -26,6 +24,9 @@ namespace UI
         private TextMeshProUGUI playerText;
         private TextMeshProUGUI AIText;
 
+		private TypeWriterEffect AiWriterEffect;
+		private TypeWriterEffect playerWriterEffect;
+
 		private Coroutine coroutineRunning;
 
 		private bool isSeparatorRunning;
@@ -37,6 +38,9 @@ namespace UI
 		    
 		    AIText = prefabAibubble.GetComponentInChildren<TextMeshProUGUI>();
 		    playerText = prefabPlayerbubble.GetComponentInChildren<TextMeshProUGUI>();
+
+			AiWriterEffect = AIText.GetComponent<TypeWriterEffect>();
+			playerWriterEffect = playerText.GetComponent<TypeWriterEffect>();
 
             DestroyChildrens(bubbleRoot);
         }
@@ -103,12 +107,14 @@ namespace UI
         }
 		private void AIBubble(string text)
 		{
-            AIText.text = text;
+			AiWriterEffect.SetText(text);
+            //AIText.text = text;
             Instantiate(prefabAibubble, bubbleRoot);
         }
 		private void PlayerBubble(string text)
 		{
-			playerText.text = text;
+			playerWriterEffect.SetText(text);
+			//playerText.text = text;
 			// Change to player when can talk
 			Instantiate(separator, bubbleRoot);
 		}
