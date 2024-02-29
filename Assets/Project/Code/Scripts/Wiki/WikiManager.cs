@@ -10,8 +10,8 @@ public class WikiManager : MonoBehaviour
     [SerializeField] private List<CocktailNode> cocktails;
 
     [SerializeField] private GameObject wiki;
-    [SerializeField] private WikiPage firstPage;
-    [SerializeField] private WikiPage secondPage;
+    [SerializeField] private WikiPage leftPage;
+    [SerializeField] private WikiPage rightPage;
 
     [SerializeField] private DragItems book;
     private bool bookIsOpened;
@@ -76,12 +76,12 @@ public class WikiManager : MonoBehaviour
     {
         if (page < cocktails.Count)
         {
-            firstPage.UpdatePage(cocktails[page]);
+            leftPage.UpdatePage(cocktails[page]);
 
             if (page + 1 < cocktails.Count)
-                secondPage.UpdatePage(cocktails[page + 1]);
+                rightPage.UpdatePage(cocktails[page + 1]);
             else
-                secondPage.ClearPage();
+                rightPage.ClearPage();
         }
     }
 
@@ -93,14 +93,14 @@ public class WikiManager : MonoBehaviour
     private void OpenWiki()
     {
         AudioManager.instance.Play("OpenBook", "SFX");
-        firstPage.gameObject.SetActive(true);
-        secondPage.gameObject.SetActive(true);
+        leftPage.gameObject.SetActive(true);
+        rightPage.gameObject.SetActive(true);
         UpdatePages(pageNumber);
     }
 
     private void CloseWiki()
     {
-        firstPage.gameObject.SetActive(false);
-        secondPage.gameObject.SetActive(false);
+        leftPage.gameObject.SetActive(false);
+        rightPage.gameObject.SetActive(false);
     }
 }
