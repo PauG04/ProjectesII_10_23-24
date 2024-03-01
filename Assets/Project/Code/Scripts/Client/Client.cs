@@ -43,6 +43,8 @@ public class Client : MonoBehaviour
     private bool isFriend;
     private bool isLocated;
 
+    private ClientInformation information;
+
     private void Awake()
     {
         conversant = GetComponent<AIConversant>();
@@ -101,9 +103,8 @@ public class Client : MonoBehaviour
             Debug.Log(drink);
              
         }
-
         payment = drink.price;
-
+        information.SetDrink(drink);
     }
     private bool CompareCocktails(CocktailNode.Type cocktail)
     {
@@ -331,5 +332,10 @@ public class Client : MonoBehaviour
     public bool GetIsLocated()
     {
         return isLocated;
+    }
+
+    public void SetInformation(ClientInformation _information)
+    {
+        information = _information;
     }
 }
