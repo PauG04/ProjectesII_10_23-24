@@ -1665,7 +1665,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -1764,6 +1764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightPage
       objectReference: {fileID: 0}
+    - target: {fileID: 2165754787126392904, guid: 3b4447d33c6059c49a1fb630dd3b010a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8037749646198739868, guid: 3b4447d33c6059c49a1fb630dd3b010a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1851,16 +1855,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 521202805131289818, guid: 3b4447d33c6059c49a1fb630dd3b010a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3278858412965004606, guid: 3b4447d33c6059c49a1fb630dd3b010a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2571455161748782244, guid: 3b4447d33c6059c49a1fb630dd3b010a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b4447d33c6059c49a1fb630dd3b010a, type: 3}
 --- !u!224 &263381105 stripped
 RectTransform:
@@ -3734,6 +3729,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a309048c252acd642b7358059d47c2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeIntensity: 0
+  EarthIntensity: 0
+  shakeTime: 0
+  timer: 0
+  shakeCamera: 0
 --- !u!114 &563136604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3888,6 +3888,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftPage
       objectReference: {fileID: 0}
+    - target: {fileID: 2165754787126392904, guid: 2d43efd8737be91459f04eee72fa5d47, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8037749646198739868, guid: 2d43efd8737be91459f04eee72fa5d47, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3975,16 +3979,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 521202805131289818, guid: 2d43efd8737be91459f04eee72fa5d47, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3278858412965004606, guid: 2d43efd8737be91459f04eee72fa5d47, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2571455161748782244, guid: 2d43efd8737be91459f04eee72fa5d47, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d43efd8737be91459f04eee72fa5d47, type: 3}
 --- !u!224 &576723744 stripped
 RectTransform:
@@ -6792,6 +6787,122 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 02754080b1f825c4292a4b50c48d8d37, type: 3}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0c11b320dd63c8d4f8feba7f3395c505, type: 3}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24f01344a922c8248b75827cf7ebc1f0, type: 3}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f4fe5922c0ab26545b08471c4ac078bd, type: 3}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c0ff10cde44de754986966e1bab4c891, type: 3}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f9b9f0af1aa9af4b8031726f1449a1e, type: 3}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4efca67e660cf19499af6a37f0f26828, type: 3}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d1bdeb28cfb3a6644a64c318db80b226, type: 3}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 59cf960cb0656fc46885615ed5735960, type: 3}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: dfc49f831c92bac42bc64c79a85045e9, type: 3}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[4].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[5].pitch
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[9].pitch
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[5].volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[9].volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[11].volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[3].soundName
+      value: LiquidCollision
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[4].soundName
+      value: LiquidCollisionGlass
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[5].soundName
+      value: ClientTalking
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[6].soundName
+      value: OpenBook
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[7].soundName
+      value: TurnPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[8].soundName
+      value: HammerHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[9].soundName
+      value: BreakIce
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[10].soundName
+      value: IceCollisionLiquid
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[11].soundName
+      value: ClientWalking
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7657,6 +7768,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1335187950}
   - component: {fileID: 1335187951}
+  - component: {fileID: 1335187952}
   m_Layer: 17
   m_Name: TableCollider
   m_TagString: Untagged
@@ -7724,6 +7836,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.62585175, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1335187952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335187949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04ddd67adfd3674ea4943be7b370b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1358040299
 PrefabInstance:
   m_ObjectHideFlags: 0

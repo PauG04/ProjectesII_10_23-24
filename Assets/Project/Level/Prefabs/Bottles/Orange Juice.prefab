@@ -78,6 +78,7 @@ MonoBehaviour:
   maxLiquid: 300
   currentLiquid: 300
   currentState: 0
+  glassLiquidRenderer: {fileID: 0}
   isGlass: 0
   dragItems: {fileID: 0}
   maxColliderPos: 0
@@ -339,7 +340,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 5791319493628100030}
   liquidManager: {fileID: 8318574558721693946}
   drink: {fileID: 11400000, guid: 58d6b5c8a7f40b741b7f721a6392c78b, type: 2}
-  liquidColor: {r: 1, g: 0.51359504, b: 0, a: 1}
+  isGlass: 0
+  spawnerPositionX: 0
 --- !u!114 &2835998745410993995
 MonoBehaviour:
   m_ObjectHideFlags: 0

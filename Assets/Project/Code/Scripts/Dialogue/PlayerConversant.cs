@@ -40,6 +40,7 @@ namespace Dialogue
         }
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
+            AudioManager.instance.Play("ClientTalking");
 			isChoosing = false;
 
             currentConversant = newConversant;
@@ -100,8 +101,8 @@ namespace Dialogue
         }
         public void Next()
 		{
-
-            int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
+			AudioManager.instance.Play("ClientTalking");
+			int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
 
             if (numPlayerResponses > 0)
             {

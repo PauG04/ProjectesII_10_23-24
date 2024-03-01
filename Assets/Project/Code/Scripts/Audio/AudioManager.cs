@@ -34,19 +34,26 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void Play(string name, string mixerName, bool loop = false)
+    public void Play(string name, string mixerName = "SFX")
     {
         Sound s = Array.Find(sounds, sound => sound.soundName == name);
         s.source.outputAudioMixerGroup = mixer.FindMatchingGroups(mixerName)[0];
-        s.source.loop = loop;
         s.source.Play();
+    }
+
+    public void SetPitch (string name, float pitch)
+    {
+        Sound s = Array.Find(sounds, sound => sound.soundName == name);
+        s.source.pitch = pitch;
     }
 
     public void StopPlaying(string sound)
     {
         Sound s = Array.Find(sounds, item => item.soundName == sound);
-        if (s != null)
+        if (s == null)
             return;
+        Debug.Log("stop sound");
+        s.source.loop = false;
         s.source.Stop();
     }
 }

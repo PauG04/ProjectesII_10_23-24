@@ -66,6 +66,8 @@ public class LiquidManager : MonoBehaviour
         {
             if (currentLiquid < maxLiquid)
             {
+                AudioManager.instance.Play("LiquidCollisionGlass");
+
                 LiquidParticle particle = collision.GetComponent<LiquidParticle>();
 
                 if (particleTypes.ContainsKey(particle.GetDrink()))

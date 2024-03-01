@@ -40,24 +40,6 @@ namespace Dialogue
                 }
             }           
         }
-        private void OnMouseDown()
-		{
-			//playerConversant.Next();
-			//Debug.Log("PlayerPressed");
-			//if (!playerConversant.GetCanContinue() && !hasExecuted)
-			//{
-			//	  playerConversant.SetCanContinue(true);
-			//	  if (playerConversant.HasNext())
-			//	  {
-			//		  playerConversant.Next();
-			//    }
-			//    hasExecuted = true;
-			//}
-		}
-        private void OnMouseUp()
-        {
-
-        }
 
 		public void SetDialogue(Dialogue dialogue)
 		{

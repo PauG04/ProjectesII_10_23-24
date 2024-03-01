@@ -27,11 +27,6 @@ public class SetItemInGlass : MonoBehaviour
     {
         if (collision.CompareTag("Decoration") && drag.GetInsideWorkspace())
         {
-            if (itemNode.itemName == "Cubo de Hielo")
-            {
-                AudioManager.instance.Play("IceCollision", "SFX");
-            }
-
             transform.SetParent(collision.transform);
             drag.enabled = false;
             isInGlass = true;
