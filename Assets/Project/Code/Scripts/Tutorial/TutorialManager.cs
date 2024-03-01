@@ -134,7 +134,15 @@ public class TutorialManager : MonoBehaviour
         {
             if (!drag[i].enabled && drag[i] != null)
             {
-                drag[i].gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                if(drag[i].gameObject.GetComponent<Rigidbody2D>() != null)
+                {
+                    drag[i].gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                }
+                else
+                {
+                    drag[i].gameObject.GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                }
+                
             }
         }
         if (!shaker.enabled)
