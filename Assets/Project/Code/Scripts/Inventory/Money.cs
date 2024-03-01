@@ -14,6 +14,6 @@ public class Money : MonoBehaviour
 
     private void Update()
     {
-        textMesh.text = EconomyManager.instance.GetMoney().ToString() + '€';
+        textMesh.text = EconomyManager.instance.GetMoney().ToString("00.00") + '€';
     }
 }

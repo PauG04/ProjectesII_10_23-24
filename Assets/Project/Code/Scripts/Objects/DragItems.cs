@@ -30,6 +30,7 @@ public class DragItems : MonoBehaviour
     [SerializeField] private bool changeSpriteMask;
     [SerializeField] private bool moveParent;
     [SerializeField] private bool isItem;
+    [SerializeField] private bool isItemGroup;
 
     private bool isObjectRotated;
     private bool isRotating;
@@ -180,6 +181,7 @@ public class DragItems : MonoBehaviour
 
                 if (hit.collider != null)
                 {
+                    if (hit.collider.transform.IsChildOf(transform))
                     if (hit.collider.transform.IsChildOf(transform))
                     {
                         if (rb2d != null)
@@ -352,8 +354,20 @@ public class DragItems : MonoBehaviour
                 {
                     if (hasToBeDestroy)
                     {
-                        Destroy(gameObject);                      
+                        Destroy(gameObject);
+                        if (isItem)
+                        {
+                            InventoryManager.instance.AddItem(gameObject.GetComponent<SetItemInGlass>().GetItemNode());
+                        }
+                        if (isItemGroup)
+                        {
+                            if (!GetComponent<BreakIce>().GetBroken())
+                            {
+                                InventoryManager.instance.AddItem(gameObject.GetComponent<GetItemInformation>().GetItemGroupNode());
+                            }
+                        }
                     }
+                    
                 }
             }
         }

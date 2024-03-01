@@ -182,9 +182,6 @@ MonoBehaviour:
   shakerLiquid: {fileID: 1987597851}
   createObjectCollider:
   - {fileID: 72553578}
-  - {fileID: 1411334966}
-  - {fileID: 91537046}
-  - {fileID: 1347684637}
   createGlass: {fileID: 2136114131}
   fridge: {fileID: 1173545816}
   velocity: 3
@@ -430,7 +427,7 @@ GameObject:
   - component: {fileID: 72553580}
   - component: {fileID: 72553579}
   - component: {fileID: 72553578}
-  - component: {fileID: 72553577}
+  - component: {fileID: 72553581}
   m_Layer: 0
   m_Name: Ice
   m_TagString: Untagged
@@ -453,21 +450,6 @@ Transform:
   m_Father: {fileID: 1495148452}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &72553577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72553575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa1f46cb712a40a41b8f6c36167eb914, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  createdObject: {fileID: 2322266429156579395, guid: 6d4a0a409aa5c35418ae9de94175c247, type: 3}
-  bucket: {fileID: 91537044}
-  tutorial: {fileID: 10719399}
 --- !u!61 &72553578
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -592,6 +574,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &72553581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72553575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfd1fa2082d5e9479ce632150cf487c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createdObject: {fileID: 2322266429156579395, guid: 6d4a0a409aa5c35418ae9de94175c247, type: 3}
+  bucket: {fileID: 91537044}
+  tutorial: {fileID: 10719399}
 --- !u!1 &91537044
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,6 +4284,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3164742363969609211, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: Roncola
+      value: 
+      objectReference: {fileID: 11400000, guid: 8b7c3c93fcb8c434fb39bace5a2e1296, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: tutorial
       value: 
       objectReference: {fileID: 10719399}
@@ -5447,6 +5448,7 @@ MonoBehaviour:
   changeSpriteMask: 1
   moveParent: 0
   isItem: 0
+  isItemGroup: 0
 --- !u!60 &1565650833
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6061,6 +6063,7 @@ MonoBehaviour:
   changeSpriteMask: 1
   moveParent: 0
   isItem: 0
+  isItemGroup: 0
 --- !u!60 &1631565369
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6732,6 +6735,7 @@ MonoBehaviour:
   changeSpriteMask: 1
   moveParent: 1
   isItem: 0
+  isItemGroup: 0
 --- !u!60 &1915401121
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -189,7 +189,7 @@ public class TutorialManager : MonoBehaviour
             ContinueConversation();
             client.GetComponent<BoxCollider2D>().enabled = true;
         }
-        else if (createObjectCollider[0].gameObject.GetComponent<CreateObject>().GetIsCreated() && !fridge.GetIsOpen())
+        else if (createObjectCollider[0].gameObject.GetComponent<CreateItemGroup>().GetIsCreated() && !fridge.GetIsOpen())
         {
             createObjectCollider[0].gameObject.transform.localScale = new Vector3(2, 2, 2);
             ActiveDragItem(5, 5, 9);
@@ -199,7 +199,7 @@ public class TutorialManager : MonoBehaviour
             continuConversation[8] = true;
             fridge.gameObject.transform.localScale = Vector3.one;
             ActiveCreateObjectFridge(0, 5, 8);
-            if (createObjectCollider[0].gameObject.GetComponent<CreateObject>().GetIsCreated())
+            if (createObjectCollider[0].gameObject.GetComponent<CreateItemGroup>().GetIsCreated())
             {
                 ContinueConversation();
                 continuConversation[9] = false;
@@ -429,13 +429,13 @@ public class TutorialManager : MonoBehaviour
             createObjectCollider[index].enabled = true;
             isGrowing = true;
         }
-        if (!createObjectCollider[index].gameObject.GetComponent<CreateObject>().GetIsCreated() && time[timeIndex] > _maxTime)
+        if (!createObjectCollider[index].gameObject.GetComponent<CreateItemGroup>().GetIsCreated() && time[timeIndex] > _maxTime)
         {
             panel.SetActive(true);
             LerpSacele(maxScale, minScale, createObjectCollider[index].gameObject);
             createObjectCollider[index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
         }
-        if (createObjectCollider[index].gameObject.GetComponent<CreateObject>().GetIsCreated())
+        if (createObjectCollider[index].gameObject.GetComponent<CreateItemGroup>().GetIsCreated())
         {
             panel.SetActive(false);
             createObjectCollider[index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerBucket[index];
