@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Client : MonoBehaviour
 {
-    private CocktailNode.Type drink;
+    private CocktailNode drink;
     private float payment;
 
     private SpriteRenderer spriteRenderer;
@@ -88,25 +88,26 @@ public class Client : MonoBehaviour
 
         if (isTutorial)
         {
-            drink = CocktailNode.Type.Roncola;
+            drink = ClientManager.instance.GetCocktail();
             conversant.HandleDialogue();
         }
         else
         {
             int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
-            drink = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
+            drink = WikiManager.instance.GetAvailableCocktails()[randomOrder];
             Dialogue.Dialogue currentDialogue = ClientManager.instance.GetRegularClientDialogues()[randomOrder];
             conversant.SetDialogue(currentDialogue);
             conversant.HandleDialogue();
             Debug.Log(drink);
+             
         }
-        
-        payment = 10.0f;
-    }
 
+        payment = drink.price;
+
+    }
     private bool CompareCocktails(CocktailNode.Type cocktail)
     {
-        if (cocktail == drink)
+        if (cocktail == drink.type)
             return true;
         return false;
     }
@@ -154,7 +155,6 @@ public class Client : MonoBehaviour
         }
         else
         {
-            Debug.Log("bien");
             conversant.SetDialogue(ClientManager.instance.GetGoodReactionDialogueTutorial());
             conversant.HandleDialogue();
             startTimer = true;
@@ -292,11 +292,11 @@ public class Client : MonoBehaviour
 
     public CocktailNode.Type GetOrder()
     {
-        return drink;
+        return drink.type;
     }
     public void SetOrder(CocktailNode.Type drink)
     {
-        this.drink = drink;
+        this.drink.type = drink;
     }
     public void SetCanLeave(bool state)
     {

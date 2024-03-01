@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateObject : MonoBehaviour
+public class CreateItemGroup : MonoBehaviour
 {
     [Header("GameObject")]
     [SerializeField] private GameObject createdObject;
@@ -16,7 +16,7 @@ public class CreateObject : MonoBehaviour
     private bool isCreated;
     private void OnMouseDown()
     {
-        if (InventoryManager.instance.UseItem(createdObject.GetComponent<SetItemInGlass>().GetItemNode()))
+        if (InventoryManager.instance.UseItem(createdObject.GetComponent<GetItemInformation>().GetItemGroupNode()))
         {
             GameObject item = Instantiate(createdObject, transform);
             item.transform.SetParent(null);
@@ -34,7 +34,7 @@ public class CreateObject : MonoBehaviour
                 item.GetComponent<GetItemInformation>().SetBucket(bucket);
             }
 
-            if(tutorial != null)
+            if (tutorial != null)
             {
                 tutorial.SetIce(item);
             }

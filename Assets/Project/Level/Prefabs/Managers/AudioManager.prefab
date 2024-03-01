@@ -58,33 +58,27 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - soundName: ShakingLiquid
-    clip: {fileID: 8300000, guid: 6f9b9f0af1aa9af4b8031726f1449a1e, type: 3}
+    clip: {fileID: 8300000, guid: 02754080b1f825c4292a4b50c48d8d37, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - soundName: DropLiquid
-    clip: {fileID: 8300000, guid: 6f9b9f0af1aa9af4b8031726f1449a1e, type: 3}
-    volume: 0.5
-    pitch: 1
+  - soundName: LiquidCollision
+    clip: {fileID: 8300000, guid: 0c11b320dd63c8d4f8feba7f3395c505, type: 3}
+    volume: 0
+    pitch: 3
     loop: 0
     source: {fileID: 0}
   - soundName: LiquidCollisionGlass
-    clip: {fileID: 8300000, guid: 6f9b9f0af1aa9af4b8031726f1449a1e, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - soundName: ClientWalking
-    clip: {fileID: 8300000, guid: 6f9b9f0af1aa9af4b8031726f1449a1e, type: 3}
-    volume: 0.5
+    clip: {fileID: 8300000, guid: 24f01344a922c8248b75827cf7ebc1f0, type: 3}
+    volume: 0
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - soundName: ClientTalking
-    clip: {fileID: 8300000, guid: 6f9b9f0af1aa9af4b8031726f1449a1e, type: 3}
-    volume: 0.5
-    pitch: 1
+    clip: {fileID: 8300000, guid: f4fe5922c0ab26545b08471c4ac078bd, type: 3}
+    volume: 0.3
+    pitch: 0.7
     loop: 0
     source: {fileID: 0}
   - soundName: OpenBook
@@ -105,14 +99,14 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - soundName: BrokeIce
-    clip: {fileID: 8300000, guid: 6f9b9f0af1aa9af4b8031726f1449a1e, type: 3}
-    volume: 0.5
-    pitch: 1
+  - soundName: BreakIce
+    clip: {fileID: 8300000, guid: d1bdeb28cfb3a6644a64c318db80b226, type: 3}
+    volume: 0.4
+    pitch: 0.8
     loop: 0
     source: {fileID: 0}
   - soundName: IceCollisionLiquid
-    clip: {fileID: 8300000, guid: 6f9b9f0af1aa9af4b8031726f1449a1e, type: 3}
+    clip: {fileID: 8300000, guid: 59cf960cb0656fc46885615ed5735960, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0

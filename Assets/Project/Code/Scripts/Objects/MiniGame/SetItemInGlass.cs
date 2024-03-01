@@ -45,7 +45,7 @@ public class SetItemInGlass : MonoBehaviour
         }
     }
 
-    public ItemNode GetItemGroupNode()
+    public ItemNode GetItemNode()
     {
         return itemNode;
     }

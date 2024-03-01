@@ -36,6 +36,8 @@ public class ClientManager : MonoBehaviour
 
     [SerializeField] private bool isNormalDay;
 
+    [SerializeField] private CocktailNode Roncola;
+
     private void Awake()
     {
         if (instance == null)
@@ -145,6 +147,11 @@ public class ClientManager : MonoBehaviour
     public float GetVerticalVelocity()
     {
         return verticalVelocity;
+    }
+
+    public CocktailNode GetCocktail()
+    {
+        return Roncola;
     }
     #endregion
 
