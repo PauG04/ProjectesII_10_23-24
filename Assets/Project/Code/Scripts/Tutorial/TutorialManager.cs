@@ -58,6 +58,7 @@ public class TutorialManager : MonoBehaviour
     private GameObject glass;
 
     private bool isButtonActive;
+    private bool isActive;
 
     [SerializeField] private GameObject nextButton;
 
@@ -123,6 +124,7 @@ public class TutorialManager : MonoBehaviour
         arrow.SetActive(false);
 
         isButtonActive = false;
+        isActive = false;
     }
 
     private void Update()
@@ -174,11 +176,17 @@ public class TutorialManager : MonoBehaviour
             nextButton.GetComponent<NextButton>().Active();
             isButtonActive = true;
         }
+        if (ice == null && isFriend && !isActive)
+        {
+            client.GetComponent<BoxCollider2D>().enabled = false;
+            isActive = true;
+        }
 
         if (id == tutorialID.BaseTutorial && !nextButton.GetComponent<SpriteRenderer>().enabled && startTutorial)
         {
             CallActiveDrag();
         }
+        
     }
 
     private void CallActiveDrag()
@@ -187,6 +195,7 @@ public class TutorialManager : MonoBehaviour
         {
             ContinueConversation();
             client.GetComponent<BoxCollider2D>().enabled = true;
+
         }
         else if (createObjectCollider[0].gameObject.GetComponent<CreateItemGroup>().GetIsCreated() && !fridge.GetIsOpen())
         {
@@ -464,7 +473,7 @@ public class TutorialManager : MonoBehaviour
         if (createGlass.gameObject.GetComponent<SpawnGlass>().GetIsCreated())
         {
             panel.SetActive(false);
-            createGlass.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+            createGlass.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
             createGlass.gameObject.transform.localScale = new Vector3(0.75f, 0.75f, 1);
         }
     }
