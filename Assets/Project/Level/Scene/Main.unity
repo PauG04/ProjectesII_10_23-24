@@ -2022,11 +2022,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4632203015347343070, guid: 2e641f3e2be8d0449a5c5340c6fd5aa7, type: 3}
+      propertyPath: isBottle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6918459718600216018, guid: 2e641f3e2be8d0449a5c5340c6fd5aa7, type: 3}
       propertyPath: m_Name
       value: Tonic
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3704022571659701557, guid: 2e641f3e2be8d0449a5c5340c6fd5aa7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2613,7 +2618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &348563347
 Transform:
   m_ObjectHideFlags: 0
@@ -2847,11 +2852,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4632203015347343070, guid: 75fa7ffa080dadb429f0663d1eded128, type: 3}
+      propertyPath: isBottle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6918459718600216018, guid: 75fa7ffa080dadb429f0663d1eded128, type: 3}
       propertyPath: m_Name
       value: Gin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3596171303357732467, guid: 75fa7ffa080dadb429f0663d1eded128, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2906,12 +2916,12 @@ MonoBehaviour:
   currentState: 0
   glassLiquidRenderer: {fileID: 0}
   isGlass: 0
+  isBottle: 0
   dragItems: {fileID: 0}
   maxColliderPos: 0
   minColliderPos: 0
   dropLiquid: {fileID: 2082426027}
   shaker: {fileID: 0}
-  isTutorial: 0
 --- !u!61 &392556000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3388,11 +3398,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4632203015347343070, guid: 047ca54583087fe40abc80f5a76e04c4, type: 3}
+      propertyPath: isBottle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6918459718600216018, guid: 047ca54583087fe40abc80f5a76e04c4, type: 3}
       propertyPath: m_Name
       value: Wine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1712364000999750610, guid: 047ca54583087fe40abc80f5a76e04c4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4432,7 +4447,7 @@ RectTransform:
   m_GameObject: {fileID: 617634301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalScale: {x: 2, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1396526231}
@@ -7076,6 +7091,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: information
+      value: 
+      objectReference: {fileID: 1404680345}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: isNormalDay
       value: 1
       objectReference: {fileID: 0}
@@ -7196,11 +7215,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4632203015347343070, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
+      propertyPath: isBottle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6918459718600216018, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
       propertyPath: m_Name
       value: Cola
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3200151794808772386, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7453,11 +7477,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4632203015347343070, guid: a9fd505246f7f424395ac980cefb79d7, type: 3}
+      propertyPath: isBottle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6918459718600216018, guid: a9fd505246f7f424395ac980cefb79d7, type: 3}
       propertyPath: m_Name
       value: Whiskey
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5970614444727062307, guid: a9fd505246f7f424395ac980cefb79d7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7562,12 +7591,12 @@ MonoBehaviour:
   currentState: 0
   glassLiquidRenderer: {fileID: 0}
   isGlass: 0
+  isBottle: 0
   dragItems: {fileID: 0}
   maxColliderPos: 0.1482
   minColliderPos: 0.1482
   dropLiquid: {fileID: 0}
   shaker: {fileID: 0}
-  isTutorial: 0
 --- !u!1 &1313827211
 GameObject:
   m_ObjectHideFlags: 0
@@ -8090,7 +8119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396526230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8, y: -3.1, z: 0}
+  m_LocalPosition: {x: -1.78, y: -3.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8242,7 +8271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3cb3e7d6bf77c424bbe9c0f5fb846705, type: 2}
   m_sharedMaterial: {fileID: 5103645570388107742, guid: 3cb3e7d6bf77c424bbe9c0f5fb846705, type: 2}
@@ -8269,8 +8298,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 2.5
+  m_fontSizeBase: 2.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8305,7 +8334,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.4917779, y: 0, z: -0.4917773, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -8365,7 +8394,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1404680341}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f0312a9a8f29ef41866fb68936f2a74, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ab50cbf01d0a3d489df4a6e04b2bdd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1420899552
@@ -9207,7 +9236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1593641078
 Transform:
   m_ObjectHideFlags: 0
@@ -9577,11 +9606,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4632203015347343070, guid: 5a9df1a44eb5b7c47af9c4042238b7e7, type: 3}
+      propertyPath: isBottle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6918459718600216018, guid: 5a9df1a44eb5b7c47af9c4042238b7e7, type: 3}
       propertyPath: m_Name
       value: Lemon Juice
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8461314987947733656, guid: 5a9df1a44eb5b7c47af9c4042238b7e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9819,6 +9853,10 @@ PrefabInstance:
     - target: {fileID: 7592354066149477342, guid: 20dfc1a265dda2348a3c655295fd21f2, type: 3}
       propertyPath: m_Name
       value: TimeManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592354066149477342, guid: 20dfc1a265dda2348a3c655295fd21f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8572935995668479574, guid: 20dfc1a265dda2348a3c655295fd21f2, type: 3}
       propertyPath: m_RootOrder
@@ -11117,7 +11155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1818548468
 Transform:
   m_ObjectHideFlags: 0
@@ -14240,7 +14278,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange Juice
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8318574558721693946, guid: e62aa46430d703148b74596e1625563a, type: 3}
+      propertyPath: isBottle
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7103474458489962281, guid: e62aa46430d703148b74596e1625563a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14561,11 +14604,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4632203015347343070, guid: dc23a707e3f11fd48815094dd7c992c6, type: 3}
+      propertyPath: isBottle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6918459718600216018, guid: dc23a707e3f11fd48815094dd7c992c6, type: 3}
       propertyPath: m_Name
       value: Vodka
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1292639578628394485, guid: dc23a707e3f11fd48815094dd7c992c6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15007,11 +15055,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6362806960958536186, guid: da78a67f455f0b74596453ea555794e8, type: 3}
+      propertyPath: isBottle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8671257232246213615, guid: da78a67f455f0b74596453ea555794e8, type: 3}
       propertyPath: m_Name
       value: Rum
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6052094515254851330, guid: da78a67f455f0b74596453ea555794e8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15205,11 +15258,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4632203015347343070, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
+      propertyPath: isBottle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6918459718600216018, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
       propertyPath: m_Name
       value: Soda
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3210885769510727825, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

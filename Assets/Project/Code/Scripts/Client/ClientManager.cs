@@ -38,6 +38,8 @@ public class ClientManager : MonoBehaviour
 
     [SerializeField] private CocktailNode Roncola;
 
+    [SerializeField] private ClientInformation information;
+
     private void Awake()
     {
         if (instance == null)
@@ -69,6 +71,7 @@ public class ClientManager : MonoBehaviour
     {
         currentClient = Instantiate(client, clientParent);
         currentClientScript = currentClient.GetComponent<Client>();
+        currentClientScript.SetInformation(information);
     }
     private void CreateImportantClient(ImportantClientNode node)
     {
@@ -77,7 +80,8 @@ public class ClientManager : MonoBehaviour
         currentClientScript.SetNotNeedTakeDrink(node.notNeedTakeDrink);
         currentClientScript.GetConversant().SetDialogue(node.currentDialogue);
         currentClientScript.SetSprite(node.sprite);
-        if((node.currentDialogue.name == "HouseKeeper" || node.currentDialogue.name == "TutorialDialogue1") && tutorial != null)
+        currentClientScript.SetInformation(information);
+        if ((node.currentDialogue.name == "HouseKeeper" || node.currentDialogue.name == "TutorialDialogue1") && tutorial != null)
         {
             if(node.currentDialogue.name == "TutorialDialogue1")
             {
