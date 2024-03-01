@@ -10,6 +10,7 @@ public class NextButton : MonoBehaviour
     private float maxTime;
 
     [SerializeField] private PlayerConversant playerConversant;
+    [SerializeField] private GameObject text;
 
     private void Start()
     {
@@ -43,6 +44,7 @@ public class NextButton : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
+            text.SetActive(false);
         }
     }
 
@@ -50,6 +52,7 @@ public class NextButton : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<BoxCollider2D>().enabled = true;
+        text.SetActive(true);
         currentDialogue++;
     }
 

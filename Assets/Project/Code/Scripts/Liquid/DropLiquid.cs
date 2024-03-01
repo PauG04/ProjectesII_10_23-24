@@ -13,8 +13,8 @@ public class DropLiquid : MonoBehaviour
     private Material texture;
     private RotateBottle rotateBottle;
 
-    private float minRotationToPourLiquid = 70f;
-    private float maxRotationToPourLiquid = 140f;
+    [SerializeField] private float minRotationToPourLiquid = 70f;
+    [SerializeField] private float maxRotationToPourLiquid = 140f;
 
     private float timeSinceLastPour = 0f;
 

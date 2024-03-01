@@ -18,7 +18,7 @@ public class WikiPage : MonoBehaviour
     public void UpdatePage(CocktailNode cocktail)
     {
         nameText.text = cocktail.cocktailName;
-        subtitleText.text = cocktail.subtitle;
+        subtitleText.text = cocktail.price.ToString() + "€";
         descriptionText.text = cocktail.description;
         spriteRenderer.sprite = cocktail.sprite;
     }
