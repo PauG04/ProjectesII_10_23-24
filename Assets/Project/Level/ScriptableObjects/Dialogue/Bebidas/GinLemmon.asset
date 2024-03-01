@@ -40,8 +40,7 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   isTextPaused: 0
   text: Me podrias poner un Gin Lemmon
-  children:
-  - c709c2b9-e55a-45fd-9210-8d295e34d551
+  children: []
   rect:
     serializedVersion: 2
     x: 245
@@ -65,29 +64,4 @@ MonoBehaviour:
   nodes:
   - {fileID: -8687512651684032362}
   - {fileID: -194514751203165331}
-  - {fileID: 8475405260759495423}
   newNodeOffset: {x: 250, y: 0}
---- !u!114 &8475405260759495423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: c709c2b9-e55a-45fd-9210-8d295e34d551
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  isTextPaused: 0
-  text: Claro aqui tienes
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 464
-    y: 171
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 

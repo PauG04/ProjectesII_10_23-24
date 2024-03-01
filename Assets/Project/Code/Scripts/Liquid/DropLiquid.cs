@@ -86,7 +86,6 @@ public class DropLiquid : MonoBehaviour
 
             if (timeSinceLastPour >= pouringInterval)
             {
-
                 GameObject liquid = GameObject.Instantiate(liquidPref, spawnPoint.position, Quaternion.identity);
 
                 if (!isGlass)

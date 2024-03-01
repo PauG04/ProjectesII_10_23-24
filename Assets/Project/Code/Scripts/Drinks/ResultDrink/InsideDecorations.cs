@@ -7,6 +7,8 @@ public class InsideDecorations : MonoBehaviour
 {
     private Dictionary<ItemNode, int> insideDecorations;
 
+    [SerializeField] private LiquidManager liquidManager;
+
     private void Awake()
     {
         insideDecorations = new Dictionary<ItemNode, int>();
@@ -24,7 +26,13 @@ public class InsideDecorations : MonoBehaviour
 
     public void AddItem(ItemNode item)
     {
-        if(insideDecorations.ContainsKey(item))
+        if (item.itemName == "Cubo de Hielo" && liquidManager.GetCurrentLiquid() > 0)
+        {
+            AudioManager.instance.Play("IceCollisionLiquid");
+            Debug.Log("SUENA");
+        }
+
+        if (insideDecorations.ContainsKey(item))
         {
             insideDecorations[item]++;
         }
@@ -36,11 +44,13 @@ public class InsideDecorations : MonoBehaviour
 
     public void SubstractItem(ItemNode item)
     {
-        insideDecorations[item]--;
-        if (insideDecorations[item] <= 0)
+        if(insideDecorations.ContainsKey(item))
         {
-            insideDecorations.Remove(item);
+            insideDecorations[item]--;
+            if (insideDecorations[item] <= 0)
+            {
+                insideDecorations.Remove(item);
+            }
         }
     }
-
 }

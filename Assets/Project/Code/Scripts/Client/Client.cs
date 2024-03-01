@@ -190,7 +190,6 @@ public class Client : MonoBehaviour
 
     private void ArriveAnimation()
     {
-        AudioManager.instance.Play("ClientWalking", "SFX", true);
         arriveAnimation = true;
     }
 
@@ -205,7 +204,6 @@ public class Client : MonoBehaviour
                 arriveAnimation = false;
                 InitClient();
                 isLocated = true;
-                AudioManager.instance.StopPlaying("ClientWalking");
             }
         }
 
@@ -218,7 +216,6 @@ public class Client : MonoBehaviour
             if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
             {
                 ClientManager.instance.CreateNewClient();
-                AudioManager.instance.StopPlaying("ClientWalking");
                 Destroy(gameObject);
                 if(isFriend)
                 {
@@ -288,7 +285,6 @@ public class Client : MonoBehaviour
         time += Time.deltaTime;
         if(time > maxTime)
         {
-            AudioManager.instance.Play("ClientWalking", "SFX", true);
             startTimer = false;
             leaveAnimation = true;
         }
