@@ -16,7 +16,6 @@ public class Client : MonoBehaviour
     [Header("Client Position")]
     [SerializeField] private GameObject clientPosition;
     [SerializeField] private GameObject leavePosition;
-    [SerializeField] private float maxYPosition;
     [SerializeField] private float horizontalVelocity;
     [SerializeField] private float verticalVelocity;
     private BoxCollider2D boxCollider;
@@ -200,7 +199,7 @@ public class Client : MonoBehaviour
         {
             MoveClientHorizontal(ClientManager.instance.GetClientPosition());
             MoveClientVertical();
-            if (transform.localPosition.x > ClientManager.instance.GetClientPosition().localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
+            if (transform.localPosition.x > ClientManager.instance.GetClientPosition().localPosition.x - 0.01)
             {
                 arriveAnimation = false;
                 InitClient();
@@ -214,7 +213,7 @@ public class Client : MonoBehaviour
              
             MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
             MoveClientVertical();
-            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
+            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
             {
                 ClientManager.instance.CreateNewClient();
                 Destroy(gameObject);
