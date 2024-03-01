@@ -14,6 +14,7 @@ public class LiquidManager : MonoBehaviour
 
     [Header("Drag Values")]
     [SerializeField] private bool isGlass;
+    [SerializeField] private bool isBottle;
     [SerializeField] private DragItems dragItems;
     private BoxCollider2D boxCollider;
 
@@ -26,7 +27,6 @@ public class LiquidManager : MonoBehaviour
 
     [Header("Shaker")]
     [SerializeField] private ShakerStateMachine shaker;
-    [SerializeField] private bool isTutorial;
 
 
     private void Awake()
@@ -54,7 +54,7 @@ public class LiquidManager : MonoBehaviour
                 dragItems.SetHasToReturn(true);
             }
         }
-        if(isTutorial && currentLiquid == 0)
+        if(currentLiquid == 0 && isBottle)
         {
             currentLiquid = maxLiquid;
         }
