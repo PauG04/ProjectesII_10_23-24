@@ -3734,6 +3734,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a309048c252acd642b7358059d47c2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeIntensity: 0
+  EarthIntensity: 0
+  shakeTime: 0
+  timer: 0
+  shakeCamera: 0
 --- !u!114 &563136604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9619,7 +9624,7 @@ MonoBehaviour:
   prefabAibubble: {fileID: 4473247143237022253, guid: 3cf8baf734afd7340a20e1f69eccecc0, type: 3}
   prefabPlayerbubble: {fileID: 6362522199187375553, guid: 69d4eb99357b6e942985b14925fca4aa, type: 3}
   separator: {fileID: 3520490234333895521, guid: 741ea0c5f26caa14da6b21419f94f421, type: 3}
-  timerDelay: 2
+  timerDelay: 4
 --- !u!4 &1632440637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8572935995668479574, guid: 20dfc1a265dda2348a3c655295fd21f2, type: 3}
@@ -14950,6 +14955,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 323539286}
     m_Modifications:
+    - target: {fileID: 596962840024562122, guid: 3cf8baf734afd7340a20e1f69eccecc0, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 53514affd259ee44e9e0853e5f6c8b78, type: 2}
+    - target: {fileID: 596962840024562122, guid: 3cf8baf734afd7340a20e1f69eccecc0, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5913657881471369077, guid: 53514affd259ee44e9e0853e5f6c8b78, type: 2}
+    - target: {fileID: 596962840024562122, guid: 3cf8baf734afd7340a20e1f69eccecc0, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4473247143237022253, guid: 3cf8baf734afd7340a20e1f69eccecc0, type: 3}
       propertyPath: m_Name
       value: AiBubbleText

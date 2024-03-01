@@ -21,12 +21,6 @@ namespace UI
 		[Space(10)]
 		[SerializeField] private float timerDelay = 2.0f;
 
-        private TextMeshProUGUI playerText;
-        private TextMeshProUGUI AIText;
-
-		private TypeWriterEffect AiWriterEffect;
-		private TypeWriterEffect playerWriterEffect;
-
 		private Coroutine coroutineRunning;
 
 		private bool isSeparatorRunning;
@@ -35,12 +29,6 @@ namespace UI
 		{
 		    playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
 			playerConversant.onConversationUpdated += UpdateChat;
-		    
-		    AIText = prefabAibubble.GetComponentInChildren<TextMeshProUGUI>();
-		    playerText = prefabPlayerbubble.GetComponentInChildren<TextMeshProUGUI>();
-
-			AiWriterEffect = AIText.GetComponent<TypeWriterEffect>();
-			playerWriterEffect = playerText.GetComponent<TypeWriterEffect>();
 
             DestroyChildrens(bubbleRoot);
         }
@@ -71,7 +59,11 @@ namespace UI
         }
 		private void UpdateChat()
 		{
-			if (!playerConversant.IsActive())
+            if (playerConversant.IsNewConversant())
+            {
+                DestroyChildrens(bubbleRoot);
+            }
+            if (!playerConversant.IsActive())
 			{
 				return;
 			}
@@ -86,7 +78,7 @@ namespace UI
             }
             else 
 			{
-				AIBubble(playerConversant.GetText());
+                AIBubble(playerConversant.GetText());
             }
         }
 		private void PlayerChoosing()
@@ -107,18 +99,14 @@ namespace UI
         }
 		private void AIBubble(string text)
 		{
-			AiWriterEffect.SetText(text);
-            //AIText.text = text;
-            Instantiate(prefabAibubble, bubbleRoot);
+            GameObject AIBubble = Instantiate(prefabAibubble, bubbleRoot);
+			AIBubble.GetComponentInChildren<TypeWriterEffect>().SetText(text);
         }
-		private void PlayerBubble(string text)
+        private void PlayerBubble(string text)
 		{
-			playerWriterEffect.SetText(text);
-			//playerText.text = text;
-			// Change to player when can talk
-			Instantiate(separator, bubbleRoot);
-		}
-		private void DestroyChildrens(Transform root)
+			GameObject PlayerBubble = Instantiate(separator, bubbleRoot);
+        }
+        private void DestroyChildrens(Transform root)
 		{
 			foreach (Transform item in root)
 			{

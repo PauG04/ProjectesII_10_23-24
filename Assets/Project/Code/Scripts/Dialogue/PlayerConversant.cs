@@ -100,7 +100,6 @@ namespace Dialogue
         }
         public void Next()
 		{
-
             int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
 
             if (numPlayerResponses > 0)

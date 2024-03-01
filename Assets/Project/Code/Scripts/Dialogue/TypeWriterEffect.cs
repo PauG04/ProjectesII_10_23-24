@@ -8,9 +8,6 @@ using System;
 [RequireComponent(typeof(TMP_Text))]
 public class TypeWriterEffect : MonoBehaviour
 {
-    [Header("Test String")]
-    [SerializeField] private string text;
-
     private TMP_Text textBox;
 
     private int currentVisibleCharacterIndex;
@@ -47,11 +44,6 @@ public class TypeWriterEffect : MonoBehaviour
         textboxFullEventDelay = new WaitForSeconds(sendDoneDelay);
     }
 
-    private void Start()
-    {
-        SetText(text);
-    }
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -65,6 +57,12 @@ public class TypeWriterEffect : MonoBehaviour
 
     public void SetText(string text)
     {
+
+        if (typeWriterCoroutine != null)
+        {
+            StopCoroutine(typeWriterCoroutine);
+        }
+
         textBox.text = text;
         textBox.maxVisibleCharacters = 0;
         currentVisibleCharacterIndex = 0;
