@@ -979,10 +979,9 @@ Transform:
   m_LocalPosition: {x: 0.012895931, y: -0.804209, z: 0.06929685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 879681179}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &128616198
 GameObject:
@@ -2240,11 +2239,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6592022153187443094, guid: 8e1cea0d5d404154396c1fcff2689a26, type: 3}
   m_PrefabInstance: {fileID: 1471963393060068422}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &296910462 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9071389106930928307, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-  m_PrefabInstance: {fileID: 1119733625}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &299869278
 GameObject:
@@ -3988,7 +3982,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &549211536
 MonoBehaviour:
@@ -4279,6 +4273,7 @@ GameObject:
   - component: {fileID: 573178248}
   - component: {fileID: 573178249}
   - component: {fileID: 573178250}
+  - component: {fileID: 573178251}
   m_Layer: 0
   m_Name: ClientsEventsDay1
   m_TagString: Untagged
@@ -4353,6 +4348,34 @@ MonoBehaviour:
   fridge: {fileID: 129253370}
   createObjectCollider: {fileID: 866900849}
   ice: {fileID: 0}
+--- !u!114 &573178251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573178247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4fe7987a9a636408967aea1932ee71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: TakeMoney
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 573178249}
+        m_TargetAssemblyTypeName: HouseKeeperEvent, Assembly-CSharp
+        m_MethodName: TakeMoney
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &576723743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4702,7 +4725,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &604636930
 MonoBehaviour:
@@ -6387,15 +6410,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879681178}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.012895931, y: -0.804209, z: 0.06929685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 573178248}
   - {fileID: 1615568259}
-  m_Father: {fileID: 117828965}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &881073534
 GameObject:
@@ -7707,38 +7730,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9071389106930928307, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1119733628}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9800209f159faa848b82fe811fc10922, type: 3}
 --- !u!4 &1119733626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8422938162780285518, guid: 9800209f159faa848b82fe811fc10922, type: 3}
   m_PrefabInstance: {fileID: 1119733625}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1119733628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296910462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4fe7987a9a636408967aea1932ee71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action: ChooseDrink
-  onTrigger:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1119733629 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
   m_PrefabInstance: {fileID: 1119733625}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296910462}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42115859f764caf45b2eca1d7f06e280, type: 3}
@@ -13450,7 +13454,7 @@ Transform:
   - {fileID: 2005156152}
   - {fileID: 608204448}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1955310961
 GameObject:

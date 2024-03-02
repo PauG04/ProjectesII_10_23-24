@@ -13,7 +13,6 @@ namespace Dialogue
 
 		private Client client;
 
-		
 		protected void Awake()
 		{
 			playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();

@@ -27,7 +27,6 @@ namespace Dialogue
 		public event Action onConversationUpdated;
 
 		private bool isTextRunning;
-		private bool isPaused;
 		public IEnumerator WriteTextWithDelay()
 		{
 			if (!currentNode.IsTextPaused())
@@ -41,7 +40,7 @@ namespace Dialogue
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
             //AudioManager.instance.Play("ClientTalking");
-			Debug.Log("ENTRA");
+
 			isChoosing = false;
 
             currentConversant = newConversant;
@@ -139,7 +138,7 @@ namespace Dialogue
 		{
 			if(currentNode != null)
 			{
-				TriggerAction(currentNode.GetOnEnterAction());
+				TriggerAction(currentNode.GetOnExitAction());
 			}
 		}
 		private void TriggerAction(string action)
@@ -165,7 +164,7 @@ namespace Dialogue
 		{
 			if (currentNode != null)
 			{
-                return isPaused = currentNode.IsTextPaused();
+                return currentNode.IsTextPaused();
             }
 			return true;
 		}

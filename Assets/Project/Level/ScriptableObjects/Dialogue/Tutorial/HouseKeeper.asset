@@ -43,8 +43,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 2014
-    y: 104
+    x: 2220
+    y: 103
     width: 200
     height: 120
   onEnterAction: 
@@ -74,6 +74,31 @@ MonoBehaviour:
     height: 120
   onEnterAction: 
   onExitAction: 
+--- !u!114 &-1694622213496032496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 122275b4-c228-47e9-997f-f673508c2415
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Espera un momento.
+  children:
+  - fe0f0fe4-f8a7-4643-9259-f0ea22e9f13e
+  rect:
+    serializedVersion: 2
+    x: 1716
+    y: 104
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +121,7 @@ MonoBehaviour:
   - {fileID: 504162138692903529}
   - {fileID: 4419195689598472935}
   - {fileID: -6232112043796233339}
+  - {fileID: -1694622213496032496}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &504162138692903529
 MonoBehaviour:
@@ -113,10 +139,10 @@ MonoBehaviour:
   isTextPaused: 0
   text: Me voy ya que he quedado con Carlos para ver los toros
   children:
-  - fe0f0fe4-f8a7-4643-9259-f0ea22e9f13e
+  - 122275b4-c228-47e9-997f-f673508c2415
   rect:
     serializedVersion: 2
-    x: 1517
+    x: 1490
     y: 102
     width: 200
     height: 120
@@ -141,7 +167,7 @@ MonoBehaviour:
   - 3094e96c-ff57-4303-a3c9-5048905e9a6c
   rect:
     serializedVersion: 2
-    x: 18
+    x: 17
     y: 99
     width: 200
     height: 120
@@ -185,19 +211,18 @@ MonoBehaviour:
   m_Name: fe0f0fe4-f8a7-4643-9259-f0ea22e9f13e
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 1
-  text: "Espera un momento, eso de ah\xED son 2000 euros, anda trae pa aca asi ya
-    tienes pagada la entrada"
+  isTextPaused: 0
+  text: "Eso de ah\xED son 2000 euros, anda trae pa aca asi ya tienes pagada la entrada"
   children:
   - 4ee92028-309e-478c-ad65-85bf0a73f0c3
   rect:
     serializedVersion: 2
-    x: 1767
-    y: 102
+    x: 1959
+    y: 107
     width: 200
     height: 120
   onEnterAction: 
-  onExitAction: 
+  onExitAction: TakeMoney
 --- !u!114 &7551636265615894126
 MonoBehaviour:
   m_ObjectHideFlags: 0
