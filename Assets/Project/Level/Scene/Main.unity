@@ -2365,7 +2365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338327760}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2, y: -3.1, z: 0}
+  m_LocalPosition: {x: 0.6, y: -3.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7130,6 +7130,66 @@ PrefabInstance:
       propertyPath: horizontalVelocity
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: clientSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: clientSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 461d236b7e1eefe418223a8184c9f9c9, type: 3}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: clientSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: a59c29858f1aaa7449ccd952054587db, type: 3}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: clientSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6602edef89fdb4e45ba3835721322927, type: 3}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: currentDayClients.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: currentDayClients.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8496c0010a673f843acb8b876eac885a, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: currentDayClients.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d7a1411a409a9647843f1c0918aa1e5, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularClientHitDialogues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularBadReactionDialogues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularClientHitDialogues.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: b5f1052e50187264c9e5ffc49873a2e2, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularGoodReactionDialogues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularBadReactionDialogues.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ca0906f43ed51c47b9d00e6bcb0cb86, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularBadReactionDialogues.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: bd87befed5ee7b54795ee6182b480df4, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularBadReactionDialogues.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 38dc03a8845ffbb469fa35c7e1ba60ba, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularGoodReactionDialogues.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
     - target: {fileID: 9071389106930928307, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: m_Name
       value: ClientManager
@@ -8114,7 +8174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1396526231
 Transform:
   m_ObjectHideFlags: 0
@@ -8123,7 +8183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396526230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.78, y: -3.1, z: 0}
+  m_LocalPosition: {x: -1.2, y: -3.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10359,7 +10419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 287.98, y: 395.32}
+  m_AnchoredPosition: {x: 287.97998, y: 395.32}
   m_SizeDelta: {x: -575.96, y: -790.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1751302626

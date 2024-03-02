@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ClientInformation : MonoBehaviour
+public class OrderPanel : MonoBehaviour
 {
-    private CocktailNode drink;
+    private CocktailNode cocktail;
 
     private TextMeshPro textMesh;
 
@@ -15,13 +15,15 @@ public class ClientInformation : MonoBehaviour
     }
     private void Update()
     {
-        if(drink != null) 
-        {
-            textMesh.text = drink.name.ToString();
-        }      
+        //cocktail = ClientManager.instance.GetCurrentClientScript().GetOrder();
+        //if(cocktail != null) 
+        //{
+        //    textMesh.text = cocktail.cocktailName.ToString();
+        //}      
+        textMesh.text = " ";
     }
-    public void SetDrink(CocktailNode _drink)
+    public void SetDrink(CocktailNode _cocktail)
     {
-        drink = _drink;
+        cocktail = _cocktail;
     }
 }
