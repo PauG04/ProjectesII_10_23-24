@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: Casero
   m_EditorClassIdentifier: 
   clientName: Casero
-  notNeedTakeDrink: 1
   sprite: {fileID: 21300000, guid: 1125c6229dfa8d14ebe24286e4e2740f, type: 3}
+  notNeedTakeDrink: 1
+  acceptsAll: 0
+  acceptsNothing: 0
+  acceptsAllCocktails: 0
+  possibleOrders:
+  - {fileID: 11400000, guid: 5ee31d61876300942ac422b2ef11376e, type: 2}
   dialogues:
   - {fileID: 11400000, guid: 0a249e1851903af49a981aa8e0de4989, type: 2}
-  currentDialogue: {fileID: 11400000, guid: 0a249e1851903af49a981aa8e0de4989, type: 2}
+  goodReactions:
+  - {fileID: 11400000, guid: f5b1445ef902e4b44ab07d20e22ed868, type: 2}
+  badReactions:
+  - {fileID: 11400000, guid: 6a36de4aaee5d4b4192f14a9a6e53300, type: 2}
+  dialogue: {fileID: 0}
+  goodReaction: {fileID: 0}
+  badReaction: {fileID: 0}

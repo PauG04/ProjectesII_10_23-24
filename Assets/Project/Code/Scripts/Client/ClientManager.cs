@@ -2,43 +2,35 @@ using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ClientManager : MonoBehaviour
 {
     public static ClientManager instance { get; private set; }
 
+    [SerializeField] private List<ClientNode> currentDayClients;
+    private int clientCounter;
+
     [SerializeField] Transform clientParent;
     [SerializeField] GameObject client;
     private GameObject currentClient;
     private Client currentClientScript;
-    private bool nextClientIsImportant;
-    private ImportantClientNode nextImportantClient;
+    private ClientNode currentClientNode;
+
 
     [Header("Dialogue")]
     [SerializeField] private List<Dialogue.Dialogue> regularClientDialogues;
-    [SerializeField] private Dialogue.Dialogue badReactionDialogue;
-    [SerializeField] private Dialogue.Dialogue goodReactionDialogue;
-    [SerializeField] private Dialogue.Dialogue badReactionDialogueTutorial;
-    [SerializeField] private Dialogue.Dialogue goodReactionDialogueTutorial;
-    [SerializeField] private Dialogue.Dialogue clientHitDialogue;
+    [SerializeField] private List<Dialogue.Dialogue> regularGoodReactionDialogues;
+    [SerializeField] private List<Dialogue.Dialogue> regularBadReactionDialogues;
+    [SerializeField] private List<Dialogue.Dialogue> regularClientHitDialogues;
+    [SerializeField] private List<Sprite> clientSprites;
 
     [Header("Client Position")]
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private Transform clientPosition;
     [SerializeField] private Transform DestroyPosition;
-    [SerializeField] private float maxYPosition;
     [SerializeField] private float horizontalVelocity;
-    [SerializeField] private float verticalVelocity;
-
-    [SerializeField] private List<Sprite> clientSprites;
-    [SerializeField] private TutorialManager tutorial;
-
-    [SerializeField] private bool isNormalDay;
-
-    [SerializeField] private CocktailNode Roncola;
-
-    [SerializeField] private ClientInformation information;
 
     private void Awake()
     {
@@ -51,47 +43,21 @@ public class ClientManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        nextClientIsImportant = false;
-        if(isNormalDay)
-        {
-            CreateNewClient();
-        }
+        clientCounter = 0;
+        currentClientNode = currentDayClients[clientCounter];
+
+        CreateClient();
     }
 
-    public void CreateNewClient()
+    public void CreateClient()
     {
-        if(nextClientIsImportant)
-            CreateImportantClient(nextImportantClient);
-        else
-            CreateRegularClient();
-        nextClientIsImportant = false;
-    }
+        currentClientNode = currentDayClients[clientCounter];
+        clientCounter++;
 
-    private void CreateRegularClient()
-    {
         currentClient = Instantiate(client, clientParent);
         currentClientScript = currentClient.GetComponent<Client>();
-        currentClientScript.SetInformation(information);
-    }
-    private void CreateImportantClient(ImportantClientNode node)
-    {
-        currentClient = Instantiate(client, clientParent);
-        currentClientScript = currentClient.GetComponent<Client>();
-        currentClientScript.SetNotNeedTakeDrink(node.notNeedTakeDrink);
-        currentClientScript.GetConversant().SetDialogue(node.currentDialogue);
-        currentClientScript.SetSprite(node.sprite);
-        currentClientScript.SetInformation(information);
-        if ((node.currentDialogue.name == "HouseKeeper" || node.currentDialogue.name == "TutorialDialogue1") && tutorial != null)
-        {
-            if(node.currentDialogue.name == "TutorialDialogue1")
-            {
-                tutorial.SetIsFriend(true);
-                currentClientScript.SetIsFriend(true);
-
-            }
-            currentClientScript.SetIsTutorial(true);
-
-        }
+        currentClientScript.SetClientNode(currentClientNode);
+        currentClientScript.InitClient();
     }
 
     #region GETTERS
@@ -107,26 +73,17 @@ public class ClientManager : MonoBehaviour
     {
         return regularClientDialogues;
     }
-    public Dialogue.Dialogue GetBadReactionDialogue()
+    public List<Dialogue.Dialogue> GetRegularGoodReactionDialogues()
     {
-        return badReactionDialogue;
+        return regularGoodReactionDialogues;
     }
-    public Dialogue.Dialogue GetGoodReactionDialogue()
+    public List<Dialogue.Dialogue> GetRegularBadReactionDialogues()
     {
-        return goodReactionDialogue;
+        return regularBadReactionDialogues;
     }
-    public Dialogue.Dialogue GetBadReactionDialogueTutorial()
+    public List<Dialogue.Dialogue> GetRegularClientHitDialogues()
     {
-        return badReactionDialogueTutorial;
-    }
-    public Dialogue.Dialogue GetGoodReactionDialogueTutorial()
-    {
-        return goodReactionDialogueTutorial;
-    }
-
-    public Dialogue.Dialogue GetClientHit()
-    {
-        return clientHitDialogue;
+        return regularClientHitDialogues;
     }
     public Transform GetSpawnPosition()
     {
@@ -140,33 +97,9 @@ public class ClientManager : MonoBehaviour
     {
         return DestroyPosition;
     }
-    public float GetMaxYPosition()
-    {
-        return maxYPosition;
-    }
     public float GetHorizontalVelocity()
     {
         return horizontalVelocity;
-    }
-    public float GetVerticalVelocity()
-    {
-        return verticalVelocity;
-    }
-
-    public CocktailNode GetCocktail()
-    {
-        return Roncola;
-    }
-    #endregion
-
-    #region
-    public void SetNextClientIsImportant(bool value)
-    {
-        nextClientIsImportant = value;
-    }
-    public void SetNextImportantClient(ImportantClientNode node)
-    {
-        nextImportantClient = node;
     }
     #endregion
 }
