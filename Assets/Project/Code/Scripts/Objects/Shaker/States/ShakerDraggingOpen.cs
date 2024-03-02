@@ -247,7 +247,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
                 LiquidParticle liquidParticle = liquid.GetComponent<LiquidParticle>();
                 liquidParticle.SetCocktailState(_liquidManager.GetDrinkState());
-                Debug.Log(_liquidManager.GetParticleTypes().Keys.Last());
 
                 liquidParticle.SetDrink(_liquidManager.GetParticleTypes().Keys.Last());
 

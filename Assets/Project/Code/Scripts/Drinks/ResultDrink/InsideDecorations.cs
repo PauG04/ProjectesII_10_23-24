@@ -16,11 +16,6 @@ public class InsideDecorations : MonoBehaviour
         insideDecorations = new Dictionary<ItemNode, int>();
     }
 
-    private void Update()
-    {
-        //Debug.Log(insideDecorations.Count);
-    }
-
     public Dictionary<ItemNode, int> GetDecorations()
     {
         return insideDecorations;
@@ -31,7 +26,6 @@ public class InsideDecorations : MonoBehaviour
         if (item.itemName == "Cubo de Hielo" && liquidManager.GetCurrentLiquid() > 0)
         {
             AudioManager.instance.Play("IceCollisionLiquid");
-            Debug.Log("SUENA");
         }
 
         if (insideDecorations.ContainsKey(item))

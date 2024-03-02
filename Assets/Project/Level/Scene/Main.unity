@@ -4280,7 +4280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &573178248
 Transform:
   m_ObjectHideFlags: 0
@@ -7624,21 +7624,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: information
-      value: 
-      objectReference: {fileID: 1404680345}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: isNormalDay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: clientParent
       value: 
       objectReference: {fileID: 519648756}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: maxYPosition
-      value: 1.45
-      objectReference: {fileID: 0}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: spawnPosition
       value: 
@@ -7652,77 +7640,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1774486261}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: verticalVelocity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: clientHitDialogue
+      propertyPath: regularClientDialogues.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: f12de13ef94862a49bea4891023284ab, type: 2}
+      objectReference: {fileID: 11400000, guid: d0a0c3488ed84da47831f69ceeb8428c, type: 2}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: horizontalVelocity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: clientSprites.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: clientSprites.Array.data[0]
+      propertyPath: regularClientDialogues.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 461d236b7e1eefe418223a8184c9f9c9, type: 3}
+      objectReference: {fileID: 11400000, guid: f0c4ce0464aec7447bac7ff09ad6c3ce, type: 2}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: clientSprites.Array.data[1]
+      propertyPath: regularClientDialogues.Array.data[2]
       value: 
-      objectReference: {fileID: 21300000, guid: a59c29858f1aaa7449ccd952054587db, type: 3}
+      objectReference: {fileID: 11400000, guid: 9c917377c464b424aa6bb39858a31cf9, type: 2}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: clientSprites.Array.data[2]
+      propertyPath: regularClientDialogues.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 6602edef89fdb4e45ba3835721322927, type: 3}
+      objectReference: {fileID: 11400000, guid: f02531ba8e868724d905c6e39e66183c, type: 2}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: currentDayClients.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: currentDayClients.Array.data[0]
+      propertyPath: regularClientDialogues.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 8496c0010a673f843acb8b876eac885a, type: 2}
+      objectReference: {fileID: 11400000, guid: 3999a6891f83717419ffa4bdff72ea38, type: 2}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: currentDayClients.Array.data[1]
+      propertyPath: regularClientDialogues.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 3d7a1411a409a9647843f1c0918aa1e5, type: 2}
+      objectReference: {fileID: 11400000, guid: 037583db416862647ac9171ffc0681cf, type: 2}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: regularClientHitDialogues.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: regularBadReactionDialogues.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: regularClientHitDialogues.Array.data[0]
+      propertyPath: regularClientDialogues.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: b5f1052e50187264c9e5ffc49873a2e2, type: 2}
+      objectReference: {fileID: 11400000, guid: fc32a544e4d454b47849b695a268c135, type: 2}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: regularGoodReactionDialogues.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: regularBadReactionDialogues.Array.data[0]
+      propertyPath: regularClientDialogues.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: 1ca0906f43ed51c47b9d00e6bcb0cb86, type: 2}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: regularBadReactionDialogues.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: bd87befed5ee7b54795ee6182b480df4, type: 2}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: regularBadReactionDialogues.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 38dc03a8845ffbb469fa35c7e1ba60ba, type: 2}
-    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
-      propertyPath: regularGoodReactionDialogues.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
+      objectReference: {fileID: 11400000, guid: 368704b3e6160604397c9f53e11ce337, type: 2}
     - target: {fileID: 9071389106930928307, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: m_Name
       value: ClientManager
