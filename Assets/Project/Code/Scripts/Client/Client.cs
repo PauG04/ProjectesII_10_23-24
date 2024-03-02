@@ -36,6 +36,7 @@ public class Client : MonoBehaviour
     private bool isLocated;
 
     private ClientNode clientNode;
+    private bool canBeHitted;
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class Client : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         isLocated = false;
+        canBeHitted = true;
     }
 
     private void Start()
@@ -174,7 +176,7 @@ public class Client : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Hammer") && !startTimer)
+        if (collision.CompareTag("Hammer") && !startTimer && canBeHitted)
         {
             int randomHitDialogue = Random.Range(0, ClientManager.instance.GetRegularClientHitDialogues().Count);
             conversant.SetDialogue(ClientManager.instance.GetRegularClientHitDialogues()[randomHitDialogue]);
@@ -220,5 +222,10 @@ public class Client : MonoBehaviour
     public void SetCanLeave(bool state)
     {
         canLeave = state;
+    }
+
+    public void SetCanBeHitted(bool state)
+    {
+        canBeHitted = state;
     }
 }

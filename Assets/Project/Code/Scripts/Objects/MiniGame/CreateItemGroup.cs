@@ -11,7 +11,7 @@ public class CreateItemGroup : MonoBehaviour
     [SerializeField] private GameObject bucket;
 
     [Header("Tutorial")]
-    [SerializeField] private TutorialManager tutorial;
+    [SerializeField] private FriendEvent tutorial;
 
     private bool isCreated;
     private void OnMouseDown()

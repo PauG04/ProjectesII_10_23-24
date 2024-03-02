@@ -9,6 +9,8 @@ public class InsideDecorations : MonoBehaviour
 
     [SerializeField] private LiquidManager liquidManager;
 
+    private ItemNode _item;
+
     private void Awake()
     {
         insideDecorations = new Dictionary<ItemNode, int>();
@@ -35,6 +37,7 @@ public class InsideDecorations : MonoBehaviour
         if (insideDecorations.ContainsKey(item))
         {
             insideDecorations[item]++;
+            _item = item;
         }
         else
         {
@@ -52,5 +55,14 @@ public class InsideDecorations : MonoBehaviour
                 insideDecorations.Remove(item);
             }
         }
+    }
+
+    public int GetIceInside()
+    {
+        if(_item != null)
+        {
+            return insideDecorations[_item];
+        }
+        return 0;
     }
 }
