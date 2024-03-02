@@ -40,6 +40,7 @@ public class CocktailNode : ScriptableObject
     public string description;
     public Sprite sprite;
     public Color color;
+    [Range(0, 1)]
     public float errorMargin;
 
     public CocktailIngredientDictionary serializableIngredients;

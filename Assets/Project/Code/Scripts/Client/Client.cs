@@ -72,9 +72,7 @@ public class Client : MonoBehaviour
         order = clientNode.possibleOrders[randomOrder];
         payment = order.price;
 
-        
-        int randomDialogue = Random.Range(0, clientNode.dialogues.Count);
-        Dialogue.Dialogue currentDialogue = clientNode.dialogues[randomDialogue];
+        Dialogue.Dialogue currentDialogue = clientNode.dialogues[randomOrder];
         conversant.SetDialogue(currentDialogue);
 
         spriteRenderer.sprite = clientNode.sprite;
@@ -117,7 +115,6 @@ public class Client : MonoBehaviour
     private void ReactWell()
     {
         clientNode.RandomizeGoodReaction();
-        Debug.Log(clientNode.goodReaction.name);
         conversant.SetDialogue(clientNode.goodReaction);
         conversant.HandleDialogue();
         Pay();
@@ -126,7 +123,6 @@ public class Client : MonoBehaviour
     private void ReactBad()
     {
         clientNode.RandomizeBadReaction();
-        Debug.Log(clientNode.badReaction.name);
         conversant.SetDialogue(clientNode.badReaction);
         conversant.HandleDialogue();
     }

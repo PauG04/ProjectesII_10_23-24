@@ -63,17 +63,19 @@ public class CalculateDrink : MonoBehaviour
         {
             //Check if same decorations
             if (!decorations.ContainsKey(decoration.Key))
+            {
                 return false;
+            }
 
             //Check if same quantity
             if (decoration.Value == 1 || decoration.Value == 2)
             {
-                if (decorations[decoration.Key] < 1 || decorations[decoration.Key] >= 2)
+                if (decorations[decoration.Key] < 1 || decorations[decoration.Key] > 2)
                     return false;
             }
             else
             {
-                if (decorations[decoration.Key] < 2 || decorations[decoration.Key] >= 4)
+                if (decorations[decoration.Key] < 3 || decorations[decoration.Key] > 4)
                     return false;
             }
         }
@@ -84,7 +86,9 @@ public class CalculateDrink : MonoBehaviour
 
         //Check if same state
         if (state != cocktail.state)
+        {
             return false;
+        }
 
         foreach (KeyValuePair<DrinkNode, int> ingredient in cocktail.ingredients)
         {
@@ -96,6 +100,7 @@ public class CalculateDrink : MonoBehaviour
             if (typesOfDrink[ingredient.Key] < ingredient.Value * 10 * cocktail.errorMargin)
                 return false;
         }
+        Debug.Log(cocktail);
         return true;
     }
 
