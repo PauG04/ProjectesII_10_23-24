@@ -104,5 +104,15 @@ public class ClientManager : MonoBehaviour
     {
         return horizontalVelocity;
     }
+
+    public ClientNode GetClient()
+    {
+        return currentClientNode;
+    }
+
+    public GameObject GetClientObject()
+    {
+        return currentClientScript.gameObject;
+    }
     #endregion
 }

@@ -40,7 +40,7 @@ public class NextButton : MonoBehaviour
     }
     private void Desactive()
     {
-        if (currentDialogue == 3 || currentDialogue == 5 || currentDialogue == 8 || currentDialogue == 10 || currentDialogue == 12)
+        if (currentDialogue == 5 || currentDialogue == 7 || currentDialogue == 8 || currentDialogue == 9 || currentDialogue == 10 || currentDialogue == 11 || currentDialogue == 12)
         {
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;

@@ -7,7 +7,7 @@ public class SpawnGlass : MonoBehaviour
     [SerializeField] private GameObject objectToSpawn;
     private DragItems dragObject;
 
-    [SerializeField] private TutorialManager tutorial;
+    [SerializeField] private FriendEvent tutorial;
     private bool isCreated;
 
     private void OnMouseDown()
@@ -22,7 +22,7 @@ public class SpawnGlass : MonoBehaviour
 
         if(tutorial != null)
         {
-            tutorial.SetGlass(newGlass);
+            tutorial.SetGlass(newGlass.transform.GetChild(4).gameObject);
         }
     }
 

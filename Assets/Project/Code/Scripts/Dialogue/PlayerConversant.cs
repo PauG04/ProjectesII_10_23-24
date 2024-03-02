@@ -170,5 +170,6 @@ namespace Dialogue
 			return true;
 		}
 
-	}
+
+    }
 }
