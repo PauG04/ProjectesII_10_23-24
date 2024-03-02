@@ -117,6 +117,7 @@ public class Client : MonoBehaviour
     private void ReactWell()
     {
         clientNode.RandomizeGoodReaction();
+        Debug.Log(clientNode.goodReaction.name);
         conversant.SetDialogue(clientNode.goodReaction);
         conversant.HandleDialogue();
         Pay();
@@ -125,6 +126,7 @@ public class Client : MonoBehaviour
     private void ReactBad()
     {
         clientNode.RandomizeBadReaction();
+        Debug.Log(clientNode.badReaction.name);
         conversant.SetDialogue(clientNode.badReaction);
         conversant.HandleDialogue();
     }
