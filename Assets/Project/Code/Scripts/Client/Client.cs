@@ -66,17 +66,14 @@ public class Client : MonoBehaviour
     {
         boxCollider.enabled = true;
 
-        if (!clientNode.notNeedTakeDrink)
-        {
-            int randomOrder = Random.Range(0, clientNode.possibleOrders.Count);
-            order = clientNode.possibleOrders[randomOrder];
-            payment = order.price;
-        }
+        int randomOrder = Random.Range(0, clientNode.possibleOrders.Count);
+        order = clientNode.possibleOrders[randomOrder];
+        payment = order.price;
+
         
         int randomDialogue = Random.Range(0, clientNode.dialogues.Count);
         Dialogue.Dialogue currentDialogue = clientNode.dialogues[randomDialogue];
         conversant.SetDialogue(currentDialogue);
-        conversant.HandleDialogue();
 
         spriteRenderer.sprite = clientNode.sprite;
         spriteRenderer.flipX = true;
@@ -149,6 +146,7 @@ public class Client : MonoBehaviour
             {
                 arriveAnimation = false;
                 isLocated = true;
+                conversant.HandleDialogue();
             }
         }
 

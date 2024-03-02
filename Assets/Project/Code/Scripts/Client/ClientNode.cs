@@ -14,7 +14,6 @@ public class ClientNode : ScriptableObject
 
     public bool acceptsAll;
     public bool acceptsNothing;
-    public bool acceptsAllCocktails;
     public List<CocktailNode> possibleOrders;
 
     public List<Dialogue.Dialogue> dialogues;

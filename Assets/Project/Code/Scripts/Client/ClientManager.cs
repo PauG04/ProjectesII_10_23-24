@@ -1,8 +1,5 @@
 using Dialogue;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ClientManager : MonoBehaviour
@@ -44,7 +41,6 @@ public class ClientManager : MonoBehaviour
         }
 
         clientCounter = 0;
-        currentClientNode = currentDayClients[clientCounter];
 
         CreateClient();
     }
@@ -53,6 +49,13 @@ public class ClientManager : MonoBehaviour
     {
         currentClientNode = currentDayClients[clientCounter];
         clientCounter++;
+
+        if (currentClientNode.clientName == "Regular")
+        {
+            currentClientNode.dialogues = regularClientDialogues;
+            currentClientNode.goodReactions = regularGoodReactionDialogues;
+            currentClientNode.badReactions = regularBadReactionDialogues;
+        }
 
         currentClient = Instantiate(client, clientParent);
         currentClientScript = currentClient.GetComponent<Client>();
