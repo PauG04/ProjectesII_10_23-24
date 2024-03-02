@@ -15,7 +15,6 @@ public class ClientManager : MonoBehaviour
     private Client currentClientScript;
     private ClientNode currentClientNode;
 
-
     [Header("Dialogue")]
     [SerializeField] private List<Dialogue.Dialogue> regularClientDialogues;
     [SerializeField] private List<Dialogue.Dialogue> regularGoodReactionDialogues;
@@ -115,4 +114,4 @@ public class ClientManager : MonoBehaviour
         return currentClientScript.gameObject;
     }
     #endregion
-}
+}

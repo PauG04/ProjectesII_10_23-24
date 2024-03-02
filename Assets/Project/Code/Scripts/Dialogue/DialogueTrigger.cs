@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 namespace Dialogue
@@ -13,8 +15,18 @@ namespace Dialogue
 		{
             if (actionToTrigger == action)
 			{
-				onTrigger.Invoke();
+                onTrigger.Invoke();
 			}
+		}
+
+		public void SetTriggerAction(string action)
+		{
+			this.action = action;
+		}
+
+		public void SetOnTriggerEvent(UnityAction action)
+		{
+			onTrigger.AddListener(action);
 		}
 	}
 }

@@ -15,20 +15,18 @@ public class HouseKeeperEvent : MonoBehaviour
     private ClientNode client;
     private GameObject clientObject;
 
+    private bool triggerSetted = false;
+
     private void Update()
     {
         if(client != null && client.clientName == "Casero")
         {
-            if(playerConversant.GetCanContinue() && playerConversant.IsActive())
+            if (!triggerSetted)
             {
-                if (playerConversant.HasNext())
-                {
-                    playerConversant.Next();
-                    EconomyManager.instance.AddMoney(-2000);
-                    enabled = false;
-                }              
+                clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("TakeMoney");
+                clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(TakeMoney);
+                triggerSetted = true;
             }
-            
         }
         else
         {
@@ -41,5 +39,8 @@ public class HouseKeeperEvent : MonoBehaviour
             clientObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
-
+    public void TakeMoney()
+    {
+        EconomyManager.instance.AddMoney(-2000);
+    }
 }

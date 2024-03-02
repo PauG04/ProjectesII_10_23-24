@@ -18,6 +18,9 @@ namespace UI
 		[SerializeField] private GameObject prefabAibubble;
         [SerializeField] private GameObject prefabPlayerbubble;
         [SerializeField] private GameObject separator;
+
+		private TypeWriterEffect typeWriterBubble;
+
 		[Space(10)]
 		[SerializeField] private float timerDelay = 2.0f;
 
@@ -37,18 +40,23 @@ namespace UI
 		{
 			if (playerConversant.IsActive())
 			{
-				if (playerConversant.HasNext() && !playerConversant.IsChoosing() && !playerConversant.GetTextIsRunning())
+				if (!playerConversant.GetTextIsRunning())
+				{
+                    TypeWriterEffect.CompleteTextRevealed -= WriteText;
+                }
+
+                if (playerConversant.HasNext() && !playerConversant.IsChoosing() && !playerConversant.GetTextIsRunning())
 				{
 					if (coroutineRunning != null)
 					{
                         StopCoroutine(SeparatorDelay());
+						isSeparatorRunning = false;
                     }
-
-                    coroutineRunning = StartCoroutine(playerConversant.WriteTextWithDelay());
+					TypeWriterEffect.CompleteTextRevealed += WriteText;
 				} 
 				else if ((playerConversant.IsChoosing() || !playerConversant.HasNext()) && !isSeparatorRunning)
 				{
-                    coroutineRunning = StartCoroutine(SeparatorDelay());
+                    //coroutineRunning = StartCoroutine(SeparatorDelay());
                 }
             }
 
@@ -56,6 +64,10 @@ namespace UI
 			{
 				Destroy(bubbleRoot.GetChild(0).gameObject);
 			}
+        }
+		private void WriteText()
+		{
+            coroutineRunning = StartCoroutine(playerConversant.WriteTextWithDelay());
         }
 		private void UpdateChat()
 		{
