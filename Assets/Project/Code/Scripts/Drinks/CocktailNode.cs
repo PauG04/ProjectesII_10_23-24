@@ -83,7 +83,7 @@ public class CocktailNode : ScriptableObject
         foreach (KeyValuePair<ItemNode, int> decoration in decorations)
         {
             description += "con ";
-            if (decoration.Value <= 1)
+            if (decoration.Value <= 2)
                 description += "poco hielo";
             else
                 description += "mucho hielo";

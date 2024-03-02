@@ -9,16 +9,13 @@ public class ClientManager : MonoBehaviour
     [SerializeField] private List<ClientNode> currentDayClients;
     private int clientCounter;
 
-    [SerializeField] Transform clientParent;
-    [SerializeField] GameObject client;
+    [SerializeField] private Transform clientParent;
+    [SerializeField] private GameObject client;
     private GameObject currentClient;
     private Client currentClientScript;
     private ClientNode currentClientNode;
 
     [Header("Dialogue")]
-    [SerializeField] private List<Dialogue.Dialogue> regularClientDialogues;
-    [SerializeField] private List<Dialogue.Dialogue> regularGoodReactionDialogues;
-    [SerializeField] private List<Dialogue.Dialogue> regularBadReactionDialogues;
     [SerializeField] private List<Dialogue.Dialogue> regularClientHitDialogues;
     [SerializeField] private List<Sprite> clientSprites;
 
@@ -49,13 +46,6 @@ public class ClientManager : MonoBehaviour
         currentClientNode = currentDayClients[clientCounter];
         clientCounter++;
 
-        if (currentClientNode.clientName == "Regular")
-        {
-            currentClientNode.dialogues = regularClientDialogues;
-            currentClientNode.goodReactions = regularGoodReactionDialogues;
-            currentClientNode.badReactions = regularBadReactionDialogues;
-        }
-
         currentClient = Instantiate(client, clientParent);
         currentClientScript = currentClient.GetComponent<Client>();
         currentClientScript.SetClientNode(currentClientNode);
@@ -70,18 +60,6 @@ public class ClientManager : MonoBehaviour
     public Client GetCurrentClientScript()
     {
         return currentClientScript;
-    }
-    public List<Dialogue.Dialogue> GetRegularClientDialogues()
-    {
-        return regularClientDialogues;
-    }
-    public List<Dialogue.Dialogue> GetRegularGoodReactionDialogues()
-    {
-        return regularGoodReactionDialogues;
-    }
-    public List<Dialogue.Dialogue> GetRegularBadReactionDialogues()
-    {
-        return regularBadReactionDialogues;
     }
     public List<Dialogue.Dialogue> GetRegularClientHitDialogues()
     {

@@ -13,7 +13,6 @@ public class ClientNode : ScriptableObject
     public bool notNeedTakeDrink;
 
     public bool acceptsAll;
-    public bool acceptsNothing;
     public List<CocktailNode> possibleOrders;
 
     public List<Dialogue.Dialogue> dialogues;

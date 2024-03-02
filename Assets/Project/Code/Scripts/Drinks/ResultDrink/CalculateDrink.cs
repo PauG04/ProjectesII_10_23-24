@@ -75,7 +75,7 @@ public class CalculateDrink : MonoBehaviour
             }
             else
             {
-                if (decorations[decoration.Key] < 3 || decorations[decoration.Key] > 4)
+                if (decorations[decoration.Key] < 3 || decorations[decoration.Key] > 5)
                     return false;
             }
         }

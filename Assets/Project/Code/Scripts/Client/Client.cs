@@ -80,6 +80,7 @@ public class Client : MonoBehaviour
     }
     private bool CompareCocktails(CocktailNode.Type cocktail)
     {
+        Debug.Log(order.type.ToString());
         if (order.type == cocktail)
             return true;
         return false;
@@ -97,7 +98,7 @@ public class Client : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp())
+        if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp() && !clientNode.notNeedTakeDrink)
         {
             LiquidManager liquidManagerResult = collision.GetComponentInChildren<LiquidManager>();
 
@@ -118,6 +119,7 @@ public class Client : MonoBehaviour
         conversant.SetDialogue(clientNode.goodReaction);
         conversant.HandleDialogue();
         Pay();
+        startTimer = true;
     }
 
     private void ReactBad()
