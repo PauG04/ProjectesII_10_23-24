@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class CalculateDrink : MonoBehaviour
@@ -54,6 +52,7 @@ public class CalculateDrink : MonoBehaviour
         return CocktailNode.Type.Error;
     }
 
+
     private bool CheckCocktail(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state, CocktailNode cocktail, Sprite sprite, Dictionary<ItemNode, int> decorations)
     {
         //Check if same sprite
@@ -67,8 +66,16 @@ public class CalculateDrink : MonoBehaviour
                 return false;
 
             //Check if same quantity
-            if (decorations[decoration.Key] != decoration.Value)
-                return false;
+            if (decoration.Value == 1 || decoration.Value == 2)
+            {
+                if (decorations[decoration.Key] < 1 || decorations[decoration.Key] >= 2)
+                    return false;
+            }
+            else
+            {
+                if (decorations[decoration.Key] < 2 || decorations[decoration.Key] >= 4)
+                    return false;
+            }
         }
 
         //Check if same amount of ingredients
@@ -86,10 +93,9 @@ public class CalculateDrink : MonoBehaviour
                 return false;
 
             //Check if same quantity
-            if (typesOfDrink[ingredient.Key] < ingredient.Value * 10 * (errorMargin / 100))
+            if (typesOfDrink[ingredient.Key] < ingredient.Value * 10 * cocktail.errorMargin)
                 return false;
         }
-        Debug.Log(cocktail);
         return true;
     }
 
