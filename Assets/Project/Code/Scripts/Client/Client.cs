@@ -125,6 +125,7 @@ public class Client : MonoBehaviour
         if (collision.CompareTag("Hammer") && !startTimer && clientNode.canBeHitted)
         {
             hitted = true;
+            AudioManager.instance.PlaySFX("HitClient");
 
             clientNode.RandomizeHitReaction();
             conversant.SetDialogue(clientNode.hitReaction);
@@ -227,7 +228,6 @@ public class Client : MonoBehaviour
 
     private void ReactBad()
     {
-        Debug.Log("AQUI");
         clientNode.RandomizeBadReaction();
         conversant.SetDialogue(clientNode.badReaction);
         conversant.HandleDialogue();

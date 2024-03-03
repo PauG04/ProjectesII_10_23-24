@@ -15,12 +15,19 @@ public class OrderPanel : MonoBehaviour
     }
     private void Update()
     {
-        //cocktail = ClientManager.instance.GetCurrentClientScript().GetOrder();
-        //if(cocktail != null) 
-        //{
-        //    textMesh.text = cocktail.cocktailName.ToString();
-        //}      
-        textMesh.text = " ";
+        cocktail = ClientManager.instance.GetCurrentClientScript().GetOrder();
+        if (cocktail != null && ClientManager.instance.GetClient().acceptsAll)
+        {
+            textMesh.text = "?";
+        }
+        else if (cocktail != null && !ClientManager.instance.GetClient().notNeedTakeDrink)
+        {
+            textMesh.text = cocktail.cocktailName.ToString();
+        }      
+        else
+        {
+            textMesh.text = " ";
+        }     
     }
     public void SetDrink(CocktailNode _cocktail)
     {
