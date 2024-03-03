@@ -181,14 +181,14 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     {
         if(_isDown && _rb.velocity.y >= 0)
         {
-            AudioManager.instance.Play("ShakingLiquid");
+            AudioManager.instance.PlaySFX("ShakingLiquid");
             //AudioManager.instance.SetPitch("ShakingLiquid", 1.2f);
             _isDown = false;
             _newPosition.y = _shakerStateMachine.transform.position.y;
         }
         if(!_isDown && _rb.velocity.y < 0)
         {
-            AudioManager.instance.Play("ShakingLiquid");
+            AudioManager.instance.PlaySFX("ShakingLiquid");
            // AudioManager.instance.SetPitch("ShakingLiquid", 0.5f);
             _isDown = true;
             _newPosition.y = _shakerStateMachine.transform.position.y;

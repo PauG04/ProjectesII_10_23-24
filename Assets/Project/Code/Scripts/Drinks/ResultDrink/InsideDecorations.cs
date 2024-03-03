@@ -25,7 +25,7 @@ public class InsideDecorations : MonoBehaviour
     {
         if (item.itemName == "Cubo de Hielo" && liquidManager.GetCurrentLiquid() > 0)
         {
-            AudioManager.instance.Play("IceCollisionLiquid");
+            AudioManager.instance.PlaySFX("IceCollisionLiquid");
         }
 
         if (insideDecorations.ContainsKey(item))

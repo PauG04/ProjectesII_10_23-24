@@ -55,7 +55,7 @@ public class BreakIce : MonoBehaviour
 
     void Slice(Vector3 pos, GameObject createGameObject, bool destroy)
     {
-        AudioManager.instance.Play("BreakIce");
+        AudioManager.instance.PlaySFX("BreakIce");
         GameObject newItem = Instantiate(createGameObject, transform);
         newItem.transform.parent = null;
         iceDropped++;

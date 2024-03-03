@@ -1,10 +1,15 @@
 ﻿using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
+
+    public AudioClip[] songs;
+    private Sound songAudioSource;
+    private int songCounter;
 
     public static AudioManager instance;
 
@@ -32,14 +37,43 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
+
+        songAudioSource = Array.Find(sounds, sound => sound.soundName == "GameSong");
+        songCounter = 0;
+    }
+    private void Start()
+    {
+        PlaySong("GameSong");
     }
 
-    public void Play(string name, string mixerName = "SFX")
+    private void Update()
+    {
+        if (!songAudioSource.source.isPlaying)
+        {
+            songAudioSource.clip = songs[songCounter];
+            PlaySong("GameSong");
+            songCounter++;
+            if (songCounter >= songs.Length)
+            {
+                songCounter = 0;
+            }
+        }
+    }
+
+    public void PlaySFX(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.soundName == name);
-        s.source.outputAudioMixerGroup = mixer.FindMatchingGroups(mixerName)[0];
+        s.source.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[0];
         s.source.Play();
     }
+
+    public void PlaySong(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.soundName == name);
+        s.source.outputAudioMixerGroup = mixer.FindMatchingGroups("Music")[0];
+        s.source.Play();
+    }
+
 
     public void SetPitch (string name, float pitch)
     {
