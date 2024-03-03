@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203defdb18f377b4184cfcf21f18d09b, type: 3}
+  m_Name: Easy Client
+  m_EditorClassIdentifier: 
+  clientName: Regular
+  sprite: {fileID: 21300000, guid: e3c5bb52e78c47247bb2a6cb15ffc8cd, type: 3}
+  notNeedTakeDrink: 1
+  hitToGo: 0
+  canBeHitted: 1
+  acceptsAll: 0
+  possibleOrders:
+  - {fileID: 11400000, guid: 2a3d599f8f812224d9e8b3b8cc4cfe52, type: 2}
+  - {fileID: 11400000, guid: e5234a9857db5784ca19e8894f2f5317, type: 2}
+  - {fileID: 11400000, guid: e67a808cf01a7ca4593d0f191d0f8590, type: 2}
+  - {fileID: 11400000, guid: 8b7c3c93fcb8c434fb39bace5a2e1296, type: 2}
+  - {fileID: 11400000, guid: 594d9070d8ebee3458bae5d19cbca84e, type: 2}
+  dialogues:
+  - {fileID: 11400000, guid: f0c4ce0464aec7447bac7ff09ad6c3ce, type: 2}
+  - {fileID: 11400000, guid: 9c917377c464b424aa6bb39858a31cf9, type: 2}
+  - {fileID: 11400000, guid: f02531ba8e868724d905c6e39e66183c, type: 2}
+  - {fileID: 11400000, guid: 037583db416862647ac9171ffc0681cf, type: 2}
+  - {fileID: 11400000, guid: fc32a544e4d454b47849b695a268c135, type: 2}
+  goodReactions:
+  - {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
+  badReactions:
+  - {fileID: 11400000, guid: 1ca0906f43ed51c47b9d00e6bcb0cb86, type: 2}
+  dialogue: {fileID: 11400000, guid: f0c4ce0464aec7447bac7ff09ad6c3ce, type: 2}
+  goodReaction: {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
+  badReaction: {fileID: 11400000, guid: 1ca0906f43ed51c47b9d00e6bcb0cb86, type: 2}

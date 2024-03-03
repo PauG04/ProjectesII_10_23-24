@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 203defdb18f377b4184cfcf21f18d09b, type: 3}
   m_Name: Borracho
   m_EditorClassIdentifier: 
-  clientName: Amigo
+  clientName: Borracho
   sprite: {fileID: 21300000, guid: 117b7bb3454257c4ca3be0a458d28cdc, type: 3}
   notNeedTakeDrink: 0
-  acceptsAll: 0
-  acceptsNothing: 0
-  acceptsAllCocktails: 0
+  hitToGo: 0
+  canBeHitted: 0
+  acceptsAll: 1
   possibleOrders:
   - {fileID: 11400000, guid: 8b7c3c93fcb8c434fb39bace5a2e1296, type: 2}
   dialogues:
-  - {fileID: 11400000, guid: 1f25ac62365a29548831cbe35fa35fea, type: 2}
+  - {fileID: 11400000, guid: 6a36de4aaee5d4b4192f14a9a6e53300, type: 2}
   goodReactions:
-  - {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
+  - {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
   badReactions:
-  - {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
-  dialogue: {fileID: 11400000, guid: 1f25ac62365a29548831cbe35fa35fea, type: 2}
-  goodReaction: {fileID: 0}
-  badReaction: {fileID: 0}
+  - {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
+  dialogue: {fileID: 11400000, guid: 6a36de4aaee5d4b4192f14a9a6e53300, type: 2}
+  goodReaction: {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
+  badReaction: {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}

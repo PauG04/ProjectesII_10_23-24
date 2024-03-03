@@ -15,8 +15,9 @@ MonoBehaviour:
   clientName: Regular
   sprite: {fileID: 21300000, guid: e3c5bb52e78c47247bb2a6cb15ffc8cd, type: 3}
   notNeedTakeDrink: 0
+  hitToGo: 0
+  canBeHitted: 1
   acceptsAll: 0
-  acceptsNothing: 0
   possibleOrders:
   - {fileID: 11400000, guid: 5ee31d61876300942ac422b2ef11376e, type: 2}
   - {fileID: 11400000, guid: 2a3d599f8f812224d9e8b3b8cc4cfe52, type: 2}
@@ -32,6 +33,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badReactions:
   - {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
-  dialogue: {fileID: 0}
-  goodReaction: {fileID: 0}
-  badReaction: {fileID: 0}
+  dialogue: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  goodReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  badReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}

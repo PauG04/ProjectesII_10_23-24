@@ -1,10 +1,5 @@
 using Dialogue;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Client : MonoBehaviour
 {
@@ -36,7 +31,7 @@ public class Client : MonoBehaviour
     private bool isLocated;
 
     private ClientNode clientNode;
-    private bool canBeHitted;
+
 
     private void Awake()
     {
@@ -55,13 +50,81 @@ public class Client : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         isLocated = false;
-        canBeHitted = true;
     }
 
     private void Start()
     {
         transform.localPosition = ClientManager.instance.GetSpawnPosition().localPosition;
         ArriveAnimation();
+    }
+
+    private void Update()
+    {
+        if (arriveAnimation)
+        {
+            MoveClientHorizontal(ClientManager.instance.GetClientPosition());
+            if (transform.localPosition.x > ClientManager.instance.GetClientPosition().localPosition.x - 0.01)
+            {
+                arriveAnimation = false;
+                isLocated = true;
+                conversant.HandleDialogue();
+            }
+        }
+        else if (leaveAnimation)
+        {
+            boxCollider.enabled = false;
+
+            MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
+            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
+            {
+                ClientManager.instance.CreateClient();
+                Destroy(gameObject);
+            }
+        }
+
+        if (canLeave && clientNode.notNeedTakeDrink)
+        {
+            startTimer = true;
+        }
+
+        if (startTimer)
+        {
+            Timer();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp() && !clientNode.notNeedTakeDrink)
+        {
+            LiquidManager liquidManagerResult = collision.GetComponentInChildren<LiquidManager>();
+
+            ReceiveCoctel(CalculateDrink.instance.CalculateResultDrink(
+                liquidManagerResult.GetParticleTypes(),
+                liquidManagerResult.GetDrinkState(),
+                collision.GetComponentInChildren<SpriteRenderer>().sprite,
+                collision.GetComponentInChildren<InsideDecorations>().GetDecorations()
+                ));
+
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Hammer") && !startTimer && clientNode.canBeHitted)
+        {
+            if (clientNode.hitToGo)
+            {
+                conversant.SetDialogue(clientNode.goodReaction);
+                conversant.HandleDialogue();
+                return;
+            }
+
+            int randomHitDialogue = Random.Range(0, ClientManager.instance.GetRegularClientHitDialogues().Count);
+            conversant.SetDialogue(ClientManager.instance.GetRegularClientHitDialogues()[randomHitDialogue]);
+            conversant.HandleDialogue();
+        }
     }
 
     public void InitClient()
@@ -78,8 +141,11 @@ public class Client : MonoBehaviour
         spriteRenderer.sprite = clientNode.sprite;
         spriteRenderer.flipX = true;
     }
+
     private bool CompareCocktails(CocktailNode.Type cocktail)
     {
+        if (clientNode.acceptsAll == true)
+            return true;
         if (order.type == cocktail)
             return true;
         return false;
@@ -89,27 +155,11 @@ public class Client : MonoBehaviour
     {
         if (CompareCocktails(cocktail))
         {
+            Debug.Log("AQUI SI");
             ReactWell();
             return;
         }
         ReactBad();
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp())
-        {
-            LiquidManager liquidManagerResult = collision.GetComponentInChildren<LiquidManager>();
-
-            ReceiveCoctel(CalculateDrink.instance.CalculateResultDrink(
-                liquidManagerResult.GetParticleTypes(),
-                liquidManagerResult.GetDrinkState(),
-                collision.GetComponentInChildren<SpriteRenderer>().sprite,
-                collision.GetComponentInChildren<InsideDecorations>().GetDecorations()
-                ));
-           
-            Destroy(collision.gameObject);
-        }
     }
 
     private void ReactWell()
@@ -118,6 +168,7 @@ public class Client : MonoBehaviour
         conversant.SetDialogue(clientNode.goodReaction);
         conversant.HandleDialogue();
         Pay();
+        startTimer = true;
     }
 
     private void ReactBad()
@@ -137,51 +188,6 @@ public class Client : MonoBehaviour
         arriveAnimation = true;
     }
 
-    private void Update()
-    {
-        if (arriveAnimation)
-        {
-            MoveClientHorizontal(ClientManager.instance.GetClientPosition());
-            if (transform.localPosition.x > ClientManager.instance.GetClientPosition().localPosition.x - 0.01)
-            {
-                arriveAnimation = false;
-                isLocated = true;
-                conversant.HandleDialogue();
-            }
-        }
-
-        if (leaveAnimation)
-        {
-            boxCollider.enabled = false;
-             
-            MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
-            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
-            {
-                ClientManager.instance.CreateClient();
-                Destroy(gameObject);
-            }
-        }
-
-        if (startTimer)
-        {
-            Timer();
-        }
-
-        if (clientNode.notNeedTakeDrink && canLeave)
-        {
-            startTimer = true;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Hammer") && !startTimer && canBeHitted)
-        {
-            int randomHitDialogue = Random.Range(0, ClientManager.instance.GetRegularClientHitDialogues().Count);
-            conversant.SetDialogue(ClientManager.instance.GetRegularClientHitDialogues()[randomHitDialogue]);
-            conversant.HandleDialogue();
-        }
-            
-    }
     private void MoveClientHorizontal(Transform _transform)
     {
         Vector3 newPosition = transform.localPosition;
@@ -212,6 +218,10 @@ public class Client : MonoBehaviour
     {
         return isLocated;
     }
+    public bool GetCanLeave()
+    {
+        return canLeave;
+    }
 
     public void SetClientNode(ClientNode _clientNode)
     {
@@ -220,10 +230,5 @@ public class Client : MonoBehaviour
     public void SetCanLeave(bool state)
     {
         canLeave = state;
-    }
-
-    public void SetCanBeHitted(bool state)
-    {
-        canBeHitted = state;
     }
 }

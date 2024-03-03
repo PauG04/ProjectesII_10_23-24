@@ -31,7 +31,7 @@ namespace Dialogue
 
         private void Update()
         {
-			if(playerConversant.IsActive())
+			if(playerConversant.IsActive() && !client.GetCanLeave())
 			{
                 if (!playerConversant.HasNext())
                 {
@@ -40,14 +40,17 @@ namespace Dialogue
             }           
         }
 
-		public void SetDialogue(Dialogue dialogue)
+		public PlayerConversant GetPlayerConversant()
 		{
-			this.dialogue = dialogue;
+			return playerConversant;
 		}
         public string GetName()
 		{
 			return conversantName;
 		}
-		
-	}
+        public void SetDialogue(Dialogue dialogue)
+        {
+            this.dialogue = dialogue;
+        }
+    }
 }
