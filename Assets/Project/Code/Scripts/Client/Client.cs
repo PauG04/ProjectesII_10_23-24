@@ -185,7 +185,7 @@ public class Client : MonoBehaviour
 
     private void Pay()
     {
-        EconomyManager.instance.AddMoney(payment);
+        EconomyManager.instance.SetMoneyChanged(payment);
     }
 
     private void ArriveAnimation()

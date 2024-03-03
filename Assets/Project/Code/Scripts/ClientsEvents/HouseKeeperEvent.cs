@@ -41,6 +41,6 @@ public class HouseKeeperEvent : MonoBehaviour
     }
     public void TakeMoney()
     {
-        EconomyManager.instance.AddMoney(-2000);
+        EconomyManager.instance.SetMoneyChanged(-2000);
     }
 }
