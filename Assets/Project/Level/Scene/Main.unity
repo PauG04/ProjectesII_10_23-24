@@ -7661,6 +7661,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519648756}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: emptyDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: spawnPosition
       value: 
       objectReference: {fileID: 309671714}
@@ -7740,6 +7744,26 @@ PrefabInstance:
       propertyPath: regularClientDialogues.Array.data[7]
       value: 
       objectReference: {fileID: 11400000, guid: 368704b3e6160604397c9f53e11ce337, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularClientHitDialogues.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularClientHitDialogues.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: df9080edaafd0654eac0cd0c3a2216e6, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularClientHitDialogues.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 251a06952bab77b458da8fab754d8471, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularClientHitDialogues.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c9f9b46855f9204699b3b0ef6e5d94f, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: regularClientHitDialogues.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: bb2285ed8ba868d4ebf3c1f6b259c18e, type: 2}
     - target: {fileID: 9071389106930928307, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: m_Name
       value: ClientManager
@@ -16527,6 +16551,10 @@ PrefabInstance:
     - target: {fileID: 3293614153335483693, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
       propertyPath: m_Name
       value: CalculateDrinkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: serializableCocktails.items.Array.data[4].cocktailName
+      value: Ginlemmon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

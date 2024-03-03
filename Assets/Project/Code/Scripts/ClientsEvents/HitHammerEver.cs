@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitHammerEver : MonoBehaviour
+public class HitHammerEvent : MonoBehaviour
 {
     [Header("ClientManager")]
     [SerializeField] private ClientManager clientManager;

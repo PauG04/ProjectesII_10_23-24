@@ -89,7 +89,7 @@ public class Client : MonoBehaviour
             startTimer = true;
         }
 
-        if (startTimer)
+        if (startTimer && !conversant.GetPlayerConversant().HasNext())
         {
             Timer();
         }
@@ -99,14 +99,22 @@ public class Client : MonoBehaviour
     {
         if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp() && !clientNode.notNeedTakeDrink)
         {
+            if (clientNode.acceptsAll)
+            {
+                ReactWell();
+                return;
+            }
+
             LiquidManager liquidManagerResult = collision.GetComponentInChildren<LiquidManager>();
 
-            ReceiveCoctel(CalculateDrink.instance.CalculateResultDrink(
-                liquidManagerResult.GetParticleTypes(),
-                liquidManagerResult.GetDrinkState(),
-                collision.GetComponentInChildren<SpriteRenderer>().sprite,
-                collision.GetComponentInChildren<InsideDecorations>().GetDecorations()
-                ));
+            string findError = CalculateDrink.instance.CalculateResultDrink(
+                    liquidManagerResult.GetParticleTypes(),
+                    liquidManagerResult.GetDrinkState(),
+                    collision.GetComponentInChildren<SpriteRenderer>().sprite,
+                    collision.GetComponentInChildren<InsideDecorations>().GetDecorations(),
+                    order.type);
+
+            FindCoctelError(findError);
 
             Destroy(collision.gameObject);
         }
@@ -117,24 +125,27 @@ public class Client : MonoBehaviour
         if (collision.CompareTag("Hammer") && !startTimer && clientNode.canBeHitted)
         {
             hitted = true;
-            if (clientNode.hitToGo)
-            {
-                conversant.SetDialogue(clientNode.goodReaction);
-                conversant.HandleDialogue();
-                return;
-            }
 
-            int randomHitDialogue = Random.Range(0, ClientManager.instance.GetRegularClientHitDialogues().Count);
-            conversant.SetDialogue(ClientManager.instance.GetRegularClientHitDialogues()[randomHitDialogue]);
+            clientNode.RandomizeHitReaction();
+            conversant.SetDialogue(clientNode.hitReaction);
             conversant.HandleDialogue();
 
-            
+            if (clientNode.hitToGo)
+            {
+                startTimer = true;
+                return;
+            }            
         }
     }
 
     public void InitClient()
     {
         boxCollider.enabled = true;
+
+        if(clientNode.regularHitReactions)
+        {
+            clientNode.hitReactions = ClientManager.instance.GetRegularClientHitDialogues();
+        }
 
         int randomOrder = Random.Range(0, clientNode.possibleOrders.Count);
         order = clientNode.possibleOrders[randomOrder];
@@ -147,24 +158,62 @@ public class Client : MonoBehaviour
         spriteRenderer.flipX = true;
     }
 
-    private bool CompareCocktails(CocktailNode.Type cocktail)
+    private void FindCoctelError(string findError)
     {
-        if (clientNode.acceptsAll == true)
-            return true;
-        if (order.type == cocktail)
-            return true;
-        return false;
-    }
-
-    public void ReceiveCoctel(CocktailNode.Type cocktail)
-    {
-        if (CompareCocktails(cocktail))
+        if (findError == "Good")
         {
-            Debug.Log("AQUI SI");
             ReactWell();
-            return;
         }
-        ReactBad();
+        else if (findError == "BadGlass")
+        {
+            if (clientNode.badGlassReaction != ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.badGlassReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+        else if (findError == "NoIce")
+        {
+            if (clientNode.noIceReaction != ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.noIceReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+        else if (findError == "MuchIce")
+        {
+            if (clientNode.muchIceReaction != ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.muchIceReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+        else if (findError == "BadState")
+        {
+            if (clientNode.badStateReaction != ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.badStateReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+        else if (findError == "BadIngredients")
+        {
+            if (clientNode.badIngredientsReaction != ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.badIngredientsReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
     }
 
     private void ReactWell()
@@ -178,6 +227,7 @@ public class Client : MonoBehaviour
 
     private void ReactBad()
     {
+        Debug.Log("AQUI");
         clientNode.RandomizeBadReaction();
         conversant.SetDialogue(clientNode.badReaction);
         conversant.HandleDialogue();

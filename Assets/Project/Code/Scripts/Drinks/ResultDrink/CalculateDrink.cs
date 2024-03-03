@@ -24,84 +24,89 @@ public class CalculateDrink : MonoBehaviour
         allCocktails = serializableCocktails.ToDictionary();
     }
 
-    public CocktailNode.Type CalculateResultDrink(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state, Sprite sprite, Dictionary<ItemNode, int> decorations)
+    public string CalculateResultDrink(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state, Sprite sprite, Dictionary<ItemNode, int> decorations, CocktailNode.Type order)
     {
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Roncola"], sprite, decorations))
-            return CocktailNode.Type.Roncola;
+        switch (order)
+        {
+            case CocktailNode.Type.Roncola:
+                return CheckCocktail(typesOfDrink, state, allCocktails["Roncola"], sprite, decorations);
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Mojito"], sprite, decorations))
-            return CocktailNode.Type.Mojito;
-        
-        if (CheckCocktail(typesOfDrink, state, allCocktails["PomadaMenorquina"], sprite, decorations))
-            return CocktailNode.Type.Ginlemmon;
+            case CocktailNode.Type.Mojito:
+                return CheckCocktail(typesOfDrink, state, allCocktails["Mojito"], sprite, decorations);
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Gintonic"], sprite, decorations))
-            return CocktailNode.Type.Gintonic;
+            case CocktailNode.Type.Ginlemmon:
+                return CheckCocktail(typesOfDrink, state, allCocktails["Ginlemmon"], sprite, decorations);
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["AguaDePalencia"], sprite, decorations))
-            return CocktailNode.Type.AguaDePalencia;
+            case CocktailNode.Type.Gintonic:
+                return CheckCocktail(typesOfDrink, state, allCocktails["Gintonic"], sprite, decorations);
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["WhiskeySour"], sprite, decorations))
-            return CocktailNode.Type.WhiskeySour;
+            case CocktailNode.Type.AguaDePalencia:
+                return CheckCocktail(typesOfDrink, state, allCocktails["AguaDePalencia"], sprite, decorations);
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Sangria"], sprite, decorations))
-            return CocktailNode.Type.Sangria;
+            case CocktailNode.Type.WhiskeySour:
+                return CheckCocktail(typesOfDrink, state, allCocktails["WhiskeySour"], sprite, decorations);
 
-        if (CheckCocktail(typesOfDrink, state, allCocktails["Kalimotxo"], sprite, decorations))
-            return CocktailNode.Type.Kalimotxo;
-        return CocktailNode.Type.Error;
+            case CocktailNode.Type.Sangria:
+                return CheckCocktail(typesOfDrink, state, allCocktails["Sangria"], sprite, decorations);
+
+            case CocktailNode.Type.Kalimotxo:
+                return CheckCocktail(typesOfDrink, state, allCocktails["Kalimotxo"], sprite, decorations);
+
+            default:
+                return "ERROR";
+        }        
     }
 
 
-    private bool CheckCocktail(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state, CocktailNode cocktail, Sprite sprite, Dictionary<ItemNode, int> decorations)
+    private string CheckCocktail(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state, CocktailNode cocktail, Sprite sprite, Dictionary<ItemNode, int> decorations)
     {
         //Check if same sprite
         if (sprite != cocktail.sprite)
-            return false;
+            return "BadGlass";
 
+        if (decorations.Count < 1)
+            return "NoIce";
         foreach (KeyValuePair<ItemNode, int> decoration in cocktail.decorations)
         {
-            //Check if same decorations
-            if (!decorations.ContainsKey(decoration.Key))
-            {
-                return false;
-            }
-
             //Check if same quantity
             if (decoration.Value == 1 || decoration.Value == 2)
             {
-                if (decorations[decoration.Key] < 1 || decorations[decoration.Key] > 2)
-                    return false;
+                if (decorations[decoration.Key] < 1)
+                    return "NoIce";
+                if (decorations[decoration.Key] > 2)
+                    return "MuchIce";
             }
             else
             {
-                if (decorations[decoration.Key] < 3 || decorations[decoration.Key] > 5)
-                    return false;
+                if (decorations[decoration.Key] < 3)
+                    return "NoIce";
+                if (decorations[decoration.Key] > 5)
+                    return "MuchIce";
             }
         }
-
-        //Check if same amount of ingredients
-        if (typesOfDrink.Count != cocktail.ingredients.Count)
-            return false;
 
         //Check if same state
         if (state != cocktail.state)
         {
-            return false;
+            return "BadState";
         }
+
+        //Check if same amount of ingredients
+        if (typesOfDrink.Count != cocktail.ingredients.Count)
+            return "BadIngredients";
 
         foreach (KeyValuePair<DrinkNode, int> ingredient in cocktail.ingredients)
         {
             //Check if same drinkTypes
             if(!typesOfDrink.ContainsKey(ingredient.Key))
-                return false;
+                return "BadIngredients";
 
             //Check if same quantity
             if (typesOfDrink[ingredient.Key] < ingredient.Value * 10 * cocktail.errorMargin)
-                return false;
+                return "BadIngredients";
         }
         Debug.Log(cocktail);
-        return true;
+        return "Good";
     }
 
     public Dictionary<string, CocktailNode> GetAllCocktails()

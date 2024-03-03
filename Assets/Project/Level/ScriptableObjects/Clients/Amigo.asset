@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clientName: Amigo
   sprite: {fileID: 21300000, guid: 117b7bb3454257c4ca3be0a458d28cdc, type: 3}
+  hitToGo: 0
+  canBeHitted: 0
+  regularHitReactions: 0
   notNeedTakeDrink: 0
   acceptsAll: 0
   possibleOrders:
@@ -24,6 +27,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b0a41a7ff2a29f4daa011450e32bf65, type: 2}
   badReactions:
   - {fileID: 11400000, guid: bd87befed5ee7b54795ee6182b480df4, type: 2}
+  hitReactions:
+  - {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   dialogue: {fileID: 11400000, guid: 00f9190d37980354db48ef071de00db4, type: 2}
   goodReaction: {fileID: 11400000, guid: 1b0a41a7ff2a29f4daa011450e32bf65, type: 2}
   badReaction: {fileID: 11400000, guid: bd87befed5ee7b54795ee6182b480df4, type: 2}
+  hitReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  badGlassReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  noIceReaction: {fileID: 11400000, guid: 4ba8c4a89d44d4a42a4506e02006e387, type: 2}
+  muchIceReaction: {fileID: 11400000, guid: ed171cb4b236cf549bb2abe6f03f3abc, type: 2}
+  badStateReaction: {fileID: 11400000, guid: 994cd8bf75539dd4182bb36b8998cdc5, type: 2}
+  badIngredientsReaction: {fileID: 11400000, guid: bd87befed5ee7b54795ee6182b480df4, type: 2}
