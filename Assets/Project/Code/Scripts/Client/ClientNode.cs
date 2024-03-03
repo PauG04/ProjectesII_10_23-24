@@ -11,6 +11,8 @@ public class ClientNode : ScriptableObject
     public Sprite sprite;
 
     public bool notNeedTakeDrink;
+    public bool hitToGo;
+    public bool canBeHitted;
 
     public bool acceptsAll;
     public List<CocktailNode> possibleOrders;

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5133143101430519064}
   - component: {fileID: 4136548897841861954}
   - component: {fileID: 7462628828611310531}
-  - component: {fileID: 1558746047308209736}
   m_Layer: 5
   m_Name: AiBubbleText
   m_TagString: Untagged
@@ -105,19 +104,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1558746047308209736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4473247143237022253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c81b42989817f44a466e769cac60e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyDeleay: 20
 --- !u!1 &5620560594527123879
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,8 +252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5202c792a0b21a5478636bda021fce37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPerSecond: 50
-  interpunctuationDelayInput: 0.5
+  characterPerSecond: 65
+  interpunctuationDelayInput: 0.1
   quickSkip: 0
   skipSpeedup: 5
   sendDoneDelay: 0.25

@@ -129,7 +129,6 @@ public class FriendEvent : MonoBehaviour
         {
             client = clientManager.GetClient();
             clientObject = clientManager.GetClientObject();
-            clientObject.GetComponent<Client>().SetCanBeHitted(false);
         }
 
         if (!tutorialBooleans[10] && clientObject != null)
@@ -139,6 +138,12 @@ public class FriendEvent : MonoBehaviour
         else
         {
             clientObject.GetComponent<BoxCollider2D>().enabled = true;
+            
+            for (int i = 1; i < createGlass.Count; i++)
+            {
+                createGlass[i].GetComponent<BoxCollider2D>().enabled = true;
+            }
+            enabled = false;
         }
     }
 
@@ -156,7 +161,6 @@ public class FriendEvent : MonoBehaviour
                 {
                     drag[i].gameObject.GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                 }
-
             }
         }
     }

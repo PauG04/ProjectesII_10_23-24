@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clientName: Regular
   sprite: {fileID: 21300000, guid: e3c5bb52e78c47247bb2a6cb15ffc8cd, type: 3}
-  notNeedTakeDrink: 0
+  notNeedTakeDrink: 1
+  hitToGo: 0
+  canBeHitted: 1
   acceptsAll: 0
   possibleOrders:
   - {fileID: 11400000, guid: 2a3d599f8f812224d9e8b3b8cc4cfe52, type: 2}
@@ -29,11 +31,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 037583db416862647ac9171ffc0681cf, type: 2}
   - {fileID: 11400000, guid: fc32a544e4d454b47849b695a268c135, type: 2}
   goodReactions:
-  - {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
-  - {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  - {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
   badReactions:
-  - {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
-  - {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  - {fileID: 11400000, guid: 1ca0906f43ed51c47b9d00e6bcb0cb86, type: 2}
   dialogue: {fileID: 11400000, guid: f0c4ce0464aec7447bac7ff09ad6c3ce, type: 2}
-  goodReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
-  badReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  goodReaction: {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
+  badReaction: {fileID: 11400000, guid: 1ca0906f43ed51c47b9d00e6bcb0cb86, type: 2}

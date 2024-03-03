@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 203defdb18f377b4184cfcf21f18d09b, type: 3}
-  m_Name: Borracho
+  m_Name: Mohammed
   m_EditorClassIdentifier: 
-  clientName: Borracho
+  clientName: Mohammed
   sprite: {fileID: 21300000, guid: 117b7bb3454257c4ca3be0a458d28cdc, type: 3}
-  notNeedTakeDrink: 0
-  hitToGo: 0
-  canBeHitted: 0
-  acceptsAll: 1
+  notNeedTakeDrink: 1
+  hitToGo: 1
+  canBeHitted: 1
+  acceptsAll: 0
   possibleOrders:
   - {fileID: 11400000, guid: 8b7c3c93fcb8c434fb39bace5a2e1296, type: 2}
   dialogues:
-  - {fileID: 11400000, guid: 6a36de4aaee5d4b4192f14a9a6e53300, type: 2}
+  - {fileID: 11400000, guid: f5b1445ef902e4b44ab07d20e22ed868, type: 2}
   goodReactions:
-  - {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
+  - {fileID: 11400000, guid: ae31d4536bb3cd84495c738af383cf07, type: 2}
   badReactions:
-  - {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
-  dialogue: {fileID: 11400000, guid: 6a36de4aaee5d4b4192f14a9a6e53300, type: 2}
-  goodReaction: {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
-  badReaction: {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
+  - {fileID: 11400000, guid: ae31d4536bb3cd84495c738af383cf07, type: 2}
+  dialogue: {fileID: 11400000, guid: f5b1445ef902e4b44ab07d20e22ed868, type: 2}
+  goodReaction: {fileID: 11400000, guid: ae31d4536bb3cd84495c738af383cf07, type: 2}
+  badReaction: {fileID: 11400000, guid: ae31d4536bb3cd84495c738af383cf07, type: 2}
