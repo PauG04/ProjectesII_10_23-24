@@ -19,8 +19,6 @@ namespace UI
         [SerializeField] private GameObject prefabPlayerbubble;
         [SerializeField] private GameObject separator;
 
-		private TypeWriterEffect typeWriterBubble;
-
 		[Space(10)]
 		[SerializeField] private float timerDelay = 2.0f;
 
@@ -43,6 +41,8 @@ namespace UI
 				if (!playerConversant.GetTextIsRunning())
 				{
                     TypeWriterEffect.CompleteTextRevealed -= WriteText;
+                    playerConversant.SetIsTextDone(false);
+
                 }
 
                 if (playerConversant.HasNext() && !playerConversant.IsChoosing() && !playerConversant.GetTextIsRunning())
@@ -53,6 +53,7 @@ namespace UI
 						isSeparatorRunning = false;
                     }
 					TypeWriterEffect.CompleteTextRevealed += WriteText;
+					playerConversant.SetIsTextDone(true);
 				} 
 				else if ((playerConversant.IsChoosing() || !playerConversant.HasNext()) && !isSeparatorRunning)
 				{
