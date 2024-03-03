@@ -44,6 +44,11 @@ public class ClientManager : MonoBehaviour
 
     public void CreateClient()
     {
+        if (clientCounter >= currentDayClients.Count)
+        {
+            TimeManager.instance.StopTime();
+            return;
+        }
         currentClientNode = currentDayClients[clientCounter];
         clientCounter++;
 

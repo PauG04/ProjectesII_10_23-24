@@ -100,7 +100,7 @@ namespace Dialogue
         }
         public void Next()
 		{
-			AudioManager.instance.PlaySFX("ClientTalking");
+			//AudioManager.instance.PlaySFX("ClientTalking");
 			int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
 
             if (numPlayerResponses > 0)

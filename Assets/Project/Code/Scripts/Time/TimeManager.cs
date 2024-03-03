@@ -44,8 +44,8 @@ public class TimeManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isStopped)
-            UpdateTime();
+        //if (!isStopped)
+            //UpdateTime();
     }
 
     private int InitTimeMultiplier()
@@ -79,7 +79,7 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    private void StopTime()
+    public void StopTime()
     {
         isStopped = true;
         endOfDayObject.SetActive(true);
