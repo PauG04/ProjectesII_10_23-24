@@ -87,6 +87,7 @@ public class OpenFridge : MonoBehaviour
     {
         if ( !isPositionLerp)
         {
+            AudioManager.instance.PlaySFX("OpenFridge");
             isOpen = !isOpen;
             isPositionLerp = true;
         }  

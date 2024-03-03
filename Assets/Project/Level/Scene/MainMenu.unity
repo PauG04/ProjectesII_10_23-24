@@ -301,6 +301,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d274eb86a05cda441b0eb4be3f0e59be, type: 3}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: dbd57ee25798a7344bb0146ee3e38297, type: 3}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[10].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[11].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[10].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[11].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[10].soundName
+      value: OpenFridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277334256892889940, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
+      propertyPath: sounds.Array.data[11].soundName
+      value: HitClient
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
