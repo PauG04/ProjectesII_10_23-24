@@ -44,9 +44,9 @@ public class TypeWriterEffect : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
-            if (textBox.maxVisibleCharacters != textBox.textInfo.characterCount)
+            if (textBox.maxVisibleCharacters != textBox.textInfo.characterCount - 1)
             {
                 Skip();
             }
@@ -74,9 +74,9 @@ public class TypeWriterEffect : MonoBehaviour
 
         while (currentVisibleCharacterIndex < textInfo.characterCount + 1)
         {
-            var lastCharacterIndex = textInfo.characterCount - 1;
-
-            if (currentVisibleCharacterIndex == lastCharacterIndex)
+            int lastCharacterIndex = textInfo.characterCount - 1;
+            
+            if (currentVisibleCharacterIndex >= lastCharacterIndex && lastCharacterIndex > 0)
             {
                 textBox.maxVisibleCharacters++;
                 yield return textboxFullEventDelay;

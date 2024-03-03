@@ -18,7 +18,7 @@ namespace Dialogue
 		private AIConversant currentConversant = null;
 		private bool isChoosing = false;
 		private bool isStartingNewConversant = false;
-		private bool isTextDone;
+		private bool isTextDone = false;
 
 		/// TODO:
 		/// 	find a better way to give the child to other objects instead of a numeric one
