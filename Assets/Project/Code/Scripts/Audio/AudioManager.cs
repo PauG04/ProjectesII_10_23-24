@@ -1,7 +1,7 @@
 ﻿using UnityEngine.Audio;
 using System;
 using UnityEngine;
-using System.Collections.Generic;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
@@ -46,20 +46,6 @@ public class AudioManager : MonoBehaviour
         PlaySong("GameSong");
     }
 
-    private void Update()
-    {
-        if (!songAudioSource.source.isPlaying)
-        {
-            songAudioSource.clip = songs[songCounter];
-            PlaySong("GameSong");
-            songCounter++;
-            if (songCounter >= songs.Length)
-            {
-                songCounter = 0;
-            }
-        }
-    }
-
     public void PlaySFX(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.soundName == name);
@@ -73,7 +59,6 @@ public class AudioManager : MonoBehaviour
         s.source.outputAudioMixerGroup = mixer.FindMatchingGroups("Music")[0];
         s.source.Play();
     }
-
 
     public void SetPitch (string name, float pitch)
     {
