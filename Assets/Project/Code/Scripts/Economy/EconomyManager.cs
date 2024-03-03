@@ -14,6 +14,7 @@ public class EconomyManager : MonoBehaviour
     private float dailyEarnings;
     private float dailyExpenses;
     private float money;
+    private float moneyChanged;
 
     private void Awake()
     {
@@ -63,6 +64,21 @@ public class EconomyManager : MonoBehaviour
     public float GetMoney()
     {
         return money;
+    }
+
+    public float GetMoneyChaned()
+    {
+        return moneyChanged;
+    }
+
+    public void SetMoney(float _money)
+    {
+        money = _money;
+    }
+
+    public void SetMoneyChanged(float earnings)
+    {
+        moneyChanged = earnings;
     }
 
 }
