@@ -102,6 +102,7 @@ public class Client : MonoBehaviour
             if (clientNode.acceptsAll)
             {
                 ReactWell();
+                Destroy(collision.gameObject);
                 return;
             }
 
