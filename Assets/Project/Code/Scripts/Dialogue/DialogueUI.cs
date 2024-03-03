@@ -19,7 +19,7 @@ namespace UI
         [SerializeField] private GameObject prefabPlayerbubble;
         [SerializeField] private GameObject separator;
 
-		[Space(10)]
+		[Space(10)]	
 		[SerializeField] private float timerDelay = 2.0f;
 
 		private Coroutine coroutineRunning;
@@ -43,7 +43,6 @@ namespace UI
                     playerConversant.SetIsTextDone(false);
                     TypeWriterEffect.CompleteTextRevealed -= WriteText;
                 }
-
                 if (playerConversant.HasNext() && !playerConversant.IsChoosing() && !playerConversant.GetTextIsRunning())
 				{
 					if (coroutineRunning != null)
