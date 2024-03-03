@@ -132,7 +132,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
         if (_liquidManager.GetCurrentLiquid() == 0 && _shakerStateMachine.GetProgress() > 0 || _shakerStateMachine.GetReset())
         {
-            _shakerStateMachine.ResetShaker(_shakerStateMachine.GetProgress() - 0.05f) ;
+            _shakerStateMachine.ResetShaker(_shakerStateMachine.GetProgress() - 0.2f) ;
             AlphaLerpPositive();
         }
         else

@@ -2533,6 +2533,7 @@ MonoBehaviour:
   hasToStayTheSameLayer: 1
   changeSpriteMask: 1
   moveParent: 1
+  dragWithWorkspaceSprite: 0
   isItem: 0
   isItemGroup: 0
 --- !u!1 &338327760
@@ -4115,10 +4116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a309048c252acd642b7358059d47c2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeIntensity: 0
+  shakeIntensity: 3
   EarthIntensity: 0
-  shakeTime: 0
-  timer: 0
+  shakeTime: 5
+  timer: 5
   shakeCamera: 0
 --- !u!114 &563136604
 MonoBehaviour:
@@ -4272,6 +4273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 573178248}
   - component: {fileID: 573178249}
+  - component: {fileID: 573178252}
   - component: {fileID: 573178250}
   - component: {fileID: 573178251}
   m_Layer: 0
@@ -4376,6 +4378,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &573178252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573178247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55d44d67a23ab04ba8bb0479cff5dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientManager: {fileID: 1119733629}
+  playerConversant: {fileID: 549211536}
+  maxTime: 10
 --- !u!1001 &576723743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13202,6 +13219,7 @@ MonoBehaviour:
   hasToStayTheSameLayer: 1
   changeSpriteMask: 1
   moveParent: 0
+  dragWithWorkspaceSprite: 0
   isItem: 0
   isItemGroup: 0
 --- !u!60 &1914124171
@@ -14717,6 +14735,7 @@ MonoBehaviour:
   hasToStayTheSameLayer: 0
   changeSpriteMask: 1
   moveParent: 0
+  dragWithWorkspaceSprite: 0
   isItem: 0
   isItemGroup: 0
 --- !u!60 &2082426031

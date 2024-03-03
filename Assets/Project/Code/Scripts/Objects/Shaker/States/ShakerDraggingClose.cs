@@ -29,6 +29,10 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private float velocityColor = 2;
     private float velocityColorPositive = 25;
 
+    private CameraShake cameraShake;
+
+    private float intensityShaking;
+
     public ShakerDraggingClose(
         ShakerStateMachine shakerStateMachine,
         float progress,
@@ -70,6 +74,9 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
 
         _newPosition = _shakerStateMachine.transform.position;
+
+        cameraShake = Camera.main.GetComponent<CameraShake>();
+        intensityShaking = 0.25f;
     }
     public override void ExitState()
     {
@@ -101,7 +108,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         
         if (_shakerStateMachine.GetReset())
         {
-            _shakerStateMachine.ResetShaker(_shakerStateMachine.GetProgress() - 0.05f);
+            _shakerStateMachine.ResetShaker(_shakerStateMachine.GetProgress() - 0.2f);
             AlphaLerpPositive();
         }
         else
@@ -129,7 +136,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
          }
          else
          { 
-            //cameraShake.SetTransforPosition();
+            cameraShake.SetTransforPosition();
          }
          SetDrinkState();
             
@@ -147,7 +154,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _progressSlider.value = _progress;
         _color.color = new Color (1,1 - (_progress / _maxProgress),0, AlphaLerp());
 
-        //cameraShake.ShakeCamera((transform.position.y - _newPosition.y) * intensityShaking);
+        cameraShake.ShakeCamera((_shakerStateMachine.transform.position.y - _newPosition.y) * intensityShaking);
 
     }
     private float AlphaLerp()
