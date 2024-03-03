@@ -162,13 +162,11 @@ public class Client : MonoBehaviour
     {
         if (findError == "Good")
         {
-            Debug.Log(findError);
             ReactWell();
         }
         else if (findError == "BadGlass")
         {
-            Debug.Log(findError);
-            if (clientNode.badGlassReaction == ClientManager.instance.GetEmptyDialogue())
+            if (clientNode.badGlassReaction != ClientManager.instance.GetEmptyDialogue())
             {
                 conversant.SetDialogue(clientNode.badGlassReaction);
                 conversant.HandleDialogue();
@@ -178,8 +176,7 @@ public class Client : MonoBehaviour
         }
         else if (findError == "NoIce")
         {
-            Debug.Log(findError);
-            if (clientNode.noIceReaction == ClientManager.instance.GetEmptyDialogue())
+            if (clientNode.noIceReaction != ClientManager.instance.GetEmptyDialogue())
             {
                 conversant.SetDialogue(clientNode.noIceReaction);
                 conversant.HandleDialogue();
@@ -189,8 +186,7 @@ public class Client : MonoBehaviour
         }
         else if (findError == "MuchIce")
         {
-            Debug.Log(findError);
-            if (clientNode.muchIceReaction == ClientManager.instance.GetEmptyDialogue())
+            if (clientNode.muchIceReaction != ClientManager.instance.GetEmptyDialogue())
             {
                 conversant.SetDialogue(clientNode.muchIceReaction);
                 conversant.HandleDialogue();
@@ -200,8 +196,7 @@ public class Client : MonoBehaviour
         }
         else if (findError == "BadState")
         {
-            Debug.Log(findError);
-            if (clientNode.badStateReaction == ClientManager.instance.GetEmptyDialogue())
+            if (clientNode.badStateReaction != ClientManager.instance.GetEmptyDialogue())
             {
                 conversant.SetDialogue(clientNode.badStateReaction);
                 conversant.HandleDialogue();
@@ -211,8 +206,7 @@ public class Client : MonoBehaviour
         }
         else if (findError == "BadIngredients")
         {
-            Debug.Log(findError);
-            if (clientNode.badIngredientsReaction == ClientManager.instance.GetEmptyDialogue())
+            if (clientNode.badIngredientsReaction != ClientManager.instance.GetEmptyDialogue())
             {
                 conversant.SetDialogue(clientNode.badIngredientsReaction);
                 conversant.HandleDialogue();
@@ -233,6 +227,7 @@ public class Client : MonoBehaviour
 
     private void ReactBad()
     {
+        Debug.Log("AQUI");
         clientNode.RandomizeBadReaction();
         conversant.SetDialogue(clientNode.badReaction);
         conversant.HandleDialogue();

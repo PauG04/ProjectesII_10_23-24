@@ -7660,6 +7660,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519648756}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: emptyDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: spawnPosition
       value: 
       objectReference: {fileID: 309671714}
@@ -16546,6 +16550,10 @@ PrefabInstance:
     - target: {fileID: 3293614153335483693, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
       propertyPath: m_Name
       value: CalculateDrinkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: serializableCocktails.items.Array.data[4].cocktailName
+      value: Ginlemmon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

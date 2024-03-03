@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 8745723024917623954}
-  - {fileID: 8939445524798930474}
   - {fileID: 188357244012283538}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &188357244012283538
@@ -35,7 +34,7 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 564
+    x: 326
     y: 152
     width: 200
     height: 120
@@ -55,37 +54,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Creo no haberte dicho que mezclaras el RonCola
-  children:
-  - dcaf13f4-038b-443a-a333-bcc4bb8af1f7
-  rect:
-    serializedVersion: 2
-    x: 65
-    y: 152
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &8939445524798930474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: dcaf13f4-038b-443a-a333-bcc4bb8af1f7
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: "ENTONCES PORQUE CO\xD1O LO HACES"
+  text: "Pero quien co\xF1o te crees usando una coctelera para hacer un roncola?"
   children:
   - e1b65c6c-7be0-4be5-b8ac-27561fea7497
   rect:
     serializedVersion: 2
-    x: 314
+    x: 65
     y: 152
     width: 200
     height: 120
