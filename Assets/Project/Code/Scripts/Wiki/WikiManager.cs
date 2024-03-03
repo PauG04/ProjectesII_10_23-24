@@ -49,9 +49,9 @@ public class WikiManager : MonoBehaviour
 
     public void NextPage()
     {
-        if (pageNumber + 2 <= cocktails.Count)
+        if (pageNumber + 2 <= cocktails.Count - 1)
         {
-            AudioManager.instance.Play("TurnPage");
+            AudioManager.instance.PlaySFX("TurnPage");
             pageNumber += 2;
             UpdatePages(pageNumber);
         }
@@ -61,7 +61,7 @@ public class WikiManager : MonoBehaviour
     {
         if (pageNumber >= 2)
         {
-            AudioManager.instance.Play("TurnPage");
+            AudioManager.instance.PlaySFX("TurnPage");
             pageNumber -= 2;
             UpdatePages(pageNumber);
         }
@@ -92,7 +92,7 @@ public class WikiManager : MonoBehaviour
 
     private void OpenWiki()
     {
-        AudioManager.instance.Play("OpenBook");
+        AudioManager.instance.PlaySFX("OpenBook");
         leftPage.gameObject.SetActive(true);
         rightPage.gameObject.SetActive(true);
         UpdatePages(pageNumber);

@@ -8,7 +8,7 @@ public class LiquidSound : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Liquid"))
         {
-            AudioManager.instance.Play("LiquidCollision");
+            AudioManager.instance.PlaySFX("LiquidCollision");
         }
     }
     
