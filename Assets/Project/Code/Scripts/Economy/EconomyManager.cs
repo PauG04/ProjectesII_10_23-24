@@ -48,9 +48,9 @@ public class EconomyManager : MonoBehaviour
 
     public void SetMoneyText()
     {
-        dailyEarningsText.text = "Money Earned: " + dailyEarnings.ToString();
-        dailyExpensesText.text = "Expenses: " + dailyExpenses.ToString();
-        totalMoneyText.text = "Total Money: " + money.ToString();
+        //dailyEarningsText.text = "Money Earned: " + dailyEarnings.ToString();
+        //dailyExpensesText.text = "Expenses: " + dailyExpenses.ToString();
+        //totalMoneyText.text = "Total Money: " + money.ToString();
     }
 
     public void ResetDailyEarnings()

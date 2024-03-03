@@ -47,15 +47,17 @@ public class ClientManager : MonoBehaviour
         if (clientCounter >= currentDayClients.Count)
         {
             TimeManager.instance.StopTime();
-            return;
         }
-        currentClientNode = currentDayClients[clientCounter];
-        clientCounter++;
+        else
+        {
+            currentClientNode = currentDayClients[clientCounter];
+            clientCounter++;
 
-        currentClient = Instantiate(client, clientParent);
-        currentClientScript = currentClient.GetComponent<Client>();
-        currentClientScript.SetClientNode(currentClientNode);
-        currentClientScript.InitClient();
+            currentClient = Instantiate(client, clientParent);
+            currentClientScript = currentClient.GetComponent<Client>();
+            currentClientScript.SetClientNode(currentClientNode);
+            currentClientScript.InitClient();
+        }
     }
 
     #region GETTERS
