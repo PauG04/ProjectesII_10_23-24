@@ -1,3 +1,5 @@
+using System;
+using UnityEditor.U2D;
 using UnityEngine;
 
 public class DragItems : MonoBehaviour
@@ -29,6 +31,7 @@ public class DragItems : MonoBehaviour
     [SerializeField] private bool hasToStayTheSameLayer;
     [SerializeField] private bool changeSpriteMask;
     [SerializeField] private bool moveParent;
+    [SerializeField] private bool dragWithWorkspaceSprite;
     [SerializeField] private bool isItem;
     [SerializeField] private bool isItemGroup;
 
@@ -115,12 +118,20 @@ public class DragItems : MonoBehaviour
     private void OnMouseDown()
     {
         ObjectPressed();
+        if (dragWithWorkspaceSprite)
+        {
+            spriteRenderer.sprite = workspaceSprite;
+        }
     }
     private void OnMouseUp()
     {
         rb2d.bodyType = RigidbodyType2D.Dynamic;
 
         isDragging = false;
+        if (dragWithWorkspaceSprite)
+        {
+            spriteRenderer.sprite = normalSprite;
+        }
     }
     private void Dragging()
     {
@@ -259,7 +270,10 @@ public class DragItems : MonoBehaviour
             {
                 spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             }
-            spriteRenderer.sprite = normalSprite;
+            if (!dragWithWorkspaceSprite)
+            {
+                spriteRenderer.sprite = normalSprite;
+            }
             itemCollider.TryUpdateShapeToAttachedSprite(spriteRenderer);
         }
      
