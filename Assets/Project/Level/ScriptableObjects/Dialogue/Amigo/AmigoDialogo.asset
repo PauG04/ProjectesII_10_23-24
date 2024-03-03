@@ -43,8 +43,8 @@ MonoBehaviour:
   - c380d42a-a6f2-4690-b654-05590c2a2d4b
   rect:
     serializedVersion: 2
-    x: 1996
-    y: 263
+    x: 2147
+    y: 253
     width: 200
     height: 120
   onEnterAction: 
@@ -89,14 +89,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 1
-  text: "He venido ha explicarte como hacer un c\xF3ctel, vamos a empezar haciendo
-    un RonCola"
+  text: He venido ha explicarte como hacer un cubata, vamos a empezar con lo basico
   children:
-  - adb8f3f7-af86-42ce-bcc2-62fb5c0bb976
+  - 1a815b45-1015-4c35-9ea6-1733506a3b0c
   rect:
     serializedVersion: 2
-    x: 884
-    y: 266
+    x: 872
+    y: 257
     width: 200
     height: 120
   onEnterAction: 
@@ -140,14 +139,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 1
-  text: Antes de nada vamos ha preparar los hielos que un RonCola caliente no se
+  text: Antes de nada vamos ha preparar los hielos que un Roncola caliente no se
     lo toma nadie
   children:
   - 1c89aedc-70b6-4f84-b037-20bfea794cfb
   rect:
     serializedVersion: 2
-    x: 1747
-    y: 264
+    x: 1937
+    y: 251
     width: 200
     height: 120
   onEnterAction: 
@@ -166,14 +165,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 1
-  text: Cierra la nevera y coge el martillo para machacar el hielo pulsando el click
-    derecho
+  text: Cierra la nevera y coge el martillo para machacarlo pulsando el click derecho
   children:
   - 52204995-fc1a-427e-a2d5-8fa2940ced9b
   rect:
     serializedVersion: 2
-    x: 2354
-    y: 261
+    x: 2385
+    y: 250
     width: 200
     height: 120
   onEnterAction: 
@@ -197,8 +195,33 @@ MonoBehaviour:
   - b071f1de-de29-407d-9360-518c0e5aa996
   rect:
     serializedVersion: 2
-    x: 1382
-    y: 264
+    x: 1731
+    y: 252
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-3116018059183059167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a3fece31-8dfe-47c7-9816-22f26068f712
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Y ARRIBA ESPA\xD1A!!"
+  children:
+  - 92a500d1-30c1-4b9e-84ef-d5041757931b
+  rect:
+    serializedVersion: 2
+    x: 1524
+    y: 253
     width: 200
     height: 120
   onEnterAction: 
@@ -242,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 1
-  text: 'Ahora mete hielo dentro del vaso, no metas mucho que la gente quiere beber '
+  text: Ahora mete hielo dentro del vaso, no te calientes echando hielo
   children:
   - 257037a9-b3e0-48bc-aec2-a666ec652d99
   rect:
@@ -353,6 +376,8 @@ MonoBehaviour:
   - {fileID: 8200860508337118186}
   - {fileID: -107289366148349912}
   - {fileID: 4833365204195547995}
+  - {fileID: 5632060690681459986}
+  - {fileID: -3116018059183059167}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &2579801799094095883
 MonoBehaviour:
@@ -393,7 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 1
-  text: Venga traeme ese RonCola, que tengo que bajarme el cachopo de la comida
+  text: Venga traeme el cubata, que tengo que bajarme el cachopo de la comida
   children: []
   rect:
     serializedVersion: 2
@@ -424,6 +449,31 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1354
     y: 261
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &5632060690681459986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1a815b45-1015-4c35-9ea6-1733506a3b0c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Vamos ha hacer un Roncola
+  children:
+  - adb8f3f7-af86-42ce-bcc2-62fb5c0bb976
+  rect:
+    serializedVersion: 2
+    x: 1083
+    y: 259
     width: 200
     height: 120
   onEnterAction: 
@@ -569,14 +619,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 1
-  text: "Si quieres la informaci\xF3n del RonCola, abajo hay un libro con la informaci\xF3n
-    Y ARRIBA ESPA\xD1A!!"
+  text: "Si quieres la informaci\xF3n del Roncola, abajo hay un libro..."
   children:
-  - 92a500d1-30c1-4b9e-84ef-d5041757931b
+  - a3fece31-8dfe-47c7-9816-22f26068f712
   rect:
     serializedVersion: 2
-    x: 1113
-    y: 258
+    x: 1318
+    y: 254
     width: 200
     height: 120
   onEnterAction: 
@@ -621,7 +670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 1
-  text: Y con papeles, no como los okupas que viven frente mio
+  text: Y con papeles y todo
   children:
   - a38ffafc-9a32-4746-920d-b20cb4323869
   rect:
