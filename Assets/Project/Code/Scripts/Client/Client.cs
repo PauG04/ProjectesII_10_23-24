@@ -84,7 +84,7 @@ public class Client : MonoBehaviour
             }
         }
 
-        if (canLeave && clientNode.notNeedTakeDrink)
+        if (canLeave && clientNode.notNeedTakeDrink && !clientNode.hitToGo)
         {
             startTimer = true;
         }
