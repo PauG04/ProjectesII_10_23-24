@@ -18,6 +18,7 @@ namespace Dialogue
 		private AIConversant currentConversant = null;
 		private bool isChoosing = false;
 		private bool isStartingNewConversant = false;
+		private bool isTextDone;
 
 		/// TODO:
 		/// 	find a better way to give the child to other objects instead of a numeric one
@@ -166,7 +167,13 @@ namespace Dialogue
             }
 			return true;
 		}
-
-
+		public void SetIsTextDone(bool isTextDone)
+		{
+			this.isTextDone = isTextDone;
+		}
+		public bool GetIsTextDone()
+		{
+			return isTextDone;
+		}
     }
 }
