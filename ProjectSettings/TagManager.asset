@@ -31,6 +31,11 @@ TagManager:
   - IceBroken
   - LemonSlide
   - Client
+  - WorkSpace
+  - Knife
+  - Cocktail
+  - Shop
+  - Bottle
   layers:
   - Default
   - TransparentFX
@@ -46,17 +51,17 @@ TagManager:
   - Fluids
   - FruitClick
   - LiquidCollision
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PhysicsObject
+  - ShakerLayer
+  - WorkspaceObject
+  - MainTable
+  - Glass
+  - Piece
+  - PieceLemon
+  - GlassLiquid
+  - Bottle
+  - DecorationLayer
+  - Wiki
   - 
   - 
   - 
@@ -68,15 +73,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Desktop
-    uniqueID: 3939692893
-    locked: 0
-  - name: Window
-    uniqueID: 3388101939
-    locked: 0
-  - name: RunningApp
-    uniqueID: 3405375837
+  - name: WorkSpace
+    uniqueID: 2181443301
     locked: 0
   - name: Liquid
     uniqueID: 3762494971
+    locked: 0
+  - name: Text
+    uniqueID: 3671505451
+    locked: 0
+  - name: Pause
+    uniqueID: 472271961
     locked: 0

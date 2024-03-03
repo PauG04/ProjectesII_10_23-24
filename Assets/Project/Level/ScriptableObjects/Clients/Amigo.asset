@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203defdb18f377b4184cfcf21f18d09b, type: 3}
+  m_Name: Amigo
+  m_EditorClassIdentifier: 
+  clientName: Amigo
+  sprite: {fileID: 21300000, guid: 65ff6892d23597244b7028e877bee2e4, type: 3}
+  hitToGo: 0
+  canBeHitted: 0
+  regularHitReactions: 0
+  notNeedTakeDrink: 0
+  acceptsAll: 0
+  possibleOrders:
+  - {fileID: 11400000, guid: 8b7c3c93fcb8c434fb39bace5a2e1296, type: 2}
+  dialogues:
+  - {fileID: 11400000, guid: 00f9190d37980354db48ef071de00db4, type: 2}
+  goodReactions:
+  - {fileID: 11400000, guid: 1b0a41a7ff2a29f4daa011450e32bf65, type: 2}
+  badReactions:
+  - {fileID: 11400000, guid: bd87befed5ee7b54795ee6182b480df4, type: 2}
+  hitReactions:
+  - {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  dialogue: {fileID: 11400000, guid: 00f9190d37980354db48ef071de00db4, type: 2}
+  goodReaction: {fileID: 11400000, guid: 1b0a41a7ff2a29f4daa011450e32bf65, type: 2}
+  badReaction: {fileID: 11400000, guid: bd87befed5ee7b54795ee6182b480df4, type: 2}
+  hitReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  badGlassReaction: {fileID: 11400000, guid: 36ee253329dcac049a06d2372265a93f, type: 2}
+  noIceReaction: {fileID: 11400000, guid: 4ba8c4a89d44d4a42a4506e02006e387, type: 2}
+  muchIceReaction: {fileID: 11400000, guid: ed171cb4b236cf549bb2abe6f03f3abc, type: 2}
+  badStateReaction: {fileID: 11400000, guid: 994cd8bf75539dd4182bb36b8998cdc5, type: 2}
+  badIngredientsReaction: {fileID: 11400000, guid: bd87befed5ee7b54795ee6182b480df4, type: 2}
