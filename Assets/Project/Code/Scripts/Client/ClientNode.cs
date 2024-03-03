@@ -28,7 +28,6 @@ public class ClientNode : ScriptableObject
         dialogue = dialogues[0];
         goodReaction = goodReactions[0];
         badReaction = badReactions[0];
-
     }
 
     public void RandomizeDialogue()
@@ -37,10 +36,10 @@ public class ClientNode : ScriptableObject
     }
     public void RandomizeGoodReaction()
     {
-        goodReaction = dialogues[Random.Range(0, dialogues.Count)];
+        goodReaction = goodReactions[Random.Range(0, goodReactions.Count)];
     }
     public void RandomizeBadReaction()
     {
-        badReaction = dialogues[Random.Range(0, dialogues.Count)];
+        badReaction = badReactions[Random.Range(0, badReactions.Count)];
     }
 }

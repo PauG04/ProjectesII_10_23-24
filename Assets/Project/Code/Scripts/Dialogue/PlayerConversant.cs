@@ -39,7 +39,6 @@ namespace Dialogue
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
             //AudioManager.instance.Play("ClientTalking");
-
 			isChoosing = false;
 
             currentConversant = newConversant;
