@@ -13,6 +13,8 @@ namespace Dialogue
 
 		private Client client;
 
+
+		private int i;
 		protected void Awake()
 		{
 			playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
@@ -25,13 +27,13 @@ namespace Dialogue
 			{
 				return;
 			}
-			
+
 			playerConversant.StartDialogue(this, dialogue);
 		}
 
         private void Update()
         {
-			if(playerConversant.IsActive() && !client.GetCanLeave())
+            if (playerConversant.IsActive() && !client.GetCanLeave())
 			{
                 if (!playerConversant.HasNext() && playerConversant.GetIsTextDone())
                 {
@@ -39,7 +41,6 @@ namespace Dialogue
                 }
             }           
         }
-
 		public PlayerConversant GetPlayerConversant()
 		{
 			return playerConversant;

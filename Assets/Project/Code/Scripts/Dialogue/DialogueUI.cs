@@ -40,9 +40,8 @@ namespace UI
 			{
 				if (!playerConversant.GetTextIsRunning())
 				{
-                    TypeWriterEffect.CompleteTextRevealed -= WriteText;
                     playerConversant.SetIsTextDone(false);
-
+                    TypeWriterEffect.CompleteTextRevealed -= WriteText;
                 }
 
                 if (playerConversant.HasNext() && !playerConversant.IsChoosing() && !playerConversant.GetTextIsRunning())
@@ -53,10 +52,10 @@ namespace UI
 						isSeparatorRunning = false;
                     }
 					TypeWriterEffect.CompleteTextRevealed += WriteText;
-					playerConversant.SetIsTextDone(true);
-				} 
-				else if ((playerConversant.IsChoosing() || !playerConversant.HasNext()) && !isSeparatorRunning)
+                }
+                else if ((playerConversant.IsChoosing() || !playerConversant.HasNext()) && !isSeparatorRunning)
 				{
+                    playerConversant.SetIsTextDone(true);
                     //coroutineRunning = StartCoroutine(SeparatorDelay());
                 }
             }
@@ -68,9 +67,10 @@ namespace UI
         }
 		private void WriteText()
 		{
+            playerConversant.SetIsTextDone(true);
             coroutineRunning = StartCoroutine(playerConversant.WriteTextWithDelay());
         }
-		private void UpdateChat()
+        private void UpdateChat()
 		{
             if (playerConversant.IsNewConversant())
             {
