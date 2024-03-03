@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clientName: Regular
   sprite: {fileID: 21300000, guid: e3c5bb52e78c47247bb2a6cb15ffc8cd, type: 3}
-  notNeedTakeDrink: 0
   hitToGo: 0
   canBeHitted: 1
   regularHitReactions: 1
+  notNeedTakeDrink: 0
   acceptsAll: 0
   possibleOrders:
   - {fileID: 11400000, guid: 5ee31d61876300942ac422b2ef11376e, type: 2}
@@ -40,3 +40,8 @@ MonoBehaviour:
   goodReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   hitReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  badGlassReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  noIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  muchIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  badStateReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  badIngredientsReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}

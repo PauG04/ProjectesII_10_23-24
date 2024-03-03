@@ -8,11 +8,11 @@ public class ClientNode : ScriptableObject
     public string clientName;
     public Sprite sprite;
 
-    public bool notNeedTakeDrink;
     public bool hitToGo;
     public bool canBeHitted;
     public bool regularHitReactions;
 
+    public bool notNeedTakeDrink;
     public bool acceptsAll;
     public List<CocktailNode> possibleOrders;
 
@@ -24,6 +24,11 @@ public class ClientNode : ScriptableObject
     public Dialogue.Dialogue goodReaction;
     public Dialogue.Dialogue badReaction;
     public Dialogue.Dialogue hitReaction;
+    public Dialogue.Dialogue badGlassReaction;
+    public Dialogue.Dialogue noIceReaction;
+    public Dialogue.Dialogue muchIceReaction;
+    public Dialogue.Dialogue badStateReaction;
+    public Dialogue.Dialogue badIngredientsReaction;
 
     private void OnEnable()
     {

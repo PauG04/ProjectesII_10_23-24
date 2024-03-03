@@ -99,14 +99,22 @@ public class Client : MonoBehaviour
     {
         if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp() && !clientNode.notNeedTakeDrink)
         {
+            if (clientNode.acceptsAll)
+            {
+                ReactWell();
+                return;
+            }
+
             LiquidManager liquidManagerResult = collision.GetComponentInChildren<LiquidManager>();
 
-            ReceiveCoctel(CalculateDrink.instance.CalculateResultDrink(
-                liquidManagerResult.GetParticleTypes(),
-                liquidManagerResult.GetDrinkState(),
-                collision.GetComponentInChildren<SpriteRenderer>().sprite,
-                collision.GetComponentInChildren<InsideDecorations>().GetDecorations()
-                ));
+            string findError = CalculateDrink.instance.CalculateResultDrink(
+                    liquidManagerResult.GetParticleTypes(),
+                    liquidManagerResult.GetDrinkState(),
+                    collision.GetComponentInChildren<SpriteRenderer>().sprite,
+                    collision.GetComponentInChildren<InsideDecorations>().GetDecorations(),
+                    order.type);
+
+            FindCoctelError(findError);
 
             Destroy(collision.gameObject);
         }
@@ -150,23 +158,68 @@ public class Client : MonoBehaviour
         spriteRenderer.flipX = true;
     }
 
-    private bool CompareCocktails(CocktailNode.Type cocktail)
+    private void FindCoctelError(string findError)
     {
-        if (clientNode.acceptsAll == true)
-            return true;
-        if (order.type == cocktail)
-            return true;
-        return false;
-    }
-
-    public void ReceiveCoctel(CocktailNode.Type cocktail)
-    {
-        if (CompareCocktails(cocktail))
+        if (findError == "Good")
         {
+            Debug.Log(findError);
             ReactWell();
-            return;
         }
-        ReactBad();
+        else if (findError == "BadGlass")
+        {
+            Debug.Log(findError);
+            if (clientNode.badGlassReaction == ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.badGlassReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+        else if (findError == "NoIce")
+        {
+            Debug.Log(findError);
+            if (clientNode.noIceReaction == ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.noIceReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+        else if (findError == "MuchIce")
+        {
+            Debug.Log(findError);
+            if (clientNode.muchIceReaction == ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.muchIceReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+        else if (findError == "BadState")
+        {
+            Debug.Log(findError);
+            if (clientNode.badStateReaction == ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.badStateReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+        else if (findError == "BadIngredients")
+        {
+            Debug.Log(findError);
+            if (clientNode.badIngredientsReaction == ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.badIngredientsReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
     }
 
     private void ReactWell()

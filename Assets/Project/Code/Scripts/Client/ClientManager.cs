@@ -18,6 +18,7 @@ public class ClientManager : MonoBehaviour
     [Header("Dialogue")]
     [SerializeField] private List<Dialogue.Dialogue> regularClientHitDialogues;
     [SerializeField] private List<Sprite> clientSprites;
+    [SerializeField] private Dialogue.Dialogue emptyDialogue;
 
     [Header("Client Position")]
     [SerializeField] private Transform spawnPosition;
@@ -53,6 +54,10 @@ public class ClientManager : MonoBehaviour
     }
 
     #region GETTERS
+    public Dialogue.Dialogue GetEmptyDialogue()
+    {
+        return emptyDialogue;
+    }
     public List<Sprite> GetClientSprites()
     {
         return clientSprites;
