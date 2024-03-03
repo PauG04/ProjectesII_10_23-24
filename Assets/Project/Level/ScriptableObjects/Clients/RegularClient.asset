@@ -17,6 +17,7 @@ MonoBehaviour:
   notNeedTakeDrink: 0
   hitToGo: 0
   canBeHitted: 1
+  regularHitReactions: 1
   acceptsAll: 0
   possibleOrders:
   - {fileID: 11400000, guid: 5ee31d61876300942ac422b2ef11376e, type: 2}
@@ -33,6 +34,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badReactions:
   - {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  hitReactions:
+  - {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   dialogue: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   goodReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  hitReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}

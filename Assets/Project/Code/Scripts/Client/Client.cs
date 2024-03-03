@@ -89,7 +89,7 @@ public class Client : MonoBehaviour
             startTimer = true;
         }
 
-        if (startTimer)
+        if (startTimer && !conversant.GetPlayerConversant().HasNext())
         {
             Timer();
         }
@@ -117,24 +117,27 @@ public class Client : MonoBehaviour
         if (collision.CompareTag("Hammer") && !startTimer && clientNode.canBeHitted)
         {
             hitted = true;
-            if (clientNode.hitToGo)
-            {
-                conversant.SetDialogue(clientNode.goodReaction);
-                conversant.HandleDialogue();
-                return;
-            }
 
-            int randomHitDialogue = Random.Range(0, ClientManager.instance.GetRegularClientHitDialogues().Count);
-            conversant.SetDialogue(ClientManager.instance.GetRegularClientHitDialogues()[randomHitDialogue]);
+            clientNode.RandomizeHitReaction();
+            conversant.SetDialogue(clientNode.hitReaction);
             conversant.HandleDialogue();
 
-            
+            if (clientNode.hitToGo)
+            {
+                startTimer = true;
+                return;
+            }            
         }
     }
 
     public void InitClient()
     {
         boxCollider.enabled = true;
+
+        if(clientNode.regularHitReactions)
+        {
+            clientNode.hitReactions = ClientManager.instance.GetRegularClientHitDialogues();
+        }
 
         int randomOrder = Random.Range(0, clientNode.possibleOrders.Count);
         order = clientNode.possibleOrders[randomOrder];
@@ -160,7 +163,6 @@ public class Client : MonoBehaviour
     {
         if (CompareCocktails(cocktail))
         {
-            Debug.Log("AQUI SI");
             ReactWell();
             return;
         }

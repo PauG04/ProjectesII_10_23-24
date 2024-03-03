@@ -70,7 +70,7 @@ public class CalculateDrink : MonoBehaviour
             //Check if same quantity
             if (decoration.Value == 1 || decoration.Value == 2)
             {
-                if (decorations[decoration.Key] < 1 || decorations[decoration.Key] > 2)
+                if (decorations[decoration.Key] < 1 || decorations[decoration.Key] > 3)
                     return false;
             }
             else
