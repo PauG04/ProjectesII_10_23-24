@@ -66,11 +66,36 @@ MonoBehaviour:
   isTextPaused: 0
   text: "\xC7i me prepar\xE2 un Agua de Palencia a la perp\xEA\xE7\xE7i\xF3n ar\xE9
     b\xEEtta gorda y me ire, pero como no lo ag\xE2 PERF\xCATTO te xapo \xEAtte antro"
+  children:
+  - 05295b71-98ed-49ba-95f7-e4d298963b86
+  rect:
+    serializedVersion: 2
+    x: 1180
+    y: 198
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-3960048109057159449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 05295b71-98ed-49ba-95f7-e4d298963b86
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "U\xE7a er cuenta on\xE7\xE2 e\xE7e que \xE7ale en la telenobela de la 1"
   children: []
   rect:
     serializedVersion: 2
-    x: 1181
-    y: 198
+    x: 1430
+    y: 197
     width: 200
     height: 120
   onEnterAction: 
@@ -118,6 +143,7 @@ MonoBehaviour:
   - {fileID: 679245609473906036}
   - {fileID: -2138817300965111332}
   - {fileID: -5916686799911259753}
+  - {fileID: -3960048109057159449}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &679245609473906036
 MonoBehaviour:

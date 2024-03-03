@@ -100,6 +100,7 @@ public class FriendEvent : MonoBehaviour
         }
 
         initOrderingLayerFridge = fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder;
+        fridge.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         fridge.enabled = false;
 
         initOrderingLayerBucket = createObjectCollider.gameObject.GetComponent<SpriteRenderer>().sortingOrder;
