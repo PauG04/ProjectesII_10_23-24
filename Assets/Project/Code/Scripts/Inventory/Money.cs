@@ -12,10 +12,12 @@ public class Money : MonoBehaviour
     private TextMeshPro textMesh;
 
     private float money;
+    private bool growing;
 
     private void Awake()
     {
         textMesh = GetComponent<TextMeshPro>();
+        growing = true;
     }
 
     private void Update()
@@ -43,13 +45,27 @@ public class Money : MonoBehaviour
         }
 
         textMesh.text = money.ToString("00.00") + '€';
-        transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(2.5f, 2.5f, 2.5f), Time.deltaTime * Velocity);
-        if(transform.localScale.x >= 2.45)
+
+        if(growing)
         {
-            EconomyManager.instance.SetMoney(EconomyManager.instance.GetMoney() + money);
-            transform.localScale = Vector3.one;
-            textMesh.color = Color.white;
-            EconomyManager.instance.SetMoneyChanged(0);
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(2.15f, 2.15f, 2.15f), Time.deltaTime * Velocity);
+            if (transform.localScale.x >= 2.10)
+            {
+                growing = false;
+            }
         }
+        else
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, Time.deltaTime * Velocity);
+            if (transform.localScale.x <= 1.05)
+            {
+                growing = true;
+                EconomyManager.instance.SetMoney(EconomyManager.instance.GetMoney() + money);
+                transform.localScale = Vector3.one;
+                textMesh.color = Color.white;
+                EconomyManager.instance.SetMoneyChanged(0);
+            }
+        }
+        
     }
 }

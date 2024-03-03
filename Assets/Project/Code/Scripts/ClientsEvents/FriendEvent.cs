@@ -219,6 +219,7 @@ public class FriendEvent : MonoBehaviour
         else if (tutorialBooleans[6])
         {
             ActiveDragItem(1, 4, 6, 5);
+            glassLiquid.gameObject.SetActive(true);
         }
         else if (glassLiquid != null && glassLiquid.GetComponent<LiquidManager>().GetCurrentLiquid() >= glassLiquid.GetComponent<LiquidManager>().GetMaxLiquid() / 2 && tutorialBooleans[7])
         {
@@ -446,5 +447,6 @@ public class FriendEvent : MonoBehaviour
     {
         glass = _glass;
         glassLiquid = _glass.transform.parent.transform.GetChild(2).gameObject;
+        glassLiquid.gameObject.SetActive(false);
     }
 }
