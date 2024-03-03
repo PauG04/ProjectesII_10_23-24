@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8277334256892889940
 MonoBehaviour:
@@ -45,17 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - soundName: MainMenuSong
-    clip: {fileID: 8300000, guid: 6f9b9f0af1aa9af4b8031726f1449a1e, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - soundName: GameSong
-    clip: {fileID: 8300000, guid: 6f9b9f0af1aa9af4b8031726f1449a1e, type: 3}
+    clip: {fileID: 8300000, guid: fc7a86d28ed145d4da991c4d6517c4ed, type: 3}
     volume: 0.5
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - soundName: ShakingLiquid
     clip: {fileID: 8300000, guid: 02754080b1f825c4292a4b50c48d8d37, type: 3}
@@ -111,4 +105,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  songs:
+  - {fileID: 8300000, guid: c0ff10cde44de754986966e1bab4c891, type: 3}
+  - {fileID: 8300000, guid: 24f01344a922c8248b75827cf7ebc1f0, type: 3}
+  - {fileID: 8300000, guid: 6f9b9f0af1aa9af4b8031726f1449a1e, type: 3}
+  - {fileID: 8300000, guid: 59cf960cb0656fc46885615ed5735960, type: 3}
   mixer: {fileID: 24100000, guid: 954f6bc7c018e4048ba33793f443f459, type: 2}
