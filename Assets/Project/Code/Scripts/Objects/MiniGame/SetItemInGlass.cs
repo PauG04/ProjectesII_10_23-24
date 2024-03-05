@@ -37,8 +37,8 @@ public class SetItemInGlass : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Decoration"))
-        {           
-            GetComponent<DragItems>().enabled = true;
+        {
+            drag.enabled = true;
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             isInGlass = false;
             collision.GetComponent<InsideDecorations>().SubstractItem(itemNode);

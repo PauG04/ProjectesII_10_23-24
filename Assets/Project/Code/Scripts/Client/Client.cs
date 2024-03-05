@@ -1,4 +1,5 @@
 using Dialogue;
+using UnityEditor.XR;
 using UnityEngine;
 
 public class Client : MonoBehaviour
@@ -34,6 +35,8 @@ public class Client : MonoBehaviour
 
     private bool hitted;
 
+    private bool triggerSetted;
+
     private void Awake()
     {
         conversant = GetComponent<AIConversant>();
@@ -52,6 +55,7 @@ public class Client : MonoBehaviour
 
         isLocated = false;
         hitted = false;
+
     }
 
     private void Start()
@@ -62,27 +66,7 @@ public class Client : MonoBehaviour
 
     private void Update()
     {
-        if (arriveAnimation)
-        {
-            MoveClientHorizontal(ClientManager.instance.GetClientPosition());
-            if (transform.localPosition.x > ClientManager.instance.GetClientPosition().localPosition.x - 0.01)
-            {
-                arriveAnimation = false;
-                isLocated = true;
-                conversant.HandleDialogue();
-            }
-        }
-        else if (leaveAnimation)
-        {
-            boxCollider.enabled = false;
-
-            MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
-            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
-            {
-                ClientManager.instance.CreateClient();
-                Destroy(gameObject);
-            }
-        }
+        Lerps();
 
         if (canLeave && clientNode.notNeedTakeDrink && !clientNode.hitToGo)
         {
@@ -92,6 +76,13 @@ public class Client : MonoBehaviour
         if (startTimer && !conversant.GetPlayerConversant().HasNext())
         {
             Timer();
+        }
+
+        if (!triggerSetted)
+        {
+            GetComponent<DialogueTrigger>().SetTriggerAction("ActiveCollision");
+            GetComponent<DialogueTrigger>().SetOnTriggerEvent(EnableCollider);
+            triggerSetted = true;
         }
     }
 
@@ -142,7 +133,7 @@ public class Client : MonoBehaviour
 
     public void InitClient()
     {
-        boxCollider.enabled = true;
+        //boxCollider.enabled = true;
 
         if(clientNode.regularHitReactions)
         {
@@ -244,6 +235,31 @@ public class Client : MonoBehaviour
         arriveAnimation = true;
     }
 
+    private void Lerps()
+    {
+        if (arriveAnimation)
+        {
+            MoveClientHorizontal(ClientManager.instance.GetClientPosition());
+            if (transform.localPosition.x > ClientManager.instance.GetClientPosition().localPosition.x - 0.01)
+            {
+                arriveAnimation = false;
+                isLocated = true;
+                conversant.HandleDialogue();
+            }
+        }
+        else if (leaveAnimation)
+        {
+            boxCollider.enabled = false;
+
+            MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
+            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
+            {
+                ClientManager.instance.CreateClient();
+                Destroy(gameObject);
+            }
+        }
+    }
+
     private void MoveClientHorizontal(Transform _transform)
     {
         Vector3 newPosition = transform.localPosition;
@@ -260,6 +276,12 @@ public class Client : MonoBehaviour
             startTimer = false;
             leaveAnimation = true;
         }
+    }
+
+    private void EnableCollider()
+    {
+        Debug.Log("si");
+        boxCollider.enabled = true;
     }
 
     public CocktailNode GetOrder()
