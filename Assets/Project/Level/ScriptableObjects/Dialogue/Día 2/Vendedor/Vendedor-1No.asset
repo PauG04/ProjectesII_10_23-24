@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Vendedor-1No
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 381641386225527047}
+  - {fileID: 3879894757267987}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &3879894757267987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 53f453e6-7cd9-49f0-862d-a4497c00c99a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Venga te voy ha hacer una rebajilla, ni pati ni pa mi 50 eurillos, que se
+    me escapan de las manos
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 296
+    y: 131
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &381641386225527047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d6e4052b-8949-4036-81c7-f9558bcdac4c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Bueno, tampoco te pongas as\xED primo, quiz\xE1s me he pesado con el precio"
+  children:
+  - 53f453e6-7cd9-49f0-862d-a4497c00c99a
+  rect:
+    serializedVersion: 2
+    x: 46
+    y: 131
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

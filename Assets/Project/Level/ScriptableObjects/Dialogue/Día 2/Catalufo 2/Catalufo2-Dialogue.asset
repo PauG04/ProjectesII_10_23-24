@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8239693675576241238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 22c398c4-5bd6-41f2-b200-d276b31bf4f9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Com, que ja va guanyant 1-0 el bar\xE7a, si \xE9s que som els millors"
+  children:
+  - a98a80d0-0943-4974-8bcb-c2e95a0b9f43
+  rect:
+    serializedVersion: 2
+    x: 280
+    y: 97
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-7782683425199358594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 209fc4a8-3d85-4a98-a0d1-c1776c0a1c86
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 532
+    y: 97
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 
+--- !u!114 &-6534218196973239440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 63b166f4-d473-405d-82f3-fdde6470cd7f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 
+  children:
+  - 209fc4a8-3d85-4a98-a0d1-c1776c0a1c86
+  rect:
+    serializedVersion: 2
+    x: 281
+    y: 97
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Catalufo2-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 4919460023072184334}
+  - {fileID: -8239693675576241238}
+  - {fileID: 6417261844505550023}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &4919460023072184334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 402f3d1e-99a8-4e53-a6e1-829fa5479e48
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Ja ha comen\xE7at partit, encara sort que he arribat a temps "
+  children:
+  - 63b166f4-d473-405d-82f3-fdde6470cd7f
+  - 22c398c4-5bd6-41f2-b200-d276b31bf4f9
+  rect:
+    serializedVersion: 2
+    x: 30
+    y: 97
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6417261844505550023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a98a80d0-0943-4974-8bcb-c2e95a0b9f43
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: podries posar-me un Whiskey Sour per celebrar
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 529
+    y: 97
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

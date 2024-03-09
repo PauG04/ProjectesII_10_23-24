@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6569398964521986324
+--- !u!114 &-7409611005928189219
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: a252bf2f-7575-4b07-8537-53a7fee6cd56
+  m_Name: 844a2324-72a1-4a0d-88d7-d8244548d07f
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: "Parece que almenos si sabes acatar norm\xE1s"
+  text: Em cago als teus morts
   children:
-  - 48b3fd63-ec52-4ba9-afdd-65148f14be62
+  - 8d46dcc5-4f20-4cb4-bb3b-317fa940a922
+  - 4430d65f-0b3c-4a45-8b9f-feb42274d22c
   rect:
     serializedVersion: 2
-    x: 65
-    y: 235
+    x: 93
+    y: 176
     width: 200
     height: 120
   onEnterAction: 
   onExitAction: 
---- !u!114 &-1798985407004669383
+--- !u!114 &-3810151775187861776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35,41 +36,66 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 49e6393d-fa9e-455b-8814-52f5ef009500
+  m_Name: 13ddc3d4-6830-46e7-835f-0db382b46c16
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Los necesitaba para irme al cub
-  children:
-  - b29cb2fe-9be1-4bd0-889b-9d31441a50e8
-  rect:
-    serializedVersion: 2
-    x: 566
-    y: 234
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-1203643013369031987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: b29cb2fe-9be1-4bd0-889b-9d31441a50e8
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: "Pero bueno, mi palabra vale m\xE1s que esas putas"
+  text: 
   children: []
   rect:
     serializedVersion: 2
-    x: 816
-    y: 234
+    x: 593
+    y: 176
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2362511064523645116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 4430d65f-0b3c-4a45-8b9f-feb42274d22c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: " perqu\xE8 em dones, que ets un altre madridista de merda"
+  children:
+  - 309a6460-25d4-4e7e-966d-97eb362e33d4
+  rect:
+    serializedVersion: 2
+    x: 339
+    y: 176
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-586219510161087951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 8d46dcc5-4f20-4cb4-bb3b-317fa940a922
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 
+  children:
+  - 13ddc3d4-6830-46e7-835f-0db382b46c16
+  rect:
+    serializedVersion: 2
+    x: 340
+    y: 177
     width: 200
     height: 120
   onEnterAction: 
@@ -84,12 +110,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
-  m_Name: Casero-Partido-Good
+  m_Name: Catalufo2-Hit
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: -6569398964521986324}
+  - {fileID: -7409611005928189219}
+  - {fileID: -2362511064523645116}
+  - {fileID: 3036125258264829114}
   newNodeOffset: {x: 250, y: 0}
---- !u!114 &1548355028669336676
+--- !u!114 &3036125258264829114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,17 +127,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 48b3fd63-ec52-4ba9-afdd-65148f14be62
+  m_Name: 309a6460-25d4-4e7e-966d-97eb362e33d4
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: "Una pena no podr\xE9 quedarme esos 100 euros"
-  children:
-  - 49e6393d-fa9e-455b-8814-52f5ef009500
+  text: "Me'n vaig al bar del costat a veure si all\xE0 em tracten millor"
+  children: []
   rect:
     serializedVersion: 2
-    x: 316
-    y: 234
+    x: 589
+    y: 176
     width: 200
     height: 120
   onEnterAction: 
