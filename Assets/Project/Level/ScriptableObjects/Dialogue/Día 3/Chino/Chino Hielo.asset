@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Se que tu tlabajo es una mielda pero almenos hazlo bien
+  text: 
   children: []
   rect:
     serializedVersion: 2
@@ -41,10 +41,35 @@ MonoBehaviour:
   text: "Me cago en tus multos, te has calgado el c\xF3ctel con el hielo"
   children:
   - 06c423a6-0f77-4aae-9df0-0a833aa407d1
+  - 43081ced-68d8-458d-9cbb-05d62fb2ade6
   rect:
     serializedVersion: 2
     x: 15
     y: 99
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1191488785223865783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 43081ced-68d8-458d-9cbb-05d62fb2ade6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Se que tu tlabajo es una mielda pero almenos hazlo bien
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 263
+    y: 100
     width: 200
     height: 120
   onEnterAction: 
@@ -63,4 +88,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -6022525659232766584}
+  - {fileID: -1191488785223865783}
   newNodeOffset: {x: 250, y: 0}

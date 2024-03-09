@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Vuelve a empezal
+  text: 
   children: []
   rect:
     serializedVersion: 2
@@ -41,9 +41,34 @@ MonoBehaviour:
   text: "Que coo hales, no vles que me hales da\xF1o"
   children:
   - 578345dc-e7f6-47b9-9b9f-dcd6f7044943
+  - 8129e706-0912-49e1-89fc-de37bc23d353
   rect:
     serializedVersion: 2
     x: 63
+    y: 137
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-496796337603815290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6b75470f-0ddc-46ce-9fcd-2df69610097f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Vuelve a empezal
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 563
     y: 137
     width: 200
     height: 120
@@ -63,6 +88,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -999272073500974536}
+  - {fileID: 2292574900229771274}
+  - {fileID: -496796337603815290}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &122921696338604987
 MonoBehaviour:
@@ -78,9 +105,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Se que tu lida es mou tliste pelo eso no signiflica que me tenglas que pagal
+  text: 
   children:
   - 5dffe198-b5eb-4492-987f-66cdc1e4d5d3
+  rect:
+    serializedVersion: 2
+    x: 313
+    y: 137
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &2292574900229771274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 8129e706-0912-49e1-89fc-de37bc23d353
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Se que tu lida es mou tliste pelo eso no signiflica que me tenglas que pagal
+  children:
+  - 6b75470f-0ddc-46ce-9fcd-2df69610097f
   rect:
     serializedVersion: 2
     x: 313
