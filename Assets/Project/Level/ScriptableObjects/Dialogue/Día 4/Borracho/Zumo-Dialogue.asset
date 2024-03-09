@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7934346141183401160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: e0f746ae-5621-4be2-8a70-f8d4440e6b1d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Porfavor sirveme un zumo de naranja que es lo \xFAnico que necesito ahora
+    mismo para intentar bajar todo el alchol"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1043
+    y: 183
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-7003496048104489821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f91ee2a3-9611-4a45-be4b-5b26a0220784
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Y yo de rebote estoy tambi\xE9n bebiendo"
+  children:
+  - e0f746ae-5621-4be2-8a70-f8d4440e6b1d
+  rect:
+    serializedVersion: 2
+    x: 793
+    y: 183
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-6737107177594896314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: fcb89b92-77ad-4554-9ac7-53b2e9b0b050
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Porfavor, ayudame
+  children:
+  - 00801a03-77bd-471c-8cc0-c04e4481127c
+  rect:
+    serializedVersion: 2
+    x: 43
+    y: 183
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1098707897779386422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 00801a03-77bd-471c-8cc0-c04e4481127c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "He decido hoy salir con mi amigo chino a tomar un poco pero es que no puedo
+    m\xE1s"
+  children:
+  - 26d6b55b-5dbb-4a24-b65e-8bc5f15ed3fe
+  rect:
+    serializedVersion: 2
+    x: 293
+    y: 183
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Zumo-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -6737107177594896314}
+  - {fileID: -1098707897779386422}
+  - {fileID: 8908883978819599023}
+  - {fileID: -7003496048104489821}
+  - {fileID: -7934346141183401160}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &8908883978819599023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 26d6b55b-5dbb-4a24-b65e-8bc5f15ed3fe
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: NO PARA DE BEBER Y NO LE SUBE
+  children:
+  - f91ee2a3-9611-4a45-be4b-5b26a0220784
+  rect:
+    serializedVersion: 2
+    x: 543
+    y: 183
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
