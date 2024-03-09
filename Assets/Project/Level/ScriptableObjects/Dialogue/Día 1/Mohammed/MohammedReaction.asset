@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4987592358221469945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 094a245a-6dc6-4e58-be63-c758967424c5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 'ME CAGO EN TUS MUERTOS!! '
+  children:
+  - 28722211-e354-4bcc-b9a4-aea0bcb9041e
+  rect:
+    serializedVersion: 2
+    x: 208
+    y: 197
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: MohammedReaction
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -4987592358221469945}
+  - {fileID: 3788038240804621313}
+  - {fileID: 3362908456360464239}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &3362908456360464239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6be64e50-9333-46a9-a86e-1b40d867de63
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Y ya que estoy te voy a demandar por el golpe, no tendr\xE9 papeles pero
+    llamar a la policia si que s\xE9"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 702
+    y: 194
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3788038240804621313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 28722211-e354-4bcc-b9a4-aea0bcb9041e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Voy a venir con mis 14 hijos para partirte las piernas
+  children:
+  - 6be64e50-9333-46a9-a86e-1b40d867de63
+  rect:
+    serializedVersion: 2
+    x: 458
+    y: 197
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

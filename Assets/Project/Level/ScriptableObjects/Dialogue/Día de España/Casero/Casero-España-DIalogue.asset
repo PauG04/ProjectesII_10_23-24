@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6069886062007332445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1f20df81-7be2-438d-a2a1-8271d582cdc7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Pero como le tengo m\xE1s asco a los monos de la selva que a los catalanes
+    eso esta vez te quitar\xE9 150 euros"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1565
+    y: 223
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-5036812872745807591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 485899f1-a93d-4290-8b9c-36db33d20103
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Bueno en res\xFAmen, cualquier tipo de persona cuya raza esta subderalloda
+    o su tono de piel se parece m\xE1s al de una llanta que al nuestro\n"
+  children:
+  - 42d0f51e-ed0a-4c80-8a4f-596b4627b070
+  rect:
+    serializedVersion: 2
+    x: 1064
+    y: 224
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2445856327344292702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 03c8ab76-5e3f-4309-bee2-fb87ed0d65ce
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "As\xED que he decido que hoy no quiero ver a ningun sudamericano por este
+    bar"
+  children:
+  - 7356852d-22c8-479a-8a81-b9c05becdadd
+  rect:
+    serializedVersion: 2
+    x: 564
+    y: 224
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1274256795404128016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ab72d354-019f-492e-bd0f-ab79d96ede0a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Chaval, \xBFsabes que d\xEDa es hoy?"
+  children:
+  - d129dafb-e02d-4fd8-8705-0225acb4dd32
+  rect:
+    serializedVersion: 2
+    x: 65
+    y: 225
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-792893278585484993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d129dafb-e02d-4fd8-8705-0225acb4dd32
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "HOY ES EL D\xCDA DE ESPA\xD1A"
+  children:
+  - 03c8ab76-5e3f-4309-bee2-fb87ed0d65ce
+  rect:
+    serializedVersion: 2
+    x: 314
+    y: 224
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: "Casero-Espa\xF1a-DIalogue"
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1274256795404128016}
+  - {fileID: -792893278585484993}
+  - {fileID: -2445856327344292702}
+  - {fileID: 7542211068455528408}
+  - {fileID: -5036812872745807591}
+  - {fileID: 2634504294508612469}
+  - {fileID: -6069886062007332445}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &2634504294508612469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 42d0f51e-ed0a-4c80-8a4f-596b4627b070
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Igual que el d\xEDa del partido, si sudas de mi condici\xF3n te quitare
+    parte del dinero ahorrado"
+  children:
+  - 1f20df81-7be2-438d-a2a1-8271d582cdc7
+  rect:
+    serializedVersion: 2
+    x: 1314
+    y: 223
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7542211068455528408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 7356852d-22c8-479a-8a81-b9c05becdadd
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Ni ecuatorianos, ni machupichus, ni monos de Brasil...
+  children:
+  - 485899f1-a93d-4290-8b9c-36db33d20103
+  rect:
+    serializedVersion: 2
+    x: 814
+    y: 224
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
