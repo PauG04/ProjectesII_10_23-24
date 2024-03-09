@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7737606021476508838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 9e4f08b0-2cb5-4a2c-b2d2-26004f4988bf
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Chingaquedito, que hace golpeandome, solo quiero una bebida
+  children:
+  - 288d4e9e-6c1c-486f-a330-125c51eac29b
+  rect:
+    serializedVersion: 2
+    x: 48
+    y: 157
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Mexicano-Hit
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -7737606021476508838}
+  - {fileID: 59048012394433326}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &59048012394433326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 288d4e9e-6c1c-486f-a330-125c51eac29b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Me voy de aca ahora mismo, que este antro esta lleno de pinches pendejos
+    empezando por el bartender
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 298
+    y: 157
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
