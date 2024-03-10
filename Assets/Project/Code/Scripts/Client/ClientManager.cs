@@ -6,6 +6,7 @@ public class ClientManager : MonoBehaviour
 {
     public static ClientManager instance { get; private set; }
 
+    [SerializeField] private DayManager dayManager;
     [SerializeField] private List<ClientNode> currentDayClients;
     private int clientCounter;
 
@@ -39,25 +40,36 @@ public class ClientManager : MonoBehaviour
 
         clientCounter = 0;
 
+        currentDayClients = dayManager.GetClients(dayManager.GetCurrentDay());
+
         CreateClient();
     }
 
     public void CreateClient()
     {
-        if (clientCounter >= currentDayClients.Count)
+        if(dayManager.GetCurrentDay() <= dayManager.GetLastDay())
         {
-            TimeManager.instance.StopTime();
-        }
-        else
-        {
-            currentClientNode = currentDayClients[clientCounter];
-            clientCounter++;
+            if (clientCounter >= currentDayClients.Count)
+            {
+                dayManager.SetCurrentDay(1);
+                currentDayClients = dayManager.GetClients(dayManager.GetCurrentDay());
+                clientCounter = 0;
 
-            currentClient = Instantiate(client, clientParent);
-            currentClientScript = currentClient.GetComponent<Client>();
-            currentClientScript.SetClientNode(currentClientNode);
-            currentClientScript.InitClient();
-        }
+                Debug.Log("Fin del día");
+                CreateClient();
+
+            }
+            else
+            {
+                currentClientNode = currentDayClients[clientCounter];
+                clientCounter++;
+
+                currentClient = Instantiate(client, clientParent);
+                currentClientScript = currentClient.GetComponent<Client>();
+                currentClientScript.SetClientNode(currentClientNode);
+                currentClientScript.InitClient();
+            }
+        }      
     }
 
     #region GETTERS
