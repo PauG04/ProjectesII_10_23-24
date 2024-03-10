@@ -1,6 +1,7 @@
 using Dialogue;
 using UnityEditor.XR;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Client : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class Client : MonoBehaviour
     private bool hitted;
 
     private bool triggerSetted;
+    private bool wellReacted;
 
     private void Awake()
     {
@@ -55,7 +57,7 @@ public class Client : MonoBehaviour
 
         isLocated = false;
         hitted = false;
-
+        wellReacted = false;
     }
 
     private void Start()
@@ -216,6 +218,7 @@ public class Client : MonoBehaviour
         conversant.HandleDialogue();
         Pay();
         startTimer = true;
+        wellReacted = true;
     }
 
     private void ReactBad()
@@ -280,7 +283,7 @@ public class Client : MonoBehaviour
 
     private void EnableCollider()
     {
-        Debug.Log("si");
+        Debug.Log("acitve collision");
         boxCollider.enabled = true;
     }
 
@@ -306,6 +309,11 @@ public class Client : MonoBehaviour
         return hitted;
     }
 
+    public bool GetWellReacted()
+    {
+        return wellReacted;
+    }
+
     public void SetClientNode(ClientNode _clientNode)
     {
         clientNode = _clientNode;
@@ -314,4 +322,6 @@ public class Client : MonoBehaviour
     {
         canLeave = state;
     }
+
+
 }

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203defdb18f377b4184cfcf21f18d09b, type: 3}
+  m_Name: Catalufo3
+  m_EditorClassIdentifier: 
+  clientName: 
+  sprite: {fileID: 21300000, guid: 309f4def4ff252448938bd495bdd695e, type: 3}
+  hitToGo: 1
+  canBeHitted: 1
+  regularHitReactions: 0
+  notNeedTakeDrink: 0
+  acceptsAll: 0
+  possibleOrders:
+  - {fileID: 11400000, guid: 8b7c3c93fcb8c434fb39bace5a2e1296, type: 2}
+  dialogues:
+  - {fileID: 11400000, guid: db19a5969f9caec48ac5bd31026b5c7d, type: 2}
+  goodReactions:
+  - {fileID: 11400000, guid: 4d8311b2250a1224591c9880c78c5c66, type: 2}
+  badReactions:
+  - {fileID: 11400000, guid: 82871e8de2f5e35468aba31804f94999, type: 2}
+  hitReactions:
+  - {fileID: 11400000, guid: b09e8d679ae0eff4caacea7903786fdb, type: 2}
+  dialogue: {fileID: 11400000, guid: db19a5969f9caec48ac5bd31026b5c7d, type: 2}
+  goodReaction: {fileID: 11400000, guid: 4d8311b2250a1224591c9880c78c5c66, type: 2}
+  badReaction: {fileID: 11400000, guid: 82871e8de2f5e35468aba31804f94999, type: 2}
+  hitReaction: {fileID: 11400000, guid: b09e8d679ae0eff4caacea7903786fdb, type: 2}
+  badGlassReaction: {fileID: 11400000, guid: 2f227ee8f91173245a27e5cdf00f04a5, type: 2}
+  noIceReaction: {fileID: 11400000, guid: 9bc7c594fe52e974fba849215a604cc1, type: 2}
+  muchIceReaction: {fileID: 11400000, guid: 9bc7c594fe52e974fba849215a604cc1, type: 2}
+  badStateReaction: {fileID: 11400000, guid: 4ff336da7a28509479fd1cdc5a5a3eb7, type: 2}
+  badIngredientsReaction: {fileID: 11400000, guid: 82871e8de2f5e35468aba31804f94999, type: 2}

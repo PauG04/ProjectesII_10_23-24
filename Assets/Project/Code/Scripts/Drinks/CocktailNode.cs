@@ -29,7 +29,9 @@ public class CocktailNode : ScriptableObject
 
         Total,
         Error,
-        Empty
+        Empty,
+
+        Vodka
     }
 
     public State state;

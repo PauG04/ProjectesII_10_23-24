@@ -7,6 +7,7 @@ public class ClientManager : MonoBehaviour
     public static ClientManager instance { get; private set; }
 
     [SerializeField] private DayManager dayManager;
+    [SerializeField] private DaysEventsController daysEventsController;
     [SerializeField] private List<ClientNode> currentDayClients;
     private int clientCounter;
 
@@ -40,6 +41,7 @@ public class ClientManager : MonoBehaviour
 
         clientCounter = 0;
 
+        daysEventsController.ActiveEventDay(dayManager.GetCurrentDay());
         currentDayClients = dayManager.GetClients(dayManager.GetCurrentDay());
 
         CreateClient();
@@ -52,6 +54,7 @@ public class ClientManager : MonoBehaviour
             if (clientCounter >= currentDayClients.Count)
             {
                 dayManager.SetCurrentDay(1);
+                daysEventsController.ActiveEventDay(dayManager.GetCurrentDay());
                 currentDayClients = dayManager.GetClients(dayManager.GetCurrentDay());
                 clientCounter = 0;
 
