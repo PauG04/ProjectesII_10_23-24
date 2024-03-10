@@ -80,12 +80,12 @@ MonoBehaviour:
   currentState: 0
   glassLiquidRenderer: {fileID: 0}
   isGlass: 0
+  isBottle: 0
   dragItems: {fileID: 0}
   maxColliderPos: 0
   minColliderPos: 0
   dropLiquid: {fileID: 0}
   shaker: {fileID: 0}
-  isTutorial: 0
 --- !u!1 &7699553474116065468
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +309,9 @@ MonoBehaviour:
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
   moveParent: 0
+  dragWithWorkspaceSprite: 0
   isItem: 0
+  isItemGroup: 0
 --- !u!114 &447041812053681366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb9c009ca1913142afd51dbdec621f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 10
+  _rotationSpeed: 5
   dragItem: {fileID: 0}
 --- !u!114 &1224262507033873596
 MonoBehaviour:
@@ -340,6 +342,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 5791319493628100030}
   liquidManager: {fileID: 8318574558721693946}
   drink: {fileID: 11400000, guid: 58d6b5c8a7f40b741b7f721a6392c78b, type: 2}
+  minRotationToPourLiquid: 70
+  maxRotationToPourLiquid: 140
   isGlass: 0
   spawnerPositionX: 0
 --- !u!114 &2835998745410993995

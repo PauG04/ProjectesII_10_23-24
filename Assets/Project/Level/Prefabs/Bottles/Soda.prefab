@@ -80,12 +80,12 @@ MonoBehaviour:
   currentState: 0
   glassLiquidRenderer: {fileID: 0}
   isGlass: 0
+  isBottle: 0
   dragItems: {fileID: 0}
   maxColliderPos: 0
   minColliderPos: 0
   dropLiquid: {fileID: 0}
   shaker: {fileID: 0}
-  isTutorial: 0
 --- !u!1 &6918459718600216018
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,13 +97,13 @@ GameObject:
   - component: {fileID: 4024803064925307674}
   - component: {fileID: 4559980660687427612}
   - component: {fileID: 8963226189741860814}
+  - component: {fileID: 1876037085591257811}
   - component: {fileID: 3210885769510727825}
   - component: {fileID: 790261217673330239}
   - component: {fileID: 8819774920043758160}
   - component: {fileID: 201958644826711689}
   - component: {fileID: 5507417628516245743}
   - component: {fileID: 5261533223795006991}
-  - component: {fileID: 1876037085591257811}
   m_Layer: 22
   m_Name: Soda
   m_TagString: Untagged
@@ -207,113 +207,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3210885769510727825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918459718600216018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 369faa39793b32c43acd63d959a791d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brokenBottle: {fileID: 6918459718600216018, guid: 34410badb76356f4ab0d74dc9e62b76a, type: 3}
-  particles: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  forceX: 3
-  forceY: 1
---- !u!114 &790261217673330239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918459718600216018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  normalSprite: {fileID: 21300000, guid: be6cc2e3cd80c2d4d9a06deba173cfc1, type: 3}
-  workspaceSprite: {fileID: 21300000, guid: be6cc2e3cd80c2d4d9a06deba173cfc1, type: 3}
-  scaleMultiplier: 1
-  itemCollider: {fileID: 0}
-  rotationSpeed: 6
-  horizontalSpeed: 6
-  verticalSpeed: 10
-  hasToBeDestroy: 0
-  hasToReturn: 1
-  hasToStayTheSameLayer: 1
-  changeSpriteMask: 0
-  moveParent: 0
-  isItem: 0
-  isItemGroup: 0
---- !u!114 &8819774920043758160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918459718600216018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfb9c009ca1913142afd51dbdec621f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotationSpeed: 10
-  dragItem: {fileID: 0}
---- !u!114 &201958644826711689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918459718600216018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e1198e05a12b0144aec2f046a08a4b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  spawnPoint: {fileID: 4174260560249075128}
-  liquidManager: {fileID: 4632203015347343070}
-  drink: {fileID: 11400000, guid: 3d506f12de8675b428a3107948c85215, type: 2}
-  minRotationToPourLiquid: 70
-  maxRotationToPourLiquid: 140
-  isGlass: 0
-  spawnerPositionX: 0
---- !u!114 &5507417628516245743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918459718600216018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf68816ca352e244b5f9bcbb950870c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isShop: 0
---- !u!114 &5261533223795006991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918459718600216018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1669c1d0a79767145ba30abd3a3695ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  liquidSlider: {fileID: 5548706644710090491, guid: dc42622c5e06dba4490d4c2418e446ae, type: 3}
-  arrowSlider: {fileID: 5548706644710090491, guid: 134e6a7603e96e548b58afb534c9ed79, type: 3}
-  liquidManager: {fileID: 4632203015347343070}
-  sprite: {fileID: 0}
-  isHorizontal: 0
 --- !u!60 &1876037085591257811
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -373,3 +266,111 @@ PolygonCollider2D:
       - {x: 0.2265625, y: -0.6484375}
       - {x: 0.2109375, y: -0.6796875}
   m_UseDelaunayMesh: 0
+--- !u!114 &3210885769510727825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918459718600216018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369faa39793b32c43acd63d959a791d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenBottle: {fileID: 6918459718600216018, guid: 34410badb76356f4ab0d74dc9e62b76a, type: 3}
+  particles: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
+  forceX: 3
+  forceY: 1
+--- !u!114 &790261217673330239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918459718600216018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab13935c22a25046abc9b6cfdbeed75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  normalSprite: {fileID: 21300000, guid: be6cc2e3cd80c2d4d9a06deba173cfc1, type: 3}
+  workspaceSprite: {fileID: 21300000, guid: be6cc2e3cd80c2d4d9a06deba173cfc1, type: 3}
+  scaleMultiplier: 1
+  itemCollider: {fileID: 0}
+  rotationSpeed: 6
+  horizontalSpeed: 6
+  verticalSpeed: 10
+  hasToBeDestroy: 0
+  hasToReturn: 1
+  hasToStayTheSameLayer: 1
+  changeSpriteMask: 0
+  moveParent: 0
+  dragWithWorkspaceSprite: 0
+  isItem: 0
+  isItemGroup: 0
+--- !u!114 &8819774920043758160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918459718600216018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb9c009ca1913142afd51dbdec621f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 5
+  dragItem: {fileID: 0}
+--- !u!114 &201958644826711689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918459718600216018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1198e05a12b0144aec2f046a08a4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
+  spawnPoint: {fileID: 4174260560249075128}
+  liquidManager: {fileID: 4632203015347343070}
+  drink: {fileID: 11400000, guid: 3d506f12de8675b428a3107948c85215, type: 2}
+  minRotationToPourLiquid: 70
+  maxRotationToPourLiquid: 140
+  isGlass: 0
+  spawnerPositionX: 0
+--- !u!114 &5507417628516245743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918459718600216018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf68816ca352e244b5f9bcbb950870c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isShop: 0
+--- !u!114 &5261533223795006991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918459718600216018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1669c1d0a79767145ba30abd3a3695ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidSlider: {fileID: 5548706644710090491, guid: dc42622c5e06dba4490d4c2418e446ae, type: 3}
+  arrowSlider: {fileID: 5548706644710090491, guid: 134e6a7603e96e548b58afb534c9ed79, type: 3}
+  liquidManager: {fileID: 4632203015347343070}
+  sprite: {fileID: 0}
+  isHorizontal: 0
