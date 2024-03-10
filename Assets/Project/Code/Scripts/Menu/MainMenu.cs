@@ -5,18 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private LevelLoader levelLoader;
     public void PlayButton()
     {
-        SceneManager.LoadScene(2);
+        levelLoader.LoadNextLevel();
     }
 
     public void QuitButton()
     {
         Application.Quit();
-    }
-
-    public void ReturnButton()
-    {
-        SceneManager.LoadScene(1);
     }
 }

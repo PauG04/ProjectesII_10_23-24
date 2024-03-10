@@ -37,19 +37,36 @@ public class DropLiquid : MonoBehaviour
 
     private void Update()
     {
-        if(rotateBottle.GetIsRotating()) 
+        if (rotateBottle != null)
+        {
+            if (rotateBottle.GetIsRotating())
+            {
+                timeSinceLastPour += Time.deltaTime;
+
+                if (rotateBottle.GetRotation() <= -minRotationToPourLiquid)
+                {
+                    PourLiquid(true);
+                }
+                else if (rotateBottle.GetRotation() >= minRotationToPourLiquid)
+                {
+                    PourLiquid(false);
+                }
+            }
+        }
+        else
         {
             timeSinceLastPour += Time.deltaTime;
 
-            if (rotateBottle.GetRotation() <= -minRotationToPourLiquid )
+            if (transform.rotation.eulerAngles.z <= -minRotationToPourLiquid)
             {
                 PourLiquid(true);
             }
-            else if(rotateBottle.GetRotation() >= minRotationToPourLiquid)
+            else if (transform.rotation.eulerAngles.z >= minRotationToPourLiquid)
             {
                 PourLiquid(false);
             }
-        }    
+        }
+        
     }
 
     private void PourLiquid(bool state)
@@ -58,13 +75,27 @@ public class DropLiquid : MonoBehaviour
         float currentLiquid = (liquidManager.GetCurrentLiquid() * 100) / liquidManager.GetMaxLiquid();
         float currentRotation;
 
-        if (state)
+        if (rotateBottle != null)
         {
-             currentRotation = 100 - ((-rotateBottle.GetRotation() * 100) / maxRotationToPourLiquid);
+            if (state)
+            {
+                currentRotation = 100 - ((-rotateBottle.GetRotation() * 100) / maxRotationToPourLiquid);
+            }
+            else
+            {
+                currentRotation = 100 - ((-rotateBottle.GetRotation() * 100) / -maxRotationToPourLiquid);
+            }
         }
         else
         {
-             currentRotation = 100 - ((-rotateBottle.GetRotation() * 100) / -maxRotationToPourLiquid);
+            if (state)
+            {
+                currentRotation = 100 - ((-transform.rotation.eulerAngles.z * 100) / maxRotationToPourLiquid);
+            }
+            else
+            {
+                currentRotation = 100 - ((-transform.rotation.eulerAngles.z * 100) / -maxRotationToPourLiquid);
+            }
         }
 
         if (isGlass)

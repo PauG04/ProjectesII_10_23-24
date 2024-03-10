@@ -29,8 +29,6 @@ public class LerpTopShaker : MonoBehaviour
 
         initRotation = transform.rotation;
         initPosition = transform.localPosition;
-
-        dragPhysicObject.SetRotation(0.0f);
     }
 
     private void Update()
@@ -69,23 +67,5 @@ public class LerpTopShaker : MonoBehaviour
     private void RotateObject()
     {
         transform.rotation = Quaternion.Lerp(transform.localRotation, initRotation, Time.deltaTime * velocityZ);
-    }
-
-    private void OnMouseDown()
-    {
-        dragPhysicObject.SetRotation(5.0f);
-    }
-    private void OnMouseUp()
-    {
-        if (!dragPhysicObject.GetIsInWorkSpace())
-        {
-            startLerp(true);
-        }
-    }
-
-    public void startLerp(bool state)
-    {
-        dragPhysicObject.SetIsLerp(state);
-        dragPhysicObject.SetRotation(0.0f);
     }
 }
