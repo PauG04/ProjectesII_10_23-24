@@ -30,16 +30,17 @@ public class HouseKeeperMatchDay : MonoBehaviour
                     clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("TakeMoney");
                     clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(TakeMoney);
                     triggerSetted = true;
+                    enabled = false;
                 }
             }
             else
             {
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[0]);
+                enabled = false;
             }
             if (clientObject.GetComponent<BoxCollider2D>().enabled)
             {
                 clientObject.GetComponent<BoxCollider2D>().enabled = false;
-                enabled = false;
             }
         }
         else

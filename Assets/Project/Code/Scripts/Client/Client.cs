@@ -156,7 +156,7 @@ public class Client : MonoBehaviour
     private void FindCoctelError(string findError)
     {
         if (findError == "Good")
-        {
+        { 
             ReactWell();
         }
         else if (findError == "BadGlass")
@@ -165,6 +165,10 @@ public class Client : MonoBehaviour
             {
                 conversant.SetDialogue(clientNode.badGlassReaction);
                 conversant.HandleDialogue();
+            }
+            else if(clientNode.dontCareGlass)
+            {
+                ReactWell();           
             }
             else
                 ReactBad();
@@ -175,6 +179,10 @@ public class Client : MonoBehaviour
             {
                 conversant.SetDialogue(clientNode.noIceReaction);
                 conversant.HandleDialogue();
+            }
+            else if (clientNode.dontCareGlass)
+            {
+                ReactWell();
             }
             else
                 ReactBad();
@@ -321,6 +329,11 @@ public class Client : MonoBehaviour
     public void SetCanLeave(bool state)
     {
         canLeave = state;
+    }
+
+    public void SetTimer(bool state)
+    {
+        startTimer = state;
     }
 
 
