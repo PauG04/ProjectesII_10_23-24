@@ -1943,6 +1943,7 @@ GameObject:
   - component: {fileID: 5832300620638196575}
   - component: {fileID: 7539414639528031111}
   - component: {fileID: 1687613660488016660}
+  - component: {fileID: 6489265742806171919}
   m_Layer: 5
   m_Name: SmartphoneCanvas
   m_TagString: Untagged
@@ -2036,6 +2037,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6489265742806171919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658724619410611181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a7560c3b5e7e140a6aefc4c7b5484b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phoneComponents:
+  - {fileID: 3776257435572547376}
+  - {fileID: 2599666468606344934}
+  - {fileID: 2556486952088497191}
+  targetPosition: {x: 780, y: -200, z: 0}
+  moveSpeed: 3
 --- !u!1 &3662468521939421811
 GameObject:
   m_ObjectHideFlags: 0
