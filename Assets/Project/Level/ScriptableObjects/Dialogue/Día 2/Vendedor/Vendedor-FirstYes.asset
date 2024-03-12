@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
-  m_Name: Vendedor-2No
+  m_Name: Vendedor-FirstYes
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 475589335060059308}
-  - {fileID: 768787038607990008}
+  - {fileID: 871570653669792468}
+  - {fileID: 425751233209584681}
+  - {fileID: 8138735288593588688}
   newNodeOffset: {x: 250, y: 0}
---- !u!114 &475589335060059308
+--- !u!114 &425751233209584681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,22 +27,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 54e98d04-9874-4faa-8a23-f3af696034e8
+  m_Name: 4b2d7f75-b951-4bb7-810e-5ea1e2453308
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Eres una rata, incapaz de ayudar al pueblo, ni que tu hubiese intentado timar
+  text: Venga, te puedo hacer una rebajilla y dejartelo a 50 eurillos
   children:
-  - ddb70c4d-935e-4654-b8ad-e4740fb2cd11
+  - f9e7885b-0135-40b5-9063-c26d884f83e8
   rect:
     serializedVersion: 2
-    x: 35
-    y: 148
+    x: 393
+    y: 228
     width: 200
     height: 120
   onEnterAction: 
   onExitAction: 
---- !u!114 &768787038607990008
+--- !u!114 &871570653669792468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,18 +52,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: ddb70c4d-935e-4654-b8ad-e4740fb2cd11
+  m_Name: 36ea8973-3468-4487-a461-d49b265f57fb
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: "Me voy al bar del moro de al lao a ver si ese es m\xE1s tonto y le cuelo
-    los 1000 euros"
-  children: []
+  text: Pero primo, que no ves que no tienes el dinero para pagarlo
+  children:
+  - 4b2d7f75-b951-4bb7-810e-5ea1e2453308
   rect:
     serializedVersion: 2
-    x: 286
-    y: 148
+    x: 143
+    y: 228
     width: 200
     height: 120
   onEnterAction: 
+  onExitAction: 
+--- !u!114 &8138735288593588688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f9e7885b-0135-40b5-9063-c26d884f83e8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Pero de 50 no bajo, que tengo a la parienta muriendose de hambre, \xBFqui\xE9res?"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 643
+    y: 228
+    width: 200
+    height: 120
+  onEnterAction: ActiveCanvas
   onExitAction: 

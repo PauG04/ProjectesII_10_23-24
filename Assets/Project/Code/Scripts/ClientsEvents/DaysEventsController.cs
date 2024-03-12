@@ -26,18 +26,18 @@ public class DaysEventsController : MonoBehaviour
                 events[day].SetActive(true);
                 events[day - 1].SetActive(false);
                 break;
-            case 2:
-                events[day].SetActive(true);
-                events[day - 1].SetActive(false);
-                break;
-            case 3:
-                events[day].SetActive(true);
-                events[day - 1].SetActive(false);
-                break;
-            case 4:
-                events[day].SetActive(true);
-                events[day - 1].SetActive(false);
-                break;
+            //case 2:
+            //    events[day].SetActive(true);
+            //    events[day - 1].SetActive(false);
+            //    break;
+            //case 3:
+            //    events[day].SetActive(true);
+            //    events[day - 1].SetActive(false);
+            //    break;
+            //case 4:
+            //    events[day].SetActive(true);
+            //    events[day - 1].SetActive(false);
+            //    break;
         }
     }
 }

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612416e99e325834eba562d43ecd654f, type: 3}
+  m_Name: Mojito
+  m_EditorClassIdentifier: 
+  state: 2
+  type: 1
+  price: 12.99
+  cocktailName: Mojito
+  subtitle: Clasico
+  description: '1 Onza de Ginebra
+
+    1 Onza de Vodka
+
+    3 Onzas de Soda
+
+    Serivir
+    completamente mezclado con mucho hielo'
+  sprite: {fileID: 21300000, guid: cd52eb03e47222b4d96aa6ba00c15453, type: 3}
+  color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+  errorMargin: 0.7
+  serializableIngredients:
+    items:
+    - type: {fileID: 11400000, guid: bc2533701c895954aa30b3a4a1222440, type: 2}
+      quantity: 1
+    - type: {fileID: 11400000, guid: e7ab7027c2ebaff4fbd05e3a6608b6d9, type: 2}
+      quantity: 1
+    - type: {fileID: 11400000, guid: 3d506f12de8675b428a3107948c85215, type: 2}
+      quantity: 3
+  serializableDecorations:
+    items:
+    - itemNode: {fileID: 11400000, guid: 30381eed8dac9b8469c6e5684c2609b6, type: 2}
+      quantity: 3

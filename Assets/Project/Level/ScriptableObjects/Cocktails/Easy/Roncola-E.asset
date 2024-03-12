@@ -10,27 +10,29 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 612416e99e325834eba562d43ecd654f, type: 3}
-  m_Name: Sangria
+  m_Name: Roncola-E
   m_EditorClassIdentifier: 
   state: 0
-  type: 6
-  price: 9.99
-  cocktailName: Sangria
+  type: 0
+  price: 7.99
+  cocktailName: Roncola
   subtitle: Clasico
-  description: "3 Onzas de Vino\n1 Onza de Soda\n1 Onza de Zumo de Lim\xF3n\nSerivir
-    directamente en vaso con mucho hielo"
-  sprite: {fileID: 21300000, guid: 9659b0ce41566a349bd12468a18bd2a1, type: 3}
+  description: '2 Onzas de Ron
+
+    3 Onzas de Cola
+
+    Serivir directamente en
+    vaso con poco hielo'
+  sprite: {fileID: 21300000, guid: cd52eb03e47222b4d96aa6ba00c15453, type: 3}
   color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-  errorMargin: 0.6
+  errorMargin: 0.4
   serializableIngredients:
     items:
-    - type: {fileID: 11400000, guid: df8602bd8649c724da27a6fc9b51edde, type: 2}
+    - type: {fileID: 11400000, guid: 8e4de90f0eb64a646838e305f5ded7c1, type: 2}
+      quantity: 2
+    - type: {fileID: 11400000, guid: 5fa335cd3f50bbb4cb07f3f23f6c208c, type: 2}
       quantity: 3
-    - type: {fileID: 11400000, guid: 3d506f12de8675b428a3107948c85215, type: 2}
-      quantity: 1
-    - type: {fileID: 11400000, guid: 0be5bc9a3c202354d910417dcd9520fb, type: 2}
-      quantity: 1
   serializableDecorations:
     items:
     - itemNode: {fileID: 11400000, guid: 30381eed8dac9b8469c6e5684c2609b6, type: 2}
-      quantity: 3
+      quantity: 1

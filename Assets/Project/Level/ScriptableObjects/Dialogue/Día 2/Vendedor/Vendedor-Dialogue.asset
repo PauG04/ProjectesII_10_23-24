@@ -24,7 +24,7 @@ MonoBehaviour:
     y: 118
     width: 200
     height: 120
-  onEnterAction: 
+  onEnterAction: ActiveCollision
   onExitAction: 
 --- !u!114 &-6489268938755262915
 MonoBehaviour:
@@ -65,16 +65,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: "Como es tu primera compra puedo hacer una oferta y llenarte todoas tus bebidas
+  text: "Como es tu primera compra puedo hacer una oferta y llenarte todas tus bebidas
     por el m\xF3dico precio de 1000 euros, QUE OFERT\xD3N, \xBFquieres?"
   children: []
   rect:
     serializedVersion: 2
     x: 1283
-    y: 118
+    y: 117
     width: 200
     height: 120
-  onEnterAction: ActiveCollision
+  onEnterAction: ActiveCanvas
   onExitAction: 
 --- !u!114 &-2640799920835572510
 MonoBehaviour:
@@ -95,7 +95,7 @@ MonoBehaviour:
   - 6c4d33bb-044f-4373-92a5-1c7ff38b0041
   rect:
     serializedVersion: 2
-    x: 784
+    x: 783
     y: 118
     width: 200
     height: 120
