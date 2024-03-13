@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DropLiquid : MonoBehaviour
@@ -25,14 +26,13 @@ public class DropLiquid : MonoBehaviour
     private float minRotationToMoveSpawner = 90f;
     private float maxRotationToMoveSpawner = 180f;
 
-    private void Awake()
-    {
-        texture = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<MeshRenderer>().material;
-    }
+    [SerializeField] private Collider2D liquidCollider;
 
     private void Start()
     {
+        texture = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<MeshRenderer>().material;
         rotateBottle = GetComponent<RotateBottle>();
+        liquidCollider = liquidManager.GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -52,6 +52,13 @@ public class DropLiquid : MonoBehaviour
                     PourLiquid(false);
                 }
             }
+            else
+            {
+                if (liquidCollider != null)
+                {
+                    liquidCollider.enabled = true;
+                }
+            }
         }
         else
         {
@@ -59,11 +66,19 @@ public class DropLiquid : MonoBehaviour
 
             if (transform.rotation.eulerAngles.z <= -minRotationToPourLiquid)
             {
+
                 PourLiquid(true);
             }
             else if (transform.rotation.eulerAngles.z >= minRotationToPourLiquid)
             {
                 PourLiquid(false);
+            }
+            else
+            {
+                if (liquidCollider != null)
+                {
+                    liquidCollider.enabled = true;
+                }
             }
         }
         
@@ -71,7 +86,10 @@ public class DropLiquid : MonoBehaviour
 
     private void PourLiquid(bool state)
     {
-
+        if (liquidCollider != null)
+        {
+            liquidCollider.enabled = false;
+        }
         float currentLiquid = (liquidManager.GetCurrentLiquid() * 100) / liquidManager.GetMaxLiquid();
         float currentRotation;
 
@@ -123,6 +141,13 @@ public class DropLiquid : MonoBehaviour
                 {
                     texture.SetColor("_Color", drink.color);
                     liquid.GetComponent<LiquidParticle>().SetDrink(drink);
+                }
+                else
+                {
+                    LiquidParticle liquidParticle = liquid.GetComponent<LiquidParticle>();
+                    liquidParticle.SetCocktailState(liquidManager.GetDrinkState());
+
+                    liquidParticle.SetDrink(liquidManager.GetParticleTypes().Keys.Last());
                 }
 
                 liquidManager.DeacreaseCurrentLiquid();

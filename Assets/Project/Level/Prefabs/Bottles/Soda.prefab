@@ -79,6 +79,7 @@ MonoBehaviour:
   currentLiquid: 300
   currentState: 0
   glassLiquidRenderer: {fileID: 0}
+  isJigger: 0
   isGlass: 0
   isBottle: 0
   dragItems: {fileID: 0}
@@ -205,7 +206,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!60 &1876037085591257811
 PolygonCollider2D:
@@ -344,6 +345,7 @@ MonoBehaviour:
   maxRotationToPourLiquid: 140
   isGlass: 0
   spawnerPositionX: 0
+  liquidCollider: {fileID: 0}
 --- !u!114 &5507417628516245743
 MonoBehaviour:
   m_ObjectHideFlags: 0
