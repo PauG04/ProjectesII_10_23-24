@@ -24,6 +24,7 @@ public class Client : MonoBehaviour
 
     [Header("Client Dialogue")]
     private AIConversant conversant;
+    [SerializeField] private int maxHitsToGo; 
 
     [Header("Timer")]
     [SerializeField] private float maxTime;
@@ -37,6 +38,8 @@ public class Client : MonoBehaviour
 
     private bool triggerSetted;
     private bool wellReacted;
+
+    private int currentsHits;
 
     private void Awake()
     {
@@ -57,6 +60,8 @@ public class Client : MonoBehaviour
         isLocated = false;
         hitted = false;
         wellReacted = false;
+
+        currentsHits = 0;
     }
 
     private void Start()
@@ -118,17 +123,21 @@ public class Client : MonoBehaviour
         if (collision.CompareTag("Hammer") && !startTimer && clientNode.canBeHitted)
         {
             hitted = true;
+            currentsHits++;
             AudioManager.instance.PlaySFX("HitClient");
 
             clientNode.RandomizeHitReaction();
-            conversant.SetDialogue(clientNode.hitReaction);
+            if(clientNode.totalHits <= 1)
+                conversant.SetDialogue(clientNode.hitReaction);
             conversant.HandleDialogue();
 
-            if (clientNode.hitToGo)
+
+            if ((clientNode.hitToGo && currentsHits == clientNode.totalHits) || (!clientNode.hitToGo && currentsHits == maxHitsToGo))
             {
                 startTimer = true;
                 return;
-            }            
+            }
+            
         }
     }
 
@@ -319,6 +328,11 @@ public class Client : MonoBehaviour
     public bool GetWellReacted()
     {
         return wellReacted;
+    }
+
+    public int GetCurrentsHit()
+    {
+        return currentsHits;
     }
 
     public void SetClientNode(ClientNode _clientNode)

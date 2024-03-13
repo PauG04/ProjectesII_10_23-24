@@ -39,14 +39,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: "Ponme una Sangl\xEDa, que almenos aqui te puedo mandal y estoy pol encima
-    tuyo"
+  text: Pelo pol lo menos aqui te puedo mandal y estoy pol encima tuyo
   children:
   - 5f156c7d-cf9c-47ac-a58a-2878c78e31e6
   rect:
     serializedVersion: 2
     x: 1014
-    y: 75
+    y: 74
     width: 200
     height: 120
   onEnterAction: 
@@ -214,7 +213,7 @@ MonoBehaviour:
   - 025c28c8-4b91-4538-ae80-7d0121f2124c
   rect:
     serializedVersion: 2
-    x: 764
+    x: 763
     y: 75
     width: 200
     height: 120
@@ -260,7 +259,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Polque yo llevale este balio de mielda pelo vaya mielda oficio te has pillado
+  text: "Polque yo llevale este balio de mielda pelo vaya mielda oficio te has pillado,
+    anda ponme una Sangl\xEDa, "
   children: []
   rect:
     serializedVersion: 2
@@ -268,7 +268,7 @@ MonoBehaviour:
     y: 75
     width: 200
     height: 120
-  onEnterAction: 
+  onEnterAction: ActiveCollision
   onExitAction: 
 --- !u!114 &6083221415515920158
 MonoBehaviour:

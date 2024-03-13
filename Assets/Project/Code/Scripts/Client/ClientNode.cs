@@ -9,6 +9,7 @@ public class ClientNode : ScriptableObject
     public Sprite sprite;
 
     public bool hitToGo;
+    public int totalHits;
     public bool canBeHitted;
     public bool regularHitReactions;
 
