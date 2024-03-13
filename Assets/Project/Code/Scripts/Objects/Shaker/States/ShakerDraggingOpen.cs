@@ -280,6 +280,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         _shakerStateMachine.SetGetInWorkSpace(true);
         InsideWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
+        
         _shakerStateMachine.transform.localScale = new Vector2(_scaleMultiplier, _scaleMultiplier);
 
         if (!_shakerStateMachine.GetWasInTable())

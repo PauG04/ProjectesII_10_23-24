@@ -1,4 +1,5 @@
 using Dialogue;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -112,7 +113,7 @@ public class Client : MonoBehaviour
                     collision.GetComponentInChildren<InsideDecorations>().GetDecorations(),
                     order.type);
 
-            FindCoctelError(findError);
+            FindCoctelError(findError, collision);
 
             Destroy(collision.gameObject);
         }
@@ -161,11 +162,28 @@ public class Client : MonoBehaviour
         spriteRenderer.flipX = true;
     }
 
-    private void FindCoctelError(string findError)
+    private void FindCoctelError(string findError, Collider2D collision)
     {
         if (findError == "Good")
         { 
-            ReactWell();
+            if(clientNode.careIces)
+            {
+                int ices = collision.GetComponentInChildren<InsideDecorations>().GetDecorations().ElementAt(0).Value;
+                if (ices != clientNode.cuantityOfIce)
+                {
+                    conversant.SetDialogue(clientNode.noIceReaction);
+                    conversant.HandleDialogue();
+                }
+                else
+                {
+                    ReactWell();
+                }
+            }
+            else
+            {
+                ReactWell();
+            }
+            
         }
         else if (findError == "BadGlass")
         {
