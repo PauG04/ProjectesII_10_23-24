@@ -65,7 +65,7 @@ public class DragItems : MonoBehaviour
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        if (!isItem && hasToReturn)
+        if (!isItem && hasToReturn && !isPainting)
         {
             rb2d.bodyType = RigidbodyType2D.Static;
         }
