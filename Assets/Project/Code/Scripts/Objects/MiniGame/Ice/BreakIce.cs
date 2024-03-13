@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 public class BreakIce : MonoBehaviour
 {
     private int hits;
+    private bool broken;
 
     [Header("object")]
     [SerializeField] private GameObject item;
@@ -32,12 +33,14 @@ public class BreakIce : MonoBehaviour
 
         widht = GetComponent<SpriteRenderer>().bounds.size.x;
         height = GetComponent<SpriteRenderer>().bounds.size.y;
+        broken = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Hammer"))
         {
+            broken = true;
             hits--;
             if (hits == 0)
             {
@@ -52,6 +55,7 @@ public class BreakIce : MonoBehaviour
 
     void Slice(Vector3 pos, GameObject createGameObject, bool destroy)
     {
+        AudioManager.instance.PlaySFX("BreakIce");
         GameObject newItem = Instantiate(createGameObject, transform);
         newItem.transform.parent = null;
         iceDropped++;
@@ -101,5 +105,10 @@ public class BreakIce : MonoBehaviour
     public int GetIceDropped()
     {
         return iceDropped;
+    }
+
+    public bool GetBroken()
+    {
+        return broken;
     }
 }

@@ -13,10 +13,30 @@ public class CreateObject : MonoBehaviour
     [Header("Tutorial")]
     [SerializeField] private TutorialManager tutorial;
 
+    private SpriteRenderer sprite;
+
     private bool isCreated;
+    private ItemNode nodeItem;
+
+    private void Awake()
+    {
+        nodeItem = createdObject.GetComponent<SetItemInGlass>().GetItemNode();
+        sprite = GetComponent<SpriteRenderer>();
+    }
+    private void Update()
+    {
+        if (InventoryManager.instance.GetItems()[nodeItem] > 0)
+        {
+            sprite.enabled = true;
+        }
+        else
+        {
+            sprite.enabled = false;
+        }
+    }
     private void OnMouseDown()
     {
-        if(InventoryManager.instance.UseItem(createdObject.GetComponent<GetItemInformation>().GetItemGroupNode()))
+        if (InventoryManager.instance.UseItem(createdObject.GetComponent<SetItemInGlass>().GetItemNode()))
         {
             GameObject item = Instantiate(createdObject, transform);
             item.transform.SetParent(null);

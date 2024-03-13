@@ -7,6 +7,7 @@ public class LiquidInside : MonoBehaviour
     [SerializeField] private Transform glass;
     [SerializeField] private LiquidManager liquidManager;
     private Material material;
+    private float fillAmount;
 
     private void Awake()
     {
@@ -19,8 +20,11 @@ public class LiquidInside : MonoBehaviour
     }
     private void Update()
     {
+        fillAmount = CurrentLiquid((float)liquidManager.GetCurrentLiquid());
+        fillAmount -= 1 * (1 + Vector2.Dot(glass.up, Vector2.down)) / 2;
+
         material.SetFloat("_Rotation", -glass.rotation.eulerAngles.z);
-        material.SetFloat("_FillAmount", CurrentLiquid((float)liquidManager.GetCurrentLiquid()));
+        material.SetFloat("_FillAmount", fillAmount);
     }
 
     private float CurrentLiquid(float value)

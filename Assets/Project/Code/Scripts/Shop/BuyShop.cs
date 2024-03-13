@@ -9,6 +9,7 @@ public class BuyLiquid : MonoBehaviour
     [SerializeField] private float price;
     [SerializeField] private GameObject recreateObject;
     [SerializeField] private GameObject _parent;
+    [SerializeField] private ItemNode _node;
 
     [Header("Boolean")]
     [SerializeField] private bool isItem;
@@ -34,7 +35,7 @@ public class BuyLiquid : MonoBehaviour
             {
                 if (isItem)
                 {
-                    //llamar al inventory manager
+                    InventoryManager.instance.AddItem(_node);
                 }
                 else
                 {
@@ -47,6 +48,7 @@ public class BuyLiquid : MonoBehaviour
                 item = _item;
                 _item.transform.SetParent(_parent.transform, true);
             }
+            //EconomyManager.instance.AddMoney(-price);
         }      
     }
 

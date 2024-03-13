@@ -1,14 +1,9 @@
 using Dialogue;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Client : MonoBehaviour
 {
-    private CocktailNode.Type drink;
+    private CocktailNode order;
     private float payment;
 
     private SpriteRenderer spriteRenderer;
@@ -16,17 +11,11 @@ public class Client : MonoBehaviour
     [Header("Client Position")]
     [SerializeField] private GameObject clientPosition;
     [SerializeField] private GameObject leavePosition;
-    [SerializeField] private float maxYPosition;
     [SerializeField] private float horizontalVelocity;
-    [SerializeField] private float verticalVelocity;
     private BoxCollider2D boxCollider;
 
     [Header("Booleans")]
-    [SerializeField] private bool notNeedTakeDrink;
     private bool canLeave;
-
-    [SerializeField] private float minYPosition;
-    private bool isGoingUp;
 
     private bool arriveAnimation;
     private bool leaveAnimation;
@@ -39,8 +28,11 @@ public class Client : MonoBehaviour
     [SerializeField] private float maxTime;
     private float time;
 
-    private bool isTutorial;
     private bool isLocated;
+
+    private ClientNode clientNode;
+
+    private bool hitted;
 
     private void Awake()
     {
@@ -54,14 +46,12 @@ public class Client : MonoBehaviour
         startTimer = false;
         time = 0;
 
-        isGoingUp = true;
-
         canLeave = false;
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        isTutorial = false;
         isLocated = false;
+        hitted = false;
     }
 
     private void Start()
@@ -70,96 +60,183 @@ public class Client : MonoBehaviour
         ArriveAnimation();
     }
 
-    private void InitClient()
+    private void Update()
     {
-        boxCollider.enabled = true;
-
-        // Hard coded, change later
-
-        //int randomDialogue = Random.Range(0, ClientManager.instance.GetRegularClientDialogues().Count);
-        //conversant.SetDialogue(ClientManager.instance.GetRegularClientDialogues()[randomDialogue]);
-        /// <summary>
-        /// TODO: Dani
-        ///     Hacer que el dialogo reciba la señal dependiendo del tipo de randomOrder, haciendo que escoja el dialogo dependiendo de la bebida
-        /// </summary>
-
-
-        if (isTutorial)
+        if (arriveAnimation)
         {
-            drink = CocktailNode.Type.Roncola;
-            conversant.HandleDialogue();
+            MoveClientHorizontal(ClientManager.instance.GetClientPosition());
+            if (transform.localPosition.x > ClientManager.instance.GetClientPosition().localPosition.x - 0.01)
+            {
+                arriveAnimation = false;
+                isLocated = true;
+                conversant.HandleDialogue();
+            }
         }
-        else
+        else if (leaveAnimation)
         {
-            int randomOrder = Random.Range(0, WikiManager.instance.GetAvailableCocktails().Count);
-            drink = WikiManager.instance.GetAvailableCocktails()[randomOrder].type;
-            Dialogue.Dialogue currentDialogue = ClientManager.instance.GetRegularClientDialogues()[randomOrder];
-            conversant.SetDialogue(currentDialogue);
-            conversant.HandleDialogue();
-            Debug.Log(drink);
-        }
-        
-        payment = 10.0f;
-    }
+            boxCollider.enabled = false;
 
-    private bool CompareCocktails(CocktailNode.Type cocktail)
-    {
-        if (cocktail == drink)
-            return true;
-        return false;
-    }
-
-    public void ReceiveCoctel(CocktailNode.Type cocktail)
-    {
-        if (CompareCocktails(cocktail))
-        {
-            ReactWell();
-            return;
+            MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
+            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
+            {
+                ClientManager.instance.CreateClient();
+                Destroy(gameObject);
+            }
         }
 
-        ReactBad();
+        if (canLeave && clientNode.notNeedTakeDrink && !clientNode.hitToGo)
+        {
+            startTimer = true;
+        }
+
+        if (startTimer && !conversant.GetPlayerConversant().HasNext())
+        {
+            Timer();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp())
+        if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp() && !clientNode.notNeedTakeDrink)
         {
-            ReceiveCoctel(CalculateDrink.instance.CalculateResultDrink(
-                collision.GetComponentInChildren<LiquidManager>().GetParticleTypes(),
-                collision.GetComponentInChildren<LiquidManager>().GetDrinkState(),
-                collision.GetComponentInChildren<SpriteRenderer>().sprite,
-                collision.GetComponentInChildren<InsideDecorations>().GetDecorations()
-                ));
-            startTimer = true;
+            if (clientNode.acceptsAll)
+            {
+                ReactWell();
+                Destroy(collision.gameObject);
+                return;
+            }
+
+            LiquidManager liquidManagerResult = collision.GetComponentInChildren<LiquidManager>();
+
+            string findError = CalculateDrink.instance.CalculateResultDrink(
+                    liquidManagerResult.GetParticleTypes(),
+                    liquidManagerResult.GetDrinkState(),
+                    collision.GetComponentInChildren<SpriteRenderer>().sprite,
+                    collision.GetComponentInChildren<InsideDecorations>().GetDecorations(),
+                    order.type);
+
+            FindCoctelError(findError);
 
             Destroy(collision.gameObject);
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Hammer") && !startTimer && clientNode.canBeHitted)
+        {
+            hitted = true;
+            AudioManager.instance.PlaySFX("HitClient");
+
+            clientNode.RandomizeHitReaction();
+            conversant.SetDialogue(clientNode.hitReaction);
+            conversant.HandleDialogue();
+
+            if (clientNode.hitToGo)
+            {
+                startTimer = true;
+                return;
+            }            
+        }
+    }
+
+    public void InitClient()
+    {
+        boxCollider.enabled = true;
+
+        if(clientNode.regularHitReactions)
+        {
+            clientNode.hitReactions = ClientManager.instance.GetRegularClientHitDialogues();
+        }
+
+        int randomOrder = Random.Range(0, clientNode.possibleOrders.Count);
+        order = clientNode.possibleOrders[randomOrder];
+        payment = order.price;
+
+        Dialogue.Dialogue currentDialogue = clientNode.dialogues[randomOrder];
+        conversant.SetDialogue(currentDialogue);
+
+        spriteRenderer.sprite = clientNode.sprite;
+        spriteRenderer.flipX = true;
+    }
+
+    private void FindCoctelError(string findError)
+    {
+        if (findError == "Good")
+        {
+            ReactWell();
+        }
+        else if (findError == "BadGlass")
+        {
+            if (clientNode.badGlassReaction != ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.badGlassReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+        else if (findError == "NoIce")
+        {
+            if (clientNode.noIceReaction != ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.noIceReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+        else if (findError == "MuchIce")
+        {
+            if (clientNode.muchIceReaction != ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.muchIceReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+        else if (findError == "BadState")
+        {
+            if (clientNode.badStateReaction != ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.badStateReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+        else if (findError == "BadIngredients")
+        {
+            if (clientNode.badIngredientsReaction != ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.badIngredientsReaction);
+                conversant.HandleDialogue();
+            }
+            else
+                ReactBad();
+        }
+    }
+
     private void ReactWell()
     {
-        //textMP.text = "VIVA FRANCO";
-        //Change Animation
-        conversant.SetDialogue(ClientManager.instance.GetGoodReactionDialogue());
+        clientNode.RandomizeGoodReaction();
+        conversant.SetDialogue(clientNode.goodReaction);
         conversant.HandleDialogue();
         Pay();
-        //Wait X Seconds
-        //ClientManager.instance.CreateNewClient();
+        startTimer = true;
     }
 
     private void ReactBad()
     {
-        //textMP.text = "Menudo MIERDON";
-        //Change Animation
-        conversant.SetDialogue(ClientManager.instance.GetBadReactionDialogue());
+        clientNode.RandomizeBadReaction();
+        conversant.SetDialogue(clientNode.badReaction);
         conversant.HandleDialogue();
-        //Wait X Seconds
-        //ClientManager.instance.CreateNewClient();
     }
 
     private void Pay()
     {
-        EconomyManager.instance.AddMoney(payment);
+        EconomyManager.instance.SetMoneyChanged(payment);
     }
 
     private void ArriveAnimation()
@@ -167,85 +244,12 @@ public class Client : MonoBehaviour
         arriveAnimation = true;
     }
 
-    private void Update()
-    {
-        if (arriveAnimation)
-        {
-            MoveClientHorizontal(ClientManager.instance.GetClientPosition());
-            MoveClientVertical();
-            if (transform.localPosition.x > ClientManager.instance.GetClientPosition().localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
-            {
-                arriveAnimation = false;
-                InitClient();
-                isLocated = true;
-            }
-        }
-
-        if (leaveAnimation)
-        {
-            boxCollider.enabled = false;
-             
-            MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
-            MoveClientVertical();
-            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01 && transform.localPosition.y < minYPosition + 0.1)
-            {
-                ClientManager.instance.CreateNewClient();
-                Destroy(gameObject);
-            }
-        }
-
-        if(startTimer)
-        {
-            Timer();
-        }
-
-        if(notNeedTakeDrink && canLeave)
-        {
-            startTimer = true;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Hammer"))
-        {
-            startTimer = true;
-        }
-            
-    }
     private void MoveClientHorizontal(Transform _transform)
     {
         Vector3 newPosition = transform.localPosition;
         newPosition.x = Mathf.Lerp(transform.localPosition.x, _transform.localPosition.x, Time.deltaTime * ClientManager.instance.GetHorizontalVelocity());
 
         transform.localPosition = newPosition;
-    }
-
-    private void MoveClientVertical()
-    {
-        if (isGoingUp)
-        {
-            Vector3 newPosition = transform.localPosition;
-            newPosition.y = Mathf.Lerp(transform.localPosition.y, ClientManager.instance.GetMaxYPosition(), Time.deltaTime * ClientManager.instance.GetVerticalVelocity());
-
-            transform.localPosition = newPosition;
-
-            if (transform.localPosition.y > ClientManager.instance.GetMaxYPosition() - 0.01)
-            {
-                isGoingUp = false;
-            }
-        }
-        else
-        {
-            Vector3 newPosition = transform.localPosition;
-            newPosition.y = Mathf.Lerp(transform.localPosition.y, minYPosition, Time.deltaTime * ClientManager.instance.GetVerticalVelocity());
-
-            transform.localPosition = newPosition;
-
-            if (transform.localPosition.y < minYPosition + 0.01)
-            {
-                isGoingUp = true;
-            }
-        }
     }
 
     public void Timer()
@@ -258,41 +262,34 @@ public class Client : MonoBehaviour
         }
     }
 
-    public CocktailNode.Type GetOrder()
+    public CocktailNode GetOrder()
     {
-        return drink;
+        return order;
     }
-    public void SetOrder(CocktailNode.Type drink)
-    {
-        this.drink = drink;
-    }
-    public void SetCanLeave(bool state)
-    {
-        canLeave = state;
-    }
-
-    public void SetNotNeedTakeDrink(bool value)
-    {
-        notNeedTakeDrink = value;
-    }
-
-    public void SetSprite(Sprite sprite)
-    {
-        spriteRenderer.sprite = sprite;
-    }
-
     public AIConversant GetConversant()
     {
         return conversant;
     }
-
-    public void SetIsTutorial(bool state)
-    {
-        isTutorial = state;
-    }
-
     public bool GetIsLocated()
     {
         return isLocated;
+    }
+    public bool GetCanLeave()
+    {
+        return canLeave;
+    }
+
+    public bool GetHitted()
+    {
+        return hitted;
+    }
+
+    public void SetClientNode(ClientNode _clientNode)
+    {
+        clientNode = _clientNode;
+    }
+    public void SetCanLeave(bool state)
+    {
+        canLeave = state;
     }
 }

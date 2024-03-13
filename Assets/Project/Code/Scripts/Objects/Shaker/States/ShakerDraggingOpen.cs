@@ -132,7 +132,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
         if (_liquidManager.GetCurrentLiquid() == 0 && _shakerStateMachine.GetProgress() > 0 || _shakerStateMachine.GetReset())
         {
-            _shakerStateMachine.ResetShaker(_shakerStateMachine.GetProgress() - 0.05f) ;
+            _shakerStateMachine.ResetShaker(_shakerStateMachine.GetProgress() - 0.2f) ;
             AlphaLerpPositive();
         }
         else
@@ -247,7 +247,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
                 LiquidParticle liquidParticle = liquid.GetComponent<LiquidParticle>();
                 liquidParticle.SetCocktailState(_liquidManager.GetDrinkState());
-                Debug.Log(_liquidManager.GetParticleTypes().Keys.Last());
 
                 liquidParticle.SetDrink(_liquidManager.GetParticleTypes().Keys.Last());
 

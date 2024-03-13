@@ -39,6 +39,9 @@ public class CocktailNode : ScriptableObject
     public string subtitle;
     public string description;
     public Sprite sprite;
+    public Color color;
+    [Range(0, 1)]
+    public float errorMargin;
 
     public CocktailIngredientDictionary serializableIngredients;
     public Dictionary<DrinkNode, int> ingredients;
@@ -73,25 +76,17 @@ public class CocktailNode : ScriptableObject
         if (state == State.Idle)
             description += "directamente en vaso ";
         else if (state == State.Shaked)
-            description += "agitado ";
+            description += "poco agitado ";
         else
-            description += "mezclado perfectamente ";
+            description += "completamente mezclado ";
         //Decorations
-        int i = 0;
         foreach (KeyValuePair<ItemNode, int> decoration in decorations)
         {
-            if (i == 0)
-                description += "con ";
+            description += "con ";
+            if (decoration.Value <= 2)
+                description += "poco hielo";
             else
-                description += "y ";
-
-            description += decoration.Value + " ";
-            if (decoration.Value > 1)
-                description += decoration.Key.pluralName;
-            else
-                description += decoration.Key.itemName;
-
-            i++;
+                description += "mucho hielo";
         }
     }
 }

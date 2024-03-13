@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
-using TreeEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.Rendering.DebugUI;
@@ -59,6 +58,7 @@ public class TutorialManager : MonoBehaviour
     private GameObject glass;
 
     private bool isButtonActive;
+    private bool isActive;
 
     [SerializeField] private GameObject nextButton;
 
@@ -124,6 +124,7 @@ public class TutorialManager : MonoBehaviour
         arrow.SetActive(false);
 
         isButtonActive = false;
+        isActive = false;
     }
 
     private void Update()
@@ -134,7 +135,15 @@ public class TutorialManager : MonoBehaviour
         {
             if (!drag[i].enabled && drag[i] != null)
             {
-                drag[i].gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                if(drag[i].gameObject.GetComponent<Rigidbody2D>() != null)
+                {
+                    drag[i].gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                }
+                else
+                {
+                    drag[i].gameObject.GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                }
+                
             }
         }
         if (!shaker.enabled)
@@ -167,11 +176,17 @@ public class TutorialManager : MonoBehaviour
             nextButton.GetComponent<NextButton>().Active();
             isButtonActive = true;
         }
+        if (ice == null && isFriend && !isActive)
+        {
+            client.GetComponent<BoxCollider2D>().enabled = false;
+            isActive = true;
+        }
 
         if (id == tutorialID.BaseTutorial && !nextButton.GetComponent<SpriteRenderer>().enabled && startTutorial)
         {
             CallActiveDrag();
         }
+        
     }
 
     private void CallActiveDrag()
@@ -180,8 +195,9 @@ public class TutorialManager : MonoBehaviour
         {
             ContinueConversation();
             client.GetComponent<BoxCollider2D>().enabled = true;
+
         }
-        else if (createObjectCollider[0].gameObject.GetComponent<CreateObject>().GetIsCreated() && !fridge.GetIsOpen())
+        else if (createObjectCollider[0].gameObject.GetComponent<CreateItemGroup>().GetIsCreated() && !fridge.GetIsOpen())
         {
             createObjectCollider[0].gameObject.transform.localScale = new Vector3(2, 2, 2);
             ActiveDragItem(5, 5, 9);
@@ -191,7 +207,7 @@ public class TutorialManager : MonoBehaviour
             continuConversation[8] = true;
             fridge.gameObject.transform.localScale = Vector3.one;
             ActiveCreateObjectFridge(0, 5, 8);
-            if (createObjectCollider[0].gameObject.GetComponent<CreateObject>().GetIsCreated())
+            if (createObjectCollider[0].gameObject.GetComponent<CreateItemGroup>().GetIsCreated())
             {
                 ContinueConversation();
                 continuConversation[9] = false;
@@ -421,13 +437,13 @@ public class TutorialManager : MonoBehaviour
             createObjectCollider[index].enabled = true;
             isGrowing = true;
         }
-        if (!createObjectCollider[index].gameObject.GetComponent<CreateObject>().GetIsCreated() && time[timeIndex] > _maxTime)
+        if (!createObjectCollider[index].gameObject.GetComponent<CreateItemGroup>().GetIsCreated() && time[timeIndex] > _maxTime)
         {
             panel.SetActive(true);
             LerpSacele(maxScale, minScale, createObjectCollider[index].gameObject);
             createObjectCollider[index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
         }
-        if (createObjectCollider[index].gameObject.GetComponent<CreateObject>().GetIsCreated())
+        if (createObjectCollider[index].gameObject.GetComponent<CreateItemGroup>().GetIsCreated())
         {
             panel.SetActive(false);
             createObjectCollider[index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerBucket[index];
@@ -457,7 +473,7 @@ public class TutorialManager : MonoBehaviour
         if (createGlass.gameObject.GetComponent<SpawnGlass>().GetIsCreated())
         {
             panel.SetActive(false);
-            createGlass.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+            createGlass.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
             createGlass.gameObject.transform.localScale = new Vector3(0.75f, 0.75f, 1);
         }
     }

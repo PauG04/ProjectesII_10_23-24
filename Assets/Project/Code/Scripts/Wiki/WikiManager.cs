@@ -10,8 +10,8 @@ public class WikiManager : MonoBehaviour
     [SerializeField] private List<CocktailNode> cocktails;
 
     [SerializeField] private GameObject wiki;
-    [SerializeField] private WikiPage firstPage;
-    [SerializeField] private WikiPage secondPage;
+    [SerializeField] private WikiPage leftPage;
+    [SerializeField] private WikiPage rightPage;
 
     [SerializeField] private DragItems book;
     private bool bookIsOpened;
@@ -49,8 +49,9 @@ public class WikiManager : MonoBehaviour
 
     public void NextPage()
     {
-        if (pageNumber + 2 <= cocktails.Count)
+        if (pageNumber + 2 <= cocktails.Count - 1)
         {
+            AudioManager.instance.PlaySFX("TurnPage");
             pageNumber += 2;
             UpdatePages(pageNumber);
         }
@@ -60,6 +61,7 @@ public class WikiManager : MonoBehaviour
     {
         if (pageNumber >= 2)
         {
+            AudioManager.instance.PlaySFX("TurnPage");
             pageNumber -= 2;
             UpdatePages(pageNumber);
         }
@@ -74,12 +76,12 @@ public class WikiManager : MonoBehaviour
     {
         if (page < cocktails.Count)
         {
-            firstPage.UpdatePage(cocktails[page]);
+            leftPage.UpdatePage(cocktails[page]);
 
             if (page + 1 < cocktails.Count)
-                secondPage.UpdatePage(cocktails[page + 1]);
+                rightPage.UpdatePage(cocktails[page + 1]);
             else
-                secondPage.ClearPage();
+                rightPage.ClearPage();
         }
     }
 
@@ -90,16 +92,15 @@ public class WikiManager : MonoBehaviour
 
     private void OpenWiki()
     {
-        //wiki.SetActive(true);
-        firstPage.gameObject.SetActive(true);
-        secondPage.gameObject.SetActive(true);
+        AudioManager.instance.PlaySFX("OpenBook");
+        leftPage.gameObject.SetActive(true);
+        rightPage.gameObject.SetActive(true);
         UpdatePages(pageNumber);
     }
 
     private void CloseWiki()
     {
-        //wiki.SetActive(false);
-        firstPage.gameObject.SetActive(false);
-        secondPage.gameObject.SetActive(false);
+        leftPage.gameObject.SetActive(false);
+        rightPage.gameObject.SetActive(false);
     }
 }

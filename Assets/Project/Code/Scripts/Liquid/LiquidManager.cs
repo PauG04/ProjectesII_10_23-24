@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static ShakerStateMachine;
-using static UnityEngine.ProBuilder.AutoUnwrapSettings;
 
 public class LiquidManager : MonoBehaviour
 {
+    [Header("Liquid Values")]
     [SerializeField] private int maxLiquid;
     [SerializeField] private int currentLiquid = 0;
+    [SerializeField] private CocktailNode.State currentState;
+    [SerializeField] private SpriteRenderer glassLiquidRenderer;
     private Dictionary<DrinkNode, int> particleTypes;
 
-    [SerializeField] private CocktailNode.State currentState;
-
+    [Header("Drag Values")]
+    [SerializeField] private bool isJigger;
     [SerializeField] private bool isGlass;
+    [SerializeField] private bool isBottle;
     [SerializeField] private DragItems dragItems;
     private BoxCollider2D boxCollider;
 
@@ -27,24 +29,22 @@ public class LiquidManager : MonoBehaviour
     [Header("Shaker")]
     [SerializeField] private ShakerStateMachine shaker;
 
-    [SerializeField] private bool isTutorial;
-
 
     private void Awake()
     {
         particleTypes = new Dictionary<DrinkNode, int>();
         boxCollider = GetComponent<BoxCollider2D>();
 
-        if (isGlass && dragItems == null)
+        if ((isGlass && dragItems == null) || (isJigger && dragItems == null))
         {
             dragItems = GetComponentInParent<DragItems>();
         }
     }
 
     private void Update()
-    {
+    {     
         ColliderController();
-        if (isGlass)
+        if (isGlass || isJigger)
         {
             if (particleTypes.Count > 0)
             {
@@ -54,9 +54,8 @@ public class LiquidManager : MonoBehaviour
             {
                 dragItems.SetHasToReturn(true);
             }
-        }        
-
-        if(isTutorial && currentLiquid == 0)
+        }
+        if(currentLiquid == 0 && isBottle)
         {
             currentLiquid = maxLiquid;
         }
@@ -68,25 +67,34 @@ public class LiquidManager : MonoBehaviour
         {
             if (currentLiquid < maxLiquid)
             {
-                if (particleTypes.ContainsKey(collision.GetComponent<LiquidParticle>().GetDrink()))
+                //AudioManager.instance.PlaySFX("LiquidCollisionGlass");
+
+                LiquidParticle particle = collision.GetComponent<LiquidParticle>();
+
+                if (particleTypes.ContainsKey(particle.GetDrink()))
                 {
-                    particleTypes[collision.GetComponent<LiquidParticle>().GetDrink()]++;
+                    particleTypes[particle.GetDrink()]++;
                     if (dropLiquid != null)
                     {
-                        dropLiquid.SetDrinkType(collision.GetComponent<LiquidParticle>().GetDrink());
+                        dropLiquid.SetDrinkType(particle.GetDrink());
                     }
                 }
                 else
                 {
-                    particleTypes.Add(collision.GetComponent<LiquidParticle>().GetDrink(), 1);
+                    particleTypes.Add(particle.GetDrink(), 1);
+                }
+                if (isGlass)
+                {
+                    glassLiquidRenderer.color = CombineColors(particleTypes);
                 }
                 Destroy(collision.gameObject);
+
                 currentLiquid++;
-                currentState = collision.GetComponent<LiquidParticle>().GetState();
+                currentState = particle.GetState();
 
                 if(shaker != null)
                 {
-                    if (shaker.GetProgress() > 0  && collision.GetComponent<LiquidParticle>().GetState() == CocktailNode.State.Idle)
+                    if (shaker.GetProgress() > 0  && particle.GetState() == CocktailNode.State.Idle)
                     {
                         shaker.SetReset(true);
                     }
@@ -115,21 +123,6 @@ public class LiquidManager : MonoBehaviour
             }
         }
     }
-    private void RemoveFirstMatchingInstance(Dictionary<DrinkNode, int> dictionary, int targetValue)
-    {
-        if (particleTypes.Count > 0)
-        {
-            foreach (KeyValuePair<DrinkNode, int> pair in dictionary)
-            {
-                if (pair.Value == targetValue)
-                {
-                    dictionary.Remove(pair.Key);
-                    Debug.Log("Removing: " + pair.Key);
-                    break;
-                }
-            }
-        }
-    }
     private void RemoveLiquidFromDictionary(Dictionary<DrinkNode, int> drinks)
     {
         if (particleTypes.Count > 0)
@@ -150,6 +143,31 @@ public class LiquidManager : MonoBehaviour
     public void IncreaseCurrentLiquid()
     {
         currentLiquid++;
+    }
+    private Color CombineColors(Dictionary<DrinkNode, int> colors)
+    {
+        Color result = new Color(0, 0, 0, 0);
+        int totalQuantityOfLiquid = 0;
+
+        foreach (KeyValuePair<DrinkNode, int> c in colors)
+        {
+            Color nodeColor = c.Key.color;
+            int quantity = c.Value;
+
+            result += nodeColor * quantity;
+
+            totalQuantityOfLiquid += quantity;
+        }
+        if (totalQuantityOfLiquid > 0)
+        {
+            result /= totalQuantityOfLiquid;
+        }
+        else
+        {
+            result = new Color(0, 0, 0, 0);
+        }
+
+        return result;
     }
     public float GetCurrentLiquid()
     {

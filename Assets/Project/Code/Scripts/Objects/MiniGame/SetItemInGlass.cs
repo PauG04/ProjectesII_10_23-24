@@ -21,7 +21,6 @@ public class SetItemInGlass : MonoBehaviour
         {
             transform.SetParent(null);
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,7 +28,7 @@ public class SetItemInGlass : MonoBehaviour
         if (collision.CompareTag("Decoration") && drag.GetInsideWorkspace())
         {
             transform.SetParent(collision.transform);
-            GetComponent<DragItems>().enabled = false;
+            drag.enabled = false;
             isInGlass = true;
             collision.GetComponent<InsideDecorations>().AddItem(itemNode);
         }
@@ -46,7 +45,7 @@ public class SetItemInGlass : MonoBehaviour
         }
     }
 
-    public ItemNode GetItemGroupNode()
+    public ItemNode GetItemNode()
     {
         return itemNode;
     }

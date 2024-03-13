@@ -168,7 +168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405183377825978886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.306, z: 0}
+  m_LocalPosition: {x: 0, y: 0.385, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -186,10 +186,10 @@ GameObject:
   - component: {fileID: 720530942413858104}
   - component: {fileID: 1451645765080771610}
   - component: {fileID: 5544503391691205695}
-  - component: {fileID: 4471090056557097739}
   - component: {fileID: 5110034788011679347}
   - component: {fileID: 583735982947840328}
   - component: {fileID: 5205690035123572420}
+  - component: {fileID: 4162158636450364268}
   m_Layer: 18
   m_Name: Glass5
   m_TagString: Cocktail
@@ -242,7 +242,9 @@ MonoBehaviour:
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
   moveParent: 0
+  dragWithWorkspaceSprite: 0
   isItem: 0
+  isItemGroup: 0
 --- !u!114 &5544503391691205695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,21 +261,6 @@ MonoBehaviour:
   particles: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
   forceX: 3
   forceY: 1
---- !u!114 &4471090056557097739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631296216517769539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5751e223e14a82a4eab0d934fd8a1cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  spawnPoint: {fileID: 6524071643692336444}
-  liquidManager: {fileID: 4557714834367202862}
 --- !u!114 &5110034788011679347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +347,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.47, y: 0.78}
   m_EdgeRadius: 0
+--- !u!114 &4162158636450364268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631296216517769539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1198e05a12b0144aec2f046a08a4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
+  spawnPoint: {fileID: 6524071643692336444}
+  liquidManager: {fileID: 4557714834367202862}
+  drink: {fileID: 0}
+  minRotationToPourLiquid: 70
+  maxRotationToPourLiquid: 140
+  isGlass: 1
+  spawnerPositionX: 0.165
 --- !u!1 &3962444385833227320
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43c6cc7fd7788343a36584acb2ef314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liquidManager: {fileID: 4557714834367202862}
 --- !u!1 &4588503370027861743
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +579,9 @@ MonoBehaviour:
   maxLiquid: 50
   currentLiquid: 0
   currentState: 0
+  glassLiquidRenderer: {fileID: 3846524632110708514}
   isGlass: 1
+  isBottle: 0
   dragItems: {fileID: 0}
   maxColliderPos: 0.3425
   minColliderPos: -0.28
@@ -589,7 +599,7 @@ GameObject:
   - component: {fileID: 3846524632110708514}
   - component: {fileID: 3477475284075534812}
   m_Layer: 18
-  m_Name: Glass3Liquid
+  m_Name: Liquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

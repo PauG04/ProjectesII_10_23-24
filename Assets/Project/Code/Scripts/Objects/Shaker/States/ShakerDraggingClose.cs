@@ -29,6 +29,10 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private float velocityColor = 2;
     private float velocityColorPositive = 25;
 
+    private CameraShake cameraShake;
+
+    private float intensityShaking;
+
     public ShakerDraggingClose(
         ShakerStateMachine shakerStateMachine,
         float progress,
@@ -70,9 +74,15 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
 
         _newPosition = _shakerStateMachine.transform.position;
+
+        cameraShake = Camera.main.GetComponent<CameraShake>();
+        intensityShaking = 0.25f;
+
+        _shakerStateMachine.GetComponent<Collider2D>().enabled = false;
     }
     public override void ExitState()
     {
+        _shakerStateMachine.GetComponent<Collider2D>().enabled = true;
 
     }
     public override ShakerStateMachine.ShakerState GetNextState()
@@ -95,10 +105,13 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _targetJoint.target = mousePosition;
 
         _rb.SetRotation(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
-        Shaking();
+
+        if (_liquidManager.GetCurrentLiquid() > 0)
+            Shaking();
+        
         if (_shakerStateMachine.GetReset())
         {
-            _shakerStateMachine.ResetShaker(_shakerStateMachine.GetProgress() - 0.05f);
+            _shakerStateMachine.ResetShaker(_shakerStateMachine.GetProgress() - 0.2f);
             AlphaLerpPositive();
         }
         else
@@ -126,7 +139,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
          }
          else
          { 
-            //cameraShake.SetTransforPosition();
+            cameraShake.SetTransforPosition();
          }
          SetDrinkState();
             
@@ -144,7 +157,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _progressSlider.value = _progress;
         _color.color = new Color (1,1 - (_progress / _maxProgress),0, AlphaLerp());
 
-        //cameraShake.ShakeCamera((transform.position.y - _newPosition.y) * intensityShaking);
+        cameraShake.ShakeCamera((_shakerStateMachine.transform.position.y - _newPosition.y) * intensityShaking);
 
     }
     private float AlphaLerp()
@@ -171,11 +184,15 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     {
         if(_isDown && _rb.velocity.y >= 0)
         {
+            AudioManager.instance.PlaySFX("ShakingLiquid");
+            //AudioManager.instance.SetPitch("ShakingLiquid", 1.2f);
             _isDown = false;
             _newPosition.y = _shakerStateMachine.transform.position.y;
         }
         if(!_isDown && _rb.velocity.y < 0)
         {
+            AudioManager.instance.PlaySFX("ShakingLiquid");
+           // AudioManager.instance.SetPitch("ShakingLiquid", 0.5f);
             _isDown = true;
             _newPosition.y = _shakerStateMachine.transform.position.y;
         }

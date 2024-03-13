@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class BreakBottle : MonoBehaviour
 {

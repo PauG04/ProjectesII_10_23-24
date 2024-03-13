@@ -13,7 +13,8 @@ namespace Dialogue
 
 		private Client client;
 
-		
+
+		private int i;
 		protected void Awake()
 		{
 			playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
@@ -26,47 +27,31 @@ namespace Dialogue
 			{
 				return;
 			}
-			
+
 			playerConversant.StartDialogue(this, dialogue);
 		}
 
         private void Update()
         {
-			if(playerConversant.IsActive())
+            if (playerConversant.IsActive() && !client.GetCanLeave())
 			{
-                if (!playerConversant.HasNext())
+                if (!playerConversant.HasNext() && playerConversant.GetIsTextDone())
                 {
                     client.SetCanLeave(true);
                 }
             }           
         }
-        private void OnMouseDown()
+		public PlayerConversant GetPlayerConversant()
 		{
-			//playerConversant.Next();
-			//Debug.Log("PlayerPressed");
-			//if (!playerConversant.GetCanContinue() && !hasExecuted)
-			//{
-			//	  playerConversant.SetCanContinue(true);
-			//	  if (playerConversant.HasNext())
-			//	  {
-			//		  playerConversant.Next();
-			//    }
-			//    hasExecuted = true;
-			//}
-		}
-        private void OnMouseUp()
-        {
-
-        }
-
-		public void SetDialogue(Dialogue dialogue)
-		{
-			this.dialogue = dialogue;
+			return playerConversant;
 		}
         public string GetName()
 		{
 			return conversantName;
 		}
-		
-	}
+        public void SetDialogue(Dialogue dialogue)
+        {
+            this.dialogue = dialogue;
+        }
+    }
 }

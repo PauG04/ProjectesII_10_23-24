@@ -14,11 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 2
   type: 1
-  price: 10
+  price: 12.99
   cocktailName: Mojito
   subtitle: Clasico
-  description: Serivir mezclado perfectamente
+  description: '1 Onza de Ginebra
+
+    1 Onza de Vodka
+
+    3 Onzas de Soda
+
+    Serivir
+    completamente mezclado con mucho hielo'
   sprite: {fileID: 21300000, guid: cd52eb03e47222b4d96aa6ba00c15453, type: 3}
+  color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+  errorMargin: 0.8
   serializableIngredients:
     items:
     - type: {fileID: 11400000, guid: bc2533701c895954aa30b3a4a1222440, type: 2}

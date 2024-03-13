@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using JetBrains.Annotations;
 
 namespace Dialogue
 {
@@ -19,6 +18,7 @@ namespace Dialogue
 		private AIConversant currentConversant = null;
 		private bool isChoosing = false;
 		private bool isStartingNewConversant = false;
+		private bool isTextDone = false;
 
 		/// TODO:
 		/// 	find a better way to give the child to other objects instead of a numeric one
@@ -27,7 +27,6 @@ namespace Dialogue
 		public event Action onConversationUpdated;
 
 		private bool isTextRunning;
-		private bool isPaused;
 		public IEnumerator WriteTextWithDelay()
 		{
 			if (!currentNode.IsTextPaused())
@@ -40,6 +39,7 @@ namespace Dialogue
         }
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
+            //AudioManager.instance.Play("ClientTalking");
 			isChoosing = false;
 
             currentConversant = newConversant;
@@ -100,8 +100,8 @@ namespace Dialogue
         }
         public void Next()
 		{
-
-            int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
+			//AudioManager.instance.PlaySFX("ClientTalking");
+			int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
 
             if (numPlayerResponses > 0)
             {
@@ -137,7 +137,7 @@ namespace Dialogue
 		{
 			if(currentNode != null)
 			{
-				TriggerAction(currentNode.GetOnEnterAction());
+				TriggerAction(currentNode.GetOnExitAction());
 			}
 		}
 		private void TriggerAction(string action)
@@ -163,10 +163,17 @@ namespace Dialogue
 		{
 			if (currentNode != null)
 			{
-                return isPaused = currentNode.IsTextPaused();
+                return currentNode.IsTextPaused();
             }
 			return true;
 		}
-
-	}
+		public void SetIsTextDone(bool isTextDone)
+		{
+			this.isTextDone = isTextDone;
+		}
+		public bool GetIsTextDone()
+		{
+			return isTextDone;
+		}
+    }
 }

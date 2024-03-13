@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2113523995
   m_SortingLayer: 1
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 587274514760470680}
   normalSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
-  scaleMultiplier: 1.5
+  scaleMultiplier: 1.8
   itemCollider: {fileID: 5217099365322840740}
   rotationSpeed: 6
   horizontalSpeed: 6
@@ -113,7 +113,9 @@ MonoBehaviour:
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
   moveParent: 0
+  dragWithWorkspaceSprite: 0
   isItem: 1
+  isItemGroup: 0
 --- !u!114 &3565634400149393294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInGlass: 0
-  itemNode: {fileID: 11400000, guid: 5327b0cbfcc0de54f8e85e96d8b05a86, type: 2}
+  itemNode: {fileID: 11400000, guid: 30381eed8dac9b8469c6e5684c2609b6, type: 2}
 --- !u!50 &2723008301960515221
 Rigidbody2D:
   serializedVersion: 4
@@ -140,7 +142,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -280,7 +282,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2113523995
   m_SortingLayer: 1
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -307,7 +309,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5505292791025408926}
   normalSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
-  scaleMultiplier: 1.5
+  scaleMultiplier: 1.8
   itemCollider: {fileID: 4616495976968398756}
   rotationSpeed: 6
   horizontalSpeed: 6
@@ -317,7 +319,9 @@ MonoBehaviour:
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
   moveParent: 0
+  dragWithWorkspaceSprite: 0
   isItem: 1
+  isItemGroup: 0
 --- !u!114 &1829786497786978738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInGlass: 0
-  itemNode: {fileID: 11400000, guid: 5327b0cbfcc0de54f8e85e96d8b05a86, type: 2}
+  itemNode: {fileID: 11400000, guid: 30381eed8dac9b8469c6e5684c2609b6, type: 2}
 --- !u!50 &3522008199524342785
 Rigidbody2D:
   serializedVersion: 4
@@ -344,7 +348,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -484,7 +488,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2113523995
   m_SortingLayer: 1
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -511,7 +515,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3277694391009530896}
   normalSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
-  scaleMultiplier: 1.5
+  scaleMultiplier: 1.8
   itemCollider: {fileID: 3462639541955018867}
   rotationSpeed: 6
   horizontalSpeed: 6
@@ -521,7 +525,9 @@ MonoBehaviour:
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
   moveParent: 0
+  dragWithWorkspaceSprite: 0
   isItem: 1
+  isItemGroup: 0
 --- !u!114 &5576610873058384293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInGlass: 0
-  itemNode: {fileID: 11400000, guid: 5327b0cbfcc0de54f8e85e96d8b05a86, type: 2}
+  itemNode: {fileID: 11400000, guid: 30381eed8dac9b8469c6e5684c2609b6, type: 2}
 --- !u!50 &3333304074860946618
 Rigidbody2D:
   serializedVersion: 4
@@ -548,7 +554,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -688,7 +694,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2113523995
   m_SortingLayer: 1
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -715,7 +721,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 7662824394042980751}
   normalSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 943432ef1199fff44972677d2d04fd56, type: 3}
-  scaleMultiplier: 1.5
+  scaleMultiplier: 1.8
   itemCollider: {fileID: 8849339234887229922}
   rotationSpeed: 6
   horizontalSpeed: 6
@@ -725,7 +731,9 @@ MonoBehaviour:
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
   moveParent: 0
+  dragWithWorkspaceSprite: 0
   isItem: 1
+  isItemGroup: 0
 --- !u!114 &5139076913005161661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -739,7 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInGlass: 0
-  itemNode: {fileID: 11400000, guid: 5327b0cbfcc0de54f8e85e96d8b05a86, type: 2}
+  itemNode: {fileID: 11400000, guid: 30381eed8dac9b8469c6e5684c2609b6, type: 2}
 --- !u!50 &2830787853921677453
 Rigidbody2D:
   serializedVersion: 4
@@ -752,7 +760,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -843,7 +851,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5993589190917720329}
   - {fileID: 6052976397009066078}
@@ -864,7 +872,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.8
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
