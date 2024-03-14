@@ -55,7 +55,7 @@ public class ShopEvent : MonoBehaviour
 
     private void activeCanvas()
     {
-        if(clientObject.GetComponent<Client>().GetHitted())
+        if(!clientObject.GetComponent<Client>().GetHitted())
         {
             canvas.SetActive(true);
         }     

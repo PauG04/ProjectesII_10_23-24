@@ -262,7 +262,7 @@ public class FriendEvent : MonoBehaviour
         {
             drag[_index].SetIsInTutorial(false);
         }
-        if (!drag[_index].GetIsDraggin() && !drag[_index].GetInsideWorkspace() && time[timeIndex] > _maxTime)
+        if (!drag[_index].GetIsDraggin() && !drag[_index].GetInsideWorkspace())
         {
             panel.SetActive(true);
             if (drag[_index].gameObject.GetComponent<SpriteRenderer>() != null)
@@ -300,7 +300,7 @@ public class FriendEvent : MonoBehaviour
             createGlass[_index].gameObject.GetComponent<BoxCollider2D>().enabled = true;
             isGrowing = true;
         }
-        if (!createGlass[_index].GetComponent<SpawnGlass>().GetIsCreated() && time[timeIndex] > _maxTime)
+        if (!createGlass[_index].GetComponent<SpawnGlass>().GetIsCreated())
         {
             panel.SetActive(true);
             LerpSacele(maxScale, minScale, createGlass[_index]);
@@ -336,7 +336,7 @@ public class FriendEvent : MonoBehaviour
             isGrowing = true;
         }
 
-        if (!fridge.GetIsOpen() && time[timeIndex] > _maxTime)
+        if (!fridge.GetIsOpen())
         {
             panel.SetActive(true);
             LerpSacele(maxScale, minScale, fridge.gameObject);
@@ -366,7 +366,7 @@ public class FriendEvent : MonoBehaviour
             createObjectCollider.enabled = true;
             isGrowing = true;
         }
-        if (!createObjectCollider.gameObject.GetComponent<CreateItemGroup>().GetIsCreated() && time[timeIndex] > _maxTime)
+        if (!createObjectCollider.gameObject.GetComponent<CreateItemGroup>().GetIsCreated())
         {
             panel.SetActive(true);
             LerpSacele(maxScale, minScale, createObjectCollider.gameObject);
