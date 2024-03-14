@@ -35,10 +35,12 @@ public class EconomyManager : MonoBehaviour
     {
         if(earnings > 0.0f)
         {
+            AudioManager.instance.PlaySFX("EarnMoney");
             dailyEarnings += earnings;         
         }
         else
         {
+            AudioManager.instance.PlaySFX("LoseMoney");
             dailyExpenses += earnings;
         }
         money += earnings;

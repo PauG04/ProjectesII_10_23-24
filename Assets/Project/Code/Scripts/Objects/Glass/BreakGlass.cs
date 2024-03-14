@@ -29,6 +29,7 @@ public class BreakGlass : MonoBehaviour
             hits--;
             if (hits == 0)
             {
+                AudioManager.instance.PlaySFX("BreakGlass");
                 Slice(transform.localPosition, brokenGlass);
             }
         }

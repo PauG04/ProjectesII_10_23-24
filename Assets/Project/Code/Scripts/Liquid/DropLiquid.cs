@@ -28,6 +28,8 @@ public class DropLiquid : MonoBehaviour
 
     [SerializeField] private Collider2D liquidCollider;
 
+    private bool isDroppingLiquid = false;
+
     private void Start()
     {
         texture = GameObject.FindGameObjectWithTag("FluidTextureCamera").GetComponent<MeshRenderer>().material;
@@ -75,13 +77,15 @@ public class DropLiquid : MonoBehaviour
             }
             else
             {
+                if (AudioManager.instance.IsPlayingSFX("DropLiquid"))
+                    AudioManager.instance.StopPlayingSFX("DropLiquid");
+
                 if (liquidCollider != null)
                 {
                     liquidCollider.enabled = true;
                 }
             }
         }
-        
     }
 
     private void PourLiquid(bool state)
@@ -126,6 +130,9 @@ public class DropLiquid : MonoBehaviour
 
         if (currentRotation <= currentLiquid && liquidManager.GetCurrentLiquid() > 0)
         {
+            if (!AudioManager.instance.IsPlayingSFX("DropLiquid"))
+                AudioManager.instance.PlaySFX("DropLiquid");
+
             if (difference > 0)
             {
                 spawnSpeed = 2.8f / difference;

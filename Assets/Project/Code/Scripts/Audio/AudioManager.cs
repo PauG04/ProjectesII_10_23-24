@@ -1,20 +1,17 @@
-﻿using UnityEngine.Audio;
-using System;
+﻿using System;
 using UnityEngine;
-using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
-
-    public AudioClip[] songs;
-    private Sound songAudioSource;
-    private int songCounter;
+    public Sound[] sfxSounds;
+    public Sound[] musicSounds;
+    [Space(10)]
+    public AudioSource[] sfxSources;
+    public AudioSource musicSource;
 
     public static AudioManager instance;
 
-    [SerializeField]
-    private AudioMixer mixer;
+    private int songCounter;
 
     void Awake()
     {
@@ -29,50 +26,110 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        foreach (Sound s in sounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-        }
-
-        songAudioSource = Array.Find(sounds, sound => sound.soundName == "GameSong");
         songCounter = 0;
     }
     private void Start()
     {
-        PlaySong("GameSong");
+        PlaySong(musicSounds[songCounter].soundName);
     }
 
-    public void PlaySFX(string name)
+    private void Update()
     {
-        Sound s = Array.Find(sounds, sound => sound.soundName == name);
-        s.source.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[0];
-        s.source.Play();
+        if (!musicSource.isPlaying)
+        {
+            songCounter++;
+            if (songCounter == musicSounds.Length)
+                songCounter = 0;
+            PlaySong(musicSounds[songCounter].soundName);
+        }
+    }
+
+    private AudioSource GetAvailableAudioSource()
+    {
+        foreach (AudioSource audioSource in sfxSources)
+        {
+            if (!audioSource.isPlaying)
+                return audioSource;
+        }
+        return null;
+    }
+
+    public void PlaySFX(string name, float customPitch = 5.0f)
+    {
+        Sound s = Array.Find(sfxSounds, sound => sound.soundName == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound does not exist");
+            return;
+        }
+
+        AudioSource audioSource = GetAvailableAudioSource();
+
+        if (audioSource == null)
+        {
+            Debug.Log("No audio sources available");
+            return;
+        }
+
+        if (customPitch == 5.0f)
+            audioSource.pitch = UnityEngine.Random.Range(s.minPitch, s.maxPitch);
+        else
+            audioSource.pitch = customPitch;
+
+        audioSource.volume = s.volume;
+        audioSource.loop = s.loop;
+        audioSource.PlayOneShot(s.clip);
+    }
+
+    public void StopPlayingSFX(string name)
+    {
+        Sound s = Array.Find(sfxSounds, sound => sound.soundName == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound does not exist");
+            return;
+        }
+
+        foreach (AudioSource audioSource in sfxSources)
+        {
+            if (audioSource.clip.name == name)
+            {
+                audioSource.Stop();
+                return;
+            }
+        }
     }
 
     public void PlaySong(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.soundName == name);
-        s.source.outputAudioMixerGroup = mixer.FindMatchingGroups("Music")[0];
-        s.source.Play();
-    }
+        Sound s = Array.Find(musicSounds, sound => sound.soundName == name);
 
-    public void SetPitch (string name, float pitch)
-    {
-        Sound s = Array.Find(sounds, sound => sound.soundName == name);
-        s.source.pitch = pitch;
-    }
-
-    public void StopPlaying(string sound)
-    {
-        Sound s = Array.Find(sounds, item => item.soundName == sound);
         if (s == null)
+        {
+            Debug.Log("Sound does not exist");
             return;
-        Debug.Log("stop sound");
-        s.source.loop = false;
-        s.source.Stop();
+        }
+
+        musicSource.volume = s.volume;
+        musicSource.pitch = s.minPitch;
+        musicSource.clip = s.clip;
+        musicSource.loop = false;
+        musicSource.Play();
+    }
+
+    public bool IsPlayingSFX(string name) 
+    {
+        foreach (AudioSource audioSource in sfxSources)
+        {
+            if (audioSource.clip.name == name)
+            {
+                return audioSource.isPlaying;
+            }
+        }
+
+        Debug.Log("Sound does not exist");
+        return false;
     }
 }
