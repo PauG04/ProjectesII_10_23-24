@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8422886902203483392
+--- !u!114 &-2167694117437842775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,67 +10,66 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 829e4c99-118b-45fe-9a1a-126baa579d5d
+  m_Name: 5dffe198-b5eb-4492-987f-66cdc1e4d5d3
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Como pueles equivoc...
-  children:
-  - 62d2eeff-0421-4898-b2ba-0a12fb3ab066
-  - 6d26750d-57ac-46a8-b9ea-0c3b07314f23
-  rect:
-    serializedVersion: 2
-    x: 8
-    y: 185
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-3556150297241762345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 6d26750d-57ac-46a8-b9ea-0c3b07314f23
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: Como pueles equivoc...
-  children:
-  - 94eb90da-ba83-4440-8bf6-8bec63aa07cf
-  rect:
-    serializedVersion: 2
-    x: 259
-    y: 185
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-395207797856652599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 94eb90da-ba83-4440-8bf6-8bec63aa07cf
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: "Como pueles equivocalte en el vaso, si es lo m\xE1s f\xE1cil"
+  text: 
   children: []
   rect:
     serializedVersion: 2
-    x: 509
-    y: 184
+    x: 563
+    y: 137
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-999272073500974536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 93df164f-b6f4-472f-aa68-b9b7021e8163
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Que co\xF1o estas haciendo, no ves que la sanglia no se mescla"
+  children:
+  - 578345dc-e7f6-47b9-9b9f-dcd6f7044943
+  - 094cbb2a-fe1c-4526-b7e0-bff2c6f0843d
+  rect:
+    serializedVersion: 2
+    x: 65
+    y: 137
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-684168746843501543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 094cbb2a-fe1c-4526-b7e0-bff2c6f0843d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: No tienes ni puta idea de hacel tu tlablajo, vuelve a empezal
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 315
+    y: 137
     width: 200
     height: 120
   onEnterAction: 
@@ -85,14 +84,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
-  m_Name: Dialogo-vaso
+  m_Name: Chino-BadShaked
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: -8422886902203483392}
-  - {fileID: -3556150297241762345}
-  - {fileID: -395207797856652599}
+  - {fileID: -999272073500974536}
+  - {fileID: -684168746843501543}
   newNodeOffset: {x: 250, y: 0}
---- !u!114 &4552791452056365060
+--- !u!114 &122921696338604987
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,41 +100,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 62d2eeff-0421-4898-b2ba-0a12fb3ab066
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: Como pueles equivoc...
-  children:
-  - e3580723-d4ca-4102-85f3-5a5828198e42
-  rect:
-    serializedVersion: 2
-    x: 275
-    y: 187
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &6697686369422728988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: e3580723-d4ca-4102-85f3-5a5828198e42
+  m_Name: 578345dc-e7f6-47b9-9b9f-dcd6f7044943
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
   text: 
-  children: []
+  children:
+  - 5dffe198-b5eb-4492-987f-66cdc1e4d5d3
   rect:
     serializedVersion: 2
-    x: 528
-    y: 188
+    x: 313
+    y: 137
     width: 200
     height: 120
   onEnterAction: 
