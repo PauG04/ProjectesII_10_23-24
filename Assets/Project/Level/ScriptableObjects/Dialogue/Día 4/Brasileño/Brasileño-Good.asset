@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-825931296703437926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1a5643f8-7771-4ba2-af2c-829225dd58f6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Sua maldita m\xE3e, como \xE9 bom"
+  children:
+  - 64f4846e-044f-4492-adf2-3f61c5adc9cd
+  rect:
+    serializedVersion: 2
+    x: 1
+    y: 83
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: "Brasile\xF1o-Good"
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -825931296703437926}
+  - {fileID: 7650873799959696647}
+  - {fileID: 2507934109402859322}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &2507934109402859322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1bd01314-a762-4c36-8624-0488ca5837d2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 'E para ver o melhor jogador do mundo '
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 510
+    y: 92
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7650873799959696647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 64f4846e-044f-4492-adf2-3f61c5adc9cd
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Dessa forma, poderei comemorar a vit\xF3ria do Madri"
+  children:
+  - 1bd01314-a762-4c36-8624-0488ca5837d2
+  rect:
+    serializedVersion: 2
+    x: 282
+    y: 90
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

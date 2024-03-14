@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2946277597848457760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 927aab8d-9b38-4e3f-87e8-c727c3d7d6e6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Que chato!, Como voc\xEA se caga com o vidro"
+  children:
+  - 6beeb1f8-ff11-47a8-b8c1-a5326852cf01
+  rect:
+    serializedVersion: 2
+    x: 26
+    y: 120
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: "Brasile\xF1o-Vaso"
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -2946277597848457760}
+  - {fileID: 2380971887048168022}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &2380971887048168022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6beeb1f8-ff11-47a8-b8c1-a5326852cf01
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Apresse-se, a partida est\xE1 prestes a come\xE7ar em pouco tempo!"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 278
+    y: 120
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

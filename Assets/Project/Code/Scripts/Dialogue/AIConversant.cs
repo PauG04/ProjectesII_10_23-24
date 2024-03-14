@@ -35,7 +35,7 @@ namespace Dialogue
         {
             if (playerConversant.IsActive() && !client.GetCanLeave())
 			{
-                if (!playerConversant.HasNext() && playerConversant.GetIsTextDone())
+                if (playerConversant.HasNext() && playerConversant.GetIsTextDone())
                 {
                     client.SetCanLeave(true);
                 }

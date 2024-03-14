@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4939730703278208081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: fc22e7ed-081b-4113-af7b-d8a3df00042d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Tendr\xEDa que acercarme m\xE1s y pedirte m\xE1s concidiciones"
+  children:
+  - 5a8c20cb-63e8-4769-9654-ee7f54d2caec
+  rect:
+    serializedVersion: 2
+    x: 284
+    y: 106
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-3745501377762608575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 53d3773a-8073-4a55-9ae9-200e417d1dce
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Volviendo al tema, veo que has cumplido tu palabra as\xED que no te quitare
+    el dinero, pero viendo tu trabajo de hoy"
+  children:
+  - 59fe960b-ad37-48fe-a31e-4087f26ff183
+  rect:
+    serializedVersion: 2
+    x: 782
+    y: 106
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: "Casero-Espa\xF1a-God"
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 3457494171995977180}
+  - {fileID: -4939730703278208081}
+  - {fileID: 3353116349644273548}
+  - {fileID: -3745501377762608575}
+  - {fileID: 1676572910707103639}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1676572910707103639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 59fe960b-ad37-48fe-a31e-4087f26ff183
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "\xBFTe has plantrado hacerte el carnet de Vox? apoyar\xEDas al mejor partido
+    pol\xEDtico de Espa\xF1a y lograr\xEDamos hechar a todos esos inmigrantes de
+    Espa\xF1a"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1033
+    y: 106
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3353116349644273548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 5a8c20cb-63e8-4769-9654-ee7f54d2caec
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Quiz\xE1s as\xED se llega a limpiar este barrio de panchos, moros, negros,
+    peruanos, monos, chinos, machupichus, catalufos, indios..."
+  children:
+  - 53d3773a-8073-4a55-9ae9-200e417d1dce
+  rect:
+    serializedVersion: 2
+    x: 552
+    y: 116
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3457494171995977180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d173b7c0-983a-43de-922b-c5f6649a4336
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Bien hecho figura, hoy solo he visto a ESPA\xD1OLES por este bar como te
+    ped\xED"
+  children:
+  - fc22e7ed-081b-4113-af7b-d8a3df00042d
+  rect:
+    serializedVersion: 2
+    x: 29
+    y: 106
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

@@ -9,11 +9,15 @@ public class ClientNode : ScriptableObject
     public Sprite sprite;
 
     public bool hitToGo;
+    public int totalHits;
     public bool canBeHitted;
     public bool regularHitReactions;
 
     public bool notNeedTakeDrink;
     public bool acceptsAll;
+    public bool dontCareGlass;
+    public bool careIces;
+    public int cuantityOfIce;
     public List<CocktailNode> possibleOrders;
 
     public List<Dialogue.Dialogue> dialogues;

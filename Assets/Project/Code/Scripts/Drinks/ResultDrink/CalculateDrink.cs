@@ -52,6 +52,12 @@ public class CalculateDrink : MonoBehaviour
             case CocktailNode.Type.Kalimotxo:
                 return CheckCocktail(typesOfDrink, state, allCocktails["Kalimotxo"], sprite, decorations);
 
+            case CocktailNode.Type.Vodka:
+                return CheckCocktail(typesOfDrink, state, allCocktails["Vodka"], sprite, decorations);
+            
+            case CocktailNode.Type.CocaCola:
+                return CheckCocktail(typesOfDrink, state, allCocktails["CocaCola"], sprite, decorations);
+
             default:
                 return "ERROR";
         }        
@@ -60,6 +66,27 @@ public class CalculateDrink : MonoBehaviour
 
     private string CheckCocktail(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state, CocktailNode cocktail, Sprite sprite, Dictionary<ItemNode, int> decorations)
     {
+        //Check if same amount of ingredients
+        if (typesOfDrink.Count != cocktail.ingredients.Count)
+            return "BadIngredients";
+
+        foreach (KeyValuePair<DrinkNode, int> ingredient in cocktail.ingredients)
+        {
+            //Check if same drinkTypes
+            if (!typesOfDrink.ContainsKey(ingredient.Key))
+                return "BadIngredients";
+
+            //Check if same quantity
+            if (typesOfDrink[ingredient.Key] < ingredient.Value * 10 * cocktail.errorMargin)
+                return "BadIngredients";
+        }
+
+        //Check if same state
+        if (state != cocktail.state)
+        {
+            return "BadState";
+        }
+
         //Check if same sprite
         if (sprite != cocktail.sprite)
             return "BadGlass";
@@ -83,27 +110,6 @@ public class CalculateDrink : MonoBehaviour
                 if (decorations[decoration.Key] > 5)
                     return "MuchIce";
             }
-        }
-
-        //Check if same state
-        if (state != cocktail.state)
-        {
-            return "BadState";
-        }
-
-        //Check if same amount of ingredients
-        if (typesOfDrink.Count != cocktail.ingredients.Count)
-            return "BadIngredients";
-
-        foreach (KeyValuePair<DrinkNode, int> ingredient in cocktail.ingredients)
-        {
-            //Check if same drinkTypes
-            if(!typesOfDrink.ContainsKey(ingredient.Key))
-                return "BadIngredients";
-
-            //Check if same quantity
-            if (typesOfDrink[ingredient.Key] < ingredient.Value * 10 * cocktail.errorMargin)
-                return "BadIngredients";
         }
         Debug.Log(cocktail);
         return "Good";

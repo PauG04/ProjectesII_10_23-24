@@ -1,5 +1,7 @@
 using Dialogue;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Client : MonoBehaviour
 {
@@ -23,6 +25,7 @@ public class Client : MonoBehaviour
 
     [Header("Client Dialogue")]
     private AIConversant conversant;
+    [SerializeField] private int maxHitsToGo; 
 
     [Header("Timer")]
     [SerializeField] private float maxTime;
@@ -33,6 +36,11 @@ public class Client : MonoBehaviour
     private ClientNode clientNode;
 
     private bool hitted;
+
+    private bool triggerSetted;
+    private bool wellReacted;
+
+    private int currentsHits;
 
     private void Awake()
     {
@@ -52,6 +60,9 @@ public class Client : MonoBehaviour
 
         isLocated = false;
         hitted = false;
+        wellReacted = false;
+
+        currentsHits = 0;
     }
 
     private void Start()
@@ -62,27 +73,7 @@ public class Client : MonoBehaviour
 
     private void Update()
     {
-        if (arriveAnimation)
-        {
-            MoveClientHorizontal(ClientManager.instance.GetClientPosition());
-            if (transform.localPosition.x > ClientManager.instance.GetClientPosition().localPosition.x - 0.01)
-            {
-                arriveAnimation = false;
-                isLocated = true;
-                conversant.HandleDialogue();
-            }
-        }
-        else if (leaveAnimation)
-        {
-            boxCollider.enabled = false;
-
-            MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
-            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
-            {
-                ClientManager.instance.CreateClient();
-                Destroy(gameObject);
-            }
-        }
+        Lerps();
 
         if (canLeave && clientNode.notNeedTakeDrink && !clientNode.hitToGo)
         {
@@ -92,6 +83,13 @@ public class Client : MonoBehaviour
         if (startTimer && !conversant.GetPlayerConversant().HasNext())
         {
             Timer();
+        }
+
+        if (!triggerSetted)
+        {
+            GetComponent<DialogueTrigger>().SetTriggerAction("ActiveCollision");
+            GetComponent<DialogueTrigger>().SetOnTriggerEvent(EnableCollider);
+            triggerSetted = true;
         }
     }
 
@@ -115,7 +113,7 @@ public class Client : MonoBehaviour
                     collision.GetComponentInChildren<InsideDecorations>().GetDecorations(),
                     order.type);
 
-            FindCoctelError(findError);
+            FindCoctelError(findError, collision);
 
             Destroy(collision.gameObject);
         }
@@ -126,23 +124,27 @@ public class Client : MonoBehaviour
         if (collision.CompareTag("Hammer") && !startTimer && clientNode.canBeHitted)
         {
             hitted = true;
+            currentsHits++;
             AudioManager.instance.PlaySFX("HitClient");
 
             clientNode.RandomizeHitReaction();
-            conversant.SetDialogue(clientNode.hitReaction);
+            if(clientNode.totalHits <= 1)
+                conversant.SetDialogue(clientNode.hitReaction);
             conversant.HandleDialogue();
 
-            if (clientNode.hitToGo)
+
+            if ((clientNode.hitToGo && currentsHits == clientNode.totalHits) || (!clientNode.hitToGo && currentsHits == maxHitsToGo))
             {
                 startTimer = true;
                 return;
-            }            
+            }
+            
         }
     }
 
     public void InitClient()
     {
-        boxCollider.enabled = true;
+        //boxCollider.enabled = true;
 
         if(clientNode.regularHitReactions)
         {
@@ -160,11 +162,28 @@ public class Client : MonoBehaviour
         spriteRenderer.flipX = true;
     }
 
-    private void FindCoctelError(string findError)
+    private void FindCoctelError(string findError, Collider2D collision)
     {
         if (findError == "Good")
-        {
-            ReactWell();
+        { 
+            if(clientNode.careIces)
+            {
+                int ices = collision.GetComponentInChildren<InsideDecorations>().GetDecorations().ElementAt(0).Value;
+                if (ices != clientNode.cuantityOfIce)
+                {
+                    conversant.SetDialogue(clientNode.noIceReaction);
+                    conversant.HandleDialogue();
+                }
+                else
+                {
+                    ReactWell();
+                }
+            }
+            else
+            {
+                ReactWell();
+            }
+            
         }
         else if (findError == "BadGlass")
         {
@@ -172,6 +191,10 @@ public class Client : MonoBehaviour
             {
                 conversant.SetDialogue(clientNode.badGlassReaction);
                 conversant.HandleDialogue();
+            }
+            else if(clientNode.dontCareGlass)
+            {
+                ReactWell();           
             }
             else
                 ReactBad();
@@ -182,6 +205,10 @@ public class Client : MonoBehaviour
             {
                 conversant.SetDialogue(clientNode.noIceReaction);
                 conversant.HandleDialogue();
+            }
+            else if (clientNode.dontCareGlass)
+            {
+                ReactWell();
             }
             else
                 ReactBad();
@@ -225,6 +252,7 @@ public class Client : MonoBehaviour
         conversant.HandleDialogue();
         Pay();
         startTimer = true;
+        wellReacted = true;
     }
 
     private void ReactBad()
@@ -244,6 +272,31 @@ public class Client : MonoBehaviour
         arriveAnimation = true;
     }
 
+    private void Lerps()
+    {
+        if (arriveAnimation)
+        {
+            MoveClientHorizontal(ClientManager.instance.GetClientPosition());
+            if (transform.localPosition.x > ClientManager.instance.GetClientPosition().localPosition.x - 0.01)
+            {
+                arriveAnimation = false;
+                isLocated = true;
+                conversant.HandleDialogue();
+            }
+        }
+        else if (leaveAnimation)
+        {
+            boxCollider.enabled = false;
+
+            MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
+            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
+            {
+                ClientManager.instance.CreateClient();
+                Destroy(gameObject);
+            }
+        }
+    }
+
     private void MoveClientHorizontal(Transform _transform)
     {
         Vector3 newPosition = transform.localPosition;
@@ -260,6 +313,12 @@ public class Client : MonoBehaviour
             startTimer = false;
             leaveAnimation = true;
         }
+    }
+
+    private void EnableCollider()
+    {
+        Debug.Log("acitve collision");
+        boxCollider.enabled = true;
     }
 
     public CocktailNode GetOrder()
@@ -284,6 +343,16 @@ public class Client : MonoBehaviour
         return hitted;
     }
 
+    public bool GetWellReacted()
+    {
+        return wellReacted;
+    }
+
+    public int GetCurrentsHit()
+    {
+        return currentsHits;
+    }
+
     public void SetClientNode(ClientNode _clientNode)
     {
         clientNode = _clientNode;
@@ -292,4 +361,11 @@ public class Client : MonoBehaviour
     {
         canLeave = state;
     }
+
+    public void SetTimer(bool state)
+    {
+        startTimer = state;
+    }
+
+
 }

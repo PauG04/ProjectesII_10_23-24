@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203defdb18f377b4184cfcf21f18d09b, type: 3}
+  m_Name: "Polic\xEDa"
+  m_EditorClassIdentifier: 
+  clientName: Policia
+  sprite: {fileID: 21300000, guid: 665aeaba767b1394d9d195ca20b690c5, type: 3}
+  hitToGo: 0
+  canBeHitted: 1
+  regularHitReactions: 0
+  notNeedTakeDrink: 0
+  acceptsAll: 0
+  dontCareGlass: 0
+  possibleOrders:
+  - {fileID: 11400000, guid: 0b8db9752db71014c8086e15e9c69189, type: 2}
+  dialogues:
+  - {fileID: 11400000, guid: 06b51f45fa9b3b144b54a9e1a0be8de2, type: 2}
+  goodReactions:
+  - {fileID: 11400000, guid: 31e08343d5563064fb86994f7412c503, type: 2}
+  badReactions:
+  - {fileID: 11400000, guid: b188721bbffd0ff469bec45bbaff29b8, type: 2}
+  hitReactions:
+  - {fileID: 11400000, guid: b5f1052e50187264c9e5ffc49873a2e2, type: 2}
+  dialogue: {fileID: 11400000, guid: 06b51f45fa9b3b144b54a9e1a0be8de2, type: 2}
+  goodReaction: {fileID: 11400000, guid: 31e08343d5563064fb86994f7412c503, type: 2}
+  badReaction: {fileID: 11400000, guid: b188721bbffd0ff469bec45bbaff29b8, type: 2}
+  hitReaction: {fileID: 11400000, guid: b5f1052e50187264c9e5ffc49873a2e2, type: 2}
+  badGlassReaction: {fileID: 11400000, guid: e0498c919b70b2d4a91d422e3e30d8c4, type: 2}
+  noIceReaction: {fileID: 11400000, guid: 6bdc3d16dbd31a84db48a4460c83423c, type: 2}
+  muchIceReaction: {fileID: 11400000, guid: 10397be2502a04b468eaff45ae61526d, type: 2}
+  badStateReaction: {fileID: 11400000, guid: ecc56ba054e76464d8582ca157ee2d1a, type: 2}
+  badIngredientsReaction: {fileID: 11400000, guid: b188721bbffd0ff469bec45bbaff29b8, type: 2}

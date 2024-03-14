@@ -33,6 +33,7 @@ public class DragItems : MonoBehaviour
     [SerializeField] private bool dragWithWorkspaceSprite;
     [SerializeField] private bool isItem;
     [SerializeField] private bool isItemGroup;
+    [SerializeField] private bool isPainting;
 
     private bool isObjectRotated;
     private bool isRotating;
@@ -64,7 +65,7 @@ public class DragItems : MonoBehaviour
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        if (!isItem && hasToReturn)
+        if (!isItem && hasToReturn && !isPainting)
         {
             rb2d.bodyType = RigidbodyType2D.Static;
         }
@@ -125,6 +126,11 @@ public class DragItems : MonoBehaviour
     private void OnMouseUp()
     {
         rb2d.bodyType = RigidbodyType2D.Dynamic;
+        
+        if(isPainting && insideWorkspace)
+        {
+            rb2d.bodyType = RigidbodyType2D.Static;
+        }
 
         isDragging = false;
         if (dragWithWorkspaceSprite)
@@ -167,7 +173,8 @@ public class DragItems : MonoBehaviour
             {
                 if (!isReturning)
                 {
-                    rb2d.bodyType = RigidbodyType2D.Dynamic;
+                    if(!isPainting)
+                        rb2d.bodyType = RigidbodyType2D.Dynamic;
                     InsideWorkspace();
                 }
                 else

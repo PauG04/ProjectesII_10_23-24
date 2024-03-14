@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612416e99e325834eba562d43ecd654f, type: 3}
+  m_Name: Agua de Palencia-E
+  m_EditorClassIdentifier: 
+  state: 1
+  type: 4
+  price: 14.99
+  cocktailName: Agua de Palencia
+  subtitle: Clasico
+  description: '1 Onza de Vino
+
+    1 Onza de Vodka
+
+    3 Onzas de Zumo de Naranja
+
+    Serivir
+    poco agitado con poco hielo'
+  sprite: {fileID: 21300000, guid: de7efc85f7afc4d40b141df48083d7fb, type: 3}
+  color: {r: 1, g: 0, b: 0, a: 0}
+  errorMargin: 0.4
+  serializableIngredients:
+    items:
+    - type: {fileID: 11400000, guid: df8602bd8649c724da27a6fc9b51edde, type: 2}
+      quantity: 1
+    - type: {fileID: 11400000, guid: e7ab7027c2ebaff4fbd05e3a6608b6d9, type: 2}
+      quantity: 1
+    - type: {fileID: 11400000, guid: 58d6b5c8a7f40b741b7f721a6392c78b, type: 2}
+      quantity: 3
+  serializableDecorations:
+    items:
+    - itemNode: {fileID: 11400000, guid: 30381eed8dac9b8469c6e5684c2609b6, type: 2}
+      quantity: 2

@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4872686574342400068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 9f22a055-2746-4672-86a2-bc3f3c95531f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: O lo haces bien o no te voy a dar mi guita
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 527
+    y: 128
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Argentino-Bad
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 5813061430639353181}
+  - {fileID: 5065133429883279012}
+  - {fileID: -4872686574342400068}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &5065133429883279012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f0aba9af-cc35-4d33-81bc-4dc210ef7005
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Mi primo y yo los haciamos con 6 a\xF1os en las ferias del pueblo"
+  children:
+  - 9f22a055-2746-4672-86a2-bc3f3c95531f
+  rect:
+    serializedVersion: 2
+    x: 278
+    y: 128
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &5813061430639353181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 74bcd41f-a93b-44bf-934b-e19235e815c0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Boludo, no puedes hacerme mal un Roncola
+  children:
+  - f0aba9af-cc35-4d33-81bc-4dc210ef7005
+  rect:
+    serializedVersion: 2
+    x: 29
+    y: 127
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
