@@ -309,6 +309,8 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
             if (renderer != null)
             {
                 renderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                renderer.sortingLayerName = "WorkSpace";
+
             }
 
             InsideWorkspaceRenderersChilds(child);
@@ -323,6 +325,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
             if (renderer != null)
             {
                 renderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                renderer.sortingLayerName = "Default";
             }
 
             OutsidewWorkspaceRenderersChilds(child);

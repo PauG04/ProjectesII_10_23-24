@@ -13,6 +13,7 @@ public class LiquidManager : MonoBehaviour
     private Dictionary<DrinkNode, int> particleTypes;
 
     [Header("Drag Values")]
+    [SerializeField] private bool isJigger;
     [SerializeField] private bool isGlass;
     [SerializeField] private bool isBottle;
     [SerializeField] private DragItems dragItems;
@@ -34,7 +35,7 @@ public class LiquidManager : MonoBehaviour
         particleTypes = new Dictionary<DrinkNode, int>();
         boxCollider = GetComponent<BoxCollider2D>();
 
-        if (isGlass && dragItems == null)
+        if ((isGlass && dragItems == null) || (isJigger && dragItems == null))
         {
             dragItems = GetComponentInParent<DragItems>();
         }
@@ -43,7 +44,7 @@ public class LiquidManager : MonoBehaviour
     private void Update()
     {     
         ColliderController();
-        if (isGlass)
+        if (isGlass || isJigger)
         {
             if (particleTypes.Count > 0)
             {
@@ -66,7 +67,7 @@ public class LiquidManager : MonoBehaviour
         {
             if (currentLiquid < maxLiquid)
             {
-                AudioManager.instance.PlaySFX("LiquidCollisionGlass");
+                //AudioManager.instance.PlaySFX("LiquidCollisionGlass");
 
                 LiquidParticle particle = collision.GetComponent<LiquidParticle>();
 

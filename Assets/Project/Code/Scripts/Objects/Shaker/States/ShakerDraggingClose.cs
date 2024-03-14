@@ -77,9 +77,12 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
         cameraShake = Camera.main.GetComponent<CameraShake>();
         intensityShaking = 0.25f;
+
+        _shakerStateMachine.GetComponent<Collider2D>().enabled = false;
     }
     public override void ExitState()
     {
+        _shakerStateMachine.GetComponent<Collider2D>().enabled = true;
 
     }
     public override ShakerStateMachine.ShakerState GetNextState()

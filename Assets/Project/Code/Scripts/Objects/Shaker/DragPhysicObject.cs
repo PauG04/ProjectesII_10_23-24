@@ -5,7 +5,6 @@ using UnityEngine;
 public class DragPhysicObject : MonoBehaviour
 {
     [SerializeField] private LayerMask dragLayers;
-    [SerializeField] private float rotationSpeed = 5.0f;
 
     [Header("Joint Configuration")]
     [Range(0.0f, 10.0f)][SerializeField] private float damping = 1.0f;
@@ -13,15 +12,10 @@ public class DragPhysicObject : MonoBehaviour
 
     private TargetJoint2D targetJoint;
     private Vector3 worldPos;
-    [SerializeField] private bool isMouseDown;
+    private bool isMouseDown;
 
     private bool isInWorkSpace;
     private Vector2 initScale;
-
-    [Header("WorkSpace Scale")]
-    [SerializeField] private float increaseScale;
-
-    private bool isLerping;
 
     private Rigidbody2D rb;
 
@@ -30,10 +24,7 @@ public class DragPhysicObject : MonoBehaviour
         initScale= transform.localScale;
         isInWorkSpace = false;
 
-        isLerping = false;
-
         rb = GetComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Static;
     }
 
     void Update()
@@ -43,14 +34,6 @@ public class DragPhysicObject : MonoBehaviour
         if (targetJoint != null)
         {
             targetJoint.target = worldPos;
-        }
-        else
-        {
-            if (Mathf.Abs(transform.rotation.eulerAngles.z) > 0.01f)
-            {
-                Quaternion targetRotation = Quaternion.Euler(0f, 0f, 0f);
-                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-            }
         }
     }
 
@@ -70,8 +53,6 @@ public class DragPhysicObject : MonoBehaviour
 
         targetJoint.anchor = targetJoint.transform.InverseTransformPoint(worldPos);
 
-        isLerping = false;
-
         rb.bodyType = RigidbodyType2D.Dynamic;
     }
     private void OnMouseUp()
@@ -79,30 +60,6 @@ public class DragPhysicObject : MonoBehaviour
         isMouseDown = false;
         Destroy(targetJoint);
         targetJoint = null;
-        
-        if(!isInWorkSpace)
-        {
-            isLerping = true;
-            rb.bodyType = RigidbodyType2D.Static;
-        }      
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("WorkSpace") && isInWorkSpace && !isLerping)
-        {       
-            isInWorkSpace = false;
-            transform.localScale = initScale;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("WorkSpace") && !isInWorkSpace && !isLerping)
-        {
-            isInWorkSpace = true;
-            transform.localScale *= increaseScale;
-            isLerping = false;
-        }
     }
     public bool GetMouseDown()
     {
@@ -112,20 +69,5 @@ public class DragPhysicObject : MonoBehaviour
     public bool GetIsInWorkSpace()
     {
         return isInWorkSpace;
-    }
-
-    public bool GetIsLerp()
-    {
-        return isLerping;
-    }
-
-    public void SetIsLerp(bool state)
-    {
-        isLerping = state;
-    }
-
-    public void SetRotation(float rotation)
-    {
-       rotationSpeed = rotation;
     }
 }
