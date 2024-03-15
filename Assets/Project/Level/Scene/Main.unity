@@ -3356,6 +3356,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407181928}
   m_CullTransparentMesh: 1
+--- !u!1 &412588033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412588035}
+  - component: {fileID: 412588034}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &412588034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412588033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: e6536354931c2504c8ffd9c7f2e634d8, type: 2}
+--- !u!4 &412588035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412588033}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5002248, y: -0.279351, z: 1.5369263}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &415776664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3774,6 +3823,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &516984146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 516984147}
+  m_Layer: 0
+  m_Name: LeftPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &516984147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516984146}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.125, y: 0.19, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2082426026}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519648755
 GameObject:
   m_ObjectHideFlags: 0
@@ -9237,6 +9317,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4174260560249075128, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.682
+      objectReference: {fileID: 0}
     - target: {fileID: 4632203015347343070, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
       propertyPath: isBottle
       value: 1
@@ -9947,7 +10031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514943777540311382, guid: ed77a2fdc04beef40b39cab0d74caf8f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1662981019334964481, guid: ed77a2fdc04beef40b39cab0d74caf8f, type: 3}
       propertyPath: m_Camera
@@ -16590,6 +16674,8 @@ Transform:
   m_Children:
   - {fileID: 392555998}
   - {fileID: 1258262393}
+  - {fileID: 516984147}
+  - {fileID: 2120662344}
   m_Father: {fileID: 1461041483}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -16796,13 +16882,13 @@ MonoBehaviour:
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
   liquidManager: {fileID: 392555999}
   drink: {fileID: 0}
-  spawnSpeed: 0
+  spawnSpeed: 2.8
   spawnPoint: {fileID: 1258262393}
-  rightSpawner: {fileID: 0}
-  leftSpawner: {fileID: 0}
+  rightSpawner: {fileID: 2120662344}
+  leftSpawner: {fileID: 516984147}
   minRotationToPourLiquid: 70
   maxRotationToPourLiquid: 140
-  isTopOpen: 0
+  isTopOpen: 1
   spawnerPositionX: 0.11
   liquidCollider: {fileID: 0}
 --- !u!1 &2085470256
@@ -16984,6 +17070,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116956487}
   m_CullTransparentMesh: 1
+--- !u!1 &2120662343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2120662344}
+  m_Layer: 0
+  m_Name: RightPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2120662344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120662343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.127, y: 0.19, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2082426026}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &890809281769406536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17343,7 +17460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: currentDay
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.size
@@ -18719,6 +18836,10 @@ PrefabInstance:
     - target: {fileID: 4024803064925307674, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174260560249075128, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.687
       objectReference: {fileID: 0}
     - target: {fileID: 4632203015347343070, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
       propertyPath: isBottle

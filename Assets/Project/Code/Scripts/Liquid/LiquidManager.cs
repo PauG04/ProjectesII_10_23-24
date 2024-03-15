@@ -44,7 +44,7 @@ public class LiquidManager : MonoBehaviour
     private void Update()
     {     
         ColliderController();
-        if (isGlass || isJigger)
+        if (isGlass)
         {
             if (particleTypes.Count > 0)
             {
