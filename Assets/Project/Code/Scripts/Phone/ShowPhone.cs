@@ -27,6 +27,7 @@ public class ShowPhone : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !isMoving)
         {
+            AudioManager.instance.PlaySFX("OpenPhone");
             isMoving = true;
             StartCoroutine(MoveComponents());
         }

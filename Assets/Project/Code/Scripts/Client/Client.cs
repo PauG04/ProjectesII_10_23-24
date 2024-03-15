@@ -125,7 +125,7 @@ public class Client : MonoBehaviour
         {
             hitted = true;
             currentsHits++;
-            AudioManager.instance.PlaySFX("HitClient");
+            AudioManager.instance.PlaySFX("ClientHit");
 
             clientNode.RandomizeHitReaction();
             if(clientNode.totalHits <= 1)
@@ -247,6 +247,7 @@ public class Client : MonoBehaviour
 
     private void ReactWell()
     {
+        AudioManager.instance.PlaySFX("ClientHappy");
         clientNode.RandomizeGoodReaction();
         conversant.SetDialogue(clientNode.goodReaction);
         conversant.HandleDialogue();
@@ -257,6 +258,7 @@ public class Client : MonoBehaviour
 
     private void ReactBad()
     {
+        AudioManager.instance.PlaySFX("ClientMad");
         clientNode.RandomizeBadReaction();
         conversant.SetDialogue(clientNode.badReaction);
         conversant.HandleDialogue();

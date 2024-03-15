@@ -40,6 +40,7 @@ public class OpenApp : MonoBehaviour
 
     public void OpenApplication(GameObject appToOpen)
     {
+        AudioManager.instance.PlaySFX("OpenApp");
         currentApp = appToOpen;
         appToOpen.SetActive(true);
         StartCoroutine(OpenAnimation(appToOpen.transform));
@@ -47,6 +48,7 @@ public class OpenApp : MonoBehaviour
 
     public void CloseApplication()
     {
+        AudioManager.instance.PlaySFX("CloseApp");
         if (currentApp != null)
         {
             mainMenu.SetActive(true);

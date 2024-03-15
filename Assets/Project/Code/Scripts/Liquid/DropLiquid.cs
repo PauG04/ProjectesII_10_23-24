@@ -84,13 +84,17 @@ public class DropLiquid : MonoBehaviour
             }
             else
             {
+                if (AudioManager.instance.liquidSource.isPlaying)
+                {
+                    AudioManager.instance.StopPlayingLiquidSFX();
+                }
+
                 if (liquidCollider != null)
                 {
                     liquidCollider.enabled = true;
                 }
             }
         }
-        
     }
 
     private void PourLiquid(bool state)
@@ -137,6 +141,8 @@ public class DropLiquid : MonoBehaviour
 
         if (currentRotation <= currentLiquid && liquidManager.GetCurrentLiquid() > 0)
         {
+            AudioManager.instance.PlayLiquidSFX();
+
             if (difference > 0)
             {
                 spawnSpeed /= difference;
