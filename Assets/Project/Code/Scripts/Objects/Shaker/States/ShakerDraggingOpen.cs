@@ -2,7 +2,6 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Rendering.ShadowCascadeGUI;
 
 public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 {
