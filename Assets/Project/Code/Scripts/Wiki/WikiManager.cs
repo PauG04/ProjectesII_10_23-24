@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WikiManager : MonoBehaviour
@@ -10,8 +11,8 @@ public class WikiManager : MonoBehaviour
     [SerializeField] private List<CocktailNode> cocktails;
 
     [SerializeField] private GameObject wiki;
-    [SerializeField] private WikiPage leftPage;
-    [SerializeField] private WikiPage rightPage;
+    [SerializeField] private WikiCoctelPage leftPage;
+    [SerializeField] private WikiCoctelPage rightPage;
 
     [SerializeField] private DragItems book;
     private bool bookIsOpened;
@@ -49,7 +50,7 @@ public class WikiManager : MonoBehaviour
 
     public void NextPage()
     {
-        if (pageNumber + 2 <= cocktails.Count - 1)
+        if (ExistNextPage())
         {
             AudioManager.instance.PlaySFX("TurnPage");
             pageNumber += 2;
@@ -59,7 +60,7 @@ public class WikiManager : MonoBehaviour
 
     public void PrevPage()
     {
-        if (pageNumber >= 2)
+        if (ExistPrevPage())
         {
             AudioManager.instance.PlaySFX("TurnPage");
             pageNumber -= 2;
@@ -103,5 +104,15 @@ public class WikiManager : MonoBehaviour
         AudioManager.instance.PlaySFX("CloseWiki");
         leftPage.gameObject.SetActive(false);
         rightPage.gameObject.SetActive(false);
+    }
+
+    public bool ExistNextPage()
+    {
+        return pageNumber + 2 < cocktails.Count;
+    }
+
+    public bool ExistPrevPage()
+    {
+        return pageNumber > 2;
     }
 }
