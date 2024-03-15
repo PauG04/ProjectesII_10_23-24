@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Rendering.ShadowCascadeGUI;
 
 public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 {
@@ -23,6 +24,9 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private GameObject _liquidPrefab;
     private Transform _spawnPoint;
     private LiquidManager _liquidManager;
+
+    private bool _isCascade = false;
+
     private float _spawnerPositionX = 0.19f;
 
     private float _minRotationToPourLiquid = 70f;
@@ -189,23 +193,32 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     {
         float spawnerMovement;
 
-        if (_currentRotation < -90f)
+        _isCascade = _currentRotation > _maxRotationToPourLiquid || _currentRotation < -_maxRotationToPourLiquid;
+        
+        if (!_isCascade)
         {
-            spawnerMovement = _spawnerPositionX + (_currentRotation + _minRotationToMoveSpawner) * (-_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
-            SetSpawnPointPosition(spawnerMovement);
+            if (_currentRotation < -90f)
+            {
+                spawnerMovement = _spawnerPositionX + (_currentRotation + _minRotationToMoveSpawner) * (-_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
+                SetSpawnPointPosition(spawnerMovement);
+            }
+            else if (_currentRotation > 90f)
+            {
+                spawnerMovement = _spawnerPositionX + (_currentRotation - _minRotationToMoveSpawner) * (_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
+                SetSpawnPointPosition(-spawnerMovement);
+            }
+            else if (_currentRotation < 0f)
+            {
+                SetSpawnPointPosition(_spawnerPositionX);
+            }
+            else if (_currentRotation > 0f)
+            {
+                SetSpawnPointPosition(-_spawnerPositionX);
+            }
         }
-        else if(_currentRotation > 90f)
+        else
         {
-            spawnerMovement = _spawnerPositionX + (_currentRotation - _minRotationToMoveSpawner) * (_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
-            SetSpawnPointPosition(-spawnerMovement);
-        }
-        else if (_currentRotation < 0f) 
-        {
-            SetSpawnPointPosition(_spawnerPositionX);
-        }
-        else if (_currentRotation > 0f)
-        {
-            SetSpawnPointPosition(-_spawnerPositionX);
+            _spawnPoint.localPosition = new Vector3(0, _spawnPoint.localPosition.y, _spawnPoint.localPosition.z);
         }
     }
     private void PourLiquid()
@@ -229,21 +242,33 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         //Debug.Log("Current Liquid: " + currentLiquid + "%");
         //Debug.Log("Current Rot: " + currentRotation + "%");
 
+        float spawnSpeed = 2.5f;
+        if (_isCascade) spawnSpeed = 0;
+
         float difference = Mathf.Abs(currentLiquid - currentRotation);
-        float spawnSpeed = 0.5f;
 
         if (currentRotation <= currentLiquid)
         {
             if (difference > 0)
             {
-                spawnSpeed = 0.5f / difference;
+                spawnSpeed /= difference;
             }
 
             float pouringInterval = Mathf.Lerp(0f, 1f, spawnSpeed);
 
             if (_timeSinceLastPour >= pouringInterval && _liquidManager.GetCurrentLiquid() > 0)
             {
-                GameObject liquid = GameObject.Instantiate(_liquidPrefab, _spawnPoint.position, Quaternion.identity);
+                GameObject liquid;
+
+                if (!_isCascade)
+                {
+                    liquid = GameObject.Instantiate(_liquidPrefab, _spawnPoint.position, Quaternion.identity);
+                }
+                else
+                {
+                    Vector3 spawnerPosition = new Vector3(Random.Range(_spawnerPositionX, -_spawnerPositionX) + _spawnPoint.position.x, _spawnPoint.position.y, _spawnPoint.position.z);
+                    liquid = GameObject.Instantiate(_liquidPrefab, spawnerPosition, Quaternion.identity);
+                }
 
                 LiquidParticle liquidParticle = liquid.GetComponent<LiquidParticle>();
                 liquidParticle.SetCocktailState(_liquidManager.GetDrinkState());

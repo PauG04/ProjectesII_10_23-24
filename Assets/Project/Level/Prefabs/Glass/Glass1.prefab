@@ -162,37 +162,6 @@ PolygonCollider2D:
       - {x: -0.171875, y: 0.390625}
       - {x: -0.140625, y: 0.390625}
   m_UseDelaunayMesh: 0
---- !u!1 &1405183377825978886
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6524071643692336444}
-  m_Layer: 18
-  m_Name: 'SpawnPoint '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6524071643692336444
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405183377825978886}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.393, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 720530942413858104}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1631296216517769539
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,8 +199,10 @@ Transform:
   - {fileID: 4333289117420390358}
   - {fileID: 6084655702186551155}
   - {fileID: 4618004779001582745}
-  - {fileID: 6524071643692336444}
   - {fileID: 2637689340145828413}
+  - {fileID: 5819780922300848978}
+  - {fileID: 7501570452154000398}
+  - {fileID: 7648109439443555997}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -335,6 +306,7 @@ MonoBehaviour:
   dragWithWorkspaceSprite: 0
   isItem: 0
   isItemGroup: 0
+  isPainting: 0
 --- !u!114 &5544503391691205695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,13 +350,79 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  spawnPoint: {fileID: 6524071643692336444}
   liquidManager: {fileID: 4557714834367202862}
   drink: {fileID: 0}
+  spawnSpeed: 2.8
+  spawnPoint: {fileID: 7648109439443555997}
+  rightSpawner: {fileID: 5819780922300848978}
+  leftSpawner: {fileID: 7501570452154000398}
   minRotationToPourLiquid: 70
   maxRotationToPourLiquid: 140
-  isGlass: 1
+  isTopOpen: 1
   spawnerPositionX: 0.15
+  liquidCollider: {fileID: 0}
+--- !u!1 &2757698952423892283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7501570452154000398}
+  m_Layer: 18
+  m_Name: LeftPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7501570452154000398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2757698952423892283}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.14, y: 0.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 720530942413858104}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2864919256713530270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5819780922300848978}
+  m_Layer: 18
+  m_Name: RightPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5819780922300848978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864919256713530270}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.14, y: 0.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 720530942413858104}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3962444385833227320
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +636,7 @@ MonoBehaviour:
   currentLiquid: 0
   currentState: 0
   glassLiquidRenderer: {fileID: 3846524632110708514}
+  isJigger: 0
   isGlass: 1
   isBottle: 0
   dragItems: {fileID: 0}
@@ -605,6 +644,37 @@ MonoBehaviour:
   minColliderPos: -0.069
   dropLiquid: {fileID: 0}
   shaker: {fileID: 0}
+--- !u!1 &5114290643399778663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7648109439443555997}
+  m_Layer: 18
+  m_Name: DefaultSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7648109439443555997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5114290643399778663}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 720530942413858104}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8185613716113067876
 GameObject:
   m_ObjectHideFlags: 0
