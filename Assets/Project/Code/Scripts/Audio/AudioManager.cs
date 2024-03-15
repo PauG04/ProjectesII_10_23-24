@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     [Space(10)]
     public AudioSource[] sfxSources;
     public AudioSource musicSource;
+    public AudioSource liquidSource;
 
     public static AudioManager instance;
 
@@ -82,24 +83,23 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(s.clip);
     }
 
-    public void StopPlayingSFX(string name)
+    public void PlayLiquidSFX()
     {
-        Sound s = Array.Find(sfxSounds, sound => sound.soundName == name);
-
-        if (s == null)
+        Sound s = Array.Find(sfxSounds, sound => sound.soundName == "DropLiquid");
+        
+        if (!liquidSource.isPlaying)
         {
-            Debug.Log("Sound does not exist");
-            return;
+            liquidSource.clip = s.clip;
+            liquidSource.pitch = UnityEngine.Random.Range(s.minPitch, s.maxPitch);
+            liquidSource.volume = s.volume;
+            liquidSource.loop = s.loop;
+            liquidSource.PlayOneShot(s.clip);
         }
-
-        foreach (AudioSource audioSource in sfxSources)
-        {
-            if (audioSource.clip.name == name)
-            {
-                audioSource.Stop();
-                return;
-            }
-        }
+    }
+    public void StopPlayingLiquidSFX()
+    {
+        liquidSource.Stop();
+        liquidSource.loop = false;
     }
 
     public void PlaySong(string name)
@@ -117,19 +117,5 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = s.clip;
         musicSource.loop = false;
         musicSource.Play();
-    }
-
-    public bool IsPlayingSFX(string name) 
-    {
-        foreach (AudioSource audioSource in sfxSources)
-        {
-            if (audioSource.clip.name == name)
-            {
-                return audioSource.isPlaying;
-            }
-        }
-
-        Debug.Log("Sound does not exist");
-        return false;
     }
 }
