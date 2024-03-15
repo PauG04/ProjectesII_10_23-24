@@ -113,6 +113,8 @@ public class Client : MonoBehaviour
                     collision.GetComponentInChildren<InsideDecorations>().GetDecorations(),
                     order.type);
 
+            Debug.Log(findError);
+
             FindCoctelError(findError, collision);
 
             Destroy(collision.gameObject);
@@ -187,15 +189,16 @@ public class Client : MonoBehaviour
         }
         else if (findError == "BadGlass")
         {
-            if (clientNode.badGlassReaction != ClientManager.instance.GetEmptyDialogue())
+            if (clientNode.dontCareGlass)
+            {
+                ReactWell();
+            }
+            else if (clientNode.badGlassReaction != ClientManager.instance.GetEmptyDialogue())
             {
                 conversant.SetDialogue(clientNode.badGlassReaction);
                 conversant.HandleDialogue();
             }
-            else if(clientNode.dontCareGlass)
-            {
-                ReactWell();           
-            }
+            
             else
                 ReactBad();
         }
