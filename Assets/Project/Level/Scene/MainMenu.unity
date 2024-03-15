@@ -267,19 +267,19 @@ GameObject:
   m_Component:
   - component: {fileID: 39521925}
   - component: {fileID: 39521929}
-  - component: {fileID: 39521928}
   - component: {fileID: 39521927}
   - component: {fileID: 39521926}
   - component: {fileID: 39521931}
   - component: {fileID: 39521930}
   - component: {fileID: 39521932}
+  - component: {fileID: 39521933}
   m_Layer: 14
-  m_Name: Bottle
+  m_Name: VodkaBottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &39521925
 RectTransform:
   m_ObjectHideFlags: 0
@@ -345,73 +345,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!60 &39521928
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39521924}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.65625, y: 1.46875}
-    newSize: {x: 0.65625, y: 1.46875}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.125, y: 0.546875}
-      - {x: 0.125, y: 0.515625}
-      - {x: 0.078125, y: 0.421875}
-      - {x: 0.328125, y: 0.296875}
-      - {x: 0.328125, y: 0.234375}
-      - {x: 0.28125, y: 0.1875}
-      - {x: 0.28125, y: -0.609375}
-      - {x: 0.328125, y: -0.65625}
-      - {x: 0.328125, y: -0.734375}
-      - {x: -0.328125, y: -0.734375}
-      - {x: -0.328125, y: -0.65625}
-      - {x: -0.28125, y: -0.609375}
-      - {x: -0.28125, y: 0.1875}
-      - {x: -0.328125, y: 0.234375}
-      - {x: -0.328125, y: 0.296875}
-      - {x: -0.078125, y: 0.421875}
-      - {x: -0.125, y: 0.515625}
-      - {x: -0.125, y: 0.546875}
-      - {x: -0.03125, y: 0.546875}
-      - {x: -0.03125, y: 0.734375}
-      - {x: 0.03125, y: 0.734375}
-      - {x: 0.03125, y: 0.546875}
-  m_UseDelaunayMesh: 0
 --- !u!212 &39521929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -501,12 +434,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  spawnPoint: {fileID: 1522910781}
   liquidManager: {fileID: 39521930}
   drink: {fileID: 11400000, guid: 58d6b5c8a7f40b741b7f721a6392c78b, type: 2}
+  spawnSpeed: 2.8
+  spawnPoint: {fileID: 1522910781}
+  rightSpawner: {fileID: 0}
+  leftSpawner: {fileID: 0}
   minRotationToPourLiquid: 70
   maxRotationToPourLiquid: 140
-  isGlass: 0
+  isTopOpen: 0
   spawnerPositionX: 0
   liquidCollider: {fileID: 0}
 --- !u!223 &39521932
@@ -532,6 +468,73 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 6
   m_TargetDisplay: 0
+--- !u!60 &39521933
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39521924}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.65625, y: 1.46875}
+    newSize: {x: 0.65625, y: 1.46875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.125, y: 0.546875}
+      - {x: 0.125, y: 0.515625}
+      - {x: 0.078125, y: 0.421875}
+      - {x: 0.328125, y: 0.296875}
+      - {x: 0.328125, y: 0.234375}
+      - {x: 0.28125, y: 0.1875}
+      - {x: 0.28125, y: -0.609375}
+      - {x: 0.328125, y: -0.65625}
+      - {x: 0.328125, y: -0.734375}
+      - {x: -0.328125, y: -0.734375}
+      - {x: -0.328125, y: -0.65625}
+      - {x: -0.28125, y: -0.609375}
+      - {x: -0.28125, y: 0.1875}
+      - {x: -0.328125, y: 0.234375}
+      - {x: -0.328125, y: 0.296875}
+      - {x: -0.078125, y: 0.421875}
+      - {x: -0.125, y: 0.515625}
+      - {x: -0.125, y: 0.546875}
+      - {x: -0.03125, y: 0.546875}
+      - {x: -0.03125, y: 0.734375}
+      - {x: 0.03125, y: 0.734375}
+      - {x: 0.03125, y: 0.546875}
+  m_UseDelaunayMesh: 0
 --- !u!1 &48233912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2653,8 +2656,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SALIR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fdbfe993e073a4cac709b90552e4e7, type: 2}
-  m_sharedMaterial: {fileID: 8111381915950472402, guid: 60fdbfe993e073a4cac709b90552e4e7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 53514affd259ee44e9e0853e5f6c8b78, type: 2}
+  m_sharedMaterial: {fileID: 5913657881471369077, guid: 53514affd259ee44e9e0853e5f6c8b78, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2678,13 +2681,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2987,7 +2990,7 @@ GameObject:
   - component: {fileID: 674454508}
   - component: {fileID: 674454512}
   m_Layer: 14
-  m_Name: Continue
+  m_Name: ShakerTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3201,7 +3204,7 @@ GameObject:
   - component: {fileID: 698651907}
   - component: {fileID: 698651909}
   m_Layer: 14
-  m_Name: Bottle
+  m_Name: WineBottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3423,12 +3426,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  spawnPoint: {fileID: 288975665}
   liquidManager: {fileID: 698651907}
   drink: {fileID: 11400000, guid: 58d6b5c8a7f40b741b7f721a6392c78b, type: 2}
+  spawnSpeed: 2.8
+  spawnPoint: {fileID: 288975665}
+  rightSpawner: {fileID: 0}
+  leftSpawner: {fileID: 0}
   minRotationToPourLiquid: 70
   maxRotationToPourLiquid: 140
-  isGlass: 0
+  isTopOpen: 0
   spawnerPositionX: 0
   liquidCollider: {fileID: 0}
 --- !u!223 &698651909
@@ -4204,8 +4210,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CONTINUAR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fdbfe993e073a4cac709b90552e4e7, type: 2}
-  m_sharedMaterial: {fileID: 8111381915950472402, guid: 60fdbfe993e073a4cac709b90552e4e7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 53514affd259ee44e9e0853e5f6c8b78, type: 2}
+  m_sharedMaterial: {fileID: 5913657881471369077, guid: 53514affd259ee44e9e0853e5f6c8b78, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4229,13 +4235,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4339,8 +4345,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: OPCIONES
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fdbfe993e073a4cac709b90552e4e7, type: 2}
-  m_sharedMaterial: {fileID: 8111381915950472402, guid: 60fdbfe993e073a4cac709b90552e4e7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 53514affd259ee44e9e0853e5f6c8b78, type: 2}
+  m_sharedMaterial: {fileID: 5913657881471369077, guid: 53514affd259ee44e9e0853e5f6c8b78, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4364,13 +4370,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4784,7 +4790,7 @@ GameObject:
   - component: {fileID: 883746180}
   - component: {fileID: 883746179}
   - component: {fileID: 883746181}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: DrinksShelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4890,7 +4896,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.29374877}
+  m_Offset: {x: 0, y: -0.45837152}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4901,7 +4907,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.34375, y: 0.5026464}
+  m_Size: {x: 9.34375, y: 0.8318919}
   m_EdgeRadius: 0
 --- !u!1 &901718519
 GameObject:
@@ -5630,7 +5636,7 @@ GameObject:
   - component: {fileID: 1118953058}
   - component: {fileID: 1118953060}
   m_Layer: 14
-  m_Name: Bottle
+  m_Name: WhiskeyBottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5857,12 +5863,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  spawnPoint: {fileID: 50854592}
   liquidManager: {fileID: 1118953058}
   drink: {fileID: 11400000, guid: 58d6b5c8a7f40b741b7f721a6392c78b, type: 2}
+  spawnSpeed: 2.8
+  spawnPoint: {fileID: 50854592}
+  rightSpawner: {fileID: 0}
+  leftSpawner: {fileID: 0}
   minRotationToPourLiquid: 70
   maxRotationToPourLiquid: 140
-  isGlass: 0
+  isTopOpen: 0
   spawnerPositionX: 0
   liquidCollider: {fileID: 0}
 --- !u!223 &1118953060
@@ -7122,8 +7131,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NUEVA PARTIDA
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 60fdbfe993e073a4cac709b90552e4e7, type: 2}
-  m_sharedMaterial: {fileID: 8111381915950472402, guid: 60fdbfe993e073a4cac709b90552e4e7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 53514affd259ee44e9e0853e5f6c8b78, type: 2}
+  m_sharedMaterial: {fileID: 5913657881471369077, guid: 53514affd259ee44e9e0853e5f6c8b78, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7147,13 +7156,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -10780,6 +10789,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1316179523}
+    - target: {fileID: 6539282362536815660, guid: ed77a2fdc04beef40b39cab0d74caf8f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7125840146987788115, guid: ed77a2fdc04beef40b39cab0d74caf8f, type: 3}
       propertyPath: m_Camera
       value: 
