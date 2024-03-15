@@ -204,15 +204,15 @@ public class Client : MonoBehaviour
         }
         else if (findError == "NoIce")
         {
-            if (clientNode.noIceReaction != ClientManager.instance.GetEmptyDialogue())
-            {
-                conversant.SetDialogue(clientNode.noIceReaction);
-                conversant.HandleDialogue();
-            }
-            else if (clientNode.dontCareGlass)
+            if (clientNode.dontCareGlass)
             {
                 ReactWell();
             }
+            else if (clientNode.noIceReaction != ClientManager.instance.GetEmptyDialogue())
+            {
+                conversant.SetDialogue(clientNode.noIceReaction);
+                conversant.HandleDialogue();
+            }      
             else
                 ReactBad();
         }
