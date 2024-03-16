@@ -10029,6 +10029,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 1514943777540311382, guid: ed77a2fdc04beef40b39cab0d74caf8f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1662981019334964481, guid: ed77a2fdc04beef40b39cab0d74caf8f, type: 3}
       propertyPath: m_Camera
       value: 
@@ -10047,15 +10051,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7923770263783166432, guid: ed77a2fdc04beef40b39cab0d74caf8f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.18184
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7923770263783166432, guid: ed77a2fdc04beef40b39cab0d74caf8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.0186443
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7923770263783166432, guid: ed77a2fdc04beef40b39cab0d74caf8f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11555.877
+      value: 11556
       objectReference: {fileID: 0}
     - target: {fileID: 7923770263783166432, guid: ed77a2fdc04beef40b39cab0d74caf8f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15318,9 +15322,9 @@ Transform:
   - {fileID: 1396526231}
   - {fileID: 963605569}
   - {fileID: 2005156152}
+  - {fileID: 1319718685}
   - {fileID: 608204448}
   - {fileID: 629022672}
-  - {fileID: 1319718685}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17456,7 +17460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: currentDay
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.size
