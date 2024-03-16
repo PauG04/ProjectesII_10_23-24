@@ -97,7 +97,7 @@ public class Client : MonoBehaviour
     {
         if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp() && !clientNode.notNeedTakeDrink)
         {
-            if (clientNode.acceptsAll)
+            if (clientNode.acceptsAll && collision.transform.GetChild(2).GetComponent<LiquidManager>().GetCurrentLiquid() > 0)
             {
                 ReactWell();
                 Destroy(collision.gameObject);

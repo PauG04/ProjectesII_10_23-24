@@ -10,19 +10,15 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 203defdb18f377b4184cfcf21f18d09b, type: 3}
-  m_Name: Borracho
+  m_Name: Vieja
   m_EditorClassIdentifier: 
   clientName: Borracho
   sprite: {fileID: 21300000, guid: 9322d3da174db6e4f88f8f0bb8977706, type: 3}
   hitToGo: 0
-  totalHits: 0
   canBeHitted: 1
   regularHitReactions: 0
   notNeedTakeDrink: 0
   acceptsAll: 1
-  dontCareGlass: 0
-  careIces: 0
-  cuantityOfIce: 0
   possibleOrders:
   - {fileID: 11400000, guid: 8b7c3c93fcb8c434fb39bace5a2e1296, type: 2}
   dialogues:
@@ -30,13 +26,13 @@ MonoBehaviour:
   goodReactions:
   - {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
   badReactions:
-  - {fileID: 11400000, guid: 9c57952786b4e6e41a3bb8b0ba3e1a48, type: 2}
+  - {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
   hitReactions:
   - {fileID: 11400000, guid: 5ae083c496924b5479b62d7e1b1125d4, type: 2}
   dialogue: {fileID: 11400000, guid: 6a36de4aaee5d4b4192f14a9a6e53300, type: 2}
   goodReaction: {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
-  badReaction: {fileID: 11400000, guid: 9c57952786b4e6e41a3bb8b0ba3e1a48, type: 2}
-  hitReaction: {fileID: 11400000, guid: 5ae083c496924b5479b62d7e1b1125d4, type: 2}
+  badReaction: {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
+  hitReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badGlassReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   noIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   muchIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
