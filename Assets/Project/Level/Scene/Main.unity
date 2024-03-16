@@ -4421,6 +4421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 573178248}
   - component: {fileID: 573178249}
+  - component: {fileID: 573178253}
   - component: {fileID: 573178252}
   - component: {fileID: 573178250}
   - component: {fileID: 573178251}
@@ -4541,6 +4542,21 @@ MonoBehaviour:
   clientManager: {fileID: 1119733629}
   playerConversant: {fileID: 549211536}
   maxTime: 7
+--- !u!114 &573178253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573178247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa6f087a875ba046987e3b38257680d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientManager: {fileID: 1119733629}
+  eventClient: {fileID: 11400000, guid: 5d6e11ef2c2ba5c45b3098695a8d2d15, type: 2}
+  totalHits: 5
 --- !u!1001 &576723743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6939,7 +6955,7 @@ MonoBehaviour:
   dialogues:
   - {fileID: 11400000, guid: 192c037abb97d9a468829a63bf2639a1, type: 2}
   - {fileID: 11400000, guid: 2cc10989d517c5b4abac5231ce9585ad, type: 2}
-  money: 0
+  money: 150
 --- !u!114 &798594855 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4632203015347343070, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
@@ -12492,7 +12508,7 @@ MonoBehaviour:
   dialogues:
   - {fileID: 11400000, guid: 736f871b98a1a024aba5862bd57a5623, type: 2}
   - {fileID: 11400000, guid: d2b503b5b9145d0488f753c4bcb69a5c, type: 2}
-  money: 0
+  money: 100
 --- !u!114 &1638350132
 MonoBehaviour:
   m_ObjectHideFlags: 0

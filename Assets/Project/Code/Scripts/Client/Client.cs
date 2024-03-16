@@ -135,7 +135,7 @@ public class Client : MonoBehaviour
             conversant.HandleDialogue();
 
 
-            if ((clientNode.hitToGo && currentsHits == clientNode.totalHits) || (!clientNode.hitToGo && currentsHits == maxHitsToGo))
+            if ((clientNode.hitToGo && currentsHits == clientNode.totalHits))
             {
                 startTimer = true;
                 return;
@@ -370,6 +370,11 @@ public class Client : MonoBehaviour
     public void SetTimer(bool state)
     {
         startTimer = state;
+    }
+
+    public void SetHitted(bool state)
+    {
+        hitted = state;
     }
 
 
