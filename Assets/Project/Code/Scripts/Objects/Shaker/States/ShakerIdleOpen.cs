@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
 {
@@ -88,7 +89,7 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
             _shakerStateMachine.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }
 
-        MoveObjectToParent();
+        RepositionObject();
         if (_shakerClosed.GetIsShakerClosed())
         {
             _state = ShakerStateMachine.ShakerState.IdleClosed;
@@ -117,33 +118,26 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
     {
 
     }
-    private void MoveObjectToParent()
+    private void RepositionObject()
     {
         if (!_shakerStateMachine.GetIsInWorkSpace())
         {
-            if (firstLerp)
-            {
-                Vector3 newPosition = _shakerStateMachine.transform.localPosition;
-                newPosition.x = Mathf.Lerp(_shakerStateMachine.transform.localPosition.x, _initPosition.x, Time.deltaTime * velocityX);
-
-                _shakerStateMachine.transform.localPosition = newPosition;
-            }
+            _shakerStateMachine.transform.localPosition = new Vector2(
+                Mathf.Lerp(_shakerStateMachine.transform.localPosition.x, _initPosition.x, Time.deltaTime * velocityX),
+                _shakerStateMachine.transform.localPosition.y
+            );
+            _shakerStateMachine.GetComponent<Collider2D>().enabled = false;
             if (_shakerStateMachine.transform.localPosition.x > _initPosition.x - 0.002 && _shakerStateMachine.transform.localPosition.x < _initPosition.x + 0.002)
             {
-                firstLerp = false;
-                secondLerp = true;
-            }
-            if (secondLerp)
-            {
-                Vector3 newPosition = _shakerStateMachine.transform.localPosition;
-                newPosition.y = Mathf.Lerp(_shakerStateMachine.transform.localPosition.y, _initPosition.y, Time.deltaTime * velocityY);
+                _shakerStateMachine.transform.localPosition = new Vector2(
+                _shakerStateMachine.transform.localPosition.x,
+                    Mathf.Lerp(_shakerStateMachine.transform.localPosition.y, _initPosition.y, Time.deltaTime * velocityY)
+                );
 
-                _shakerStateMachine.transform.localPosition = newPosition;
-            }
-            if (_shakerStateMachine.transform.localPosition.y > _initPosition.y - 0.002 && _shakerStateMachine.transform.localPosition.y < _initPosition.y + 0.002)
-            {
-                secondLerp = false;
-                _state = ShakerStateMachine.ShakerState.IdleOpen;
+                if (_shakerStateMachine.transform.localPosition.y > _initPosition.y - 0.002 && _shakerStateMachine.transform.localPosition.y < _initPosition.y + 0.002)
+                {
+                    _shakerStateMachine.GetComponent<Collider2D>().enabled = true;
+                }
             }
         }
     }
