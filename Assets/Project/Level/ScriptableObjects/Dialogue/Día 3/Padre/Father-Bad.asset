@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3146778708923880702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ab1eb29b-2a6e-42fd-9f5d-25ec9e32d042
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Si al final se va acabar todo esto, gracias policia
+  children:
+  - f168e0b6-c482-4099-8142-52a789548276
+  rect:
+    serializedVersion: 2
+    x: 414
+    y: 168
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-562148777204148176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f168e0b6-c482-4099-8142-52a789548276
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Tu caya, Anto\xF1ito ya n\xF4 berem\xF4 otro que a l\xF4 bar\xEA nueb\xF4
+    ay que apoy\xE2l-l\xF4"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 664
+    y: 168
+    width: 200
+    height: 120
+  onEnterAction: TakeMoney
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Father-Bad
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 7224697401553233077}
+  - {fileID: -3146778708923880702}
+  - {fileID: -562148777204148176}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &7224697401553233077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a2ebc904-5047-44d8-a17b-594b8b02b4d7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Lo \xE7iento amigo, me \xE2h exo una mierda y como mi palabra \xEAh de fi\xE2h
+    te boy a murt\xE2h"
+  children:
+  - ab1eb29b-2a6e-42fd-9f5d-25ec9e32d042
+  rect:
+    serializedVersion: 2
+    x: 164
+    y: 167
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

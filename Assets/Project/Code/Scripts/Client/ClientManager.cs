@@ -119,4 +119,9 @@ public class ClientManager : MonoBehaviour
         return currentClientScript.gameObject;
     }
     #endregion
+
+    public void SetNewCLient(ClientNode client, int position)
+    {
+        currentDayClients.Insert(position, client);
+    }
 }

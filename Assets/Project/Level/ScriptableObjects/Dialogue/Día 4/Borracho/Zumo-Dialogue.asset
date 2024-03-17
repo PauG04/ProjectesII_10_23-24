@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7934346141183401160
+--- !u!114 &-7439572683318392825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,45 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: e0f746ae-5621-4be2-8a70-f8d4440e6b1d
+  m_Name: 2568d337-dec8-4d68-b3e0-963c04dcfaa9
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: "Porfavor sirveme un zumo de naranja que es lo \xFAnico que necesito ahora
-    mismo para intentar bajar todo el alchol"
+  text: "Boy a \xE7\xEAh dir\xEAtto que tengo poco tiempo p\xF4mme una \xC7angr\xEDa
+    pero \xEAtta b\xEAh no a\xE7e farta que \xE7ea perf\xEAtta, ya ay confian\xE7a"
   children: []
   rect:
     serializedVersion: 2
-    x: 1043
+    x: 795
     y: 183
     width: 200
     height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-7003496048104489821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: f91ee2a3-9611-4a45-be4b-5b26a0220784
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: "Y yo de rebote estoy tambi\xE9n bebiendo"
-  children:
-  - e0f746ae-5621-4be2-8a70-f8d4440e6b1d
-  rect:
-    serializedVersion: 2
-    x: 793
-    y: 183
-    width: 200
-    height: 120
-  onEnterAction: 
+  onEnterAction: ActiveCollision
   onExitAction: 
 --- !u!114 &-6737107177594896314
 MonoBehaviour:
@@ -64,9 +39,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Porfavor, ayudame
+  text: "iyo, que tar b\xE2 con er b\xE2h, \xE7e te be meh\xF4h que er prim\xEAh
+    dia"
   children:
-  - 00801a03-77bd-471c-8cc0-c04e4481127c
+  - 4abe2301-8384-4b09-a2de-3f17d7c4356a
   rect:
     serializedVersion: 2
     x: 43
@@ -75,7 +51,7 @@ MonoBehaviour:
     height: 120
   onEnterAction: 
   onExitAction: 
---- !u!114 &-1098707897779386422
+--- !u!114 &-5752706343166968066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,14 +61,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 00801a03-77bd-471c-8cc0-c04e4481127c
+  m_Name: 1a8b18bf-fc39-439d-9ac8-bca0ec9f2a41
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: "He decido hoy salir con mi amigo chino a tomar un poco pero es que no puedo
-    m\xE1s"
+  text: "En un barrio yeno de negr\xF4 y \xE7in papel\xEA entre \xEAppa\xF1ol\xEA
+    n\xF4 tenem\xF4 que ayud\xE2h a\xE7i que \xE7i tien\xEA argun problema no dud\xEA
+    en yamarme"
   children:
-  - 26d6b55b-5dbb-4a24-b65e-8bc5f15ed3fe
+  - 2568d337-dec8-4d68-b3e0-963c04dcfaa9
+  rect:
+    serializedVersion: 2
+    x: 543
+    y: 183
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2431361614068985055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 4abe2301-8384-4b09-a2de-3f17d7c4356a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "No pong\xE2 e\xE7a cara, no te preocup\xEA oy no bengo a ponerte ninguna
+    murta"
+  children:
+  - 1a8b18bf-fc39-439d-9ac8-bca0ec9f2a41
   rect:
     serializedVersion: 2
     x: 293
@@ -115,33 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -6737107177594896314}
-  - {fileID: -1098707897779386422}
-  - {fileID: 8908883978819599023}
-  - {fileID: -7003496048104489821}
-  - {fileID: -7934346141183401160}
+  - {fileID: -2431361614068985055}
+  - {fileID: -5752706343166968066}
+  - {fileID: -7439572683318392825}
   newNodeOffset: {x: 250, y: 0}
---- !u!114 &8908883978819599023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 26d6b55b-5dbb-4a24-b65e-8bc5f15ed3fe
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: NO PARA DE BEBER Y NO LE SUBE
-  children:
-  - f91ee2a3-9611-4a45-be4b-5b26a0220784
-  rect:
-    serializedVersion: 2
-    x: 543
-    y: 183
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 

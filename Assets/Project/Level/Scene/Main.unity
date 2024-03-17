@@ -9152,6 +9152,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1040827839}
   - component: {fileID: 1040827841}
+  - component: {fileID: 1040827845}
+  - component: {fileID: 1040827844}
   - component: {fileID: 1040827842}
   - component: {fileID: 1040827843}
   - component: {fileID: 1040827840}
@@ -9260,6 +9262,37 @@ MonoBehaviour:
   paint: {fileID: 5831510971539098891, guid: 9ea22c81cc9a6b646956fa558c456c6f, type: 3}
   position: {x: -3.2, y: -1.5, z: 1}
   hasToTakeDrink: 1
+--- !u!114 &1040827844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040827838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44fb9775405b6a040a5689b755f4e187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientManager: {fileID: 1119733629}
+  eventClient: {fileID: 11400000, guid: 0f0efde83fdfd8e478800a640f02a740, type: 2}
+  father: {fileID: 11400000, guid: 28cfbc01c707428418cf7e13f3dd5c77, type: 2}
+  position: 6
+--- !u!114 &1040827845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040827838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aaebf6ce8804194e9912bb88c6f37f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientManager: {fileID: 1119733629}
+  eventClient: {fileID: 11400000, guid: 28cfbc01c707428418cf7e13f3dd5c77, type: 2}
+  money: -20
 --- !u!1 &1040850870
 GameObject:
   m_ObjectHideFlags: 0
@@ -17929,7 +17962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: currentDay
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.size
@@ -18062,7 +18095,7 @@ PrefabInstance:
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day4Clients.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 3c732aa6dcc971a46a4dd26203162f3b, type: 2}
+      objectReference: {fileID: 11400000, guid: 6a45902fab489d24ca5fe9e0b943b262, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day4Clients.Array.data[4]
       value: 
@@ -19503,7 +19536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
       propertyPath: serializableCocktails.items.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
       propertyPath: serializableCocktails.items.Array.data[8].cocktail
@@ -19517,6 +19550,10 @@ PrefabInstance:
       propertyPath: serializableCocktails.items.Array.data[10].cocktail
       value: 
       objectReference: {fileID: 11400000, guid: 42b2e8f713d27e248b54dcfeda5996cd, type: 2}
+    - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: serializableCocktails.items.Array.data[11].cocktail
+      value: 
+      objectReference: {fileID: 11400000, guid: aa4e7e307ee31ac4b9810402e6483d50, type: 2}
     - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
       propertyPath: serializableCocktails.items.Array.data[4].cocktailName
       value: Ginlemmon
@@ -19532,6 +19569,10 @@ PrefabInstance:
     - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
       propertyPath: serializableCocktails.items.Array.data[10].cocktailName
       value: LemonJuice
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: serializableCocktails.items.Array.data[11].cocktailName
+      value: Gazpacho
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

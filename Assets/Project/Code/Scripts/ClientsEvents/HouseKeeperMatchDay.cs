@@ -57,6 +57,24 @@ public class HouseKeeperMatchDay : MonoBehaviour
                 served = true;
             }
         }
+
+        if(served && !clientObject.GetComponent<Client>().GetWellReacted())
+        {
+            SkipCatalonians();
+        }
+        
+    }
+
+    private void SkipCatalonians()
+    {
+        for(int i = 0; i < catalonia.Count; i++)
+        {
+            if (client != null && client == catalonia[i])
+            {
+                ClientManager.instance.CreateClient();
+                Destroy(clientObject);
+            }
+        }
     }
 
     public void TakeMoney()

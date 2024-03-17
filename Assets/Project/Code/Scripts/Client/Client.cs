@@ -39,6 +39,7 @@ public class Client : MonoBehaviour
 
     private bool triggerSetted;
     private bool wellReacted;
+    private bool badReacted;
 
     private int currentsHits;
 
@@ -257,6 +258,11 @@ public class Client : MonoBehaviour
             {
                 conversant.SetDialogue(clientNode.badIngredientsReaction);
                 conversant.HandleDialogue();
+                if (clientNode.OnlyOneChance)
+                {
+                    badReacted = true;
+                    startTimer = true;
+                }
             }
             else
                 ReactBad();
@@ -289,6 +295,12 @@ public class Client : MonoBehaviour
         clientNode.RandomizeBadReaction();
         conversant.SetDialogue(clientNode.badReaction);
         conversant.HandleDialogue();
+        if (clientNode.OnlyOneChance)
+        {
+            badReacted = true;
+            startTimer = true;
+        }
+
     }
 
     private void ReactBadAcctepAll()
@@ -322,8 +334,6 @@ public class Client : MonoBehaviour
         }
         else if (leaveAnimation)
         {
-            boxCollider.enabled = false;
-
             MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
             if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
             {
@@ -343,6 +353,7 @@ public class Client : MonoBehaviour
 
     public void Timer()
     {
+        boxCollider.enabled = false;
         time += Time.deltaTime;
         if(time > maxTime)
         {
@@ -387,6 +398,11 @@ public class Client : MonoBehaviour
     public int GetCurrentsHit()
     {
         return currentsHits;
+    }
+
+    public bool GetBadReacted()
+    {
+        return badReacted;
     }
 
     public void SetClientNode(ClientNode _clientNode)

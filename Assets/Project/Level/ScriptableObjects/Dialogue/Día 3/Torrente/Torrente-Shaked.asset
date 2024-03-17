@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7071411149617841340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: b755d1b3-6c79-4e7f-a372-86af5a4cc3e8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 'Pero el Roncola no lo remuevas '
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 307
+    y: 150
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Torrente-Shaked
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 6459285407736213406}
+  - {fileID: -7071411149617841340}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &6459285407736213406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 9d54570a-117d-48ec-b592-123f1bc7c2d0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Mira si quieres menear algo te porpongo hacernos una pajillas, pero sin mariconadas
+  children:
+  - b755d1b3-6c79-4e7f-a372-86af5a4cc3e8
+  rect:
+    serializedVersion: 2
+    x: 57
+    y: 150
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
