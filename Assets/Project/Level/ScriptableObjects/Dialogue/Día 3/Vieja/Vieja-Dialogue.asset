@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8973151584496531872
+--- !u!114 &-9040242539484747729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,46 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 6d1591e6-774d-446e-a204-947585e29316
+  m_Name: 533cf933-4483-4d30-949b-6c1922ae768a
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Pobre de ella como no este prepara cuando llegue a casa
-  children:
-  - 7275076a-ac32-403f-a7dc-2281792e1999
-  rect:
-    serializedVersion: 2
-    x: 539
-    y: 235
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-4073943482208387461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 7275076a-ac32-403f-a7dc-2281792e1999
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 0
-  text: "Pero bueno, retomando el tema \xBFpodr\xEDas servirme un Kalimotcho?"
+  text: "Amor, podr\xEDas ponerme un zumito de lim\xF3n, pero sin nada de alchol
+    que ya esoy mayor para esas cosas"
   children: []
   rect:
     serializedVersion: 2
-    x: 788
-    y: 235
+    x: 1370
+    y: 171
     width: 200
     height: 120
   onEnterAction: ActiveCollision
   onExitAction: 
---- !u!114 &-1600520932539889674
+--- !u!114 &-4795880755730684645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,17 +35,67 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: b248eb3b-e309-4873-b8f6-a1e97b00d025
+  m_Name: 3f6135de-d881-4038-b740-28d2a8225bd3
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: "Que tal Jefe, y que tal hoy ESPA\xD1A que hoy es su d\xEDa"
+  text: 'Pero al parecer he llegado muy temprano y no ha llegado nadie '
   children:
-  - 82243fea-600a-4926-94c0-4dfcae6d3746
+  - fdf047e1-f74b-466e-a192-6e812d6ebc4d
   rect:
     serializedVersion: 2
-    x: 39
-    y: 235
+    x: 869
+    y: 171
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-3843278904934737787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: fdf047e1-f74b-466e-a192-6e812d6ebc4d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 'Por eso he entrado en este bar, para matar el tiempo '
+  children:
+  - 533cf933-4483-4d30-949b-6c1922ae768a
+  rect:
+    serializedVersion: 2
+    x: 1120
+    y: 171
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-980670205930613765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 4c0df1f5-5c6f-4778-998b-a4c68595cf9a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Hola amor, que tal?
+  children:
+  - 9620243e-68f6-4eb5-b222-f3a4e5d3e887
+  rect:
+    serializedVersion: 2
+    x: 369
+    y: 171
     width: 200
     height: 120
   onEnterAction: 
@@ -84,15 +110,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
-  m_Name: Machista-Dialogue
+  m_Name: Vieja-Dialogue
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: -1600520932539889674}
-  - {fileID: 5528861636952778941}
-  - {fileID: -8973151584496531872}
-  - {fileID: -4073943482208387461}
+  - {fileID: -980670205930613765}
+  - {fileID: 32766458876397873}
+  - {fileID: -4795880755730684645}
+  - {fileID: -3843278904934737787}
+  - {fileID: -9040242539484747729}
   newNodeOffset: {x: 250, y: 0}
---- !u!114 &5528861636952778941
+--- !u!114 &32766458876397873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,17 +129,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 82243fea-600a-4926-94c0-4dfcae6d3746
+  m_Name: 9620243e-68f6-4eb5-b222-f3a4e5d3e887
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: He decido venir al bar a relajarme mientras mi mujer me prepara la comida
+  text: "Hab\xEDa quedado con mis amigas para ir a bailar sardana "
   children:
-  - 6d1591e6-774d-446e-a204-947585e29316
+  - 3f6135de-d881-4038-b740-28d2a8225bd3
   rect:
     serializedVersion: 2
-    x: 288
-    y: 235
+    x: 619
+    y: 171
     width: 200
     height: 120
   onEnterAction: 

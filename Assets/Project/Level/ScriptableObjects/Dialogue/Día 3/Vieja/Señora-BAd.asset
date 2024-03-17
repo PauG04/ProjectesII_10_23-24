@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7132988028699657817
+--- !u!114 &-3854262853766607568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 565bca84-8348-469f-8490-fbca1dbfa7a1
+  m_Name: b4dedb72-0122-4d6c-81c1-c1ab43ddeeff
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: Y ya que vengo de comerme unos taquitos, la neta bien riquos, he decido venir
-    a tomar algo para bajarlo
+  text: Creo amor que le has metido un poco de alchol al zumo, pero no te preocupes
+    de peores he pasado
   children:
-  - ef8f5478-4023-469f-a785-2a0b2ebc8072
+  - d40e1800-4936-41f9-b4ed-90a62547661f
   rect:
     serializedVersion: 2
-    x: 285
-    y: 140
+    x: 33
+    y: 85
     width: 200
     height: 120
   onEnterAction: 
@@ -36,14 +36,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
-  m_Name: Mexicano-Dialogue
+  m_Name: "Se\xF1ora-BAd"
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 613201555184604710}
-  - {fileID: -7132988028699657817}
-  - {fileID: 2213491428776863582}
+  - {fileID: -3854262853766607568}
+  - {fileID: 40146159596834686}
+  - {fileID: 6087205310668338151}
+  - {fileID: 1282241569880084215}
   newNodeOffset: {x: 250, y: 0}
---- !u!114 &613201555184604710
+--- !u!114 &40146159596834686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,22 +54,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 3cf36d81-6395-45bd-9a1f-96ff5562e0c8
+  m_Name: d40e1800-4936-41f9-b4ed-90a62547661f
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: "\xBFQu\xE9 pedo g\xFCey?, he visto este nuevo local"
+  text: Eran 5 euros espera que los saco
   children:
-  - 565bca84-8348-469f-8490-fbca1dbfa7a1
+  - c512abca-8c80-407d-a34a-ed63aace2e27
   rect:
     serializedVersion: 2
-    x: 38
-    y: 142
+    x: 282
+    y: 85
     width: 200
     height: 120
   onEnterAction: 
   onExitAction: 
---- !u!114 &2213491428776863582
+--- !u!114 &1282241569880084215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,18 +79,44 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: ef8f5478-4023-469f-a785-2a0b2ebc8072
+  m_Name: bbd13165-163f-42f5-a833-a12dcba060f9
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 0
-  text: "No manches, no teneis michelada, bueno me conformare con un GinTonic bien
-    CHING\xD3N"
+  text: "Amor podr\xEDas cobrarte tu mismo, toma mi billetera, confio mucho en ti
+    amor"
   children: []
   rect:
     serializedVersion: 2
-    x: 533
-    y: 142
+    x: 778
+    y: 83
     width: 200
     height: 120
-  onEnterAction: ActiveCollision
+  onEnterAction: GivePaint
+  onExitAction: 
+--- !u!114 &6087205310668338151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: c512abca-8c80-407d-a34a-ed63aace2e27
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Espera que hoy no me he traido mis gafas y no veo bien y no logro distinguir
+    los billetes
+  children:
+  - bbd13165-163f-42f5-a833-a12dcba060f9
+  rect:
+    serializedVersion: 2
+    x: 529
+    y: 85
+    width: 200
+    height: 120
+  onEnterAction: 
   onExitAction: 

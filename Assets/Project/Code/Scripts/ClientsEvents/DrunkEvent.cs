@@ -53,7 +53,8 @@ public class DrunkEvent : MonoBehaviour
 
         if(clientObject.transform.localPosition.y < -0.38)
         {
-            clientObject.GetComponent<Client>().SetTimer(true);
+            ClientManager.instance.CreateClient();
+            Destroy(gameObject);
             lerpActive = false;
             enabled = false;
         }

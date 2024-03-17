@@ -13,12 +13,19 @@ MonoBehaviour:
   m_Name: GinLemmon
   m_EditorClassIdentifier: 
   clientName: Regular
-  sprite: {fileID: 21300000, guid: 309f4def4ff252448938bd495bdd695e, type: 3}
+  sprite: {fileID: 21300000, guid: 48bee02d333da74408c536beeb3b8200, type: 3}
   hitToGo: 0
+  totalHits: 0
   canBeHitted: 1
   regularHitReactions: 1
   notNeedTakeDrink: 0
   acceptsAll: 0
+  dontCareGlass: 0
+  careIces: 0
+  cuantityOfIce: 0
+  DontPay: 0
+  HasMoraDialoguesPostOrder: 0
+  invisible: 0
   possibleOrders:
   - {fileID: 11400000, guid: 2a3d599f8f812224d9e8b3b8cc4cfe52, type: 2}
   dialogues:

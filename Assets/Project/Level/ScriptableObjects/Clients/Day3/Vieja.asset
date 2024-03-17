@@ -15,26 +15,32 @@ MonoBehaviour:
   clientName: Borracho
   sprite: {fileID: 21300000, guid: 9322d3da174db6e4f88f8f0bb8977706, type: 3}
   hitToGo: 0
-  canBeHitted: 1
+  totalHits: 0
+  canBeHitted: 0
   regularHitReactions: 0
   notNeedTakeDrink: 0
   acceptsAll: 1
+  dontCareGlass: 1
+  careIces: 0
+  cuantityOfIce: 0
+  DontPay: 1
+  HasMoraDialoguesPostOrder: 1
   possibleOrders:
-  - {fileID: 11400000, guid: 8b7c3c93fcb8c434fb39bace5a2e1296, type: 2}
+  - {fileID: 11400000, guid: 42b2e8f713d27e248b54dcfeda5996cd, type: 2}
   dialogues:
-  - {fileID: 11400000, guid: 6a36de4aaee5d4b4192f14a9a6e53300, type: 2}
+  - {fileID: 11400000, guid: 10e2855890bdab347bc758d7634344e3, type: 2}
   goodReactions:
-  - {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
+  - {fileID: 11400000, guid: 00a39292db603664f885985c3dfe685f, type: 2}
   badReactions:
-  - {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
+  - {fileID: 11400000, guid: cc7fca4479440804db4bb4fe38fe146f, type: 2}
   hitReactions:
   - {fileID: 11400000, guid: 5ae083c496924b5479b62d7e1b1125d4, type: 2}
-  dialogue: {fileID: 11400000, guid: 6a36de4aaee5d4b4192f14a9a6e53300, type: 2}
-  goodReaction: {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
-  badReaction: {fileID: 11400000, guid: adf99b5583eddd2479e6f7ad56608abe, type: 2}
-  hitReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  dialogue: {fileID: 11400000, guid: 10e2855890bdab347bc758d7634344e3, type: 2}
+  goodReaction: {fileID: 11400000, guid: 00a39292db603664f885985c3dfe685f, type: 2}
+  badReaction: {fileID: 11400000, guid: cc7fca4479440804db4bb4fe38fe146f, type: 2}
+  hitReaction: {fileID: 11400000, guid: 5ae083c496924b5479b62d7e1b1125d4, type: 2}
   badGlassReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   noIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   muchIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badStateReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
-  badIngredientsReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  badIngredientsReaction: {fileID: 11400000, guid: a73f7d8a07593ed479f1f7110cad58b9, type: 2}

@@ -57,7 +57,8 @@ public class CalculateDrink : MonoBehaviour
             
             case CocktailNode.Type.CocaCola:
                 return CheckCocktail(typesOfDrink, state, allCocktails["CocaCola"], sprite, decorations);
-
+            case CocktailNode.Type.LemmonJuice:
+                return CheckCocktail(typesOfDrink, state, allCocktails["LemonJuice"], sprite, decorations);               
             default:
                 return "ERROR";
         }        
