@@ -13,9 +13,6 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
 
     private float _lerpSpeed = 10f;
 
-    private bool firstLerp;
-    private bool secondLerp;
-
     private float velocityX = 6.0f;
     private float velocityY = 10.0f;
 
@@ -52,12 +49,6 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
 
         _shakerStateMachine.GetComponent<TargetJoint2D>().enabled = false;
         _state = ShakerStateMachine.ShakerState.IdleOpen;
-
-        if (!_shakerStateMachine.GetIsInWorkSpace())
-        {
-            firstLerp = true;
-            secondLerp = false;
-        }
     }
     public override void ExitState()
     {
