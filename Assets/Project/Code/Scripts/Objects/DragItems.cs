@@ -473,4 +473,8 @@ public class DragItems : MonoBehaviour
         isInTutorial = state;
     }   
 
+    public void SetWorkspaceSprite(Sprite sprite)
+    {
+        workspaceSprite = sprite;
+    }
 }

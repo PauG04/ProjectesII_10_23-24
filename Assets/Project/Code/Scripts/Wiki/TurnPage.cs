@@ -6,7 +6,13 @@ public class TurnPage : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        if(GetComponentInParent<WikiPage>().GetIsLeft())
+        if (GetComponentInParent<WikiPage>() == null)
+        {
+            WikiManager.instance.NextPage();
+            return;
+        }
+
+        if (GetComponentInParent<WikiPage>().GetIsLeft())
             WikiManager.instance.PrevPage();
         else
             WikiManager.instance.NextPage();
