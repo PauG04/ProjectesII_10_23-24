@@ -101,7 +101,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     public override void UpdateState()
     {
         CalculatePosition();
-        
 
         //if (Input.GetMouseButtonDown(1))
         //{
@@ -288,7 +287,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         _color.color = newColor;
         _background.color = new Color(_background.color.r, _background.color.g, _background.color.b, newColor.a);
     }
-
     private float AlphaLerpPositive()
     {
         Color newColor = _color.color;
@@ -303,7 +301,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     {
         _shakerStateMachine.SetGetInWorkSpace(true);
         InsideWorkspaceRenderersChilds(_shakerStateMachine.transform);
-
         
         _shakerStateMachine.transform.localScale = new Vector2(_scaleMultiplier, _scaleMultiplier);
 
