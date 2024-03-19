@@ -104,4 +104,9 @@ public class WikiManager : MonoBehaviour
         leftPage.gameObject.SetActive(false);
         rightPage.gameObject.SetActive(false);
     }
+
+    public int GetCurrentPage()
+    {
+        return pageNumber;
+    }
 }

@@ -24,31 +24,6 @@ MonoBehaviour:
     height: 120
   onEnterAction: 
   onExitAction: 
---- !u!114 &-8352870163658134675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 1c89aedc-70b6-4f84-b037-20bfea794cfb
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 1
-  text: Abre la nevera y coge el hielo
-  children:
-  - c380d42a-a6f2-4690-b654-05590c2a2d4b
-  rect:
-    serializedVersion: 2
-    x: 2147
-    y: 253
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
 --- !u!114 &-7825462886634651726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,9 +64,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 1
-  text: He venido ha explicarte como hacer un cubata, empecemos con lo basico
+  text: He venido ha explicarte como hacer un cubata, empecemos con lo basico, vamos
+    ha hacer un Roncola
   children:
-  - 1a815b45-1015-4c35-9ea6-1733506a3b0c
+  - adb8f3f7-af86-42ce-bcc2-62fb5c0bb976
   rect:
     serializedVersion: 2
     x: 872
@@ -125,6 +101,85 @@ MonoBehaviour:
     height: 120
   onEnterAction: 
   onExitAction: 
+--- !u!114 &-5439953633611259194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 07686f13-aab8-41ae-be1f-3bbae265ebdf
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "En la primera p\xE1gina hay un indice con algunos conceptos que necesitar\xE1s
+    para hacer las bebidas, ahora pasa de p\xE1gina para encontrar el RonCola"
+  children:
+  - ba976b72-e73f-4104-8f7f-45bc8535eaaf
+  rect:
+    serializedVersion: 2
+    x: 1274
+    y: 86
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4378390135492557086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ba976b72-e73f-4104-8f7f-45bc8535eaaf
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Ah\xED tienes el Roncola, como puedes ver es muy sencillo de hacer pero
+    antes de empezar tengo explicarte ciertos utensilios"
+  children:
+  - bdcbaf76-6a8c-4889-af95-5b9fc465c994
+  rect:
+    serializedVersion: 2
+    x: 1487
+    y: 84
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4232932140936685567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1fa47567-35f7-43b3-8eb6-ef18a36fc645
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Para taparla simplemente tienes que coger la tapa de la coctelera y colocarla
+    encima de esta, y cuando lo tengas bien mezclado simplemente tirar de la tapa
+    para poder servir la bebida
+  children:
+  - 19400596-26c2-44fc-a43e-eae2bc653eac
+  rect:
+    serializedVersion: 2
+    x: 2714
+    y: 85
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-4012191294023050530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,13 +195,13 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   isTextPaused: 1
   text: Antes de nada vamos ha preparar los hielos que un Roncola caliente no se
-    lo toma nadie
+    lo toma nadie, abre la nevera y coge el hielo
   children:
-  - 1c89aedc-70b6-4f84-b037-20bfea794cfb
+  - c380d42a-a6f2-4690-b654-05590c2a2d4b
   rect:
     serializedVersion: 2
-    x: 1937
-    y: 251
+    x: 1999
+    y: 238
     width: 200
     height: 120
   onEnterAction: 
@@ -176,6 +231,33 @@ MonoBehaviour:
     height: 120
   onEnterAction: 
   onExitAction: 
+--- !u!114 &-3828159198390992976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 19400596-26c2-44fc-a43e-eae2bc653eac
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "El otro \xFAtensilio que tienes que aprender a usar es el cuenta onzas,
+    este sirve para controlar las cantidades de bebida en los cubatas, cogelo y ponlo
+    sobre la mesa"
+  children:
+  - 1ed6646c-4db8-4052-a96c-f9643e968e80
+  rect:
+    serializedVersion: 2
+    x: 2983
+    y: 83
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-3565423889988107129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,13 +277,13 @@ MonoBehaviour:
   - b071f1de-de29-407d-9360-518c0e5aa996
   rect:
     serializedVersion: 2
-    x: 1731
-    y: 252
+    x: 1751
+    y: 239
     width: 200
     height: 120
   onEnterAction: 
   onExitAction: 
---- !u!114 &-3116018059183059167
+--- !u!114 &-2282530220046996219
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,17 +293,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: a3fece31-8dfe-47c7-9816-22f26068f712
+  m_Name: aece47fb-c656-4ec7-9525-bb2fd14bfcba
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 1
-  text: "Y ARRIBA ESPA\xD1A!!"
+  text: Cuando creas que has puesto la bebida necesaria en la coctelera tienes que
+    taparla para mezclar las bebidas
   children:
-  - 92a500d1-30c1-4b9e-84ef-d5041757931b
+  - 1fa47567-35f7-43b3-8eb6-ef18a36fc645
   rect:
     serializedVersion: 2
-    x: 1524
-    y: 253
+    x: 2484
+    y: 84
     width: 200
     height: 120
   onEnterAction: 
@@ -265,13 +348,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 1
-  text: Ahora mete hielo dentro del vaso, no te calientes echando hielo
+  text: Ahora mete hielo dentro del vaso, no te calientes echando hielo, pon 2 trozos
+    dentro, los hielos sobrantes los puedes guardar en la cubitera
   children:
   - 257037a9-b3e0-48bc-aec2-a666ec652d99
   rect:
     serializedVersion: 2
     x: 2708
-    y: 265
+    y: 263
     width: 200
     height: 120
   onEnterAction: 
@@ -370,15 +454,102 @@ MonoBehaviour:
   - {fileID: 8151993004492216400}
   - {fileID: -3565423889988107129}
   - {fileID: -4012191294023050530}
-  - {fileID: -8352870163658134675}
   - {fileID: -3987597124235295502}
   - {fileID: -1076968552128206332}
   - {fileID: 8200860508337118186}
   - {fileID: -107289366148349912}
   - {fileID: 4833365204195547995}
-  - {fileID: 5632060690681459986}
-  - {fileID: -3116018059183059167}
+  - {fileID: -5439953633611259194}
+  - {fileID: -4378390135492557086}
+  - {fileID: 1067318414362080629}
+  - {fileID: 8204589052848236559}
+  - {fileID: 327874579071629661}
+  - {fileID: -2282530220046996219}
+  - {fileID: -4232932140936685567}
+  - {fileID: -3828159198390992976}
+  - {fileID: 1360890308662166828}
+  - {fileID: 4329259226443570711}
+  - {fileID: 3170387198731906796}
   newNodeOffset: {x: 250, y: 0}
+--- !u!114 &327874579071629661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 38e6013d-c9e7-47f2-a1c5-d2edeaaf1f13
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Este es el \xFAtensilio con el que mezclaras las bebidas de algunos cubates,
+    no me seas cazurro y no metas cualquier cosa que no sea bebida dentro, ni hielos
+    ni nada"
+  children:
+  - aece47fb-c656-4ec7-9525-bb2fd14bfcba
+  rect:
+    serializedVersion: 2
+    x: 2237
+    y: 84
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &1067318414362080629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: bdcbaf76-6a8c-4889-af95-5b9fc465c994
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Como puedes ver en el libro pone que el RonCola es servido directamente a
+    la copa por lo que no tienes que meclar sus bebidas
+  children:
+  - 2e995834-4f4d-4526-b47c-22cfc1608dfd
+  rect:
+    serializedVersion: 2
+    x: 1778
+    y: 84
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &1360890308662166828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1ed6646c-4db8-4052-a96c-f9643e968e80
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Has de saber que rellenar el cuanta onzas equivale a simplemente una onza
+    la cual puedes meter en la coctelera o directamente al vaso
+  children:
+  - a68acccb-905f-4c42-982a-a21d98331d50
+  rect:
+    serializedVersion: 2
+    x: 3234
+    y: 84
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &2579801799094095883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +571,58 @@ MonoBehaviour:
     serializedVersion: 2
     x: 854
     y: 261
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3170387198731906796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1e3ab605-8453-4b9e-a4a9-4c7f05622450
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Ahora que ya te he explicado esto ya podemos empezar ha hacer la bebida,
+    los demas utensilios te los explico mientras hacemos el cubata
+  children:
+  - 92a500d1-30c1-4b9e-84ef-d5041757931b
+  rect:
+    serializedVersion: 2
+    x: 3734
+    y: 84
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4329259226443570711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a68acccb-905f-4c42-982a-a21d98331d50
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "En general los clientes no van a ser tiquis miquis con las cantidades pero
+    nunca viene de m\xE1s controlarlas "
+  children:
+  - 1e3ab605-8453-4b9e-a4a9-4c7f05622450
+  rect:
+    serializedVersion: 2
+    x: 3484
+    y: 84
     width: 200
     height: 120
   onEnterAction: 
@@ -449,31 +672,6 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1354
     y: 261
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &5632060690681459986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 1a815b45-1015-4c35-9ea6-1733506a3b0c
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 1
-  text: Vamos ha hacer un Roncola
-  children:
-  - adb8f3f7-af86-42ce-bcc2-62fb5c0bb976
-  rect:
-    serializedVersion: 2
-    x: 1083
-    y: 259
     width: 200
     height: 120
   onEnterAction: 
@@ -619,13 +817,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 1
-  text: "Si quieres la informaci\xF3n del Roncola, abajo hay un libro..."
+  text: "Si quieres la informaci\xF3n del Roncola, abajo hay un libro con la informaci\xF3n
+    de las bebidas... Y ARRIBA ESPA\xD1A!!"
   children:
-  - a3fece31-8dfe-47c7-9816-22f26068f712
+  - 07686f13-aab8-41ae-be1f-3bbae265ebdf
   rect:
     serializedVersion: 2
-    x: 1318
-    y: 254
+    x: 1160
+    y: 260
     width: 200
     height: 120
   onEnterAction: 
@@ -651,7 +850,33 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 3105
-    y: 259
+    y: 257
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8204589052848236559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 2e995834-4f4d-4526-b47c-22cfc1608dfd
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Pero no todos los cubatas se sirven directamente a la copa si no que algunos
+    necesitas mezclarlos usando la coctelera, cogela y te explico que es
+  children:
+  - 38e6013d-c9e7-47f2-a1c5-d2edeaaf1f13
+  rect:
+    serializedVersion: 2
+    x: 1988
+    y: 84
     width: 200
     height: 120
   onEnterAction: 

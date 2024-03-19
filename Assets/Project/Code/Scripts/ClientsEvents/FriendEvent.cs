@@ -2,13 +2,16 @@ using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ShakerStateMachine;
 using static UnityEngine.Rendering.DebugUI;
 
 public class FriendEvent : MonoBehaviour
 {
     [Header("DragScripts")]
-    [SerializeField] private List<DragItems> drag;
+    [SerializeField] private List<PolygonCollider2D> drag;
+    [SerializeField] private BoxCollider2D shakerDrag;
     private List<int> initOrderingLayerDrag;
+    private int shakerOrderingLayerDrag;
 
     [Header("ClientManager")]
     [SerializeField] private ClientManager clientManager;
@@ -20,7 +23,6 @@ public class FriendEvent : MonoBehaviour
     [SerializeField] private GameObject clientObject;
 
     private bool startTutorial;
-    private float[] time;
     private bool[] tutorialBooleans;
   
     [Header("Arrow")]
@@ -49,12 +51,15 @@ public class FriendEvent : MonoBehaviour
     [SerializeField] private GameObject ice;
     private int initOrderingLayerBucket;
 
+    private int dialogues;
+
+    [SerializeField] private WikiManager wiki;
+
     private void Awake()
     {
         startTutorial = false;
 
-        time = new float[10];
-        tutorialBooleans = new bool[11];
+        tutorialBooleans = new bool[25];
         initOrderingLayerDrag = new List<int>(drag.Count);
 
         for (int i = 0; i < drag.Count; i++)
@@ -65,11 +70,6 @@ public class FriendEvent : MonoBehaviour
             {
                 initOrderingLayerDrag.Add(drag[i].gameObject.GetComponent<SpriteRenderer>().sortingOrder);
             }
-        }
-
-        for (int i = 0; i < time.Length; i++)
-        {
-            time[i] = 0;
         }
 
         for (int i = 0; i < tutorialBooleans.Length; i++)
@@ -97,6 +97,8 @@ public class FriendEvent : MonoBehaviour
                 isRight[i] = false;
 
         }
+        shakerDrag.enabled = false;
+        shakerOrderingLayerDrag = shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder;
 
         initOrderingLayerFridge = fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder;
         fridge.gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -131,7 +133,7 @@ public class FriendEvent : MonoBehaviour
             clientObject = clientManager.GetClientObject();
         }
 
-        if (!tutorialBooleans[10] && clientObject != null)
+        if (!tutorialBooleans[14] && clientObject != null)
         {
             clientObject.GetComponent<BoxCollider2D>().enabled = false;
         }
@@ -142,6 +144,13 @@ public class FriendEvent : MonoBehaviour
             for (int i = 1; i < createGlass.Count; i++)
             {
                 createGlass[i].GetComponent<BoxCollider2D>().enabled = true;
+            }
+            for (int i = 0; i < drag.Count; i++)
+            {
+                if (!drag[i].enabled)
+                {
+                    drag[i].enabled = true;
+                }
             }
             enabled = false;
         }
@@ -184,56 +193,79 @@ public class FriendEvent : MonoBehaviour
     {
         if (tutorialBooleans[0])
         {
-            ActiveCreateGlass(0, 0, 0, 5);
+            ActiveDragItem(3, 0);
+            dialogues = 1;
         }
-        else if (tutorialBooleans[1])
+        else if (tutorialBooleans[1] && drag[3].GetComponent<DragItems>().GetWasOnTheTable())
         {
-            ActiveFridge(1, 1, 5);
+            if (playerConversant.HasNext() && dialogues > 0)
+            {
+                playerConversant.Next();
+                dialogues--;
+            } 
+
+            if(wiki.GetCurrentPage() == 2)
+            {
+                tutorialBooleans[2] = true;
+                tutorialBooleans[1] = false;
+                if (playerConversant.HasNext())
+                {
+                    playerConversant.Next();
+                }
+                button.Active();
+            }
         }
         else if(tutorialBooleans[2])
         {
-            ActiveCreateObjectFridge(2, 2, 5);
+            if(!button.GetIsActive())
+            {
+                ActiveShakerItem(2);
+            }
         }
         else if (tutorialBooleans[3])
         {
-            ActiveDragItem(0, 3, 3, 5);
-        }
-        else if(ice != null && ice.GetComponent<BreakIce>().GetIceDropped() > 1 && tutorialBooleans[4])
-        {
-            if (playerConversant.HasNext())
-            {
-                playerConversant.Next();
+            if (!button.GetIsActive())
+            {             
+                ActiveDragItem(5, 3);
             }
-            tutorialBooleans[4] = false;
-            tutorialBooleans[5] = true;
         }
-        else if(glass != null && glass.GetComponent<InsideDecorations>().GetIceInside() == 2 && tutorialBooleans[5])
+        else if (tutorialBooleans[4])
         {
-            if (playerConversant.HasNext())
+            if (!button.GetIsActive())
             {
-                playerConversant.Next();
+                if (playerConversant.HasNext())
+                {
+                    playerConversant.Next();
+                }
+                button.Active();
+                tutorialBooleans[4] = false;
+                tutorialBooleans[5] = true;
             }
-            tutorialBooleans[5] = false;
-            tutorialBooleans[6] = true;
+        }
+        else if (tutorialBooleans[5])
+        {
+            if (!button.GetIsActive())
+            {
+                ActiveCreateGlass(0, 5);
+            }
         }
         else if (tutorialBooleans[6])
         {
-            ActiveDragItem(1, 4, 6, 5);
+            ActiveFridge(6);
         }
-        else if (glassLiquid != null && glassLiquid.GetComponent<LiquidManager>().GetCurrentLiquid() >= glassLiquid.GetComponent<LiquidManager>().GetMaxLiquid() / 2 && tutorialBooleans[7])
+        else if (tutorialBooleans[7])
         {
-            if (playerConversant.HasNext())
-            {
-                playerConversant.Next();
-            }
-            tutorialBooleans[7] = false;
-            tutorialBooleans[8] = true;
+            ActiveCreateObjectFridge(7);
         }
         else if (tutorialBooleans[8])
         {
-            ActiveDragItem(2, 5, 8, 5);
+            if(!fridge.GetIsOpen())
+            {
+                ActiveDragItem(0, 8);
+            }
+
         }
-        else if (glassLiquid != null && glassLiquid.GetComponent<LiquidManager>().GetCurrentLiquid() >= glassLiquid.GetComponent<LiquidManager>().GetMaxLiquid() && tutorialBooleans[9])
+        else if (ice != null && ice.GetComponent<BreakIce>().GetIceDropped() > 1 && tutorialBooleans[9])
         {
             if (playerConversant.HasNext())
             {
@@ -242,27 +274,60 @@ public class FriendEvent : MonoBehaviour
             tutorialBooleans[9] = false;
             tutorialBooleans[10] = true;
         }
+        else if(glass != null && glass.GetComponent<InsideDecorations>().GetIceInside() == 2 && tutorialBooleans[10])
+        {
+            if (playerConversant.HasNext())
+            {
+                playerConversant.Next();
+            }
+            tutorialBooleans[10] = false;
+            tutorialBooleans[11] = true;
+        }
+        else if (tutorialBooleans[11])
+        {
+            ActiveDragItem(1, 11);
+        }
+        else if (glassLiquid != null && glassLiquid.GetComponent<LiquidManager>().GetCurrentLiquid() >= glassLiquid.GetComponent<LiquidManager>().GetMaxLiquid() / 4 && tutorialBooleans[12])
+        {
+            if (playerConversant.HasNext())
+            {
+                playerConversant.Next();
+            }
+            tutorialBooleans[12] = false;
+            tutorialBooleans[13] = true;
+        }
+        else if (tutorialBooleans[13])
+        {
+            ActiveDragItem(2, 13);
+        }
+        else if (glassLiquid != null && glassLiquid.GetComponent<LiquidManager>().GetCurrentLiquid() >= glassLiquid.GetComponent<LiquidManager>().GetMaxLiquid() * 0.75f && tutorialBooleans[14])
+        {
+            if (playerConversant.HasNext())
+            {
+                playerConversant.Next();
+            }
+            tutorialBooleans[14] = false;
 
+        }
     }
 
-    private void ActiveDragItem(int _index, int timeIndex, int boolIndex, float _maxTime)
+    private void ActiveDragItem(int _index, int boolIndex)
     {
         Vector3 maxScale = new Vector3(1.3f, 1.3f, 1.3f);
         Vector3 minScale = new Vector3(0.9f, 0.9f, 0.9f);
-        time[timeIndex] += Time.deltaTime;
 
         if (!drag[_index].enabled)
         {
             drag[_index].enabled = true;
-            drag[_index].SetIsInTutorial(true);
+            drag[_index].gameObject.GetComponent<DragItems>().SetIsInTutorial(true);
             isGrowing = true;
         }
 
-        if (drag[_index].GetWasOnTheTable())
+        if (drag[_index].gameObject.GetComponent<DragItems>().GetWasOnTheTable())
         {
-            drag[_index].SetIsInTutorial(false);
+            drag[_index].gameObject.GetComponent<DragItems>().SetIsInTutorial(false);
         }
-        if (!drag[_index].GetIsDraggin() && !drag[_index].GetInsideWorkspace())
+        if (!drag[_index].gameObject.GetComponent<DragItems>().GetIsDraggin() && !drag[_index].gameObject.GetComponent<DragItems>().GetInsideWorkspace())
         {
             panel.SetActive(true);
             if (drag[_index].gameObject.GetComponent<SpriteRenderer>() != null)
@@ -273,10 +338,10 @@ public class FriendEvent : MonoBehaviour
             LerpSacele(maxScale, minScale, drag[_index].gameObject);
         }
 
-        if (drag[_index].GetIsDraggin())
+        if (drag[_index].gameObject.GetComponent<DragItems>().GetIsDraggin())
         {
             panel.SetActive(false);
-            drag[_index].SetIsInTutorial(false);
+            drag[_index].gameObject.GetComponent<DragItems>().SetIsInTutorial(false);
             drag[_index].gameObject.transform.localScale = Vector3.one;
             if (drag[_index].gameObject.GetComponent<SpriteRenderer>() != null)
             {
@@ -287,13 +352,50 @@ public class FriendEvent : MonoBehaviour
             tutorialBooleans[boolIndex + 1] = true;
         }
     }
+    private void ActiveShakerItem(int boolIndex)
+    {
+        Vector3 maxScale = new Vector3(1.3f, 1.3f, 1.3f);
+        Vector3 minScale = new Vector3(0.9f, 0.9f, 0.9f);
 
-    private void ActiveCreateGlass(int _index, int timeIndex, int boolIndex, float _maxTime)
+        if (!shakerDrag.enabled)
+        {
+            shakerDrag.enabled = true;
+            isGrowing = true;
+        }
+
+        if (shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetCurrentState().StateKey != ShakerState.DraggingOpen && !shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetIsInWorkSpace())
+        {
+            panel.SetActive(true);
+            shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 11;
+
+            LerpSacele(maxScale, minScale, shakerDrag.gameObject.transform.GetChild(1).gameObject);
+        }
+
+        if (shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetCurrentState().StateKey == ShakerState.DraggingOpen)
+        {
+            panel.SetActive(false);
+            shakerDrag.gameObject.transform.localScale = Vector3.one;
+
+            shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = shakerOrderingLayerDrag;
+            shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+            if(shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetIsInWorkSpace())
+            {
+                tutorialBooleans[boolIndex] = false;
+                tutorialBooleans[boolIndex + 1] = true;
+                if (playerConversant.HasNext())
+                {
+                    playerConversant.Next();
+                }
+                button.Active();
+            }
+
+        }
+    }
+
+    private void ActiveCreateGlass(int _index, int boolIndex)
     {
         Vector3 maxScale = new Vector3(1.25f, 1.25f, 1.6f);
         Vector3 minScale = new Vector3(0.55f, 0.55f, 0.8f);
-
-        time[timeIndex] += Time.deltaTime;
 
         if (!createGlass[_index].GetComponent<BoxCollider2D>().enabled)
         {
@@ -317,17 +419,13 @@ public class FriendEvent : MonoBehaviour
             }
             tutorialBooleans[boolIndex] = false;
             tutorialBooleans[boolIndex + 1] = true;
-            button.Active();
         }
     }
 
-    private void ActiveFridge(int timeIndex, int boolIndex, float _maxTime)
+    private void ActiveFridge(int boolIndex)
     {
         Vector3 maxScale = new Vector3(1.3f, 1.3f, 1.3f);
         Vector3 minScale = new Vector3(0.9f, 0.9f, 0.9f);
-
-        time[timeIndex] += Time.deltaTime;
-
 
         if (!fridge.enabled)
         {
@@ -353,13 +451,10 @@ public class FriendEvent : MonoBehaviour
         }
     }
 
-    private void ActiveCreateObjectFridge(int timeIndex, int boolIndex, float _maxTime)
+    private void ActiveCreateObjectFridge(int boolIndex)
     {
         Vector3 maxScale = new Vector3(2.1f, 2.1f, 2.1f);
         Vector3 minScale = new Vector3(1.9f, 1.9f, 1.9f);
-
-        time[timeIndex] += Time.deltaTime;
-
 
         if (!createObjectCollider.enabled)
         {
@@ -407,7 +502,7 @@ public class FriendEvent : MonoBehaviour
 
     private void ActiveArrow(int index)
     {
-        if(glass != null && !glass.transform.parent.GetComponent<DragItems>().GetWasOnTheTable())
+        if (!drag[3].GetComponent<DragItems>().GetWasOnTheTable() && drag[3].GetComponent<DragItems>().GetIsDraggin())
         {
             arrow[index].SetActive(true);
             if (isRight[index])

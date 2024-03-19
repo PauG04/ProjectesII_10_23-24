@@ -8,6 +8,7 @@ public class NextButton : MonoBehaviour
     private int currentDialogue;
     private float timer;
     private float maxTime;
+    private bool isActtive;
 
     [SerializeField] private PlayerConversant playerConversant;
     [SerializeField] private GameObject text;
@@ -17,7 +18,7 @@ public class NextButton : MonoBehaviour
         currentDialogue = 0;
         timer = 0;
         maxTime = 1;
-
+        isActtive = true;
     }
 
     private void Update()
@@ -40,11 +41,12 @@ public class NextButton : MonoBehaviour
     }
     private void Desactive()
     {
-        if (currentDialogue == 7 || currentDialogue == 9 || currentDialogue == 10 || currentDialogue == 11 || currentDialogue == 12 || currentDialogue == 13 || currentDialogue == 14)
+        if (currentDialogue == 4 || currentDialogue == 7 || currentDialogue == 11 || currentDialogue == 15)
         {
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
             text.SetActive(false);
+            isActtive = false;
         }
     }
 
@@ -54,6 +56,12 @@ public class NextButton : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = true;
         text.SetActive(true);
         currentDialogue++;
+        isActtive = true;
+    }
+
+    public bool GetIsActive()
+    {
+        return isActtive;
     }
 
     
