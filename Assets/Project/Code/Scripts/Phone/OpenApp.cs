@@ -22,7 +22,6 @@ public class OpenApp : MonoBehaviour
     [Space(20)]
     [SerializeField] private Button returnButton;
     [SerializeField] private Button homeButton;
-    [SerializeField] private Button tabButton;
 
     [Header("Animation Values")]
     [SerializeField] private float animationDuration;
@@ -35,7 +34,6 @@ public class OpenApp : MonoBehaviour
 
         returnButton.onClick.AddListener(() => CloseApplication());
         homeButton.onClick.AddListener(() => CloseApplication());
-        tabButton.onClick.AddListener(() => CloseApplication());
     }
 
     public void OpenApplication(GameObject appToOpen)

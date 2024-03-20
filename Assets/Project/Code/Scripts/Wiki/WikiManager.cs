@@ -12,6 +12,11 @@ public class WikiManager : MonoBehaviour
     [SerializeField] private GameObject wiki;
     [SerializeField] private WikiPage leftPage;
     [SerializeField] private WikiPage rightPage;
+    [SerializeField] private GameObject firstPage;
+
+    [SerializeField] private Sprite prevAndNextSprite;
+    [SerializeField] private Sprite prevSprite;
+    [SerializeField] private Sprite nextSprite;
 
     [SerializeField] private DragItems book;
     private bool bookIsOpened;
@@ -30,7 +35,7 @@ public class WikiManager : MonoBehaviour
         }
 
         bookIsOpened = false;
-        pageNumber = 0;
+        pageNumber = -2;
     }
 
     private void Update()
@@ -59,7 +64,7 @@ public class WikiManager : MonoBehaviour
 
     public void PrevPage()
     {
-        if (pageNumber >= 2)
+        if (pageNumber >= 0)
         {
             AudioManager.instance.PlaySFX("TurnPage");
             pageNumber -= 2;
@@ -74,14 +79,32 @@ public class WikiManager : MonoBehaviour
 
     private void UpdatePages(int page)
     {
+        if (page == -2)
+        {
+            leftPage.ClearPage();
+            rightPage.ClearPage();
+            leftPage.gameObject.SetActive(false);
+            rightPage.gameObject.SetActive(false);
+            firstPage.SetActive(true);
+            book.SetWorkspaceSprite(nextSprite);
+            return;
+        }
+
         if (page < cocktails.Count)
         {
-            leftPage.UpdatePage(cocktails[page]);
+            book.SetWorkspaceSprite(prevAndNextSprite);
+            firstPage.SetActive(false);
+            leftPage.gameObject.SetActive(true);
+            rightPage.gameObject.SetActive(true);
 
+            leftPage.UpdatePage(cocktails[page]);
             if (page + 1 < cocktails.Count)
                 rightPage.UpdatePage(cocktails[page + 1]);
             else
                 rightPage.ClearPage();
+
+            if (page + 3 >= cocktails.Count)
+                book.SetWorkspaceSprite(prevSprite);
         }
     }
 

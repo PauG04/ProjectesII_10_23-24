@@ -81,7 +81,7 @@ public class CocktailNode : ScriptableObject
         if (state == State.Idle)
             description += "directamente en vaso ";
         else if (state == State.Shaked)
-            description += "poco agitado ";
+            description += "agitado ";
         else
             description += "completamente mezclado ";
         //Decorations
