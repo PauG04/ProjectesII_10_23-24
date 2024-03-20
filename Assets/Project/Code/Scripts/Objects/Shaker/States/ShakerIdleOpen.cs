@@ -162,10 +162,7 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
         _shakerStateMachine.SetGetInWorkSpace(false);
         OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
-        if (!_shakerStateMachine.GetIsInTutorial())
-        {
-            _shakerStateMachine.transform.localScale = Vector3.one;
-        }    
+        _shakerStateMachine.transform.localScale = Vector3.one;
     }
     private void OutsidewWorkspaceRenderersChilds(Transform parent)
     {
