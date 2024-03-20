@@ -55,7 +55,7 @@ public class FriendEvent : MonoBehaviour
 
     [SerializeField] private WikiManager wiki;
 
-    private void Awake()
+    private void Start()
     {
         startTutorial = false;
 
@@ -65,6 +65,7 @@ public class FriendEvent : MonoBehaviour
         for (int i = 0; i < drag.Count; i++)
         {
             drag[i].enabled = false;
+            drag[i].gameObject.GetComponent<DragItems>().SetIsInTutorial(true);
 
             if (drag[i].gameObject.GetComponent<SpriteRenderer>() != null)
             {
@@ -108,14 +109,16 @@ public class FriendEvent : MonoBehaviour
         createObjectCollider.enabled = false;
 
         tutorialBooleans[0] = true;
+
     }
 
     private void Update()
     {
-        SetClient();
         SetDrag();
-
-        for(int i = 0; i < arrow.Count; i++)
+        SetClient();
+        Debug.Log(drag[3].enabled);
+        
+        for (int i = 0; i < arrow.Count; i++)
         {
             ActiveArrow(i);
         }
@@ -140,7 +143,7 @@ public class FriendEvent : MonoBehaviour
         else
         {
             clientObject.GetComponent<BoxCollider2D>().enabled = true;
-            
+
             for (int i = 1; i < createGlass.Count; i++)
             {
                 createGlass[i].GetComponent<BoxCollider2D>().enabled = true;
@@ -160,6 +163,10 @@ public class FriendEvent : MonoBehaviour
     {
         for (int i = 0; i < drag.Count; i++)
         {
+            if (drag[i].enabled && drag[i].gameObject.GetComponent<DragItems>().GetIsInTutorial())
+            {
+                drag[i].enabled = false;
+            }
             if (!drag[i].enabled && drag[i] != null)
             {
                 if (drag[i].gameObject.GetComponent<Rigidbody2D>() != null)
@@ -171,6 +178,7 @@ public class FriendEvent : MonoBehaviour
                     drag[i].gameObject.GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                 }
             }
+
         }
     }
 
@@ -204,7 +212,7 @@ public class FriendEvent : MonoBehaviour
                 dialogues--;
             } 
 
-            if(wiki.GetCurrentPage() == 2)
+            if(wiki.GetCurrentPage() == 0)
             {
                 tutorialBooleans[2] = true;
                 tutorialBooleans[1] = false;
@@ -319,7 +327,7 @@ public class FriendEvent : MonoBehaviour
         if (!drag[_index].enabled)
         {
             drag[_index].enabled = true;
-            drag[_index].gameObject.GetComponent<DragItems>().SetIsInTutorial(true);
+           
             isGrowing = true;
         }
 
