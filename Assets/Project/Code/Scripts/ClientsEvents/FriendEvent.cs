@@ -116,7 +116,6 @@ public class FriendEvent : MonoBehaviour
     {
         SetDrag();
         SetClient();
-        Debug.Log(drag[3].enabled);
         
         for (int i = 0; i < arrow.Count; i++)
         {

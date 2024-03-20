@@ -49,7 +49,7 @@ public class Client : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
 
-        //boxCollider.enabled = false;
+        boxCollider.enabled = false;
         arriveAnimation = false;
         leaveAnimation = false;
         startTimer = false;
