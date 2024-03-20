@@ -10,7 +10,9 @@ public class GivePaint : MonoBehaviour
     [SerializeField] private ClientNode eventClient;
     [SerializeField] private GameObject paint;
     [SerializeField] private Vector3 position;
+    [SerializeField] private bool hasToTakeDrink;
 
+    private bool postDrink;
     private ClientNode client;
     private GameObject clientObject;
     private bool triggerSetted = false;
@@ -21,9 +23,20 @@ public class GivePaint : MonoBehaviour
         {
             if (!triggerSetted)
             {
-                clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("GivePaint");
-                clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(SpawnPaint);
-                triggerSetted = true;
+                if(!hasToTakeDrink)
+                {
+                    ActiveAction();
+                }
+                else if(hasToTakeDrink && postDrink)
+                {
+                    ActiveAction();
+                }
+                
+            }
+
+            if(clientObject.GetComponent<Client>().GetWellReacted())
+            {
+                postDrink = true;
             }
         }
         else
@@ -32,6 +45,13 @@ public class GivePaint : MonoBehaviour
             clientObject = clientManager.GetClientObject();
         }
 
+    }
+
+    public void ActiveAction()
+    {
+        clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("GivePaint");
+        clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(SpawnPaint);
+        triggerSetted = true;
     }
 
     private void SpawnPaint()

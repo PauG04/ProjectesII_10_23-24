@@ -10,34 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 203defdb18f377b4184cfcf21f18d09b, type: 3}
-  m_Name: WhiskeySour
+  m_Name: Madridista2
   m_EditorClassIdentifier: 
   clientName: Regular
   sprite: {fileID: 21300000, guid: 309f4def4ff252448938bd495bdd695e, type: 3}
   hitToGo: 0
   totalHits: 0
   canBeHitted: 1
-  regularHitReactions: 1
+  regularHitReactions: 0
   notNeedTakeDrink: 0
   acceptsAll: 0
   dontCareGlass: 0
+  careIces: 0
+  cuantityOfIce: 0
+  DontPay: 0
+  HasMoraDialoguesPostOrder: 0
+  invisible: 0
   possibleOrders:
-  - {fileID: 11400000, guid: b346bd0fc088a934fa5c45174bf724a1, type: 2}
+  - {fileID: 11400000, guid: e5234a9857db5784ca19e8894f2f5317, type: 2}
   dialogues:
-  - {fileID: 11400000, guid: 368704b3e6160604397c9f53e11ce337, type: 2}
+  - {fileID: 11400000, guid: 5ef76358e1c9c674796f9614ac77febd, type: 2}
   goodReactions:
-  - {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
+  - {fileID: 11400000, guid: a8d1d5b75297b9f48a741fc84e9918b5, type: 2}
   badReactions:
-  - {fileID: 11400000, guid: 1ca0906f43ed51c47b9d00e6bcb0cb86, type: 2}
+  - {fileID: 11400000, guid: d45109e5024ad8b419b9c7a76862248c, type: 2}
   hitReactions:
-  - {fileID: 11400000, guid: df9080edaafd0654eac0cd0c3a2216e6, type: 2}
-  - {fileID: 11400000, guid: 251a06952bab77b458da8fab754d8471, type: 2}
-  - {fileID: 11400000, guid: 7c9f9b46855f9204699b3b0ef6e5d94f, type: 2}
-  - {fileID: 11400000, guid: bb2285ed8ba868d4ebf3c1f6b259c18e, type: 2}
-  dialogue: {fileID: 11400000, guid: 368704b3e6160604397c9f53e11ce337, type: 2}
-  goodReaction: {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
-  badReaction: {fileID: 11400000, guid: 1ca0906f43ed51c47b9d00e6bcb0cb86, type: 2}
-  hitReaction: {fileID: 11400000, guid: df9080edaafd0654eac0cd0c3a2216e6, type: 2}
+  - {fileID: 11400000, guid: f1fd845d94da08147a5549c2c8fced65, type: 2}
+  dialogue: {fileID: 11400000, guid: 5ef76358e1c9c674796f9614ac77febd, type: 2}
+  goodReaction: {fileID: 11400000, guid: a8d1d5b75297b9f48a741fc84e9918b5, type: 2}
+  badReaction: {fileID: 11400000, guid: d45109e5024ad8b419b9c7a76862248c, type: 2}
+  hitReaction: {fileID: 11400000, guid: f1fd845d94da08147a5549c2c8fced65, type: 2}
   badGlassReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   noIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   muchIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}

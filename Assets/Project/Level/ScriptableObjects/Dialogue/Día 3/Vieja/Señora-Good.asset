@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2535614551032680583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f6c64606-fa17-4e27-9a80-a3e2ee36db26
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Eran 5 euros espera que los saco
+  children:
+  - 6a28d774-af31-4afe-876b-d0bc5c45b710
+  rect:
+    serializedVersion: 2
+    x: 349
+    y: 120
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: "Se\xF1ora-Good"
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 4015340299602287405}
+  - {fileID: -2535614551032680583}
+  - {fileID: 3826447761864382490}
+  - {fileID: 808867780368860370}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &808867780368860370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 9bcda3a6-0212-4166-ad48-2f2eb4ee54f9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Amor podr\xEDas cobrarte tu mismo, toma mi billetera, confio mucho en ti
+    amor"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 852
+    y: 121
+    width: 200
+    height: 120
+  onEnterAction: GivePaint
+  onExitAction: 
+--- !u!114 &3826447761864382490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6a28d774-af31-4afe-876b-d0bc5c45b710
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Espera que hoy no me he traido mis gafas y no veo bien y no logro distinguir
+    los billetes
+  children:
+  - 9bcda3a6-0212-4166-ad48-2f2eb4ee54f9
+  rect:
+    serializedVersion: 2
+    x: 601
+    y: 121
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4015340299602287405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d0bbcc03-e448-4568-9e2f-4258fa578ea7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Gracias amor, espera que saco la billetera para pagarte
+  children:
+  - f6c64606-fa17-4e27-9a80-a3e2ee36db26
+  rect:
+    serializedVersion: 2
+    x: 100
+    y: 119
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

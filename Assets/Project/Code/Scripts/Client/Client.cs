@@ -28,7 +28,7 @@ public class Client : MonoBehaviour
     [SerializeField] private int maxHitsToGo; 
 
     [Header("Timer")]
-    [SerializeField] private float maxTime;
+    [SerializeField] private float maxTime; 
     private float time;
 
     private bool isLocated;
@@ -39,6 +39,7 @@ public class Client : MonoBehaviour
 
     private bool triggerSetted;
     private bool wellReacted;
+    private bool badReacted;
 
     private int currentsHits;
 
@@ -97,12 +98,7 @@ public class Client : MonoBehaviour
     {
         if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp() && !clientNode.notNeedTakeDrink)
         {
-            if (clientNode.acceptsAll)
-            {
-                ReactWell();
-                Destroy(collision.gameObject);
-                return;
-            }
+            
 
             LiquidManager liquidManagerResult = collision.GetComponentInChildren<LiquidManager>();
 
@@ -114,6 +110,26 @@ public class Client : MonoBehaviour
                     order.type);
 
             Debug.Log(findError);
+
+            if (clientNode.acceptsAll && collision.transform.GetChild(2).GetComponent<LiquidManager>().GetCurrentLiquid() > 0)
+            {
+                bool state = false; ;
+                if (findError == "Good" || findError == "BadGlass")
+                {
+                    state = true;
+                }
+                   
+                Debug.Log(state);
+               ReactWell(state);
+                Destroy(collision.gameObject);
+                return;
+            }
+            else if(clientNode.acceptsAll && collision.transform.GetChild(2).GetComponent<LiquidManager>().GetCurrentLiquid() == 0)
+            {
+                ReactBadAcctepAll();
+                Destroy(collision.gameObject);
+                return;
+            }
 
             FindCoctelError(findError, collision);
 
@@ -135,7 +151,7 @@ public class Client : MonoBehaviour
             conversant.HandleDialogue();
 
 
-            if ((clientNode.hitToGo && currentsHits == clientNode.totalHits) || (!clientNode.hitToGo && currentsHits == maxHitsToGo))
+            if ((clientNode.hitToGo && currentsHits == clientNode.totalHits))
             {
                 startTimer = true;
                 return;
@@ -178,12 +194,12 @@ public class Client : MonoBehaviour
                 }
                 else
                 {
-                    ReactWell();
+                    ReactWell(true);
                 }
             }
             else
             {
-                ReactWell();
+                ReactWell(true);
             }
             
         }
@@ -191,7 +207,7 @@ public class Client : MonoBehaviour
         {
             if (clientNode.dontCareGlass)
             {
-                ReactWell();
+                ReactWell(true);
             }
             else if (clientNode.badGlassReaction != ClientManager.instance.GetEmptyDialogue())
             {
@@ -206,7 +222,7 @@ public class Client : MonoBehaviour
         {
             if (clientNode.dontCareGlass)
             {
-                ReactWell();
+                ReactWell(true);
             }
             else if (clientNode.noIceReaction != ClientManager.instance.GetEmptyDialogue())
             {
@@ -242,20 +258,34 @@ public class Client : MonoBehaviour
             {
                 conversant.SetDialogue(clientNode.badIngredientsReaction);
                 conversant.HandleDialogue();
+                if (clientNode.OnlyOneChance)
+                {
+                    badReacted = true;
+                    startTimer = true;
+                }
             }
             else
                 ReactBad();
         }
     }
 
-    private void ReactWell()
+    private void ReactWell(bool isOk)
     {
         AudioManager.instance.PlaySFX("ClientHappy");
         clientNode.RandomizeGoodReaction();
-        conversant.SetDialogue(clientNode.goodReaction);
+        if(isOk)
+            conversant.SetDialogue(clientNode.goodReaction);
+        else
+            conversant.SetDialogue(clientNode.badReaction);
         conversant.HandleDialogue();
-        Pay();
-        startTimer = true;
+        if(!clientNode.DontPay)
+        {
+            Pay();
+        }
+        if(!clientNode.HasMoraDialoguesPostOrder)
+        {
+            startTimer = true;
+        }       
         wellReacted = true;
     }
 
@@ -264,6 +294,19 @@ public class Client : MonoBehaviour
         AudioManager.instance.PlaySFX("ClientMad");
         clientNode.RandomizeBadReaction();
         conversant.SetDialogue(clientNode.badReaction);
+        conversant.HandleDialogue();
+        if (clientNode.OnlyOneChance)
+        {
+            badReacted = true;
+            startTimer = true;
+        }
+
+    }
+
+    private void ReactBadAcctepAll()
+    {
+        AudioManager.instance.PlaySFX("ClientMad");
+        conversant.SetDialogue(clientNode.badIngredientsReaction);
         conversant.HandleDialogue();
     }
 
@@ -291,8 +334,6 @@ public class Client : MonoBehaviour
         }
         else if (leaveAnimation)
         {
-            boxCollider.enabled = false;
-
             MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
             if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
             {
@@ -312,6 +353,7 @@ public class Client : MonoBehaviour
 
     public void Timer()
     {
+        boxCollider.enabled = false;
         time += Time.deltaTime;
         if(time > maxTime)
         {
@@ -358,6 +400,11 @@ public class Client : MonoBehaviour
         return currentsHits;
     }
 
+    public bool GetBadReacted()
+    {
+        return badReacted;
+    }
+
     public void SetClientNode(ClientNode _clientNode)
     {
         clientNode = _clientNode;
@@ -370,6 +417,11 @@ public class Client : MonoBehaviour
     public void SetTimer(bool state)
     {
         startTimer = state;
+    }
+
+    public void SetHitted(bool state)
+    {
+        hitted = state;
     }
 
 

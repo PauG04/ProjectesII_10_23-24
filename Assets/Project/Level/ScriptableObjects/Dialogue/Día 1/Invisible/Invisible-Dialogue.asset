@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8665399031712458436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1dfabb6d-840d-45c0-a016-496db585e402
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Hola... hola... HOLA, gilipollas no sudes de mi cara
+  children:
+  - 7a8c3ec9-f756-4a52-a688-f1d61e89488b
+  rect:
+    serializedVersion: 2
+    x: 44
+    y: 90
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Invisible-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -8665399031712458436}
+  - {fileID: 5495662806602278452}
+  - {fileID: 5735538430204758893}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &5495662806602278452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 7a8c3ec9-f756-4a52-a688-f1d61e89488b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Oye me puedes ver, espera un momento, porque esta todo tan oscuro
+  children:
+  - a0ba2f65-bd18-47a7-9d85-4fb0dac468e2
+  rect:
+    serializedVersion: 2
+    x: 294
+    y: 91
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &5735538430204758893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a0ba2f65-bd18-47a7-9d85-4fb0dac468e2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Tu enciende las luces para poder hablar bien, tendr\xEDas que tener el interrumpor
+    arriba donde las botellas"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 543
+    y: 88
+    width: 200
+    height: 120
+  onEnterAction: Lamp
+  onExitAction: 

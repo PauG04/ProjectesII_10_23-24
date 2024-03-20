@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203defdb18f377b4184cfcf21f18d09b, type: 3}
+  m_Name: Father
+  m_EditorClassIdentifier: 
+  clientName: Policia
+  sprite: {fileID: 21300000, guid: 665aeaba767b1394d9d195ca20b690c5, type: 3}
+  hitToGo: 0
+  totalHits: 0
+  canBeHitted: 0
+  regularHitReactions: 0
+  notNeedTakeDrink: 0
+  acceptsAll: 0
+  dontCareGlass: 0
+  careIces: 0
+  cuantityOfIce: 0
+  DontPay: 0
+  HasMoraDialoguesPostOrder: 0
+  invisible: 0
+  OnlyOneChance: 1
+  possibleOrders:
+  - {fileID: 11400000, guid: b346bd0fc088a934fa5c45174bf724a1, type: 2}
+  dialogues:
+  - {fileID: 11400000, guid: 9036bebf1a682cf4680efed75f566a29, type: 2}
+  goodReactions:
+  - {fileID: 11400000, guid: 7246a3baef4370345b4120dc52177f3d, type: 2}
+  badReactions:
+  - {fileID: 11400000, guid: 03df0276832b383499fe8bd5a69eb97d, type: 2}
+  hitReactions:
+  - {fileID: 11400000, guid: b5f1052e50187264c9e5ffc49873a2e2, type: 2}
+  dialogue: {fileID: 11400000, guid: 9036bebf1a682cf4680efed75f566a29, type: 2}
+  goodReaction: {fileID: 11400000, guid: 7246a3baef4370345b4120dc52177f3d, type: 2}
+  badReaction: {fileID: 11400000, guid: 03df0276832b383499fe8bd5a69eb97d, type: 2}
+  hitReaction: {fileID: 11400000, guid: b5f1052e50187264c9e5ffc49873a2e2, type: 2}
+  badGlassReaction: {fileID: 11400000, guid: 03df0276832b383499fe8bd5a69eb97d, type: 2}
+  noIceReaction: {fileID: 11400000, guid: 03df0276832b383499fe8bd5a69eb97d, type: 2}
+  muchIceReaction: {fileID: 11400000, guid: 03df0276832b383499fe8bd5a69eb97d, type: 2}
+  badStateReaction: {fileID: 11400000, guid: 03df0276832b383499fe8bd5a69eb97d, type: 2}
+  badIngredientsReaction: {fileID: 11400000, guid: 03df0276832b383499fe8bd5a69eb97d, type: 2}

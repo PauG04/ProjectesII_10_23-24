@@ -11,6 +11,7 @@ public class HouseKeeperMatchDay : MonoBehaviour
     [SerializeField] private ClientNode eventClient;   
     [SerializeField] private List<ClientNode> catalonia;   
     [SerializeField] private List<Dialogue.Dialogue> dialogues;
+    [SerializeField] private float money;
 
     private ClientNode client;
     private GameObject clientObject;
@@ -56,10 +57,28 @@ public class HouseKeeperMatchDay : MonoBehaviour
                 served = true;
             }
         }
+
+        if(served && !clientObject.GetComponent<Client>().GetWellReacted())
+        {
+            SkipCatalonians();
+        }
+        
+    }
+
+    private void SkipCatalonians()
+    {
+        for(int i = 0; i < catalonia.Count; i++)
+        {
+            if (client != null && client == catalonia[i])
+            {
+                ClientManager.instance.CreateClient();
+                Destroy(clientObject);
+            }
+        }
     }
 
     public void TakeMoney()
     {
-        EconomyManager.instance.SetMoneyChanged(-100);
+        EconomyManager.instance.SetMoneyChanged(money);
     }
 }

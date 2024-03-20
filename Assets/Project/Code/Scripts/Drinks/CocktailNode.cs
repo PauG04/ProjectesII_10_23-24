@@ -32,7 +32,9 @@ public class CocktailNode : ScriptableObject
         Empty,
 
         Vodka,
-        CocaCola
+        CocaCola,
+        LemmonJuice,
+        Gazpacho
     }
 
     public State state;

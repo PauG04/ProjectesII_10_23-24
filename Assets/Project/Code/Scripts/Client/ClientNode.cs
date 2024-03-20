@@ -18,6 +18,10 @@ public class ClientNode : ScriptableObject
     public bool dontCareGlass;
     public bool careIces;
     public int cuantityOfIce;
+    public bool DontPay;
+    public bool HasMoraDialoguesPostOrder;
+    public bool invisible;
+    public bool OnlyOneChance;
     public List<CocktailNode> possibleOrders;
 
     public List<Dialogue.Dialogue> dialogues;

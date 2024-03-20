@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: "Brasile\xF1o-Bad"
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 545525785372279398}
+  - {fileID: 4526478286997113781}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &545525785372279398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 7304641b-063e-4d12-a3a3-85c3f8076d10
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "T\xE1 brincando!"
+  children:
+  - 0662c13a-07d0-40d5-8f06-2adadf35d2f6
+  rect:
+    serializedVersion: 2
+    x: 24
+    y: 96
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4526478286997113781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 0662c13a-07d0-40d5-8f06-2adadf35d2f6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Como voc\xEA pode fazer isso errado, agora tenho que esperar que voc\xEA
+    fa\xE7a novamente para assistir ao jogo"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 274
+    y: 96
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

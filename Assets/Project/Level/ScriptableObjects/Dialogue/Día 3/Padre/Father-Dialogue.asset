@@ -1,0 +1,256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8146503910769793318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 971aff4e-7bc6-419d-97a4-ed07736cf30e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "\xCAh berd\xE1 tendr\xEDa que murtarte, benga \xEAtta b\xEAh no me lo a\xE7\xEA
+    a la primera te murto \xE7i no me boy"
+  children:
+  - b4187ce3-19ec-4f9b-9860-34291b45e196
+  rect:
+    serializedVersion: 2
+    x: 1566
+    y: 187
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-5014331423524264242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: b4187ce3-19ec-4f9b-9860-34291b45e196
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Agente usted es un sinverjuenza multe ya este bartender
+  children:
+  - 1e494664-fbfe-4fd7-87be-a310596dde17
+  rect:
+    serializedVersion: 2
+    x: 1812
+    y: 187
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-876075281002879235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1e494664-fbfe-4fd7-87be-a310596dde17
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Que te cay\xEA que ne\xE7e\xE7ito argo pa beb\xEAh d\xEAppu\xEAh del entrec\xF4h
+    que me e car\xE7ao, Que te cay\xEA que ne\xE7e\xE7ito argo pa beb\xEAh d\xEAppu\xEAh
+    del entrec\xF4h que me e car\xE7ao, benga a trabah\xE2h"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 2062
+    y: 187
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Father-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 3300558856452652149}
+  - {fileID: 9081674174188272628}
+  - {fileID: 7789671609260690016}
+  - {fileID: 256417187583107922}
+  - {fileID: 3086969548637755634}
+  - {fileID: 7760461956733045659}
+  - {fileID: -8146503910769793318}
+  - {fileID: -5014331423524264242}
+  - {fileID: -876075281002879235}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &256417187583107922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d7ae09dd-1616-4e96-98cf-643b883dec0e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Ya pude ayudarte b\xE2ttante con er moro pero poco puedo a\xE7\xEAh con
+    er padre \xEAtte"
+  children:
+  - 06ecf71c-fbe4-40b0-a179-516d366c658e
+  rect:
+    serializedVersion: 2
+    x: 818
+    y: 188
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3086969548637755634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 06ecf71c-fbe4-40b0-a179-516d366c658e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Benga igu\xE2h que ar moro \xE2mme un Whiskey Sour y te lo are b\xEEtta
+    gorda"
+  children:
+  - 6d52e144-1895-48df-b5b1-5fa2cfa95cf8
+  rect:
+    serializedVersion: 2
+    x: 1068
+    y: 188
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3300558856452652149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: bb79f5da-755d-40a7-a9e0-bb978619b6f3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Eres el due\xF1o de este bar no?"
+  children:
+  - cb2c0cf9-b0b9-4d0b-943b-fd045aef26c9
+  rect:
+    serializedVersion: 2
+    x: 69
+    y: 187
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7760461956733045659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6d52e144-1895-48df-b5b1-5fa2cfa95cf8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Pero que co\xF1o haces quieres multar ahora mismo a este indecente"
+  children:
+  - 971aff4e-7bc6-419d-97a4-ed07736cf30e
+  rect:
+    serializedVersion: 2
+    x: 1316
+    y: 187
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7789671609260690016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: e16a2b1d-f74a-4c35-9056-3d3911753759
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "iyo, \xBFcomo b\xE2?, \xF4ttia puta que \xEAh tu ter\xE7\xEAh d\xEDa y ya
+    \xE2hs intentao agred\xEAh a un ni\xF1o"
+  children:
+  - d7ae09dd-1616-4e96-98cf-643b883dec0e
+  rect:
+    serializedVersion: 2
+    x: 569
+    y: 187
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &9081674174188272628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: cb2c0cf9-b0b9-4d0b-943b-fd045aef26c9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Me ha contado mi hijo sobre lo ocurrido hace un rato y he dedicido llamar
+    a la polic...
+  children:
+  - e16a2b1d-f74a-4c35-9056-3d3911753759
+  rect:
+    serializedVersion: 2
+    x: 319
+    y: 187
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
