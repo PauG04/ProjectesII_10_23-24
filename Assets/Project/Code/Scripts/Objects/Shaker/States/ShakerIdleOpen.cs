@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
 {
@@ -117,7 +116,10 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
                 Mathf.Lerp(_shakerStateMachine.transform.localPosition.x, _initPosition.x, Time.deltaTime * velocityX),
                 _shakerStateMachine.transform.localPosition.y
             );
-            _shakerStateMachine.GetComponent<Collider2D>().enabled = false;
+
+            if (!_shakerStateMachine.GetIsInTutorial())
+                _shakerStateMachine.GetComponent<Collider2D>().enabled = false;
+
             if (_shakerStateMachine.transform.localPosition.x > _initPosition.x - 0.002 && _shakerStateMachine.transform.localPosition.x < _initPosition.x + 0.002)
             {
                 _shakerStateMachine.transform.localPosition = new Vector2(
@@ -127,7 +129,8 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
 
                 if (_shakerStateMachine.transform.localPosition.y > _initPosition.y - 0.002 && _shakerStateMachine.transform.localPosition.y < _initPosition.y + 0.002)
                 {
-                    _shakerStateMachine.GetComponent<Collider2D>().enabled = true;
+                    if (!_shakerStateMachine.GetIsInTutorial())
+                        _shakerStateMachine.GetComponent<Collider2D>().enabled = true;
                 }
             }
         }

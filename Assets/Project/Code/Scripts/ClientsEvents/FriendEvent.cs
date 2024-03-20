@@ -99,6 +99,8 @@ public class FriendEvent : MonoBehaviour
 
         }
         shakerDrag.enabled = false;
+        shakerDrag.GetComponent<ShakerStateMachine>().SetIsInTutorial(true);
+
         shakerOrderingLayerDrag = shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder;
 
         initOrderingLayerFridge = fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder;
@@ -152,6 +154,7 @@ public class FriendEvent : MonoBehaviour
                 if (!drag[i].enabled)
                 {
                     drag[i].enabled = true;
+                    drag[i].GetComponent<DragItems>().SetIsInTutorial(false);
                 }
             }
             enabled = false;

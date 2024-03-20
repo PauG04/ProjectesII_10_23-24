@@ -362,7 +362,8 @@ public class DragItems : MonoBehaviour
                 target.localPosition.y
             );
 
-            itemCollider.enabled = false;
+            if (!isInTutorial)
+                itemCollider.enabled = false;
 
             if (target.localPosition.x > initPosition.x - 0.002 && target.localPosition.x < initPosition.x + 0.002)
             {
@@ -373,7 +374,9 @@ public class DragItems : MonoBehaviour
 
                 if (target.localPosition.y > initPosition.y - 0.002 && target.localPosition.y < initPosition.y + 0.002)
                 {
-                    itemCollider.enabled = true;
+                    if (!isInTutorial)
+                        itemCollider.enabled = true;
+
                     if (hasToBeDestroy)
                     {
                         Destroy(gameObject);
