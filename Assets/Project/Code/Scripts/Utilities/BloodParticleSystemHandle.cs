@@ -32,17 +32,13 @@ public class BloodParticleSystemHandle : MonoBehaviour
 
     public void SpawnBlood(Vector3 position, Vector3 direction)
     {
-        float bloodParticleCount = 3;
+        float bloodParticleCount = 5;
         for (int i = 0; i < bloodParticleCount; i++)
         {
             singleList.Add(new Single(position, Quaternion.Euler(0, 0, Random.Range(-15f, 15f)) * direction, meshParticleSystem));
         }
     }
 
-
-    /*
-     * Represents a single Dirt Particle
-     * */
     private class Single
     {
 
@@ -61,9 +57,9 @@ public class BloodParticleSystemHandle : MonoBehaviour
             this.direction = direction;
             this.meshParticleSystem = meshParticleSystem;
 
-            quadSize = new Vector3(2.5f, 2.5f);
-            rotation = Random.Range(0, 360f);
-            moveSpeed = Random.Range(50f, 70f);
+            quadSize = new Vector3(0.5f, 0.5f);
+            rotation = Random.Range(0, 90f);
+            moveSpeed = Random.Range(2f, 15f);
             uvIndex = Random.Range(0, 8);
 
             quadIndex = meshParticleSystem.AddQuad(position, rotation, quadSize, false, uvIndex);
@@ -72,19 +68,16 @@ public class BloodParticleSystemHandle : MonoBehaviour
         public void Update()
         {
             position += direction * moveSpeed * Time.deltaTime;
-            rotation += 360f * (moveSpeed / 10f) * Time.deltaTime;
+            rotation += 360f * (moveSpeed / 5f) * Time.deltaTime;
 
             meshParticleSystem.UpdateQuad(quadIndex, position, rotation, quadSize, false, uvIndex);
 
-            float slowDownFactor = 3.5f;
+            float slowDownFactor = 3f;
             moveSpeed -= moveSpeed * slowDownFactor * Time.deltaTime;
         }
         public bool IsParticleComplete()
         {
             return moveSpeed < .1f;
         }
-        
-
-
     }
 }

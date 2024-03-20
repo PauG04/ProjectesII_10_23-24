@@ -48,7 +48,7 @@ public class Client : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
 
-        boxCollider.enabled = false;
+        //boxCollider.enabled = false;
         arriveAnimation = false;
         leaveAnimation = false;
         startTimer = false;
@@ -125,13 +125,17 @@ public class Client : MonoBehaviour
     {
         if (collision.CompareTag("Hammer") && !startTimer && clientNode.canBeHitted)
         {
+            BloodParticleSystemHandle.Instance.SpawnBlood(collision.transform.position, Vector3.down);
+
             hitted = true;
             currentsHits++;
             AudioManager.instance.PlaySFX("ClientHit");
 
             clientNode.RandomizeHitReaction();
+
             if(clientNode.totalHits <= 1)
                 conversant.SetDialogue(clientNode.hitReaction);
+
             conversant.HandleDialogue();
 
 
@@ -322,7 +326,7 @@ public class Client : MonoBehaviour
 
     private void EnableCollider()
     {
-        Debug.Log("acitve collision");
+        Debug.Log("Active Collision");
         boxCollider.enabled = true;
     }
 
