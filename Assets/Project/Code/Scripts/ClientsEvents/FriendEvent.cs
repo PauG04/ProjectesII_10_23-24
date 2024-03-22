@@ -141,7 +141,7 @@ public class FriendEvent : MonoBehaviour
         {
             clientObject.GetComponent<BoxCollider2D>().enabled = false;
         }
-        else
+        else if (tutorialBooleans[15])
         {
             clientObject.GetComponent<BoxCollider2D>().enabled = true;
 
@@ -165,10 +165,6 @@ public class FriendEvent : MonoBehaviour
     {
         for (int i = 0; i < drag.Count; i++)
         {
-            if (drag[i].enabled && drag[i].gameObject.GetComponent<DragItems>().GetIsInTutorial())
-            {
-                drag[i].enabled = false;
-            }
             if (!drag[i].enabled && drag[i] != null)
             {
                 if (drag[i].gameObject.GetComponent<Rigidbody2D>() != null)
@@ -310,14 +306,14 @@ public class FriendEvent : MonoBehaviour
         {
             ActiveDragItem(2, 13);
         }
-        else if (glassLiquid != null && glassLiquid.GetComponent<LiquidManager>().GetCurrentLiquid() >= glassLiquid.GetComponent<LiquidManager>().GetMaxLiquid() * 0.75f && tutorialBooleans[14])
+        else if (glassLiquid != null && glassLiquid.GetComponent<LiquidManager>().GetCurrentLiquid() >= glassLiquid.GetComponent<LiquidManager>().GetMaxLiquid() / 1.25f && tutorialBooleans[14])
         {
             if (playerConversant.HasNext())
             {
                 playerConversant.Next();
+                tutorialBooleans[14] = true;
+                tutorialBooleans[15] = true;
             }
-            tutorialBooleans[14] = false;
-
         }
     }
 
@@ -329,7 +325,6 @@ public class FriendEvent : MonoBehaviour
         if (!drag[_index].enabled)
         {
             drag[_index].enabled = true;
-           
             isGrowing = true;
         }
 
@@ -384,11 +379,11 @@ public class FriendEvent : MonoBehaviour
         if (shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetCurrentState().StateKey == ShakerState.DraggingOpen)
         {
             panel.SetActive(false);
-            shakerDrag.gameObject.transform.localScale = Vector3.one;
 
             shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = shakerOrderingLayerDrag;
             shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingLayerName = "Default";
-            if(shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetIsInWorkSpace())
+            shakerDrag.gameObject.transform.GetChild(1).transform.localScale = Vector3.one;
+            if (shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetIsInWorkSpace())
             {
                 tutorialBooleans[boolIndex] = false;
                 tutorialBooleans[boolIndex + 1] = true;
@@ -397,6 +392,7 @@ public class FriendEvent : MonoBehaviour
                     playerConversant.Next();
                 }
                 button.Active();
+
             }
 
         }
@@ -492,21 +488,22 @@ public class FriendEvent : MonoBehaviour
     }
     private void LerpSacele(Vector3 maxScale, Vector3 minScale, GameObject _object)
     {
-        if (isGrowing)
-        {
-            _object.transform.localScale = Vector3.Lerp(_object.transform.localScale, maxScale, velocity * Time.deltaTime);
-            if (_object.transform.localScale.x >= maxScale.x - 0.01)
-            {
-                isGrowing = false;
-            }
-        }
-        else
+        if (!isGrowing)
         {
             _object.transform.localScale = Vector3.Lerp(_object.transform.localScale, minScale, velocity * Time.deltaTime);
-            if (_object.transform.localScale.x <= minScale.x + 0.01)
+            if (_object.transform.localScale.x <= minScale.x + 0.02)
             {
                 isGrowing = true;
             }
+        }
+        else if (isGrowing)
+        {
+            _object.transform.localScale = Vector3.Lerp(_object.transform.localScale, maxScale, velocity * Time.deltaTime);
+            if (_object.transform.localScale.x >= maxScale.x - 0.02)
+            {
+                isGrowing = false;
+            }
+
         }
     }
 

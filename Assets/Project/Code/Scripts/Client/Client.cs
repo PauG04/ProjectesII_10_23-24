@@ -141,7 +141,7 @@ public class Client : MonoBehaviour
     {
         if (collision.CompareTag("Hammer") && !startTimer && clientNode.canBeHitted)
         {
-            BloodParticleSystemHandle.Instance.SpawnBlood(collision.transform.position, Vector3.down);
+            //BloodParticleSystemHandle.Instance.SpawnBlood(collision.transform.position, Vector3.down);
 
             hitted = true;
             currentsHits++;
