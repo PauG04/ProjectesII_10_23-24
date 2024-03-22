@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Policia-4
   m_EditorClassIdentifier: 
   clientName: 
-  sprite: {fileID: 21300000, guid: 9322d3da174db6e4f88f8f0bb8977706, type: 3}
+  sprite: {fileID: 21300000, guid: 665aeaba767b1394d9d195ca20b690c5, type: 3}
   hitToGo: 0
   totalHits: 0
   canBeHitted: 1
@@ -23,9 +23,11 @@ MonoBehaviour:
   dontCareGlass: 0
   careIces: 0
   cuantityOfIce: 0
-  DontPay: 0
-  HasMoraDialoguesPostOrder: 0
+  dontPay: 0
+  hasMoraDialoguesPostOrder: 0
   invisible: 0
+  onlyOneChance: 0
+  payAfterHit: 0
   possibleOrders:
   - {fileID: 11400000, guid: 594d9070d8ebee3458bae5d19cbca84e, type: 2}
   dialogues:
@@ -39,7 +41,7 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: 998ec0b2333d7604ca3a4d9fe38df84e, type: 2}
   goodReaction: {fileID: 11400000, guid: 381910b99e9c5834ab6f5cda2940742f, type: 2}
   badReaction: {fileID: 11400000, guid: 17231ed852a645947a0e39839246bd04, type: 2}
-  hitReaction: {fileID: 11400000, guid: 59218ebce8acf034198fbbd329649f88, type: 2}
+  hitReaction: {fileID: 11400000, guid: d79133c13cc382c44b1743a6fed75d21, type: 2}
   badGlassReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   noIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   muchIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}

@@ -141,7 +141,10 @@ public class Client : MonoBehaviour
     {
         if (collision.CompareTag("Hammer") && !startTimer && clientNode.canBeHitted)
         {
-            //BloodParticleSystemHandle.Instance.SpawnBlood(collision.transform.position, Vector3.down);
+            if(clientNode.payAfterHit)
+            {
+                Pay();
+            }
 
             hitted = true;
             currentsHits++;
@@ -262,7 +265,7 @@ public class Client : MonoBehaviour
             {
                 conversant.SetDialogue(clientNode.badIngredientsReaction);
                 conversant.HandleDialogue();
-                if (clientNode.OnlyOneChance)
+                if (clientNode.onlyOneChance)
                 {
                     badReacted = true;
                     startTimer = true;
@@ -282,11 +285,11 @@ public class Client : MonoBehaviour
         else
             conversant.SetDialogue(clientNode.badReaction);
         conversant.HandleDialogue();
-        if(!clientNode.DontPay)
+        if(!clientNode.dontPay)
         {
             Pay();
         }
-        if(!clientNode.HasMoraDialoguesPostOrder)
+        if(!clientNode.hasMoraDialoguesPostOrder)
         {
             startTimer = true;
         }       
@@ -299,7 +302,7 @@ public class Client : MonoBehaviour
         clientNode.RandomizeBadReaction();
         conversant.SetDialogue(clientNode.badReaction);
         conversant.HandleDialogue();
-        if (clientNode.OnlyOneChance)
+        if (clientNode.onlyOneChance)
         {
             badReacted = true;
             startTimer = true;
