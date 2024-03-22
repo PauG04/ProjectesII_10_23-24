@@ -41,7 +41,7 @@ public class OrderPanel : MonoBehaviour
     private void SetInformation()
     {
         cocktail = ClientManager.instance.GetCurrentClientScript().GetOrder();
-        if (cocktail != null && ClientManager.instance.GetClient().acceptsAll && !ClientManager.instance.GetClient().DontPay)
+        if (cocktail != null && ClientManager.instance.GetClient().acceptsAll && !ClientManager.instance.GetClient().dontPay)
         {
             textMesh.text = "?";
         }
