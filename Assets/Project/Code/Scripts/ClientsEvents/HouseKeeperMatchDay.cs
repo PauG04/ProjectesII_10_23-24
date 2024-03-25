@@ -12,6 +12,7 @@ public class HouseKeeperMatchDay : MonoBehaviour
     [SerializeField] private List<ClientNode> catalonia;   
     [SerializeField] private List<Dialogue.Dialogue> dialogues;
     [SerializeField] private float money;
+    [SerializeField] private bool canSkip;
 
     private ClientNode client;
     private GameObject clientObject;
@@ -58,7 +59,7 @@ public class HouseKeeperMatchDay : MonoBehaviour
             }
         }
 
-        if(served && !clientObject.GetComponent<Client>().GetWellReacted())
+        if(served && !clientObject.GetComponent<Client>().GetWellReacted() && canSkip)
         {
             SkipCatalonians();
         }
@@ -80,5 +81,10 @@ public class HouseKeeperMatchDay : MonoBehaviour
     public void TakeMoney()
     {
         EconomyManager.instance.SetMoneyChanged(money);
+    }
+
+    public bool GetIsServed()
+    {
+        return served;
     }
 }

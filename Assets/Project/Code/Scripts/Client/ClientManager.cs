@@ -124,4 +124,10 @@ public class ClientManager : MonoBehaviour
     {
         currentDayClients.Insert(position, client);
     }
+
+    public void PassClient()
+    {
+        Destroy(currentClient);
+        CreateClient();
+    }
 }
