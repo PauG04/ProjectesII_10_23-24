@@ -2071,6 +2071,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tonic
       objectReference: {fileID: 0}
+    - target: {fileID: 8819774920043758160, guid: 2e641f3e2be8d0449a5c5340c6fd5aa7, type: 3}
+      propertyPath: _rotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3704022571659701557, guid: 2e641f3e2be8d0449a5c5340c6fd5aa7, type: 3}
     m_RemovedGameObjects: []
@@ -3052,6 +3056,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gin
       objectReference: {fileID: 0}
+    - target: {fileID: 8819774920043758160, guid: 75fa7ffa080dadb429f0663d1eded128, type: 3}
+      propertyPath: _rotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3596171303357732467, guid: 75fa7ffa080dadb429f0663d1eded128, type: 3}
     m_RemovedGameObjects: []
@@ -3655,6 +3663,10 @@ PrefabInstance:
     - target: {fileID: 6918459718600216018, guid: 047ca54583087fe40abc80f5a76e04c4, type: 3}
       propertyPath: m_Name
       value: Wine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819774920043758160, guid: 047ca54583087fe40abc80f5a76e04c4, type: 3}
+      propertyPath: _rotationSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1712364000999750610, guid: 047ca54583087fe40abc80f5a76e04c4, type: 3}
@@ -4817,6 +4829,9 @@ MonoBehaviour:
   - {fileID: 1921790730, guid: 6b32af6f317b33445a38da6863c5eebc, type: 3}
   - {fileID: -879259936, guid: 6b32af6f317b33445a38da6863c5eebc, type: 3}
   lampSprite: {fileID: 1222659309}
+  volume: {fileID: 412588034}
+  colorAdjustments: {fileID: 0}
+  vignette: {fileID: 0}
 --- !u!212 &596019220
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6243,7 +6258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674035676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.008, y: 0.464, z: -0.1}
+  m_LocalPosition: {x: -0.008, y: 0.452, z: -0.1}
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9861,6 +9876,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cola
       objectReference: {fileID: 0}
+    - target: {fileID: 8819774920043758160, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
+      propertyPath: _rotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3200151794808772386, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
     m_RemovedGameObjects: []
@@ -10365,6 +10384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Whiskey
       objectReference: {fileID: 0}
+    - target: {fileID: 8819774920043758160, guid: a9fd505246f7f424395ac980cefb79d7, type: 3}
+      propertyPath: _rotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5970614444727062307, guid: a9fd505246f7f424395ac980cefb79d7, type: 3}
     m_RemovedGameObjects: []
@@ -10392,7 +10415,7 @@ GameObject:
   - component: {fileID: 1300070000}
   - component: {fileID: 1300070001}
   - component: {fileID: 1300070002}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: LiquidManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12838,6 +12861,10 @@ PrefabInstance:
     - target: {fileID: 6918459718600216018, guid: 5a9df1a44eb5b7c47af9c4042238b7e7, type: 3}
       propertyPath: m_Name
       value: Lemon Juice
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819774920043758160, guid: 5a9df1a44eb5b7c47af9c4042238b7e7, type: 3}
+      propertyPath: _rotationSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8461314987947733656, guid: 5a9df1a44eb5b7c47af9c4042238b7e7, type: 3}
@@ -15720,7 +15747,7 @@ MonoBehaviour:
   verticalSpeed: 10
   hasToBeDestroy: 0
   hasToReturn: 1
-  hasToStayTheSameLayer: 0
+  hasToStayTheSameLayer: 1
   changeSpriteMask: 1
   moveParent: 0
   dragWithWorkspaceSprite: 1
@@ -18099,7 +18126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: currentDay
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.size
@@ -18400,6 +18427,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 374408268}
     m_Modifications:
+    - target: {fileID: 447041812053681366, guid: e62aa46430d703148b74596e1625563a, type: 3}
+      propertyPath: _rotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1224262507033873596, guid: e62aa46430d703148b74596e1625563a, type: 3}
       propertyPath: spawnSpeed
       value: 2.8
@@ -18801,6 +18832,10 @@ PrefabInstance:
     - target: {fileID: 6918459718600216018, guid: dc23a707e3f11fd48815094dd7c992c6, type: 3}
       propertyPath: m_Name
       value: Vodka
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819774920043758160, guid: dc23a707e3f11fd48815094dd7c992c6, type: 3}
+      propertyPath: _rotationSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1292639578628394485, guid: dc23a707e3f11fd48815094dd7c992c6, type: 3}
@@ -19213,6 +19248,10 @@ PrefabInstance:
       propertyPath: spawnSpeed
       value: 2.8
       objectReference: {fileID: 0}
+    - target: {fileID: 4975549752326105575, guid: da78a67f455f0b74596453ea555794e8, type: 3}
+      propertyPath: _rotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5455300107542207505, guid: da78a67f455f0b74596453ea555794e8, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -19527,6 +19566,10 @@ PrefabInstance:
     - target: {fileID: 6918459718600216018, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
       propertyPath: m_Name
       value: Soda
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819774920043758160, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
+      propertyPath: _rotationSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3210885769510727825, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}

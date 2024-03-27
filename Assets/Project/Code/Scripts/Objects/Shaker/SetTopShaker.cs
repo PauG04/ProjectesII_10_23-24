@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class SetTopShaker : MonoBehaviour
 {
@@ -36,9 +37,14 @@ public class SetTopShaker : MonoBehaviour
             }
             else
             {
+                GetComponent<Collider2D>().enabled = false;
                 target.transform.position = transform.position;
                 target.transform.rotation = transform.parent.rotation;
             }
+        }
+        if (target.GetIsDraggin())
+        {
+            GetComponent<Collider2D>().enabled = true;
         }
 
         if (shaker.GetCurrentState().StateKey == ShakerStateMachine.ShakerState.DraggingClosed)
@@ -108,6 +114,7 @@ public class SetTopShaker : MonoBehaviour
     public void SetStayClosed(bool stayClosed)
     {
         this.stayClosed = stayClosed;
+        target.GetComponent<Collider2D>().enabled = !stayClosed;
         target.SetHasToReturn(!stayClosed);
     }
 }

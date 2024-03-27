@@ -2,7 +2,8 @@ using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class Lamps : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class Lamps : MonoBehaviour
 
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private SpriteRenderer lampSprite;
+
+    [Header("Post Processing")]
+    [SerializeField] private Volume volume;
+    [SerializeField] private ColorAdjustments colorAdjustments;
+    [SerializeField] private Vignette vignette;
+
     private bool onLamp;
     private bool firsTime = false;
     private bool triggerSetted = false;
@@ -27,6 +34,11 @@ public class Lamps : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().sprite = sprites[0];
         lampSprite.sprite = sprites[1];
+
+        volume.profile.TryGet(out colorAdjustments);
+        volume.profile.TryGet(out vignette);
+        ActiveLights(false);
+
     }
 
     private void Update()
@@ -66,8 +78,10 @@ public class Lamps : MonoBehaviour
         if(GetComponent<BoxCollider2D>().enabled)
         {
             onLamp = !onLamp;
+            ActiveLights(onLamp);
             if (onLamp)
             {
+                
                 GetComponent<SpriteRenderer>().sprite = sprites[2];
                 lampSprite.sprite = sprites[3];
 
@@ -86,6 +100,12 @@ public class Lamps : MonoBehaviour
 
 
         }
+    }
+
+    private void ActiveLights(bool value)
+    {
+        vignette.active = value;
+        colorAdjustments.active = value;
     }
 
     private void ActiveCollider()
