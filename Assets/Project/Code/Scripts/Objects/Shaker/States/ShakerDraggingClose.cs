@@ -11,7 +11,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
     private Vector2 _newPosition;
 
-    private float _maxAngle = 0.1f;
+    private float _maxAngle = 0.05f;
     private float _progress;
     private float _maxProgress;
     private float _divideProgress;
@@ -22,7 +22,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private LiquidManager _liquidManager;
     private SpriteRenderer _spriteRenderer;
 
-    //private ProgressSlider _slider;
     private Slider _progressSlider;
     private Image _color;
     private Image _background;

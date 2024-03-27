@@ -36,9 +36,14 @@ public class SetTopShaker : MonoBehaviour
             }
             else
             {
+                GetComponent<Collider2D>().enabled = false;
                 target.transform.position = transform.position;
                 target.transform.rotation = transform.parent.rotation;
             }
+        }
+        if (target.GetIsDraggin())
+        {
+            GetComponent<Collider2D>().enabled = true;
         }
 
         if (shaker.GetCurrentState().StateKey == ShakerStateMachine.ShakerState.DraggingClosed)
