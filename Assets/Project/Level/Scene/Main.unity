@@ -6243,7 +6243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674035676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.008, y: 0.464, z: -0.1}
+  m_LocalPosition: {x: -0.008, y: 0.452, z: -0.1}
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15720,7 +15720,7 @@ MonoBehaviour:
   verticalSpeed: 10
   hasToBeDestroy: 0
   hasToReturn: 1
-  hasToStayTheSameLayer: 0
+  hasToStayTheSameLayer: 1
   changeSpriteMask: 1
   moveParent: 0
   dragWithWorkspaceSprite: 1
@@ -18099,7 +18099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: currentDay
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.size
