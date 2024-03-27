@@ -21,11 +21,6 @@ namespace UI
 
 		[Space(10)]	
 		[SerializeField] private float timerDelay = 2.0f;
-
-		private Coroutine coroutineRunning;
-
-		private bool isSeparatorRunning;
-
         private void Start()
 		{
 		    playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
@@ -38,24 +33,14 @@ namespace UI
 		{
 			if (playerConversant.IsActive())
 			{
-				if (!playerConversant.GetTextIsRunning())
+                playerConversant.SetIsTextDone(false);
+                TypeWriterEffect.CompleteTextRevealed -= WriteText;
+
+                if (playerConversant.HasNext() && !playerConversant.IsChoosing())
 				{
-                    playerConversant.SetIsTextDone(false);
-                    TypeWriterEffect.CompleteTextRevealed -= WriteText;
-                }
-                if (playerConversant.HasNext() && !playerConversant.IsChoosing() && !playerConversant.GetTextIsRunning())
-				{
-					if (coroutineRunning != null)
-					{
-                        StopCoroutine(SeparatorDelay());
-						isSeparatorRunning = false;
-                    }
 					TypeWriterEffect.CompleteTextRevealed += WriteText;
-                }
-                else if ((playerConversant.IsChoosing() || !playerConversant.HasNext()) && !isSeparatorRunning)
-				{
                     playerConversant.SetIsTextDone(true);
-                    //coroutineRunning = StartCoroutine(SeparatorDelay());
+
                 }
             }
 
@@ -67,7 +52,7 @@ namespace UI
 		private void WriteText()
 		{
             playerConversant.SetIsTextDone(true);
-            coroutineRunning = StartCoroutine(playerConversant.WriteTextWithDelay());
+            playerConversant.WriteText();
         }
         private void UpdateChat()
 		{
@@ -125,13 +110,6 @@ namespace UI
 				Destroy(item.gameObject);
 			}
 		}
-        private IEnumerator SeparatorDelay()
-        {
-            isSeparatorRunning = true;
-            yield return new WaitForSeconds(timerDelay);
-            Instantiate(separator, bubbleRoot);
-            isSeparatorRunning = false;
-        }
         protected void OnDestroy()
 		{
 			playerConversant.onConversationUpdated -= UpdateChat;
