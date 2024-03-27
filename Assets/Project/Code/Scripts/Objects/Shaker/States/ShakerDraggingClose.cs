@@ -59,11 +59,9 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _state = ShakerStateMachine.ShakerState.DraggingClosed;
 
         _targetJoint = _shakerStateMachine.GetComponent<TargetJoint2D>();
-       
+        _rb = _shakerStateMachine.GetComponent<Rigidbody2D>();
 
         _targetJoint.enabled = true;
-
-        _rb = _shakerStateMachine.GetComponent<Rigidbody2D>();
 
         _newPosition = _shakerStateMachine.transform.position;
 
@@ -82,7 +80,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     public override void ExitState()
     {
         _shakerStateMachine.GetComponent<Collider2D>().enabled = true;
-
     }
     public override ShakerStateMachine.ShakerState GetNextState()
     {
@@ -104,6 +101,8 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _targetJoint.target = mousePosition;
 
         _rb.SetRotation(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
+
+        Debug.Log(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
 
         if (_liquidManager.GetCurrentLiquid() > 0)
             Shaking();

@@ -119,6 +119,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
                 if (rigidbody2D != null)
                 {
                     _shakerClosed.SetStayClosed(true);
+
                     _state = ShakerStateMachine.ShakerState.DraggingClosed;
                 }
             }
