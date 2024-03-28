@@ -28,22 +28,23 @@ MonoBehaviour:
   invisible: 0
   onlyOneChance: 0
   payAfterHit: 0
+  wantDrug: 1
   possibleOrders:
-  - {fileID: 11400000, guid: 594d9070d8ebee3458bae5d19cbca84e, type: 2}
+  - {fileID: 11400000, guid: be9cdb9c8fafca440a67b758005a4dc9, type: 2}
   dialogues:
-  - {fileID: 11400000, guid: 998ec0b2333d7604ca3a4d9fe38df84e, type: 2}
+  - {fileID: 11400000, guid: 310a2b766dd85df4e8573e800cb6e290, type: 2}
   goodReactions:
-  - {fileID: 11400000, guid: 381910b99e9c5834ab6f5cda2940742f, type: 2}
+  - {fileID: 11400000, guid: 68c8ae91f8610784cae485e11403ace7, type: 2}
   badReactions:
-  - {fileID: 11400000, guid: 17231ed852a645947a0e39839246bd04, type: 2}
+  - {fileID: 11400000, guid: e180acf8cb3ca654392e9e4de2756901, type: 2}
   hitReactions:
-  - {fileID: 11400000, guid: d79133c13cc382c44b1743a6fed75d21, type: 2}
-  dialogue: {fileID: 11400000, guid: 998ec0b2333d7604ca3a4d9fe38df84e, type: 2}
-  goodReaction: {fileID: 11400000, guid: 381910b99e9c5834ab6f5cda2940742f, type: 2}
-  badReaction: {fileID: 11400000, guid: 17231ed852a645947a0e39839246bd04, type: 2}
-  hitReaction: {fileID: 11400000, guid: d79133c13cc382c44b1743a6fed75d21, type: 2}
-  badGlassReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
-  noIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
-  muchIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
-  badStateReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
-  badIngredientsReaction: {fileID: 11400000, guid: 17231ed852a645947a0e39839246bd04, type: 2}
+  - {fileID: 11400000, guid: 20b269feaa91b2741addeb7a3fd634a8, type: 2}
+  dialogue: {fileID: 11400000, guid: 310a2b766dd85df4e8573e800cb6e290, type: 2}
+  goodReaction: {fileID: 11400000, guid: 68c8ae91f8610784cae485e11403ace7, type: 2}
+  badReaction: {fileID: 11400000, guid: e180acf8cb3ca654392e9e4de2756901, type: 2}
+  hitReaction: {fileID: 11400000, guid: 20b269feaa91b2741addeb7a3fd634a8, type: 2}
+  badGlassReaction: {fileID: 11400000, guid: e5ebf48a5d6956245aa776673ce3d209, type: 2}
+  noIceReaction: {fileID: 11400000, guid: 783cade83ad46b344bb9dc7d6544517a, type: 2}
+  muchIceReaction: {fileID: 11400000, guid: 783cade83ad46b344bb9dc7d6544517a, type: 2}
+  badStateReaction: {fileID: 11400000, guid: 546fafd407e2a504e90e2a7b080ff3e8, type: 2}
+  badIngredientsReaction: {fileID: 11400000, guid: e180acf8cb3ca654392e9e4de2756901, type: 2}

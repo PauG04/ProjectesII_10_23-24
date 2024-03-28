@@ -1,0 +1,197 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5060628294044472413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 2c8f8d36-331d-46a9-933c-e14800fe618d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "A menos que est\xE9 yo para comerte antes amorcito "
+  children:
+  - 92c54e44-014f-43f9-a7be-d519b9c0dbe9
+  rect:
+    serializedVersion: 2
+    x: 787
+    y: 83
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4031720960835383856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: fc6880a3-50bb-4cd1-b3e9-143e6a4144fd
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Que hace un peque\xF1o conejito como tu en esta tierra llena de leones "
+  children:
+  - 07ddd20c-35ea-4966-ac10-1261701c62dc
+  rect:
+    serializedVersion: 2
+    x: 291
+    y: 81
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Homo-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 5319511098313554784}
+  - {fileID: -4031720960835383856}
+  - {fileID: 9013920203205535141}
+  - {fileID: -5060628294044472413}
+  - {fileID: 8462043942359632663}
+  - {fileID: 7662531460892852586}
+  - {fileID: 67979139264244559}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &67979139264244559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 3cb1fb62-5489-46eb-893a-88cfd2a27785
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Ponme una Agua de Palencia mi reina
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1537
+    y: 82
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &5319511098313554784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 8a1b5e2b-f819-4da1-abdc-df1f0c913023
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Hola Terroncito de az\xFAcar "
+  children:
+  - fc6880a3-50bb-4cd1-b3e9-143e6a4144fd
+  rect:
+    serializedVersion: 2
+    x: 41
+    y: 81
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7662531460892852586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 9b9ab35b-21bc-4a13-95bf-ff2467972285
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Vamos a intentar estrechar m\xE1s nuestra relaci\xF3n pidiendote algo "
+  children:
+  - 3cb1fb62-5489-46eb-893a-88cfd2a27785
+  rect:
+    serializedVersion: 2
+    x: 1287
+    y: 83
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8462043942359632663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 92c54e44-014f-43f9-a7be-d519b9c0dbe9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 'Porque pones esa cara tan rara mi sol, no ves que solo intento ayudarte '
+  children:
+  - 9b9ab35b-21bc-4a13-95bf-ff2467972285
+  rect:
+    serializedVersion: 2
+    x: 1036
+    y: 83
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &9013920203205535141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 07ddd20c-35ea-4966-ac10-1261701c62dc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 'No ves que como te distraigas un momento te van a comer '
+  children:
+  - 2c8f8d36-331d-46a9-933c-e14800fe618d
+  rect:
+    serializedVersion: 2
+    x: 537
+    y: 83
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

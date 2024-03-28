@@ -23,6 +23,7 @@ public class ClientNode : ScriptableObject
     public bool invisible;
     public bool onlyOneChance;
     public bool payAfterHit;
+    public bool wantDrug;
     public List<CocktailNode> possibleOrders;
 
     public List<Dialogue.Dialogue> dialogues;

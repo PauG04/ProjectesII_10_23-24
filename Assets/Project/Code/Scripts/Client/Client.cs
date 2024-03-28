@@ -97,9 +97,7 @@ public class Client : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Cocktail") && CursorManager.instance.IsMouseUp() && !clientNode.notNeedTakeDrink)
-        {
-            
-
+        {          
             LiquidManager liquidManagerResult = collision.GetComponentInChildren<LiquidManager>();
 
             string findError = CalculateDrink.instance.CalculateResultDrink(
@@ -204,6 +202,10 @@ public class Client : MonoBehaviour
                     ReactWell(true);
                 }
             }
+            else if (clientNode.wantDrug && !collision.GetComponentInChildren<InsideDecorations>().GetHasDrug())
+            { 
+                ReactBad();
+            }
             else
             {
                 ReactWell(true);
@@ -235,7 +237,7 @@ public class Client : MonoBehaviour
             {
                 conversant.SetDialogue(clientNode.noIceReaction);
                 conversant.HandleDialogue();
-            }      
+            }   
             else
                 ReactBad();
         }

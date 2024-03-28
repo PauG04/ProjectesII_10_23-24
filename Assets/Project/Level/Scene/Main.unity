@@ -657,6 +657,8 @@ GameObject:
   - component: {fileID: 92610331}
   - component: {fileID: 92610333}
   - component: {fileID: 92610334}
+  - component: {fileID: 92610335}
+  - component: {fileID: 92610336}
   - component: {fileID: 92610332}
   m_Layer: 0
   m_Name: ClientsEventsDay3
@@ -743,6 +745,40 @@ MonoBehaviour:
   eventClient: {fileID: 11400000, guid: 0040f660146ac2449b5f72d5a81907bb, type: 2}
   paint: {fileID: 6923419521999728149, guid: 27f982597ff917b40bae49d46d208cc0, type: 3}
   hasToTakeDrink: 0
+  father: {fileID: 34227585}
+--- !u!114 &92610335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92610330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdab7252db6b41b4eab4d89d1b6072b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientManager: {fileID: 1119733629}
+  eventClient: {fileID: 11400000, guid: 3c144137b316abb4ea77483f22cc34b4, type: 2}
+  dialogues:
+  - {fileID: 11400000, guid: 7474555d29f17844c97deaf62278fdca, type: 2}
+  - {fileID: 11400000, guid: bd36d242d34dec14d83a2fc0a4d80190, type: 2}
+  playerConversant: {fileID: 549211536}
+--- !u!114 &92610336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92610330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457870a228affef448e2f3e1a061eba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientManager: {fileID: 1119733629}
+  eventClient: {fileID: 11400000, guid: b2ee1ddec6e4dde44a1e412ba4a50114, type: 2}
+  paint: {fileID: 6682326790453067862, guid: 970a8cd41d376e44bb33cc8ca454bfef, type: 3}
   father: {fileID: 34227585}
 --- !u!1 &94600476
 GameObject:
@@ -4241,7 +4277,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &549211536
 MonoBehaviour:
@@ -5293,7 +5329,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &604636930
 MonoBehaviour:
@@ -5317,7 +5353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 607533090}
   - component: {fileID: 607533092}
-  m_Layer: 25
+  m_Layer: 26
   m_Name: MiniTableCollider
   m_TagString: MinTable
   m_Icon: {fileID: 0}
@@ -6919,7 +6955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1674142009875532083, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1674142009875532083, guid: ee3884358e3380347ae52b3c25bfa606, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9449,7 +9485,7 @@ MonoBehaviour:
   eventClient: {fileID: 11400000, guid: 0477b6454568c1643ac3f4a77a559ba2, type: 2}
   paint: {fileID: 5831510971539098891, guid: 9ea22c81cc9a6b646956fa558c456c6f, type: 3}
   hasToTakeDrink: 1
-  father: {fileID: 0}
+  father: {fileID: 34227585}
 --- !u!114 &1040827844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11812,6 +11848,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1775540736}
     m_Modifications:
+    - target: {fileID: 2781466219120792303, guid: 2e669ba81224ba340bd1fbc3b34a3aa3, type: 3}
+      propertyPath: drug
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a9629b665f38cf4c837845f80a19f7a, type: 2}
     - target: {fileID: 7500754934570956800, guid: 2e669ba81224ba340bd1fbc3b34a3aa3, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -18298,7 +18338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day5Clients.Array.size
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.data[0]
@@ -18435,11 +18475,31 @@ PrefabInstance:
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day5Clients.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: ccda883c237c56e44829e3f6df89b819, type: 2}
+      objectReference: {fileID: 11400000, guid: 0410e6f77755dd844ab30c18fc1e316f, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day5Clients.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 0410e6f77755dd844ab30c18fc1e316f, type: 2}
+      objectReference: {fileID: 11400000, guid: 0040f660146ac2449b5f72d5a81907bb, type: 2}
+    - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
+      propertyPath: day5Clients.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 57babc95d64b399428a57f00421e41e1, type: 2}
+    - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
+      propertyPath: day5Clients.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: d368e5fe41380f444943a461ec9c7fdf, type: 2}
+    - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
+      propertyPath: day5Clients.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: b2ee1ddec6e4dde44a1e412ba4a50114, type: 2}
+    - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
+      propertyPath: day5Clients.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: ccda883c237c56e44829e3f6df89b819, type: 2}
+    - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
+      propertyPath: day5Clients.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c144137b316abb4ea77483f22cc34b4, type: 2}
     - target: {fileID: 9163223455399009498, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: m_Name
       value: DayManager
