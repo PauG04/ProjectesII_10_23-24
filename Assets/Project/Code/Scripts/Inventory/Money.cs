@@ -35,12 +35,14 @@ public class Money : MonoBehaviour
 
     private void MoneyLerp()
     {
-        if(money > 0)
+        if (money > 0 && textMesh.color != Color.green)
         {
+            AudioManager.instance.PlaySFX("EarnMoney");
             textMesh.color = Color.green;
         }
-        else
+        else if (money < 0 && textMesh.color != Color.red)
         {
+            AudioManager.instance.PlaySFX("LoseMoney");
             textMesh.color = Color.red;
         }
 
