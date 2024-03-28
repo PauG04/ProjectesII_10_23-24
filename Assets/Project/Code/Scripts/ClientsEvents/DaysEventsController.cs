@@ -40,4 +40,9 @@ public class DaysEventsController : MonoBehaviour
                 break;
         }
     }
+
+    public void DesactiveLastDay()
+    {
+        events[4].SetActive(false);
+    }
 }

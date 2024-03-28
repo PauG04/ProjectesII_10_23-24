@@ -11,6 +11,7 @@ public class Lamps : MonoBehaviour
     [SerializeField] private ClientNode eventClient;
     [SerializeField] private PlayerConversant playerConversant;
     [SerializeField] private Dialogue.Dialogue dialogue;
+    [SerializeField] private DayManager dayManager;
 
     private ClientNode client;
     private GameObject clientObject;
@@ -53,7 +54,7 @@ public class Lamps : MonoBehaviour
             }
 
         }
-        if(clientObject == null)
+        if(clientObject == null && dayManager.GetCurrentDay() <= dayManager.GetLastDay())
         {
             client = clientManager.GetClient();
             clientObject = clientManager.GetClientObject();

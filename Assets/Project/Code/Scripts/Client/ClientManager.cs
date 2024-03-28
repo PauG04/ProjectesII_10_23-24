@@ -49,7 +49,7 @@ public class ClientManager : MonoBehaviour
 
     public void CreateClient()
     {
-        if(dayManager.GetCurrentDay() <= dayManager.GetLastDay())
+        if (dayManager.GetCurrentDay() <= dayManager.GetLastDay())
         {
             if (clientCounter >= currentDayClients.Count)
             {
@@ -72,7 +72,11 @@ public class ClientManager : MonoBehaviour
                 currentClientScript.SetClientNode(currentClientNode);
                 currentClientScript.InitClient();
             }
-        }      
+        }
+        else
+        {
+            daysEventsController.DesactiveLastDay();
+        }
     }
 
     #region GETTERS
