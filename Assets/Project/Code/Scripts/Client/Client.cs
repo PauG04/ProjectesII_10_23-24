@@ -413,6 +413,10 @@ public class Client : MonoBehaviour
     {
         return badReacted;
     }
+    public bool GetArrive()
+    {
+        return arriveAnimation;
+    }
 
     public void SetClientNode(ClientNode _clientNode)
     {

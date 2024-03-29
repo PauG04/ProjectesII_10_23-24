@@ -656,8 +656,10 @@ GameObject:
   m_Component:
   - component: {fileID: 92610331}
   - component: {fileID: 92610333}
+  - component: {fileID: 92610338}
   - component: {fileID: 92610334}
   - component: {fileID: 92610335}
+  - component: {fileID: 92610337}
   - component: {fileID: 92610336}
   - component: {fileID: 92610332}
   m_Layer: 0
@@ -780,6 +782,44 @@ MonoBehaviour:
   eventClient: {fileID: 11400000, guid: b2ee1ddec6e4dde44a1e412ba4a50114, type: 2}
   paint: {fileID: 6682326790453067862, guid: 970a8cd41d376e44bb33cc8ca454bfef, type: 3}
   father: {fileID: 34227585}
+--- !u!114 &92610337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92610330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9606aca2b6409394bb805960e8ea5919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientManager: {fileID: 1119733629}
+  player: {fileID: 549211536}
+  eventClient: {fileID: 11400000, guid: 07a51409bda620c4d931cb476087cbf5, type: 2}
+  dialogues:
+  - {fileID: 11400000, guid: 9596daa03caa87c4c9768bf9b99402d8, type: 2}
+  - {fileID: 11400000, guid: a2a7c55333acd1448801cecf14fd13af, type: 2}
+  canvas: {fileID: 1212701305}
+  inversions: {fileID: 8269799263039375783}
+  velocity: 1
+--- !u!114 &92610338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92610330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0358b92324d522640bccc076756282e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientManager: {fileID: 1119733629}
+  eventClient: {fileID: 11400000, guid: 79c32abb5cf79d64c81bd2d7c472c8b3, type: 2}
+  dialogue: {fileID: 11400000, guid: d548ed07d96fe654d818afe1e2fee31c, type: 2}
+  player: {fileID: 549211536}
+  maxTime: 5
 --- !u!1 &94600476
 GameObject:
   m_ObjectHideFlags: 0
@@ -4332,7 +4372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Player
-  secondsDialogueDelay: 0.5
+  secondsDialogueDelay: 0.2
 --- !u!1 &556312859
 GameObject:
   m_ObjectHideFlags: 0
@@ -6399,7 +6439,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: fd9ee153d77bbf2488af67044eb67746, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7eb6ec5bc83df5a4f91750dad08c0802, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7199,8 +7239,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1638350134}
-        m_TargetAssemblyTypeName: ShopEvent, Assembly-CSharp
+      - m_Target: {fileID: 92610337}
+        m_TargetAssemblyTypeName: CriptoBro, Assembly-CSharp
         m_MethodName: AcceptDeal
         m_Mode: 1
         m_Arguments:
@@ -8778,7 +8818,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: fd9ee153d77bbf2488af67044eb67746, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca41e47c49815a945baed8439706015d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9390,7 +9430,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: fd9ee153d77bbf2488af67044eb67746, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fca3df7985e7484f85deffa33f06541, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9551,6 +9591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1040827839}
   - component: {fileID: 1040827841}
+  - component: {fileID: 1040827846}
   - component: {fileID: 1040827845}
   - component: {fileID: 1040827844}
   - component: {fileID: 1040827842}
@@ -9692,6 +9733,23 @@ MonoBehaviour:
   clientManager: {fileID: 1119733629}
   eventClient: {fileID: 11400000, guid: 28cfbc01c707428418cf7e13f3dd5c77, type: 2}
   money: -20
+--- !u!114 &1040827846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040827838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094b3b7d2e98232438f7432bc5941711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientManager: {fileID: 1119733629}
+  eventClient: {fileID: 11400000, guid: 3c732aa6dcc971a46a4dd26203162f3b, type: 2}
+  IntensityShaking: 0.1
+  dialogue: {fileID: 11400000, guid: 00ad96f941856d844b77ed047821c4ad, type: 2}
+  player: {fileID: 549211536}
 --- !u!1 &1040850870
 GameObject:
   m_ObjectHideFlags: 0
@@ -11697,8 +11755,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1638350134}
-        m_TargetAssemblyTypeName: ShopEvent, Assembly-CSharp
+      - m_Target: {fileID: 92610337}
+        m_TargetAssemblyTypeName: CriptoBro, Assembly-CSharp
         m_MethodName: RejectDeal
         m_Mode: 1
         m_Arguments:
@@ -16813,7 +16871,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: fd9ee153d77bbf2488af67044eb67746, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fca3df7985e7484f85deffa33f06541, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17431,7 +17489,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: fd9ee153d77bbf2488af67044eb67746, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7eb6ec5bc83df5a4f91750dad08c0802, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -19001,7 +19059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: currentDay
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.size
@@ -19021,7 +19079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day5Clients.Array.size
-      value: 1
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.data[0]
@@ -19094,15 +19152,15 @@ PrefabInstance:
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: bb2955c53f33a8e47929c051ba3c8b86, type: 2}
+      objectReference: {fileID: 11400000, guid: 0477b6454568c1643ac3f4a77a559ba2, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 2975af9326d2a4241a9a92b218fb80ea, type: 2}
+      objectReference: {fileID: 11400000, guid: bb2955c53f33a8e47929c051ba3c8b86, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 0477b6454568c1643ac3f4a77a559ba2, type: 2}
+      objectReference: {fileID: 11400000, guid: 2975af9326d2a4241a9a92b218fb80ea, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.data[3]
       value: 
@@ -19162,29 +19220,33 @@ PrefabInstance:
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day5Clients.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 07a51409bda620c4d931cb476087cbf5, type: 2}
+      objectReference: {fileID: 11400000, guid: 0410e6f77755dd844ab30c18fc1e316f, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day5Clients.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 0040f660146ac2449b5f72d5a81907bb, type: 2}
+      objectReference: {fileID: 11400000, guid: 79c32abb5cf79d64c81bd2d7c472c8b3, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day5Clients.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 57babc95d64b399428a57f00421e41e1, type: 2}
+      objectReference: {fileID: 11400000, guid: 0040f660146ac2449b5f72d5a81907bb, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day5Clients.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: b2ee1ddec6e4dde44a1e412ba4a50114, type: 2}
+      objectReference: {fileID: 11400000, guid: 57babc95d64b399428a57f00421e41e1, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day5Clients.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: b2ee1ddec6e4dde44a1e412ba4a50114, type: 2}
+      objectReference: {fileID: 11400000, guid: d368e5fe41380f444943a461ec9c7fdf, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day5Clients.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: ccda883c237c56e44829e3f6df89b819, type: 2}
+      objectReference: {fileID: 11400000, guid: b2ee1ddec6e4dde44a1e412ba4a50114, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day5Clients.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: ccda883c237c56e44829e3f6df89b819, type: 2}
+    - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
+      propertyPath: day5Clients.Array.data[8]
       value: 
       objectReference: {fileID: 11400000, guid: 3c144137b316abb4ea77483f22cc34b4, type: 2}
     - target: {fileID: 9163223455399009498, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
@@ -20587,7 +20649,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1664232310561074267, guid: 73564200ca2a5f944bda730f2e93bef4, type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664232310561074267, guid: 73564200ca2a5f944bda730f2e93bef4, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4980852245596157136, guid: 73564200ca2a5f944bda730f2e93bef4, type: 3}
       propertyPath: m_RootOrder
@@ -20595,11 +20661,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4980852245596157136, guid: 73564200ca2a5f944bda730f2e93bef4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.469896
+      value: -3.275
       objectReference: {fileID: 0}
     - target: {fileID: 4980852245596157136, guid: 73564200ca2a5f944bda730f2e93bef4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.05879104
+      value: -0.133
       objectReference: {fileID: 0}
     - target: {fileID: 4980852245596157136, guid: 73564200ca2a5f944bda730f2e93bef4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20641,6 +20707,11 @@ PrefabInstance:
 --- !u!4 &8269799263039375782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4980852245596157136, guid: 73564200ca2a5f944bda730f2e93bef4, type: 3}
+  m_PrefabInstance: {fileID: 8269799263039375781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8269799263039375783 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1664232310561074267, guid: 73564200ca2a5f944bda730f2e93bef4, type: 3}
   m_PrefabInstance: {fileID: 8269799263039375781}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8304055266308976832

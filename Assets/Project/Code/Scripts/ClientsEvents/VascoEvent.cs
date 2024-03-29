@@ -52,12 +52,12 @@ public class VascoEvent : MonoBehaviour
             enabled = false;
         }
 
-        if(!hasDialogueEnd && playerConversant.IsActive())
+        if (!hasDialogueEnd && playerConversant.IsActive() && clientObject.GetComponent<Client>().GetIsLocated() && client == eventClient)
         {
             if (!playerConversant.HasNext())
             {
+                Debug.Log("si");
                 hasDialogueEnd = true;
-                
             }
         }
 
