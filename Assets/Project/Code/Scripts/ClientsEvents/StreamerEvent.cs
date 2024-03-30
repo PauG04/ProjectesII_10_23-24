@@ -2,6 +2,7 @@ using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class StreamerEvent : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class StreamerEvent : MonoBehaviour
     [SerializeField] private Dialogue.Dialogue dialogue;
     [SerializeField] private PlayerConversant player;
     [SerializeField] private float maxTime;
+    [SerializeField] private float DesactiveVotationTime;
+    [SerializeField] private GameObject canvas;
 
     private ClientNode client;
     private GameObject clientObject;
@@ -21,6 +24,12 @@ public class StreamerEvent : MonoBehaviour
     private bool triggerSetted = false;
 
     private float time;
+    private bool votation = false;
+
+    private void Awake()
+    {
+        canvas.SetActive(false);
+    }
 
     private void Update()
     {
@@ -51,10 +60,14 @@ public class StreamerEvent : MonoBehaviour
 
         if(time > maxTime)
         {
+            votation = false;
+        }
+        if(time > DesactiveVotationTime)
+        {
             clientObject.GetComponent<AIConversant>().SetDialogue(dialogue);
             clientObject.GetComponent<AIConversant>().HandleDialogue();
             clientObject.GetComponent<BoxCollider2D>().enabled = true;
-            //Desactivar votación
+            canvas.SetActive(false);
             enabled = false;
         }
     }
@@ -62,7 +75,13 @@ public class StreamerEvent : MonoBehaviour
     private void StartVotation()
     {
         startVotation = true;
+        votation = true;
         clientObject.GetComponent<BoxCollider2D>().enabled = false;
-        //Activar votación
+        canvas.SetActive(true);
+    }
+
+    public bool GetVotation()
+    {
+        return votation;
     }
 }
