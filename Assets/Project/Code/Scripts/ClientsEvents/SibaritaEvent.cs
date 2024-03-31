@@ -2,9 +2,9 @@ using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
+using static ShakerStateMachine;
 
-public class PoliceEvent : MonoBehaviour
+public class SibaritaEvent : MonoBehaviour
 {
     [Header("ClientManager")]
     [SerializeField] private ClientManager clientManager;
@@ -14,35 +14,32 @@ public class PoliceEvent : MonoBehaviour
     [Header("Tutorial")]
     [SerializeField] private GameObject panel;
     [SerializeField] private PlayerConversant playerConversant;
-    [SerializeField] private PolygonCollider2D drag;
+    [SerializeField] private BoxCollider2D shakerDrag;
     [SerializeField] private float velocity;
     private bool isGrowing;
-    private int initOrderingLayerDrag;
+    private int shakerOrderingLayerDrag;
 
     private ClientNode client;
     private GameObject clientObject;
-    private float currentsHits;
 
 
     private void Awake()
     {
         isGrowing = true;
-        initOrderingLayerDrag = drag.gameObject.GetComponent<SpriteRenderer>().sortingOrder;
+        shakerOrderingLayerDrag = shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder;
     }
 
     private void Update()
     {
         if (client != null && client == eventClient)
         {
-            if(clientObject.GetComponent<Client>().GetHitted() && currentsHits <= totalHits)
+            if(clientObject.GetComponent<Client>().GetIsLocated())
             {
-                EconomyManager.instance.SetMoneyChanged(-10);
-                currentsHits++;
-                clientObject.GetComponent<Client>().SetHitted(false);
+                shakerDrag.enabled = true;
             }
             if (playerConversant.GetCanContinue() && clientObject.GetComponent<Client>().GetIsLocated())
             {
-                ActiveDragItem();
+                ActiveShakerItem();
             }
         }
         else
@@ -51,39 +48,42 @@ public class PoliceEvent : MonoBehaviour
             clientObject = clientManager.GetClientObject();
         }
 
-      
+
     }
-    private void ActiveDragItem()
+
+    private void ActiveShakerItem()
     {
         Vector3 maxScale = new Vector3(1.3f, 1.3f, 1.3f);
         Vector3 minScale = new Vector3(0.9f, 0.9f, 0.9f);
 
-        if (!drag.gameObject.GetComponent<DragItems>().GetIsDraggin() && !drag.gameObject.GetComponent<DragItems>().GetInsideWorkspace())
+        if (!shakerDrag.enabled)
+        {
+            isGrowing = true;
+        }
+
+        if (shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetCurrentState().StateKey != ShakerState.DraggingOpen && !shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetIsInWorkSpace())
         {
             panel.SetActive(true);
-            if (drag.gameObject.GetComponent<SpriteRenderer>() != null)
-            {
-                drag.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
-            }
+            shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 11;
 
-            LerpSacele(maxScale, minScale, drag.gameObject);
+            LerpSacele(maxScale, minScale, shakerDrag.gameObject.transform.GetChild(1).gameObject);
         }
 
-        if (drag.gameObject.GetComponent<DragItems>().GetIsDraggin())
+        if (shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetCurrentState().StateKey == ShakerState.DraggingOpen)
         {
             panel.SetActive(false);
-            drag.gameObject.GetComponent<DragItems>().SetIsInTutorial(false);
-            drag.gameObject.transform.localScale = Vector3.one;
-            if (drag.gameObject.GetComponent<SpriteRenderer>() != null)
-            {
-                drag.gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerDrag;
-                drag.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
-            }
-        }
 
-        if(drag.gameObject.GetComponent<DragItems>().GetInsideWorkspace())
-        {
-            playerConversant.Next();
+            shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = shakerOrderingLayerDrag;
+            shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+            shakerDrag.gameObject.transform.GetChild(1).transform.localScale = Vector3.one;
+            if (shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetIsInWorkSpace())
+            {
+                if (playerConversant.HasNext())
+                {
+                    playerConversant.Next();
+                }
+            }
+
         }
     }
 
@@ -107,6 +107,4 @@ public class PoliceEvent : MonoBehaviour
 
         }
     }
-
-
 }

@@ -25,6 +25,31 @@ MonoBehaviour:
     height: 120
   onEnterAction: 
   onExitAction: 
+--- !u!114 &-9107677756245889588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 14866dd3-5fdb-467a-97e6-42a027b11eed
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "No \xE7e\xE2 tonto y no le met\xE2 mierd\xE2 dentro que no \xE7ea bebid\xE2,
+    anda ya tien\xEA \xE7ufi\xE7iente informa\xE7i\xF3n pa a\xE7erme la bebida"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 2470
+    y: 195
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 
 --- !u!114 &-8337250904939612233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,6 +71,32 @@ MonoBehaviour:
     serializedVersion: 2
     x: 182
     y: 197
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-7692630163622405263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 93ea4177-da26-467e-8f16-1b5a3607b8b1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "A\xED abaho, tien\xEA que ten\xEAh er cunta on\xE7\xE2, cohel\xF4 y ponlo
+    \xE7obre la me\xE7a"
+  children:
+  - ba46718b-c2d2-4409-8684-09e7ba78b5b9
+  rect:
+    serializedVersion: 2
+    x: 1971
+    y: 195
     width: 200
     height: 120
   onEnterAction: 
@@ -72,6 +123,32 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1181
     y: 198
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2170614100201864682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1c2d8c42-f1af-4634-a4f9-461dc8273bae
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Como \xE7e be que no tien\xEA ni puta idea deq eue s te boy a \xEApplic\xE2h
+    que \xEAh"
+  children:
+  - 93ea4177-da26-467e-8f16-1b5a3607b8b1
+  rect:
+    serializedVersion: 2
+    x: 1721
+    y: 195
     width: 200
     height: 120
   onEnterAction: 
@@ -120,6 +197,10 @@ MonoBehaviour:
   - {fileID: -2138817300965111332}
   - {fileID: -5916686799911259753}
   - {fileID: 1982852297365867050}
+  - {fileID: -2170614100201864682}
+  - {fileID: -7692630163622405263}
+  - {fileID: 6811439189216549938}
+  - {fileID: -9107677756245889588}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &679245609473906036
 MonoBehaviour:
@@ -161,12 +242,39 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   isTextPaused: 0
   text: Uza er CUENTAONZAS eze que zale en la telenobela de la 1
-  children: []
+  children:
+  - 1c2d8c42-f1af-4634-a4f9-461dc8273bae
   rect:
     serializedVersion: 2
     x: 1471
     y: 195
     width: 200
     height: 120
-  onEnterAction: ActiveCollision
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6811439189216549938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ba46718b-c2d2-4409-8684-09e7ba78b5b9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "\xCAh mu f\xE1\xE7\xEE u\xE7\xE2l-lo, coh\xEA y le met\xEA l\xEDquido dentro,
+    yen\xE2l-lo \xEAh perf\xEAttamente una on\xE7a "
+  children:
+  - 14866dd3-5fdb-467a-97e6-42a027b11eed
+  rect:
+    serializedVersion: 2
+    x: 2221
+    y: 195
+    width: 200
+    height: 120
+  onEnterAction: 
   onExitAction: 

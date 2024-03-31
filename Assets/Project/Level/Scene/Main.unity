@@ -5211,6 +5211,10 @@ MonoBehaviour:
   clientManager: {fileID: 1119733629}
   eventClient: {fileID: 11400000, guid: 5d6e11ef2c2ba5c45b3098695a8d2d15, type: 2}
   totalHits: 5
+  panel: {fileID: 1778401406}
+  playerConversant: {fileID: 549211536}
+  drag: {fileID: 2082426031}
+  velocity: 5
 --- !u!1001 &576723743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18264,7 +18268,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 11
   m_TargetDisplay: 0
 --- !u!224 &2005156152
 RectTransform:
@@ -20239,7 +20243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: currentDay
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.size
