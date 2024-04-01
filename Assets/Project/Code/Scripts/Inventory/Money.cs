@@ -35,13 +35,15 @@ public class Money : MonoBehaviour
 
     private void MoneyLerp()
     {
-        if(money > 0)
+        if(money > 0 && textMesh.color != Color.green)
         {
+            Debug.Log("money good");
             textMesh.color = Color.green;
         }
-        else
+        else if(money < 0 && textMesh.color != Color.red)
         {
             textMesh.color = Color.red;
+            Debug.Log("money bad");
         }
 
         textMesh.text = money.ToString("00.00") + '€';

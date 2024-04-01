@@ -10,6 +10,7 @@ public class InsideDecorations : MonoBehaviour
     [SerializeField] private LiquidManager liquidManager;
 
     private ItemNode _item;
+    private bool hasDrug;
 
     private void Awake()
     {
@@ -31,12 +32,17 @@ public class InsideDecorations : MonoBehaviour
                 AudioManager.instance.PlaySFX("DropIce");
         }
 
+        if(item.itemName == "Droga")
+        {
+            hasDrug = true;
+        }
+
         if (insideDecorations.ContainsKey(item))
         {
             insideDecorations[item]++;
             _item = item;
         }
-        else
+        else if(item.itemName != "Droga")
         {
             insideDecorations.Add(item, 1);
         }
@@ -46,8 +52,12 @@ public class InsideDecorations : MonoBehaviour
     {
         if(insideDecorations.ContainsKey(item))
         {
+            if(item.itemName == "Droga")
+            {
+                hasDrug = false;
+            }
             insideDecorations[item]--;
-            if (insideDecorations[item] <= 0)
+            if (insideDecorations[item] <= 0 && item.itemName != "Droga")
             {
                 insideDecorations.Remove(item);
             }
@@ -61,5 +71,10 @@ public class InsideDecorations : MonoBehaviour
             return insideDecorations[_item];
         }
         return 0;
+    }
+
+    public bool GetHasDrug()
+    {
+        return hasDrug;
     }
 }

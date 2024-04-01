@@ -13,6 +13,7 @@ public class CatalonianFan : MonoBehaviour
     [SerializeField] private float shakeTime;
     [SerializeField] private List<GameObject> gool;
     [SerializeField] private float velocity;
+    [SerializeField] private HouseKeeperMatchDay served;
 
     private ClientNode client;
     private GameObject clientObject;
@@ -31,6 +32,10 @@ public class CatalonianFan : MonoBehaviour
     }
     private void Update()
     {
+        if(served.GetIsServed())
+        {
+            enabled = false;
+        }
         if (client != null && client == eventClient)
         {
             if (!triggerSetted)

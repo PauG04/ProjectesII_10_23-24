@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8017783843526246742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 8e2dcbb8-5529-4753-bc66-a5155f1be10d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Parece m\xE1s limpio que el del Mohamed, estaba hasta la polla de ese antro
+    lleno de moros y maricones"
+  children:
+  - e22e05af-10bc-42ba-a76f-e6ee4b1788c0
+  rect:
+    serializedVersion: 2
+    x: 344
+    y: 156
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4377738658048738932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d4f47601-eea1-4310-a327-3699a9c02e06
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 'Eso si que era tenerlos puestos
+
+'
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 845
+    y: 156
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Vasco-Dialogue1
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 8509306097462101962}
+  - {fileID: -8017783843526246742}
+  - {fileID: 6779490645359062897}
+  - {fileID: -4377738658048738932}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &6779490645359062897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: e22e05af-10bc-42ba-a76f-e6ee4b1788c0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Si tendr\xEDamos que plantar un par de bombas en ese bar como hizo ETA con
+    Carrero"
+  children:
+  - d4f47601-eea1-4310-a327-3699a9c02e06
+  rect:
+    serializedVersion: 2
+    x: 593
+    y: 156
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8509306097462101962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 46d7eeae-2fd7-478e-866e-b4ae4965904f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Egun On, que estoy viendo aqu\xED, un nuevo bar por este barrio"
+  children:
+  - 8e2dcbb8-5529-4753-bc66-a5155f1be10d
+  rect:
+    serializedVersion: 2
+    x: 94
+    y: 156
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

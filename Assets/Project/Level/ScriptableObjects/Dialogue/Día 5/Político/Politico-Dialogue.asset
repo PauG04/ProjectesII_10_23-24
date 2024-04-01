@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8408877904081197999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 828d7e0b-1f62-4e14-843e-1f5fc32ceda3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Soy el fundador del partido pol\xEDtico de Comunidad Unida de Madrid, abrebiado
+    como CUM"
+  children:
+  - ca4212a1-5d18-4a16-8d82-d2c19b3a6f97
+  rect:
+    serializedVersion: 2
+    x: 363
+    y: 131
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2302143667350245306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: b461be8c-72a1-4229-ad16-c56309a54c93
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Porque una cosa es ser solidario y la otro es serlo a cambio de nada, ponme
+    un Kalimotxo
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1115
+    y: 132
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Politico-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 1160964021296877741}
+  - {fileID: -8408877904081197999}
+  - {fileID: 2463915326717124053}
+  - {fileID: 8073691091030868790}
+  - {fileID: -2302143667350245306}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1160964021296877741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 7e04e51c-c946-4fea-8977-3c3eb0a53a53
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Hola ciudadano, soy Santiago Aznar
+  children:
+  - 828d7e0b-1f62-4e14-843e-1f5fc32ceda3
+  rect:
+    serializedVersion: 2
+    x: 113
+    y: 132
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &2463915326717124053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ca4212a1-5d18-4a16-8d82-d2c19b3a6f97
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Estoy aqu\xED para hacerme conocer y repartir los posters de mi partido
+    que en nada hay elecciones"
+  children:
+  - 9290da9b-e4db-4619-b608-07cce0dbd7b4
+  rect:
+    serializedVersion: 2
+    x: 615
+    y: 132
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8073691091030868790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 9290da9b-e4db-4619-b608-07cce0dbd7b4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: Porfavor cualgue el poster en esta bar y a cambio tomare algo en este bar
+    de poco nombre
+  children:
+  - b461be8c-72a1-4229-ad16-c56309a54c93
+  rect:
+    serializedVersion: 2
+    x: 865
+    y: 132
+    width: 200
+    height: 120
+  onEnterAction: GivePaint
+  onExitAction: 

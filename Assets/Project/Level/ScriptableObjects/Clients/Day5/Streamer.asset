@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203defdb18f377b4184cfcf21f18d09b, type: 3}
+  m_Name: Streamer
+  m_EditorClassIdentifier: 
+  clientName: 
+  sprite: {fileID: 21300000, guid: 665aeaba767b1394d9d195ca20b690c5, type: 3}
+  hitToGo: 0
+  totalHits: 0
+  canBeHitted: 1
+  regularHitReactions: 0
+  notNeedTakeDrink: 0
+  acceptsAll: 0
+  dontCareGlass: 0
+  careIces: 0
+  cuantityOfIce: 0
+  dontPay: 0
+  hasMoraDialoguesPostOrder: 0
+  invisible: 0
+  onlyOneChance: 0
+  payAfterHit: 0
+  wantDrug: 0
+  possibleOrders:
+  - {fileID: 11400000, guid: 215d3eec364efd142a5c4b6865136c9e, type: 2}
+  dialogues:
+  - {fileID: 11400000, guid: 506059bca5e84944db3fc0aaec143c4e, type: 2}
+  goodReactions:
+  - {fileID: 11400000, guid: 13cd6c5c84427db41866cc662f9053dd, type: 2}
+  badReactions:
+  - {fileID: 11400000, guid: 7ed6195f6f14ace4a98044c434a88724, type: 2}
+  hitReactions:
+  - {fileID: 11400000, guid: 30affe911d00c52439d57fa39f6ffe51, type: 2}
+  dialogue: {fileID: 11400000, guid: 506059bca5e84944db3fc0aaec143c4e, type: 2}
+  goodReaction: {fileID: 11400000, guid: 13cd6c5c84427db41866cc662f9053dd, type: 2}
+  badReaction: {fileID: 11400000, guid: 7ed6195f6f14ace4a98044c434a88724, type: 2}
+  hitReaction: {fileID: 11400000, guid: 30affe911d00c52439d57fa39f6ffe51, type: 2}
+  badGlassReaction: {fileID: 11400000, guid: f8705a75b60a3f540bffc5094233f060, type: 2}
+  noIceReaction: {fileID: 11400000, guid: 4a5997a76e71b7840a244994bf3990f6, type: 2}
+  muchIceReaction: {fileID: 11400000, guid: 4a5997a76e71b7840a244994bf3990f6, type: 2}
+  badStateReaction: {fileID: 11400000, guid: 862e8cbe47b87d64e9ba0fbf4cbc1abf, type: 2}
+  badIngredientsReaction: {fileID: 11400000, guid: 7ed6195f6f14ace4a98044c434a88724, type: 2}

@@ -96,6 +96,7 @@ public class CalculateDrink : MonoBehaviour
 
         if (decorations.Count < 1)
             return "NoIce";
+    
         foreach (KeyValuePair<ItemNode, int> decoration in cocktail.decorations)
         {
             //Check if same quantity
