@@ -9,24 +9,36 @@ public class SibaritaEvent : MonoBehaviour
     [Header("ClientManager")]
     [SerializeField] private ClientManager clientManager;
     [SerializeField] private ClientNode eventClient;
-    [SerializeField] private float totalHits;
 
     [Header("Tutorial")]
     [SerializeField] private GameObject panel;
     [SerializeField] private PlayerConversant playerConversant;
     [SerializeField] private BoxCollider2D shakerDrag;
     [SerializeField] private float velocity;
+    [SerializeField] private SetTopShaker shakerTop;
+    [SerializeField] private PolygonCollider2D shakerTopDrag;
     private bool isGrowing;
     private int shakerOrderingLayerDrag;
+    private int dragOrderingLayerDrag;
 
     private ClientNode client;
     private GameObject clientObject;
+    private bool[] tutorial;
 
 
     private void Awake()
     {
         isGrowing = true;
         shakerOrderingLayerDrag = shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder;
+        dragOrderingLayerDrag = shakerTopDrag.gameObject.GetComponent<SpriteRenderer>().sortingOrder;
+        tutorial = new bool[3];
+        for(int i = 0; i<3; i++)
+        {
+            tutorial[i] = false;
+        }
+
+        tutorial[0] = true;
+        panel.SetActive(false);
     }
 
     private void Update()
@@ -36,10 +48,20 @@ public class SibaritaEvent : MonoBehaviour
             if(clientObject.GetComponent<Client>().GetIsLocated())
             {
                 shakerDrag.enabled = true;
+                shakerTopDrag.enabled = true;
             }
-            if (playerConversant.GetCanContinue() && clientObject.GetComponent<Client>().GetIsLocated())
+            if (playerConversant.GetCanContinue() && clientObject.GetComponent<Client>().GetIsLocated() && tutorial[0])
             {
                 ActiveShakerItem();
+            }
+            if(playerConversant.GetCanContinue() && tutorial[1])
+            {
+                ActiveDragItem();
+            }
+            if(shakerTop.GetIsShakerClosed() && tutorial[2])
+            {
+                playerConversant.Next();
+                enabled = false;
             }
         }
         else
@@ -82,11 +104,48 @@ public class SibaritaEvent : MonoBehaviour
                 {
                     playerConversant.Next();
                 }
+                tutorial[0] = false;
+                tutorial[1] = true;
             }
 
         }
     }
 
+    private void ActiveDragItem()
+    {
+        Vector3 maxScale = new Vector3(1.3f, 1.3f, 1.3f);
+        Vector3 minScale = new Vector3(0.9f, 0.9f, 0.9f);
+
+        if (!shakerTopDrag.gameObject.GetComponent<DragItems>().GetIsDraggin() && !shakerTopDrag.gameObject.GetComponent<DragItems>().GetInsideWorkspace())
+        {
+            panel.SetActive(true);
+            if (shakerTopDrag.gameObject.GetComponent<SpriteRenderer>() != null)
+            {
+                shakerTopDrag.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+            }
+
+            LerpSacele(maxScale, minScale, shakerTopDrag.gameObject);
+        }
+
+        if (shakerTopDrag.gameObject.GetComponent<DragItems>().GetIsDraggin())
+        {
+            panel.SetActive(false);
+            shakerTopDrag.gameObject.GetComponent<DragItems>().SetIsInTutorial(false);
+            shakerTopDrag.gameObject.transform.localScale = Vector3.one;
+            if (shakerTopDrag.gameObject.GetComponent<SpriteRenderer>() != null)
+            {
+                shakerTopDrag.gameObject.GetComponent<SpriteRenderer>().sortingOrder = dragOrderingLayerDrag;
+                shakerTopDrag.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+            }
+        }
+
+        if (shakerTopDrag.gameObject.GetComponent<DragItems>().GetInsideWorkspace())
+        {
+            tutorial[1] = false;
+            tutorial[2] = true;
+            playerConversant.Next();
+        }
+    }
     private void LerpSacele(Vector3 maxScale, Vector3 minScale, GameObject _object)
     {
         if (!isGrowing)

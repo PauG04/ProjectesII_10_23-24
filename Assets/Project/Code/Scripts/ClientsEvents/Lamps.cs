@@ -32,7 +32,7 @@ public class Lamps : MonoBehaviour
 
     private void Update()
     {
-        if (client != null)
+        if (client != null && client == eventClient)
         {
             if (client.invisible && !onLamp)
             {
@@ -42,17 +42,13 @@ public class Lamps : MonoBehaviour
             {
                 clientObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             }
-
-            if (client == eventClient )
+            if (!triggerSetted)
             {
-                if (!triggerSetted)
-                {
-                    clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("Lamp");
-                    clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(ActiveCollider);
-                    triggerSetted = true;
-                }
+                 clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("Lamp");
+                 clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(ActiveCollider);
+                 triggerSetted = true;
             }
-
+           
         }
         if(clientObject == null && dayManager.GetCurrentDay() <= dayManager.GetLastDay())
         {
@@ -77,6 +73,7 @@ public class Lamps : MonoBehaviour
                     firsTime = true;
                     clientObject.GetComponent<AIConversant>().SetDialogue(dialogue);
                     clientObject.GetComponent<AIConversant>().HandleDialogue();
+                    enabled = false;
                 }
             }
             else

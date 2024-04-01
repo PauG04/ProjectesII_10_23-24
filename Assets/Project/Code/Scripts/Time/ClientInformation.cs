@@ -41,6 +41,7 @@ public class OrderPanel : MonoBehaviour
 
     private void SetInformation()
     {
+        Debug.Log(cocktail);
         cocktail = ClientManager.instance.GetCurrentClientScript().GetOrder();
         if (cocktail != null && ClientManager.instance.GetClient().acceptsAll && !ClientManager.instance.GetClient().dontPay)
         {
