@@ -19,9 +19,6 @@ public class NextDialogue : MonoBehaviour
         {
             playerConversant.Next();
         }
-        else
-        {
-            // TypeWritterEffect Skip
-        }
+
     }
 }
