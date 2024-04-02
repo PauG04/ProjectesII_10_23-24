@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class NextDialogue : MonoBehaviour
 {
-	[SerializeField] private PlayerConversant playerConversant;
+	private PlayerConversant playerConversant;
 
     private void Start()
     {
