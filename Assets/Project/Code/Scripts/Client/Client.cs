@@ -341,11 +341,14 @@ public class Client : MonoBehaviour
         }
         else if (leaveAnimation)
         {
-            MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
-            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
+            if (TypeWriterEffect.isTextCompleted)
             {
-                ClientManager.instance.CreateClient();
-                Destroy(gameObject);
+                MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
+                if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
+                {
+                    ClientManager.instance.CreateClient();
+                    Destroy(gameObject);
+                }
             }
         }
     }

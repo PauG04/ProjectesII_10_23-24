@@ -26,17 +26,6 @@ namespace Dialogue
 		
 		public event Action onConversationUpdated;
 
-		private bool isTextRunning;
-		public IEnumerator WriteTextWithDelay()
-		{
-			if (!currentNode.IsTextPaused())
-			{
-                isTextRunning = true;
-                yield return new WaitForSeconds(secondsDialogueDelay);
-                Next();
-                isTextRunning = false;
-            }
-        }
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
             AudioManager.instance.PlaySFX("ClientTalk");
@@ -155,10 +144,6 @@ namespace Dialogue
 		{
 			return currentChildNumber;
 		}
-		public bool GetTextIsRunning()
-		{
-			return isTextRunning;
-        }
 		public bool GetCanContinue()
 		{
 			if (currentNode != null)

@@ -96,6 +96,7 @@ public class DragItems : MonoBehaviour
         {
             RepositionObject();
         }
+
         DraggingParent();
         Dragging();
         if (isRotating)
@@ -275,7 +276,7 @@ public class DragItems : MonoBehaviour
             {
                 spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             }
-            if (!dragWithWorkspaceSprite)
+            if (!isDragging || !dragWithWorkspaceSprite)
             {
                 spriteRenderer.sprite = normalSprite;
             }
