@@ -26,13 +26,6 @@ namespace Dialogue
 		
 		public event Action onConversationUpdated;
 
-		public void WriteText()
-		{
-			if (!currentNode.IsTextPaused())
-			{
-                Next();
-            }
-        }
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
             AudioManager.instance.PlaySFX("ClientTalk");

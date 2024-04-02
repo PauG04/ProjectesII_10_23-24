@@ -34,13 +34,12 @@ namespace UI
 			if (playerConversant.IsActive())
 			{
                 playerConversant.SetIsTextDone(false);
-                TypeWriterEffect.CompleteTextRevealed -= WriteText;
+                //TypeWriterEffect.CompleteTextRevealed -= Next;
 
                 if (playerConversant.HasNext() && !playerConversant.IsChoosing())
 				{
-					TypeWriterEffect.CompleteTextRevealed += WriteText;
+                    //TypeWriterEffect.CompleteTextRevealed += Next;
                     playerConversant.SetIsTextDone(true);
-
                 }
             }
 
@@ -48,11 +47,6 @@ namespace UI
 			{
 				Destroy(bubbleRoot.GetChild(0).gameObject);
 			}
-        }
-		private void WriteText()
-		{
-            playerConversant.SetIsTextDone(true);
-            playerConversant.WriteText();
         }
         private void UpdateChat()
 		{
