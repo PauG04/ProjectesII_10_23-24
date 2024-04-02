@@ -53,5 +53,10 @@ namespace Dialogue
         {
             this.dialogue = dialogue;
         }
+
+		public Dialogue GetDialogue()
+		{
+			return dialogue;
+		}
     }
 }

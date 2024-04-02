@@ -12,6 +12,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private ItemGroupNode groupOfLemmons;
     [SerializeField] private ItemGroupNode groupOfIce;
     [SerializeField] private ItemNode iceCube;
+    [SerializeField] private ItemNode drug;
     //[SerializeField] private ItemGroupNode groupOfMint;
 
     private void Awake()
@@ -34,6 +35,7 @@ public class InventoryManager : MonoBehaviour
         items.Add(groupOfLemmons, 10);
         items.Add(groupOfIce, 10);
         items.Add(iceCube, 0);
+        items.Add(drug, 1);
         //items.Add(groupOfMint, 0);
     }
 

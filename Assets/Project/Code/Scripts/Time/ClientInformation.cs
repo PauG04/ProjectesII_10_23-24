@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class OrderPanel : MonoBehaviour
 {
+    [SerializeField] private DayManager dayManager;
     private CocktailNode cocktail;
 
     private TextMeshPro textMesh;
@@ -31,7 +32,7 @@ public class OrderPanel : MonoBehaviour
         {
             SetInformation();
         }
-        else
+        else if(dayManager.GetCurrentDay() <= dayManager.GetLastDay())
         {
             client = clientManager.GetClient();
             clientObject = clientManager.GetClientObject();
@@ -40,6 +41,7 @@ public class OrderPanel : MonoBehaviour
 
     private void SetInformation()
     {
+        Debug.Log(cocktail);
         cocktail = ClientManager.instance.GetCurrentClientScript().GetOrder();
         if (cocktail != null && ClientManager.instance.GetClient().acceptsAll && !ClientManager.instance.GetClient().dontPay)
         {

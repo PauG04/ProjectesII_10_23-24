@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Asturiano-Hit
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 4456503561185074731}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &4456503561185074731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ea76ae32-74c8-4468-9d66-4acf3b226260
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: "Baja ahora mismo ese martillo o igual que los reyes cat\xF3licos te devolver\xE9
+    a tu pa\xEDs"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 62
+    y: 212
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

@@ -18,7 +18,7 @@ MonoBehaviour:
   totalHits: 1
   canBeHitted: 1
   regularHitReactions: 0
-  notNeedTakeDrink: 0
+  notNeedTakeDrink: 1
   acceptsAll: 0
   dontCareGlass: 0
   careIces: 0
@@ -28,6 +28,7 @@ MonoBehaviour:
   invisible: 0
   onlyOneChance: 0
   payAfterHit: 1
+  wantDrug: 0
   possibleOrders:
   - {fileID: 11400000, guid: aa4e7e307ee31ac4b9810402e6483d50, type: 2}
   dialogues:

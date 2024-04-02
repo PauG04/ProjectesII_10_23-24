@@ -9,8 +9,8 @@ public class GivePaint : MonoBehaviour
     [SerializeField] private ClientManager clientManager;
     [SerializeField] private ClientNode eventClient;
     [SerializeField] private GameObject paint;
-    [SerializeField] private Vector3 position;
     [SerializeField] private bool hasToTakeDrink;
+    [SerializeField] private GameObject father;
 
     private bool postDrink;
     private ClientNode client;
@@ -57,7 +57,7 @@ public class GivePaint : MonoBehaviour
     private void SpawnPaint()
     {
         GameObject painting = Instantiate(paint);
-        painting.transform.localPosition = position;
+        painting.transform.SetParent(father.transform, true);
         enabled = false;
     }
 }

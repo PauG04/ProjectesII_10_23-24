@@ -129,7 +129,7 @@ public class DragItems : MonoBehaviour
         
         if(isPainting && insideWorkspace)
         {
-            rb2d.bodyType = RigidbodyType2D.Static;
+            rb2d.bodyType = RigidbodyType2D.Kinematic;
         }
 
         isDragging = false;

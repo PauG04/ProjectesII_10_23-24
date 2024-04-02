@@ -12,6 +12,7 @@ public class Lamps : MonoBehaviour
     [SerializeField] private ClientNode eventClient;
     [SerializeField] private PlayerConversant playerConversant;
     [SerializeField] private Dialogue.Dialogue dialogue;
+    [SerializeField] private DayManager dayManager;
 
     private ClientNode client;
     private GameObject clientObject;
@@ -43,7 +44,7 @@ public class Lamps : MonoBehaviour
 
     private void Update()
     {
-        if (client != null)
+        if (client != null && client == eventClient)
         {
             if (client.invisible && !onLamp)
             {
@@ -53,19 +54,15 @@ public class Lamps : MonoBehaviour
             {
                 clientObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             }
-
-            if (client == eventClient )
+            if (!triggerSetted)
             {
-                if (!triggerSetted)
-                {
-                    clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("Lamp");
-                    clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(ActiveCollider);
-                    triggerSetted = true;
-                }
+                 clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("Lamp");
+                 clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(ActiveCollider);
+                 triggerSetted = true;
             }
-
+           
         }
-        if(clientObject == null)
+        if(clientObject == null && dayManager.GetCurrentDay() <= dayManager.GetLastDay())
         {
             client = clientManager.GetClient();
             clientObject = clientManager.GetClientObject();
@@ -90,6 +87,7 @@ public class Lamps : MonoBehaviour
                     firsTime = true;
                     clientObject.GetComponent<AIConversant>().SetDialogue(dialogue);
                     clientObject.GetComponent<AIConversant>().HandleDialogue();
+                    enabled = false;
                 }
             }
             else
