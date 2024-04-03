@@ -29,7 +29,7 @@ public class Money : MonoBehaviour
         }
         else
         {
-            textMesh.text = EconomyManager.instance.GetMoney().ToString("00.00") + '�';
+            textMesh.text = EconomyManager.instance.GetMoney().ToString("00.00") + '€';
         }
     }
 
@@ -47,7 +47,7 @@ public class Money : MonoBehaviour
             Debug.Log("money bad");
         }
 
-        textMesh.text = money.ToString("00.00") + '�';
+        textMesh.text = money.ToString("00.00") + '€';
 
         if(growing)
         {
