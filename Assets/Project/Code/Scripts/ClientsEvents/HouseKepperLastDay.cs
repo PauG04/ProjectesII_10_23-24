@@ -20,7 +20,7 @@ public class HouseKepperLastDay : MonoBehaviour
     {
         if (client != null && client == eventClient)
         {
-            if(EconomyManager.instance.GetMoney() >= 300)
+            if(EconomyManager.instance.GetMoney() >= 170)
             {
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[0]);
                 if (!triggerSetted)
@@ -52,7 +52,7 @@ public class HouseKepperLastDay : MonoBehaviour
     }
     public void TakeMoney()
     {
-        EconomyManager.instance.SetMoneyChanged(-300);
+        EconomyManager.instance.SetMoneyChanged(-170);
         enabled = false;
     }
 }

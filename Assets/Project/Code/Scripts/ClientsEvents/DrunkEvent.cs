@@ -27,7 +27,7 @@ public class DrunkEvent : MonoBehaviour
             if(clientObject.GetComponent<Client>().GetHitted() || clientObject.GetComponent<Client>().GetWellReacted() && !lerpActive)
             {
                 lerpActive = true;
-                clientObject.GetComponent<Client>().SetTimer(false);
+                clientObject.GetComponent<Client>().SetLeaveAnimation(false);
                 clientObject.GetComponent<BoxCollider2D>().enabled = false;
             }
         }

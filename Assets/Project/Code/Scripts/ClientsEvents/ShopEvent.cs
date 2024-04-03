@@ -84,7 +84,7 @@ public class ShopEvent : MonoBehaviour
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[4]);
             }
             
-            clientObject.GetComponent<Client>().SetTimer(true);
+            clientObject.GetComponent<Client>().SetLeaveAnimation(true);
             enabled = false;
         }
         clientObject.GetComponent<AIConversant>().HandleDialogue();
@@ -102,7 +102,7 @@ public class ShopEvent : MonoBehaviour
         else
         {
             clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[1]);
-            clientObject.GetComponent<Client>().SetTimer(true);
+            clientObject.GetComponent<Client>().SetLeaveAnimation(true);
             enabled = false;
         }
 

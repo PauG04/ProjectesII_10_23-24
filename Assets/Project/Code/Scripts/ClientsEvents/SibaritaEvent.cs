@@ -17,6 +17,7 @@ public class SibaritaEvent : MonoBehaviour
     [SerializeField] private float velocity;
     [SerializeField] private SetTopShaker shakerTop;
     [SerializeField] private PolygonCollider2D shakerTopDrag;
+
     private bool isGrowing;
     private int shakerOrderingLayerDrag;
     private int dragOrderingLayerDrag;
@@ -71,7 +72,6 @@ public class SibaritaEvent : MonoBehaviour
         if(playerConversant.GetChild() == 5)
         {
             clientDialogueCollider.enabled = true;
-            Debug.Log("si");
         }
         if (playerConversant.GetChild() == 6 && tutorial[1])
         {

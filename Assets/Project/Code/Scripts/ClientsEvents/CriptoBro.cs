@@ -40,7 +40,7 @@ public class CriptoBro : MonoBehaviour
             }
             if(buttonPressed && !player.HasNext())
             {
-                clientObject.GetComponent<Client>().SetTimer(true);
+                clientObject.GetComponent<Client>().SetLeaveAnimation(true);
                 inversions.gameObject.SetActive(false);
                 enabled = false;
             }

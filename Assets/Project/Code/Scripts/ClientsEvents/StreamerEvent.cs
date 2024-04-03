@@ -25,6 +25,7 @@ public class StreamerEvent : MonoBehaviour
 
     private float time;
     private bool votation = false;
+    private bool endDialogue = false;
 
     private void Awake()
     {
@@ -40,6 +41,15 @@ public class StreamerEvent : MonoBehaviour
                 clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("StartVotation");
                 clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(StartVotation);
                 triggerSetted = true;
+            }
+
+            if(Input.GetMouseButtonDown(0) && TypeWriterEffect.isTextCompleted && endDialogue)
+            {
+                endDialogue = false;
+                startVotation = true;
+                votation = true;
+                clientObject.GetComponent<BoxCollider2D>().enabled = false;
+                canvas.SetActive(true);
             }
 
             if (startVotation)
@@ -74,10 +84,7 @@ public class StreamerEvent : MonoBehaviour
 
     private void StartVotation()
     {
-        startVotation = true;
-        votation = true;
-        clientObject.GetComponent<BoxCollider2D>().enabled = false;
-        canvas.SetActive(true);
+        endDialogue = true;
     }
 
     public bool GetVotation()

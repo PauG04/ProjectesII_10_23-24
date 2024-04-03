@@ -38,7 +38,7 @@ public class PoliceEvent : MonoBehaviour
         {
             if(clientObject.GetComponent<Client>().GetHitted() && currentsHits <= totalHits)
             {
-                EconomyManager.instance.SetMoneyChanged(-10);
+                EconomyManager.instance.SetMoneyChanged(-5);
                 currentsHits++;
                 clientObject.GetComponent<Client>().SetHitted(false);
             }
@@ -49,7 +49,7 @@ public class PoliceEvent : MonoBehaviour
             }
             if(playerConversant.GetChild() > 7)
             { 
-                clientDialogueCollider.enabled = true; 
+                clientDialogueCollider.enabled = true;
             }
         }
         else
