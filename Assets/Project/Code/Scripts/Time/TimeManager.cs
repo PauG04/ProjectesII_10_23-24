@@ -84,7 +84,6 @@ public class TimeManager : MonoBehaviour
         isStopped = true;
         endOfDayObject.SetActive(true);
         //EconomyManager.instance.AddMoney(-rent);
-        EconomyManager.instance.SetMoneyText();
         
     }
 
@@ -97,7 +96,6 @@ public class TimeManager : MonoBehaviour
         second = 0.0f;
 
         EconomyManager.instance.ResetDailyEarnings();
-        EconomyManager.instance.ResetDailyExpense();
     }
 
     public int GetDay()

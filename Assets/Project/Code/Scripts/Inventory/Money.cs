@@ -29,24 +29,25 @@ public class Money : MonoBehaviour
         }
         else
         {
-            textMesh.text = EconomyManager.instance.GetMoney().ToString("00.00") + '€';
+            textMesh.text = EconomyManager.instance.GetMoney().ToString("00.00") + 'ï¿½';
         }
     }
 
     private void MoneyLerp()
     {
-        if(money > 0 && textMesh.color != Color.green)
+        if (money > 0 && textMesh.color != Color.green)
         {
-            Debug.Log("money good");
+            AudioManager.instance.PlaySFX("EarnMoney");
             textMesh.color = Color.green;
         }
-        else if(money < 0 && textMesh.color != Color.red)
+        else if (money < 0 && textMesh.color != Color.red)
         {
+            AudioManager.instance.PlaySFX("LoseMoney");
             textMesh.color = Color.red;
             Debug.Log("money bad");
         }
 
-        textMesh.text = money.ToString("00.00") + '€';
+        textMesh.text = money.ToString("00.00") + 'ï¿½';
 
         if(growing)
         {
