@@ -161,7 +161,7 @@ Transform:
   - {fileID: 2169940179253618980}
   - {fileID: 3307987878986650123}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8277334256892889940
 MonoBehaviour:
@@ -213,16 +213,16 @@ MonoBehaviour:
     maxPitch: 0.8
     loop: 0
   - soundName: LoseMoney
-    clip: {fileID: 8300000, guid: fd7c5a52d3234544ea3e854ea96f016b, type: 3}
+    clip: {fileID: 8300000, guid: fba2f20498cdd844aa72c181ae3bec22, type: 3}
     volume: 0.8
-    minPitch: 0.7
+    minPitch: 0.8
     maxPitch: 0.8
     loop: 0
   - soundName: Hammer
     clip: {fileID: 8300000, guid: 4efca67e660cf19499af6a37f0f26828, type: 3}
     volume: 1
-    minPitch: 1
-    maxPitch: 1
+    minPitch: 0.75
+    maxPitch: 1.25
     loop: 0
   - soundName: PickObject
     clip: {fileID: 0}
@@ -237,55 +237,25 @@ MonoBehaviour:
     maxPitch: 1
     loop: 0
   - soundName: ButtonPressed
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 1b0e95146f7621c4f90530af494eddc7, type: 3}
     volume: 1
     minPitch: 1
     maxPitch: 1
     loop: 0
   - soundName: OpenPhone
-    clip: {fileID: 0}
-    volume: 1
-    minPitch: 1
-    maxPitch: 1
-    loop: 0
-  - soundName: ClosePhone
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 775d120ccdd5814458ec58d4e27f4700, type: 3}
     volume: 1
     minPitch: 1
     maxPitch: 1
     loop: 0
   - soundName: OpenApp
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: c8a007fab7e215d45b31d26a47e7409e, type: 3}
     volume: 1
-    minPitch: 1
-    maxPitch: 1
-    loop: 0
-  - soundName: CloseApp
-    clip: {fileID: 0}
-    volume: 1
-    minPitch: 1
-    maxPitch: 1
-    loop: 0
-  - soundName: PressPhone
-    clip: {fileID: 0}
-    volume: 1
-    minPitch: 1
-    maxPitch: 1
+    minPitch: 0.85
+    maxPitch: 1.15
     loop: 0
   - soundName: ShakeLiquid
     clip: {fileID: 8300000, guid: 02754080b1f825c4292a4b50c48d8d37, type: 3}
-    volume: 1
-    minPitch: 1
-    maxPitch: 1
-    loop: 0
-  - soundName: ClientHappy
-    clip: {fileID: 0}
-    volume: 1
-    minPitch: 1
-    maxPitch: 1
-    loop: 0
-  - soundName: ClientMad
-    clip: {fileID: 0}
     volume: 1
     minPitch: 1
     maxPitch: 1
@@ -309,10 +279,10 @@ MonoBehaviour:
     maxPitch: 1
     loop: 0
   - soundName: DropIce
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 4efca67e660cf19499af6a37f0f26828, type: 3}
     volume: 1
-    minPitch: 1
-    maxPitch: 1
+    minPitch: 1.5
+    maxPitch: 1.5
     loop: 0
   - soundName: DropIceInLiquid
     clip: {fileID: 8300000, guid: 59cf960cb0656fc46885615ed5735960, type: 3}
