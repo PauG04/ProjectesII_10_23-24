@@ -40,6 +40,7 @@ public class Client : MonoBehaviour
     private bool triggerSetted;
     private bool wellReacted;
     private bool badReacted;
+    private bool activeCollision;
 
     private int currentsHits;
 
@@ -62,6 +63,7 @@ public class Client : MonoBehaviour
         isLocated = false;
         hitted = false;
         wellReacted = false;
+        activeCollision = false;
 
         currentsHits = 0;
     }
@@ -353,6 +355,12 @@ public class Client : MonoBehaviour
                 }
             }
         }
+
+        if(activeCollision && !boxCollider.enabled)
+        {
+            Debug.Log("si");
+            boxCollider.enabled = true;
+        }
     }
 
     private void MoveClientHorizontal(Transform _transform)
@@ -377,7 +385,7 @@ public class Client : MonoBehaviour
     private void EnableCollider()
     {
         Debug.Log("Active Collision");
-        boxCollider.enabled = true;
+        activeCollision = true;
     }
 
     public CocktailNode GetOrder()
