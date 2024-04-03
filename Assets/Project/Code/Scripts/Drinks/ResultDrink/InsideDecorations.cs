@@ -24,6 +24,7 @@ public class InsideDecorations : MonoBehaviour
 
     public void AddItem(ItemNode item)
     {
+
         if (item.itemName == "Cubo de Hielo")
         {
             if (liquidManager.GetCurrentLiquid() > 0)

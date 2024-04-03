@@ -62,10 +62,11 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         }
 
         _rb.bodyType = RigidbodyType2D.Dynamic;
+        _liquidManager.GetComponent<Collider2D>().enabled = false;
     }
     public override void ExitState()
     {
-        
+
     }
     public override ShakerStateMachine.ShakerState GetNextState()
     {

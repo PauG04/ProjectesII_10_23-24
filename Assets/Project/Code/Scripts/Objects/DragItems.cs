@@ -174,7 +174,9 @@ public class DragItems : MonoBehaviour
                 if (!isReturning)
                 {
                     if(!isPainting)
+                    {
                         rb2d.bodyType = RigidbodyType2D.Dynamic;
+                    }
                     InsideWorkspace();
                 }
                 else
@@ -276,7 +278,7 @@ public class DragItems : MonoBehaviour
             {
                 spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             }
-            if (!isDragging || !dragWithWorkspaceSprite)
+            if (!dragWithWorkspaceSprite || !isDragging)
             {
                 spriteRenderer.sprite = normalSprite;
             }
