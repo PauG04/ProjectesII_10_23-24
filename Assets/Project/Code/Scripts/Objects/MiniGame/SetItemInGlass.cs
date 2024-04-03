@@ -31,6 +31,7 @@ public class SetItemInGlass : MonoBehaviour
             drag.enabled = false;
             isInGlass = true;
             collision.GetComponent<InsideDecorations>().AddItem(itemNode);
+            drag.SetHasToReturn(false);
         }
     }
 
@@ -42,6 +43,7 @@ public class SetItemInGlass : MonoBehaviour
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             isInGlass = false;
             collision.GetComponent<InsideDecorations>().SubstractItem(itemNode);
+            drag.SetHasToReturn(true);
         }
     }
 
