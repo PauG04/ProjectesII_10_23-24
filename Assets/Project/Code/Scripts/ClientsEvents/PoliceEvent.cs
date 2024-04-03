@@ -23,6 +23,8 @@ public class PoliceEvent : MonoBehaviour
     private GameObject clientObject;
     private float currentsHits;
 
+    [Header("ClientDialogueCollider")]
+    [SerializeField] private BoxCollider2D clientDialogueCollider;
 
     private void Awake()
     {
@@ -36,13 +38,18 @@ public class PoliceEvent : MonoBehaviour
         {
             if(clientObject.GetComponent<Client>().GetHitted() && currentsHits <= totalHits)
             {
-                EconomyManager.instance.SetMoneyChanged(-10);
+                EconomyManager.instance.SetMoneyChanged(-5);
                 currentsHits++;
                 clientObject.GetComponent<Client>().SetHitted(false);
             }
-            if (playerConversant.GetCanContinue() && clientObject.GetComponent<Client>().GetIsLocated())
+            if(playerConversant.GetChild() == 7 && clientObject.GetComponent<Client>().GetIsLocated())
             {
                 ActiveDragItem();
+                clientDialogueCollider.enabled = false;
+            }
+            if(playerConversant.GetChild() > 7)
+            { 
+                clientDialogueCollider.enabled = true;
             }
         }
         else
@@ -84,6 +91,7 @@ public class PoliceEvent : MonoBehaviour
         if(drag.gameObject.GetComponent<DragItems>().GetInsideWorkspace())
         {
             playerConversant.Next();
+            
         }
     }
 

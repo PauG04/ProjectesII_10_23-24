@@ -15,12 +15,13 @@ public class ShopEvent : MonoBehaviour
     [SerializeField] private float cost;
 
     [SerializeField] private List<LiquidManager> botles;
+    [SerializeField] private PlayerConversant player;
 
     private ClientNode client;
     private GameObject clientObject;
     private bool isFirstButton = false;
 
-    private bool triggerSetted = false;
+    private bool triggerSettedCanvas = false;
 
 
     private void Awake()
@@ -32,19 +33,18 @@ public class ShopEvent : MonoBehaviour
     {
         if (client != null && client == eventClient)
         {
-            if(clientObject.GetComponent<Client>().GetHitted())
+            if (TypeWriterEffect.isTextCompleted && !player.HasNext() && clientObject.GetComponent<Client>().GetIsLocated())
+            {
+                activeCanvas();
+            }
+            if (clientObject.GetComponent<Client>().GetHitted())
             {
                 clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("ResetDrink");
                 clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(ResetDrink);
                 canvas.SetActive(false);
                 enabled = false;
             }
-            if (!triggerSetted)
-            {
-                clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("ActiveCanvas");
-                clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(activeCanvas);
-                triggerSetted = true;
-            }
+
         }
         else
         {
@@ -84,12 +84,12 @@ public class ShopEvent : MonoBehaviour
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[4]);
             }
             
-            clientObject.GetComponent<Client>().SetTimer(true);
+            clientObject.GetComponent<Client>().SetLeaveAnimation(true);
             enabled = false;
         }
         clientObject.GetComponent<AIConversant>().HandleDialogue();
         canvas.SetActive(false);
-        triggerSetted = false;
+        triggerSettedCanvas = false;
     }
 
     public void RejectDeal()
@@ -102,13 +102,13 @@ public class ShopEvent : MonoBehaviour
         else
         {
             clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[1]);
-            clientObject.GetComponent<Client>().SetTimer(true);
+            clientObject.GetComponent<Client>().SetLeaveAnimation(true);
             enabled = false;
         }
 
         clientObject.GetComponent<AIConversant>().HandleDialogue();
         canvas.SetActive(false);
-        triggerSetted = false;
+        triggerSettedCanvas = false;
     }
 
     public void ResetDrink()

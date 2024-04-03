@@ -1,5 +1,6 @@
 using Dialogue;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -21,7 +22,7 @@ public class Client : MonoBehaviour
 
     private bool arriveAnimation;
     private bool leaveAnimation;
-    private bool startTimer;
+    private bool leave;
 
     [Header("Client Dialogue")]
     private AIConversant conversant;
@@ -53,7 +54,6 @@ public class Client : MonoBehaviour
         boxCollider.enabled = false;
         arriveAnimation = false;
         leaveAnimation = false;
-        startTimer = false;
         time = 0;
 
         canLeave = false;
@@ -80,12 +80,7 @@ public class Client : MonoBehaviour
 
         if (canLeave && clientNode.notNeedTakeDrink && !clientNode.hitToGo)
         {
-            startTimer = true;
-        }
-
-        if (startTimer && !conversant.GetPlayerConversant().HasNext())
-        {
-            Timer();
+            leaveAnimation = true;
         }
 
         if (!triggerSetted)
@@ -114,12 +109,11 @@ public class Client : MonoBehaviour
             if (clientNode.acceptsAll && collision.transform.GetChild(2).GetComponent<LiquidManager>().GetCurrentLiquid() > 0)
             {
                 bool state = false; ;
-                if (findError == "Good" || findError == "BadGlass")
+                if (findError == "Good" || findError == "BadGlass" || findError == "NoIce")
                 {
                     state = true;
                 }
                    
-                Debug.Log(state);
                ReactWell(state);
                 Destroy(collision.gameObject);
                 return;
@@ -139,7 +133,7 @@ public class Client : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Hammer") && !startTimer && clientNode.canBeHitted)
+        if (collision.CompareTag("Hammer") && !leaveAnimation && clientNode.canBeHitted)
         {
             if(clientNode.payAfterHit)
             {
@@ -160,7 +154,7 @@ public class Client : MonoBehaviour
 
             if ((clientNode.hitToGo && currentsHits == clientNode.totalHits))
             {
-                startTimer = true;
+                leaveAnimation = true;
                 return;
             }
             
@@ -272,7 +266,7 @@ public class Client : MonoBehaviour
                 if (clientNode.onlyOneChance)
                 {
                     badReacted = true;
-                    startTimer = true;
+                    leaveAnimation = true;
                 }
             }
             else
@@ -295,7 +289,7 @@ public class Client : MonoBehaviour
         }
         if(!clientNode.hasMoraDialoguesPostOrder)
         {
-            startTimer = true;
+            leaveAnimation = true;
         }       
         wellReacted = true;
     }
@@ -309,7 +303,7 @@ public class Client : MonoBehaviour
         if (clientNode.onlyOneChance)
         {
             badReacted = true;
-            startTimer = true;
+            leaveAnimation = true;
         }
 
     }
@@ -345,18 +339,23 @@ public class Client : MonoBehaviour
         }
         else if (leaveAnimation)
         {
-            if (TypeWriterEffect.isTextCompleted)
+            if (TypeWriterEffect.isTextCompleted && Input.GetMouseButtonDown(0))
             {
-                MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
-                if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
-                {
-                    ClientManager.instance.CreateClient();
-                    Destroy(gameObject);
-                }
+                leave = true;
             }
         }
 
-        if(activeCollision && !boxCollider.enabled)
+        if(leave)
+        {
+            MoveClientHorizontal(ClientManager.instance.GetLeavePosition());
+            if (transform.localPosition.x > ClientManager.instance.GetLeavePosition().localPosition.x - 0.01)
+            {
+                ClientManager.instance.CreateClient();
+                Destroy(gameObject);
+            }
+        }
+
+        if(activeCollision && !boxCollider.enabled && !leaveAnimation)
         {
             Debug.Log("si");
             boxCollider.enabled = true;
@@ -369,17 +368,6 @@ public class Client : MonoBehaviour
         newPosition.x = Mathf.Lerp(transform.localPosition.x, _transform.localPosition.x, Time.deltaTime * ClientManager.instance.GetHorizontalVelocity());
 
         transform.localPosition = newPosition;
-    }
-
-    public void Timer()
-    {
-        boxCollider.enabled = false;
-        time += Time.deltaTime;
-        if(time > maxTime)
-        {
-            startTimer = false;
-            leaveAnimation = true;
-        }
     }
 
     private void EnableCollider()
@@ -438,15 +426,14 @@ public class Client : MonoBehaviour
         canLeave = state;
     }
 
-    public void SetTimer(bool state)
-    {
-        startTimer = state;
-    }
-
     public void SetHitted(bool state)
     {
         hitted = state;
     }
 
+    public void SetLeaveAnimation(bool state)
+    {
+        leaveAnimation = state;
+    }
 
 }

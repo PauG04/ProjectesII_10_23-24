@@ -27,7 +27,7 @@ public class DrunkEvent : MonoBehaviour
             if(clientObject.GetComponent<Client>().GetHitted() || clientObject.GetComponent<Client>().GetWellReacted() && !lerpActive)
             {
                 lerpActive = true;
-                clientObject.GetComponent<Client>().SetTimer(false);
+                clientObject.GetComponent<Client>().SetLeaveAnimation(false);
                 clientObject.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
@@ -37,7 +37,7 @@ public class DrunkEvent : MonoBehaviour
             clientObject = clientManager.GetClientObject();
         }
 
-        if(lerpActive && playerConversant.GetIsTextDone())
+        if(lerpActive && TypeWriterEffect.isTextCompleted)
         {
             ClientLerp();
         }
@@ -54,7 +54,6 @@ public class DrunkEvent : MonoBehaviour
         if(clientObject.transform.localPosition.y < -0.38)
         {
             ClientManager.instance.CreateClient();
-            Destroy(gameObject);
             lerpActive = false;
             enabled = false;
         }

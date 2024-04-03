@@ -27,7 +27,7 @@ public class OldEvent : MonoBehaviour
             collision.GetComponent<AIConversant>().SetDialogue(dialogue);
             collision.GetComponent<AIConversant>().HandleDialogue();
             Destroy(gameObject);
-            collision.GetComponent<Client>().SetTimer(true);
+            collision.GetComponent<Client>().SetLeaveAnimation(true);
         }
     }
 }

@@ -28,7 +28,7 @@ public class OrderPanel : MonoBehaviour
         {
             textMesh.text = " ";
         }
-        if (clientObject != null && clientObject.GetComponent<BoxCollider2D>().enabled)
+        if (clientObject != null && clientObject.GetComponent<BoxCollider2D>().enabled && clientObject.GetComponent<Client>().GetIsLocated())
         {
             SetInformation();
         }
@@ -41,13 +41,12 @@ public class OrderPanel : MonoBehaviour
 
     private void SetInformation()
     {
-        Debug.Log(cocktail);
         cocktail = ClientManager.instance.GetCurrentClientScript().GetOrder();
         if (cocktail != null && ClientManager.instance.GetClient().acceptsAll && !ClientManager.instance.GetClient().dontPay)
         {
             textMesh.text = "?";
         }
-        else if (cocktail != null && !ClientManager.instance.GetClient().notNeedTakeDrink)
+        else if ((cocktail != null && !ClientManager.instance.GetClient().notNeedTakeDrink) || (cocktail != null && ClientManager.instance.GetClient().notNeedTakeDrink && ClientManager.instance.GetClient().payAfterHit))
         {
             textMesh.text = cocktail.cocktailName.ToString();
         }

@@ -17,6 +17,9 @@ public class HitHammerEvent : MonoBehaviour
     private ClientNode client;
     private GameObject clientObject;
 
+    [Header("ClientDialogueCollider")]
+    [SerializeField] private BoxCollider2D clientDialogueCollider;
+
     private void Start()
     {
         time = 0;
@@ -26,13 +29,15 @@ public class HitHammerEvent : MonoBehaviour
     {
         if (client != null && client.clientName == "Mohammed")
         {
-            if(playerConversant.GetCanContinue() && clientObject.GetComponent<Client>().GetIsLocated())
-            { 
+            if(playerConversant.GetChild() > 2 && clientObject.GetComponent<Client>().GetIsLocated())
+            {
+                clientDialogueCollider.enabled = false;
                 StartTimer();
             }
 
             if (clientObject != null && clientObject.GetComponent<Client>().GetHitted())
             {
+                clientDialogueCollider.enabled = true;
                 enabled = false;
             }
 

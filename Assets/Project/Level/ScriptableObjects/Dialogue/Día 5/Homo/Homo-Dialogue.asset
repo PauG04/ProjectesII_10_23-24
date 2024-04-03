@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2c8f8d36-331d-46a9-933c-e14800fe618d
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "A menos que est\xE9 yo para comerte antes amorcito "
   children:
   - 92c54e44-014f-43f9-a7be-d519b9c0dbe9
@@ -38,7 +38,7 @@ MonoBehaviour:
   m_Name: fc6880a3-50bb-4cd1-b3e9-143e6a4144fd
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Que hace un peque\xF1o conejito como tu en esta tierra llena de leones "
   children:
   - 07ddd20c-35ea-4966-ac10-1261701c62dc
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 3cb1fb62-5489-46eb-893a-88cfd2a27785
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: Ponme una Agua de Palencia mi reina
   children: []
   rect:
@@ -93,7 +93,7 @@ MonoBehaviour:
     y: 82
     width: 200
     height: 120
-  onEnterAction: 
+  onEnterAction: ActiveCollision
   onExitAction: 
 --- !u!114 &5319511098313554784
 MonoBehaviour:
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 8a1b5e2b-f819-4da1-abdc-df1f0c913023
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Hola Terroncito de az\xFAcar "
   children:
   - fc6880a3-50bb-4cd1-b3e9-143e6a4144fd
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 9b9ab35b-21bc-4a13-95bf-ff2467972285
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: "Vamos a intentar estrechar m\xE1s nuestra relaci\xF3n pidiendote algo "
   children:
   - 3cb1fb62-5489-46eb-893a-88cfd2a27785
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 92c54e44-014f-43f9-a7be-d519b9c0dbe9
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: 'Porque pones esa cara tan rara mi sol, no ves que solo intento ayudarte '
   children:
   - 9b9ab35b-21bc-4a13-95bf-ff2467972285
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 07ddd20c-35ea-4966-ac10-1261701c62dc
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  isTextPaused: 0
+  isTextPaused: 1
   text: 'No ves que como te distraigas un momento te van a comer '
   children:
   - 2c8f8d36-331d-46a9-933c-e14800fe618d

@@ -19,6 +19,7 @@ namespace Dialogue
 		private bool isChoosing = false;
 		private bool isStartingNewConversant = false;
 		private bool isTextDone = false;
+		private int child = 0;
 
 		/// TODO:
 		/// 	find a better way to give the child to other objects instead of a numeric one
@@ -45,7 +46,9 @@ namespace Dialogue
 			
 			isStartingNewConversant = false;
 			StopAllCoroutines();
-		}
+			child = 0;
+
+        }
 		public void Quit()
 		{
 			currentDialogue = null;
@@ -106,7 +109,9 @@ namespace Dialogue
             currentNode = children[currentChildNumber];
             TriggerEnterAction();
             onConversationUpdated();
-		}
+			child++;
+
+        }
 		public bool HasNext()
 		{
 			return currentDialogue.GetAllChildren(currentNode).Count() > 0;
@@ -144,6 +149,12 @@ namespace Dialogue
 		{
 			return currentChildNumber;
 		}
+
+		public int GetChild()
+		{
+			return child;
+        }
+
 		public bool GetCanContinue()
 		{
 			if (currentNode != null)

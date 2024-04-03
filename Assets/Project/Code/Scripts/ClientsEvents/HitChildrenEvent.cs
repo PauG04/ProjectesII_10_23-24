@@ -35,7 +35,7 @@ public class HitChildrenEvent : MonoBehaviour
         {
             if(!playerConversant.HasNext())
             {
-                clientObject.GetComponent<Client>().SetTimer(true);
+                clientObject.GetComponent<Client>().SetLeaveAnimation(true);
                 enabled = false;
             }
         }

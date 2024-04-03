@@ -141,9 +141,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
   isTextPaused: 1
-  text: "Ah\xED tienes el Roncola, como puedes ver es muy sencillo de hacer "
+  text: "Ah\xED tienes el Roncola, como puedes ver es muy sencillo de hacer, vamos
+    a empezar cogiendo el vaso de tubo"
   children:
-  - 92a500d1-30c1-4b9e-84ef-d5041757931b
+  - b071f1de-de29-407d-9360-518c0e5aa996
   rect:
     serializedVersion: 2
     x: 1540
@@ -199,31 +200,6 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2385
     y: 250
-    width: 200
-    height: 120
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-3565423889988107129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
-  m_Name: 92a500d1-30c1-4b9e-84ef-d5041757931b
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  isTextPaused: 1
-  text: Vamos a empezar cogiendo el vaso de tubo
-  children:
-  - b071f1de-de29-407d-9360-518c0e5aa996
-  rect:
-    serializedVersion: 2
-    x: 1799
-    y: 240
     width: 200
     height: 120
   onEnterAction: 
@@ -371,7 +347,6 @@ MonoBehaviour:
   - {fileID: 8616183739061127428}
   - {fileID: -7245362035705100215}
   - {fileID: 8151993004492216400}
-  - {fileID: -3565423889988107129}
   - {fileID: -4012191294023050530}
   - {fileID: -3987597124235295502}
   - {fileID: -1076968552128206332}
