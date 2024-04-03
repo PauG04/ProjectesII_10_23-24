@@ -114,7 +114,7 @@ public class Client : MonoBehaviour
             if (clientNode.acceptsAll && collision.transform.GetChild(2).GetComponent<LiquidManager>().GetCurrentLiquid() > 0)
             {
                 bool state = false; ;
-                if (findError == "Good" || findError == "BadGlass")
+                if (findError == "Good" || findError == "BadGlass" || findError == "NoIce")
                 {
                     state = true;
                 }
@@ -356,7 +356,7 @@ public class Client : MonoBehaviour
             }
         }
 
-        if(activeCollision && !boxCollider.enabled)
+        if(activeCollision && !boxCollider.enabled && !leaveAnimation)
         {
             Debug.Log("si");
             boxCollider.enabled = true;
@@ -448,5 +448,9 @@ public class Client : MonoBehaviour
         hitted = state;
     }
 
+    public void SetLeaveAnimation(bool state)
+    {
+        leaveAnimation = state;
+    }
 
 }

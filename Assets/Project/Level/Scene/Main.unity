@@ -5146,7 +5146,6 @@ MonoBehaviour:
   shakerDrag: {fileID: 415776668}
   clientManager: {fileID: 1119733629}
   playerConversant: {fileID: 549211536}
-  button: {fileID: 1486979561}
   clientObject: {fileID: 0}
   arrow:
   - {fileID: 80714865}
@@ -5167,6 +5166,7 @@ MonoBehaviour:
   createObjectCollider: {fileID: 866900849}
   ice: {fileID: 0}
   wiki: {fileID: 1889225674}
+  clientDialogueCollider: {fileID: 1147945305}
 --- !u!114 &573178251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5210,6 +5210,7 @@ MonoBehaviour:
   clientManager: {fileID: 1119733629}
   playerConversant: {fileID: 549211536}
   maxTime: 7
+  clientDialogueCollider: {fileID: 1147945305}
 --- !u!114 &573178253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5229,6 +5230,7 @@ MonoBehaviour:
   playerConversant: {fileID: 549211536}
   drag: {fileID: 2082426031}
   velocity: 5
+  clientDialogueCollider: {fileID: 1147945305}
 --- !u!114 &573178254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5249,6 +5251,7 @@ MonoBehaviour:
   velocity: 5
   shakerTop: {fileID: 674035677}
   shakerTopDrag: {fileID: 1914124171}
+  clientDialogueCollider: {fileID: 1147945305}
 --- !u!1001 &576723743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14883,6 +14886,7 @@ MonoBehaviour:
   - {fileID: 1359055817}
   - {fileID: 1266251967}
   - {fileID: 540662682}
+  player: {fileID: 549211536}
 --- !u!114 &1638350135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20382,7 +20386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: currentDay
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.size

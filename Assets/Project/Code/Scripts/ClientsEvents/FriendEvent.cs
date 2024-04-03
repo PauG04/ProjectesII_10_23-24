@@ -17,7 +17,6 @@ public class FriendEvent : MonoBehaviour
     [SerializeField] private ClientManager clientManager;
 
     [SerializeField] private PlayerConversant playerConversant;
-    [SerializeField] private NextButton button;
 
     private ClientNode client;
     [SerializeField] private GameObject clientObject;
@@ -54,6 +53,8 @@ public class FriendEvent : MonoBehaviour
     private int dialogues;
 
     [SerializeField] private WikiManager wiki;
+    [Header("ClientDialogueCollider")]
+    [SerializeField] private BoxCollider2D clientDialogueCollider;
 
     private void Start()
     {
@@ -183,14 +184,12 @@ public class FriendEvent : MonoBehaviour
 
     private void Tutorial()
     {
-        if(!startTutorial && clientObject.GetComponent<Client>().GetIsLocated())
-        {
-            button.Active();
-
+        if(!startTutorial && clientObject.GetComponent<Client>().GetIsLocated() && playerConversant.GetChild() == 3)
+        { 
             startTutorial = true;
         }
 
-        if(!button.GetComponent<SpriteRenderer>().enabled && startTutorial)
+        if(startTutorial)
         {
             ActiveItem();
         }
@@ -202,6 +201,7 @@ public class FriendEvent : MonoBehaviour
         {
             ActiveDragItem(3, 0);
             dialogues = 1;
+            clientDialogueCollider.enabled = false;
         }
         else if (tutorialBooleans[1] && drag[3].GetComponent<DragItems>().GetWasOnTheTable())
         {
@@ -219,15 +219,11 @@ public class FriendEvent : MonoBehaviour
                 {
                     playerConversant.Next();
                 }
-                button.Active();
             }
         }
         else if (tutorialBooleans[2])
         {
-            if (!button.GetIsActive())
-            {
-                ActiveCreateGlass(0, 2);
-            }
+            ActiveCreateGlass(0, 2);                    
         }
         else if (tutorialBooleans[3])
         {
@@ -287,6 +283,7 @@ public class FriendEvent : MonoBehaviour
                 playerConversant.Next();
                 tutorialBooleans[11] = false;
                 tutorialBooleans[12] = true;
+                clientDialogueCollider.enabled = true;
             }
         }
     }

@@ -34,11 +34,9 @@ public class CriptoBro : MonoBehaviour
     {
         if (client != null && client == eventClient)
         {
-            if (!triggerSetted)
+            if (TypeWriterEffect.isTextCompleted && !player.HasNext() && clientObject.GetComponent<Client>().GetIsLocated())
             {
-                clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("ActiveCanvas");
-                clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(activeCanvas);
-                triggerSetted = true;
+                activeCanvas();
             }
             if(buttonPressed && !player.HasNext())
             {

@@ -37,7 +37,7 @@ public class DrunkEvent : MonoBehaviour
             clientObject = clientManager.GetClientObject();
         }
 
-        if(lerpActive && playerConversant.GetIsTextDone())
+        if(lerpActive && TypeWriterEffect.isTextCompleted)
         {
             ClientLerp();
         }
@@ -54,7 +54,6 @@ public class DrunkEvent : MonoBehaviour
         if(clientObject.transform.localPosition.y < -0.38)
         {
             ClientManager.instance.CreateClient();
-            Destroy(gameObject);
             lerpActive = false;
             enabled = false;
         }

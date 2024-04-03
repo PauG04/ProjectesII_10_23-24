@@ -25,6 +25,8 @@ public class SibaritaEvent : MonoBehaviour
     private GameObject clientObject;
     private bool[] tutorial;
 
+    [Header("ClientDialogueCollider")]
+    [SerializeField] private BoxCollider2D clientDialogueCollider;
 
     private void Awake()
     {
@@ -50,27 +52,38 @@ public class SibaritaEvent : MonoBehaviour
                 shakerDrag.enabled = true;
                 shakerTopDrag.enabled = true;
             }
-            if (playerConversant.GetCanContinue() && clientObject.GetComponent<Client>().GetIsLocated() && tutorial[0])
-            {
-                ActiveShakerItem();
-            }
-            if(playerConversant.GetCanContinue() && tutorial[1])
-            {
-                ActiveDragItem();
-            }
-            if(shakerTop.GetIsShakerClosed() && tutorial[2])
-            {
-                playerConversant.Next();
-                enabled = false;
-            }
+            ShakerTutorial();
         }
         else
         {
             client = clientManager.GetClient();
             clientObject = clientManager.GetClientObject();
         }
+    }
 
-
+    private void ShakerTutorial()
+    {
+        if (playerConversant.GetChild() == 4 && clientObject.GetComponent<Client>().GetIsLocated() && tutorial[0])
+        {
+            ActiveShakerItem();
+            clientDialogueCollider.enabled = false;
+        }
+        if(playerConversant.GetChild() == 5)
+        {
+            clientDialogueCollider.enabled = true;
+            Debug.Log("si");
+        }
+        if (playerConversant.GetChild() == 6 && tutorial[1])
+        {
+            ActiveDragItem();
+            clientDialogueCollider.enabled = false;
+        }
+        if (shakerTop.GetIsShakerClosed() && tutorial[2])
+        {
+            playerConversant.Next();
+            clientDialogueCollider.enabled = true;
+            enabled = false;
+        }
     }
 
     private void ActiveShakerItem()
@@ -103,6 +116,7 @@ public class SibaritaEvent : MonoBehaviour
                 if (playerConversant.HasNext())
                 {
                     playerConversant.Next();
+                    clientDialogueCollider.enabled = true;
                 }
                 tutorial[0] = false;
                 tutorial[1] = true;
@@ -143,6 +157,7 @@ public class SibaritaEvent : MonoBehaviour
         {
             tutorial[1] = false;
             tutorial[2] = true;
+
             playerConversant.Next();
         }
     }

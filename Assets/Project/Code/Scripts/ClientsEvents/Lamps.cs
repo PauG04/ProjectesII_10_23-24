@@ -28,13 +28,14 @@ public class Lamps : MonoBehaviour
     private bool onLamp;
     private bool firsTime = false;
     private bool triggerSetted = false;
+    private bool firstAparition = false;
 
     private void Awake()
     {
-        onLamp = false;
+        onLamp = true;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().sprite = sprites[0];
-        lampSprite.sprite = sprites[1];
+        lampSprite.sprite = sprites[3];
 
         volume.profile.TryGet(out colorAdjustments);
         volume.profile.TryGet(out vignette);
@@ -46,6 +47,15 @@ public class Lamps : MonoBehaviour
     {
         if (client != null && client == eventClient)
         {
+            if(!firstAparition)
+            {
+                onLamp = false;
+                ActiveLights(true);
+                GetComponent<SpriteRenderer>().sprite = sprites[2];
+                lampSprite.sprite = sprites[1];
+                firstAparition = true;
+            }
+            Debug.Log(client.invisible);
             if (client.invisible && !onLamp)
             {
                 clientObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
@@ -59,6 +69,10 @@ public class Lamps : MonoBehaviour
                  clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("Lamp");
                  clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(ActiveCollider);
                  triggerSetted = true;
+            }
+            if(clientObject.GetComponent<Client>().GetWellReacted())
+            {
+                enabled = false;
             }
            
         }
@@ -75,10 +89,9 @@ public class Lamps : MonoBehaviour
         if(GetComponent<BoxCollider2D>().enabled)
         {
             onLamp = !onLamp;
-            ActiveLights(onLamp);
+            ActiveLights(!onLamp);
             if (onLamp)
-            {
-                
+            {            
                 GetComponent<SpriteRenderer>().sprite = sprites[2];
                 lampSprite.sprite = sprites[3];
 
@@ -87,7 +100,6 @@ public class Lamps : MonoBehaviour
                     firsTime = true;
                     clientObject.GetComponent<AIConversant>().SetDialogue(dialogue);
                     clientObject.GetComponent<AIConversant>().HandleDialogue();
-                    enabled = false;
                 }
             }
             else
