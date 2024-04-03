@@ -44,6 +44,7 @@ public class Client : MonoBehaviour
     private bool activeCollision;
 
     private int currentsHits;
+    private PlayerConversant player;
 
     private void Awake()
     {
@@ -71,6 +72,7 @@ public class Client : MonoBehaviour
     private void Start()
     {
         transform.localPosition = ClientManager.instance.GetSpawnPosition().localPosition;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
         ArriveAnimation();
     }
 
@@ -339,7 +341,7 @@ public class Client : MonoBehaviour
         }
         else if (leaveAnimation)
         {
-            if (TypeWriterEffect.isTextCompleted && Input.GetMouseButtonDown(0))
+            if (TypeWriterEffect.isTextCompleted && Input.GetMouseButtonDown(0) && !player.HasNext())
             {
                 leave = true;
             }
