@@ -47,6 +47,8 @@ public class ShakerIdleOpen : BaseState<ShakerStateMachine.ShakerState>
         _shakerClosed.SetStayClosed(false);
 
         _shakerStateMachine.GetComponent<TargetJoint2D>().enabled = false;
+        _liquidManager.GetComponent<Collider2D>().enabled = true;
+
         _state = ShakerStateMachine.ShakerState.IdleOpen;
     }
     public override void ExitState()
