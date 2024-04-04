@@ -9430,6 +9430,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2865072688995586654}
     - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
+      propertyPath: levelLoader
+      value: 
+      objectReference: {fileID: 1319718686}
+    - target: {fileID: 8657942796167165326, guid: 9800209f159faa848b82fe811fc10922, type: 3}
       propertyPath: clientParent
       value: 
       objectReference: {fileID: 519648756}
@@ -10802,6 +10806,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7923770263783166432, guid: ed77a2fdc04beef40b39cab0d74caf8f, type: 3}
   m_PrefabInstance: {fileID: 1319718684}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1319718686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1049906005198254257, guid: ed77a2fdc04beef40b39cab0d74caf8f, type: 3}
+  m_PrefabInstance: {fileID: 1319718684}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33be6aa15aa6a644796e85bfff89e203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1335187949
 GameObject:
   m_ObjectHideFlags: 0
@@ -17916,7 +17931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: currentDay
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.size

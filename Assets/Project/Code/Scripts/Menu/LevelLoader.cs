@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,5 +19,14 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(levelIndex);
+    }
+
+    public void CloseAnimation()
+    {
+        transition.SetTrigger("Start");
+    }
+    public void OpenAnimation()
+    {
+        transition.SetTrigger("End");
     }
 }
