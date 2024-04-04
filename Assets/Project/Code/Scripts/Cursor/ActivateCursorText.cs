@@ -21,10 +21,14 @@ public class ActivateCursorText : MonoBehaviour
             CursorManager.instance.GetItemName().text = gameObject.GetComponent<BuyLiquid>().GetPrice().ToString() + "€";
             CursorManager.instance.GetBox().SetActive(true);
         }
-        else if(!GetComponent<DragItems>().GetInsideWorkspace())
+        else if(GetComponent<DragItems>() != null)
         {
-            CursorManager.instance.GetItemName().text = gameObject.GetComponent<DropLiquid>().GetDrink().spanishName;
-            CursorManager.instance.GetBox().SetActive(true);
+            if(!GetComponent<DragItems>().GetInsideWorkspace())
+            {
+                CursorManager.instance.GetItemName().text = gameObject.GetComponent<DropLiquid>().GetDrink().spanishName;
+                CursorManager.instance.GetBox().SetActive(true);
+            }
+
         }
         
     }

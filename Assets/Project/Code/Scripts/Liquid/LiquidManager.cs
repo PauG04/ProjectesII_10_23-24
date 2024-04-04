@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class LiquidManager : MonoBehaviour
 {
@@ -57,7 +59,28 @@ public class LiquidManager : MonoBehaviour
         }
         if(currentLiquid == 0 && isBottle)
         {
-            currentLiquid = maxLiquid;
+            if(transform.parent.gameObject.transform.parent.childCount > 1)
+            {
+                GameObject newBottle = transform.parent.gameObject.transform.parent.transform.GetChild(1).gameObject;
+
+                newBottle.transform.localPosition = transform.parent.gameObject.GetComponent<DragItems>().GetInitPosition();
+                newBottle.AddComponent<PolygonCollider2D>();
+                newBottle.GetComponent<SpriteRenderer>().color = Color.white;
+                newBottle.GetComponent<SpriteRenderer>().sortingOrder = 2;
+                newBottle.GetComponent<DragItems>().enabled = true;
+                newBottle.GetComponent<DragItems>().SetItemCollider(newBottle.GetComponent<PolygonCollider2D>());
+                newBottle.GetComponent<DragItems>().SetInitPosition(transform.parent.gameObject.GetComponent<DragItems>().GetInitPosition());
+                newBottle.GetComponent<ArrowManager>().enabled = true;
+                newBottle.transform.GetChild(3).gameObject.SetActive(true);
+
+            }
+            Destroy(transform.parent.gameObject.GetComponent<DragItems>());
+
+            transform.parent.gameObject.transform.SetParent(null);
+            transform.parent.gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
+            transform.parent.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            isBottle = false;
+
         }
     }
 
