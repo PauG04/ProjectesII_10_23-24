@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 8616855056323009507}
   - component: {fileID: 2060686802149457118}
   m_Layer: 24
-  m_Name: RightPage
+  m_Name: GintonicPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c2ab0cb524bb4b92254937f5a42df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLeft: 0
+  cocktail: {fileID: 11400000, guid: 215d3eec364efd142a5c4b6865136c9e, type: 2}
   nameText: {fileID: 8594563728778200068}
   subtitleText: {fileID: 8833967485973211885}
   descriptionText: {fileID: 8590666433591738389}
@@ -671,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7fc88eca340f34caeee081ace13219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeft: 0
 --- !u!61 &7840249776491735621
 BoxCollider2D:
   m_ObjectHideFlags: 0

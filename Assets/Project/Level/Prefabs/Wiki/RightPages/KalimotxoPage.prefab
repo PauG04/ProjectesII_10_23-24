@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 8616855056323009507}
   - component: {fileID: 2060686802149457118}
   m_Layer: 24
-  m_Name: LeftPage
+  m_Name: KalimotxoPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.8679, y: 0.0485}
+  m_AnchoredPosition: {x: 0.8679, y: 0.0485}
   m_SizeDelta: {x: 1.3643, y: 1.7225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8616855056323009507
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c2ab0cb524bb4b92254937f5a42df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLeft: 1
+  cocktail: {fileID: 11400000, guid: c5b14950144f4b64ebe982029287a02d, type: 2}
   nameText: {fileID: 8594563728778200068}
   subtitleText: {fileID: 8833967485973211885}
   descriptionText: {fileID: 8590666433591738389}
@@ -654,11 +654,11 @@ RectTransform:
   m_Father: {fileID: 8037749646198739868}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.5, y: 0.5}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &2766838340111834122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7fc88eca340f34caeee081ace13219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeft: 0
 --- !u!61 &7840249776491735621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -703,7 +704,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05, y: 0.08}
+  m_Offset: {x: -0.05, y: 0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
