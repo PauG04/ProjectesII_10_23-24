@@ -33,9 +33,6 @@ public class TypeWriterEffect : MonoBehaviour
     public static event Action CompleteTextRevealed;
     public static event Action<char> CharacterRevealed;
 
-    [Header("Visual Components")]
-    [SerializeField] private GameObject nextButton;
-
     private void Awake()
     {
         textBox = GetComponent<TMP_Text>();
@@ -56,15 +53,9 @@ public class TypeWriterEffect : MonoBehaviour
                 Skip();
             }
         }
-        if (isTextCompleted)
-        {
-            nextButton.SetActive(true);
-        }
     }
-
     public void SetText(string text)
     {
-
         if (typeWriterCoroutine != null)
         {
             StopCoroutine(typeWriterCoroutine);
