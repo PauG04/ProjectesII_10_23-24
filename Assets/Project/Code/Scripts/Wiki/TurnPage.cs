@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class TurnPage : MonoBehaviour
 {
+    [SerializeField] private bool isLeft;
     private void OnMouseDown()
     {
-        if (GetComponentInParent<WikiPage>() == null)
-        {
-            WikiManager.instance.NextPage();
-            return;
-        }
-
-        if (GetComponentInParent<WikiPage>().GetIsLeft())
+        if (isLeft)
             WikiManager.instance.PrevPage();
         else
             WikiManager.instance.NextPage();
