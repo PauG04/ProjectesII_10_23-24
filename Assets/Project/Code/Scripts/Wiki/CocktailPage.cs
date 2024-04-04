@@ -16,6 +16,7 @@ public class CocktailPage : MonoBehaviour
         int integerPart = (int)cocktail.price;
         subtitleText.text = integerPart.ToString() + "'99 €";
         descriptionText.text = cocktail.description;
-        spriteRenderer.sprite = cocktail.sprite;
+        spriteRenderer.sprite = Resources.Load<Sprite>(cocktail.sprite.name + "Wiki");
+        
     }
 }

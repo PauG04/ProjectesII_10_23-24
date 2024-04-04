@@ -55,7 +55,7 @@ public class LiquidManager : MonoBehaviour
                 dragItems.SetHasToReturn(true);
             }
         }
-        if(currentLiquid == 0 && isBottle)
+        if (currentLiquid == 0 && isBottle)
         {
             currentLiquid = maxLiquid;
         }
