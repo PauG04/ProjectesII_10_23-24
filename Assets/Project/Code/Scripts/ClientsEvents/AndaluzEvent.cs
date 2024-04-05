@@ -34,16 +34,12 @@ public class AndaluzEvent : MonoBehaviour
                 _camera.SetTransforPosition();
                 enabled = false;
             }
-            if(clientObject.GetComponent<BoxCollider2D>().enabled && !startShaking && Input.GetMouseButtonDown(0) && TypeWriterEffect.isTextCompleted)
+            if(clientObject.GetComponent<BoxCollider2D>().enabled && !startShaking && Input.GetMouseButtonDown(0) && TypeWriterEffect.isTextCompleted && !startShaking)
             {
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogue);
                 clientObject.GetComponent<AIConversant>().HandleDialogue();
-                if (!triggerSetted)
-                {
-                    clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("StartShaking");
-                    clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(StartShaking);
-                    triggerSetted = true;
-                }
+                StartShaking();
+                
             }
             shakingCamera();
         }

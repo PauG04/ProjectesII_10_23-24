@@ -26,7 +26,7 @@ public class EconomyManager : MonoBehaviour
             Destroy(gameObject);
         }
         dailyEarnings = 0.0f;
-        money = 2000.0f;
+        money = 2100.0f;
     }
 
     public void AddMoney(float earnings)
