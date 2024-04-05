@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9142374672580930498}
-  - component: {fileID: 9139776081387716672}
+  - component: {fileID: 994504023947815502}
   m_Layer: 0
   m_Name: WikiManager
   m_TagString: Untagged
@@ -30,9 +30,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9139776081387716672
+--- !u!114 &994504023947815502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,16 +44,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb01dd8b85fee044af1f252d16ce30c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cocktails:
-  - {fileID: 11400000, guid: 8b7c3c93fcb8c434fb39bace5a2e1296, type: 2}
-  - {fileID: 11400000, guid: 28132074d99411944b698ffc378ab21c, type: 2}
-  - {fileID: 11400000, guid: 2a3d599f8f812224d9e8b3b8cc4cfe52, type: 2}
-  - {fileID: 11400000, guid: e5234a9857db5784ca19e8894f2f5317, type: 2}
-  - {fileID: 11400000, guid: 5ee31d61876300942ac422b2ef11376e, type: 2}
-  - {fileID: 11400000, guid: b346bd0fc088a934fa5c45174bf724a1, type: 2}
-  - {fileID: 11400000, guid: 594d9070d8ebee3458bae5d19cbca84e, type: 2}
-  - {fileID: 11400000, guid: e67a808cf01a7ca4593d0f191d0f8590, type: 2}
+  leftPages:
+  - {fileID: 3916201387043907588, guid: f4d552cc534ecca4282adb98f5e97afc, type: 3}
+  - {fileID: 2165754787126392904, guid: 2d43efd8737be91459f04eee72fa5d47, type: 3}
+  - {fileID: 3916201387043907588, guid: f4d552cc534ecca4282adb98f5e97afc, type: 3}
+  - {fileID: 2165754787126392904, guid: fb86c3e9808298941b4fdec8d8602737, type: 3}
+  - {fileID: 3916201387043907588, guid: f4d552cc534ecca4282adb98f5e97afc, type: 3}
+  - {fileID: 2165754787126392904, guid: d7e97ce34b34b8f4fac4f7be1201958e, type: 3}
+  - {fileID: 3916201387043907588, guid: f4d552cc534ecca4282adb98f5e97afc, type: 3}
+  - {fileID: 2165754787126392904, guid: 7bb692776c63d714ea98549d45418f19, type: 3}
+  - {fileID: 3916201387043907588, guid: f4d552cc534ecca4282adb98f5e97afc, type: 3}
+  rightPages:
+  - {fileID: 2165754787126392904, guid: 2995db505f6b7ec45bfe9bba038b81d2, type: 3}
+  - {fileID: 3916201387043907588, guid: f4d552cc534ecca4282adb98f5e97afc, type: 3}
+  - {fileID: 2165754787126392904, guid: 3b4447d33c6059c49a1fb630dd3b010a, type: 3}
+  - {fileID: 3916201387043907588, guid: f4d552cc534ecca4282adb98f5e97afc, type: 3}
+  - {fileID: 2165754787126392904, guid: e5c0f86d243148c4597801375c66227f, type: 3}
+  - {fileID: 3916201387043907588, guid: f4d552cc534ecca4282adb98f5e97afc, type: 3}
+  - {fileID: 2165754787126392904, guid: 516941b2d04fe7544b5b82433f26ba43, type: 3}
+  - {fileID: 3916201387043907588, guid: f4d552cc534ecca4282adb98f5e97afc, type: 3}
+  - {fileID: 2165754787126392904, guid: abe5ba83923c1204393034c0c6e06c0b, type: 3}
   wiki: {fileID: 0}
-  firstPage: {fileID: 0}
-  secondPage: {fileID: 0}
+  leftPage: {fileID: 0}
+  rightPage: {fileID: 0}
+  prevAndNextSprite: {fileID: 0}
+  prevSprite: {fileID: 0}
+  nextSprite: {fileID: 0}
   book: {fileID: 0}
