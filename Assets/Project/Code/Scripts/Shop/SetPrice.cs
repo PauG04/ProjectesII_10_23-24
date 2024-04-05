@@ -14,7 +14,6 @@ public class SetPrice : MonoBehaviour
     {
         textMesh = GetComponent<TextMeshProUGUI>();
         money = transform.parent.transform.parent.GetComponent<BuyLiquid>();
-        Debug.Log(money);
     }
 
     private void Update()
