@@ -12,9 +12,9 @@ public class EndOfDay : MonoBehaviour
 
     private void Update()
     {
-        dailyEarnings.text = "Earnings: " + EconomyManager.instance.GetDailyEarnings().ToString("00.00") + "€";
-        dailyExpenses.text = "Expanses: " + EconomyManager.instance.GetDailyExpanses().ToString("00.00") + "€";
+        dailyEarnings.text = "Ganancias: " + EconomyManager.instance.GetDailyEarnings().ToString("00.00") + "€";
+        dailyExpenses.text = "Gastos: " + EconomyManager.instance.GetDailyExpanses().ToString("00.00") + "€";
 
-        totalMoney.text = "Current Money: " + EconomyManager.instance.GetMoney().ToString("00.00") + "€";
+        totalMoney.text = "Dinero: " + EconomyManager.instance.GetMoney().ToString("00.00") + "€";
     }
 }
