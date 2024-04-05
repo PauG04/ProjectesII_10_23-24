@@ -60,7 +60,9 @@ public class CalculateDrink : MonoBehaviour
             case CocktailNode.Type.LemmonJuice:
                 return CheckCocktail(typesOfDrink, state, allCocktails["LemonJuice"], sprite, decorations);
             case CocktailNode.Type.Gazpacho:
-                return CheckCocktail(typesOfDrink, state, allCocktails["Gazpacho"], sprite, decorations);       
+                return CheckCocktail(typesOfDrink, state, allCocktails["Gazpacho"], sprite, decorations);
+            case CocktailNode.Type.Beer:
+                return CheckCocktail(typesOfDrink, state, allCocktails["Cerveza"], sprite, decorations);
             default:
                 return "ERROR";
         }        
@@ -73,6 +75,7 @@ public class CalculateDrink : MonoBehaviour
         if (typesOfDrink.Count != cocktail.ingredients.Count)
             return "BadIngredients";
 
+        int totalParticles = 0;
         foreach (KeyValuePair<DrinkNode, int> ingredient in cocktail.ingredients)
         {
             //Check if same drinkTypes
@@ -82,6 +85,14 @@ public class CalculateDrink : MonoBehaviour
             //Check if same quantity
             if (typesOfDrink[ingredient.Key] < ingredient.Value * 10 * cocktail.errorMargin)
                 return "BadIngredients";
+
+            totalParticles += typesOfDrink[ingredient.Key];
+        }
+
+        //Check if glass is nearly full
+        if (totalParticles < 40)
+        {
+            return "BadIngredients";
         }
 
         //Check if same state
@@ -93,14 +104,15 @@ public class CalculateDrink : MonoBehaviour
         //Check if same sprite
         if (sprite != cocktail.sprite)
             return "BadGlass";
-
-        if (decorations.Count < 1)
-            return "NoIce";
     
         foreach (KeyValuePair<ItemNode, int> decoration in cocktail.decorations)
         {
             //Check if same quantity
-            if (decoration.Value == 1 || decoration.Value == 2)
+            if (decoration.Value == 0)
+            {
+
+            }
+            else if (decoration.Value == 1 || decoration.Value == 2)
             {
                 if (decorations[decoration.Key] < 1)
                     return "NoIce";

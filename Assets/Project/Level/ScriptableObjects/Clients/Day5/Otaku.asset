@@ -20,7 +20,7 @@ MonoBehaviour:
   regularHitReactions: 0
   notNeedTakeDrink: 0
   acceptsAll: 0
-  dontCareGlass: 0
+  dontCareGlass: 1
   careIces: 0
   cuantityOfIce: 0
   dontPay: 0
@@ -28,8 +28,9 @@ MonoBehaviour:
   invisible: 0
   onlyOneChance: 0
   payAfterHit: 0
+  wantDrug: 0
   possibleOrders:
-  - {fileID: 11400000, guid: e5234a9857db5784ca19e8894f2f5317, type: 2}
+  - {fileID: 11400000, guid: 62c3e5c89cfd2d64aa34302c703a9246, type: 2}
   dialogues:
   - {fileID: 11400000, guid: acbb019a1eb43594e926a2824d38f4ae, type: 2}
   goodReactions:
@@ -38,10 +39,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 360bd1a9a476e564c91d09eb1e960af2, type: 2}
   hitReactions:
   - {fileID: 11400000, guid: 6219742b39b2ded4ea2ab110714e906d, type: 2}
-  dialogue: {fileID: 11400000, guid: 998ec0b2333d7604ca3a4d9fe38df84e, type: 2}
-  goodReaction: {fileID: 11400000, guid: 381910b99e9c5834ab6f5cda2940742f, type: 2}
-  badReaction: {fileID: 11400000, guid: 17231ed852a645947a0e39839246bd04, type: 2}
-  hitReaction: {fileID: 11400000, guid: d79133c13cc382c44b1743a6fed75d21, type: 2}
+  dialogue: {fileID: 11400000, guid: acbb019a1eb43594e926a2824d38f4ae, type: 2}
+  goodReaction: {fileID: 11400000, guid: 065c8dc68dedf574babd857093b4cbbe, type: 2}
+  badReaction: {fileID: 11400000, guid: 360bd1a9a476e564c91d09eb1e960af2, type: 2}
+  hitReaction: {fileID: 11400000, guid: 6219742b39b2ded4ea2ab110714e906d, type: 2}
   badGlassReaction: {fileID: 11400000, guid: e4d3232b8647d304c9654184b5419d41, type: 2}
   noIceReaction: {fileID: 11400000, guid: 3de540defc95ef74fa08a817d135cd43, type: 2}
   muchIceReaction: {fileID: 11400000, guid: 3de540defc95ef74fa08a817d135cd43, type: 2}

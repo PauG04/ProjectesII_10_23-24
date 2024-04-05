@@ -25,7 +25,7 @@ public class SetPrice : MonoBehaviour
         }
         else
         {
-            textMesh.text = "FULL";
+            textMesh.text = "LLENO";
             textMesh.color = Color.red;
         }
         
