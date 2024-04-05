@@ -51,6 +51,11 @@ public class PoliceEvent : MonoBehaviour
             { 
                 clientDialogueCollider.enabled = true;
             }
+
+            if(clientObject.GetComponent<Client>().GetWellReacted())
+            {
+                enabled = true;
+            }
         }
         else
         {
