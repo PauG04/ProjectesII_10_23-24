@@ -12,6 +12,7 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI totalMoneyText;
 
     private float dailyEarnings;
+    private float dailyExpanses;
     private float money;
     private float moneyChanged;
 
@@ -26,6 +27,8 @@ public class EconomyManager : MonoBehaviour
             Destroy(gameObject);
         }
         dailyEarnings = 0.0f;
+        dailyExpanses = 0.0f;
+
         money = 2100.0f;
     }
 
@@ -35,22 +38,27 @@ public class EconomyManager : MonoBehaviour
         {
             dailyEarnings += earnings;         
         }
-        else
-        {
-        }
         money += earnings;
     }
 
     public void ResetDailyEarnings()
     {
         dailyEarnings = 0.0f;
+        dailyExpanses = 0.0f;
     }
     public float GetMoney()
     {
         return money;
     }
-
-    public float GetMoneyChaned()
+    public float GetDailyEarnings()
+    {
+        return dailyEarnings;
+    }
+    public float GetDailyExpanses()
+    {
+        return dailyExpanses;
+    }
+    public float GetMoneyChanged()
     {
         return moneyChanged;
     }
@@ -62,6 +70,15 @@ public class EconomyManager : MonoBehaviour
 
     public void SetMoneyChanged(float earnings)
     {
+        if (earnings > 0)
+        {
+            dailyEarnings += earnings;
+        }
+        else
+        {
+            dailyExpanses += earnings;
+        }
+        Debug.Log(earnings);
         moneyChanged = earnings;
     }
 

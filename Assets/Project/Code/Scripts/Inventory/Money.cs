@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Money : MonoBehaviour
 {
@@ -22,7 +21,7 @@ public class Money : MonoBehaviour
 
     private void Update()
     {       
-        money = EconomyManager.instance.GetMoneyChaned();
+        money = EconomyManager.instance.GetMoneyChanged();
         if(money != 0)
         {
             MoneyLerp();

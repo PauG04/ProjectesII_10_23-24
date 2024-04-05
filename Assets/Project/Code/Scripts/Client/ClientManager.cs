@@ -33,6 +33,8 @@ public class ClientManager : MonoBehaviour
     [Header("Day Transition")]
     [SerializeField] private LevelLoader levelLoader;
     [SerializeField] private DialogueUI dialogueCanvas;
+    [SerializeField] private GameObject endOfDay;
+
     private bool isCourtainClosed;
 
     private void Awake()
@@ -63,11 +65,19 @@ public class ClientManager : MonoBehaviour
     public void EndDay()
     {
         levelLoader.CloseAnimation();
+
+        Invoke("ShowEndOfDay", 1f);
+    }
+
+    private void ShowEndOfDay()
+    {
+        endOfDay.SetActive(true);
         isCourtainClosed = true;
     }
     private void LoadDay()
     {
         levelLoader.OpenAnimation();
+        endOfDay.SetActive(false);
 
         dialogueCanvas.DestroyAllBubbles();
 
@@ -76,10 +86,12 @@ public class ClientManager : MonoBehaviour
         currentDayClients = dayManager.GetClients(dayManager.GetCurrentDay());
         clientCounter = 0;
 
-        Debug.Log("Fin del día");
+        EconomyManager.instance.ResetDailyEarnings();
+
         CreateClient();
 
         isCourtainClosed = false;
+
     }
     public void CreateClient()
     {
