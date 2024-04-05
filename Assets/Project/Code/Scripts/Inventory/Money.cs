@@ -44,7 +44,6 @@ public class Money : MonoBehaviour
         {
             AudioManager.instance.PlaySFX("LoseMoney");
             textMesh.color = Color.red;
-            Debug.Log("money bad");
         }
 
         textMesh.text = money.ToString("00.00") + '€';

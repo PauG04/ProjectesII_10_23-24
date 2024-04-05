@@ -1,5 +1,6 @@
 using Dialogue;
 using System.Collections.Generic;
+using UI;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -31,6 +32,7 @@ public class ClientManager : MonoBehaviour
 
     [Header("Day Transition")]
     [SerializeField] private LevelLoader levelLoader;
+    [SerializeField] private DialogueUI dialogueCanvas;
     private bool isCourtainClosed;
 
     private void Awake()
@@ -55,14 +57,29 @@ public class ClientManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && isCourtainClosed)
         {
-            levelLoader.OpenAnimation();
-            isCourtainClosed = false;
+            LoadDay();
         }
     }
-    public void LoadDay()
+    public void EndDay()
     {
         levelLoader.CloseAnimation();
         isCourtainClosed = true;
+    }
+    private void LoadDay()
+    {
+        levelLoader.OpenAnimation();
+
+        dialogueCanvas.DestroyAllBubbles();
+
+        dayManager.SetCurrentDay(1);
+        daysEventsController.ActiveEventDay(dayManager.GetCurrentDay());
+        currentDayClients = dayManager.GetClients(dayManager.GetCurrentDay());
+        clientCounter = 0;
+
+        Debug.Log("Fin del día");
+        CreateClient();
+
+        isCourtainClosed = false;
     }
     public void CreateClient()
     {
@@ -70,18 +87,7 @@ public class ClientManager : MonoBehaviour
         {
             if (clientCounter >= currentDayClients.Count)
             {
-                LoadDay();
-                
-                // Hacer que no aparezca el cliente y reiniciar los dialogos
-
-                dayManager.SetCurrentDay(1);
-                daysEventsController.ActiveEventDay(dayManager.GetCurrentDay());
-                currentDayClients = dayManager.GetClients(dayManager.GetCurrentDay());
-                clientCounter = 0;
-
-                Debug.Log("Fin del día");
-                CreateClient();
-                
+                EndDay();
             }
             else
             {
