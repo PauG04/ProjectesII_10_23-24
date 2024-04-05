@@ -213,7 +213,7 @@ public class FriendEvent : MonoBehaviour
                 dialogues--;
             } 
 
-            if(wiki.GetCurrentPage() == 0)
+            if(wiki.GetCurrentPage() == 1)
             {
                 tutorialBooleans[2] = true;
                 tutorialBooleans[1] = false;
