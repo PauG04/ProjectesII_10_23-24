@@ -1,7 +1,9 @@
 using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ShopEvent : MonoBehaviour
 {
@@ -14,19 +16,21 @@ public class ShopEvent : MonoBehaviour
     [SerializeField] private GameObject canvas;
     [SerializeField] private float cost;
 
-    [SerializeField] private List<LiquidManager> botles;
+    [SerializeField] private GameObject[] item;
+    [SerializeField] private GameObject[] father;
     [SerializeField] private PlayerConversant player;
 
     private ClientNode client;
     private GameObject clientObject;
     private bool isFirstButton = false;
 
-    private bool triggerSettedCanvas = false;
+    private Vector2 position;
 
 
     private void Awake()
     {
         canvas.SetActive(false);
+        position = new Vector2(-0.12f, 0.07f);
     }
 
     private void Update()
@@ -39,8 +43,7 @@ public class ShopEvent : MonoBehaviour
             }
             if (clientObject.GetComponent<Client>().GetHitted())
             {
-                clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("ResetDrink");
-                clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(ResetDrink);
+                ResetDrink(0);
                 canvas.SetActive(false);
                 enabled = false;
             }
@@ -73,10 +76,10 @@ public class ShopEvent : MonoBehaviour
             if(EconomyManager.instance.GetMoney() > cost)
             {
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[2]);
-                EconomyManager.instance.SetMoneyChanged(-50);
-                for(int i = 0; i< botles.Count; i++)
+                EconomyManager.instance.SetMoneyChanged(-35);
+                for(int i = 0; i< 3; i++)
                 {
-                    botles[i].SetCurrentLiquid();
+                    ResetDrink(i);
                 }
             }
             else
@@ -89,7 +92,6 @@ public class ShopEvent : MonoBehaviour
         }
         clientObject.GetComponent<AIConversant>().HandleDialogue();
         canvas.SetActive(false);
-        triggerSettedCanvas = false;
     }
 
     public void RejectDeal()
@@ -108,14 +110,35 @@ public class ShopEvent : MonoBehaviour
 
         clientObject.GetComponent<AIConversant>().HandleDialogue();
         canvas.SetActive(false);
-        triggerSettedCanvas = false;
     }
 
-    public void ResetDrink()
+    public void ResetDrink(int index)
     {
-        for (int i = 0; i < 3; i++)
+        if (father[index].transform.childCount <= 1)
         {
-            botles[i].SetCurrentLiquid();
+            GameObject newItem = Instantiate(item[index]);
+
+            if (father[index].transform.childCount == 1)
+            {
+                newItem.transform.SetParent(father[index].transform, true);
+                Destroy(newItem.GetComponent<PolygonCollider2D>());
+                newItem.GetComponent<SpriteRenderer>().color = Color.grey;
+                newItem.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                newItem.GetComponent<DragItems>().enabled = false;
+                newItem.GetComponent<ArrowManager>().enabled = false;
+                newItem.transform.GetChild(3).gameObject.SetActive(false);
+
+                newItem.transform.localPosition = position;
+            }
+            else
+            {
+                newItem.transform.SetParent(father[index].transform, true);
+                newItem.transform.localPosition = Vector2.zero;
+                newItem.GetComponent<DragItems>().SetInitPosition(Vector2.zero);
+            }
         }
+            
     }
+ 
+    
 }

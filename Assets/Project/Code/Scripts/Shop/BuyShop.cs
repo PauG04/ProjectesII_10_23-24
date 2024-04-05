@@ -1,59 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuyLiquid : MonoBehaviour
 {
-    [Header("item")]
+    [Header("Item")]
     [SerializeField] private GameObject item;
     [SerializeField] private float price;
-    [SerializeField] private GameObject recreateObject;
-    [SerializeField] private GameObject _parent;
-    [SerializeField] private ItemNode _node;
 
-    [Header("Boolean")]
-    [SerializeField] private bool isItem;
+    [Header("Father")]
+    [SerializeField] private GameObject father;
 
-    private SpriteRenderer childSprite;
+    private Vector2 position;
 
-
-    private Vector3 _position;
 
     private void Start()
     {
-        _position = item.transform.localPosition;
-        childSprite = gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
-        childSprite.sprite = item.GetComponent<SpriteRenderer>().sprite;
+        position = new Vector2(-0.12f, 0.07f);
     }
 
 
-    private void OnMouseDown()
+    public void Buy()
     {
-        if(EconomyManager.instance.GetMoney() > price)
+        if (father.transform.childCount <= 1)
         {
-            if (item != null)
+            EconomyManager.instance.SetMoneyChanged(-price);
+            GameObject newItem = Instantiate(item);
+
+            if(father.transform.childCount == 1)
             {
-                if (isItem)
-                {
-                    InventoryManager.instance.AddItem(_node);
-                }
-                else
-                {
-                    item.GetComponentInChildren<LiquidManager>().SetCurrentLiquid();
-                }
+                newItem.transform.SetParent(father.transform, true);
+                Destroy(newItem.GetComponent<PolygonCollider2D>());
+                newItem.GetComponent<SpriteRenderer>().color = Color.grey;
+                newItem.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                newItem.GetComponent<DragItems>().enabled = false;
+                newItem.GetComponent<ArrowManager>().enabled = false;
+                newItem.transform.GetChild(3).gameObject.SetActive(false);
+
+                newItem.transform.localPosition = position;
             }
             else
             {
-                GameObject _item = Instantiate(recreateObject, _position, Quaternion.identity);
-                item = _item;
-                _item.transform.SetParent(_parent.transform, true);
+                newItem.transform.SetParent(father.transform, true);
+                newItem.transform.localPosition = Vector2.zero;
+                newItem.GetComponent<DragItems>().SetInitPosition(Vector2.zero);
             }
-            //EconomyManager.instance.AddMoney(-price);
-        }      
+        }
     }
 
     public float GetPrice()
     {
         return price;
     }
+
 }

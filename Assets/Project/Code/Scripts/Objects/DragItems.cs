@@ -454,6 +454,11 @@ public class DragItems : MonoBehaviour
     {
         this.hasToReturn = hasToReturn;
     }
+
+    public void SetItemCollider(PolygonCollider2D collider)
+    {
+        itemCollider = collider;
+    }
     public void SetIsInWorkSpace(bool state)
     {
         insideWorkspace = state;
@@ -482,5 +487,10 @@ public class DragItems : MonoBehaviour
     public void SetWorkspaceSprite(Sprite sprite)
     {
         workspaceSprite = sprite;
+    }
+
+    public Vector3 GetInitPosition()
+    {
+        return initPosition;
     }
 }

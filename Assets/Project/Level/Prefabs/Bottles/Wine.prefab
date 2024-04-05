@@ -75,12 +75,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1407f6f2bc78bf42a6250184b137797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLiquid: 300
-  currentLiquid: 300
+  maxLiquid: 125
+  currentLiquid: 125
   currentState: 0
   glassLiquidRenderer: {fileID: 0}
+  isJigger: 0
   isGlass: 0
-  isBottle: 0
+  isBottle: 1
   dragItems: {fileID: 0}
   maxColliderPos: 0
   minColliderPos: 0
@@ -98,7 +99,6 @@ GameObject:
   - component: {fileID: 4559980660687427612}
   - component: {fileID: 8963226189741860814}
   - component: {fileID: 4550252364877990874}
-  - component: {fileID: 1712364000999750610}
   - component: {fileID: 790261217673330239}
   - component: {fileID: 8819774920043758160}
   - component: {fileID: 201958644826711689}
@@ -269,22 +269,6 @@ PolygonCollider2D:
       - {x: 0.2265625, y: -0.703125}
       - {x: 0.2109375, y: -0.75}
   m_UseDelaunayMesh: 0
---- !u!114 &1712364000999750610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918459718600216018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 369faa39793b32c43acd63d959a791d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brokenBottle: {fileID: 6918459718600216018, guid: da95453f8dc341548ba14c331bdbca14, type: 3}
-  particles: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  forceX: 3
-  forceY: 1
 --- !u!114 &790261217673330239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +284,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: ca00df4e0fe84e84fb289f15c765d9d0, type: 3}
   workspaceSprite: {fileID: 21300000, guid: ca00df4e0fe84e84fb289f15c765d9d0, type: 3}
-  scaleMultiplier: 1
+  scaleMultiplier: 1.5
   itemCollider: {fileID: 0}
   rotationSpeed: 6
   horizontalSpeed: 6
@@ -313,6 +297,7 @@ MonoBehaviour:
   dragWithWorkspaceSprite: 0
   isItem: 0
   isItemGroup: 0
+  isPainting: 0
 --- !u!114 &8819774920043758160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb9c009ca1913142afd51dbdec621f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 5
+  _rotationSpeed: 10
   dragItem: {fileID: 0}
 --- !u!114 &201958644826711689
 MonoBehaviour:
@@ -340,13 +325,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  spawnPoint: {fileID: 4174260560249075128}
   liquidManager: {fileID: 4632203015347343070}
   drink: {fileID: 11400000, guid: df8602bd8649c724da27a6fc9b51edde, type: 2}
+  spawnSpeed: 2.8
+  spawnPoint: {fileID: 4174260560249075128}
+  rightSpawner: {fileID: 0}
+  leftSpawner: {fileID: 0}
   minRotationToPourLiquid: 70
   maxRotationToPourLiquid: 140
-  isGlass: 0
+  isTopOpen: 0
   spawnerPositionX: 0
+  liquidCollider: {fileID: 0}
 --- !u!114 &5507417628516245743
 MonoBehaviour:
   m_ObjectHideFlags: 0

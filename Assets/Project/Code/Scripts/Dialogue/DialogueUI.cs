@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using Dialogue;
-using TMPro;
 
 namespace UI
 {
@@ -19,7 +15,10 @@ namespace UI
         [SerializeField] private GameObject prefabPlayerbubble;
         [SerializeField] private GameObject separator;
 
-		[Space(10)]	
+		[Header("Visual Components")]
+        [SerializeField] private GameObject nextSprite;
+
+        [Space(10)]	
 		[SerializeField] private float timerDelay = 2.0f;
         private void Start()
 		{
@@ -40,12 +39,27 @@ namespace UI
 				{
                     //TypeWriterEffect.CompleteTextRevealed += Next;
                     playerConversant.SetIsTextDone(true);
+
+                    nextSprite.transform.eulerAngles = Vector3.zero;
+                }
+				else
+				{
+					nextSprite.transform.eulerAngles = new Vector3(0, 0, 90f);
                 }
             }
 
 			if (bubbleRoot.childCount > maxNumberOfChilds && bubbleRoot.childCount > 0)
 			{
 				Destroy(bubbleRoot.GetChild(0).gameObject);
+			}
+
+			if (TypeWriterEffect.isTextCompleted)
+			{
+				nextSprite.SetActive(true);
+            }
+			else
+			{
+				nextSprite.SetActive(false);
 			}
         }
         private void UpdateChat()
