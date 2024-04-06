@@ -104,16 +104,18 @@ public class CalculateDrink : MonoBehaviour
         //Check if same sprite
         if (sprite != cocktail.sprite)
             return "BadGlass";
-    
+
         foreach (KeyValuePair<ItemNode, int> decoration in cocktail.decorations)
         {
             //Check if same quantity
             if (decoration.Value == 0)
             {
-
+                
             }
             else if (decoration.Value == 1 || decoration.Value == 2)
             {
+                if (!decorations.ContainsKey(decoration.Key))
+                    return "NoIce";
                 if (decorations[decoration.Key] < 1)
                     return "NoIce";
                 if (decorations[decoration.Key] > 2)
@@ -121,6 +123,8 @@ public class CalculateDrink : MonoBehaviour
             }
             else
             {
+                if (!decorations.ContainsKey(decoration.Key))
+                    return "NoIce";
                 if (decorations[decoration.Key] < 3)
                     return "NoIce";
                 if (decorations[decoration.Key] > 5)
