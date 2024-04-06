@@ -395,6 +395,10 @@ public class Client : MonoBehaviour
         return canLeave;
     }
 
+    public bool GetLeave()
+    {
+        return leave;
+    }
     public bool GetHitted()
     {
         return hitted;
@@ -419,6 +423,10 @@ public class Client : MonoBehaviour
         return arriveAnimation;
     }
 
+    public bool GetLeaveAnimation()
+    {
+        return leaveAnimation;
+    }
     public void SetClientNode(ClientNode _clientNode)
     {
         clientNode = _clientNode;
