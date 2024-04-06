@@ -27,6 +27,7 @@ public class InsideDecorations : MonoBehaviour
 
         if (item.itemName == "Cubo de Hielo")
         {
+            
             if (liquidManager.GetCurrentLiquid() > 0)
                 AudioManager.instance.PlaySFX("DropIceInLiquid");
             else

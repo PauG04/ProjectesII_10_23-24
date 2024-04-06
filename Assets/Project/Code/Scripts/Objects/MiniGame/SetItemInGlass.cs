@@ -31,6 +31,12 @@ public class SetItemInGlass : MonoBehaviour
             drag.enabled = false;
             isInGlass = true;
             collision.GetComponent<InsideDecorations>().AddItem(itemNode);
+
+            Color itemColor = GetComponent<SpriteRenderer>().color;
+
+            itemColor = new Color(itemColor.r, itemColor.g, itemColor.b, 0.5f);
+
+            GetComponent<SpriteRenderer>().color = itemColor;
             drag.SetHasToReturn(false);
         }
     }
@@ -43,6 +49,13 @@ public class SetItemInGlass : MonoBehaviour
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             isInGlass = false;
             collision.GetComponent<InsideDecorations>().SubstractItem(itemNode);
+
+            Color itemColor = GetComponent<SpriteRenderer>().color;
+
+            itemColor = new Color(itemColor.r, itemColor.g, itemColor.b, 1f);
+
+            GetComponent<SpriteRenderer>().color = itemColor;
+
             drag.SetHasToReturn(true);
         }
     }
