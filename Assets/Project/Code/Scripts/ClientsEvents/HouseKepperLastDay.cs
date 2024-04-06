@@ -14,7 +14,7 @@ public class HouseKepperLastDay : MonoBehaviour
     private ClientNode client;
     private GameObject clientObject;
 
-    private bool triggerSetted = false;
+    [SerializeField] private EndOfDay textDay;
 
     private void Update()
     {
@@ -23,16 +23,17 @@ public class HouseKepperLastDay : MonoBehaviour
             if(EconomyManager.instance.GetMoney() >= 170)
             {
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[0]);
-                if (!triggerSetted)
+                textDay.SetMesage(true);
+                if (playerConversant.GetChild() == 2)
                 {
-                    clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("TakeMoney");
-                    clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(TakeMoney);
-                    triggerSetted = true;
+                    TakeMoney();
                 }
+
             }
             else
             {
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[1]);
+                textDay.SetMesage(false);
                 enabled = false;
             }
 

@@ -36,6 +36,7 @@ public class ClientManager : MonoBehaviour
     [SerializeField] private GameObject endOfDay;
 
     private bool isCourtainClosed;
+    private bool dayEnded;
 
     private void Awake()
     {
@@ -58,7 +59,7 @@ public class ClientManager : MonoBehaviour
     public void EndDay()
     {
         levelLoader.CloseAnimation();
-
+        dayEnded = true;
         Invoke("ShowEndOfDay", 1f);
     }
 
@@ -71,7 +72,7 @@ public class ClientManager : MonoBehaviour
     {
         levelLoader.OpenAnimation();
         endOfDay.SetActive(false);
-
+        dayEnded = false;
         dialogueCanvas.DestroyAllBubbles();
 
         dayManager.SetCurrentDay(1);
@@ -147,12 +148,22 @@ public class ClientManager : MonoBehaviour
 
     public ClientNode GetClient()
     {
-        return currentClientNode;
+        if(!dayEnded)
+        {
+            return currentClientNode;
+        }
+
+        return null;      
     }
 
     public GameObject GetClientObject()
     {
-        return currentClientScript.gameObject;
+        if(!dayEnded)
+        {
+            return currentClientScript.gameObject;
+        }
+
+        return null;
     }
     #endregion
 

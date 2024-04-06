@@ -520,6 +520,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7474555d29f17844c97deaf62278fdca, type: 2}
   - {fileID: 11400000, guid: bd36d242d34dec14d83a2fc0a4d80190, type: 2}
   playerConversant: {fileID: 549211536}
+  textDay: {fileID: 407181933}
 --- !u!114 &92610336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,7 +998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90dc8e3a24267284994d30db239b22ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0
+  velocity: 0.03
 --- !u!1 &163454702
 GameObject:
   m_ObjectHideFlags: 0
@@ -2881,6 +2882,7 @@ MonoBehaviour:
   dailyEarnings: {fileID: 1231479055}
   dailyExpenses: {fileID: 597251792}
   totalMoney: {fileID: 768131738}
+  dayManager: {fileID: 2865072688995586654}
 --- !u!1 &412588033
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,7 +3207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90dc8e3a24267284994d30db239b22ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0
+  velocity: 0.03
 --- !u!224 &441132871 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5419190239590207543, guid: 69d4eb99357b6e942985b14925fca4aa, type: 3}
@@ -5917,7 +5919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496f4ccf5bf6bd54582317be60d1d577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyInformation: {fileID: 0}
+  moneyInformation: {fileID: 548162404375476118, guid: d4741df4dfacaa1479f42e1b744177dd, type: 3}
 --- !u!114 &715295433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7403,7 +7405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90dc8e3a24267284994d30db239b22ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0
+  velocity: 0.03
 --- !u!114 &908429657 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 303635750405677512, guid: 5967be6c416f1fa4188e5c74bb8ff0f6, type: 3}
@@ -8269,7 +8271,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 30b798ddec565a54fb47df28711c50cd, type: 2}
   - {fileID: 11400000, guid: b59102e0032506d42873803e605ec569, type: 2}
   - {fileID: 11400000, guid: d2105a9019f83014081d4911fdcebe0a, type: 2}
-  childs: []
+  childs:
+  - {fileID: 141010952}
+  - {fileID: 425641439}
+  - {fileID: 905263709}
+  - {fileID: 1263881578}
+  - {fileID: 1838781993}
 --- !u!114 &1040827842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8335,10 +8342,10 @@ MonoBehaviour:
   clientManager: {fileID: 1119733629}
   eventClient: {fileID: 11400000, guid: 28cfbc01c707428418cf7e13f3dd5c77, type: 2}
   money: -20
-  playerConversant: {fileID: 0}
-  police: {fileID: 0}
-  velocity: 0
-  clientDialogueCollider: {fileID: 0}
+  playerConversant: {fileID: 549211536}
+  police: {fileID: 1163209152}
+  velocity: 0.03
+  clientDialogueCollider: {fileID: 1147945305}
 --- !u!114 &1040827846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9141,7 +9148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1163209153
 Transform:
   m_ObjectHideFlags: 0
@@ -9221,7 +9228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90dc8e3a24267284994d30db239b22ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0
+  velocity: 0.03
 --- !u!1 &1167784770
 GameObject:
   m_ObjectHideFlags: 0
@@ -9780,7 +9787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90dc8e3a24267284994d30db239b22ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0
+  velocity: 0.03
 --- !u!4 &1267425647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4024803064925307674, guid: a9c5b5e13ef25e345858708497a8145b, type: 3}
@@ -14182,7 +14189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90dc8e3a24267284994d30db239b22ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0
+  velocity: 0.03
 --- !u!60 &1853970919 stripped
 PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 1876037085591257811, guid: 76dd6dee561d51645a112c89ef35c535, type: 3}
@@ -16678,7 +16685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: currentDay
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.size

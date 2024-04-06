@@ -59,11 +59,6 @@ public class PoliceEvent1 : MonoBehaviour
             clientDialogueCollider.enabled = false;
             if(police.transform.localPosition.x < -3.7)
             {
-                if(!police.active)
-                {
-                    police.SetActive(true);
-                    clientObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = -5;
-                }
                 police.transform.localPosition = new Vector3(police.transform.localPosition.x + velocity, 0.29f, 0);
             }
             else
