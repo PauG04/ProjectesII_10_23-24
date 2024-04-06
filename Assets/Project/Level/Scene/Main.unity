@@ -5396,6 +5396,10 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7091994237452567924, guid: 5967be6c416f1fa4188e5c74bb8ff0f6, type: 3}
+      propertyPath: m_ScrollSensitivity
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7195011137780257705, guid: 5967be6c416f1fa4188e5c74bb8ff0f6, type: 3}
       propertyPath: m_text
       value: "4.50\u20AC"
@@ -10120,6 +10124,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6108614411657180025, guid: f53a909d94b4f8c4d80d5c12623427d3, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6173331730134663796, guid: f53a909d94b4f8c4d80d5c12623427d3, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -11931,7 +11939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 323539286}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.0001
