@@ -90,7 +90,7 @@ public class CalculateDrink : MonoBehaviour
         }
 
         //Check if glass is nearly full
-        if (totalParticles < 40)
+        if (totalParticles < 35)
         {
             return "BadIngredients";
         }

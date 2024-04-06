@@ -17,20 +17,24 @@ public class TakeMoney : MonoBehaviour
 
     private void Update()
     {
-        if(isInside)
+        if (transform.parent.GetComponent<DragItems>().GetInsideWorkspace())
         {
-            Vector3 newPosition = transform.localPosition;
+            if (isInside)
+            {
+                Vector3 newPosition = transform.localPosition;
 
-            newPosition.y = Mathf.Lerp(transform.localPosition.y, endPosition, Time.deltaTime * velocity);
-            transform.localPosition = newPosition;
-        }
-        else if(!isInside)
-        {
-            Vector3 newPosition = transform.localPosition;
+                newPosition.y = Mathf.Lerp(transform.localPosition.y, endPosition, Time.deltaTime * velocity);
+                transform.localPosition = newPosition;
+            }
+            else if (!isInside)
+            {
+                Vector3 newPosition = transform.localPosition;
 
-            newPosition.y = Mathf.Lerp(transform.localPosition.y, initPosition, Time.deltaTime * velocity);
-            transform.localPosition = newPosition;
+                newPosition.y = Mathf.Lerp(transform.localPosition.y, initPosition, Time.deltaTime * velocity);
+                transform.localPosition = newPosition;
+            }
         }
+               
     }
 
     private void OnMouseDown()
@@ -38,7 +42,7 @@ public class TakeMoney : MonoBehaviour
         if(transform.parent.GetComponent<DragItems>().GetInsideWorkspace())
         {
             Destroy(gameObject);
-            EconomyManager.instance.AddMoney(price);
+            EconomyManager.instance.SetMoneyChanged(price);
         }
     }
 
