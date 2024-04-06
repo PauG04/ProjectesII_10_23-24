@@ -118,6 +118,10 @@ namespace UI
 				Destroy(item.gameObject);
 			}
 		}
+		public void DestroyAllBubbles()
+		{
+			DestroyChildrens(bubbleRoot);
+		}
         protected void OnDestroy()
 		{
 			playerConversant.onConversationUpdated -= UpdateChat;
