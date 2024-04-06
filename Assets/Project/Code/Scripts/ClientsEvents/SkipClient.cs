@@ -8,7 +8,7 @@ public class SkipClient : MonoBehaviour
     {
         if(Input.GetKeyDown("1"))
         {
-            Debug.Log("si");
+            Debug.Log("Skip");
             ClientManager.instance.PassClient();
         }
     }
