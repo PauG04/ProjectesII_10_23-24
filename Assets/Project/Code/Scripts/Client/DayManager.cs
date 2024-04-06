@@ -49,4 +49,13 @@ public class DayManager : MonoBehaviour
     {
         currentDay += i;
     }
+
+    public void SavePref()
+    {
+        PlayerPrefs.SetInt("CurrentDay", currentDay);
+    }
+    public void LoadPref()
+    {
+        currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
+    }
 }

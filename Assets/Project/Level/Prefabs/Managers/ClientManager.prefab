@@ -45,35 +45,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42115859f764caf45b2eca1d7f06e280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dayManager: {fileID: 0}
+  daysEventsController: {fileID: 0}
   currentDayClients:
-  - {fileID: 11400000, guid: 0e4a10790c0416d40b46c911a737c39d, type: 2}
   - {fileID: 11400000, guid: 8496c0010a673f843acb8b876eac885a, type: 2}
   - {fileID: 11400000, guid: 3d7a1411a409a9647843f1c0918aa1e5, type: 2}
+  - {fileID: 11400000, guid: 445687af6de7fdf47b137b7ab18f4f86, type: 2}
+  - {fileID: 11400000, guid: 7eb3443918b7050499568761825d7f3c, type: 2}
+  - {fileID: 11400000, guid: 438f69d7622a07440840093061e81bd4, type: 2}
+  - {fileID: 11400000, guid: 3b4c2dc8c39345b449336d65cc9fe577, type: 2}
+  - {fileID: 11400000, guid: 6215a1505729aa049a4ad8c1f142d29b, type: 2}
+  - {fileID: 11400000, guid: 5d6e11ef2c2ba5c45b3098695a8d2d15, type: 2}
   clientParent: {fileID: 0}
   client: {fileID: 3164742363969609211, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
-  regularClientDialogues:
-  - {fileID: 11400000, guid: 037583db416862647ac9171ffc0681cf, type: 2}
-  - {fileID: 11400000, guid: 3999a6891f83717419ffa4bdff72ea38, type: 2}
-  - {fileID: 11400000, guid: f0c4ce0464aec7447bac7ff09ad6c3ce, type: 2}
-  - {fileID: 11400000, guid: 9c917377c464b424aa6bb39858a31cf9, type: 2}
-  - {fileID: 11400000, guid: d0a0c3488ed84da47831f69ceeb8428c, type: 2}
-  - {fileID: 11400000, guid: 368704b3e6160604397c9f53e11ce337, type: 2}
-  - {fileID: 11400000, guid: fc32a544e4d454b47849b695a268c135, type: 2}
-  - {fileID: 11400000, guid: f02531ba8e868724d905c6e39e66183c, type: 2}
-  regularGoodReactionDialogues:
-  - {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
-  regularBadReactionDialogues:
-  - {fileID: 11400000, guid: 1ca0906f43ed51c47b9d00e6bcb0cb86, type: 2}
   regularClientHitDialogues:
   - {fileID: 11400000, guid: b5f1052e50187264c9e5ffc49873a2e2, type: 2}
   clientSprites:
   - {fileID: 21300000, guid: 461d236b7e1eefe418223a8184c9f9c9, type: 3}
   - {fileID: 21300000, guid: a59c29858f1aaa7449ccd952054587db, type: 3}
   - {fileID: 21300000, guid: 6602edef89fdb4e45ba3835721322927, type: 3}
+  emptyDialogue: {fileID: 0}
   spawnPosition: {fileID: 0}
   clientPosition: {fileID: 0}
   DestroyPosition: {fileID: 0}
   horizontalVelocity: 3
+  levelLoader: {fileID: 0}
+  dialogueCanvas: {fileID: 0}
+  endOfDay: {fileID: 0}
 --- !u!114 &4905631838557939330
 MonoBehaviour:
   m_ObjectHideFlags: 0

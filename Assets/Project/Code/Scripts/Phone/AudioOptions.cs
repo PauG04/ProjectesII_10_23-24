@@ -14,7 +14,7 @@ public class AudioOptions : MonoBehaviour
     [SerializeField] private Slider musicSound;
     [SerializeField] private Slider SFXSound;
 
-    private void Start()
+    private void Awake()
     {
         SetMasterVolume();
         SetMusicVolume();
@@ -25,27 +25,26 @@ public class AudioOptions : MonoBehaviour
     {
         float volume = generalSound.value;
         audioMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
-        Debug.Log("AudioMixer: " + audioMixer + " Volume: " + volume);
-        PlayerPrefs.SetFloat("masterVolume", volume);
+        //PlayerPrefs.SetFloat("masterVolume", volume);
     }
     public void SetMusicVolume()
     {
         float volume = musicSound.value;
         audioMixer.SetFloat("Music", Mathf.Log10(volume)*20);
-        PlayerPrefs.SetFloat("musicVolume", volume);
+        //PlayerPrefs.SetFloat("musicVolume", volume);
 
     }
     public void SetSFXVolume()
     {
         float volume = SFXSound.value;
         audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("SFXVolume", volume);
+        //PlayerPrefs.SetFloat("SFXVolume", volume);
     }
     public void LoadVolume()
     {
-        generalSound.value = PlayerPrefs.GetFloat("masterVolume");
-        musicSound.value = PlayerPrefs.GetFloat("musicVolume");
-        SFXSound.value = PlayerPrefs.GetFloat("SFXVolume");
+        //generalSound.value = PlayerPrefs.GetFloat("masterVolume", 1);
+        //musicSound.value = PlayerPrefs.GetFloat("musicVolume", 1);
+        //SFXSound.value = PlayerPrefs.GetFloat("SFXVolume", 1);
 
         SetMasterVolume();
         SetMusicVolume();
