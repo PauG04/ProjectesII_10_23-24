@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class DestroyPaint : MonoBehaviour
 {

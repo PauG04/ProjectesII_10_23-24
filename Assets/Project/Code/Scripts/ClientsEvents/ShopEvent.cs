@@ -1,7 +1,6 @@
 using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -76,7 +75,7 @@ public class ShopEvent : MonoBehaviour
             if(EconomyManager.instance.GetMoney() > cost)
             {
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[2]);
-                EconomyManager.instance.SetMoneyChanged(-35);
+                EconomyManager.instance.SetMoneyChanged(-cost);
                 for(int i = 0; i< 3; i++)
                 {
                     ResetDrink(i);

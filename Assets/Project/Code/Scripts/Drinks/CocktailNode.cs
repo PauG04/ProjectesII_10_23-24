@@ -23,7 +23,7 @@ public class CocktailNode : ScriptableObject
         WhiskeySour,
         Sangria,
         Kalimotxo,
-        Cocktail09,
+        Beer,
         Cocktail10,
         Cocktail11,
 

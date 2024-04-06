@@ -102,8 +102,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
         _rb.SetRotation(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
 
-        Debug.Log(Vector2.Dot(_rb.velocity.normalized, Vector2.up) * _rb.velocity.sqrMagnitude * _maxAngle);
-
         if (_liquidManager.GetCurrentLiquid() > 0)
             Shaking();
         

@@ -10,20 +10,22 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 612416e99e325834eba562d43ecd654f, type: 3}
-  m_Name: LemonJuice-E
+  m_Name: Beer
   m_EditorClassIdentifier: 
   state: 0
-  type: 16
-  price: 5.99
-  cocktailName: "Zumo de Lim\xF3n"
-  subtitle: Clasico
-  description: "3 Onzas de Zumo de Lim\xF3n\nSerivir directamente en vaso "
+  type: 8
+  price: 3.99
+  cocktailName: Cerveza
+  subtitle: a
+  description: '5 Onzas de Cerveza
+
+    Serivir directamente en vaso con poco hielo'
   sprite: {fileID: 21300000, guid: 7cd9121659fb7e34ca670b554e21e682, type: 3}
   color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-  errorMargin: 0.6
+  errorMargin: 0.8
   serializableIngredients:
     items:
-    - type: {fileID: 11400000, guid: 0be5bc9a3c202354d910417dcd9520fb, type: 2}
+    - type: {fileID: 11400000, guid: 38ae011160a55744b9e12323c6d81db5, type: 2}
       quantity: 5
   serializableDecorations:
     items:
