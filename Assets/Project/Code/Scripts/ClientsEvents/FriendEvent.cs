@@ -26,6 +26,8 @@ public class FriendEvent : MonoBehaviour
     [Header("Arrow")]
     [SerializeField] private List<GameObject> arrow;
     [SerializeField] private List<GameObject> mouse;
+    [SerializeField] private List<GameObject> mouseArrows;
+
     private Vector3[] initArrowPosition;
     private bool[] isRight;
 
@@ -477,10 +479,14 @@ public class FriendEvent : MonoBehaviour
         if(!drag[3].GetComponent<DragItems>().GetWasOnTheTable() && !drag[3].GetComponent<DragItems>().GetIsDraggin() && startTutorial)
         {
             mouse[0].SetActive(true);
+            mouseArrows[0].SetActive(true);
+
         }
         else
         {
             mouse[0].SetActive(false);
+            mouseArrows[0].SetActive(false);
+
         }
     }
 
@@ -500,10 +506,13 @@ public class FriendEvent : MonoBehaviour
         if (glassLiquid != null && glassLiquid.GetComponent<LiquidManager>().GetCurrentLiquid() <= glassLiquid.GetComponent<LiquidManager>().GetMaxLiquid() / 4 && tutorialBooleans[9])
         {
             mouse[2].SetActive(true);
+            mouseArrows[1].SetActive(true);
         }
         else
         {
             mouse[2].SetActive(false);
+            mouseArrows[1].SetActive(false);
+
         }
     }
     public void SetIce(GameObject item)
