@@ -1,4 +1,5 @@
 using Dialogue;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -99,11 +100,17 @@ public class Client : MonoBehaviour
         {          
             LiquidManager liquidManagerResult = collision.GetComponentInChildren<LiquidManager>();
 
+            Dictionary<ItemNode, int> decorations;
+            if (collision.GetComponentInChildren<InsideDecorations>().GetDecorations() == null)
+                decorations = null;
+            else
+                decorations = collision.GetComponentInChildren<InsideDecorations>().GetDecorations();
+
             string findError = CalculateDrink.instance.CalculateResultDrink(
                     liquidManagerResult.GetParticleTypes(),
                     liquidManagerResult.GetDrinkState(),
                     collision.GetComponentInChildren<SpriteRenderer>().sprite,
-                    collision.GetComponentInChildren<InsideDecorations>().GetDecorations(),
+                    decorations,
                     order.type);
 
             Debug.Log(findError);
