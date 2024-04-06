@@ -17,6 +17,7 @@ public class SibaritaEvent : MonoBehaviour
     [SerializeField] private float velocity;
     [SerializeField] private SetTopShaker shakerTop;
     [SerializeField] private PolygonCollider2D shakerTopDrag;
+    [SerializeField] private LiquidManager shakerLiquid;
 
     private bool isGrowing;
     private int shakerOrderingLayerDrag;
@@ -34,6 +35,7 @@ public class SibaritaEvent : MonoBehaviour
         isGrowing = true;
         shakerOrderingLayerDrag = shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder;
         dragOrderingLayerDrag = shakerTopDrag.gameObject.GetComponent<SpriteRenderer>().sortingOrder;
+        shakerLiquid = shakerDrag.transform.GetChild(2).GetComponent<LiquidManager>();
         tutorial = new bool[3];
         for(int i = 0; i<3; i++)
         {
@@ -73,7 +75,15 @@ public class SibaritaEvent : MonoBehaviour
         {
             clientDialogueCollider.enabled = true;
         }
-        if (playerConversant.GetChild() == 6 && tutorial[1])
+        if (playerConversant.GetChild() == 6)
+        {
+            clientDialogueCollider.enabled = false;
+            if(shakerLiquid.GetCurrentLiquid() >= shakerLiquid.GetMaxLiquid() * 0.95)
+            {
+                playerConversant.Next();
+            }
+        }
+        if (playerConversant.GetChild() == 7 && tutorial[1])
         {
             ActiveDragItem();
             clientDialogueCollider.enabled = false;

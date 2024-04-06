@@ -5,18 +5,17 @@ using UnityEngine;
 
 public class Money : MonoBehaviour
 {
-    [Header("Lerp")]
-    [SerializeField] private float Velocity;
+    [Header("Object")]
+    [SerializeField] private GameObject moneyInformation;
 
     private TextMeshPro textMesh;
 
     private float money;
-    private bool growing;
+    
 
     private void Awake()
     {
         textMesh = GetComponent<TextMeshPro>();
-        growing = true;
     }
 
     private void Update()
@@ -24,7 +23,9 @@ public class Money : MonoBehaviour
         money = EconomyManager.instance.GetMoneyChanged();
         if(money != 0)
         {
+            EconomyManager.instance.SetMoney(EconomyManager.instance.GetMoney() + money);
             MoneyLerp();
+            EconomyManager.instance.SetMoneyChanged(0);
         }
         else
         {
@@ -34,39 +35,21 @@ public class Money : MonoBehaviour
 
     private void MoneyLerp()
     {
-        if (money > 0 && textMesh.color != Color.green)
+        GameObject information = Instantiate(moneyInformation);
+        information.transform.SetParent(gameObject.transform, true);
+        information.transform.localPosition = new Vector3(0, 0, -1);
+
+        information.GetComponent<TextMeshPro>().text = money.ToString("00.00") + '€';
+        if (money > 0)
         {
             AudioManager.instance.PlaySFX("EarnMoney");
-            textMesh.color = Color.green;
+            information.GetComponent<TextMeshPro>().color = Color.green;
+
         }
-        else if (money < 0 && textMesh.color != Color.red)
+        else if(money < 0) 
         {
             AudioManager.instance.PlaySFX("LoseMoney");
-            textMesh.color = Color.red;
+            information.GetComponent<TextMeshPro>().color = Color.red;
         }
-
-        textMesh.text = money.ToString("00.00") + '€';
-
-        if(growing)
-        {
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(2.15f, 2.15f, 2.15f), Time.deltaTime * Velocity);
-            if (transform.localScale.x >= 2.10)
-            {
-                growing = false;
-            }
-        }
-        else
-        {
-            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, Time.deltaTime * Velocity);
-            if (transform.localScale.x <= 1.05)
-            {
-                growing = true;
-                EconomyManager.instance.SetMoney(EconomyManager.instance.GetMoney() + money);
-                transform.localScale = Vector3.one;
-                textMesh.color = Color.white;
-                EconomyManager.instance.SetMoneyChanged(0);
-            }
-        }
-        
     }
 }
