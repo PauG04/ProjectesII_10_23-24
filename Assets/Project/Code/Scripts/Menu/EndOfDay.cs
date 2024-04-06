@@ -17,4 +17,12 @@ public class EndOfDay : MonoBehaviour
 
         totalMoney.text = "Dinero: " + EconomyManager.instance.GetMoney().ToString("00.00") + "€";
     }
+
+    public void LoadDay()
+    {
+        if (ClientManager.instance.GetCourtainClosed())
+        {
+            ClientManager.instance.LoadDay();
+        }
+    }
 }

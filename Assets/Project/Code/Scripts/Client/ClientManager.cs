@@ -55,13 +55,6 @@ public class ClientManager : MonoBehaviour
 
         CreateClient();
     }
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0) && isCourtainClosed)
-        {
-            LoadDay();
-        }
-    }
     public void EndDay()
     {
         levelLoader.CloseAnimation();
@@ -74,7 +67,7 @@ public class ClientManager : MonoBehaviour
         endOfDay.SetActive(true);
         isCourtainClosed = true;
     }
-    private void LoadDay()
+    public void LoadDay()
     {
         levelLoader.OpenAnimation();
         endOfDay.SetActive(false);
@@ -172,5 +165,10 @@ public class ClientManager : MonoBehaviour
     {
         Destroy(currentClient);
         CreateClient();
+    }
+
+    public bool GetCourtainClosed()
+    {
+        return isCourtainClosed;
     }
 }
