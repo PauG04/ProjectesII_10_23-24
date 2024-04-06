@@ -24,7 +24,6 @@ public class MoneyLerp : MonoBehaviour
 
             GetComponent<TextMeshPro>().color = newColor;
 
-            Debug.Log(GetComponent<TextMeshPro>().color.a);
         }
 
 
