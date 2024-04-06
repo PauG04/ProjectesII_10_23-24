@@ -44,7 +44,7 @@ namespace UI
                 }
 				else
 				{
-					nextSprite.transform.eulerAngles = new Vector3(0, 0, 90f);
+					//nextSprite.transform.eulerAngles = new Vector3(0, 0, 90f);
                 }
             }
 
