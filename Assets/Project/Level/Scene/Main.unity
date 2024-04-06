@@ -3265,6 +3265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 547605538}
   - component: {fileID: 547605539}
+  - component: {fileID: 547605540}
   m_Layer: 0
   m_Name: MouseRight
   m_TagString: Untagged
@@ -3280,8 +3281,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547605537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.81, y: -0.28, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -1.5, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1615568259}
@@ -3328,7 +3329,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: 1270231674, guid: 9dd99e5b5317a874fb921bb4b6cfe356, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5c2c19dd0f1b714bbffb38df4a573c2, type: 3}
   m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3339,6 +3340,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &547605540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547605537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9420717e6179a6f4b9143b6e1a7e9fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.5
+  frequency: 1
+  isRectTransform: 0
+  moveVertical: 0
 --- !u!1 &549211534
 GameObject:
   m_ObjectHideFlags: 0
@@ -5395,10 +5412,6 @@ PrefabInstance:
     - target: {fileID: 6873187672573952433, guid: 5967be6c416f1fa4188e5c74bb8ff0f6, type: 3}
       propertyPath: m_Value
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091994237452567924, guid: 5967be6c416f1fa4188e5c74bb8ff0f6, type: 3}
-      propertyPath: m_ScrollSensitivity
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7195011137780257705, guid: 5967be6c416f1fa4188e5c74bb8ff0f6, type: 3}
       propertyPath: m_text
@@ -7961,6 +7974,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1013939235}
   - component: {fileID: 1013939236}
+  - component: {fileID: 1013939237}
   m_Layer: 0
   m_Name: MouseCenter
   m_TagString: Untagged
@@ -7976,8 +7990,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013939234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.81, y: -0.28, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -1.5, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1615568259}
@@ -8024,7 +8038,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: -1246183519, guid: 9dd99e5b5317a874fb921bb4b6cfe356, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 601cb5f644619c143addb5d1fa6f97c1, type: 3}
   m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8035,6 +8049,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1013939237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013939234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9420717e6179a6f4b9143b6e1a7e9fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.5
+  frequency: 1
+  isRectTransform: 0
+  moveVertical: 1
 --- !u!1 &1040827838
 GameObject:
   m_ObjectHideFlags: 0
@@ -11219,6 +11249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1561271375}
   - component: {fileID: 1561271376}
+  - component: {fileID: 1561271377}
   m_Layer: 0
   m_Name: MouseLeft
   m_TagString: Untagged
@@ -11234,8 +11265,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561271374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.81, y: -0.28, z: -0.06929685}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -1.5, y: -0.5, z: -0.06929685}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1615568259}
@@ -11282,17 +11313,33 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: 194081648, guid: 9dd99e5b5317a874fb921bb4b6cfe356, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d13b6a46a561a324c9fa4e098834bf84, type: 3}
   m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1561271377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561271374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9420717e6179a6f4b9143b6e1a7e9fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.5
+  frequency: 1
+  isRectTransform: 0
+  moveVertical: 0
 --- !u!1 &1583946449
 GameObject:
   m_ObjectHideFlags: 0
@@ -12827,7 +12874,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0068262815, y: 0.36179554}
+  m_Offset: {x: 0, y: 0.35}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -12838,7 +12885,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5494621, y: 0.78610826}
+  m_Size: {x: 0.5, y: 0.75}
   m_EdgeRadius: 0
 --- !u!114 &1751030916
 MonoBehaviour:
@@ -12916,7 +12963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751030914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.27, y: -0.53, z: -9.829751}
+  m_LocalPosition: {x: 5.27, y: -0.53, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
