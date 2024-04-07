@@ -44,9 +44,21 @@ public class DayManager : MonoBehaviour
     {
         return lastDay;
     }
-
-    public void SetCurrentDay(int i)
+    public void NextDay(int i)
     {
         currentDay += i;
+    }
+    public void SetCurrentDay(int currentDay)
+    {
+        this.currentDay = currentDay;
+        GetClients(currentDay);
+    }
+    public void SavePref()
+    {
+        PlayerPrefs.SetInt("CurrentDay", currentDay);
+    }
+    public void LoadPref()
+    {
+        currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
     }
 }

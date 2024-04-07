@@ -6,14 +6,14 @@ using UnityEngine;
 public class SetPrice : MonoBehaviour
 {
     private TextMeshProUGUI textMesh;
-    private BuyLiquid money;
+    private BuyShop money;
 
     [SerializeField] private GameObject father;
 
     private void Awake()
     {
         textMesh = GetComponent<TextMeshProUGUI>();
-        money = transform.parent.transform.parent.GetComponent<BuyLiquid>();
+        money = transform.parent.transform.parent.GetComponent<BuyShop>();
     }
 
     private void Update()

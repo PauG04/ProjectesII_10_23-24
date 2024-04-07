@@ -11,8 +11,6 @@ public class TimeManager : MonoBehaviour
     private int minute;
     private float second;
 
-    private bool isStopped;
-
     [SerializeField] private int realMinutesPerDay;
     [SerializeField] private int firstHour;
     [SerializeField] private int lastHour;
@@ -81,7 +79,6 @@ public class TimeManager : MonoBehaviour
 
     public void StopTime()
     {
-        isStopped = true;
         endOfDayObject.SetActive(true);
         //EconomyManager.instance.AddMoney(-rent);
         
@@ -89,7 +86,6 @@ public class TimeManager : MonoBehaviour
 
     public void ResumeTime()
     {
-        isStopped = false;
         endOfDayObject.SetActive(false);
         hour = firstHour;
         minute = 0;

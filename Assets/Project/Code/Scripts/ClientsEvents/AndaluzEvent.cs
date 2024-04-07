@@ -21,7 +21,6 @@ public class AndaluzEvent : MonoBehaviour
     private GameObject clientObject;
     private CameraShake _camera;
 
-    private bool triggerSetted = false;
     private bool startShaking = false;
 
     private void Awake()

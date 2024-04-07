@@ -10,7 +10,7 @@ public class ActivateCursorText : MonoBehaviour
     {       
         if(isShop)
         {
-            if(EconomyManager.instance.GetMoney() > gameObject.GetComponent<BuyLiquid>().GetPrice())
+            if(EconomyManager.instance.GetMoney() > gameObject.GetComponent<BuyShop>().GetPrice())
             {
                 CursorManager.instance.SetColor(Color.green);
             }
@@ -18,7 +18,7 @@ public class ActivateCursorText : MonoBehaviour
             {
                 CursorManager.instance.SetColor(Color.red);
             }
-            CursorManager.instance.GetItemName().text = gameObject.GetComponent<BuyLiquid>().GetPrice().ToString() + "€";
+            CursorManager.instance.GetItemName().text = gameObject.GetComponent<BuyShop>().GetPrice().ToString() + "€";
             CursorManager.instance.GetBox().SetActive(true);
         }
         else if(GetComponent<DragItems>() != null)

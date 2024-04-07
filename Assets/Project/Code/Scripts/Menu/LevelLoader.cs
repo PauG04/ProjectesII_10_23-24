@@ -6,6 +6,20 @@ public class LevelLoader : MonoBehaviour
 {
     [SerializeField] private Animator transition;
     [SerializeField] private float transitionTime;
+    [SerializeField] private static bool loadSave = false;
+    private SaveComponents saveComponents;
+
+    private void Awake()
+    {
+        saveComponents = GetComponent<SaveComponents>();
+
+        Debug.Log("LoadSave = " + loadSave);
+
+        if (loadSave)
+        {
+            saveComponents.LoadAllComponents();
+        }
+    }
 
     public void LoadNextLevel()
     {
@@ -24,7 +38,18 @@ public class LevelLoader : MonoBehaviour
 
         SceneManager.LoadScene(levelIndex);
     }
-
+    public void Save()
+    {
+        saveComponents.SaveAllComponents();
+    }
+    public void LoadSave()
+    {
+        loadSave = true;
+    }
+    public void ResetSave()
+    {
+        loadSave = false;
+    }
     public void CloseAnimation()
     {
         transition.SetTrigger("Start");

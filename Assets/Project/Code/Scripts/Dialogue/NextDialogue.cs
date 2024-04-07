@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Dialogue;
-using UnityEngine.UIElements;
+using UI;
 
 public class NextDialogue : MonoBehaviour
 {
-	private PlayerConversant playerConversant;
+    [SerializeField] private DialogueUI dialogueCanvas;
+
+    private PlayerConversant playerConversant;
 
     private void Start()
     {
@@ -15,10 +15,18 @@ public class NextDialogue : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (TypeWriterEffect.isTextCompleted && playerConversant.HasNext())
-        {
-            playerConversant.Next();
-        }
 
+        if (TypeWriterEffect.isTextCompleted && playerConversant.IsActive())
+        {
+            if (playerConversant.HasNext())
+            {
+                playerConversant.Next();
+            }
+            //else if(ClientManager.instance.GetCurrentClientScript().GetCanLeave())
+            //{
+            //    ClientManager.instance.GetCurrentClientScript().SetLeave(true);
+            //    dialogueCanvas.DestroyAllBubbles();
+            //}
+        }
     }
 }

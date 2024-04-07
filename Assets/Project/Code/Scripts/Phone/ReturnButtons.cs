@@ -9,10 +9,12 @@ public class ReturnButtons : MonoBehaviour
 
     public void ExitToMainMenu()
     {
+        levelLoader.ResetSave();
         levelLoader.LoadSpecificLevel(1);
     }
     public void ExitToDesktop()
     {
+        levelLoader.ResetSave();
         levelLoader.CloseAnimation();
         Application.Quit();
     }

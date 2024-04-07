@@ -18,8 +18,6 @@ namespace UI
 		[Header("Visual Components")]
         [SerializeField] private GameObject nextSprite;
 
-        [Space(10)]	
-		[SerializeField] private float timerDelay = 2.0f;
         private void Start()
 		{
 		    playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
@@ -46,37 +44,32 @@ namespace UI
 				{
 					//nextSprite.transform.eulerAngles = new Vector3(0, 0, 90f);
                 }
+
+                if (TypeWriterEffect.isTextCompleted && playerConversant.HasNext())
+                {
+                    nextSprite.SetActive(true);
+                }
+                else
+                {
+                    nextSprite.SetActive(false);
+                }
             }
 
 			if (bubbleRoot.childCount > maxNumberOfChilds && bubbleRoot.childCount > 0)
 			{
 				Destroy(bubbleRoot.GetChild(0).gameObject);
-			}
-
-			if (TypeWriterEffect.isTextCompleted)
-			{
-				nextSprite.SetActive(true);
-            }
-			else
-			{
-				nextSprite.SetActive(false);
-			}
+			}	
         }
         private void UpdateChat()
 		{
-            if (playerConversant.IsNewConversant())
-            {
-                DestroyChildrens(bubbleRoot);
-            }
             if (!playerConversant.IsActive())
 			{
 				return;
 			}
-			if(playerConversant.IsNewConversant())
+			if (playerConversant.IsNewConversant())
 			{
 				StopAllCoroutines();
 			}
-
             if (playerConversant.IsChoosing())
 			{
                 PlayerChoosing();

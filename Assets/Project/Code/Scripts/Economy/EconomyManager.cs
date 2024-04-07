@@ -13,7 +13,7 @@ public class EconomyManager : MonoBehaviour
 
     private float dailyEarnings;
     private float dailyExpanses;
-    private float money;
+    private float money = 2100.0f;
     private float moneyChanged;
 
     private void Awake()
@@ -28,8 +28,6 @@ public class EconomyManager : MonoBehaviour
         }
         dailyEarnings = 0.0f;
         dailyExpanses = 0.0f;
-
-        money = 2100.0f;
     }
 
     public void AddMoney(float earnings)
@@ -78,8 +76,11 @@ public class EconomyManager : MonoBehaviour
         {
             dailyExpanses += earnings;
         }
-        Debug.Log(earnings);
         moneyChanged = earnings;
     }
 
+    public void SaveMoney()
+    {
+        PlayerPrefs.SetFloat("money", money);
+    }
 }

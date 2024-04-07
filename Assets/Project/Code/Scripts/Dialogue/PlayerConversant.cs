@@ -10,7 +10,6 @@ namespace Dialogue
 	{
 		//[SerializeField] private Dialogue testDialogue;
 		[SerializeField] private string playerName;
-		[SerializeField] private float secondsDialogueDelay = 1f;
 		
 		[Header("Dialogue Options")]
 		private Dialogue currentDialogue;
@@ -113,7 +112,7 @@ namespace Dialogue
 
         }
 		public bool HasNext()
-		{
+		{	
 			return currentDialogue.GetAllChildren(currentNode).Count() > 0;
 		}
 		public bool IsNewConversant()
