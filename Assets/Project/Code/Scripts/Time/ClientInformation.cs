@@ -14,7 +14,6 @@ public class OrderPanel : MonoBehaviour
     [Header("ClientManager")]
     [SerializeField] private ClientManager clientManager;
 
-    private ClientNode client;
     private GameObject clientObject;
 
     private void Awake()
@@ -34,7 +33,6 @@ public class OrderPanel : MonoBehaviour
         }
         else if(dayManager.GetCurrentDay() <= dayManager.GetLastDay())
         {
-            client = clientManager.GetClient();
             clientObject = clientManager.GetClientObject();
         }
     }

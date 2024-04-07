@@ -55,7 +55,6 @@ public class Lamps : MonoBehaviour
                 lampSprite.sprite = sprites[1];
                 firstAparition = true;
             }
-            Debug.Log(client.invisible);
             if (client.invisible && !onLamp)
             {
                 clientObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
