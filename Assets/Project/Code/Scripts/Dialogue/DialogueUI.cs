@@ -53,7 +53,7 @@ namespace UI
 				Destroy(bubbleRoot.GetChild(0).gameObject);
 			}
 
-			if (TypeWriterEffect.isTextCompleted)
+			if (TypeWriterEffect.isTextCompleted && playerConversant.HasNext())
 			{
 				nextSprite.SetActive(true);
             }
@@ -64,19 +64,10 @@ namespace UI
         }
         private void UpdateChat()
 		{
-            if (playerConversant.IsNewConversant())
-            {
-                DestroyChildrens(bubbleRoot);
-            }
             if (!playerConversant.IsActive())
 			{
 				return;
 			}
-			if(playerConversant.IsNewConversant())
-			{
-				StopAllCoroutines();
-			}
-
             if (playerConversant.IsChoosing())
 			{
                 PlayerChoosing();

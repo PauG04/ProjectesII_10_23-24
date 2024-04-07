@@ -505,7 +505,7 @@ public class TutorialManager : MonoBehaviour
             //playerConversant.SetCanContinue(true);
             if (playerConversant.HasNext())
             {
-                playerConversant.Next();
+                //playerConversant.Next();
             }
         }
     }

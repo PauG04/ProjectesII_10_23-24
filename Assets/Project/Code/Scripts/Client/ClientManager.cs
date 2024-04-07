@@ -85,7 +85,6 @@ public class ClientManager : MonoBehaviour
         CreateClient();
 
         isCourtainClosed = false;
-
     }
     public void CreateClient()
     {

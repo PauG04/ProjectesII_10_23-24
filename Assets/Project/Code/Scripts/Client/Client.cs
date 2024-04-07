@@ -31,7 +31,6 @@ public class Client : MonoBehaviour
 
     [Header("Timer")]
     [SerializeField] private float maxTime; 
-    private float time;
 
     private bool isLocated;
 
@@ -56,7 +55,6 @@ public class Client : MonoBehaviour
         boxCollider.enabled = false;
         arriveAnimation = false;
         leaveAnimation = false;
-        time = 0;
 
         canLeave = false;
 
@@ -346,13 +344,6 @@ public class Client : MonoBehaviour
                 conversant.HandleDialogue();
             }
         }
-        else if (leaveAnimation)
-        {
-            if (TypeWriterEffect.isTextCompleted && Input.GetMouseButtonDown(0) && !player.HasNext())
-            {
-                leave = true;
-            }
-        }
 
         if(leave)
         {
@@ -366,7 +357,6 @@ public class Client : MonoBehaviour
 
         if(activeCollision && !boxCollider.enabled && !leaveAnimation)
         {
-            Debug.Log("si");
             boxCollider.enabled = true;
         }
     }
@@ -401,7 +391,10 @@ public class Client : MonoBehaviour
     {
         return canLeave;
     }
-
+    public void SetLeave(bool leave)
+    {
+        this.leave = leave;
+    }
     public bool GetLeave()
     {
         return leave;
