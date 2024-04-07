@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2247489743795713859, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
+  - {fileID: 7752440482531017514, guid: 40ad875116e736b4698abb34ecb9e0b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,8 +102,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Agua de Palencia
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
-  m_sharedMaterial: {fileID: 2247489743795713859, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 40ad875116e736b4698abb34ecb9e0b1, type: 2}
+  m_sharedMaterial: {fileID: 7752440482531017514, guid: 40ad875116e736b4698abb34ecb9e0b1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -127,17 +127,17 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.7
-  m_fontSizeBase: 1.7
+  m_fontSize: 2
+  m_fontSizeBase: 2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -20
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 8616855056323009507}
   - component: {fileID: 2060686802149457118}
   m_Layer: 24
-  m_Name: GinlemmonPage
+  m_Name: GintonicPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.8679, y: 0.0485}
+  m_AnchoredPosition: {x: 0.8679, y: 0.0485}
   m_SizeDelta: {x: 1.3643, y: 1.7225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8616855056323009507
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c2ab0cb524bb4b92254937f5a42df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cocktail: {fileID: 11400000, guid: a9bc1c0f3f6ac1343b9b54f8b62fc983, type: 2}
+  cocktail: {fileID: 11400000, guid: 215d3eec364efd142a5c4b6865136c9e, type: 2}
   nameText: {fileID: 8594563728778200068}
   subtitleText: {fileID: 8833967485973211885}
   descriptionText: {fileID: 8590666433591738389}
@@ -333,7 +333,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2247489743795713859, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
+  - {fileID: 7752440482531017514, guid: 40ad875116e736b4698abb34ecb9e0b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -378,8 +378,8 @@ MonoBehaviour:
   m_text: "1 ounce          2 ounce\n3 ounce          4 ounce\n5 ounce          6
     ounce\n\nState: \nMixed"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
-  m_sharedMaterial: {fileID: 2247489743795713859, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 40ad875116e736b4698abb34ecb9e0b1, type: 2}
+  m_sharedMaterial: {fileID: 7752440482531017514, guid: 40ad875116e736b4698abb34ecb9e0b1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -403,8 +403,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.9
-  m_fontSizeBase: 0.9
+  m_fontSize: 1.2
+  m_fontSizeBase: 1.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -413,9 +413,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -10
   m_wordSpacing: 0
-  m_lineSpacing: 20
+  m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -506,7 +506,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2247489743795713859, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
+  - {fileID: 7752440482531017514, guid: 40ad875116e736b4698abb34ecb9e0b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -550,8 +550,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Elegant & Elegant
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
-  m_sharedMaterial: {fileID: 2247489743795713859, guid: 58859fa9634e1f849a2268e75d76a170, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 40ad875116e736b4698abb34ecb9e0b1, type: 2}
+  m_sharedMaterial: {fileID: 7752440482531017514, guid: 40ad875116e736b4698abb34ecb9e0b1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -575,8 +575,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.3
-  m_fontSizeBase: 1.3
+  m_fontSize: 1.5
+  m_fontSizeBase: 1.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -654,11 +654,11 @@ RectTransform:
   m_Father: {fileID: 8037749646198739868}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.5, y: 0.5}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &2766838340111834122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,7 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7fc88eca340f34caeee081ace13219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLeft: 1
+  isLeft: 0
 --- !u!61 &7840249776491735621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -704,7 +704,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05, y: 0.08}
+  m_Offset: {x: -0.05, y: 0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
