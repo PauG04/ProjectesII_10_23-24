@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-989433102451869279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 23456c63-f66c-4523-b691-026dee73018c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Ja \xE9s la tercera vegada que em colpegen en un bar per ser del Bar\xE7a"
+  children:
+  - 7812fc1d-605c-4899-99de-39ee7a2c54bb
+  rect:
+    serializedVersion: 2
+    x: 292
+    y: 146
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Catalufo1-Hit
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 4342853858701001894}
+  - {fileID: -989433102451869279}
+  - {fileID: 7512916970390625710}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &4342853858701001894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 724e8df9-a705-49b9-ac1e-891aeb16f6d4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Que cony fas
+  children:
+  - 23456c63-f66c-4523-b691-026dee73018c
+  rect:
+    serializedVersion: 2
+    x: 43
+    y: 146
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7512916970390625710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 7812fc1d-605c-4899-99de-39ee7a2c54bb
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Ho arribo a saber i de Puigd\xE0lber no me'n treu ning\xFA"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 542
+    y: 146
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

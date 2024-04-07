@@ -10,6 +10,7 @@ public class InsideDecorations : MonoBehaviour
     [SerializeField] private LiquidManager liquidManager;
 
     private ItemNode _item;
+    private bool hasDrug;
 
     private void Awake()
     {
@@ -23,9 +24,19 @@ public class InsideDecorations : MonoBehaviour
 
     public void AddItem(ItemNode item)
     {
-        if (item.itemName == "Cubo de Hielo" && liquidManager.GetCurrentLiquid() > 0)
+
+        if (item.itemName == "Cubo de Hielo")
         {
-            AudioManager.instance.PlaySFX("IceCollisionLiquid");
+            
+            if (liquidManager.GetCurrentLiquid() > 0)
+                AudioManager.instance.PlaySFX("DropIceInLiquid");
+            else
+                AudioManager.instance.PlaySFX("DropIce");
+        }
+
+        if(item.itemName == "Droga")
+        {
+            hasDrug = true;
         }
 
         if (insideDecorations.ContainsKey(item))
@@ -33,7 +44,7 @@ public class InsideDecorations : MonoBehaviour
             insideDecorations[item]++;
             _item = item;
         }
-        else
+        else if(item.itemName != "Droga")
         {
             insideDecorations.Add(item, 1);
         }
@@ -43,8 +54,12 @@ public class InsideDecorations : MonoBehaviour
     {
         if(insideDecorations.ContainsKey(item))
         {
+            if(item.itemName == "Droga")
+            {
+                hasDrug = false;
+            }
             insideDecorations[item]--;
-            if (insideDecorations[item] <= 0)
+            if (insideDecorations[item] <= 0 && item.itemName != "Droga")
             {
                 insideDecorations.Remove(item);
             }
@@ -58,5 +73,10 @@ public class InsideDecorations : MonoBehaviour
             return insideDecorations[_item];
         }
         return 0;
+    }
+
+    public bool GetHasDrug()
+    {
+        return hasDrug;
     }
 }

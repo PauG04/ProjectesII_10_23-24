@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7055491919334580885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6242e0ec-8ee1-4bda-8684-dde2b965b002
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Ya me lo ol\xEDa as\xED que te he traido un cuadro de cuando era joven y
+    estaba con los militares"
+  children:
+  - ffa584a9-d3cb-4c78-9f6d-574c1a252976
+  rect:
+    serializedVersion: 2
+    x: 792
+    y: 217
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4660879192154622492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: cd0c0488-1ae7-4d4f-9933-68730a5484cd
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Para que te lo goces y puedas ver cada d\xEDa al responsable de que nuestro
+    pa\xEDs estuviese tan limpio de moros y negros, hasta la llegado de los podemistas
+    de mierda esos"
+  children:
+  - 4e7a4eae-cccd-4364-8570-655984c78c60
+  rect:
+    serializedVersion: 2
+    x: 1295
+    y: 216
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1465371708206062329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: b8867e1b-c595-4c53-9b11-f64d778b25ba
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: FRANCO, FRANCO, FRANCO
+  children:
+  - 5f07adeb-7a75-47b2-8e26-dcc33f6a9164
+  rect:
+    serializedVersion: 2
+    x: 45
+    y: 216
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Facha-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1465371708206062329}
+  - {fileID: 6640225524154762701}
+  - {fileID: 3038203409009592620}
+  - {fileID: -7055491919334580885}
+  - {fileID: 7189047184558046598}
+  - {fileID: -4660879192154622492}
+  - {fileID: 586572340703867681}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &586572340703867681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 4e7a4eae-cccd-4364-8570-655984c78c60
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Me voy ya que he quedado con Francisco para ver a las muchachitas en la plaza,
+    espero que sepas valorar el regalo
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1545
+    y: 215
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3038203409009592620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: b8a041e5-57ce-4186-ae57-34d926c023d6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Pero viendolo de cerca, tu bar es demasiado feo, no tienes ning\xFAn tipo
+    de decoraci\xF3n ni una cabeza de jabal\xED ni nada"
+  children:
+  - 6242e0ec-8ee1-4bda-8684-dde2b965b002
+  rect:
+    serializedVersion: 2
+    x: 544
+    y: 216
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6640225524154762701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 5f07adeb-7a75-47b2-8e26-dcc33f6a9164
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Hola compatriota, soy amigo de tu casero y me ha pedido que vieniese a ver
+    que tal ibas
+  children:
+  - b8a041e5-57ce-4186-ae57-34d926c023d6
+  rect:
+    serializedVersion: 2
+    x: 295
+    y: 216
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7189047184558046598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ffa584a9-d3cb-4c78-9f6d-574c1a252976
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Un cuadro del mismisomo militar, dictador y general\xEDsimo FRANCO "
+  children:
+  - cd0c0488-1ae7-4d4f-9933-68730a5484cd
+  rect:
+    serializedVersion: 2
+    x: 1044
+    y: 216
+    width: 200
+    height: 120
+  onEnterAction: GivePaint
+  onExitAction: 

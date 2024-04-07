@@ -1,59 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class BuyLiquid : MonoBehaviour
+public class BuyShop : MonoBehaviour
 {
-    [Header("item")]
+    [Header("Item")]
     [SerializeField] private GameObject item;
     [SerializeField] private float price;
-    [SerializeField] private GameObject recreateObject;
-    [SerializeField] private GameObject _parent;
-    [SerializeField] private ItemNode _node;
 
-    [Header("Boolean")]
-    [SerializeField] private bool isItem;
+    [Header("Parent")]
+    [SerializeField] private GameObject parent;
 
-    private SpriteRenderer childSprite;
+    private Vector2 position = new Vector2(-0.12f, 0.07f);
 
-
-    private Vector3 _position;
-
-    private void Start()
+    public void Buy()
     {
-        _position = item.transform.localPosition;
-        childSprite = gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
-        childSprite.sprite = item.GetComponent<SpriteRenderer>().sprite;
-    }
-
-
-    private void OnMouseDown()
-    {
-        if(EconomyManager.instance.GetMoney() > price)
+        if (parent.transform.childCount <= 1)
         {
-            if (item != null)
+            if (EconomyManager.instance.GetMoney() < price) 
+                return;
+
+            EconomyManager.instance.SetMoneyChanged(-price);
+            GameObject newItem = Instantiate(item);
+
+            if(parent.transform.childCount == 1)
             {
-                if (isItem)
-                {
-                    InventoryManager.instance.AddItem(_node);
-                }
-                else
-                {
-                    item.GetComponentInChildren<LiquidManager>().SetCurrentLiquid();
-                }
+                CreateBackgroundDrink(newItem);
             }
             else
             {
-                GameObject _item = Instantiate(recreateObject, _position, Quaternion.identity);
-                item = _item;
-                _item.transform.SetParent(_parent.transform, true);
+                CreateDrink(newItem);
             }
-            //EconomyManager.instance.AddMoney(-price);
-        }      
+        }
     }
+    public void CreateBackgroundDrink(GameObject newItem)
+    {
+        newItem.transform.SetParent(parent.transform, true);
+        Destroy(newItem.GetComponent<PolygonCollider2D>());
+        newItem.GetComponent<SpriteRenderer>().color = Color.grey;
+        newItem.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        newItem.GetComponent<DragItems>().enabled = false;
+        newItem.GetComponent<ArrowManager>().enabled = false;
+        newItem.transform.GetChild(3).gameObject.SetActive(false);
 
+        newItem.transform.localPosition = position;
+    }
+    public void CreateDrink(GameObject newItem)
+    {
+        newItem.transform.SetParent(parent.transform, true);
+        newItem.transform.localPosition = Vector2.zero;
+        newItem.GetComponent<DragItems>().SetInitPosition(Vector2.zero);
+    }
     public float GetPrice()
     {
         return price;
+    }
+    public GameObject GetObject()
+    {
+        return item;
+    }
+    public Vector2 GetPosition()
+    {
+        return position;
     }
 }

@@ -27,6 +27,11 @@ public class HouseKeeperEvent : MonoBehaviour
                 clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(TakeMoney);
                 triggerSetted = true;
             }
+
+            if (clientObject && clientObject.GetComponent<BoxCollider2D>().enabled)
+            {
+                clientObject.GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
         else
         {
@@ -34,10 +39,7 @@ public class HouseKeeperEvent : MonoBehaviour
             clientObject = clientManager.GetClientObject();
         }
 
-        if (clientObject != null && clientObject.GetComponent<BoxCollider2D>().enabled)
-        {
-            clientObject.GetComponent<BoxCollider2D>().enabled = false;
-        }
+
     }
     public void TakeMoney()
     {

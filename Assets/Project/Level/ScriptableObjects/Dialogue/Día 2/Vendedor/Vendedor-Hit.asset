@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8499837427834864558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 0c7580c9-bc47-484d-ae23-6623ce5d3f6e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Lo siento, lo siento
+  children:
+  - 9a30fa01-79c9-4d7e-ae84-39c15238126f
+  rect:
+    serializedVersion: 2
+    x: 18
+    y: 76
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4506362068427944090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 9a30fa01-79c9-4d7e-ae84-39c15238126f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "No pretend\xEDa robarte ni nada, perdoname anda"
+  children:
+  - c78dc6e8-50cd-4f28-8532-b99e1ed711ef
+  rect:
+    serializedVersion: 2
+    x: 268
+    y: 76
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Vendedor-Hit
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -8499837427834864558}
+  - {fileID: -4506362068427944090}
+  - {fileID: 4631244849555969721}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &4631244849555969721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: c78dc6e8-50cd-4f28-8532-b99e1ed711ef
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Como compensaci\xF3n te regalo una botella de ron totalmente gratis"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 519
+    y: 77
+    width: 200
+    height: 120
+  onEnterAction: ResetDrink
+  onExitAction: 

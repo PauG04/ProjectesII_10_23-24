@@ -75,6 +75,20 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
         background.color = new Color(1, 1, 1, 0);
 
     }
+
+    public void ResetShaker(float _progress)
+    {
+        if (_progress < 0)
+        {
+            _progress = 0;
+            reset = false;
+        }
+        shakerDraggingClose.SetProgress(_progress);
+        shakerDraggingClose.SetSlider(shakerDraggingClose.GetProgress());
+        color.color = new Color(1, 1 - (GetProgress() / GetMaxProgress()), 0, 1);
+        liquidManager.SetDrinkState(CocktailNode.State.Idle);
+    }
+
     public void ChangingState()
 	{
 		Debug.Log(IsTranistioningState);
@@ -146,18 +160,5 @@ public class ShakerStateMachine : StateMachineManager<ShakerStateMachine.ShakerS
 	{
 		return reset;
 	}
-
-	public void ResetShaker(float _progress)
-	{
-		if(_progress < 0)
-		{
-			_progress = 0;
-			reset = false;
-        }
-        shakerDraggingClose.SetProgress(_progress);
-        shakerDraggingClose.SetSlider(shakerDraggingClose.GetProgress());
-        color.color = new Color(1, 1 - (GetProgress() / GetMaxProgress()), 0, 1);
-        liquidManager.SetDrinkState(CocktailNode.State.Idle);
-    }
 
 }

@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5431202800167354826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 70fd6534-c297-491b-887a-9025038761bb
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Hola se\xF1or, me pondr\xEDa una cerveza"
+  children:
+  - d2dd73e2-ec7e-4824-9b50-ed478015c30b
+  rect:
+    serializedVersion: 2
+    x: 39
+    y: 210
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-3839463203814159635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: fe6bedcb-39f5-4ed6-8f89-73cd69633f9a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Bueno, realmente no la quiero, ponme un vaso de CocaCola porfavor
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1035
+    y: 212
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Child-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -5431202800167354826}
+  - {fileID: 8340658617601140693}
+  - {fileID: 875279185500142023}
+  - {fileID: 8072234075681621775}
+  - {fileID: -3839463203814159635}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &875279185500142023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 8e1d9927-ba3b-4aea-94b8-789b16e9c056
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Y yo quiero una cerveza
+  children:
+  - 8698ae71-c80b-4a71-9f09-8c4cea84a772
+  rect:
+    serializedVersion: 2
+    x: 537
+    y: 213
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8072234075681621775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 8698ae71-c80b-4a71-9f09-8c4cea84a772
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Como dice mi padre la quiero bien fr\xEDa"
+  children:
+  - fe6bedcb-39f5-4ed6-8f89-73cd69633f9a
+  rect:
+    serializedVersion: 2
+    x: 786
+    y: 212
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8340658617601140693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d2dd73e2-ec7e-4824-9b50-ed478015c30b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Mi padre me ha dicho que fuera a comprar el pan y que me comprase lo que
+    quisiese con lo que sobrase
+  children:
+  - 8e1d9927-ba3b-4aea-94b8-789b16e9c056
+  rect:
+    serializedVersion: 2
+    x: 287
+    y: 213
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

@@ -10,7 +10,6 @@ namespace Dialogue
 	{
 		//[SerializeField] private Dialogue testDialogue;
 		[SerializeField] private string playerName;
-		[SerializeField] private float secondsDialogueDelay = 1f;
 		
 		[Header("Dialogue Options")]
 		private Dialogue currentDialogue;
@@ -19,6 +18,7 @@ namespace Dialogue
 		private bool isChoosing = false;
 		private bool isStartingNewConversant = false;
 		private bool isTextDone = false;
+		private int child = 0;
 
 		/// TODO:
 		/// 	find a better way to give the child to other objects instead of a numeric one
@@ -26,20 +26,9 @@ namespace Dialogue
 		
 		public event Action onConversationUpdated;
 
-		private bool isTextRunning;
-		public IEnumerator WriteTextWithDelay()
-		{
-			if (!currentNode.IsTextPaused())
-			{
-                isTextRunning = true;
-                yield return new WaitForSeconds(secondsDialogueDelay);
-                Next();
-                isTextRunning = false;
-            }
-        }
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
-            //AudioManager.instance.Play("ClientTalking");
+            AudioManager.instance.PlaySFX("ClientTalk");
 			isChoosing = false;
 
             currentConversant = newConversant;
@@ -56,7 +45,9 @@ namespace Dialogue
 			
 			isStartingNewConversant = false;
 			StopAllCoroutines();
-		}
+			child = 0;
+
+        }
 		public void Quit()
 		{
 			currentDialogue = null;
@@ -100,7 +91,7 @@ namespace Dialogue
         }
         public void Next()
 		{
-			//AudioManager.instance.PlaySFX("ClientTalking");
+			AudioManager.instance.PlaySFX("ClientTalk");
 			int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
 
             if (numPlayerResponses > 0)
@@ -117,9 +108,11 @@ namespace Dialogue
             currentNode = children[currentChildNumber];
             TriggerEnterAction();
             onConversationUpdated();
-		}
+			child++;
+
+        }
 		public bool HasNext()
-		{
+		{	
 			return currentDialogue.GetAllChildren(currentNode).Count() > 0;
 		}
 		public bool IsNewConversant()
@@ -155,10 +148,12 @@ namespace Dialogue
 		{
 			return currentChildNumber;
 		}
-		public bool GetTextIsRunning()
+
+		public int GetChild()
 		{
-			return isTextRunning;
+			return child;
         }
+
 		public bool GetCanContinue()
 		{
 			if (currentNode != null)

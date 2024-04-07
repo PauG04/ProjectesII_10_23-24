@@ -94,8 +94,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -150,9 +150,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPerSecond: 75
   interpunctuationDelayInput: 0.5
-  quickSkip: 0
-  skipSpeedup: 5
+  quickSkip: 1
+  skipSpeedup: 1
   sendDoneDelay: 0.25
+  nextButton: {fileID: 0}
 --- !u!1 &7994390772441419709
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.73363304, g: 1, b: 0.41037738, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -247,7 +248,7 @@ MonoBehaviour:
     m_Left: 20
     m_Right: 20
     m_Top: 5
-    m_Bottom: 5
+    m_Bottom: 25
   m_ChildAlignment: 0
   m_Spacing: 20
   m_ChildForceExpandWidth: 1

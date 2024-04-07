@@ -23,6 +23,9 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     private GameObject _liquidPrefab;
     private Transform _spawnPoint;
     private LiquidManager _liquidManager;
+
+    private bool _isCascade = false;
+
     private float _spawnerPositionX = 0.19f;
 
     private float _minRotationToPourLiquid = 70f;
@@ -97,8 +100,12 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
     public override void UpdateState()
     {
+        if (Input.GetMouseButtonUp(0))
+        {
+            _state = ShakerStateMachine.ShakerState.IdleOpen;
+        }
+
         CalculatePosition();
-        
 
         //if (Input.GetMouseButtonDown(1))
         //{
@@ -189,23 +196,32 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     {
         float spawnerMovement;
 
-        if (_currentRotation < -90f)
+        _isCascade = _currentRotation > _maxRotationToPourLiquid || _currentRotation < -_maxRotationToPourLiquid;
+        
+        if (!_isCascade)
         {
-            spawnerMovement = _spawnerPositionX + (_currentRotation + _minRotationToMoveSpawner) * (-_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
-            SetSpawnPointPosition(spawnerMovement);
+            if (_currentRotation < -90f)
+            {
+                spawnerMovement = _spawnerPositionX + (_currentRotation + _minRotationToMoveSpawner) * (-_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
+                SetSpawnPointPosition(spawnerMovement);
+            }
+            else if (_currentRotation > 90f)
+            {
+                spawnerMovement = _spawnerPositionX + (_currentRotation - _minRotationToMoveSpawner) * (_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
+                SetSpawnPointPosition(-spawnerMovement);
+            }
+            else if (_currentRotation < 0f)
+            {
+                SetSpawnPointPosition(_spawnerPositionX);
+            }
+            else if (_currentRotation > 0f)
+            {
+                SetSpawnPointPosition(-_spawnerPositionX);
+            }
         }
-        else if(_currentRotation > 90f)
+        else
         {
-            spawnerMovement = _spawnerPositionX + (_currentRotation - _minRotationToMoveSpawner) * (_spawnerPositionX / (-_maxRotationToMoveSpawner + _minRotationToMoveSpawner));
-            SetSpawnPointPosition(-spawnerMovement);
-        }
-        else if (_currentRotation < 0f) 
-        {
-            SetSpawnPointPosition(_spawnerPositionX);
-        }
-        else if (_currentRotation > 0f)
-        {
-            SetSpawnPointPosition(-_spawnerPositionX);
+            _spawnPoint.localPosition = new Vector3(0, _spawnPoint.localPosition.y, _spawnPoint.localPosition.z);
         }
     }
     private void PourLiquid()
@@ -229,21 +245,33 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         //Debug.Log("Current Liquid: " + currentLiquid + "%");
         //Debug.Log("Current Rot: " + currentRotation + "%");
 
+        float spawnSpeed = 2.5f;
+        if (_isCascade) spawnSpeed = 0;
+
         float difference = Mathf.Abs(currentLiquid - currentRotation);
-        float spawnSpeed = 0.5f;
 
         if (currentRotation <= currentLiquid)
         {
             if (difference > 0)
             {
-                spawnSpeed = 0.5f / difference;
+                spawnSpeed /= difference;
             }
 
             float pouringInterval = Mathf.Lerp(0f, 1f, spawnSpeed);
 
             if (_timeSinceLastPour >= pouringInterval && _liquidManager.GetCurrentLiquid() > 0)
             {
-                GameObject liquid = GameObject.Instantiate(_liquidPrefab, _spawnPoint.position, Quaternion.identity);
+                GameObject liquid;
+
+                if (!_isCascade)
+                {
+                    liquid = GameObject.Instantiate(_liquidPrefab, _spawnPoint.position, Quaternion.identity);
+                }
+                else
+                {
+                    Vector3 spawnerPosition = new Vector3(Random.Range(_spawnerPositionX, -_spawnerPositionX) + _spawnPoint.position.x, _spawnPoint.position.y, _spawnPoint.position.z);
+                    liquid = GameObject.Instantiate(_liquidPrefab, spawnerPosition, Quaternion.identity);
+                }
 
                 LiquidParticle liquidParticle = liquid.GetComponent<LiquidParticle>();
                 liquidParticle.SetCocktailState(_liquidManager.GetDrinkState());
@@ -264,7 +292,6 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
         _color.color = newColor;
         _background.color = new Color(_background.color.r, _background.color.g, _background.color.b, newColor.a);
     }
-
     private float AlphaLerpPositive()
     {
         Color newColor = _color.color;
@@ -279,7 +306,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
     {
         _shakerStateMachine.SetGetInWorkSpace(true);
         InsideWorkspaceRenderersChilds(_shakerStateMachine.transform);
-
+        
         _shakerStateMachine.transform.localScale = new Vector2(_scaleMultiplier, _scaleMultiplier);
 
         if (!_shakerStateMachine.GetWasInTable())
@@ -293,10 +320,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
 
         OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
-        if (!_shakerStateMachine.GetIsInTutorial())
-        {
-            _shakerStateMachine.transform.localScale = Vector3.one;
-        }           
+        _shakerStateMachine.transform.localScale = Vector3.one;      
     }
 
     private void InsideWorkspaceRenderersChilds(Transform parent)
@@ -308,6 +332,8 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
             if (renderer != null)
             {
                 renderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                renderer.sortingLayerName = "WorkSpace";
+
             }
 
             InsideWorkspaceRenderersChilds(child);
@@ -322,6 +348,7 @@ public class ShakerDraggingOpen : BaseState<ShakerStateMachine.ShakerState>
             if (renderer != null)
             {
                 renderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                renderer.sortingLayerName = "Default";
             }
 
             OutsidewWorkspaceRenderersChilds(child);

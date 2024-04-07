@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8072379456117172892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: bd376dad-0f01-4392-8b13-ffab74cc6b02
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Me voy al club P\xE9talos que me has estresado mucho, voy gastarlo todo
+    en Yasm\xEDn"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 503
+    y: 176
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-7637282112763115316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 251236b5-e8ca-478e-9fcd-c17b4a5c2439
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Creo a primera hora haberte dicho que no quer\xEDa ningun catalufo en el
+    bar"
+  children:
+  - 84d02bf6-2e20-4307-a8dd-0298a6f1d822
+  - e380be04-b46c-475e-8835-3a293c0efcf2
+  rect:
+    serializedVersion: 2
+    x: 4
+    y: 176
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-52600112418967122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 4cbfbb08-24d1-40d9-8600-07840c5f0162
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 508
+    y: 178
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Casero-Partido-Bad
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -7637282112763115316}
+  - {fileID: 1347204316157200313}
+  - {fileID: -8072379456117172892}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1347204316157200313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: e380be04-b46c-475e-8835-3a293c0efcf2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Y como te he dicho me voy a quedar 25 euros tuyos
+  children:
+  - bd376dad-0f01-4392-8b13-ffab74cc6b02
+  rect:
+    serializedVersion: 2
+    x: 251
+    y: 176
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: TakeMoney
+--- !u!114 &2069902123051645742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 84d02bf6-2e20-4307-a8dd-0298a6f1d822
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 
+  children:
+  - 4cbfbb08-24d1-40d9-8600-07840c5f0162
+  rect:
+    serializedVersion: 2
+    x: 258
+    y: 178
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

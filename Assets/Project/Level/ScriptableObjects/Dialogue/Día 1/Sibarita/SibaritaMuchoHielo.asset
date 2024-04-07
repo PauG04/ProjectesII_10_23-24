@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-757431083261097488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ae690a0c-261f-4492-b81c-f6e2bfcd991d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Que cuando t\xFA salgas de botell\xF3n con tus amigos porretas decidais
+    llenar el c\xF3ctel de hielo porque el dinero no os lleg\xE1 para la bebida no
+    significa que el mio tiene que estar repleto de este"
+  children:
+  - 7168516c-36b1-4e59-badf-a929fa213d25
+  rect:
+    serializedVersion: 2
+    x: 61
+    y: 157
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: SibaritaMuchoHielo
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -757431083261097488}
+  - {fileID: 2778703397104179409}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &2778703397104179409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 7168516c-36b1-4e59-badf-a929fa213d25
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Intente pensar m\xE1s en la gente con dinero porfavor"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 311
+    y: 157
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

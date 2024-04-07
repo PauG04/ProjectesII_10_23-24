@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+    [SerializeField] private float earthIntensity;
+    [SerializeField] private float shakeTime;
 
-    [SerializeField]
-    private float shakeIntensity;
-    [SerializeField]
-    private float EarthIntensity;
-    [SerializeField]
-    private float shakeTime;
-
-    [SerializeField]
     private float timer;
 
     public bool shakeCamera;
@@ -26,22 +20,17 @@ public class CameraShake : MonoBehaviour
         starterVector = transform.position;
     }
 
-    public void ShakeCamera(float i)
+    public void ShakeCamera(float intensity)
     {
-        shakeIntensity = i;
-            transform.rotation = Quaternion.Euler(starterRot.x, starterRot.y, starterRot.z + Random.Range(-shakeIntensity, shakeIntensity));
-            transform.position = new Vector3(starterVector.x + Random.Range(-EarthIntensity, EarthIntensity), starterVector.y + Random.Range(-EarthIntensity, EarthIntensity), starterVector.z);
+        transform.rotation = Quaternion.Euler(starterRot.x, starterRot.y, starterRot.z + Random.Range(-intensity, intensity));
+        transform.position = new Vector3(starterVector.x + Random.Range(-earthIntensity, earthIntensity), starterVector.y + Random.Range(-earthIntensity, earthIntensity), starterVector.z);
 
-            timer += Time.deltaTime;
+        timer += Time.deltaTime;
 
-            if (timer >= shakeTime)
-            {
-                shakeCamera = false;
-                timer = 0;
-                transform.rotation = starterRot;
-                transform.position = starterVector;
-            }
-        
+        if (timer >= shakeTime)
+        {
+            SetTransforPosition();
+        }
     }
 
     public void SetTransforPosition()

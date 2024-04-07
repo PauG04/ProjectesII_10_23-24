@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7641944115223565506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6c4d33bb-044f-4373-92a5-1c7ff38b0041
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Soy Abdullah y me dedico a ir de bar en bar para vender mis bebidas, las
+    cuales son m\xE1s baratas que las del CalleFour ese de la esquina"
+  children:
+  - e7c971e7-4c4a-4fe4-8c59-ca8dd0b8caad
+  rect:
+    serializedVersion: 2
+    x: 1035
+    y: 118
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 
+--- !u!114 &-6489268938755262915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 4f083eb6-4762-458b-948a-2643e410e840
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Bonito y barato
+  children:
+  - ae7f4af6-4c6a-4bd9-b8d3-8308eec86297
+  rect:
+    serializedVersion: 2
+    x: 33
+    y: 118
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4410783198442850974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: e7c971e7-4c4a-4fe4-8c59-ca8dd0b8caad
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Como es tu primera compra puedo hacer una oferta y venderte una botella
+    de ron, vino y cola por el m\xF3dico precio de 1000 euros, QUE OFERT\xD3N, \xBFquieres?"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1283
+    y: 117
+    width: 200
+    height: 120
+  onEnterAction: ActiveCanvas
+  onExitAction: 
+--- !u!114 &-2640799920835572510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: fb30813d-7eba-4b70-bc0f-88693caf3987
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Oye, no estar\xE1s interesado en una de mis ofertas"
+  children:
+  - 6c4d33bb-044f-4373-92a5-1c7ff38b0041
+  rect:
+    serializedVersion: 2
+    x: 783
+    y: 118
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Vendedor-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -6489268938755262915}
+  - {fileID: 8505628587258245568}
+  - {fileID: 6690721017166848607}
+  - {fileID: -2640799920835572510}
+  - {fileID: -7641944115223565506}
+  - {fileID: -4410783198442850974}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &6690721017166848607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: adf4f953-7fdb-4e4d-9a1d-b59f8d4522bb
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Que tal primo, \xBFcomo v\xE1s?"
+  children:
+  - fb30813d-7eba-4b70-bc0f-88693caf3987
+  rect:
+    serializedVersion: 2
+    x: 533
+    y: 118
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8505628587258245568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ae7f4af6-4c6a-4bd9-b8d3-8308eec86297
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Bonito y barato
+  children:
+  - adf4f953-7fdb-4e4d-9a1d-b59f8d4522bb
+  rect:
+    serializedVersion: 2
+    x: 283
+    y: 118
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

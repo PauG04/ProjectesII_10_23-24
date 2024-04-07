@@ -52,6 +52,17 @@ public class CalculateDrink : MonoBehaviour
             case CocktailNode.Type.Kalimotxo:
                 return CheckCocktail(typesOfDrink, state, allCocktails["Kalimotxo"], sprite, decorations);
 
+            case CocktailNode.Type.Vodka:
+                return CheckCocktail(typesOfDrink, state, allCocktails["Vodka"], sprite, decorations);
+            
+            case CocktailNode.Type.CocaCola:
+                return CheckCocktail(typesOfDrink, state, allCocktails["CocaCola"], sprite, decorations);
+            case CocktailNode.Type.LemmonJuice:
+                return CheckCocktail(typesOfDrink, state, allCocktails["LemonJuice"], sprite, decorations);
+            case CocktailNode.Type.Gazpacho:
+                return CheckCocktail(typesOfDrink, state, allCocktails["Gazpacho"], sprite, decorations);
+            case CocktailNode.Type.Beer:
+                return CheckCocktail(typesOfDrink, state, allCocktails["Cerveza"], sprite, decorations);
             default:
                 return "ERROR";
         }        
@@ -60,29 +71,28 @@ public class CalculateDrink : MonoBehaviour
 
     private string CheckCocktail(Dictionary<DrinkNode, int> typesOfDrink, CocktailNode.State state, CocktailNode cocktail, Sprite sprite, Dictionary<ItemNode, int> decorations)
     {
-        //Check if same sprite
-        if (sprite != cocktail.sprite)
-            return "BadGlass";
+        //Check if same amount of ingredients
+        if (typesOfDrink.Count != cocktail.ingredients.Count)
+            return "BadIngredients";
 
-        if (decorations.Count < 1)
-            return "NoIce";
-        foreach (KeyValuePair<ItemNode, int> decoration in cocktail.decorations)
+        int totalParticles = 0;
+        foreach (KeyValuePair<DrinkNode, int> ingredient in cocktail.ingredients)
         {
+            //Check if same drinkTypes
+            if (!typesOfDrink.ContainsKey(ingredient.Key))
+                return "BadIngredients";
+
             //Check if same quantity
-            if (decoration.Value == 1 || decoration.Value == 2)
-            {
-                if (decorations[decoration.Key] < 1)
-                    return "NoIce";
-                if (decorations[decoration.Key] > 2)
-                    return "MuchIce";
-            }
-            else
-            {
-                if (decorations[decoration.Key] < 3)
-                    return "NoIce";
-                if (decorations[decoration.Key] > 5)
-                    return "MuchIce";
-            }
+            if (typesOfDrink[ingredient.Key] < ingredient.Value * 10 * cocktail.errorMargin)
+                return "BadIngredients";
+
+            totalParticles += typesOfDrink[ingredient.Key];
+        }
+
+        //Check if glass is nearly full
+        if (totalParticles < 35)
+        {
+            return "BadIngredients";
         }
 
         //Check if same state
@@ -91,19 +101,35 @@ public class CalculateDrink : MonoBehaviour
             return "BadState";
         }
 
-        //Check if same amount of ingredients
-        if (typesOfDrink.Count != cocktail.ingredients.Count)
-            return "BadIngredients";
+        //Check if same sprite
+        if (sprite != cocktail.sprite)
+            return "BadGlass";
 
-        foreach (KeyValuePair<DrinkNode, int> ingredient in cocktail.ingredients)
+        foreach (KeyValuePair<ItemNode, int> decoration in cocktail.decorations)
         {
-            //Check if same drinkTypes
-            if(!typesOfDrink.ContainsKey(ingredient.Key))
-                return "BadIngredients";
-
             //Check if same quantity
-            if (typesOfDrink[ingredient.Key] < ingredient.Value * 10 * cocktail.errorMargin)
-                return "BadIngredients";
+            if (decoration.Value == 0)
+            {
+                
+            }
+            else if (decoration.Value == 1 || decoration.Value == 2)
+            {
+                if (!decorations.ContainsKey(decoration.Key))
+                    return "NoIce";
+                if (decorations[decoration.Key] < 1)
+                    return "NoIce";
+                if (decorations[decoration.Key] > 2)
+                    return "MuchIce";
+            }
+            else
+            {
+                if (!decorations.ContainsKey(decoration.Key))
+                    return "NoIce";
+                if (decorations[decoration.Key] < 3)
+                    return "NoIce";
+                if (decorations[decoration.Key] > 5)
+                    return "MuchIce";
+            }
         }
         Debug.Log(cocktail);
         return "Good";

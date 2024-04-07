@@ -12,8 +12,8 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI totalMoneyText;
 
     private float dailyEarnings;
-    private float dailyExpenses;
-    private float money;
+    private float dailyExpanses;
+    private float money = 2100.0f;
     private float moneyChanged;
 
     private void Awake()
@@ -27,8 +27,7 @@ public class EconomyManager : MonoBehaviour
             Destroy(gameObject);
         }
         dailyEarnings = 0.0f;
-        dailyExpenses = 0.0f;
-        money = 2000.0f;
+        dailyExpanses = 0.0f;
     }
 
     public void AddMoney(float earnings)
@@ -37,36 +36,27 @@ public class EconomyManager : MonoBehaviour
         {
             dailyEarnings += earnings;         
         }
-        else
-        {
-            dailyExpenses += earnings;
-        }
         money += earnings;
-    }
-
-
-
-    public void SetMoneyText()
-    {
-        //dailyEarningsText.text = "Money Earned: " + dailyEarnings.ToString();
-        //dailyExpensesText.text = "Expenses: " + dailyExpenses.ToString();
-        //totalMoneyText.text = "Total Money: " + money.ToString();
     }
 
     public void ResetDailyEarnings()
     {
         dailyEarnings = 0.0f;
-    }
-    public void ResetDailyExpense()
-    {
-        dailyExpenses = 0.0f;
+        dailyExpanses = 0.0f;
     }
     public float GetMoney()
     {
         return money;
     }
-
-    public float GetMoneyChaned()
+    public float GetDailyEarnings()
+    {
+        return dailyEarnings;
+    }
+    public float GetDailyExpanses()
+    {
+        return dailyExpanses;
+    }
+    public float GetMoneyChanged()
     {
         return moneyChanged;
     }
@@ -78,7 +68,19 @@ public class EconomyManager : MonoBehaviour
 
     public void SetMoneyChanged(float earnings)
     {
+        if (earnings > 0)
+        {
+            dailyEarnings += earnings;
+        }
+        else
+        {
+            dailyExpanses += earnings;
+        }
         moneyChanged = earnings;
     }
 
+    public void SaveMoney()
+    {
+        PlayerPrefs.SetFloat("money", money);
+    }
 }

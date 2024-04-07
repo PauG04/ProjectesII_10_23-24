@@ -1,0 +1,174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8824312625624036674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d550c05b-6ea1-4898-abba-2979a51f25e1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Como, que no sabes lo que es una Waifu, no te preocupes yo te explico
+  children:
+  - 0b86ee4a-d310-4d55-9eb2-4d79fb3f3cd8
+  rect:
+    serializedVersion: 2
+    x: 806
+    y: 158
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-8616102141152886322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f6d46624-3516-4600-bdb6-a7b948c47890
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Y viajar a un mundo de m\xE1gia donde tenga mi propio harem con chicas bonitas"
+  children:
+  - 098022ca-086f-4a94-a105-fb9a3e821e70
+  rect:
+    serializedVersion: 2
+    x: 306
+    y: 159
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2592850950985916939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 098022ca-086f-4a94-a105-fb9a3e821e70
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Tu no habr\xE1s visto una Waifu por aqu\xED \xBFno?"
+  children:
+  - d550c05b-6ea1-4898-abba-2979a51f25e1
+  rect:
+    serializedVersion: 2
+    x: 551
+    y: 160
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1162027914381249549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ac78c6c5-40c9-4cf6-82b1-e4677bc40084
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Hola se\xF1or-kun, soy Miguel-san, un pobre chico que espera a ser atropellado
+    por camion-kun"
+  children:
+  - f6d46624-3516-4600-bdb6-a7b948c47890
+  rect:
+    serializedVersion: 2
+    x: 59
+    y: 159
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Otaku-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1162027914381249549}
+  - {fileID: -8616102141152886322}
+  - {fileID: -2592850950985916939}
+  - {fileID: -8824312625624036674}
+  - {fileID: 4572435399382391410}
+  - {fileID: 9080273457560523673}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &4572435399382391410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 0b86ee4a-d310-4d55-9eb2-4d79fb3f3cd8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Una Waifu es una chica con una cinturita como una princesa-chan pero con
+    unas tetas m\xE1s grandes que el titan colosal"
+  children:
+  - 80d3f0e7-d932-4654-995e-8e51d98a0542
+  rect:
+    serializedVersion: 2
+    x: 1056
+    y: 158
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &9080273457560523673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 80d3f0e7-d932-4654-995e-8e51d98a0542
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Ponme una Cerveza se\xF1or-san mientras le sigo explicando sobre las Waifus
+    UWU"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1304
+    y: 158
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class LiquidManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class LiquidManager : MonoBehaviour
     private Dictionary<DrinkNode, int> particleTypes;
 
     [Header("Drag Values")]
+    [SerializeField] private bool isJigger;
     [SerializeField] private bool isGlass;
     [SerializeField] private bool isBottle;
     [SerializeField] private DragItems dragItems;
@@ -34,7 +36,7 @@ public class LiquidManager : MonoBehaviour
         particleTypes = new Dictionary<DrinkNode, int>();
         boxCollider = GetComponent<BoxCollider2D>();
 
-        if (isGlass && dragItems == null)
+        if ((isGlass && dragItems == null) || (isJigger && dragItems == null))
         {
             dragItems = GetComponentInParent<DragItems>();
         }
@@ -54,9 +56,30 @@ public class LiquidManager : MonoBehaviour
                 dragItems.SetHasToReturn(true);
             }
         }
-        if(currentLiquid == 0 && isBottle)
+        if (currentLiquid == 0 && isBottle)
         {
-            currentLiquid = maxLiquid;
+            if(transform.parent.gameObject.transform.parent.childCount > 1)
+            {
+                GameObject newBottle = transform.parent.gameObject.transform.parent.transform.GetChild(1).gameObject;
+
+                newBottle.transform.localPosition = transform.parent.gameObject.GetComponent<DragItems>().GetInitPosition();
+                newBottle.AddComponent<PolygonCollider2D>();
+                newBottle.GetComponent<SpriteRenderer>().color = Color.white;
+                newBottle.GetComponent<SpriteRenderer>().sortingOrder = 2;
+                newBottle.GetComponent<DragItems>().enabled = true;
+                newBottle.GetComponent<DragItems>().SetItemCollider(newBottle.GetComponent<PolygonCollider2D>());
+                newBottle.GetComponent<DragItems>().SetInitPosition(transform.parent.gameObject.GetComponent<DragItems>().GetInitPosition());
+                newBottle.GetComponent<ArrowManager>().enabled = true;
+                newBottle.transform.GetChild(3).gameObject.SetActive(true);
+
+            }
+            Destroy(transform.parent.gameObject.GetComponent<DragItems>());
+
+            transform.parent.gameObject.transform.SetParent(null);
+            transform.parent.gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
+            transform.parent.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            isBottle = false;
+
         }
     }
 
@@ -66,8 +89,6 @@ public class LiquidManager : MonoBehaviour
         {
             if (currentLiquid < maxLiquid)
             {
-                AudioManager.instance.PlaySFX("LiquidCollisionGlass");
-
                 LiquidParticle particle = collision.GetComponent<LiquidParticle>();
 
                 if (particleTypes.ContainsKey(particle.GetDrink()))
@@ -168,32 +189,28 @@ public class LiquidManager : MonoBehaviour
 
         return result;
     }
-    public float GetCurrentLiquid()
+    public int GetCurrentLiquid()
     {
         return currentLiquid;
     }
-    public float GetMaxLiquid()
+    public int GetMaxLiquid()
     {
         return maxLiquid;
     }
-
     public Dictionary<DrinkNode, int> GetParticleTypes()
     {
         return particleTypes;
     }
-
     public void SetDrinkState(CocktailNode.State state)
     {
         currentState = state;
     }
-
     public CocktailNode.State GetDrinkState()
     {
         return currentState;
     }
-
-    public void SetCurrentLiquid()
+    public void SetCurrentLiquid(int liquid)
     {
-        currentLiquid = maxLiquid;
+        currentLiquid = liquid;
     }
 }

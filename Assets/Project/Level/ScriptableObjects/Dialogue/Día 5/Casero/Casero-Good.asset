@@ -1,0 +1,227 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8482230407381113255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 17493a8b-f649-4342-9bcb-2d493b9cec19
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Al parecer has podido aguantar a toda la chusma de este barrio y quitarles
+    el dinero para mi
+  children:
+  - 1074a286-680d-42af-9b6d-1423fbe2b632
+  rect:
+    serializedVersion: 2
+    x: 1055
+    y: 161
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-8186705612779130697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 3c0134d2-1469-4760-939a-621203b7d29d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: 'Vamos a ver esos 170 eurillos '
+  children:
+  - 1de898de-4b84-4ad4-a244-3dda28733ad2
+  rect:
+    serializedVersion: 2
+    x: 560
+    y: 161
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: TakeMoney
+--- !u!114 &-4039571503379398560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 27add3e5-005c-4841-a9f3-290d819dd3cc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Pero no te confundas, la siguiente semana tambi\xE9n quiero los 170 euros"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1806
+    y: 161
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-3794093093044376463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 54e445e3-02e6-4e9c-8789-b2c31c58f740
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Cierra ya por hoy el bar y nos vamos juntos al club p\xE9talos para celebrar
+    tu primera semana"
+  children:
+  - 27add3e5-005c-4841-a9f3-290d819dd3cc
+  rect:
+    serializedVersion: 2
+    x: 1556
+    y: 161
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1853981692563160878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1de898de-4b84-4ad4-a244-3dda28733ad2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Vaya, pues parece que si has trabajado, mirate t\xFA todo un currante"
+  children:
+  - 17493a8b-f649-4342-9bcb-2d493b9cec19
+  rect:
+    serializedVersion: 2
+    x: 805
+    y: 161
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1056846220306596071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1074a286-680d-42af-9b6d-1423fbe2b632
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Ya era hora de que alguien decente tuviese este bar, mira hoy me has pillado
+    de buen humor
+  children:
+  - 54e445e3-02e6-4e9c-8789-b2c31c58f740
+  rect:
+    serializedVersion: 2
+    x: 1306
+    y: 161
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Casero-Good
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 3249783640865682412}
+  - {fileID: 5163934334468439604}
+  - {fileID: -8186705612779130697}
+  - {fileID: -1853981692563160878}
+  - {fileID: -8482230407381113255}
+  - {fileID: -1056846220306596071}
+  - {fileID: -3794093093044376463}
+  - {fileID: -4039571503379398560}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &3249783640865682412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 213f3e15-23dd-4d7a-9ae3-4d4a59a8977f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Beunas Anto\xF1ito, sabes porque estoy aqu\xED \xBFno?"
+  children:
+  - d6de782a-8db9-4a7d-a8c5-d097a08d466b
+  rect:
+    serializedVersion: 2
+    x: 62
+    y: 162
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &5163934334468439604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d6de782a-8db9-4a7d-a8c5-d097a08d466b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Vengo a ver si realmente has trabajado esta semana o te la has pasado tocandote
+    los huevos
+  children:
+  - 3c0134d2-1469-4760-939a-621203b7d29d
+  rect:
+    serializedVersion: 2
+    x: 312
+    y: 163
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8021415534911290029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f5549096-41ae-42bf-a84e-22c62b125ab9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Tu eres de los que se lavan las manos antes de mear o los que se las lavan
+    despu\xE9s. Yo, me las lavo antes, \xBFporque?,dir\xE1s, porque mi polla es sagrada "
+  children:
+  - 19b58967-1762-44eb-9290-cb9407659a0d
+  rect:
+    serializedVersion: 2
+    x: 784
+    y: 122
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-3623522551107665426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 19b58967-1762-44eb-9290-cb9407659a0d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Pero bueno, al fin va haber un bar de un Espa\xF1ol en esta barrio de moros,
+    que lo unico bueno que tiene son las putillas"
+  children:
+  - 0b289e29-657b-4bda-bca9-199675bcf2ec
+  rect:
+    serializedVersion: 2
+    x: 1034
+    y: 123
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Torrente-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 4173226659245724740}
+  - {fileID: 5660344940297133286}
+  - {fileID: 1172163201191254409}
+  - {fileID: -8021415534911290029}
+  - {fileID: -3623522551107665426}
+  - {fileID: 5407667508208209273}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1172163201191254409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f79f315b-891d-43ae-9ec7-1390d34fccc3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: El Fari me ha hablo de un nuevo bar y he decido venir a ver que tal, pero
+    antes de pedirte una cosa tengo que hacerte una pregunta
+  children:
+  - f5549096-41ae-42bf-a84e-22c62b125ab9
+  rect:
+    serializedVersion: 2
+    x: 534
+    y: 123
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4173226659245724740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 4ed49607-1f6b-411f-9ca2-40141901c6a5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "\xBFBuscas el tocador? Pues ese soy yo."
+  children:
+  - 2a1208f3-324d-46cf-b13f-f2b6aac725b5
+  rect:
+    serializedVersion: 2
+    x: 34
+    y: 123
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &5407667508208209273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 0b289e29-657b-4bda-bca9-199675bcf2ec
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Ponme un RonColita para empezar, ya otros d\xEDas te pedir\xE9 algo m\xE1s
+    dif\xEDcil"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1283
+    y: 123
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 
+--- !u!114 &5660344940297133286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 2a1208f3-324d-46cf-b13f-f2b6aac725b5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Mi nombre es Torrente, Jos\xE9 Luis Torrente."
+  children:
+  - f79f315b-891d-43ae-9ec7-1390d34fccc3
+  rect:
+    serializedVersion: 2
+    x: 284
+    y: 123
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

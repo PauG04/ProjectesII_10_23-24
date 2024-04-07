@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using Dialogue;
-using TMPro;
 
 namespace UI
 {
@@ -19,12 +15,8 @@ namespace UI
         [SerializeField] private GameObject prefabPlayerbubble;
         [SerializeField] private GameObject separator;
 
-		[Space(10)]	
-		[SerializeField] private float timerDelay = 2.0f;
-
-		private Coroutine coroutineRunning;
-
-		private bool isSeparatorRunning;
+		[Header("Visual Components")]
+        [SerializeField] private GameObject nextSprite;
 
         private void Start()
 		{
@@ -38,52 +30,46 @@ namespace UI
 		{
 			if (playerConversant.IsActive())
 			{
-				if (!playerConversant.GetTextIsRunning())
+                playerConversant.SetIsTextDone(false);
+                //TypeWriterEffect.CompleteTextRevealed -= Next;
+
+                if (playerConversant.HasNext() && !playerConversant.IsChoosing())
 				{
-                    playerConversant.SetIsTextDone(false);
-                    TypeWriterEffect.CompleteTextRevealed -= WriteText;
-                }
-                if (playerConversant.HasNext() && !playerConversant.IsChoosing() && !playerConversant.GetTextIsRunning())
-				{
-					if (coroutineRunning != null)
-					{
-                        StopCoroutine(SeparatorDelay());
-						isSeparatorRunning = false;
-                    }
-					TypeWriterEffect.CompleteTextRevealed += WriteText;
-                }
-                else if ((playerConversant.IsChoosing() || !playerConversant.HasNext()) && !isSeparatorRunning)
-				{
+                    //TypeWriterEffect.CompleteTextRevealed += Next;
                     playerConversant.SetIsTextDone(true);
-                    //coroutineRunning = StartCoroutine(SeparatorDelay());
+
+                    nextSprite.transform.eulerAngles = Vector3.zero;
+                }
+				else
+				{
+					//nextSprite.transform.eulerAngles = new Vector3(0, 0, 90f);
+                }
+
+                if (TypeWriterEffect.isTextCompleted && playerConversant.HasNext())
+                {
+                    nextSprite.SetActive(true);
+                }
+                else
+                {
+                    nextSprite.SetActive(false);
                 }
             }
 
 			if (bubbleRoot.childCount > maxNumberOfChilds && bubbleRoot.childCount > 0)
 			{
 				Destroy(bubbleRoot.GetChild(0).gameObject);
-			}
-        }
-		private void WriteText()
-		{
-            playerConversant.SetIsTextDone(true);
-            coroutineRunning = StartCoroutine(playerConversant.WriteTextWithDelay());
+			}	
         }
         private void UpdateChat()
 		{
-            if (playerConversant.IsNewConversant())
-            {
-                DestroyChildrens(bubbleRoot);
-            }
             if (!playerConversant.IsActive())
 			{
 				return;
 			}
-			if(playerConversant.IsNewConversant())
+			if (playerConversant.IsNewConversant())
 			{
 				StopAllCoroutines();
 			}
-
             if (playerConversant.IsChoosing())
 			{
                 PlayerChoosing();
@@ -125,13 +111,10 @@ namespace UI
 				Destroy(item.gameObject);
 			}
 		}
-        private IEnumerator SeparatorDelay()
-        {
-            isSeparatorRunning = true;
-            yield return new WaitForSeconds(timerDelay);
-            Instantiate(separator, bubbleRoot);
-            isSeparatorRunning = false;
-        }
+		public void DestroyAllBubbles()
+		{
+			DestroyChildrens(bubbleRoot);
+		}
         protected void OnDestroy()
 		{
 			playerConversant.onConversationUpdated -= UpdateChat;

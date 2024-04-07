@@ -62,10 +62,11 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
         }
 
         _rb.bodyType = RigidbodyType2D.Dynamic;
+        _liquidManager.GetComponent<Collider2D>().enabled = false;
     }
     public override void ExitState()
     {
-        
+
     }
     public override ShakerStateMachine.ShakerState GetNextState()
     {
@@ -119,6 +120,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
                 if (rigidbody2D != null)
                 {
                     _shakerClosed.SetStayClosed(true);
+
                     _state = ShakerStateMachine.ShakerState.DraggingClosed;
                 }
             }
@@ -200,11 +202,7 @@ public class ShakerIdleClose : BaseState<ShakerStateMachine.ShakerState>
 
         OutsidewWorkspaceRenderersChilds(_shakerStateMachine.transform);
 
-        if (!_shakerStateMachine.GetIsInTutorial())
-        {
-            _shakerStateMachine.transform.localScale = Vector3.one;
-        }
-            
+        _shakerStateMachine.transform.localScale = Vector3.one;
     }
     private void OutsidewWorkspaceRenderersChilds(Transform parent)
     {

@@ -22,7 +22,7 @@ public class SpawnGlass : MonoBehaviour
 
         if(tutorial != null)
         {
-            tutorial.SetGlass(newGlass.transform.GetChild(4).gameObject);
+            tutorial.SetGlass(newGlass.transform.GetChild(3).gameObject);
         }
     }
 

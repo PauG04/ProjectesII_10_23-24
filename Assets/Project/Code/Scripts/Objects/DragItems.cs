@@ -33,6 +33,7 @@ public class DragItems : MonoBehaviour
     [SerializeField] private bool dragWithWorkspaceSprite;
     [SerializeField] private bool isItem;
     [SerializeField] private bool isItemGroup;
+    [SerializeField] private bool isPainting;
 
     private bool isObjectRotated;
     private bool isRotating;
@@ -64,7 +65,7 @@ public class DragItems : MonoBehaviour
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        if (!isItem && hasToReturn)
+        if (!isItem && hasToReturn && !isPainting)
         {
             rb2d.bodyType = RigidbodyType2D.Static;
         }
@@ -87,15 +88,15 @@ public class DragItems : MonoBehaviour
     }
     private void Update()
     {
-
         if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
         }
-        if (hasToReturn)
+        if (hasToReturn && !isDragging)
         {
             RepositionObject();
         }
+
         DraggingParent();
         Dragging();
         if (isRotating)
@@ -125,6 +126,11 @@ public class DragItems : MonoBehaviour
     private void OnMouseUp()
     {
         rb2d.bodyType = RigidbodyType2D.Dynamic;
+        
+        if(isPainting && insideWorkspace)
+        {
+            rb2d.bodyType = RigidbodyType2D.Kinematic;
+        }
 
         isDragging = false;
         if (dragWithWorkspaceSprite)
@@ -167,7 +173,10 @@ public class DragItems : MonoBehaviour
             {
                 if (!isReturning)
                 {
-                    rb2d.bodyType = RigidbodyType2D.Dynamic;
+                    if(!isPainting)
+                    {
+                        rb2d.bodyType = RigidbodyType2D.Dynamic;
+                    }
                     InsideWorkspace();
                 }
                 else
@@ -269,7 +278,7 @@ public class DragItems : MonoBehaviour
             {
                 spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             }
-            if (!dragWithWorkspaceSprite)
+            if (!dragWithWorkspaceSprite || !isDragging)
             {
                 spriteRenderer.sprite = normalSprite;
             }
@@ -356,6 +365,9 @@ public class DragItems : MonoBehaviour
                 target.localPosition.y
             );
 
+            if (!isInTutorial)
+                itemCollider.enabled = false;
+
             if (target.localPosition.x > initPosition.x - 0.002 && target.localPosition.x < initPosition.x + 0.002)
             {
                 target.localPosition = new Vector2(
@@ -365,6 +377,9 @@ public class DragItems : MonoBehaviour
 
                 if (target.localPosition.y > initPosition.y - 0.002 && target.localPosition.y < initPosition.y + 0.002)
                 {
+                    if (!isInTutorial)
+                        itemCollider.enabled = true;
+
                     if (hasToBeDestroy)
                     {
                         Destroy(gameObject);
@@ -439,6 +454,11 @@ public class DragItems : MonoBehaviour
     {
         this.hasToReturn = hasToReturn;
     }
+
+    public void SetItemCollider(PolygonCollider2D collider)
+    {
+        itemCollider = collider;
+    }
     public void SetIsInWorkSpace(bool state)
     {
         insideWorkspace = state;
@@ -464,4 +484,13 @@ public class DragItems : MonoBehaviour
         isInTutorial = state;
     }   
 
+    public void SetWorkspaceSprite(Sprite sprite)
+    {
+        workspaceSprite = sprite;
+    }
+
+    public Vector3 GetInitPosition()
+    {
+        return initPosition;
+    }
 }

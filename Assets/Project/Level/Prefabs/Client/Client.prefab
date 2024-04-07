@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6811001021699471402}
   - component: {fileID: 3446056256533920386}
   - component: {fileID: 161854096355174116}
-  m_Layer: 0
+  m_Layer: 28
   m_Name: Client
   m_TagString: Client
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3164742363969609211}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
@@ -37,7 +37,7 @@ Transform:
   - {fileID: 7406250777722010449}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!50 &8753293112615497115
 Rigidbody2D:
   serializedVersion: 4
@@ -125,6 +125,7 @@ MonoBehaviour:
   clientPosition: {fileID: 0}
   leavePosition: {fileID: 0}
   horizontalVelocity: 1.5
+  maxHitsToGo: 2
   maxTime: 1
 --- !u!114 &6811001021699471402
 MonoBehaviour:
@@ -191,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7406250777722010449}
   - component: {fileID: 5551121670725432904}
-  m_Layer: 0
+  m_Layer: 28
   m_Name: ClientSiluette
   m_TagString: Client
   m_Icon: {fileID: 0}

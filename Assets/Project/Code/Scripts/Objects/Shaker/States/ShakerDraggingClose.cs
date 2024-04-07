@@ -11,7 +11,7 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
     private Vector2 _newPosition;
 
-    private float _maxAngle = 0.1f;
+    private float _maxAngle = 0.05f;
     private float _progress;
     private float _maxProgress;
     private float _divideProgress;
@@ -22,7 +22,6 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     private LiquidManager _liquidManager;
     private SpriteRenderer _spriteRenderer;
 
-    //private ProgressSlider _slider;
     private Slider _progressSlider;
     private Image _color;
     private Image _background;
@@ -60,11 +59,9 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
         _state = ShakerStateMachine.ShakerState.DraggingClosed;
 
         _targetJoint = _shakerStateMachine.GetComponent<TargetJoint2D>();
-       
+        _rb = _shakerStateMachine.GetComponent<Rigidbody2D>();
 
         _targetJoint.enabled = true;
-
-        _rb = _shakerStateMachine.GetComponent<Rigidbody2D>();
 
         _newPosition = _shakerStateMachine.transform.position;
 
@@ -77,10 +74,12 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
 
         cameraShake = Camera.main.GetComponent<CameraShake>();
         intensityShaking = 0.25f;
+
+        _shakerStateMachine.GetComponent<Collider2D>().enabled = false;
     }
     public override void ExitState()
     {
-
+        _shakerStateMachine.GetComponent<Collider2D>().enabled = true;
     }
     public override ShakerStateMachine.ShakerState GetNextState()
     {
@@ -97,6 +96,11 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void UpdateState()
     {
+        if (Input.GetMouseButtonUp(0))
+        {
+            _shakerStateMachine.transform.localEulerAngles = Vector3.zero;
+            _state = ShakerStateMachine.ShakerState.IdleClosed;
+        }
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         _targetJoint.target = mousePosition;
@@ -181,15 +185,13 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     {
         if(_isDown && _rb.velocity.y >= 0)
         {
-            AudioManager.instance.PlaySFX("ShakingLiquid");
-            //AudioManager.instance.SetPitch("ShakingLiquid", 1.2f);
+            AudioManager.instance.PlaySFX("ShakeLiquid", 1.2f);
             _isDown = false;
             _newPosition.y = _shakerStateMachine.transform.position.y;
         }
         if(!_isDown && _rb.velocity.y < 0)
         {
-            AudioManager.instance.PlaySFX("ShakingLiquid");
-           // AudioManager.instance.SetPitch("ShakingLiquid", 0.5f);
+            AudioManager.instance.PlaySFX("ShakeLiquid", 0.5f);
             _isDown = true;
             _newPosition.y = _shakerStateMachine.transform.position.y;
         }

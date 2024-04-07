@@ -1,17 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class WikiManager : MonoBehaviour
 {
     public static WikiManager instance { get; private set; }
 
-    [SerializeField] private List<CocktailNode> cocktails;
+    [SerializeField] private List<GameObject> leftPages;
+    [SerializeField] private List<GameObject> rightPages;
 
-    [SerializeField] private GameObject wiki;
-    [SerializeField] private WikiPage leftPage;
-    [SerializeField] private WikiPage rightPage;
+    [SerializeField] private GameObject wikiPages;
+    private GameObject leftPage;
+    private GameObject rightPage;
+
+    [SerializeField] private Sprite prevAndNextSprite;
+    [SerializeField] private Sprite prevSprite;
+    [SerializeField] private Sprite nextSprite;
 
     [SerializeField] private DragItems book;
     private bool bookIsOpened;
@@ -29,6 +32,8 @@ public class WikiManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        leftPage = null;
+        rightPage = null;
         bookIsOpened = false;
         pageNumber = 0;
     }
@@ -47,60 +52,70 @@ public class WikiManager : MonoBehaviour
         }
     }
 
-    public void NextPage()
-    {
-        if (pageNumber + 2 <= cocktails.Count - 1)
-        {
-            AudioManager.instance.PlaySFX("TurnPage");
-            pageNumber += 2;
-            UpdatePages(pageNumber);
-        }
-    }
-
     public void PrevPage()
     {
-        if (pageNumber >= 2)
+        if (pageNumber > 0)
         {
             AudioManager.instance.PlaySFX("TurnPage");
-            pageNumber -= 2;
+            pageNumber -= 1;
             UpdatePages(pageNumber);
         }
     }
 
-    public void AddPage(CocktailNode cocktail)
+    public void NextPage()
     {
-        cocktails.Add(cocktail);
+        if (pageNumber < rightPages.Count - 1)
+        {
+            AudioManager.instance.PlaySFX("TurnPage");
+            pageNumber += 1;
+            UpdatePages(pageNumber);
+        }
     }
 
     private void UpdatePages(int page)
     {
-        if (page < cocktails.Count)
+        for (int i = wikiPages.transform.childCount - 1; i >= 0; i--)
         {
-            leftPage.UpdatePage(cocktails[page]);
-
-            if (page + 1 < cocktails.Count)
-                rightPage.UpdatePage(cocktails[page + 1]);
-            else
-                rightPage.ClearPage();
+            Destroy(wikiPages.transform.GetChild(i).gameObject);
         }
-    }
 
-    public List<CocktailNode> GetAvailableCocktails()
-    { 
-        return cocktails; 
+        leftPage = Instantiate(leftPages[page], wikiPages.transform);
+        if (leftPage.TryGetComponent<CocktailPage>(out CocktailPage leftCocktail))
+            leftCocktail.InitPage();
+
+        rightPage = Instantiate(rightPages[page], wikiPages.transform);
+        if (rightPage.TryGetComponent<CocktailPage>(out CocktailPage rightCocktail))
+            rightCocktail.InitPage();
+
+        if (page == 0)
+            book.SetWorkspaceSprite(nextSprite);
+        else if (page == leftPages.Count - 1)
+            book.SetWorkspaceSprite(prevSprite);
+        else
+            book.SetWorkspaceSprite(prevAndNextSprite);
+
+        return;
     }
 
     private void OpenWiki()
     {
-        AudioManager.instance.PlaySFX("OpenBook");
-        leftPage.gameObject.SetActive(true);
-        rightPage.gameObject.SetActive(true);
+        AudioManager.instance.PlaySFX("OpenWiki");
+        if (leftPage != null)
+            leftPage.SetActive(true);
+        if (rightPage != null)
+            rightPage.SetActive(true);
         UpdatePages(pageNumber);
     }
 
     private void CloseWiki()
     {
-        leftPage.gameObject.SetActive(false);
-        rightPage.gameObject.SetActive(false);
+        AudioManager.instance.PlaySFX("CloseWiki");
+        leftPage.SetActive(false);
+        rightPage.SetActive(false);
+    }
+
+    public int GetCurrentPage()
+    {
+        return pageNumber;
     }
 }

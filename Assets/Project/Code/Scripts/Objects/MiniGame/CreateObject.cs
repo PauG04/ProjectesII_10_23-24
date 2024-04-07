@@ -43,6 +43,7 @@ public class CreateObject : MonoBehaviour
             item.transform.localPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
             item.GetComponent<DragItems>().SetIsDragging(true);
             item.GetComponent<DragItems>().SetInitPosition(transform.position);
+            item.GetComponent<Rigidbody2D>().mass = 0.01f;
 
             if (!isCreated)
             {

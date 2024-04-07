@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3285528302950182504}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7870002, z: -0.027320147}
+  m_LocalPosition: {x: 0, y: 0.682, z: -0.027320147}
   m_LocalScale: {x: 0.1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7983218307329700093}
   - component: {fileID: 4632203015347343070}
   m_Layer: 15
-  m_Name: LiquidManager
+  m_Name: ColaLiquidManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,17 +75,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1407f6f2bc78bf42a6250184b137797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLiquid: 300
-  currentLiquid: 300
+  maxLiquid: 125
+  currentLiquid: 125
   currentState: 0
   glassLiquidRenderer: {fileID: 0}
+  isJigger: 0
   isGlass: 0
+  isBottle: 1
   dragItems: {fileID: 0}
   maxColliderPos: 0
   minColliderPos: 0
   dropLiquid: {fileID: 0}
   shaker: {fileID: 0}
-  isTutorial: 0
 --- !u!1 &6918459718600216018
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +99,6 @@ GameObject:
   - component: {fileID: 4559980660687427612}
   - component: {fileID: 8963226189741860814}
   - component: {fileID: 1975449271533795601}
-  - component: {fileID: 3200151794808772386}
   - component: {fileID: 790261217673330239}
   - component: {fileID: 8819774920043758160}
   - component: {fileID: 201958644826711689}
@@ -119,7 +119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6918459718600216018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.786, y: -2.042, z: 0}
+  m_LocalPosition: {x: -0.12, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -168,7 +168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 589d456afc457fe47b6f1b3d9e1cd446, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -266,22 +266,6 @@ PolygonCollider2D:
       - {x: 0.2265625, y: -0.6484375}
       - {x: 0.2109375, y: -0.6796875}
   m_UseDelaunayMesh: 0
---- !u!114 &3200151794808772386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6918459718600216018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 369faa39793b32c43acd63d959a791d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brokenBottle: {fileID: 6918459718600216018, guid: d4bdad4d7ba85b94082831328f3888ee, type: 3}
-  particles: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  forceX: 3
-  forceY: 1
 --- !u!114 &790261217673330239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +281,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 589d456afc457fe47b6f1b3d9e1cd446, type: 3}
   workspaceSprite: {fileID: 21300000, guid: 589d456afc457fe47b6f1b3d9e1cd446, type: 3}
-  scaleMultiplier: 1
+  scaleMultiplier: 1.5
   itemCollider: {fileID: 0}
   rotationSpeed: 6
   horizontalSpeed: 6
@@ -307,8 +291,10 @@ MonoBehaviour:
   hasToStayTheSameLayer: 1
   changeSpriteMask: 0
   moveParent: 0
+  dragWithWorkspaceSprite: 0
   isItem: 0
   isItemGroup: 0
+  isPainting: 0
 --- !u!114 &8819774920043758160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,13 +322,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPref: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
-  spawnPoint: {fileID: 4174260560249075128}
   liquidManager: {fileID: 4632203015347343070}
   drink: {fileID: 11400000, guid: 5fa335cd3f50bbb4cb07f3f23f6c208c, type: 2}
+  spawnSpeed: 2.8
+  spawnPoint: {fileID: 4174260560249075128}
+  rightSpawner: {fileID: 0}
+  leftSpawner: {fileID: 0}
   minRotationToPourLiquid: 70
   maxRotationToPourLiquid: 140
-  isGlass: 0
+  isTopOpen: 0
   spawnerPositionX: 0
+  liquidCollider: {fileID: 0}
 --- !u!114 &5507417628516245743
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,6 +28,8 @@ public class TypeWriterEffect : MonoBehaviour
     private WaitForSeconds textboxFullEventDelay;
     [SerializeField] [Range(0.1f, 0.5f)] private float sendDoneDelay = 0.25f;
 
+    public static bool isTextCompleted = false;
+
     public static event Action CompleteTextRevealed;
     public static event Action<char> CharacterRevealed;
 
@@ -46,16 +48,14 @@ public class TypeWriterEffect : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (textBox.maxVisibleCharacters != textBox.textInfo.characterCount - 1)
+            if (textBox.textInfo.characterCount != textBox.maxVisibleCharacters - 1)
             {
                 Skip();
             }
         }
     }
-
     public void SetText(string text)
     {
-
         if (typeWriterCoroutine != null)
         {
             StopCoroutine(typeWriterCoroutine);
@@ -65,6 +65,7 @@ public class TypeWriterEffect : MonoBehaviour
         textBox.maxVisibleCharacters = 0;
         currentVisibleCharacterIndex = 0;
 
+        isTextCompleted = false;
         typeWriterCoroutine = StartCoroutine(Typewriter());
     }
 
@@ -80,6 +81,7 @@ public class TypeWriterEffect : MonoBehaviour
             {
                 textBox.maxVisibleCharacters++;
                 yield return textboxFullEventDelay;
+                isTextCompleted = true;
                 CompleteTextRevealed?.Invoke();
                 yield break;
             }
@@ -121,7 +123,8 @@ public class TypeWriterEffect : MonoBehaviour
 
         StopCoroutine(typeWriterCoroutine);
         textBox.maxVisibleCharacters = textBox.textInfo.characterCount;
-        CompleteTextRevealed?.Invoke();
+        //CompleteTextRevealed?.Invoke();
+        isTextCompleted = true;
     }
 
     private IEnumerator SkipSpeedupReset()

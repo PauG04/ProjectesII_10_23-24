@@ -1,0 +1,308 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8488198477531105180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ff506325-899b-4870-86c4-4ca4959aeb18
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Muy buenos d\xEDas se\xF1or"
+  children:
+  - 2324d1a1-2150-440a-b7ea-6b7f1065ac64
+  rect:
+    serializedVersion: 2
+    x: 66
+    y: 205
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-7271541537277688314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 2324d1a1-2150-440a-b7ea-6b7f1065ac64
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Me preguntaba si en este bar de peculiar reputaci\xF3n poseen acaso la habilidad
+    para usar una coctelera?"
+  children:
+  - d0e4b237-4f6a-4148-8c18-0c6a34bf250e
+  rect:
+    serializedVersion: 2
+    x: 322
+    y: 204
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-6565648020143337736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 9b7f9ca8-a47f-41c7-b112-b66cacab90b0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Mira me pillas de bueno humor te voy a ayudar, coge la c\xF3ctelera, la
+    tendr\xEDas que tener al lado del libro"
+  children:
+  - 55e6ac28-a3fa-4a83-82bd-946080bbccf2
+  rect:
+    serializedVersion: 2
+    x: 1071
+    y: 204
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4813805312230473975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ac1c2ca7-59dd-42ec-b194-3d115caf706d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Como, que no sabes que es una coctelera, si es que pod\xEDa esperarme de
+    un paleto"
+  children:
+  - 9b7f9ca8-a47f-41c7-b112-b66cacab90b0
+  rect:
+    serializedVersion: 2
+    x: 822
+    y: 204
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4700482833500581432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d0e4b237-4f6a-4148-8c18-0c6a34bf250e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "De ser as\xED, tendr\xEDa el honor de servirme un Whiskey Sour?"
+  children:
+  - ac1c2ca7-59dd-42ec-b194-3d115caf706d
+  rect:
+    serializedVersion: 2
+    x: 571
+    y: 203
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 
+--- !u!114 &-4496954178387403506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 51e5d8c1-3f71-4d95-8eb7-9821584e33db
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Ahora simplemente tienes que menear la cocteler\xE1 cerrada de arriba abajo
+    para mezclar"
+  children:
+  - b4a35a92-ab88-4d55-a53f-fb4efd9f5885
+  rect:
+    serializedVersion: 2
+    x: 2069
+    y: 203
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-3848070009380706606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a38a889b-5b7f-4c8c-8256-c37ac35132f7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Cuando veas que tienes todas las bebidas detro de la coctelera coges y la
+    tapas con la tapa del shaker, simple no?
+  children:
+  - ba6e2ab7-0e51-49df-b50c-f7043ca09e5a
+  rect:
+    serializedVersion: 2
+    x: 1560
+    y: 205
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1706670240202537551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: b4a35a92-ab88-4d55-a53f-fb4efd9f5885
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Ver\xE1s una barra de progreso al emepzar a mezclar, cuando la tengas a
+    tope abres la cocteler\xE1 y puedes ya servir en el vaso"
+  children:
+  - ee5e6b7b-398e-43a9-8cd2-fffd281bf843
+  rect:
+    serializedVersion: 2
+    x: 2318
+    y: 203
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: SibaritaDialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -8488198477531105180}
+  - {fileID: -7271541537277688314}
+  - {fileID: -4700482833500581432}
+  - {fileID: -4813805312230473975}
+  - {fileID: -6565648020143337736}
+  - {fileID: 6163211937957589795}
+  - {fileID: 59002543657322518}
+  - {fileID: -3848070009380706606}
+  - {fileID: -4496954178387403506}
+  - {fileID: -1706670240202537551}
+  - {fileID: 6560516311895178540}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &59002543657322518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ba6e2ab7-0e51-49df-b50c-f7043ca09e5a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Ahora coge la tapa del shaker que la necesitas para tapar la coctelera
+  children:
+  - 51e5d8c1-3f71-4d95-8eb7-9821584e33db
+  rect:
+    serializedVersion: 2
+    x: 1808
+    y: 236
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6163211937957589795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 55e6ac28-a3fa-4a83-82bd-946080bbccf2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Es muy simple, dentro del shaker metes las bebidas para hacer el c\xF3ctel,
+    no me seas cazurro, solo mete bebidas, ni hielos ni nada"
+  children:
+  - a38a889b-5b7f-4c8c-8256-c37ac35132f7
+  rect:
+    serializedVersion: 2
+    x: 1315
+    y: 204
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6560516311895178540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ee5e6b7b-398e-43a9-8cd2-fffd281bf843
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Venga ya he ayudado a un peleto como t\xFA, empieza a trabajar"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 2563
+    y: 202
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

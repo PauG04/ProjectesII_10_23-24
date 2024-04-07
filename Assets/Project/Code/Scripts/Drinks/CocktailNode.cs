@@ -23,13 +23,18 @@ public class CocktailNode : ScriptableObject
         WhiskeySour,
         Sangria,
         Kalimotxo,
-        Cocktail09,
+        Beer,
         Cocktail10,
         Cocktail11,
 
         Total,
         Error,
-        Empty
+        Empty,
+
+        Vodka,
+        CocaCola,
+        LemmonJuice,
+        Gazpacho
     }
 
     public State state;
@@ -76,7 +81,7 @@ public class CocktailNode : ScriptableObject
         if (state == State.Idle)
             description += "directamente en vaso ";
         else if (state == State.Shaked)
-            description += "poco agitado ";
+            description += "agitado ";
         else
             description += "completamente mezclado ";
         //Decorations

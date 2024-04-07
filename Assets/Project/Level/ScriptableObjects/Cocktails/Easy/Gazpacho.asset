@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612416e99e325834eba562d43ecd654f, type: 3}
+  m_Name: Gazpacho
+  m_EditorClassIdentifier: 
+  state: 2
+  type: 17
+  price: 6.99
+  cocktailName: Gazpacho
+  subtitle: Clasico
+  description: "6 Onzas de Zumo de Lim\xF3n\nSerivir completamente mezclado "
+  sprite: {fileID: 21300000, guid: 7cd9121659fb7e34ca670b554e21e682, type: 3}
+  color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+  errorMargin: 1
+  serializableIngredients:
+    items:
+    - type: {fileID: 11400000, guid: 0be5bc9a3c202354d910417dcd9520fb, type: 2}
+      quantity: 6
+  serializableDecorations:
+    items: []

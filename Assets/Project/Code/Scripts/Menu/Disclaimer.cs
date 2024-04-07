@@ -3,11 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class Disclaimer : MonoBehaviour
 {
+    [SerializeField] private LevelLoader levelLoader;
     private void Update()
     {
         if(Input.anyKey)
         {
-            SceneManager.LoadScene(1);
+            levelLoader.LoadNextLevel();
         }
     }
 }

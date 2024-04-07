@@ -1,0 +1,200 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6829125640009418787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: e2bc9184-b61d-4d50-9e40-9aa691a07277
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Que pasa Jefe, puedo hacerte una pregunta r\xE1pida"
+  children:
+  - a307b884-29eb-4a57-86f2-6b85a9695cf5
+  rect:
+    serializedVersion: 2
+    x: 61
+    y: 218
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-6115678795271534633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: e9e8e029-75f8-4cb3-b2da-10f1409fa14e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Ya sabes, esas que tiene dos tetas como dos putos barcos, que al correr rebotan,
+    primero una y luego la otra
+  children:
+  - 938016d5-c2cb-4a8d-aa3e-51daf6b969dc
+  rect:
+    serializedVersion: 2
+    x: 819
+    y: 216
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-6017255962065379631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 18b3c2f9-0756-492e-854f-719a75e0f196
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "\xBFPor aqu\xED siguen viniendo muchachitas con su escote?"
+  children:
+  - e9e8e029-75f8-4cb3-b2da-10f1409fa14e
+  rect:
+    serializedVersion: 2
+    x: 549
+    y: 219
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-3237315688890507053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a0677076-18f0-4e8b-afc9-5b0683dfa851
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Ponme un agua de palencia, pero que tengo dos buenos trozos de hielo como
+    dos bufarras
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1567
+    y: 217
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 
+--- !u!114 &-532392412316600394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a307b884-29eb-4a57-86f2-6b85a9695cf5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: 'Aunque ya ha terminado la temporada de verano, '
+  children:
+  - 18b3c2f9-0756-492e-854f-719a75e0f196
+  rect:
+    serializedVersion: 2
+    x: 312
+    y: 225
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Viejo-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -6829125640009418787}
+  - {fileID: -532392412316600394}
+  - {fileID: -6115678795271534633}
+  - {fileID: -6017255962065379631}
+  - {fileID: 7650316669690253765}
+  - {fileID: 1548073305412222072}
+  - {fileID: -3237315688890507053}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1548073305412222072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a663016d-47d2-46a1-970b-ce37c6bbd107
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Bueno, parece que en esta bar de poca montas pocas mujerzuelas vienen, pero
+    ya que estoy voy a tomarme algo
+  children:
+  - a0677076-18f0-4e8b-afc9-5b0683dfa851
+  rect:
+    serializedVersion: 2
+    x: 1317
+    y: 217
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &7650316669690253765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 938016d5-c2cb-4a8d-aa3e-51daf6b969dc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Es para saber si tengo que preparar mis encantos para esas doncellitas
+  children:
+  - a663016d-47d2-46a1-970b-ce37c6bbd107
+  rect:
+    serializedVersion: 2
+    x: 1067
+    y: 217
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

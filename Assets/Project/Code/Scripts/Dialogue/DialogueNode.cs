@@ -10,7 +10,7 @@ namespace Dialogue
     public class DialogueNode : ScriptableObject
     {
         [SerializeField] private bool isPlayerSpeaking = false;
-        [SerializeField] private bool isTextPaused = false;
+        [SerializeField] private bool isTextPaused = true;
         
         [SerializeField] [TextArea(15, 20)] private string text;
         [SerializeField] private List<string> children = new List<string>();

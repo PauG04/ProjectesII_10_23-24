@@ -1,11 +1,15 @@
 using Dialogue;
 using System.Collections.Generic;
+using UI;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ClientManager : MonoBehaviour
 {
     public static ClientManager instance { get; private set; }
 
+    [SerializeField] private DayManager dayManager;
+    [SerializeField] private DaysEventsController daysEventsController;
     [SerializeField] private List<ClientNode> currentDayClients;
     private int clientCounter;
 
@@ -26,7 +30,15 @@ public class ClientManager : MonoBehaviour
     [SerializeField] private Transform DestroyPosition;
     [SerializeField] private float horizontalVelocity;
 
-    private void Awake()
+    [Header("Day Transition")]
+    [SerializeField] private LevelLoader levelLoader;
+    [SerializeField] private DialogueUI dialogueCanvas;
+    [SerializeField] private GameObject endOfDay;
+
+    private bool isCourtainClosed;
+    private bool dayEnded;
+
+    private void Start()
     {
         if (instance == null)
         {
@@ -39,24 +51,65 @@ public class ClientManager : MonoBehaviour
 
         clientCounter = 0;
 
+        daysEventsController.ActiveEventDay(dayManager.GetCurrentDay());
+        currentDayClients = dayManager.GetClients(dayManager.GetCurrentDay());
+
         CreateClient();
     }
+    public void EndDay()
+    {
+        levelLoader.Save();
+        levelLoader.CloseAnimation();
+        dayEnded = true;
+        Invoke("ShowEndOfDay", 1f);
+    }
 
+    private void ShowEndOfDay()
+    {
+        endOfDay.SetActive(true);
+        isCourtainClosed = true;
+    }
+    public void LoadDay()
+    {
+        levelLoader.OpenAnimation();
+        endOfDay.SetActive(false);
+        dayEnded = false;
+        dialogueCanvas.DestroyAllBubbles();
+
+        dayManager.NextDay(1);
+        daysEventsController.ActiveEventDay(dayManager.GetCurrentDay());
+        currentDayClients = dayManager.GetClients(dayManager.GetCurrentDay());
+        clientCounter = 0;
+
+        EconomyManager.instance.ResetDailyEarnings();
+
+        CreateClient();
+
+        isCourtainClosed = false;
+    }
     public void CreateClient()
     {
-        if (clientCounter >= currentDayClients.Count)
+        if (dayManager.GetCurrentDay() <= dayManager.GetLastDay())
         {
-            TimeManager.instance.StopTime();
+            if (clientCounter >= currentDayClients.Count)
+            {
+                EndDay();
+            }
+            else
+            {
+                currentClientNode = currentDayClients[clientCounter];
+                clientCounter++;
+
+                currentClient = Instantiate(client, clientParent);
+                currentClientScript = currentClient.GetComponent<Client>();
+                currentClientScript.SetDialogueUI(dialogueCanvas);
+                currentClientScript.SetClientNode(currentClientNode);
+                currentClientScript.InitClient();
+            }
         }
         else
         {
-            currentClientNode = currentDayClients[clientCounter];
-            clientCounter++;
-
-            currentClient = Instantiate(client, clientParent);
-            currentClientScript = currentClient.GetComponent<Client>();
-            currentClientScript.SetClientNode(currentClientNode);
-            currentClientScript.InitClient();
+            daysEventsController.DesactiveLastDay();
         }
     }
 
@@ -96,12 +149,44 @@ public class ClientManager : MonoBehaviour
 
     public ClientNode GetClient()
     {
-        return currentClientNode;
+        if(!dayEnded)
+        {
+            return currentClientNode;
+        }
+
+        return null;      
     }
 
     public GameObject GetClientObject()
     {
-        return currentClientScript.gameObject;
+        if(!dayEnded)
+        {
+            return currentClientScript.gameObject;
+        }
+
+        return null;
     }
     #endregion
+
+    public bool GetDayEnded()
+    {
+        return dayEnded;
+    }
+
+
+    public void SetNewCLient(ClientNode client, int position)
+    {
+        currentDayClients.Insert(position, client);
+    }
+
+    public void PassClient()
+    {
+        Destroy(currentClient);
+        CreateClient();
+    }
+
+    public bool GetCourtainClosed()
+    {
+        return isCourtainClosed;
+    }
 }

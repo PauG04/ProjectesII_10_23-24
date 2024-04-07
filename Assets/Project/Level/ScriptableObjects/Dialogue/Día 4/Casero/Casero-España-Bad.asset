@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1529935372617534966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 099d685a-f016-4b02-aba1-1ba5ca23ad88
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Porque Franco si ten\xEDa las cosas claras, los moroso y todos a sus putos
+    pa\xEDses"
+  children:
+  - fddf80ea-81ca-4238-b769-de83edb72a91
+  rect:
+    serializedVersion: 2
+    x: 1068
+    y: 203
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1194048123868687378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 8ab86dcb-03e5-4389-bc0b-ab3377cd86fd
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Y que no quer\xEDa a ning\xFAn tipo de persona subdesarollada en mi bar"
+  children:
+  - f9de601d-1dde-4598-b4fc-e29030889262
+  rect:
+    serializedVersion: 2
+    x: 312
+    y: 208
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-976122548913618053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: fddf80ea-81ca-4238-b769-de83edb72a91
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Por una naci\xF3n libre de inmigrantes"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1318
+    y: 203
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: "Casero-Espa\xF1a-Bad"
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 7464158928816064263}
+  - {fileID: -1194048123868687378}
+  - {fileID: 2151591930532461653}
+  - {fileID: 2106788531839833541}
+  - {fileID: -1529935372617534966}
+  - {fileID: -976122548913618053}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &2106788531839833541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d8a0d31f-b7aa-47d3-bcc9-0308aebaccee
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Y siendo el d\xEDa de ESPA\xD1A, hoy me lo gasto en el cuadro de Franco
+    que he visto volviendo a casa"
+  children:
+  - 099d685a-f016-4b02-aba1-1ba5ca23ad88
+  rect:
+    serializedVersion: 2
+    x: 818
+    y: 203
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &2151591930532461653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f9de601d-1dde-4598-b4fc-e29030889262
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: 'Como te he explicoda me voy a quedar 50 euros tuyos '
+  children:
+  - d8a0d31f-b7aa-47d3-bcc9-0308aebaccee
+  rect:
+    serializedVersion: 2
+    x: 569
+    y: 203
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: TakeMoney
+--- !u!114 &7464158928816064263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 79c48dbc-1ae9-4ab0-9b01-452b77164c9b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "A ver figura, creo haberte dicho que hoy es el d\xEDa de ESPA\xD1A"
+  children:
+  - 8ab86dcb-03e5-4389-bc0b-ab3377cd86fd
+  rect:
+    serializedVersion: 2
+    x: 68
+    y: 203
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

@@ -22,7 +22,10 @@ public class DrinkNode : ScriptableObject
         //Soft Drinks
         Cola,
         Soda,
-        Tonic
+        Tonic,
+
+        //Beer
+        Beer
     }
 
     public string spanishName;

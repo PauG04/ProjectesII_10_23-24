@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Viejo-Bad
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 8640400097679107126}
+  - {fileID: 2774884970561478832}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &2774884970561478832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ed499d29-39ee-4ec3-95cc-fab838d102c4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Pero como no tienes te voy a pedir que vuelvas a empezar
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 297
+    y: 135
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &8640400097679107126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 4fb6c7b8-a646-4021-a4b7-0cd3ab049c18
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Mira chaval, si tuvieses dos grandes tetas me beber\xEDa hasta el agua del
+    retrete"
+  children:
+  - ed499d29-39ee-4ec3-95cc-fab838d102c4
+  rect:
+    serializedVersion: 2
+    x: 47
+    y: 136
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

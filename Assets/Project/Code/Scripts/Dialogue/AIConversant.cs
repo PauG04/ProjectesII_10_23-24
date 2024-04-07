@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +14,6 @@ namespace Dialogue
 
 		private Client client;
 
-
-		private int i;
 		protected void Awake()
 		{
 			playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
@@ -23,28 +22,25 @@ namespace Dialogue
 
         public void HandleDialogue()
 		{
-			if(dialogue == null)
-			{
-				return;
-			}
+            if (dialogue == null)
+            {
+                return;
+            }
 
-			playerConversant.StartDialogue(this, dialogue);
-		}
+            playerConversant.StartDialogue(this, dialogue);
+        }
 
         private void Update()
         {
             if (playerConversant.IsActive() && !client.GetCanLeave())
-			{
-                if (!playerConversant.HasNext() && playerConversant.GetIsTextDone())
+            {
+                if (!playerConversant.HasNext())
                 {
                     client.SetCanLeave(true);
                 }
-            }           
+            }
+                     
         }
-		public PlayerConversant GetPlayerConversant()
-		{
-			return playerConversant;
-		}
         public string GetName()
 		{
 			return conversantName;
