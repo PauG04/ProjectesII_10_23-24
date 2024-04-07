@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,28 +22,21 @@ namespace Dialogue
 
         public void HandleDialogue()
 		{
-			if(dialogue == null)
-			{
-				return;
-			}
+            if (dialogue == null)
+            {
+                return;
+            }
 
             playerConversant.StartDialogue(this, dialogue);
         }
 
         private void Update()
         {
-            if (playerConversant.IsActive() && !client.GetCanLeave())
+            if (playerConversant.IsActive() && !client.GetCanLeave() && !playerConversant.HasNext() && playerConversant.GetIsTextDone())
 			{
-                if (!playerConversant.HasNext() && playerConversant.GetIsTextDone() && client.GetLeaveAnimation())
-                {
-                    client.SetCanLeave(true);
-                }
+                client.SetCanLeave(true);
             }           
         }
-		public PlayerConversant GetPlayerConversant()
-		{
-			return playerConversant;
-		}
         public string GetName()
 		{
 			return conversantName;
@@ -51,10 +45,5 @@ namespace Dialogue
         {
             this.dialogue = dialogue;
         }
-
-		public Dialogue GetDialogue()
-		{
-			return dialogue;
-		}
     }
 }

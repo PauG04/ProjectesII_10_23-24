@@ -22,7 +22,7 @@ public class VascoEvent : MonoBehaviour
     private void Update()
     {
         SetPainting();  
-        if (client != null && client == eventClient && !isSelected && hasDialogueEnd)
+        if (client != null && client == eventClient && !isSelected && hasDialogueEnd && TypeWriterEffect.isTextCompleted)
         {
             if(painting != null)
             {
@@ -45,7 +45,7 @@ public class VascoEvent : MonoBehaviour
             clientObject = clientManager.GetClientObject();
         }
 
-        if(isSelected && painting == null)
+        if(isSelected && painting == null && TypeWriterEffect.isTextCompleted)
         {
             clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[1]);
             clientObject.GetComponent<AIConversant>().HandleDialogue();
@@ -56,7 +56,6 @@ public class VascoEvent : MonoBehaviour
         {
             if (!playerConversant.HasNext())
             {
-                Debug.Log("si");
                 hasDialogueEnd = true;
             }
         }

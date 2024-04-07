@@ -78,8 +78,11 @@ public class EconomyManager : MonoBehaviour
         {
             dailyExpanses += earnings;
         }
-        Debug.Log(earnings);
         moneyChanged = earnings;
     }
 
+    public void SaveMoney()
+    {
+        PlayerPrefs.SetFloat("money", money);
+    }
 }

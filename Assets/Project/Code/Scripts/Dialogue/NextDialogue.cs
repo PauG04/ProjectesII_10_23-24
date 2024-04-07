@@ -23,11 +23,11 @@ public class NextDialogue : MonoBehaviour
             {
                 playerConversant.Next();
             }
-            else if(ClientManager.instance.GetCurrentClientScript().GetCanLeave())
-            {
-                ClientManager.instance.GetCurrentClientScript().SetLeave(true);
-                dialogueCanvas.DestroyAllBubbles();
-            }
+            //else if(ClientManager.instance.GetCurrentClientScript().GetCanLeave())
+            //{
+            //    ClientManager.instance.GetCurrentClientScript().SetLeave(true);
+            //    dialogueCanvas.DestroyAllBubbles();
+            //}
         }
     }
 }

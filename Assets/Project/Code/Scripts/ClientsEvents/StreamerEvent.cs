@@ -71,7 +71,7 @@ public class StreamerEvent : MonoBehaviour
         {
             votation = false;
         }
-        if(time > DesactiveVotationTime)
+        if(time > DesactiveVotationTime && TypeWriterEffect.isTextCompleted)
         {
             clientObject.GetComponent<AIConversant>().SetDialogue(dialogue);
             clientObject.GetComponent<AIConversant>().HandleDialogue();

@@ -38,7 +38,7 @@ public class ShopEvent : MonoBehaviour
         {
             if (TypeWriterEffect.isTextCompleted && !player.HasNext() && clientObject.GetComponent<Client>().GetIsLocated())
             {
-                activeCanvas();
+                ActiveCanvas();
             }
             if (clientObject.GetComponent<Client>().GetHitted())
             {
@@ -55,7 +55,7 @@ public class ShopEvent : MonoBehaviour
         }
     }
 
-    private void activeCanvas()
+    private void ActiveCanvas()
     {
         if(!clientObject.GetComponent<Client>().GetHitted())
         {

@@ -101,6 +101,7 @@ public class ClientManager : MonoBehaviour
 
                 currentClient = Instantiate(client, clientParent);
                 currentClientScript = currentClient.GetComponent<Client>();
+                currentClientScript.SetDialogueUI(dialogueCanvas);
                 currentClientScript.SetClientNode(currentClientNode);
                 currentClientScript.InitClient();
             }

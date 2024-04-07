@@ -197,24 +197,24 @@ public class LiquidManager : MonoBehaviour
     {
         return maxLiquid;
     }
-
     public Dictionary<DrinkNode, int> GetParticleTypes()
     {
         return particleTypes;
     }
-
     public void SetDrinkState(CocktailNode.State state)
     {
         currentState = state;
     }
-
     public CocktailNode.State GetDrinkState()
     {
         return currentState;
     }
-
     public void SetCurrentLiquid()
     {
         currentLiquid = maxLiquid;
+    }
+    public void SaveCurrentLiquid()
+    {
+        PlayerPrefs.SetInt("currentLiquid", currentLiquid);
     }
 }

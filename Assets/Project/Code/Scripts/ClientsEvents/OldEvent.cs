@@ -22,7 +22,7 @@ public class OldEvent : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Client") && gameObject.GetComponent<DragItems>().GetWasOnTheTable())
+        if(collision.CompareTag("Client") && gameObject.GetComponent<DragItems>().GetWasOnTheTable() && TypeWriterEffect.isTextCompleted)
         {
             collision.GetComponent<AIConversant>().SetDialogue(dialogue);
             collision.GetComponent<AIConversant>().HandleDialogue();

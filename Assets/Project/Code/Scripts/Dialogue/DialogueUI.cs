@@ -68,6 +68,10 @@ namespace UI
 			{
 				return;
 			}
+			if (playerConversant.IsNewConversant())
+			{
+				StopAllCoroutines();
+			}
             if (playerConversant.IsChoosing())
 			{
                 PlayerChoosing();
