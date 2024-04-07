@@ -27,7 +27,7 @@ public class OrderPanel : MonoBehaviour
         {
             textMesh.text = " ";
         }
-        if (clientObject != null && clientObject.GetComponent<BoxCollider2D>().enabled && clientObject.GetComponent<Client>().GetIsLocated())
+        if (clientObject != null && clientObject.GetComponent<BoxCollider2D>().enabled && !ClientManager.instance.GetDayEnded())
         {
             SetInformation();
         }

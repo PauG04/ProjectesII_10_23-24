@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Facha
   m_EditorClassIdentifier: 
   clientName: Casero
-  sprite: {fileID: 21300000, guid: 665aeaba767b1394d9d195ca20b690c5, type: 3}
+  sprite: {fileID: 21300000, guid: 5bf098d4b6debda45bbcf9a4cef75d55, type: 3}
   hitToGo: 0
   totalHits: 0
   canBeHitted: 0
@@ -23,6 +23,12 @@ MonoBehaviour:
   dontCareGlass: 0
   careIces: 0
   cuantityOfIce: 0
+  dontPay: 0
+  hasMoraDialoguesPostOrder: 0
+  invisible: 0
+  onlyOneChance: 0
+  payAfterHit: 0
+  wantDrug: 0
   possibleOrders:
   - {fileID: 11400000, guid: 5ee31d61876300942ac422b2ef11376e, type: 2}
   dialogues:
