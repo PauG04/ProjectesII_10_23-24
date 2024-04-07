@@ -13,13 +13,22 @@ MonoBehaviour:
   m_Name: "Polic\xEDa"
   m_EditorClassIdentifier: 
   clientName: Policia
-  sprite: {fileID: 21300000, guid: 665aeaba767b1394d9d195ca20b690c5, type: 3}
+  sprite: {fileID: 21300000, guid: c6bef2e4cbd8e47488002761cb96ad20, type: 3}
   hitToGo: 0
+  totalHits: 0
   canBeHitted: 1
   regularHitReactions: 0
   notNeedTakeDrink: 0
   acceptsAll: 0
   dontCareGlass: 0
+  careIces: 0
+  cuantityOfIce: 0
+  dontPay: 0
+  hasMoraDialoguesPostOrder: 0
+  invisible: 0
+  onlyOneChance: 0
+  payAfterHit: 0
+  wantDrug: 0
   possibleOrders:
   - {fileID: 11400000, guid: 0b8db9752db71014c8086e15e9c69189, type: 2}
   dialogues:

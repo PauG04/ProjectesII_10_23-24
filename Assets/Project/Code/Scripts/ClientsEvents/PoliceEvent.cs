@@ -36,7 +36,11 @@ public class PoliceEvent : MonoBehaviour
     {
         if (client != null && client == eventClient)
         {
-            if(clientObject.GetComponent<Client>().GetHitted() && currentsHits <= totalHits)
+            if (clientObject.GetComponent<Client>().GetWellReacted())
+            {
+                enabled = false;
+            }
+            if (clientObject.GetComponent<Client>().GetHitted() && currentsHits <= totalHits)
             {
                 EconomyManager.instance.SetMoneyChanged(-5);
                 currentsHits++;
@@ -52,10 +56,6 @@ public class PoliceEvent : MonoBehaviour
                 clientDialogueCollider.enabled = true;
             }
 
-            if(clientObject.GetComponent<Client>().GetWellReacted())
-            {
-                enabled = true;
-            }
         }
         else
         {

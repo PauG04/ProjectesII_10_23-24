@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Homo
   m_EditorClassIdentifier: 
   clientName: 
-  sprite: {fileID: 21300000, guid: 665aeaba767b1394d9d195ca20b690c5, type: 3}
+  sprite: {fileID: 21300000, guid: 7f62b8e0c94c38648bba2a79ac225abb, type: 3}
   hitToGo: 0
   totalHits: 0
   canBeHitted: 1
@@ -28,6 +28,7 @@ MonoBehaviour:
   invisible: 0
   onlyOneChance: 0
   payAfterHit: 0
+  wantDrug: 0
   possibleOrders:
   - {fileID: 11400000, guid: 5ee31d61876300942ac422b2ef11376e, type: 2}
   dialogues:

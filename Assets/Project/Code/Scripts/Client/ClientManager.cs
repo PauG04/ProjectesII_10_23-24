@@ -167,6 +167,12 @@ public class ClientManager : MonoBehaviour
     }
     #endregion
 
+    public bool GetDayEnded()
+    {
+        return dayEnded;
+    }
+
+
     public void SetNewCLient(ClientNode client, int position)
     {
         currentDayClients.Insert(position, client);

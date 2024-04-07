@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vasco
   m_EditorClassIdentifier: 
   clientName: 
-  sprite: {fileID: 21300000, guid: 665aeaba767b1394d9d195ca20b690c5, type: 3}
+  sprite: {fileID: 21300000, guid: 535ee86aff6d2e6479a57a50a7e9c309, type: 3}
   hitToGo: 0
   totalHits: 0
   canBeHitted: 1
@@ -28,6 +28,7 @@ MonoBehaviour:
   invisible: 0
   onlyOneChance: 0
   payAfterHit: 0
+  wantDrug: 0
   possibleOrders:
   - {fileID: 11400000, guid: 594d9070d8ebee3458bae5d19cbca84e, type: 2}
   dialogues:

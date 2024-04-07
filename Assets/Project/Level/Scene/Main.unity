@@ -8363,6 +8363,8 @@ MonoBehaviour:
   IntensityShaking: 0.1
   dialogue: {fileID: 11400000, guid: 00ad96f941856d844b77ed047821c4ad, type: 2}
   player: {fileID: 549211536}
+  sleeping: {fileID: 21300000, guid: da3b61350e7880b4da36d84743e48bfe, type: 3}
+  currentSprite: {fileID: 21300000, guid: 0dcf9db3be3f3474691e56a2e7b68ddc, type: 3}
 --- !u!1 &1040850870
 GameObject:
   m_ObjectHideFlags: 0
@@ -9205,7 +9207,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 665aeaba767b1394d9d195ca20b690c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c6bef2e4cbd8e47488002761cb96ad20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -16685,7 +16687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: currentDay
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.size
@@ -18064,78 +18066,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1775540736}
     m_Modifications:
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: book
-      value: 
-      objectReference: {fileID: 324541800}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: wiki
-      value: 
-      objectReference: {fileID: 1601387584}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: leftPage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: rightPage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: wikiPages
-      value: 
-      objectReference: {fileID: 541247805}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: nextSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7e4a5f94ff7f2d14a978812154b72a17, type: 3}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: prevSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fd8c874f6f53dc946aa852e4d9ad218e, type: 3}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: prevAndNextSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 222e48b0d95fb22419de831158ce4064, type: 3}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: leftPages.Array.data[0]
-      value: 
-      objectReference: {fileID: 3916201387043907588, guid: f4d552cc534ecca4282adb98f5e97afc, type: 3}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: leftPages.Array.data[1]
-      value: 
-      objectReference: {fileID: 2165754787126392904, guid: 2d43efd8737be91459f04eee72fa5d47, type: 3}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: leftPages.Array.data[2]
-      value: 
-      objectReference: {fileID: 2165754787126392904, guid: a780b5cc900d00c4c8a03190a4fbcfed, type: 3}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: leftPages.Array.data[4]
-      value: 
-      objectReference: {fileID: 2165754787126392904, guid: a780b5cc900d00c4c8a03190a4fbcfed, type: 3}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: leftPages.Array.data[6]
-      value: 
-      objectReference: {fileID: 2165754787126392904, guid: a780b5cc900d00c4c8a03190a4fbcfed, type: 3}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: leftPages.Array.data[8]
-      value: 
-      objectReference: {fileID: 2165754787126392904, guid: a780b5cc900d00c4c8a03190a4fbcfed, type: 3}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: rightPages.Array.data[1]
-      value: 
-      objectReference: {fileID: 2165754787126392904, guid: 33c4a8ab9641f8349b4e5d4222bd73ec, type: 3}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: rightPages.Array.data[3]
-      value: 
-      objectReference: {fileID: 2165754787126392904, guid: 33c4a8ab9641f8349b4e5d4222bd73ec, type: 3}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: rightPages.Array.data[5]
-      value: 
-      objectReference: {fileID: 2165754787126392904, guid: 33c4a8ab9641f8349b4e5d4222bd73ec, type: 3}
-    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
-      propertyPath: rightPages.Array.data[7]
-      value: 
-      objectReference: {fileID: 2165754787126392904, guid: 33c4a8ab9641f8349b4e5d4222bd73ec, type: 3}
     - target: {fileID: 3657714956489973575, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
       propertyPath: m_Name
       value: WikiManager

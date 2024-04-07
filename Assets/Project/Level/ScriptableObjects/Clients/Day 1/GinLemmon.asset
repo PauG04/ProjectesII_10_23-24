@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GinLemmon
   m_EditorClassIdentifier: 
   clientName: Regular
-  sprite: {fileID: 21300000, guid: 48bee02d333da74408c536beeb3b8200, type: 3}
+  sprite: {fileID: 21300000, guid: 4d23fe28e7e7f244fb38d83f88570d15, type: 3}
   hitToGo: 0
   totalHits: 0
   canBeHitted: 1
@@ -23,9 +23,12 @@ MonoBehaviour:
   dontCareGlass: 0
   careIces: 0
   cuantityOfIce: 0
-  DontPay: 0
-  HasMoraDialoguesPostOrder: 0
+  dontPay: 0
+  hasMoraDialoguesPostOrder: 0
   invisible: 0
+  onlyOneChance: 0
+  payAfterHit: 0
+  wantDrug: 0
   possibleOrders:
   - {fileID: 11400000, guid: 2a3d599f8f812224d9e8b3b8cc4cfe52, type: 2}
   dialogues:
@@ -36,6 +39,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1ca0906f43ed51c47b9d00e6bcb0cb86, type: 2}
   hitReactions:
   - {fileID: 11400000, guid: df9080edaafd0654eac0cd0c3a2216e6, type: 2}
+  - {fileID: 11400000, guid: 251a06952bab77b458da8fab754d8471, type: 2}
+  - {fileID: 11400000, guid: 7c9f9b46855f9204699b3b0ef6e5d94f, type: 2}
+  - {fileID: 11400000, guid: bb2285ed8ba868d4ebf3c1f6b259c18e, type: 2}
   dialogue: {fileID: 11400000, guid: f0c4ce0464aec7447bac7ff09ad6c3ce, type: 2}
   goodReaction: {fileID: 11400000, guid: 1dd6f312cea3f034aadfcff09869228e, type: 2}
   badReaction: {fileID: 11400000, guid: 1ca0906f43ed51c47b9d00e6bcb0cb86, type: 2}

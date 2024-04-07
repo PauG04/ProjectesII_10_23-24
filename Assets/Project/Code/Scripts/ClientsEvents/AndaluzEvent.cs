@@ -14,6 +14,9 @@ public class AndaluzEvent : MonoBehaviour
     [SerializeField] private Dialogue.Dialogue dialogue;
     [SerializeField] private PlayerConversant player;
 
+    [SerializeField] private Sprite sleeping;
+    [SerializeField] private Sprite currentSprite;
+
     private ClientNode client;
     private GameObject clientObject;
     private CameraShake _camera;
@@ -31,6 +34,7 @@ public class AndaluzEvent : MonoBehaviour
         {
             if(clientObject.GetComponent<Client>().GetHitted())
             {
+                clientObject.GetComponentInChildren<SpriteRenderer>().sprite = currentSprite;
                 _camera.SetTransforPosition();
                 enabled = false;
             }
@@ -53,6 +57,7 @@ public class AndaluzEvent : MonoBehaviour
     private void StartShaking()
     {
         startShaking = true;
+        clientObject.GetComponentInChildren<SpriteRenderer>().sprite = sleeping;
     }
 
     private void shakingCamera()
