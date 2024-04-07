@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Madridista1
   m_EditorClassIdentifier: 
   clientName: Regular
-  sprite: {fileID: 21300000, guid: 309f4def4ff252448938bd495bdd695e, type: 3}
+  sprite: {fileID: 21300000, guid: da373724de1921a41b5f63101c443ff9, type: 3}
   hitToGo: 0
   totalHits: 0
   canBeHitted: 1
@@ -23,9 +23,12 @@ MonoBehaviour:
   dontCareGlass: 0
   careIces: 0
   cuantityOfIce: 0
-  DontPay: 0
-  HasMoraDialoguesPostOrder: 0
+  dontPay: 0
+  hasMoraDialoguesPostOrder: 0
   invisible: 0
+  onlyOneChance: 0
+  payAfterHit: 0
+  wantDrug: 0
   possibleOrders:
   - {fileID: 11400000, guid: 28132074d99411944b698ffc378ab21c, type: 2}
   dialogues:
