@@ -69,7 +69,7 @@ public class SaveComponents : MonoBehaviour
         PlayerPrefs.SetFloat("Money", economyManager.GetMoney());
         Debug.Log("Saved " + economyManager.GetMoney() + "€ CurrentMoney");
 
-        PlayerPrefs.SetInt("CurrentDay", dayManager.GetCurrentDay());
+        PlayerPrefs.SetInt("CurrentDay", dayManager.GetCurrentDay() + 1);
         Debug.Log("Saved " + PlayerPrefs.GetInt("CurrentDay") + " Day.");
 
     }

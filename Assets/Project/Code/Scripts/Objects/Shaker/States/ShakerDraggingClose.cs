@@ -96,6 +96,11 @@ public class ShakerDraggingClose : BaseState<ShakerStateMachine.ShakerState>
     }
     public override void UpdateState()
     {
+        if (Input.GetMouseButtonUp(0))
+        {
+            _shakerStateMachine.transform.localEulerAngles = Vector3.zero;
+            _state = ShakerStateMachine.ShakerState.IdleClosed;
+        }
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         _targetJoint.target = mousePosition;

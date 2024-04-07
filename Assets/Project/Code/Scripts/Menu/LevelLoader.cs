@@ -6,12 +6,14 @@ public class LevelLoader : MonoBehaviour
 {
     [SerializeField] private Animator transition;
     [SerializeField] private float transitionTime;
-    private static bool loadSave = false;
+    [SerializeField] private static bool loadSave = false;
     private SaveComponents saveComponents;
 
     private void Awake()
     {
         saveComponents = GetComponent<SaveComponents>();
+
+        Debug.Log("LoadSave = " + loadSave);
 
         if (loadSave)
         {
@@ -39,10 +41,6 @@ public class LevelLoader : MonoBehaviour
     public void Save()
     {
         saveComponents.SaveAllComponents();
-    }
-    public void Load()
-    {
-        saveComponents.LoadAllComponents();
     }
     public void LoadSave()
     {

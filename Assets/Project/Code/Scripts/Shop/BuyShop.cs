@@ -19,6 +19,9 @@ public class BuyShop : MonoBehaviour
     {
         if (parent.transform.childCount <= 1)
         {
+            if (EconomyManager.instance.GetMoney() < price) 
+                return;
+
             EconomyManager.instance.SetMoneyChanged(-price);
             GameObject newItem = Instantiate(item);
 

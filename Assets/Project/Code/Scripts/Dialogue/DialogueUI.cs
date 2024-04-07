@@ -44,21 +44,21 @@ namespace UI
 				{
 					//nextSprite.transform.eulerAngles = new Vector3(0, 0, 90f);
                 }
+
+                if (TypeWriterEffect.isTextCompleted && playerConversant.HasNext())
+                {
+                    nextSprite.SetActive(true);
+                }
+                else
+                {
+                    nextSprite.SetActive(false);
+                }
             }
 
 			if (bubbleRoot.childCount > maxNumberOfChilds && bubbleRoot.childCount > 0)
 			{
 				Destroy(bubbleRoot.GetChild(0).gameObject);
-			}
-
-			if (TypeWriterEffect.isTextCompleted && playerConversant.HasNext())
-			{
-				nextSprite.SetActive(true);
-            }
-			else
-			{
-				nextSprite.SetActive(false);
-			}
+			}	
         }
         private void UpdateChat()
 		{
