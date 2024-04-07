@@ -111,8 +111,8 @@ public class SaveComponents : MonoBehaviour
             Debug.Log("Loaded " + liquid.name + "_BottleCurrentLiquid with liquid: " + PlayerPrefs.GetFloat(liquid.name + "_BottleCurrentLiquid"));
         }
 
-        economyManager.SetMoney(PlayerPrefs.GetFloat("Money", 0));
-        Debug.Log("Loaded " + PlayerPrefs.GetFloat("Money", 0) + "€ CurrentMoney");
+        economyManager.SetMoney(PlayerPrefs.GetFloat("Money", 2100));
+        Debug.Log("Loaded " + PlayerPrefs.GetFloat("Money", 2100) + "€ CurrentMoney");
 
 
     }
