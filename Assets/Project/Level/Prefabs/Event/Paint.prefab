@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1140966220096333269}
   - component: {fileID: 2471203542954627308}
   - component: {fileID: 939571309599055423}
+  - component: {fileID: 3861396277010953340}
   m_Layer: 27
   m_Name: Paint
   m_TagString: Paint
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6923419521999728149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.009, y: -1.923, z: 0}
+  m_LocalPosition: {x: -3.009, y: -1.923, z: -2}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -207,3 +208,15 @@ PolygonCollider2D:
       - {x: 0.640625, y: 0.9453125}
       - {x: -0.640625, y: 0.9453125}
   m_UseDelaunayMesh: 0
+--- !u!114 &3861396277010953340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923419521999728149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad00f731d57c7604eaf3edb8005fcc39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

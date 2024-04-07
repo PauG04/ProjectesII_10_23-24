@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 2966602174427269490}
   - component: {fileID: 6685607788475311416}
   - component: {fileID: 5188837628231067861}
+  - component: {fileID: 2023819010520935010}
   - component: {fileID: 5613688885005455331}
   m_Layer: 27
   m_Name: Wallet
@@ -287,7 +288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5831510971539098891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.009, y: -1.923, z: 0}
+  m_LocalPosition: {x: -3.009, y: -1.923, z: -2}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -442,6 +443,18 @@ PolygonCollider2D:
       - {x: 0.5, y: 0.390625}
       - {x: 0.46875, y: 0.421875}
   m_UseDelaunayMesh: 0
+--- !u!114 &2023819010520935010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5831510971539098891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad00f731d57c7604eaf3edb8005fcc39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &5613688885005455331
 Rigidbody2D:
   serializedVersion: 4
