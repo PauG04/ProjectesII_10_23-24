@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vendedor
   m_EditorClassIdentifier: 
   clientName: 
-  sprite: {fileID: 21300000, guid: 65ff6892d23597244b7028e877bee2e4, type: 3}
+  sprite: {fileID: 21300000, guid: 9a1485ed1056adf49986fc26b9a1f056, type: 3}
   hitToGo: 1
   totalHits: 1
   canBeHitted: 1
@@ -21,6 +21,14 @@ MonoBehaviour:
   notNeedTakeDrink: 1
   acceptsAll: 0
   dontCareGlass: 0
+  careIces: 0
+  cuantityOfIce: 0
+  dontPay: 0
+  hasMoraDialoguesPostOrder: 0
+  invisible: 0
+  onlyOneChance: 0
+  payAfterHit: 0
+  wantDrug: 0
   possibleOrders:
   - {fileID: 11400000, guid: 5ee31d61876300942ac422b2ef11376e, type: 2}
   dialogues:

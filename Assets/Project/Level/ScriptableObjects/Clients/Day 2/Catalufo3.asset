@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Catalufo3
   m_EditorClassIdentifier: 
   clientName: 
-  sprite: {fileID: 21300000, guid: 309f4def4ff252448938bd495bdd695e, type: 3}
+  sprite: {fileID: 21300000, guid: b2ac5ac987574bf4da26a20c6410d50b, type: 3}
   hitToGo: 1
   totalHits: 1
   canBeHitted: 1
@@ -23,6 +23,12 @@ MonoBehaviour:
   dontCareGlass: 0
   careIces: 0
   cuantityOfIce: 0
+  dontPay: 0
+  hasMoraDialoguesPostOrder: 0
+  invisible: 0
+  onlyOneChance: 0
+  payAfterHit: 0
+  wantDrug: 0
   possibleOrders:
   - {fileID: 11400000, guid: 8b7c3c93fcb8c434fb39bace5a2e1296, type: 2}
   dialogues:

@@ -80,7 +80,7 @@ public class HouseKeeperMatchDay : MonoBehaviour
 
     public void TakeMoney()
     {
-        EconomyManager.instance.SetMoneyChanged(money);
+        EconomyManager.instance.SetMoneyChanged(-money);
     }
 
     public bool GetIsServed()
