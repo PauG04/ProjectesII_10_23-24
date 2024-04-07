@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuyShop : MonoBehaviour
+public class ButLiquid : MonoBehaviour
 {
     [Header("item")]
     [SerializeField] private GameObject item;
@@ -23,7 +24,7 @@ public class BuyShop : MonoBehaviour
         
         if(item != null)
         {
-            item.GetComponentInChildren<LiquidManager>().SetCurrentLiquid();
+            item.GetComponentInChildren<LiquidManager>().SetCurrentLiquid(item.GetComponentInChildren<LiquidManager>().GetMaxLiquid());
         }
         else
         {

@@ -21,9 +21,6 @@ public class CriptoBro : MonoBehaviour
     private GameObject clientObject;
     private bool buttonPressed = false;
 
-    private bool triggerSetted = false;
-
-
     private void Awake()
     {
         canvas.SetActive(false);
@@ -35,7 +32,7 @@ public class CriptoBro : MonoBehaviour
         {
             if (TypeWriterEffect.isTextCompleted && !player.HasNext() && clientObject.GetComponent<Client>().GetIsLocated())
             {
-                activeCanvas();
+                ActiveCanvas();
             }
             if(buttonPressed && !player.HasNext())
             {
@@ -65,7 +62,7 @@ public class CriptoBro : MonoBehaviour
         }
     }
 
-    private void activeCanvas()
+    private void ActiveCanvas()
     {
         if (!clientObject.GetComponent<Client>().GetHitted())
         {

@@ -189,11 +189,11 @@ public class LiquidManager : MonoBehaviour
 
         return result;
     }
-    public float GetCurrentLiquid()
+    public int GetCurrentLiquid()
     {
         return currentLiquid;
     }
-    public float GetMaxLiquid()
+    public int GetMaxLiquid()
     {
         return maxLiquid;
     }
@@ -209,12 +209,8 @@ public class LiquidManager : MonoBehaviour
     {
         return currentState;
     }
-    public void SetCurrentLiquid()
+    public void SetCurrentLiquid(int liquid)
     {
-        currentLiquid = maxLiquid;
-    }
-    public void SaveCurrentLiquid()
-    {
-        PlayerPrefs.SetInt("currentLiquid", currentLiquid);
+        currentLiquid = liquid;
     }
 }

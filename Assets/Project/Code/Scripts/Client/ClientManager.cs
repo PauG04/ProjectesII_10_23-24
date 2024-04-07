@@ -38,7 +38,7 @@ public class ClientManager : MonoBehaviour
     private bool isCourtainClosed;
     private bool dayEnded;
 
-    private void Awake()
+    private void Start()
     {
         if (instance == null)
         {
@@ -58,6 +58,7 @@ public class ClientManager : MonoBehaviour
     }
     public void EndDay()
     {
+        levelLoader.Save();
         levelLoader.CloseAnimation();
         dayEnded = true;
         Invoke("ShowEndOfDay", 1f);
@@ -75,7 +76,7 @@ public class ClientManager : MonoBehaviour
         dayEnded = false;
         dialogueCanvas.DestroyAllBubbles();
 
-        dayManager.SetCurrentDay(1);
+        dayManager.NextDay(1);
         daysEventsController.ActiveEventDay(dayManager.GetCurrentDay());
         currentDayClients = dayManager.GetClients(dayManager.GetCurrentDay());
         clientCounter = 0;

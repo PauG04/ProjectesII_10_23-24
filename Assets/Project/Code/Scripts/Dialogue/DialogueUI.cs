@@ -18,8 +18,6 @@ namespace UI
 		[Header("Visual Components")]
         [SerializeField] private GameObject nextSprite;
 
-        [Space(10)]	
-		[SerializeField] private float timerDelay = 2.0f;
         private void Start()
 		{
 		    playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();

@@ -16,35 +16,33 @@ public class AudioOptions : MonoBehaviour
 
     private void Awake()
     {
-        SetMasterVolume();
-        SetMusicVolume();
-        SetSFXVolume();
+        LoadVolume();
     }
 
     public void SetMasterVolume()
     {
         float volume = generalSound.value;
         audioMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
-        //PlayerPrefs.SetFloat("masterVolume", volume);
+        PlayerPrefs.SetFloat("MasterVolume", volume);
     }
     public void SetMusicVolume()
     {
         float volume = musicSound.value;
         audioMixer.SetFloat("Music", Mathf.Log10(volume)*20);
-        //PlayerPrefs.SetFloat("musicVolume", volume);
+        PlayerPrefs.SetFloat("MusicVolume", volume);
 
     }
     public void SetSFXVolume()
     {
         float volume = SFXSound.value;
         audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
-        //PlayerPrefs.SetFloat("SFXVolume", volume);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
     }
     public void LoadVolume()
     {
-        //generalSound.value = PlayerPrefs.GetFloat("masterVolume", 1);
-        //musicSound.value = PlayerPrefs.GetFloat("musicVolume", 1);
-        //SFXSound.value = PlayerPrefs.GetFloat("SFXVolume", 1);
+        generalSound.value = PlayerPrefs.GetFloat("MasterVolume", 1);
+        musicSound.value = PlayerPrefs.GetFloat("MusicVolume", 1);
+        SFXSound.value = PlayerPrefs.GetFloat("SFXVolume", 1);
 
         SetMasterVolume();
         SetMusicVolume();

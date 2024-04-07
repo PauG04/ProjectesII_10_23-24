@@ -27,7 +27,7 @@ public class HitChildrenEvent : MonoBehaviour
             {
                 for(int i = 0; i< childs.Length; i++)
                 {
-                    if (!childs[i].active)
+                    if (!childs[i].activeSelf)
                     {
                         childs[i].SetActive(true);
                     }

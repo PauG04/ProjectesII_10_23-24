@@ -1,11 +1,24 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VFolders.Libs;
 
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] private Animator transition;
     [SerializeField] private float transitionTime;
+    private bool loadSave = false;
+    private SaveComponents saveComponents;
+
+    private void Awake()
+    {
+        saveComponents = GetComponent<SaveComponents>();
+
+        if (loadSave)
+        {
+            saveComponents.LoadAllComponents();
+        }
+    }
 
     public void LoadNextLevel()
     {
@@ -24,7 +37,18 @@ public class LevelLoader : MonoBehaviour
 
         SceneManager.LoadScene(levelIndex);
     }
-
+    public void Save()
+    {
+        saveComponents.SaveAllComponents();
+    }
+    public void Load()
+    {
+        saveComponents.LoadAllComponents();
+    }
+    public void SetLoadSave(bool loadSave)
+    {
+        this.loadSave = loadSave;
+    }
     public void CloseAnimation()
     {
         transition.SetTrigger("Start");
