@@ -15,7 +15,7 @@ public class NextDialogue : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(ClientManager.instance.GetCurrentClientScript().GetCanLeave());
+        Debug.Log(ClientManager.instance.GetCurrentClientScript().GetLeaveAnimation());
 
         if (TypeWriterEffect.isTextCompleted)
         {

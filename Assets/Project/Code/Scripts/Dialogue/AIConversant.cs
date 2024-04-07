@@ -32,10 +32,14 @@ namespace Dialogue
 
         private void Update()
         {
-            if (playerConversant.IsActive() && !client.GetCanLeave() && !playerConversant.HasNext() && playerConversant.GetIsTextDone())
-			{
-                client.SetCanLeave(true);
-            }           
+            if (playerConversant.IsActive() && !client.GetCanLeave())
+            {
+                if (!playerConversant.HasNext())
+                {
+                    client.SetCanLeave(true);
+                }
+            }
+                     
         }
         public string GetName()
 		{

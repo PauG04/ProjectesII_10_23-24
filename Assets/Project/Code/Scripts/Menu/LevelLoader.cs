@@ -1,13 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using VFolders.Libs;
 
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] private Animator transition;
     [SerializeField] private float transitionTime;
-    private bool loadSave = false;
+    private static bool loadSave = false;
     private SaveComponents saveComponents;
 
     private void Awake()
@@ -45,9 +44,13 @@ public class LevelLoader : MonoBehaviour
     {
         saveComponents.LoadAllComponents();
     }
-    public void SetLoadSave(bool loadSave)
+    public void LoadSave()
     {
-        this.loadSave = loadSave;
+        loadSave = true;
+    }
+    public void ResetSave()
+    {
+        loadSave = false;
     }
     public void CloseAnimation()
     {

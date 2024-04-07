@@ -112,7 +112,7 @@ namespace Dialogue
 
         }
 		public bool HasNext()
-		{
+		{	
 			return currentDialogue.GetAllChildren(currentNode).Count() > 0;
 		}
 		public bool IsNewConversant()
