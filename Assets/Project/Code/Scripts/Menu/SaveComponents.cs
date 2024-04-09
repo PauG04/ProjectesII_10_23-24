@@ -76,44 +76,57 @@ public class SaveComponents : MonoBehaviour
 
     public void LoadAllComponents()
     {
-        dayManager.SetCurrentDay(PlayerPrefs.GetInt("CurrentDay", 1));
-        Debug.Log("Loaded " + PlayerPrefs.GetInt("CurrentDay") + " Day.");
-
-        for (int i = 0; i < bottleOjects.Count; i++)
+        if (PlayerPrefs.GetInt("CurrentDay", 1) > 5)
         {
-            if (PlayerPrefs.GetInt(bottleOjects[i].name + "_BottleHasChild") > 0)
+            dayManager.SetCurrentDay(1);
+
+            foreach (LiquidManager liquid in liquidsManager)
             {
-                Debug.Log("Loaded " + bottleOjects[i].name + "_BottleHasChild with value: " + 1);
-
-                GameObject item = Instantiate(store[i].GetObject()/*, store[i].GetPosition(), Quaternion.identity, bottleOjects[i].transform*/);
-                store[i].CreateBackgroundDrink(item);
-
-                // Create Bottle
+                liquid.SetCurrentLiquid(liquid.GetMaxLiquid());
             }
-            else if (PlayerPrefs.GetInt(bottleOjects[i].name + "_BottleHasChild") < 0)
+
+            economyManager.SetMoney(2100);
+            Debug.Log("Loaded " + PlayerPrefs.GetFloat("Money", 2100) + "€ CurrentMoney");
+        }
+        else
+        {
+            dayManager.SetCurrentDay(PlayerPrefs.GetInt("CurrentDay", 1));
+            Debug.Log("Loaded " + PlayerPrefs.GetInt("CurrentDay") + " Day.");
+
+            for (int i = 0; i < bottleOjects.Count; i++)
             {
-                Debug.Log("Loaded " + bottleOjects[i].name + "_BottleHasChild with value: " + -1);
-                for (int j = bottleOjects[i].transform.childCount - 1; j >= 0; j--)
+                if (PlayerPrefs.GetInt(bottleOjects[i].name + "_BottleHasChild") > 0)
                 {
-                    Destroy(bottleOjects[j].transform.GetChild(j).gameObject);
+                    Debug.Log("Loaded " + bottleOjects[i].name + "_BottleHasChild with value: " + 1);
+
+                    GameObject item = Instantiate(store[i].GetObject()/*, store[i].GetPosition(), Quaternion.identity, bottleOjects[i].transform*/);
+                    store[i].CreateBackgroundDrink(item);
+
+                    // Create Bottle
                 }
-                // Delete Bottle
+                else if (PlayerPrefs.GetInt(bottleOjects[i].name + "_BottleHasChild") < 0)
+                {
+                    Debug.Log("Loaded " + bottleOjects[i].name + "_BottleHasChild with value: " + -1);
+                    for (int j = bottleOjects[i].transform.childCount - 1; j >= 0; j--)
+                    {
+                        Destroy(bottleOjects[j].transform.GetChild(j).gameObject);
+                    }
+                    // Delete Bottle
+                }
+                else
+                {
+                    Debug.Log("Loaded " + bottleOjects[i].name + "_BottleHasChild with default value");
+                }
             }
-            else
+
+            foreach (LiquidManager liquid in liquidsManager)
             {
-                Debug.Log("Loaded " + bottleOjects[i].name + "_BottleHasChild with default value");
+                liquid.SetCurrentLiquid(PlayerPrefs.GetInt(liquid.name + "_BottleCurrentLiquid", liquid.GetMaxLiquid()));
+                Debug.Log("Loaded " + liquid.name + "_BottleCurrentLiquid with liquid: " + PlayerPrefs.GetFloat(liquid.name + "_BottleCurrentLiquid"));
             }
+
+            economyManager.SetMoney(PlayerPrefs.GetFloat("Money", 2100));
+            Debug.Log("Loaded " + PlayerPrefs.GetFloat("Money", 2100) + "€ CurrentMoney");
         }
-       
-        foreach (LiquidManager liquid in liquidsManager)
-        {
-            liquid.SetCurrentLiquid(PlayerPrefs.GetInt(liquid.name + "_BottleCurrentLiquid", liquid.GetMaxLiquid()));
-            Debug.Log("Loaded " + liquid.name + "_BottleCurrentLiquid with liquid: " + PlayerPrefs.GetFloat(liquid.name + "_BottleCurrentLiquid"));
-        }
-
-        economyManager.SetMoney(PlayerPrefs.GetFloat("Money", 2100));
-        Debug.Log("Loaded " + PlayerPrefs.GetFloat("Money", 2100) + "€ CurrentMoney");
-
-
     }
 }

@@ -879,7 +879,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 7eee1836cfa265446adba65fb1d19f42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4518,8 +4518,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -306.2525}
-  m_SizeDelta: {x: 1000, y: 153.12625}
+  m_AnchoredPosition: {x: 500, y: -312.89252}
+  m_SizeDelta: {x: 1000, y: 156.44626}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &597251792
 MonoBehaviour:
@@ -4563,7 +4563,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -6285,8 +6285,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -459.37875}
-  m_SizeDelta: {x: 1000, y: 153.12625}
+  m_AnchoredPosition: {x: 500, y: -469.33878}
+  m_SizeDelta: {x: 1000, y: 156.44626}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &768131738
 MonoBehaviour:
@@ -6330,7 +6330,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -9536,8 +9536,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -153.12625}
-  m_SizeDelta: {x: 1000, y: 153.12625}
+  m_AnchoredPosition: {x: 500, y: -156.44626}
+  m_SizeDelta: {x: 1000, y: 156.44626}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1231479055
 MonoBehaviour:
@@ -9581,7 +9581,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -11010,8 +11010,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -517.1894}
-  m_SizeDelta: {x: 1000, y: 115.62125}
+  m_AnchoredPosition: {x: 500, y: -522.1694}
+  m_SizeDelta: {x: 1000, y: 105.66125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430210966
 MonoBehaviour:
@@ -13355,7 +13355,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2113523995
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 44cd410af11b2db4d9f5ee58964b7cde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -14607,7 +14607,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 4676e2a821a5a984c9a21098721b1834, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -16587,7 +16587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5793050291906676528, guid: 465f5e082f2707a4abed258eaa8726ac, type: 3}
       propertyPath: m_SortingOrder
-      value: 4
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6255042176476862941, guid: 465f5e082f2707a4abed258eaa8726ac, type: 3}
       propertyPath: m_Name
@@ -16876,6 +16876,10 @@ PrefabInstance:
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: lastDay
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
+      propertyPath: currentDay
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day1Clients.Array.size
