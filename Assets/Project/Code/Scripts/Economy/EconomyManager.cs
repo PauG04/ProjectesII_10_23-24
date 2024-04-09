@@ -7,10 +7,6 @@ public class EconomyManager : MonoBehaviour
 {
     public static EconomyManager instance { get; private set; }
 
-    [SerializeField] private TextMeshProUGUI dailyEarningsText;
-    [SerializeField] private TextMeshProUGUI dailyExpensesText;
-    [SerializeField] private TextMeshProUGUI totalMoneyText;
-
     private float dailyEarnings;
     private float dailyExpanses;
     private float money = 2100.0f;

@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -19,6 +20,14 @@ public class MainMenu : MonoBehaviour
 
     [Header("Animation Values")]
     [SerializeField] private float animationDuration;
+
+    [Header("Options Values")]
+    [SerializeField] private TextMeshProUGUI buttonText;
+    [SerializeField] private TextMeshProUGUI buttonTextShadow;
+    [SerializeField] private GameObject credits;
+    [SerializeField] private GameObject audioOptions;
+    private bool isInCredits = false;
+
     private void Start()
     {
         optionsScreen.SetActive(false);
@@ -53,6 +62,26 @@ public class MainMenu : MonoBehaviour
             mainMenu.SetActive(true);
             StartCoroutine(CloseAnimation(currentApp.transform));
             currentApp = null;
+        }
+    }
+
+    public void ChangeCredits()
+    {
+        if (!isInCredits)
+        {
+            audioOptions.SetActive(false);
+            credits.SetActive(true);
+            buttonText.text = "AUDIO";
+            buttonTextShadow.text = "AUDIO";
+            isInCredits = true;
+        }
+        else
+        {
+            audioOptions.SetActive(true);
+            credits.SetActive(false);
+            buttonText.text = "CREDITOS";
+            buttonTextShadow.text = "CREDITOS";
+            isInCredits = false;
         }
     }
 

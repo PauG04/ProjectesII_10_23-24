@@ -247,7 +247,10 @@ public class DragItems : MonoBehaviour
             {
                 spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
             }
-
+            if (isPainting)
+            {
+                spriteRenderer.sortingOrder = -1;
+            }
             spriteRenderer.sprite = workspaceSprite;
             itemCollider.TryUpdateShapeToAttachedSprite(spriteRenderer);
         }
@@ -281,6 +284,10 @@ public class DragItems : MonoBehaviour
             if (!dragWithWorkspaceSprite || !isDragging)
             {
                 spriteRenderer.sprite = normalSprite;
+            }
+            if (isPainting)
+            {
+                spriteRenderer.sortingOrder = 0;
             }
             itemCollider.TryUpdateShapeToAttachedSprite(spriteRenderer);
         }
