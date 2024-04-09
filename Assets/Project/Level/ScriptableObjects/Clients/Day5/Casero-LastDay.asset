@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203defdb18f377b4184cfcf21f18d09b, type: 3}
+  m_Name: Casero-LastDay
+  m_EditorClassIdentifier: 
+  clientName: 
+  sprite: {fileID: 21300000, guid: f7c152cb69cffbc49bedf46f4f0789bf, type: 3}
+  hitToGo: 0
+  totalHits: 0
+  canBeHitted: 0
+  regularHitReactions: 0
+  notNeedTakeDrink: 1
+  acceptsAll: 0
+  dontCareGlass: 0
+  careIces: 0
+  cuantityOfIce: 0
+  dontPay: 0
+  hasMoraDialoguesPostOrder: 0
+  invisible: 0
+  onlyOneChance: 0
+  payAfterHit: 0
+  wantDrug: 0
+  possibleOrders:
+  - {fileID: 11400000, guid: 594d9070d8ebee3458bae5d19cbca84e, type: 2}
+  dialogues:
+  - {fileID: 11400000, guid: 998ec0b2333d7604ca3a4d9fe38df84e, type: 2}
+  goodReactions:
+  - {fileID: 11400000, guid: 381910b99e9c5834ab6f5cda2940742f, type: 2}
+  badReactions:
+  - {fileID: 11400000, guid: 17231ed852a645947a0e39839246bd04, type: 2}
+  hitReactions:
+  - {fileID: 11400000, guid: d79133c13cc382c44b1743a6fed75d21, type: 2}
+  dialogue: {fileID: 11400000, guid: 998ec0b2333d7604ca3a4d9fe38df84e, type: 2}
+  goodReaction: {fileID: 11400000, guid: 381910b99e9c5834ab6f5cda2940742f, type: 2}
+  badReaction: {fileID: 11400000, guid: 17231ed852a645947a0e39839246bd04, type: 2}
+  hitReaction: {fileID: 11400000, guid: d79133c13cc382c44b1743a6fed75d21, type: 2}
+  badGlassReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  noIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  muchIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  badStateReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  badIngredientsReaction: {fileID: 11400000, guid: 17231ed852a645947a0e39839246bd04, type: 2}

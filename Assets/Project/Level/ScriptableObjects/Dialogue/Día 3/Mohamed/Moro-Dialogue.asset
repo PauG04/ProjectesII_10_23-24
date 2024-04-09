@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Moro-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 183973009677281666}
+  - {fileID: 3225480538872289621}
+  - {fileID: 6946292742973358799}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &183973009677281666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: b481a25f-1874-4e11-907e-7c52160522c9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Wa-alaikum as-salam, viendo que el guardia civil es un in\xFAtil he decidido
+    venir con mis 14 hijos subencionados"
+  children:
+  - e2d68c05-aa7f-43f0-bc29-4b10d7a2c836
+  rect:
+    serializedVersion: 2
+    x: 34
+    y: 198
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3225480538872289621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: e2d68c05-aa7f-43f0-bc29-4b10d7a2c836
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Esta vez vengo totalmente preparado para hacerte cerrar este antro
+  children:
+  - 8ffd3ca4-debe-420e-b8b4-a10afa50bb75
+  rect:
+    serializedVersion: 2
+    x: 284
+    y: 198
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6946292742973358799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 8ffd3ca4-debe-420e-b8b4-a10afa50bb75
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "\u2018ana saeid bimuqabalatik, esta vez mis hijos me proteger\xE1n de t\xED"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 534
+    y: 198
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 

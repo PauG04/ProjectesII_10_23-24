@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4259456619679024618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: f66da384-ae0e-4675-bce6-06efdde1d99c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Per\xF2 com que t'equivoques al got, si us plau torna a comen\xE7ar"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 57
+    y: 138
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Catalufo1-Vaso
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -4259456619679024618}
+  newNodeOffset: {x: 250, y: 0}

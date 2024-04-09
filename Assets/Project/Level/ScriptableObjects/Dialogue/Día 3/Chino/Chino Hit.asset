@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2167694117437842775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 5dffe198-b5eb-4492-987f-66cdc1e4d5d3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 563
+    y: 137
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-999272073500974536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 93df164f-b6f4-472f-aa68-b9b7021e8163
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Que coo hales, no ves que el maltillo es pala el hielo
+  children:
+  - 578345dc-e7f6-47b9-9b9f-dcd6f7044943
+  - 8129e706-0912-49e1-89fc-de37bc23d353
+  rect:
+    serializedVersion: 2
+    x: 63
+    y: 137
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-496796337603815290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6b75470f-0ddc-46ce-9fcd-2df69610097f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Vuelve a empezal
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 563
+    y: 137
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Chino Hit
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -999272073500974536}
+  - {fileID: 2292574900229771274}
+  - {fileID: -496796337603815290}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &122921696338604987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 578345dc-e7f6-47b9-9b9f-dcd6f7044943
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 0
+  text: 
+  children:
+  - 5dffe198-b5eb-4492-987f-66cdc1e4d5d3
+  rect:
+    serializedVersion: 2
+    x: 313
+    y: 137
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &2292574900229771274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 8129e706-0912-49e1-89fc-de37bc23d353
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Se que tu lida es mou tliste pelo eso no signiflica que me tenglas que pagal
+  children:
+  - 6b75470f-0ddc-46ce-9fcd-2df69610097f
+  rect:
+    serializedVersion: 2
+    x: 313
+    y: 137
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

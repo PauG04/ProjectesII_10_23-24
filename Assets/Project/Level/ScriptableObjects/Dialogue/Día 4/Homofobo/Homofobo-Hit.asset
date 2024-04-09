@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1916271666593827553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a7f8878b-bfb6-4932-989a-f06098194c12
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Si te crees que me voy a poner a llorar como una maricona por un golpecito
+    lo llevas mal
+  children:
+  - d538d22a-79a4-4146-a245-18108651df31
+  rect:
+    serializedVersion: 2
+    x: 310
+    y: 139
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Homofobo-Hit
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 4434711667008571602}
+  - {fileID: -1916271666593827553}
+  - {fileID: 598141303149643422}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &598141303149643422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: d538d22a-79a4-4146-a245-18108651df31
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Vuelve a empezar
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 560
+    y: 139
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4434711667008571602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 0b50df69-acd9-49e4-ac08-ff62001c13f5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Que mierda crees que estas haciendo
+  children:
+  - a7f8878b-bfb6-4932-989a-f06098194c12
+  rect:
+    serializedVersion: 2
+    x: 60
+    y: 139
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

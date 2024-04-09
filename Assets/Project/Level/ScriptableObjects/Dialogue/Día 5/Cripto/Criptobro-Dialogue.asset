@@ -1,0 +1,202 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8542596198184833652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 0f75c1da-1b4f-4cf0-b203-b3d3a9d3f51c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Que me dices, \xBFest\xE1s interesado?"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1530
+    y: 130
+    width: 200
+    height: 120
+  onEnterAction: ActiveCanvas
+  onExitAction: 
+--- !u!114 &-7450199068039152004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: ed3de8f6-1a54-411c-98a0-1aa74d0e6fa3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Antes de tomar la decisi\xF3n quiero que vea el esquema de inversiones que
+    he traido donde el rojo representa la gente como usted"
+  children:
+  - 0d1ae114-6022-4c80-8766-3213df9a2676
+  rect:
+    serializedVersion: 2
+    x: 1028
+    y: 131
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2430376694540382753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 0d1ae114-6022-4c80-8766-3213df9a2676
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "La cual esta a las puertas de invertir y empezar de bien temprano ayudar\xE1
+    a impulsar su dinero"
+  children:
+  - 0f75c1da-1b4f-4cf0-b203-b3d3a9d3f51c
+  rect:
+    serializedVersion: 2
+    x: 1278
+    y: 131
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-1403359761189281543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 97b25abc-e241-405a-9676-22f7391078fe
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Buenos dias se\xF1or, soy Frankie vengo hablar con usted de negocios"
+  children:
+  - b398e458-ab03-4c66-9baa-98684a86bd77
+  rect:
+    serializedVersion: 2
+    x: 27
+    y: 131
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Criptobro-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1403359761189281543}
+  - {fileID: 3286832798975913929}
+  - {fileID: 6617401962463851000}
+  - {fileID: 9087472578843423983}
+  - {fileID: -7450199068039152004}
+  - {fileID: -2430376694540382753}
+  - {fileID: -8542596198184833652}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &3286832798975913929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: b398e458-ab03-4c66-9baa-98684a86bd77
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Soy uno de los encargados de las inversiones del banco y por las informaciones
+    que me han llegado usted tiene una cierta suma de dinero
+  children:
+  - 27572875-bfee-45ca-854f-9432949a11c6
+  rect:
+    serializedVersion: 2
+    x: 277
+    y: 131
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &6617401962463851000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 27572875-bfee-45ca-854f-9432949a11c6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: He venido a proponerle de invertir en nuestro banco y de manera pasiva hacer
+    que sus ahorros aumenten
+  children:
+  - 39f58b3f-bdc3-4f27-928f-6cdd397d758a
+  rect:
+    serializedVersion: 2
+    x: 528
+    y: 131
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &9087472578843423983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 39f58b3f-bdc3-4f27-928f-6cdd397d758a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Es muy simple, usted solo me da 20 euros y yo y el banco nos ocuparemos de
+    lo siguientes procesos
+  children:
+  - ed3de8f6-1a54-411c-98a0-1aa74d0e6fa3
+  rect:
+    serializedVersion: 2
+    x: 780
+    y: 131
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

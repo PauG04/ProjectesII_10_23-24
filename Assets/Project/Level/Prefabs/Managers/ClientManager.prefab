@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9071389106930928307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8422938162780285518}
+  - component: {fileID: 8657942796167165326}
+  - component: {fileID: 4905631838557939330}
+  m_Layer: 0
+  m_Name: ClientManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8422938162780285518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071389106930928307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8657942796167165326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071389106930928307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42115859f764caf45b2eca1d7f06e280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayManager: {fileID: 0}
+  daysEventsController: {fileID: 0}
+  currentDayClients:
+  - {fileID: 11400000, guid: 8496c0010a673f843acb8b876eac885a, type: 2}
+  - {fileID: 11400000, guid: 3d7a1411a409a9647843f1c0918aa1e5, type: 2}
+  - {fileID: 11400000, guid: 445687af6de7fdf47b137b7ab18f4f86, type: 2}
+  - {fileID: 11400000, guid: 7eb3443918b7050499568761825d7f3c, type: 2}
+  - {fileID: 11400000, guid: 438f69d7622a07440840093061e81bd4, type: 2}
+  - {fileID: 11400000, guid: 3b4c2dc8c39345b449336d65cc9fe577, type: 2}
+  - {fileID: 11400000, guid: 6215a1505729aa049a4ad8c1f142d29b, type: 2}
+  - {fileID: 11400000, guid: 5d6e11ef2c2ba5c45b3098695a8d2d15, type: 2}
+  clientParent: {fileID: 0}
+  client: {fileID: 3164742363969609211, guid: 08294188a6f19fa41afe501ed1bdabe3, type: 3}
+  regularClientHitDialogues:
+  - {fileID: 11400000, guid: b5f1052e50187264c9e5ffc49873a2e2, type: 2}
+  clientSprites:
+  - {fileID: 21300000, guid: 461d236b7e1eefe418223a8184c9f9c9, type: 3}
+  - {fileID: 21300000, guid: a59c29858f1aaa7449ccd952054587db, type: 3}
+  - {fileID: 21300000, guid: 6602edef89fdb4e45ba3835721322927, type: 3}
+  emptyDialogue: {fileID: 0}
+  spawnPosition: {fileID: 0}
+  clientPosition: {fileID: 0}
+  DestroyPosition: {fileID: 0}
+  horizontalVelocity: 3
+  levelLoader: {fileID: 0}
+  dialogueCanvas: {fileID: 0}
+  endOfDay: {fileID: 0}
+--- !u!114 &4905631838557939330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071389106930928307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4fe7987a9a636408967aea1932ee71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: ChooseDrink
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls: []

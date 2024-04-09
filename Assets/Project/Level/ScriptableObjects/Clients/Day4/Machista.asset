@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203defdb18f377b4184cfcf21f18d09b, type: 3}
+  m_Name: Machista
+  m_EditorClassIdentifier: 
+  clientName: 
+  sprite: {fileID: 21300000, guid: 608b4f3b52928244a8308f50e4fb8794, type: 3}
+  hitToGo: 0
+  totalHits: 0
+  canBeHitted: 1
+  regularHitReactions: 0
+  notNeedTakeDrink: 0
+  acceptsAll: 0
+  dontCareGlass: 0
+  careIces: 0
+  cuantityOfIce: 0
+  dontPay: 0
+  hasMoraDialoguesPostOrder: 0
+  invisible: 0
+  onlyOneChance: 0
+  payAfterHit: 0
+  wantDrug: 0
+  possibleOrders:
+  - {fileID: 11400000, guid: e67a808cf01a7ca4593d0f191d0f8590, type: 2}
+  dialogues:
+  - {fileID: 11400000, guid: ac7c83d343ac45f46893de9c3d00d3ea, type: 2}
+  goodReactions:
+  - {fileID: 11400000, guid: f1acdeeb8406c1c449d71271fd109c7f, type: 2}
+  badReactions:
+  - {fileID: 11400000, guid: 48098397d601da34392d9a4ebf271970, type: 2}
+  hitReactions:
+  - {fileID: 11400000, guid: 169182152e6fe024e9c23970ca0bfc31, type: 2}
+  dialogue: {fileID: 11400000, guid: ac7c83d343ac45f46893de9c3d00d3ea, type: 2}
+  goodReaction: {fileID: 11400000, guid: f1acdeeb8406c1c449d71271fd109c7f, type: 2}
+  badReaction: {fileID: 11400000, guid: 48098397d601da34392d9a4ebf271970, type: 2}
+  hitReaction: {fileID: 11400000, guid: 169182152e6fe024e9c23970ca0bfc31, type: 2}
+  badGlassReaction: {fileID: 11400000, guid: c12d7c65c6763824aa346a66cc1943ea, type: 2}
+  noIceReaction: {fileID: 11400000, guid: 9204fd102d7bc0c4d9d4510e5c4cb544, type: 2}
+  muchIceReaction: {fileID: 11400000, guid: 9204fd102d7bc0c4d9d4510e5c4cb544, type: 2}
+  badStateReaction: {fileID: 11400000, guid: b2ddec04afbf1754da8caa18f4ca235e, type: 2}
+  badIngredientsReaction: {fileID: 11400000, guid: 48098397d601da34392d9a4ebf271970, type: 2}

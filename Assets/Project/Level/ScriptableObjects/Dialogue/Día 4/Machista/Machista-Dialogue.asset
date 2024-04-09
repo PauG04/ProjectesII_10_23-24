@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8973151584496531872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6d1591e6-774d-446e-a204-947585e29316
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Pobre de ella como no este prepara cuando llegue a casa
+  children:
+  - 7275076a-ac32-403f-a7dc-2281792e1999
+  rect:
+    serializedVersion: 2
+    x: 539
+    y: 235
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-4073943482208387461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 7275076a-ac32-403f-a7dc-2281792e1999
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Pero bueno, retomando el tema \xBFpodr\xEDas servirme un Kalimotcho?"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 788
+    y: 235
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 
+--- !u!114 &-1600520932539889674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: b248eb3b-e309-4873-b8f6-a1e97b00d025
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Que tal Jefe, y que tal hoy ESPA\xD1A que hoy es su d\xEDa"
+  children:
+  - 82243fea-600a-4926-94c0-4dfcae6d3746
+  rect:
+    serializedVersion: 2
+    x: 39
+    y: 235
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Machista-Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1600520932539889674}
+  - {fileID: 5528861636952778941}
+  - {fileID: -8973151584496531872}
+  - {fileID: -4073943482208387461}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &5528861636952778941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 82243fea-600a-4926-94c0-4dfcae6d3746
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: He decido venir al bar a relajarme mientras mi mujer me prepara la comida
+  children:
+  - 6d1591e6-774d-446e-a204-947585e29316
+  rect:
+    serializedVersion: 2
+    x: 288
+    y: 235
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

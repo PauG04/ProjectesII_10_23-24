@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: SibaritaHitReaction
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 5713032121790275655}
+  - {fileID: 5260789797568738919}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &5260789797568738919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 6f6fd1e0-2431-4a3e-91d5-d3c2b1754cb2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Te pido que no vuelvas a intentarlo o tendr\xE9 que tomar medidad mayores "
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 369
+    y: 98
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &5713032121790275655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: a7cab769-aa80-4a08-a0fa-e03a30b11ed6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Como osas intentar pegarme a mi, tan siquiera me ha pegado mi padre en toda
+    mi vida
+  children:
+  - 6f6fd1e0-2431-4a3e-91d5-d3c2b1754cb2
+  rect:
+    serializedVersion: 2
+    x: 119
+    y: 98
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

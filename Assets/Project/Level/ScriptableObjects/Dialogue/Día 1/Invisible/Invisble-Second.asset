@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4783430577327971215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 1831d5df-0f3d-4e9f-b7a3-27b414fe19cd
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Ahora si, anda ponme un Kalimotxo, e intenta no tener apagada la luz que
+    si no no ver\xE1s a todos los clientes"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 297
+    y: 56
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: Invisble-Second
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 6658038946892722856}
+  - {fileID: -4783430577327971215}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &6658038946892722856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 770e3b43-2fd6-4071-aa78-649ea8177eef
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: Ahora mucho mejor, al menos parece que ya me puedes ver
+  children:
+  - 1831d5df-0f3d-4e9f-b7a3-27b414fe19cd
+  rect:
+    serializedVersion: 2
+    x: 47
+    y: 56
+    width: 200
+    height: 120
+  onEnterAction: ActiveCollision
+  onExitAction: 
