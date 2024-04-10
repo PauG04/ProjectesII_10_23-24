@@ -38,6 +38,7 @@ public class PoliceEvent : MonoBehaviour
         {
             if (clientObject.GetComponent<Client>().GetWellReacted())
             {
+                clientDialogueCollider.enabled = true;
                 enabled = false;
             }
             if (clientObject.GetComponent<Client>().GetHitted() && currentsHits <= totalHits)
@@ -55,6 +56,7 @@ public class PoliceEvent : MonoBehaviour
             { 
                 clientDialogueCollider.enabled = true;
             }
+
 
         }
         else

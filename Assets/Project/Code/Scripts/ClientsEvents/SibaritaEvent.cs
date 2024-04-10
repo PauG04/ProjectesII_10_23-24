@@ -50,7 +50,12 @@ public class SibaritaEvent : MonoBehaviour
     {
         if (client != null && client == eventClient)
         {
-            if(clientObject.GetComponent<Client>().GetIsLocated())
+            if (clientObject.GetComponent<Client>().GetWellReacted())
+            {
+                clientDialogueCollider.enabled = true;
+                enabled = false;
+            }
+            if (clientObject.GetComponent<Client>().GetIsLocated())
             {
                 shakerDrag.enabled = true;
                 shakerTopDrag.enabled = true;
@@ -92,8 +97,9 @@ public class SibaritaEvent : MonoBehaviour
         {
             playerConversant.Next();
             clientDialogueCollider.enabled = true;
-            enabled = false;
+            tutorial[2] = false;
         }
+
     }
 
     private void ActiveShakerItem()
