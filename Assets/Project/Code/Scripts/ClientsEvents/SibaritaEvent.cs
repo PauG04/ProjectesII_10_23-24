@@ -55,11 +55,6 @@ public class SibaritaEvent : MonoBehaviour
                 clientDialogueCollider.enabled = true;
                 enabled = false;
             }
-            if (clientObject.GetComponent<Client>().GetIsLocated())
-            {
-                shakerDrag.enabled = true;
-                shakerTopDrag.enabled = true;
-            }
             ShakerTutorial();
         }
         else
@@ -117,7 +112,7 @@ public class SibaritaEvent : MonoBehaviour
             panel.SetActive(true);
             shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 11;
 
-            LerpSacele(maxScale, minScale, shakerDrag.gameObject.transform.GetChild(1).gameObject);
+            LerpScale(maxScale, minScale, shakerDrag.gameObject.transform.GetChild(1).gameObject);
         }
 
         if (shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetCurrentState().StateKey == ShakerState.DraggingOpen)
@@ -154,7 +149,7 @@ public class SibaritaEvent : MonoBehaviour
                 shakerTopDrag.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
             }
 
-            LerpSacele(maxScale, minScale, shakerTopDrag.gameObject);
+            LerpScale(maxScale, minScale, shakerTopDrag.gameObject);
         }
 
         if (shakerTopDrag.gameObject.GetComponent<DragItems>().GetIsDraggin())
@@ -177,7 +172,7 @@ public class SibaritaEvent : MonoBehaviour
             playerConversant.Next();
         }
     }
-    private void LerpSacele(Vector3 maxScale, Vector3 minScale, GameObject _object)
+    private void LerpScale(Vector3 maxScale, Vector3 minScale, GameObject _object)
     {
         if (!isGrowing)
         {
