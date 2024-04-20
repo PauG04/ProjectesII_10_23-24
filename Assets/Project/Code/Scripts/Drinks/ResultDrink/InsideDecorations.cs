@@ -52,12 +52,13 @@ public class InsideDecorations : MonoBehaviour
 
     public void SubstractItem(ItemNode item)
     {
-        if(insideDecorations.ContainsKey(item))
+        if (item.itemName == "Droga")
         {
-            if(item.itemName == "Droga")
-            {
-                hasDrug = false;
-            }
+            hasDrug = false;
+            Debug.Log("si");
+        }
+        if (insideDecorations.ContainsKey(item))
+        {
             insideDecorations[item]--;
             if (insideDecorations[item] <= 0 && item.itemName != "Droga")
             {

@@ -1,6 +1,7 @@
 using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
 public class DrunkEvent : MonoBehaviour
@@ -18,6 +19,7 @@ public class DrunkEvent : MonoBehaviour
     private GameObject clientObject;
 
     private bool lerpActive = false;
+    [SerializeField]  private DialogueUI dialogueUI;
 
 
     private void Update()
@@ -28,6 +30,7 @@ public class DrunkEvent : MonoBehaviour
             {
                 lerpActive = true;
                 clientObject.GetComponent<Client>().SetLeaveAnimation(false);
+                clientObject.GetComponent<Client>().SetActiveCollision(false);
                 clientObject.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
@@ -46,14 +49,16 @@ public class DrunkEvent : MonoBehaviour
 
     private void ClientLerp()
     {
+
         clientObject.transform.localRotation = Quaternion.Lerp(clientObject.transform.localRotation, new Quaternion(-1f, 0,0,1), Time.deltaTime * velocityRotation);
         clientObject.transform.localPosition = Vector3.Lerp(clientObject.transform.localPosition, new Vector3(
             clientObject.transform.localPosition.x,
             -0.4f, clientObject.transform.localPosition.z), Time.deltaTime * velocityMove);
 
-        if(clientObject.transform.localPosition.y < -0.38)
+        if(clientObject.transform.localPosition.y < -0.38 )
         {
             ClientManager.instance.CreateClient();
+            dialogueUI.DestroyAllBubbles();
             lerpActive = false;
             enabled = false;
         }

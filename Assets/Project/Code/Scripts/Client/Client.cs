@@ -43,6 +43,7 @@ public class Client : MonoBehaviour
     private bool wellReacted;
     private bool badReacted;
     private bool activeCollision;
+    private bool isUp = true;
 
     private int currentsHits;
     private PlayerConversant player;
@@ -340,6 +341,7 @@ public class Client : MonoBehaviour
 
     private void Lerps()
     {
+        MoveClientVertical();
         if (arriveAnimation)
         {
             MoveClientHorizontal(ClientManager.instance.GetClientPosition());
@@ -380,6 +382,28 @@ public class Client : MonoBehaviour
         Vector3 newPosition = transform.localPosition;
         newPosition.x = Mathf.Lerp(transform.localPosition.x, _transform.localPosition.x, Time.deltaTime * ClientManager.instance.GetHorizontalVelocity());
 
+        transform.localPosition = newPosition;
+    }
+
+    private void MoveClientVertical()
+    {
+        Vector3 newPosition = transform.localPosition;
+        if(isUp)
+        {
+            newPosition.y = Mathf.Lerp(transform.localPosition.y, ClientManager.instance.GetPositveJumpPosition().localPosition.y, Time.deltaTime * ClientManager.instance.GetHorizontalVelocity());
+            if(newPosition.y >= ClientManager.instance.GetPositveJumpPosition().localPosition.y - 0.01)
+            {
+                isUp = false;
+            }
+        }
+        else
+        {
+            newPosition.y = Mathf.Lerp(transform.localPosition.y, ClientManager.instance.GetNegativeJumpPosition().localPosition.y, Time.deltaTime * ClientManager.instance.GetHorizontalVelocity());
+            if (newPosition.y <= ClientManager.instance.GetNegativeJumpPosition().localPosition.y + 0.01)
+            {
+                isUp = true;
+            }
+        }
         transform.localPosition = newPosition;
     }
 
@@ -462,6 +486,11 @@ public class Client : MonoBehaviour
     public void SetDialogueUI(DialogueUI dialogueUI)
     {
         this.dialogueUI = dialogueUI;
+    }
+
+    public void SetActiveCollision(bool state)
+    {
+        activeCollision = state;
     }
 
 }
