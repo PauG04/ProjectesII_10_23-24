@@ -390,7 +390,7 @@ public class Client : MonoBehaviour
         Vector3 newPosition = transform.localPosition;
         if(isUp)
         {
-            newPosition.y = Mathf.Lerp(transform.localPosition.y, ClientManager.instance.GetPositveJumpPosition().localPosition.y, Time.deltaTime * ClientManager.instance.GetHorizontalVelocity());
+            newPosition.y = Mathf.Lerp(transform.localPosition.y, ClientManager.instance.GetPositveJumpPosition().localPosition.y, Time.deltaTime * ClientManager.instance.GetVerticalVelocity());
             if(newPosition.y >= ClientManager.instance.GetPositveJumpPosition().localPosition.y - 0.01)
             {
                 isUp = false;
@@ -398,7 +398,7 @@ public class Client : MonoBehaviour
         }
         else
         {
-            newPosition.y = Mathf.Lerp(transform.localPosition.y, ClientManager.instance.GetNegativeJumpPosition().localPosition.y, Time.deltaTime * ClientManager.instance.GetHorizontalVelocity());
+            newPosition.y = Mathf.Lerp(transform.localPosition.y, ClientManager.instance.GetNegativeJumpPosition().localPosition.y, Time.deltaTime * ClientManager.instance.GetVerticalVelocity());
             if (newPosition.y <= ClientManager.instance.GetNegativeJumpPosition().localPosition.y + 0.01)
             {
                 isUp = true;
