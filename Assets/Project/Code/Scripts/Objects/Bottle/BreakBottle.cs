@@ -54,13 +54,37 @@ public class BreakBottle : MonoBehaviour
             Rigidbody2D rbIce = brokenChilds[i].GetComponent<Rigidbody2D>();
             rbIce.AddForceAtPosition(new Vector3(Random.Range(forceX * 15, -forceX * 15), forceY, 0), pos, ForceMode2D.Force);
         }
-        for(int i = 0; i< gameObject.GetComponentInChildren<LiquidManager>().GetCurrentLiquid() / 10; i++)
+        for(int i = 0; i< gameObject.GetComponentInChildren<LiquidManager>().GetCurrentLiquid() / 5; i++)
         {
             GameObject _particles = Instantiate(particles, transform);
             _particles.transform.SetParent(null);
         }
-       
+        ActiveBotle();
         Destroy(gameObject);
         Destroy(newItem);
+    }
+
+    private void ActiveBotle()
+    {
+        if (transform.parent.childCount > 1)
+        {
+            GameObject newBottle = transform.parent.gameObject.transform.GetChild(1).gameObject;
+
+            newBottle.transform.localPosition = GetComponent<DragItems>().GetInitPosition();
+            newBottle.AddComponent<PolygonCollider2D>();
+            newBottle.GetComponent<SpriteRenderer>().color = Color.white;
+            newBottle.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            newBottle.GetComponent<DragItems>().enabled = true;
+            newBottle.GetComponent<DragItems>().SetItemCollider(newBottle.GetComponent<PolygonCollider2D>());
+            newBottle.GetComponent<DragItems>().SetInitPosition(GetComponent<DragItems>().GetInitPosition());
+            newBottle.GetComponent<ArrowManager>().enabled = true;
+            newBottle.transform.GetChild(3).gameObject.SetActive(true);
+
+        }
+        Destroy(GetComponent<DragItems>());
+
+        transform.SetParent(null);
+        GetComponent<PolygonCollider2D>().isTrigger = true;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
 }
