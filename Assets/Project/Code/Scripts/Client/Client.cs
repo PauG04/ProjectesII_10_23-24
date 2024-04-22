@@ -44,6 +44,7 @@ public class Client : MonoBehaviour
     private bool badReacted;
     private bool activeCollision;
     private bool isUp = true;
+    private bool hasToMoveY = true;
 
     private int currentsHits;
     private PlayerConversant player;
@@ -341,7 +342,11 @@ public class Client : MonoBehaviour
 
     private void Lerps()
     {
-        MoveClientVertical();
+        if(hasToMoveY)
+        {
+            MoveClientVertical();
+        }
+
         if (arriveAnimation)
         {
             MoveClientHorizontal(ClientManager.instance.GetClientPosition());
@@ -491,6 +496,11 @@ public class Client : MonoBehaviour
     public void SetActiveCollision(bool state)
     {
         activeCollision = state;
+    }
+
+    public void SetHasToMoveY(bool state)
+    {
+        hasToMoveY = state;
     }
 
 }

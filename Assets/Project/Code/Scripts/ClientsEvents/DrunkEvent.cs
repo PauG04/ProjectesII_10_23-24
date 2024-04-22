@@ -26,7 +26,7 @@ public class DrunkEvent : MonoBehaviour
     {
         if (client != null && client == eventClient)
         {
-            if(clientObject.GetComponent<Client>().GetHitted() || clientObject.GetComponent<Client>().GetWellReacted() && !lerpActive)
+            if (clientObject.GetComponent<Client>().GetHitted() || clientObject.GetComponent<Client>().GetWellReacted() && !lerpActive)
             {
                 lerpActive = true;
                 clientObject.GetComponent<Client>().SetLeaveAnimation(false);
@@ -49,7 +49,7 @@ public class DrunkEvent : MonoBehaviour
 
     private void ClientLerp()
     {
-
+        clientObject.GetComponent<Client>().SetHasToMoveY(false);
         clientObject.transform.localRotation = Quaternion.Lerp(clientObject.transform.localRotation, new Quaternion(-1f, 0,0,1), Time.deltaTime * velocityRotation);
         clientObject.transform.localPosition = Vector3.Lerp(clientObject.transform.localPosition, new Vector3(
             clientObject.transform.localPosition.x,

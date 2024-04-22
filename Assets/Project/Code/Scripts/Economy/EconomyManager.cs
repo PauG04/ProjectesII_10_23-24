@@ -9,7 +9,7 @@ public class EconomyManager : MonoBehaviour
 
     private float dailyEarnings;
     private float dailyExpanses;
-    private float money = 2100.0f;
+    private float money = 2030.0f;
     private float moneyChanged;
 
     private void Awake()
