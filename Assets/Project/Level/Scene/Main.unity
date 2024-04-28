@@ -9198,7 +9198,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1163209155
@@ -18274,6 +18274,10 @@ PrefabInstance:
       propertyPath: wikiPages
       value: 
       objectReference: {fileID: 541247805}
+    - target: {fileID: 994504023947815502, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
+      propertyPath: leftPages.Array.data[0]
+      value: 
+      objectReference: {fileID: 2165754787126392904, guid: 1899fb664ef7c3a46862e860d39f9c04, type: 3}
     - target: {fileID: 3657714956489973575, guid: 18e2e541290fa0e498b9259ed4909c85, type: 3}
       propertyPath: m_Name
       value: WikiManager
