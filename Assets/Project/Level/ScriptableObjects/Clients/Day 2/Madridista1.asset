@@ -20,7 +20,7 @@ MonoBehaviour:
   regularHitReactions: 0
   notNeedTakeDrink: 0
   acceptsAll: 0
-  dontCareGlass: 0
+  dontCareGlass: 1
   careIces: 0
   cuantityOfIce: 0
   dontPay: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
   payAfterHit: 0
   wantDrug: 0
   possibleOrders:
-  - {fileID: 11400000, guid: 28132074d99411944b698ffc378ab21c, type: 2}
+  - {fileID: 11400000, guid: f784122376c315d45b08bed7019a93ac, type: 2}
   dialogues:
   - {fileID: 11400000, guid: 60bdd0e35373ba94c855349b5649a9c5, type: 2}
   goodReactions:
@@ -48,3 +48,4 @@ MonoBehaviour:
   muchIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badStateReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badIngredientsReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  invisibleSprites: []

@@ -45,7 +45,7 @@ public class Lamps : MonoBehaviour
 
     private void Update()
     {
-        if (client != null && client == eventClient)
+        if (!triggerSetted && client != null && client == eventClient)
         {
             if(!firstAparition)
             {
@@ -54,24 +54,13 @@ public class Lamps : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = sprites[2];
                 lampSprite.sprite = sprites[1];
                 firstAparition = true;
-            }
-            if (client.invisible && !onLamp)
-            {
-                clientObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-            }
-            else if (client.invisible && onLamp)
-            {
-                clientObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                clientObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = client.invisibleSprites[1];
             }
             if (!triggerSetted)
             {
                  clientObject.GetComponent<DialogueTrigger>().SetTriggerAction("Lamp");
                  clientObject.GetComponent<DialogueTrigger>().SetOnTriggerEvent(ActiveCollider);
                  triggerSetted = true;
-            }
-            if(clientObject.GetComponent<Client>().GetWellReacted())
-            {
-                enabled = false;
             }
            
         }
@@ -80,7 +69,6 @@ public class Lamps : MonoBehaviour
             client = clientManager.GetClient();
             clientObject = clientManager.GetClientObject();
         }
-
     }
 
     private void OnMouseDown()
@@ -94,6 +82,9 @@ public class Lamps : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = sprites[2];
                 lampSprite.sprite = sprites[3];
 
+                if (client.invisible)
+                    clientObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = client.invisibleSprites[0];
+
                 if (client == eventClient && !firsTime)
                 {
                     firsTime = true;
@@ -105,6 +96,9 @@ public class Lamps : MonoBehaviour
             {
                 GetComponent<SpriteRenderer>().sprite = sprites[0];
                 lampSprite.sprite = sprites[1];
+
+                if (client.invisible)
+                    clientObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = client.invisibleSprites[1];
             }
 
 

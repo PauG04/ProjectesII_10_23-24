@@ -312,6 +312,7 @@ public class FriendEvent : MonoBehaviour
             panel.SetActive(true);
             if (drag[_index].gameObject.GetComponent<SpriteRenderer>() != null)
             {
+                drag[_index].gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
                 drag[_index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
             }
 
@@ -347,12 +348,15 @@ public class FriendEvent : MonoBehaviour
         {
             panel.SetActive(true);
             LerpSacele(maxScale, minScale, createGlass[_index]);
+
+            createGlass[_index].GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
             createGlass[_index].GetComponent<SpriteRenderer>().sortingOrder = 11;
         }
         if (createGlass[_index].GetComponent<SpawnGlass>().GetIsCreated())
         {
             panel.SetActive(false);
             createGlass[_index].GetComponent<SpriteRenderer>().sortingOrder = 1;
+            createGlass[_index].GetComponent<SpriteRenderer>().sortingLayerName = "Default";
             createGlass[_index].transform.localScale = new Vector3(0.75f, 0.75f, 1);
             if (playerConversant.HasNext())
             {
@@ -380,6 +384,7 @@ public class FriendEvent : MonoBehaviour
             panel.SetActive(true);
             LerpSacele(maxScale, minScale, fridge.gameObject);
             fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+            fridge.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
         }
 
         if (fridge.GetIsOpen())
@@ -387,6 +392,7 @@ public class FriendEvent : MonoBehaviour
             panel.SetActive(false);
             fridge.gameObject.transform.localScale = Vector3.one;
             fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerFridge;
+            fridge.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
             tutorialBooleans[boolIndex] = false;
             tutorialBooleans[boolIndex + 1] = true;
         }
@@ -407,11 +413,13 @@ public class FriendEvent : MonoBehaviour
             panel.SetActive(true);
             LerpSacele(maxScale, minScale, createObjectCollider.gameObject);
             createObjectCollider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+            createObjectCollider.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
         }
         if (createObjectCollider.gameObject.GetComponent<CreateItemGroup>().GetIsCreated())
         {
             panel.SetActive(false);
             createObjectCollider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = initOrderingLayerBucket;
+            createObjectCollider.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
             createObjectCollider.gameObject.transform.localScale = new Vector3(2, 2, 2);
             if (playerConversant.HasNext())
             {

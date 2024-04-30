@@ -40,6 +40,9 @@ public class ClientNode : ScriptableObject
     public Dialogue.Dialogue badStateReaction;
     public Dialogue.Dialogue badIngredientsReaction;
 
+    public List<Sprite> invisibleSprites;
+
+
     private void OnEnable()
     {
         dialogue = dialogues[0];

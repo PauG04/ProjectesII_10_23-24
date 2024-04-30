@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        songCounter = 0;
+        songCounter = 7;
     }
     private void Start()
     {
@@ -38,9 +38,6 @@ public class AudioManager : MonoBehaviour
     {
         if (!musicSource.isPlaying)
         {
-            songCounter++;
-            if (songCounter == musicSounds.Length)
-                songCounter = 0;
             PlaySong(musicSounds[songCounter].soundName);
         }
     }
@@ -115,7 +112,12 @@ public class AudioManager : MonoBehaviour
         musicSource.volume = s.volume;
         musicSource.pitch = s.minPitch;
         musicSource.clip = s.clip;
-        musicSource.loop = false;
+        musicSource.loop = true;
         musicSource.Play();
+    }
+
+    public void PlayMusic(int index)
+    {
+        PlaySong(musicSounds[index].soundName);
     }
 }

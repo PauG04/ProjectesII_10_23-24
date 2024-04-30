@@ -111,8 +111,9 @@ public class SibaritaEvent : MonoBehaviour
         {
             panel.SetActive(true);
             shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 11;
-
+            shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
             LerpScale(maxScale, minScale, shakerDrag.gameObject.transform.GetChild(1).gameObject);
+
         }
 
         if (shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetCurrentState().StateKey == ShakerState.DraggingOpen)
@@ -147,6 +148,7 @@ public class SibaritaEvent : MonoBehaviour
             if (shakerTopDrag.gameObject.GetComponent<SpriteRenderer>() != null)
             {
                 shakerTopDrag.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+                shakerTopDrag.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
             }
 
             LerpScale(maxScale, minScale, shakerTopDrag.gameObject);
