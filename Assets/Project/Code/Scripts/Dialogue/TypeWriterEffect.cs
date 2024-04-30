@@ -16,7 +16,7 @@ public class TypeWriterEffect : MonoBehaviour
 
     [Header("Typewriter Settings")]
     [SerializeField] private float characterPerSecond = 20;
-    [SerializeField] private float interpunctuationDelayInput = 0.5f;
+    [SerializeField] private float interpunctuationDelayInput = 0.0f;
 
     public bool CurrentlySkipping { get; private set; }
     private WaitForSeconds skipDelay;

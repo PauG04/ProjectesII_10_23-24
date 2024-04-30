@@ -23,6 +23,9 @@ public class OpenApp : MonoBehaviour
     [SerializeField] private Button returnButton;
     [SerializeField] private Button homeButton;
 
+    [Header("Scrollable Apps")]
+    [SerializeField] private Scrollbar[] scollBars;
+
     [Header("Animation Values")]
     [SerializeField] private float animationDuration;
 
@@ -42,6 +45,7 @@ public class OpenApp : MonoBehaviour
         currentApp = appToOpen;
         appToOpen.SetActive(true);
         StartCoroutine(OpenAnimation(appToOpen.transform));
+
     }
 
     public void CloseApplication()
@@ -65,6 +69,11 @@ public class OpenApp : MonoBehaviour
             app.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, t);
             yield return null;
             time += Time.deltaTime;
+
+            foreach (Scrollbar bar in scollBars)
+            {
+                bar.value = 1;
+            }
         }
 
         mainMenu.SetActive(false);
