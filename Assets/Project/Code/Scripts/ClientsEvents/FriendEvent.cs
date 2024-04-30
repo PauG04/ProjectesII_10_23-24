@@ -514,12 +514,10 @@ public class FriendEvent : MonoBehaviour
         if (glassLiquid != null && glassLiquid.GetComponent<LiquidManager>().GetCurrentLiquid() <= glassLiquid.GetComponent<LiquidManager>().GetMaxLiquid() / 4 && tutorialBooleans[9])
         {
             mouse[2].SetActive(true);
-            mouseArrows[1].SetActive(true);
         }
         else
         {
             mouse[2].SetActive(false);
-            mouseArrows[1].SetActive(false);
 
         }
     }
