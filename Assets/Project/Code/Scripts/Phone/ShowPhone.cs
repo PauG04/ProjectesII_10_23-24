@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class ShowPhone : MonoBehaviour
 {
     [SerializeField] private RectTransform[] phoneComponents;
+
 
     [SerializeField] private Vector3 targetPosition;
     [SerializeField] private float moveSpeed = 3f;
@@ -13,6 +16,7 @@ public class ShowPhone : MonoBehaviour
 
     private bool isMoving = false;
     private bool isOpen = true;
+
 
     private void Start()
     {
@@ -25,7 +29,7 @@ public class ShowPhone : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !isMoving)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.P)) && !isMoving)
         {
             AudioManager.instance.PlaySFX("OpenPhone");
             isMoving = true;
