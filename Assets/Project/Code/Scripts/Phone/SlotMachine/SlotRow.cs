@@ -27,14 +27,14 @@ public class SlotRow : MonoBehaviour
         rowStopped = false;
         timeInterval = 0.025f;
 
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 20; i++)
         {
             FixRow(rectTransform);
 
             yield return new WaitForSeconds(timeInterval);
         }
 
-        randomValue = Random.Range(60, 100);
+        randomValue = Random.Range(40, 80);
 
         switch (randomValue % 4)
         {
@@ -55,13 +55,19 @@ public class SlotRow : MonoBehaviour
             FixRow(rectTransform);
 
             if (i > Mathf.RoundToInt(randomValue * 0.25f))
+                timeInterval = 0.025f;
+            if (i > Mathf.RoundToInt(randomValue * 0.35f))
                 timeInterval = 0.05f;
-            if (i > Mathf.RoundToInt(randomValue * 0.5f))
+            if (i > Mathf.RoundToInt(randomValue * 0.55f))
+                timeInterval = 0.075f;
+            if (i > Mathf.RoundToInt(randomValue * 0.65f))
                 timeInterval = 0.1f;
-            if (i > Mathf.RoundToInt(randomValue * 0.75f))
-                timeInterval = 0.15f;
+            if (i > Mathf.RoundToInt(randomValue * 0.80f))
+                timeInterval = 0.125f;
             if (i > Mathf.RoundToInt(randomValue * 0.95f))
-                timeInterval = 0.2f;
+                timeInterval = 0.15f;
+
+            yield return new WaitForSeconds(timeInterval);
         }
 
         if (transform.position.y == -25f)
