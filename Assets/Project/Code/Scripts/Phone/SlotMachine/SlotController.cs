@@ -70,10 +70,13 @@ public class SlotController : MonoBehaviour
 
     public void SpinSlotMachine()
     {
-        if (rows.All(row => row.GetRowStopped()))
+        if (typeOfBets[currentBetIndex] <= EconomyManager.instance.GetMoney())
         {
-            EconomyManager.instance.AddMoney(-playerMoney);
-            SpinSlot();
+            if (rows.All(row => row.GetRowStopped()))
+            {
+                EconomyManager.instance.AddMoney(-playerMoney);
+                SpinSlot();
+            }
         }
     }
     private void CheckResults()

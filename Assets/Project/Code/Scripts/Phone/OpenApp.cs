@@ -13,12 +13,16 @@ public class OpenApp : MonoBehaviour
     [SerializeField] private GameObject optionsApp;
     [SerializeField] private GameObject shopApp;
     [SerializeField] private GameObject musicApp;
+    [SerializeField] private GameObject slotApp;
+
     private GameObject currentApp;
 
     [Header("Applications Buttons")]
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button shopButton;
     [SerializeField] private Button musicButton;
+    [SerializeField] private Button slotButton;
+
     [Space(20)]
     [SerializeField] private Button returnButton;
     [SerializeField] private Button homeButton;
@@ -34,6 +38,7 @@ public class OpenApp : MonoBehaviour
         optionsButton.onClick.AddListener(() => OpenApplication(optionsApp));
         shopButton.onClick.AddListener(() => OpenApplication(shopApp));
         musicButton.onClick.AddListener(() => OpenApplication(musicApp));
+        slotButton.onClick.AddListener(() => OpenApplication(slotApp));
 
         returnButton.onClick.AddListener(() => CloseApplication());
         homeButton.onClick.AddListener(() => CloseApplication());
