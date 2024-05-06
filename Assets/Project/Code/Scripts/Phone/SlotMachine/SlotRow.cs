@@ -56,23 +56,19 @@ public class SlotRow : MonoBehaviour
 
             if (i > Mathf.RoundToInt(randomValue * 0.25f))
                 timeInterval = 0.025f;
-            if (i > Mathf.RoundToInt(randomValue * 0.35f))
+            if (i > Mathf.RoundToInt(randomValue * 0.50f))
                 timeInterval = 0.05f;
-            if (i > Mathf.RoundToInt(randomValue * 0.55f))
+            if (i > Mathf.RoundToInt(randomValue * 0.75f))
                 timeInterval = 0.075f;
-            if (i > Mathf.RoundToInt(randomValue * 0.65f))
-                timeInterval = 0.1f;
-            if (i > Mathf.RoundToInt(randomValue * 0.80f))
-                timeInterval = 0.125f;
             if (i > Mathf.RoundToInt(randomValue * 0.95f))
-                timeInterval = 0.15f;
+                timeInterval = 0.1f;
 
             yield return new WaitForSeconds(timeInterval);
         }
 
-        if (transform.position.y == -25f)
+        if (rectTransform.anchoredPosition.y <= -20f && rectTransform.anchoredPosition.y >= -30f)
             stoppedSlot = "Bar";
-        else if (transform.position.y == -75f)
+        else if (rectTransform.anchoredPosition.y <= -70f && rectTransform.anchoredPosition.y >= -80f)
             stoppedSlot = "Beer";
         else
             stoppedSlot = "Drinks";

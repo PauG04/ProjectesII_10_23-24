@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMoney: {fileID: 6379544625290530750}
-  currentBet: {fileID: 5918970799939866516}
+  currentBetText: {fileID: 5918970799939866516}
+  typeOfBets: 01000000050000000a00000019000000320000004b00000063000000
   rows:
   - {fileID: 8557564090660306951}
   - {fileID: 8757110791083212710}
@@ -16066,7 +16067,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4547899626358186313}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6812944932873225145}
+        m_TargetAssemblyTypeName: SlotController, Assembly-CSharp
+        m_MethodName: AddCurrentBet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8073298502489603563
 GameObject:
   m_ObjectHideFlags: 0
@@ -17731,4 +17744,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1530097360487757488}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6812944932873225145}
+        m_TargetAssemblyTypeName: SlotController, Assembly-CSharp
+        m_MethodName: DecraseCurrentBet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
