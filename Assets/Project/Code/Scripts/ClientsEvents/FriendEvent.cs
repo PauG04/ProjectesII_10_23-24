@@ -254,7 +254,7 @@ public class FriendEvent : MonoBehaviour
             tutorialBooleans[6] = false;
             tutorialBooleans[7] = true;
         }
-        else if(glass != null && glass.GetComponent<InsideDecorations>().GetIceInside() == 2 && tutorialBooleans[7])
+        else if(glass != null && glass.GetComponent<InsideDecorations>().GetIceInside() == 2 && tutorialBooleans[7] && glass.GetComponent<InsideDecorations>().GetIceInside() <= 0)
         {
             if (playerConversant.HasNext())
             {

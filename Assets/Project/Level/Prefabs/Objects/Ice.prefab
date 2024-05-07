@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 6682326790453067862, guid: 656d5c5bd17a2654cbfa2c8414ff3840, type: 3}
-  itemTotallyBroekn: {fileID: 6682326790453067862, guid: b27ec246be07e964286707e15cdc06ad, type: 3}
+  itemTotallyBroken: {fileID: 6682326790453067862, guid: b27ec246be07e964286707e15cdc06ad, type: 3}
   forceX: 0.5
 --- !u!114 &3804762112633845034
 MonoBehaviour:
@@ -140,10 +140,12 @@ MonoBehaviour:
   hasToBeDestroy: 1
   hasToReturn: 1
   hasToStayTheSameLayer: 1
-  changeSpriteMask: 0
+  changeSpriteMask: 1
   moveParent: 0
+  dragWithWorkspaceSprite: 0
   isItem: 0
   isItemGroup: 1
+  isPainting: 0
 --- !u!50 &3085852553438928639
 Rigidbody2D:
   serializedVersion: 4

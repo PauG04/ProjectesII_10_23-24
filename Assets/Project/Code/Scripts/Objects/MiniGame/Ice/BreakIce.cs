@@ -11,7 +11,7 @@ public class BreakIce : MonoBehaviour
 
     [Header("object")]
     [SerializeField] private GameObject item;
-    [SerializeField] private GameObject itemTotallyBroekn;
+    [SerializeField] private GameObject itemTotallyBroken;
     [SerializeField] private float forceX;
 
     private GameObject[] brokenIceChilds;
@@ -44,7 +44,7 @@ public class BreakIce : MonoBehaviour
             hits--;
             if (hits == 0)
             {
-                Slice(collision.transform.position, itemTotallyBroekn, true);
+                Slice(collision.transform.position, itemTotallyBroken, true);
             }
             else
             {
@@ -67,7 +67,6 @@ public class BreakIce : MonoBehaviour
             {
                 newItem.transform.position = new Vector3(transform.position.x - widht , transform.position.y + height/2, 0);
                 newItem.GetComponent<Rigidbody2D>().AddForceAtPosition(new Vector3(Random.Range(forceX, forceX / 2), 0, 0), pos, ForceMode2D.Force);
-                
             }
             else
             {
