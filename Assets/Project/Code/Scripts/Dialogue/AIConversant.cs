@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Dialogue
 {
@@ -20,14 +16,14 @@ namespace Dialogue
             client = GetComponent<Client>();
         }
 
-        public void HandleDialogue()
+        public void HandleDialogue(float pitch)
 		{
             if (dialogue == null)
             {
                 return;
             }
 
-            playerConversant.StartDialogue(this, dialogue);
+            playerConversant.StartDialogue(this, dialogue, pitch);
         }
 
         private void Update()

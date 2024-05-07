@@ -1,6 +1,4 @@
 using Dialogue;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OldEvent : MonoBehaviour
@@ -25,7 +23,7 @@ public class OldEvent : MonoBehaviour
         if(collision.CompareTag("Client") && gameObject.GetComponent<DragItems>().GetWasOnTheTable() && TypeWriterEffect.isTextCompleted)
         {
             collision.GetComponent<AIConversant>().SetDialogue(dialogue);
-            collision.GetComponent<AIConversant>().HandleDialogue();
+            collision.GetComponent<AIConversant>().HandleDialogue(1f);
             Destroy(gameObject);
             collision.GetComponent<Client>().SetLeaveAnimation(true);
         }

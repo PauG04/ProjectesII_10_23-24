@@ -63,7 +63,7 @@ public class VoxCarnet : MonoBehaviour
         {
             clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[2]);
         }
-        clientObject.GetComponent<AIConversant>().HandleDialogue();
+        clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
         canvas.SetActive(false);
         enabled = false;
     }
@@ -71,7 +71,7 @@ public class VoxCarnet : MonoBehaviour
     public void RejectDeal()
     {
         clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[0]);
-        clientObject.GetComponent<AIConversant>().HandleDialogue();
+        clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
         canvas.SetActive(false);
         enabled = false;
     }

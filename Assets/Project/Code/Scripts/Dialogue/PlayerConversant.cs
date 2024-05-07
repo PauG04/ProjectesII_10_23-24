@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,9 +25,9 @@ namespace Dialogue
 		
 		public event Action onConversationUpdated;
 
-        public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
+        public void StartDialogue(AIConversant newConversant, Dialogue newDialogue, float pitch)
 		{
-            AudioManager.instance.PlaySFX("ClientTalk");
+            AudioManager.instance.PlaySFX("ClientTalk", pitch);
 			isChoosing = false;
 
             currentConversant = newConversant;

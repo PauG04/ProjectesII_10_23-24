@@ -89,7 +89,7 @@ public class Lamps : MonoBehaviour
                 {
                     firsTime = true;
                     clientObject.GetComponent<AIConversant>().SetDialogue(dialogue);
-                    clientObject.GetComponent<AIConversant>().HandleDialogue();
+                    clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
                 }
             }
             else

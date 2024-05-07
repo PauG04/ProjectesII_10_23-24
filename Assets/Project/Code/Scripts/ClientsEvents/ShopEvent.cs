@@ -1,8 +1,6 @@
 using Dialogue;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class ShopEvent : MonoBehaviour
 {
@@ -89,7 +87,7 @@ public class ShopEvent : MonoBehaviour
             clientObject.GetComponent<Client>().SetLeaveAnimation(true);
             enabled = false;
         }
-        clientObject.GetComponent<AIConversant>().HandleDialogue();
+        clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
         canvas.SetActive(false);
     }
 
@@ -107,7 +105,7 @@ public class ShopEvent : MonoBehaviour
             enabled = false;
         }
 
-        clientObject.GetComponent<AIConversant>().HandleDialogue();
+        clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
         canvas.SetActive(false);
     }
 

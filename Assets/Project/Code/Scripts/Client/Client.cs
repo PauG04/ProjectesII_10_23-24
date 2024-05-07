@@ -1,10 +1,8 @@
 using Dialogue;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using UI;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class Client : MonoBehaviour
 {
@@ -161,7 +159,7 @@ public class Client : MonoBehaviour
             if (clientNode.totalHits <= 1)
                 conversant.SetDialogue(clientNode.hitReaction);
 
-            conversant.HandleDialogue();
+            conversant.HandleDialogue(clientNode.pitch);
 
 
             if ((clientNode.hitToGo && currentsHits == clientNode.totalHits))
@@ -203,7 +201,7 @@ public class Client : MonoBehaviour
                 if (ices != clientNode.cuantityOfIce )
                 {
                     conversant.SetDialogue(clientNode.noIceReaction);
-                    conversant.HandleDialogue();
+                    conversant.HandleDialogue(clientNode.pitch);
                 }
                 else
                 {
@@ -229,7 +227,7 @@ public class Client : MonoBehaviour
             else if (clientNode.badGlassReaction != ClientManager.instance.GetEmptyDialogue())
             {
                 conversant.SetDialogue(clientNode.badGlassReaction);
-                conversant.HandleDialogue();
+                conversant.HandleDialogue(clientNode.pitch);
             }
 
             else
@@ -244,7 +242,7 @@ public class Client : MonoBehaviour
             else if (clientNode.noIceReaction != ClientManager.instance.GetEmptyDialogue())
             {
                 conversant.SetDialogue(clientNode.noIceReaction);
-                conversant.HandleDialogue();
+                conversant.HandleDialogue(clientNode.pitch);
             }
             else
                 ReactBad();
@@ -254,7 +252,7 @@ public class Client : MonoBehaviour
             if (clientNode.muchIceReaction != ClientManager.instance.GetEmptyDialogue())
             {
                 conversant.SetDialogue(clientNode.muchIceReaction);
-                conversant.HandleDialogue();
+                conversant.HandleDialogue(clientNode.pitch);
             }
             else
                 ReactBad();
@@ -264,7 +262,7 @@ public class Client : MonoBehaviour
             if (clientNode.badStateReaction != ClientManager.instance.GetEmptyDialogue())
             {
                 conversant.SetDialogue(clientNode.badStateReaction);
-                conversant.HandleDialogue();
+                conversant.HandleDialogue(clientNode.pitch);
             }
             else
                 ReactBad();
@@ -274,7 +272,7 @@ public class Client : MonoBehaviour
             if (clientNode.badIngredientsReaction != ClientManager.instance.GetEmptyDialogue())
             {
                 conversant.SetDialogue(clientNode.badIngredientsReaction);
-                conversant.HandleDialogue();
+                conversant.HandleDialogue(clientNode.pitch);
                 if (clientNode.onlyOneChance)
                 {
                     badReacted = true;
@@ -295,7 +293,7 @@ public class Client : MonoBehaviour
         else
             conversant.SetDialogue(clientNode.badReaction);
 
-        conversant.HandleDialogue();
+        conversant.HandleDialogue(clientNode.pitch);
 
         if (!clientNode.dontPay)
         {
@@ -314,7 +312,7 @@ public class Client : MonoBehaviour
         clientNode.RandomizeBadReaction();
         conversant.SetDialogue(clientNode.badReaction);
 
-        conversant.HandleDialogue();
+        conversant.HandleDialogue(clientNode.pitch);
         if (clientNode.onlyOneChance)
         {
             badReacted = true;
@@ -327,7 +325,7 @@ public class Client : MonoBehaviour
     {
         AudioManager.instance.PlaySFX("ClientMad");
         conversant.SetDialogue(clientNode.badIngredientsReaction);
-        conversant.HandleDialogue();
+        conversant.HandleDialogue(clientNode.pitch);
     }
 
     private void Pay()
@@ -354,7 +352,7 @@ public class Client : MonoBehaviour
             {
                 arriveAnimation = false;
                 isLocated = true;
-                conversant.HandleDialogue();
+                conversant.HandleDialogue(clientNode.pitch);
             }
         }
         else if (leaveAnimation)

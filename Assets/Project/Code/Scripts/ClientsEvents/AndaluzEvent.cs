@@ -1,6 +1,4 @@
 using Dialogue;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AndaluzEvent : MonoBehaviour
@@ -40,7 +38,7 @@ public class AndaluzEvent : MonoBehaviour
             if(clientObject.GetComponent<BoxCollider2D>().enabled && !startShaking && Input.GetMouseButtonDown(0) && TypeWriterEffect.isTextCompleted && !startShaking)
             {
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogue);
-                clientObject.GetComponent<AIConversant>().HandleDialogue();
+                clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
                 StartShaking();
                 
             }
