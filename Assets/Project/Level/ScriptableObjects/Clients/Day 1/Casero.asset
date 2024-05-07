@@ -14,11 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clientName: Casero
   sprite: {fileID: 21300000, guid: f7c152cb69cffbc49bedf46f4f0789bf, type: 3}
+  pitch: 1.4
   hitToGo: 0
+  totalHits: 0
   canBeHitted: 0
   regularHitReactions: 0
   notNeedTakeDrink: 1
   acceptsAll: 0
+  dontCareGlass: 0
+  careIces: 0
+  cuantityOfIce: 0
+  dontPay: 0
+  hasMoraDialoguesPostOrder: 0
+  invisible: 0
+  onlyOneChance: 0
+  payAfterHit: 0
+  wantDrug: 0
   possibleOrders:
   - {fileID: 11400000, guid: 5ee31d61876300942ac422b2ef11376e, type: 2}
   dialogues:
@@ -38,3 +49,4 @@ MonoBehaviour:
   muchIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badStateReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badIngredientsReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  invisibleSprites: []

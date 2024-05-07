@@ -25,9 +25,9 @@ namespace Dialogue
 		
 		public event Action onConversationUpdated;
 
-        public void StartDialogue(AIConversant newConversant, Dialogue newDialogue, float pitch)
+        public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
-            AudioManager.instance.PlaySFX("ClientTalk", pitch);
+            AudioManager.instance.PlaySFX("ClientTalk", ClientManager.instance.GetCurrentClientNode().pitch);
 			isChoosing = false;
 
             currentConversant = newConversant;
@@ -90,7 +90,7 @@ namespace Dialogue
         }
         public void Next()
 		{
-			AudioManager.instance.PlaySFX("ClientTalk");
+			AudioManager.instance.PlaySFX("ClientTalk", ClientManager.instance.GetCurrentClientNode().pitch);
 			int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
 
             if (numPlayerResponses > 0)

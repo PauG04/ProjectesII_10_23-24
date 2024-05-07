@@ -129,6 +129,10 @@ public class ClientManager : MonoBehaviour
     {
         return currentClientScript;
     }
+    public ClientNode GetCurrentClientNode()
+    {
+        return currentClientNode;
+    }
     public List<Dialogue.Dialogue> GetRegularClientHitDialogues()
     {
         return regularClientHitDialogues;

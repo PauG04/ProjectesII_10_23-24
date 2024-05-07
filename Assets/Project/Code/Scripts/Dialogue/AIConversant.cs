@@ -23,7 +23,7 @@ namespace Dialogue
                 return;
             }
 
-            playerConversant.StartDialogue(this, dialogue, pitch);
+            playerConversant.StartDialogue(this, dialogue);
         }
 
         private void Update()
