@@ -74,7 +74,7 @@ public class SlotController : MonoBehaviour
         {
             if (rows.All(row => row.GetRowStopped()))
             {
-                EconomyManager.instance.AddMoney(-playerMoney);
+                EconomyManager.instance.SetMoneyChanged(-playerMoney);
                 SpinSlot();
             }
         }
@@ -83,20 +83,27 @@ public class SlotController : MonoBehaviour
     {
         if (rows.All(row => row.GetStoppedSlot() == "Bar"))
         {
-            prizeValue = playerMoney * 7;
+            prizeValue = playerMoney * 10;
         }
         else if (rows.All(row => row.GetStoppedSlot() == "Beer"))
         {
-            prizeValue = playerMoney * 4;
+            prizeValue = playerMoney * 7;
         }
-        else if (rows.All(row => row.GetStoppedSlot() == "Drinks"))
+        else if (
+            rows.All(row => row.GetStoppedSlot() == "DrinkGreen")
+            || rows.All(row => row.GetStoppedSlot() == "DrinkOrange")
+            || rows.All(row => row.GetStoppedSlot() == "DrinkPink")
+            || rows.All(row => row.GetStoppedSlot() == "DrinkRed")
+            || rows.All(row => row.GetStoppedSlot() == "DrinkBrown")
+            )
         {
-            prizeValue = playerMoney * 2;
+            prizeValue = playerMoney * 5;
         }
 
         resultsCheked = true;
 
-        EconomyManager.instance.AddMoney(prizeValue);
+        EconomyManager.instance.SetMoneyChanged(prizeValue);
+
         prizeValue = 0;
     }
 }

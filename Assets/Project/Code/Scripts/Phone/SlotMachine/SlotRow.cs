@@ -16,6 +16,7 @@ public class SlotRow : MonoBehaviour
     }
     public void StartRotating()
     {
+        AudioManager.instance.PlaySFX("SlotSpin");
         stoppedSlot = "";
         StartCoroutine(Rotate());
     }
@@ -70,8 +71,16 @@ public class SlotRow : MonoBehaviour
             stoppedSlot = "Bar";
         else if (rectTransform.anchoredPosition.y <= -70f && rectTransform.anchoredPosition.y >= -80f)
             stoppedSlot = "Beer";
+        else if (rectTransform.anchoredPosition.y <= -120f && rectTransform.anchoredPosition.y >= -130f)
+            stoppedSlot = "DrinkGreen";
+        else if (rectTransform.anchoredPosition.y <= 30 && rectTransform.anchoredPosition.y >= 20f)
+            stoppedSlot = "DrinkOrange";
+        else if (rectTransform.anchoredPosition.y <= 80 && rectTransform.anchoredPosition.y >= 70f)
+            stoppedSlot = "DrinkPink";
+        else if (rectTransform.anchoredPosition.y <= 130 && rectTransform.anchoredPosition.y >= 120f)
+            stoppedSlot = "DrinkRed";
         else
-            stoppedSlot = "Drinks";
+            stoppedSlot = "DrinkBrown";
 
         rowStopped = true;
     }

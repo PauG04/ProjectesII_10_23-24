@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Sockets;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BreakBottle : MonoBehaviour
@@ -57,6 +53,7 @@ public class BreakBottle : MonoBehaviour
         for(int i = 0; i< gameObject.GetComponentInChildren<LiquidManager>().GetCurrentLiquid() / 5; i++)
         {
             GameObject _particles = Instantiate(particles, transform);
+            _particles.GetComponent<LiquidParticle>().SetDrink(GetComponent<DropLiquid>().GetDrink());
             _particles.transform.SetParent(null);
         }
         ActiveBotle();
