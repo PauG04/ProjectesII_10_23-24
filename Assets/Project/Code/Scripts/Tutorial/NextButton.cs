@@ -1,6 +1,7 @@
 using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class NextButton : MonoBehaviour
@@ -35,7 +36,7 @@ public class NextButton : MonoBehaviour
             timer = 0;
             if (playerConversant.HasNext())
             {
-                playerConversant.Next();
+                //playerConversant.Next();
             }
         }
     }

@@ -74,7 +74,7 @@ public class StreamerEvent : MonoBehaviour
         if(time > DesactiveVotationTime && TypeWriterEffect.isTextCompleted)
         {
             clientObject.GetComponent<AIConversant>().SetDialogue(dialogue);
-            clientObject.GetComponent<AIConversant>().HandleDialogue();
+            clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
             clientObject.GetComponent<BoxCollider2D>().enabled = true;
             canvas.SetActive(false);
             enabled = false;

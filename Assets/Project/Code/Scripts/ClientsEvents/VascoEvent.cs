@@ -30,13 +30,13 @@ public class VascoEvent : MonoBehaviour
             if(paintBroken && Input.GetMouseButton(0))
             {
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[0]);
-                clientObject.GetComponent<AIConversant>().HandleDialogue();
+                clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
                 isSelected = true;
             }
             else if(!paintBroken && Input.GetMouseButton(0))
             {
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[1]);
-                clientObject.GetComponent<AIConversant>().HandleDialogue();
+                clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
                 enabled = false;
             }
 
@@ -51,7 +51,7 @@ public class VascoEvent : MonoBehaviour
         if(isSelected && !paintBroken && TypeWriterEffect.isTextCompleted && Input.GetMouseButton(0))
         {
             clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[1]);
-            clientObject.GetComponent<AIConversant>().HandleDialogue();
+            clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
             enabled = false;
         }
 
