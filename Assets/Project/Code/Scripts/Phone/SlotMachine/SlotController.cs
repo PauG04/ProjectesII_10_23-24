@@ -20,7 +20,7 @@ public class SlotController : MonoBehaviour
     private int playerMoney = 1;
 
     private float prizeValue;
-    private bool resultsCheked = false;
+    private bool resultsChecked = false;
 
     private void Start()
     {
@@ -59,10 +59,10 @@ public class SlotController : MonoBehaviour
         if (!rows.All(row => row.GetRowStopped()))
         {
             prizeValue = 0;
-            resultsCheked = false;
+            resultsChecked = false;
         }
 
-        if (rows.All(row => row.GetRowStopped()) && !resultsCheked)
+        if (rows.All(row => row.GetRowStopped()) && !resultsChecked)
         {
             CheckResults();
         }
@@ -100,10 +100,15 @@ public class SlotController : MonoBehaviour
             prizeValue = playerMoney * 5;
         }
 
-        resultsCheked = true;
+        resultsChecked = true;
 
         EconomyManager.instance.SetMoneyChanged(prizeValue);
 
         prizeValue = 0;
+    }
+
+    public bool GetResultChecked()
+    {
+        return resultsChecked;
     }
 }

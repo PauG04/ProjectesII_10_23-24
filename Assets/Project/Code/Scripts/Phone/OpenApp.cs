@@ -55,12 +55,19 @@ public class OpenApp : MonoBehaviour
 
     public void CloseApplication()
     {
-        AudioManager.instance.PlaySFX("CloseApp");
-        if (currentApp != null)
+        if (!slotApp.GetComponent<SlotController>().GetResultChecked() && slotApp.activeSelf) 
         {
-            mainMenu.SetActive(true);
-            StartCoroutine(CloseAnimation(currentApp.transform));
-            currentApp = null;
+            return;
+        }
+        else
+        {
+            AudioManager.instance.PlaySFX("CloseApp");
+            if (currentApp != null)
+            {
+                mainMenu.SetActive(true);
+                StartCoroutine(CloseAnimation(currentApp.transform));
+                currentApp = null;
+            }
         }
     }
 
