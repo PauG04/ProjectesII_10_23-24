@@ -53,7 +53,7 @@ public class SlotController : MonoBehaviour
 
     private void Update()
     {
-        currentMoney.text = EconomyManager.instance.GetMoney() + "";
+        currentMoney.text = EconomyManager.instance.GetMoney().ToString("00.00");
         currentBetText.text = playerMoney.ToString("00");
 
         if (!rows.All(row => row.GetRowStopped()))
