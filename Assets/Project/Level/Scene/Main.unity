@@ -4028,7 +4028,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 3.75
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -4790,6 +4790,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597251790}
   m_CullTransparentMesh: 1
+--- !u!1 &600717394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1967414574677084153, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
+  m_PrefabInstance: {fileID: 1777173345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &604636927
 GameObject:
   m_ObjectHideFlags: 0
@@ -7990,6 +7995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1040827839}
   - component: {fileID: 1040827841}
+  - component: {fileID: 1040827847}
   - component: {fileID: 1040827846}
   - component: {fileID: 1040827845}
   - component: {fileID: 1040827844}
@@ -8161,6 +8167,21 @@ MonoBehaviour:
   player: {fileID: 549211536}
   sleeping: {fileID: 21300000, guid: da3b61350e7880b4da36d84743e48bfe, type: 3}
   currentSprite: {fileID: 21300000, guid: 0dcf9db3be3f3474691e56a2e7b68ddc, type: 3}
+--- !u!114 &1040827847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040827838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d282ee1a028da479365131e91e2764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clientManager: {fileID: 1119733629}
+  eventClient: {fileID: 11400000, guid: eb89338f3bfebe54298224d0dbad2673, type: 2}
+  slotButton: {fileID: 600717394}
 --- !u!1 &1040850870
 GameObject:
   m_ObjectHideFlags: 0
@@ -14175,27 +14196,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1460146391184825754, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1460146391184825754, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1460146391184825754, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 1460146391184825754, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 1460146391184825754, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 62.5
       objectReference: {fileID: 0}
     - target: {fileID: 1460146391184825754, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -132.5
       objectReference: {fileID: 0}
     - target: {fileID: 1564849215198974209, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
       propertyPath: m_Size
@@ -14213,10 +14234,18 @@ PrefabInstance:
       propertyPath: parent
       value: 
       objectReference: {fileID: 665463533}
+    - target: {fileID: 1967414574677084153, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1992640508660055060, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
       propertyPath: parent
       value: 
       objectReference: {fileID: 898343023}
+    - target: {fileID: 2070664389681342584, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2456238426229398277, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
       propertyPath: levelLoader
       value: 
@@ -14467,11 +14496,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8132825564415450186, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.44606516
       objectReference: {fileID: 0}
     - target: {fileID: 8132825564415450186, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.00000003403207
       objectReference: {fileID: 0}
     - target: {fileID: 8592584442230322071, guid: 5f70973ccd56c7e4180d2f75584667da, type: 3}
       propertyPath: parent
@@ -17517,7 +17546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.size
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day4Clients.Array.size
@@ -17598,35 +17627,43 @@ PrefabInstance:
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: bb2955c53f33a8e47929c051ba3c8b86, type: 2}
+      objectReference: {fileID: 11400000, guid: eb89338f3bfebe54298224d0dbad2673, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 2975af9326d2a4241a9a92b218fb80ea, type: 2}
+      objectReference: {fileID: 11400000, guid: bb2955c53f33a8e47929c051ba3c8b86, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: db612cd68818a58459d864890eae1214, type: 2}
+      objectReference: {fileID: 11400000, guid: 2975af9326d2a4241a9a92b218fb80ea, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 0477b6454568c1643ac3f4a77a559ba2, type: 2}
+      objectReference: {fileID: 11400000, guid: db612cd68818a58459d864890eae1214, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 3c732aa6dcc971a46a4dd26203162f3b, type: 2}
+      objectReference: {fileID: 11400000, guid: 0477b6454568c1643ac3f4a77a559ba2, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 0f0efde83fdfd8e478800a640f02a740, type: 2}
+      objectReference: {fileID: 11400000, guid: 3c732aa6dcc971a46a4dd26203162f3b, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 0ef26895592ba034f8cdf0a93f2b6710, type: 2}
+      objectReference: {fileID: 11400000, guid: 0f0efde83fdfd8e478800a640f02a740, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day3Clients.Array.data[7]
       value: 
+      objectReference: {fileID: 11400000, guid: 0ef26895592ba034f8cdf0a93f2b6710, type: 2}
+    - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
+      propertyPath: day3Clients.Array.data[8]
+      value: 
       objectReference: {fileID: 11400000, guid: 7e0c52f941edb1d48868564e3de0899c, type: 2}
+    - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
+      propertyPath: day3Clients.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4480498176e2bfa4e8d69496f16c62ca, type: 2}
     - target: {fileID: 8889824856072977247, guid: 8da053272fb5b9846b36a05f285c244b, type: 3}
       propertyPath: day4Clients.Array.data[0]
       value: 
