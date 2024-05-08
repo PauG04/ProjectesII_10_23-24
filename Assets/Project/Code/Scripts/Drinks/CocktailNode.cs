@@ -34,7 +34,8 @@ public class CocktailNode : ScriptableObject
         Vodka,
         CocaCola,
         LemmonJuice,
-        Gazpacho
+        Gazpacho,
+        OrangeJuice
     }
 
     public State state;

@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 612416e99e325834eba562d43ecd654f, type: 3}
-  m_Name: CocaCola
+  m_Name: OrangeJuice
   m_EditorClassIdentifier: 
   state: 0
-  type: 15
-  price: 2.99
-  cocktailName: CocaCola
+  type: 18
+  price: 3.99
+  cocktailName: Zumo de Naranja
   subtitle: Clasico
-  description: '3 Onzas de Cola
+  description: '3 Onzas de Zumo de Naranja
 
-    Serivir directamente en vaso con poco hielo'
+    Serivir directamente en vaso con
+    poco hielo'
   sprite: {fileID: 21300000, guid: 7cd9121659fb7e34ca670b554e21e682, type: 3}
   color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-  errorMargin: 0.4
+  errorMargin: 0.6
   serializableIngredients:
     items:
-    - type: {fileID: 11400000, guid: 5fa335cd3f50bbb4cb07f3f23f6c208c, type: 2}
+    - type: {fileID: 11400000, guid: 58d6b5c8a7f40b741b7f721a6392c78b, type: 2}
       quantity: 3
   serializableDecorations:
     items:

@@ -19131,7 +19131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
       propertyPath: serializableCocktails.items.Array.size
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
       propertyPath: serializableCocktails.items.Array.data[8].cocktail
@@ -19153,6 +19153,10 @@ PrefabInstance:
       propertyPath: serializableCocktails.items.Array.data[12].cocktail
       value: 
       objectReference: {fileID: 11400000, guid: 62c3e5c89cfd2d64aa34302c703a9246, type: 2}
+    - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: serializableCocktails.items.Array.data[13].cocktail
+      value: 
+      objectReference: {fileID: 11400000, guid: a883ad5524919f042b088d08f03c57a5, type: 2}
     - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
       propertyPath: serializableCocktails.items.Array.data[4].cocktailName
       value: Ginlemmon
@@ -19176,6 +19180,10 @@ PrefabInstance:
     - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
       propertyPath: serializableCocktails.items.Array.data[12].cocktailName
       value: Cerveza
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507558101611212894, guid: 1cec3a84f5759d84cb68ee375a39c141, type: 3}
+      propertyPath: serializableCocktails.items.Array.data[13].cocktailName
+      value: OrangeJuice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
