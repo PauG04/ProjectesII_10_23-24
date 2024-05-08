@@ -69,7 +69,7 @@ public class InsideDecorations : MonoBehaviour
 
     public int GetIceInside()
     {
-        if(_item != null)
+        if(_item != null && insideDecorations.ContainsKey(_item))
         {
             return insideDecorations[_item];
         }
