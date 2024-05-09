@@ -17,18 +17,18 @@ public class SaveComponents : MonoBehaviour
     [Header("Days")]
     [SerializeField] private DayManager dayManager;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Debug.Log("Saved Components");
-            SaveAllComponents();
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadAllComponents();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.S))
+    //    {
+    //        Debug.Log("Saved Components");
+    //        SaveAllComponents();
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.L))
+    //    {
+    //        LoadAllComponents();
+    //    }
+    //}
 
     public void SaveAllComponents()
     {
@@ -85,8 +85,8 @@ public class SaveComponents : MonoBehaviour
                 liquid.SetCurrentLiquid(liquid.GetMaxLiquid());
             }
 
-            economyManager.SetMoney(2100);
-            Debug.Log("Loaded " + PlayerPrefs.GetFloat("Money", 2100) + "€ CurrentMoney");
+            economyManager.SetMoney(2060);
+            Debug.Log("Loaded " + PlayerPrefs.GetFloat("Money", 2060) + "€ CurrentMoney");
         }
         else
         {
@@ -125,8 +125,8 @@ public class SaveComponents : MonoBehaviour
                 Debug.Log("Loaded " + liquid.name + "_BottleCurrentLiquid with liquid: " + PlayerPrefs.GetFloat(liquid.name + "_BottleCurrentLiquid"));
             }
 
-            economyManager.SetMoney(PlayerPrefs.GetFloat("Money", 2100));
-            Debug.Log("Loaded " + PlayerPrefs.GetFloat("Money", 2100) + "€ CurrentMoney");
+            economyManager.SetMoney(PlayerPrefs.GetFloat("Money", 2060));
+            Debug.Log("Loaded " + PlayerPrefs.GetFloat("Money", 2060) + "€ CurrentMoney");
         }
     }
 }
