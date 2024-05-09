@@ -313,7 +313,7 @@ public class FriendEvent : MonoBehaviour
             if (drag[_index].gameObject.GetComponent<SpriteRenderer>() != null)
             {
                 drag[_index].gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
-                drag[_index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+                drag[_index].gameObject.GetComponent<SpriteRenderer>().sortingOrder = 20;
             }
 
             LerpSacele(maxScale, minScale, drag[_index].gameObject);
@@ -350,7 +350,7 @@ public class FriendEvent : MonoBehaviour
             LerpSacele(maxScale, minScale, createGlass[_index]);
 
             createGlass[_index].GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
-            createGlass[_index].GetComponent<SpriteRenderer>().sortingOrder = 11;
+            createGlass[_index].GetComponent<SpriteRenderer>().sortingOrder = 20;
         }
         if (createGlass[_index].GetComponent<SpawnGlass>().GetIsCreated())
         {
@@ -383,7 +383,7 @@ public class FriendEvent : MonoBehaviour
         {
             panel.SetActive(true);
             LerpSacele(maxScale, minScale, fridge.gameObject);
-            fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+            fridge.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 20;
             fridge.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
         }
 
@@ -412,7 +412,7 @@ public class FriendEvent : MonoBehaviour
         {
             panel.SetActive(true);
             LerpSacele(maxScale, minScale, createObjectCollider.gameObject);
-            createObjectCollider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+            createObjectCollider.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 20;
             createObjectCollider.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
         }
         if (createObjectCollider.gameObject.GetComponent<CreateItemGroup>().GetIsCreated())
