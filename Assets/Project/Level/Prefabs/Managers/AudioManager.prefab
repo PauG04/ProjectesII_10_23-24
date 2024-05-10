@@ -161,7 +161,7 @@ Transform:
   - {fileID: 2169940179253618980}
   - {fileID: 3307987878986650123}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8277334256892889940
 MonoBehaviour:
@@ -296,28 +296,82 @@ MonoBehaviour:
     minPitch: 1
     maxPitch: 1
     loop: 0
+  - soundName: SlotSpin
+    clip: {fileID: 8300000, guid: d20a0c8ffdcb8e74e96eaf95a0e0bea1, type: 3}
+    volume: 0.7
+    minPitch: 1
+    maxPitch: 1
+    loop: 0
   musicSounds:
+  - soundName: "Espa\xF1a"
+    clip: {fileID: 8300000, guid: ec14429e02142714dbd6cc6e5e1bc33e, type: 3}
+    volume: 0.03
+    minPitch: 1
+    maxPitch: 1
+    loop: 0
+  - soundName: Torero
+    clip: {fileID: 8300000, guid: 937ca88a0fdf61747a0920a859beced7, type: 3}
+    volume: 0.03
+    minPitch: 1
+    maxPitch: 1
+    loop: 0
+  - soundName: Raphael
+    clip: {fileID: 8300000, guid: 0e81041389334f347bfbf524cbda4d7a, type: 3}
+    volume: 0.03
+    minPitch: 1
+    maxPitch: 1
+    loop: 0
+  - soundName: Sarandonga
+    clip: {fileID: 8300000, guid: 8ce19f37d40193d4e8fa8cefe139c441, type: 3}
+    volume: 0.03
+    minPitch: 1
+    maxPitch: 1
+    loop: 0
+  - soundName: Estopa
+    clip: {fileID: 8300000, guid: 19cf18b9fa789b646bc9e92df1d8daa8, type: 3}
+    volume: 0.03
+    minPitch: 1
+    maxPitch: 1
+    loop: 0
+  - soundName: Mortadelo
+    clip: {fileID: 8300000, guid: d7ed1eaece483f242ab7879a655b4dae, type: 3}
+    volume: 0.03
+    minPitch: 1
+    maxPitch: 1
+    loop: 0
+  - soundName: Torrente
+    clip: {fileID: 8300000, guid: 3e1982a349b1533489856241fefa5c78, type: 3}
+    volume: 0.03
+    minPitch: 1
+    maxPitch: 1
+    loop: 0
   - soundName: Flamenco_1
     clip: {fileID: 8300000, guid: fc7a86d28ed145d4da991c4d6517c4ed, type: 3}
     volume: 1
     minPitch: 1
     maxPitch: 1
     loop: 0
-  - soundName: Flamenco_2
-    clip: {fileID: 8300000, guid: d3fc40266d88a65439bface301c797ca, type: 3}
-    volume: 1
+  - soundName: Rosas
+    clip: {fileID: 8300000, guid: 5161267b108196944b94770b07a02f97, type: 3}
+    volume: 0.03
     minPitch: 1
     maxPitch: 1
     loop: 0
-  - soundName: Flamenco_3
-    clip: {fileID: 8300000, guid: f17d5c9b14cc8c24992dd97e089402a2, type: 3}
-    volume: 1
+  - soundName: Fito
+    clip: {fileID: 8300000, guid: fbe21042af2b5254282372b70bafd78b, type: 3}
+    volume: 0.03
     minPitch: 1
     maxPitch: 1
     loop: 0
-  - soundName: Flamenco_4
-    clip: {fileID: 8300000, guid: 27d5f4185df4fca46b2122f985ec354c, type: 3}
-    volume: 1
+  - soundName: Asereje
+    clip: {fileID: 8300000, guid: 714c4ebdff7f1b1429c39e566e6dc825, type: 3}
+    volume: 0.03
+    minPitch: 1
+    maxPitch: 1
+    loop: 0
+  - soundName: Chiki Chiki
+    clip: {fileID: 8300000, guid: 48c31f898ce97a24bad9a3727b8dd809, type: 3}
+    volume: 0.03
     minPitch: 1
     maxPitch: 1
     loop: 0

@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clientName: Regular
   sprite: {fileID: 21300000, guid: 0dcf9db3be3f3474691e56a2e7b68ddc, type: 3}
+  pitch: 1.6
   hitToGo: 1
   totalHits: 1
   canBeHitted: 1
   regularHitReactions: 0
   notNeedTakeDrink: 1
   acceptsAll: 0
-  dontCareGlass: 0
+  dontCareGlass: 1
   careIces: 0
   cuantityOfIce: 0
   dontPay: 0
@@ -48,3 +49,4 @@ MonoBehaviour:
   muchIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badStateReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badIngredientsReaction: {fileID: 11400000, guid: 30a5c642166bdd4428b4efb84f95aeb4, type: 2}
+  invisibleSprites: []

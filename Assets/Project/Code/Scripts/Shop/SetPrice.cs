@@ -8,7 +8,7 @@ public class SetPrice : MonoBehaviour
     private TextMeshProUGUI textMesh;
     private BuyShop money;
 
-    [SerializeField] private GameObject father;
+    [SerializeField] private GameObject parent;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ public class SetPrice : MonoBehaviour
 
     private void Update()
     {
-        if(father.transform.childCount <= 1)
+        if(parent.transform.childCount <= 1)
         {
             textMesh.text = money.GetPrice().ToString("00.00") + '€';
             textMesh.color = Color.black;

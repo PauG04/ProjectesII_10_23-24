@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 1224262507033873596}
   - component: {fileID: 2835998745410993995}
   - component: {fileID: 6397169460822823093}
+  - component: {fileID: 8560645730278250457}
   m_Layer: 22
   m_Name: Orange Juice
   m_TagString: Untagged
@@ -365,3 +366,19 @@ MonoBehaviour:
   liquidManager: {fileID: 8318574558721693946}
   sprite: {fileID: 0}
   isHorizontal: 0
+--- !u!114 &8560645730278250457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7699553474116065468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369faa39793b32c43acd63d959a791d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenBottle: {fileID: 6918459718600216018, guid: ad0373472328b1845a4aa11f8001545d, type: 3}
+  particles: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
+  forceX: 5
+  forceY: 10

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +27,7 @@ namespace Dialogue
 
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
 		{
-            AudioManager.instance.PlaySFX("ClientTalk");
+            AudioManager.instance.PlaySFX("ClientTalk", ClientManager.instance.GetCurrentClientNode().pitch);
 			isChoosing = false;
 
             currentConversant = newConversant;
@@ -91,7 +90,7 @@ namespace Dialogue
         }
         public void Next()
 		{
-			AudioManager.instance.PlaySFX("ClientTalk");
+			AudioManager.instance.PlaySFX("ClientTalk", ClientManager.instance.GetCurrentClientNode().pitch);
 			int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
 
             if (numPlayerResponses > 0)

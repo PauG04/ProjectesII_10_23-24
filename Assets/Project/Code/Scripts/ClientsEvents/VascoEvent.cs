@@ -2,6 +2,7 @@ using Dialogue;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class VascoEvent : MonoBehaviour
 {
@@ -19,21 +20,23 @@ public class VascoEvent : MonoBehaviour
     private bool isSelected;
     private bool hasDialogueEnd;
 
+    private bool paintBroken = false;
+
     private void Update()
     {
         SetPainting();  
         if (client != null && client == eventClient && !isSelected && hasDialogueEnd && TypeWriterEffect.isTextCompleted)
         {
-            if(painting != null)
+            if(paintBroken && Input.GetMouseButton(0))
             {
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[0]);
-                clientObject.GetComponent<AIConversant>().HandleDialogue();
+                clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
                 isSelected = true;
             }
-            else
+            else if(!paintBroken && Input.GetMouseButton(0))
             {
                 clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[1]);
-                clientObject.GetComponent<AIConversant>().HandleDialogue();
+                clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
                 enabled = false;
             }
 
@@ -45,10 +48,10 @@ public class VascoEvent : MonoBehaviour
             clientObject = clientManager.GetClientObject();
         }
 
-        if(isSelected && painting == null && TypeWriterEffect.isTextCompleted)
+        if(isSelected && !paintBroken && TypeWriterEffect.isTextCompleted && Input.GetMouseButton(0))
         {
             clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[1]);
-            clientObject.GetComponent<AIConversant>().HandleDialogue();
+            clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
             enabled = false;
         }
 
@@ -66,11 +69,21 @@ public class VascoEvent : MonoBehaviour
     {
         if(father.transform.childCount == 0)
         {
-            painting = null;
+            paintBroken = false;
         }
         else
         {
-            painting = father.transform.GetChild(0).gameObject;
+            if(father.transform.GetComponentInChildren<DragItems>().GetInsideWorkspace())
+            {
+                paintBroken = true;
+                Debug.Log("entra");
+            }
+            else
+            {
+                paintBroken = false;
+                Debug.Log("sale");
+            }
+            
         }
     }
 }

@@ -8,6 +8,8 @@ public class ClientNode : ScriptableObject
     public string clientName;
     public Sprite sprite;
 
+    public float pitch;
+
     public bool hitToGo;
     public int totalHits;
     public bool canBeHitted;
@@ -39,6 +41,9 @@ public class ClientNode : ScriptableObject
     public Dialogue.Dialogue muchIceReaction;
     public Dialogue.Dialogue badStateReaction;
     public Dialogue.Dialogue badIngredientsReaction;
+
+    public List<Sprite> invisibleSprites;
+
 
     private void OnEnable()
     {

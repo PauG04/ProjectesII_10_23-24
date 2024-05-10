@@ -28,7 +28,10 @@ public class ClientManager : MonoBehaviour
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private Transform clientPosition;
     [SerializeField] private Transform DestroyPosition;
+    [SerializeField] private Transform jumpPositivePosition;
+    [SerializeField] private Transform jumpNegativePosition;
     [SerializeField] private float horizontalVelocity;
+    [SerializeField] private float verticalVelocity;
 
     [Header("Day Transition")]
     [SerializeField] private LevelLoader levelLoader;
@@ -126,6 +129,10 @@ public class ClientManager : MonoBehaviour
     {
         return currentClientScript;
     }
+    public ClientNode GetCurrentClientNode()
+    {
+        return currentClientNode;
+    }
     public List<Dialogue.Dialogue> GetRegularClientHitDialogues()
     {
         return regularClientHitDialogues;
@@ -142,9 +149,25 @@ public class ClientManager : MonoBehaviour
     {
         return DestroyPosition;
     }
+
+    public Transform GetPositveJumpPosition()
+    {
+        return jumpPositivePosition;
+    }
+
+    public Transform GetNegativeJumpPosition()
+    {
+        return jumpNegativePosition;
+    }
+
     public float GetHorizontalVelocity()
     {
         return horizontalVelocity;
+    }
+
+    public float GetVerticalVelocity()
+    {
+        return verticalVelocity;
     }
 
     public ClientNode GetClient()

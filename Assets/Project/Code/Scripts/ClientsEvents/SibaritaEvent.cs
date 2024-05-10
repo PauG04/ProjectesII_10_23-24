@@ -55,11 +55,6 @@ public class SibaritaEvent : MonoBehaviour
                 clientDialogueCollider.enabled = true;
                 enabled = false;
             }
-            if (clientObject.GetComponent<Client>().GetIsLocated())
-            {
-                shakerDrag.enabled = true;
-                shakerTopDrag.enabled = true;
-            }
             ShakerTutorial();
         }
         else
@@ -115,9 +110,10 @@ public class SibaritaEvent : MonoBehaviour
         if (shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetCurrentState().StateKey != ShakerState.DraggingOpen && !shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetIsInWorkSpace())
         {
             panel.SetActive(true);
-            shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 11;
+            shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 20;
+            shakerDrag.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
+            LerpScale(maxScale, minScale, shakerDrag.gameObject.transform.GetChild(1).gameObject);
 
-            LerpSacele(maxScale, minScale, shakerDrag.gameObject.transform.GetChild(1).gameObject);
         }
 
         if (shakerDrag.gameObject.GetComponent<ShakerStateMachine>().GetCurrentState().StateKey == ShakerState.DraggingOpen)
@@ -151,10 +147,11 @@ public class SibaritaEvent : MonoBehaviour
             panel.SetActive(true);
             if (shakerTopDrag.gameObject.GetComponent<SpriteRenderer>() != null)
             {
-                shakerTopDrag.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+                shakerTopDrag.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 20;
+                shakerTopDrag.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
             }
 
-            LerpSacele(maxScale, minScale, shakerTopDrag.gameObject);
+            LerpScale(maxScale, minScale, shakerTopDrag.gameObject);
         }
 
         if (shakerTopDrag.gameObject.GetComponent<DragItems>().GetIsDraggin())
@@ -177,7 +174,7 @@ public class SibaritaEvent : MonoBehaviour
             playerConversant.Next();
         }
     }
-    private void LerpSacele(Vector3 maxScale, Vector3 minScale, GameObject _object)
+    private void LerpScale(Vector3 maxScale, Vector3 minScale, GameObject _object)
     {
         if (!isGrowing)
         {

@@ -1,7 +1,5 @@
 using Dialogue;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CriptoBro : MonoBehaviour
@@ -73,7 +71,7 @@ public class CriptoBro : MonoBehaviour
     public void AcceptDeal()
     {
         clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[0]);
-        clientObject.GetComponent<AIConversant>().HandleDialogue();
+        clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
         EconomyManager.instance.SetMoneyChanged(-20);
         canvas.SetActive(false);
         buttonPressed = true;
@@ -82,7 +80,7 @@ public class CriptoBro : MonoBehaviour
     public void RejectDeal()
     {
         clientObject.GetComponent<AIConversant>().SetDialogue(dialogues[1]);
-        clientObject.GetComponent<AIConversant>().HandleDialogue();
+        clientObject.GetComponent<AIConversant>().HandleDialogue(eventClient.pitch);
         canvas.SetActive(false);
         buttonPressed = true;
     }

@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clientName: Regular
   sprite: {fileID: 21300000, guid: 4d23fe28e7e7f244fb38d83f88570d15, type: 3}
+  pitch: 1.6
   hitToGo: 0
   totalHits: 0
   canBeHitted: 1
   regularHitReactions: 1
   notNeedTakeDrink: 0
   acceptsAll: 0
-  dontCareGlass: 0
+  dontCareGlass: 1
   careIces: 0
   cuantityOfIce: 0
   dontPay: 0
@@ -30,7 +31,7 @@ MonoBehaviour:
   payAfterHit: 0
   wantDrug: 0
   possibleOrders:
-  - {fileID: 11400000, guid: 2a3d599f8f812224d9e8b3b8cc4cfe52, type: 2}
+  - {fileID: 11400000, guid: a883ad5524919f042b088d08f03c57a5, type: 2}
   dialogues:
   - {fileID: 11400000, guid: f0c4ce0464aec7447bac7ff09ad6c3ce, type: 2}
   goodReactions:
@@ -51,3 +52,4 @@ MonoBehaviour:
   muchIceReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badStateReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
   badIngredientsReaction: {fileID: 11400000, guid: 4580036524d607b4880629eada766221, type: 2}
+  invisibleSprites: []

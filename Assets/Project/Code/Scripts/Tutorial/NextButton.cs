@@ -35,7 +35,7 @@ public class NextButton : MonoBehaviour
             timer = 0;
             if (playerConversant.HasNext())
             {
-                playerConversant.Next();
+                //playerConversant.Next();
             }
         }
     }

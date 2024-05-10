@@ -12,14 +12,23 @@ public class OpenApp : MonoBehaviour
     [Header("Applications Screens")]
     [SerializeField] private GameObject optionsApp;
     [SerializeField] private GameObject shopApp;
+    [SerializeField] private GameObject musicApp;
+    [SerializeField] private GameObject slotApp;
+
     private GameObject currentApp;
 
     [Header("Applications Buttons")]
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button shopButton;
+    [SerializeField] private Button musicButton;
+    [SerializeField] private Button slotButton;
+
     [Space(20)]
     [SerializeField] private Button returnButton;
     [SerializeField] private Button homeButton;
+
+    [Header("Scrollable Apps")]
+    [SerializeField] private Scrollbar[] scollBars;
 
     [Header("Animation Values")]
     [SerializeField] private float animationDuration;
@@ -28,6 +37,8 @@ public class OpenApp : MonoBehaviour
     {
         optionsButton.onClick.AddListener(() => OpenApplication(optionsApp));
         shopButton.onClick.AddListener(() => OpenApplication(shopApp));
+        musicButton.onClick.AddListener(() => OpenApplication(musicApp));
+        slotButton.onClick.AddListener(() => OpenApplication(slotApp));
 
         returnButton.onClick.AddListener(() => CloseApplication());
         homeButton.onClick.AddListener(() => CloseApplication());
@@ -39,16 +50,24 @@ public class OpenApp : MonoBehaviour
         currentApp = appToOpen;
         appToOpen.SetActive(true);
         StartCoroutine(OpenAnimation(appToOpen.transform));
+
     }
 
     public void CloseApplication()
     {
-        AudioManager.instance.PlaySFX("CloseApp");
-        if (currentApp != null)
+        if (!slotApp.GetComponent<SlotController>().GetResultChecked() && slotApp.activeSelf) 
         {
-            mainMenu.SetActive(true);
-            StartCoroutine(CloseAnimation(currentApp.transform));
-            currentApp = null;
+            return;
+        }
+        else
+        {
+            AudioManager.instance.PlaySFX("CloseApp");
+            if (currentApp != null)
+            {
+                mainMenu.SetActive(true);
+                StartCoroutine(CloseAnimation(currentApp.transform));
+                currentApp = null;
+            }
         }
     }
 
@@ -62,6 +81,11 @@ public class OpenApp : MonoBehaviour
             app.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, t);
             yield return null;
             time += Time.deltaTime;
+
+            foreach (Scrollbar bar in scollBars)
+            {
+                bar.value = 1;
+            }
         }
 
         mainMenu.SetActive(false);

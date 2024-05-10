@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8060699721923185068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 9adbf448-c6af-4d12-8003-5ce53e1bda14
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Que al paso que vas no llegas a fin de semana con el dinero que te ped\xED"
+  children:
+  - 49d4e1c0-b864-46e2-90a8-766fdb45892a
+  rect:
+    serializedVersion: 2
+    x: 1044
+    y: 108
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-6311569319494805430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 5db5134b-1868-4851-ae83-b3c98fe03c0c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Buenas Anto\xF1ito"
+  children:
+  - 575cd5f5-d14a-4886-8b22-f7fba62ce753
+  rect:
+    serializedVersion: 2
+    x: 47
+    y: 110
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2745019750470443493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 379e9a00-ee1d-46ff-a9d0-be9ad3d15b8c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "He visto que usas mucho el m\xF3vil ese para tus tonter\xEDas, asi que he
+    decido mientras descansabas intalarte una nueva aplicaci\xF3n"
+  children:
+  - 06a4e8c4-abd8-41ec-b7df-e92d863dbec0
+  rect:
+    serializedVersion: 2
+    x: 544
+    y: 109
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c2b85dfd0c0874f9ea97fe45073ebb, type: 3}
+  m_Name: CaseroPreSlot
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -6311569319494805430}
+  - {fileID: 2929176090658118819}
+  - {fileID: -2745019750470443493}
+  - {fileID: 4631395144129416217}
+  - {fileID: -8060699721923185068}
+  - {fileID: 5523219334903250760}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &2929176090658118819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 575cd5f5-d14a-4886-8b22-f7fba62ce753
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "No pongas esa cara, que hoy no vengo a pedirte nada, si no a explicarte
+    una tonter\xEDa"
+  children:
+  - 379e9a00-ee1d-46ff-a9d0-be9ad3d15b8c
+  rect:
+    serializedVersion: 2
+    x: 297
+    y: 110
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &4631395144129416217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 06a4e8c4-abd8-41ec-b7df-e92d863dbec0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "No te preocupes no es nada raro, es una peque\xF1a ruleta con la que podr\xE1s
+    gastar tu dinero para conseguir m\xE1s de este"
+  children:
+  - 9adbf448-c6af-4d12-8003-5ce53e1bda14
+  rect:
+    serializedVersion: 2
+    x: 794
+    y: 108
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &5523219334903250760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416bfb64d28f9774ea2f6669efb70b9c, type: 3}
+  m_Name: 49d4e1c0-b864-46e2-90a8-766fdb45892a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  isTextPaused: 1
+  text: "Bueno yo solamente recomiendo darle alguna oportunidad para sacerte algo
+    de dinero r\xE1pido, nos vemos"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1293
+    y: 108
+    width: 200
+    height: 120
+  onEnterAction: 
+  onExitAction: 

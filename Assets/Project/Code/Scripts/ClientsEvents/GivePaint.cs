@@ -58,6 +58,7 @@ public class GivePaint : MonoBehaviour
     {
         GameObject painting = Instantiate(paint);
         painting.transform.SetParent(father.transform, true);
+        painting.GetComponent<DragItems>().SetInitPosition(painting.transform.localPosition);
         enabled = false;
     }
 }

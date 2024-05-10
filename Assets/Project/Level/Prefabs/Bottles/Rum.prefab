@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 13459176564938733}
   - component: {fileID: 2747163640536209175}
   - component: {fileID: 8970300446100669743}
+  - component: {fileID: 5026668552782139783}
   m_Layer: 22
   m_Name: Rum
   m_TagString: Untagged
@@ -361,3 +362,19 @@ MonoBehaviour:
   liquidManager: {fileID: 6362806960958536186}
   sprite: {fileID: 0}
   isHorizontal: 0
+--- !u!114 &5026668552782139783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671257232246213615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369faa39793b32c43acd63d959a791d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenBottle: {fileID: 6918459718600216018, guid: 0c1e65326412d404d9f83d7865098339, type: 3}
+  particles: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
+  forceX: 5
+  forceY: 10

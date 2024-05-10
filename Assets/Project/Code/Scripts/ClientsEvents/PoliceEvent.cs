@@ -77,7 +77,8 @@ public class PoliceEvent : MonoBehaviour
             panel.SetActive(true);
             if (drag.gameObject.GetComponent<SpriteRenderer>() != null)
             {
-                drag.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 11;
+                drag.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "WorkSpace";
+                drag.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 20;
             }
 
             LerpSacele(maxScale, minScale, drag.gameObject);

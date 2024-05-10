@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: "Polic\xEDa"
   m_EditorClassIdentifier: 
   clientName: Policia
-  sprite: {fileID: 21300000, guid: c6bef2e4cbd8e47488002761cb96ad20, type: 3}
+  sprite: {fileID: 21300000, guid: 52422b4bb5daa444f8864e4dfe6ab23e, type: 3}
+  pitch: 1.2
   hitToGo: 0
   totalHits: 0
   canBeHitted: 1
@@ -30,7 +31,7 @@ MonoBehaviour:
   payAfterHit: 0
   wantDrug: 0
   possibleOrders:
-  - {fileID: 11400000, guid: 0b8db9752db71014c8086e15e9c69189, type: 2}
+  - {fileID: 11400000, guid: 38be1b643183e1d428c896b86d2750cb, type: 2}
   dialogues:
   - {fileID: 11400000, guid: 06b51f45fa9b3b144b54a9e1a0be8de2, type: 2}
   goodReactions:
@@ -48,3 +49,4 @@ MonoBehaviour:
   muchIceReaction: {fileID: 11400000, guid: 10397be2502a04b468eaff45ae61526d, type: 2}
   badStateReaction: {fileID: 11400000, guid: ecc56ba054e76464d8582ca157ee2d1a, type: 2}
   badIngredientsReaction: {fileID: 11400000, guid: b188721bbffd0ff469bec45bbaff29b8, type: 2}
+  invisibleSprites: []

@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 201958644826711689}
   - component: {fileID: 5507417628516245743}
   - component: {fileID: 5261533223795006991}
+  - component: {fileID: 1305000423164534386}
   m_Layer: 22
   m_Name: Soda
   m_TagString: Untagged
@@ -363,3 +364,19 @@ MonoBehaviour:
   liquidManager: {fileID: 4632203015347343070}
   sprite: {fileID: 0}
   isHorizontal: 0
+--- !u!114 &1305000423164534386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918459718600216018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369faa39793b32c43acd63d959a791d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenBottle: {fileID: 6918459718600216018, guid: 34410badb76356f4ab0d74dc9e62b76a, type: 3}
+  particles: {fileID: 7190160348179455622, guid: ab8f189c02c3f104bb31e72d8f7145f0, type: 3}
+  forceX: 5
+  forceY: 10
