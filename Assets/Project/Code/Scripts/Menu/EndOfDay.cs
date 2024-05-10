@@ -53,7 +53,7 @@ public class EndOfDay : MonoBehaviour
         }
         else
         {
-            lastText = "Vaya vago, te has gastado todo el dinero en gilipolleces y te han hechado, bueno, por lo menos ya no trabajaras en un bar de moros";
+            lastText = "Vaya vago, te has gastado todo el dinero en gilipolleces y te han echado, bueno, por lo menos ya no trabajaras en un bar de moros";
         }
     }
 }
